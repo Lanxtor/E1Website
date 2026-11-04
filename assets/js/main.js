@@ -32,6 +32,16 @@
     return file === "" ? "index.html" : file;
   }
 
+  /* "Account" once the person has signed in on this browser, else "Log in". */
+  function accountLink() {
+    var signedIn = window.E1 && E1.probablySignedIn();
+    var page = currentPage();
+    if (signedIn) {
+      return '<a class="btn btn-ghost btn-sm" href="account.html"' + (page === "account.html" ? ' aria-current="page"' : "") + ">Account</a>";
+    }
+    return '<a class="btn btn-ghost btn-sm" href="login.html">Log in</a>';
+  }
+
   function renderHeader() {
     var mount = document.getElementById("site-header");
     if (!mount) return;
@@ -62,7 +72,7 @@
       '<nav class="nav" aria-label="Main">' +
       '<ul class="nav-links">' + links + "</ul>" +
       '<div class="nav-actions">' +
-      '<a class="btn btn-ghost btn-sm" href="login.html">Log in</a>' +
+      accountLink() +
       '<a class="btn btn-primary btn-sm" href="download.html">Get ' + PRODUCT + "</a>" +
       "</div>" +
       "</nav>" +
@@ -95,7 +105,7 @@
       '<li><a href="about.html">About us</a></li>' +
       '<li><a href="shape-e1.html">Shape E1 with us</a></li>' +
       '<li><a href="about.html#contact">Contact</a></li>' +
-      '<li><a href="login.html">Log in</a></li>' +
+      '<li><a href="account.html">Your account</a></li>' +
       '<li><a href="#">Privacy</a></li>' +
       "</ul></div>" +
       "</div>" +
@@ -216,23 +226,35 @@
     clips.forEach(function (clip) { io.observe(clip); });
   }
 
+  /*
+   * login.html: no password is typed here. "Continue" sends the browser to the
+   * E1 server's sign-in (Microsoft Entra External ID), which returns to
+   * account.html signed in. Sign up uses the same page of the provider.
+   */
   function initAuthTabs() {
     var box = document.querySelector("[data-auth]");
     if (!box) return;
 
     var tabs = box.querySelectorAll(".tabs button");
     var title = box.querySelector("[data-auth-title]");
+    var lead = box.querySelector("[data-auth-lead]");
     var submit = box.querySelector("[data-auth-submit]");
-    var signupOnly = box.querySelectorAll("[data-signup-only]");
-    var form = box.querySelector("form");
-    var notice = box.querySelector(".notice");
+    var notice = box.querySelector("[data-auth-notice]");
+    var api = window.E1;
+    var returnTo = new URLSearchParams(location.search).get("return") || "";
+    var mode = "login";
 
-    function setMode(mode) {
+    function setMode(next) {
+      mode = next;
       var signup = mode === "signup";
       tabs.forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.mode === mode)); });
-      signupOnly.forEach(function (el) { el.hidden = !signup; });
       title.textContent = signup ? "Create your account" : "Welcome back";
-      submit.textContent = signup ? "Create account" : "Log in";
+      lead.textContent = signup
+        ? "Create a free account to start your E1 cloud workspace."
+        : "Sign in to see your licenses, usage, projects and downloads.";
+      submit.textContent = signup ? "Continue to sign up" : "Continue to sign in";
+      var url = api && api.isDemo() ? "" : api && api.loginUrl(mode, returnTo && new URL(returnTo, location.href).href);
+      submit.setAttribute("href", url || "account.html?demo=1");
     }
 
     tabs.forEach(function (t) {
@@ -240,10 +262,14 @@
     });
 
     if (location.hash === "#signup") setMode("signup");
+    else setMode("login");
 
-    form.addEventListener("submit", function (e) {
+    submit.addEventListener("click", function (e) {
+      if (api && api.configured()) return;
+      // Not connected yet: say so, and offer the preview of the account page.
       e.preventDefault();
       notice.hidden = false;
+      notice.innerHTML = 'Sign-in is not connected to the E1 cloud yet. <a href="account.html?demo=1">See a preview of the account page</a>.';
     });
   }
 

@@ -1,0 +1,25 @@
+{
+  "globalHeaders": {
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https:; form-action 'self' https:; frame-ancestors 'none'; base-uri 'self'; object-src 'none'",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+  },
+  "routes": [
+    { "route": "/account", "redirect": "/account.html", "statusCode": 301 },
+    { "route": "/login", "redirect": "/login.html", "statusCode": 301 },
+    { "route": "/download", "redirect": "/download.html", "statusCode": 301 },
+    { "route": "/account.html", "headers": { "Cache-Control": "no-store" } },
+    { "route": "/assets/data/releases.json", "headers": { "Cache-Control": "no-cache" } },
+    { "route": "/tools/*", "statusCode": 404 },
+    { "route": "/docs/*", "statusCode": 404 }
+  ],
+  "responseOverrides": {
+    "404": { "redirect": "/index.html", "statusCode": 302 }
+  },
+  "mimeTypes": {
+    ".mp4": "video/mp4",
+    ".json": "application/json"
+  }
+}

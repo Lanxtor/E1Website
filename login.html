@@ -6,7 +6,7 @@
   <title>Log in — LANXTOR E1</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=23">
+  <link rel="stylesheet" href="assets/css/styles.css?v=24">
 </head>
 <body>
   <div id="site-header"></div>
@@ -14,37 +14,26 @@
   <main class="auth">
     <div class="auth-box" data-auth>
       <h1 data-auth-title>Welcome back</h1>
-      <p>Access your E1 cloud workspace and usage.</p>
+      <p data-auth-lead>Sign in to see your licenses, usage, projects and downloads.</p>
 
       <div class="tabs" role="tablist">
         <button type="button" role="tab" data-mode="login" aria-selected="true">Log in</button>
         <button type="button" role="tab" data-mode="signup" aria-selected="false">Sign up</button>
       </div>
 
-      <form novalidate>
-        <div class="field" data-signup-only hidden>
-          <label for="name">Full name</label>
-          <input id="name" name="name" type="text" autocomplete="name">
-        </div>
-        <div class="field" data-signup-only hidden>
-          <label for="company">Company</label>
-          <input id="company" name="company" type="text" autocomplete="organization">
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" autocomplete="current-password">
-        </div>
-        <button class="btn btn-primary" type="submit" data-auth-submit>Log in</button>
-      </form>
+      <a class="btn btn-primary" href="#" data-auth-submit>Continue to sign in</a>
 
-      <p class="notice" hidden>Accounts are coming soon. This form is not connected yet.</p>
+      <p class="auth-fine">
+        You sign in on the secure LANXTOR E1 sign-in page (Microsoft Entra), with your email and password or a one-time code.
+        The same account works in the E1 app on Windows, macOS, Linux and in the browser.
+      </p>
+
+      <p class="notice" data-auth-notice hidden>Accounts are coming soon. Sign-in is not connected to the E1 cloud yet.</p>
     </div>
   </main>
 
-  <script src="assets/js/main.js?v=15"></script>
+  <script src="assets/js/config.js?v=1"></script>
+  <script src="assets/js/e1-api.js?v=1"></script>
+  <script src="assets/js/main.js?v=16"></script>
 </body>
 </html>

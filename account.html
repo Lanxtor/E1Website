@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your account — LANXTOR E1</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=24">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="account" data-account>
+    <!-- While the account loads -->
+    <div class="account-state container" data-state="loading">
+      <p class="muted">Loading your account…</p>
+    </div>
+
+    <!-- Nobody signed in -->
+    <div class="account-state container" data-state="signed-out" hidden>
+      <div class="auth-box account-gate">
+        <h1>Sign in to your account</h1>
+        <p>See your licenses, usage, organizations, projects and billing, and download E1.</p>
+        <a class="btn btn-primary" href="login.html">Log in</a>
+      </div>
+    </div>
+
+    <!-- The server could not be reached -->
+    <div class="account-state container" data-state="error" hidden>
+      <div class="auth-box account-gate">
+        <h1>Something went wrong</h1>
+        <p data-error-text>The E1 cloud could not be reached.</p>
+        <button class="btn btn-primary" type="button" data-retry>Try again</button>
+      </div>
+    </div>
+
+    <!-- Signed in -->
+    <div class="account-shell container container-wide" data-state="ready" hidden>
+      <p class="notice account-demo" data-demo-banner hidden>
+        Preview data. This page is not connected to the E1 cloud yet; set <code>apiBase</code> in <code>assets/js/config.js</code>.
+      </p>
+
+      <header class="account-head">
+        <div class="account-id">
+          <span class="account-avatar" data-avatar aria-hidden="true"></span>
+          <div>
+            <h1 data-user-name></h1>
+            <p class="muted" data-user-email></p>
+          </div>
+        </div>
+        <div class="account-actions">
+          <label class="org-switch">
+            <span class="visually-hidden">Organization</span>
+            <select data-org-select></select>
+          </label>
+          <a class="btn btn-ghost btn-sm" data-open-app href="#" hidden>Open E1 in the browser</a>
+          <button class="btn btn-ghost btn-sm" type="button" data-logout>Log out</button>
+        </div>
+      </header>
+
+      <div class="account-layout">
+        <nav class="account-nav" aria-label="Account">
+          <a href="#overview">Overview</a>
+          <a href="#licenses">Licenses</a>
+          <a href="#usage">Usage</a>
+          <a href="#organizations">Organizations</a>
+          <a href="#projects">Projects</a>
+          <a href="#permissions">Permissions</a>
+          <a href="#billing">Billing</a>
+          <a href="#downloads">Downloads</a>
+        </nav>
+
+        <div class="account-main">
+          <section id="overview" class="account-section">
+            <h2>Overview</h2>
+            <div class="stat-grid" data-overview></div>
+          </section>
+
+          <section id="licenses" class="account-section">
+            <h2>Licenses</h2>
+            <p class="section-note">Your license in <strong data-org-name></strong> decides what you may do in E1. A Viewer license cannot edit, whatever your project role.</p>
+            <div class="card license-card" data-my-license></div>
+            <h3 class="sub-head">Seats in this organization</h3>
+            <div class="table-wrap"><table class="data-table" data-seats></table></div>
+          </section>
+
+          <section id="usage" class="account-section">
+            <h2>Usage</h2>
+            <p class="section-note" data-usage-period></p>
+            <div class="grid grid-2">
+              <div class="card meter-card" data-ai-usage></div>
+              <div class="card meter-card" data-storage></div>
+            </div>
+          </section>
+
+          <section id="organizations" class="account-section">
+            <h2>Organizations</h2>
+            <p class="section-note">Every organization you belong to. Projects, the company library and licenses belong to an organization.</p>
+            <div class="table-wrap"><table class="data-table" data-orgs></table></div>
+          </section>
+
+          <section id="projects" class="account-section">
+            <h2>Projects</h2>
+            <p class="section-note">The project databases you can open in <strong data-org-name></strong>, with your role in each.</p>
+            <div class="table-wrap"><table class="data-table" data-projects></table></div>
+          </section>
+
+          <section id="permissions" class="account-section">
+            <h2>Permissions</h2>
+            <p class="section-note">What you may do is the union of your roles, capped by your license.</p>
+            <div class="grid grid-2">
+              <div class="card" data-org-roles></div>
+              <div class="card" data-groups></div>
+            </div>
+            <h3 class="sub-head">Organization permissions</h3>
+            <ul class="chip-list" data-permissions></ul>
+            <h3 class="sub-head">Content packages</h3>
+            <ul class="chip-list" data-packages></ul>
+          </section>
+
+          <section id="billing" class="account-section">
+            <h2>Billing</h2>
+            <div class="grid grid-2">
+              <div class="card" data-plan></div>
+              <div class="card" data-payment></div>
+            </div>
+            <h3 class="sub-head">Invoices</h3>
+            <div class="table-wrap"><table class="data-table" data-invoices></table></div>
+          </section>
+
+          <section id="downloads" class="account-section">
+            <h2>Downloads</h2>
+            <p class="section-note">Install E1 on your computer, then sign in with this account. You can also use E1 in the browser without installing anything.</p>
+            <div class="grid grid-3" data-downloads></div>
+            <p class="meta-line" data-release-line></p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/config.js?v=1"></script>
+  <script src="assets/js/e1-api.js?v=1"></script>
+  <script src="assets/js/main.js?v=16"></script>
+  <script src="assets/js/downloads.js?v=1"></script>
+  <script src="assets/js/account.js?v=1"></script>
+</body>
+</html>

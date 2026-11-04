@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Download — LANXTOR E1</title>
-  <meta name="description" content="Download the E1 desktop application.">
+  <meta name="description" content="Download the E1 desktop application for Windows, macOS and Linux.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=23">
+  <link rel="stylesheet" href="assets/css/styles.css?v=24">
 </head>
 <body>
   <div id="site-header"></div>
@@ -21,19 +21,19 @@
 
     <section class="section section-tight">
       <div class="container">
-        <div class="grid grid-2">
-          <div class="card download-card reveal">
-            <h3>Windows</h3>
-            <p class="muted">Windows 10 / 11, 64-bit</p>
-            <span class="meta">Version 0.0.0 · Placeholder size</span>
-            <a class="btn btn-primary" href="#" aria-disabled="true">Download for Windows</a>
-          </div>
+        <div class="grid grid-3" data-downloads>
+          <p class="muted">Loading downloads…</p>
+        </div>
+        <p class="meta-line" data-release-line></p>
 
-          <div class="card download-card reveal">
+        <div class="card download-cloud reveal">
+          <div>
             <h3>Cloud workspace</h3>
-            <p class="muted">Required to use E1. Your projects and data live here.</p>
-            <span class="meta">Free account · Placeholder plan info</span>
-            <a class="btn btn-ghost" href="login.html#signup">Create account</a>
+            <p class="muted">Required to use E1. Your projects and data live in the E1 cloud on Microsoft Azure in the EU. Sign in once and use the same account on every computer, or in the browser without installing anything.</p>
+          </div>
+          <div class="download-cloud-actions">
+            <a class="btn btn-primary" href="login.html#signup">Create account</a>
+            <a class="btn btn-ghost" href="account.html">Your account</a>
           </div>
         </div>
       </div>
@@ -45,15 +45,15 @@
           <div class="reveal">
             <h2 style="margin-bottom: 40px;">Getting started</h2>
             <ol class="steps">
-              <li><h3>Download</h3><p>Placeholder — download the installer.</p></li>
-              <li><h3>Create an account</h3><p>Placeholder — set up your cloud environment.</p></li>
-              <li><h3>Sign in</h3><p>Placeholder — open E1 and sign in.</p></li>
+              <li><h3>Download</h3><p>Choose the installer for Windows, macOS or Linux above.</p></li>
+              <li><h3>Create an account</h3><p>Sign up with your email; your cloud workspace is created for you.</p></li>
+              <li><h3>Sign in</h3><p>Open E1 and sign in. Your licenses and projects follow your account.</p></li>
             </ol>
           </div>
           <div class="reveal">
             <h2 style="margin-bottom: 40px;">System requirements</h2>
             <ul class="spec-list">
-              <li><span>Operating system</span><span>Placeholder</span></li>
+              <li><span>Operating system</span><span>Windows 10 / 11 (64-bit), macOS 12 or newer, or 64-bit Linux</span></li>
               <li><span>Processor</span><span>Placeholder</span></li>
               <li><span>Memory</span><span>Placeholder</span></li>
               <li><span>Graphics</span><span>Placeholder</span></li>
@@ -70,14 +70,17 @@
         <div class="section-head reveal">
           <h2>Release notes</h2>
         </div>
-        <ul class="spec-list reveal">
-          <li><span>0.0.0</span><span class="muted">Placeholder — first release.</span></li>
+        <ul class="spec-list" id="release-notes" data-release-notes>
+          <li><span>0.0.0</span><span class="muted">First release — coming soon.</span></li>
         </ul>
       </div>
     </section>
   </main>
 
   <div id="site-footer"></div>
-  <script src="assets/js/main.js?v=15"></script>
+  <script src="assets/js/config.js?v=1"></script>
+  <script src="assets/js/e1-api.js?v=1"></script>
+  <script src="assets/js/main.js?v=16"></script>
+  <script src="assets/js/downloads.js?v=1"></script>
 </body>
 </html>

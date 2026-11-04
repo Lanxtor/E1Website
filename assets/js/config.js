@@ -1,0 +1,25 @@
+/*
+ * Site configuration. Change these values per environment; nothing else in
+ * the site hard-codes the address of the E1 cloud.
+ *
+ * apiBase   The address of the E1 server on Azure (the Container App, or its
+ *           custom domain), without a trailing slash, for example
+ *           "https://app.lanxtor.com". Empty: the account page shows preview
+ *           data and says so, and "Log in" explains that accounts are not
+ *           connected yet.
+ *
+ * appUrl    Where "Open E1 in the browser" goes. Usually the same as apiBase.
+ *
+ * releases  The release manifest the download area reads (see
+ *           docs/AZURE-INTEGRATION.md, "Downloads").
+ *
+ * The website and the E1 server must share one registrable domain
+ * (www.lanxtor.com and app.lanxtor.com), because the sign-in cookie is
+ * SameSite=Lax: browsers send it to app.lanxtor.com from www.lanxtor.com,
+ * but not from an unrelated domain.
+ */
+window.E1_CONFIG = {
+  apiBase: "",
+  appUrl: "",
+  releases: "assets/data/releases.json"
+};
