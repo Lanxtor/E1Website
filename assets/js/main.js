@@ -6,7 +6,7 @@
 
   var NAV = [
     { href: "solutions.html", label: "Solutions" },
-    { href: "shape-e1.html", label: "Shape E1 with us" },
+    { href: "shape-e1.html", label: "Contact us" },
     { href: "pricing.html", label: "Pricing" },
     { href: "about.html", label: "About us" }
   ];
