@@ -297,6 +297,34 @@ p { margin: 0; }
 }
 
 /* ==========================================================================
+   Plant wireframe backdrop (home + solutions)
+   A faint line drawing of a process platform sits fixed behind the page.
+   ========================================================================== */
+body.has-plant-bg::before {
+  content: "";
+  position: fixed;
+  inset: var(--header-h) 0 0 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("../img/plant-wireframe.svg") no-repeat center 62% / min(1500px, 120vw) auto;
+  opacity: 0.075;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+}
+
+@media (max-width: 720px) {
+  body.has-plant-bg::before {
+    background-size: 170vw auto;
+    background-position: 30% 60%;
+    opacity: 0.06;
+  }
+}
+
+@media print {
+  body.has-plant-bg::before { display: none; }
+}
+
+/* ==========================================================================
    Sections
    ========================================================================== */
 .section { padding: 120px 0; }
