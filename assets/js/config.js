@@ -19,7 +19,7 @@
  * but not from an unrelated domain.
  */
 window.E1_CONFIG = {
-  apiBase: "",
-  appUrl: "",
+  apiBase: "https://app.lanxtor.com",
+  appUrl: "https://app.lanxtor.com",
   releases: "assets/data/releases.json"
 };
