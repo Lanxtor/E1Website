@@ -30,12 +30,29 @@ How the LANXTOR E1 website (this repository) moves from Netlify to Azure and con
    ```
 2. **Connect this repository.** Copy the deployment token (*Manage deployment token*) into the GitHub repository secret `AZURE_STATIC_WEB_APPS_API_TOKEN`. `.github/workflows/azure-static-web-apps.yml` then publishes every push to `main`, and a preview address for each pull request. `staticwebapp.config.json` sets the security headers and short URLs (`/account`, `/login`, `/download`).
 3. **Check it on the Azure address** (`https://<name>.azurestaticapps.net`): every page, the clips, the download page. (The account page needs step 5 and the custom domain.)
-4. **Move the domain's DNS** in GoDaddy (the domain can stay registered at GoDaddy; only the records change):
-   - In the Static Web App: *Custom domains → Add*, `www.<domain>`; Azure shows a CNAME target. In GoDaddy *DNS → Manage*: replace the Netlify `CNAME www → <site>.netlify.app` with `CNAME www → <name>.azurestaticapps.net`. Azure validates it and issues the certificate itself.
-   - The bare domain `<domain>`: GoDaddy cannot CNAME the apex. Add it in Azure with *TXT validation*, put the TXT record in GoDaddy, then either an `A` record to the Static Web App's IP (Standard plan) or GoDaddy's *Forwarding* of `<domain>` to `https://www.<domain>`.
-   - `app.<domain>` for the E1 server: `CNAME app → <container app>.<region>.azurecontainerapps.io` plus the `asuid.app` TXT record that `az containerapp hostname add` prints (`Lanxtor/E1`, `deploy/azure/README.md` step 4). Then set `E1_PUBLIC_URL=https://app.<domain>` and add the new redirect address in the Entra app registration.
-   - Lower the TTL of the records a day before, keep Netlify running until the new records have spread, then delete the Netlify site. Email (MX) records are not touched.
-5. **Point the website at the server:** in `assets/js/config.js` set `apiBase` and `appUrl` to `https://app.<domain>`. When the domain is known, narrow `connect-src` in `staticwebapp.config.json` from `https:` to that address.
+4. **Move lanxtor.com's DNS from Netlify DNS to Azure DNS, then the website.** The domain stays registered at GoDaddy. Today GoDaddy delegates the domain to Netlify's nameservers, and Netlify DNS holds its 7 records, among them Google Workspace mail. Two phases, so that neither mail nor the site goes down:
+
+   **Phase A: move the DNS, nothing visible changes.**
+   1. In Netlify, *DNS → lanxtor.com → Download records*, and keep the file: it has the full DKIM value, which the screen cuts off.
+   2. Azure portal → *Create a resource → DNS zone*, resource group `e1-prod`, name `lanxtor.com`. Note its four nameservers (`ns1-0x.azure-dns.com`, `ns2-0x.azure-dns.net`, `ns3-0x.azure-dns.org`, `ns4-0x.azure-dns.info`).
+   3. In the zone, *+ Record set*, copy the mail records exactly:
+
+      | Name | Type | TTL | Value |
+      | --- | --- | --- | --- |
+      | `@` | MX | 3600 | preference `1`, exchange `smtp.google.com` |
+      | `@` | TXT | 3600 | `v=spf1 include:_spf.google.com ~all` |
+      | `google._domainkey` | TXT | 3600 | the whole `v=DKIM1; k=rsa; p=…` value from the downloaded file |
+
+   4. Keep the site on Netlify for now: `www` CNAME (TTL 300) → `beautiful-caramel-313fcc.netlify.app`, and `@` A (TTL 300) → `75.2.60.5` (Netlify's load balancer; these replace Netlify's own `NETLIFY` records).
+   5. Check the new zone before switching (Cloud Shell): `dig +short MX lanxtor.com @ns1-0x.azure-dns.com` and the same for `TXT`, `TXT google._domainkey.lanxtor.com`, `CNAME www.lanxtor.com`.
+   6. GoDaddy → *My Products → lanxtor.com → DNS → Nameservers → Change → I'll use my own nameservers*: enter the four Azure nameservers (no trailing dot). Takes minutes to a few hours.
+   7. Check: `dig +short NS lanxtor.com` shows Azure's; send yourself a mail from outside and reply; the site still opens.
+
+   **Phase B: move the website, and give E1 its address.**
+   1. Static Web App → *Custom domains → + Add → Custom domain on Azure DNS* → `www.lanxtor.com`: Azure changes the `www` record to the Static Web App and issues the certificate. Then the same for `lanxtor.com` (the apex); Azure makes it an alias record to the Static Web App.
+   2. `app.lanxtor.com` for the E1 server: `az containerapp hostname add --name e1-server --resource-group e1-prod --hostname app.lanxtor.com` prints a verification id; in the zone add `app` CNAME → the Container App's address (its *Overview*) and `asuid.app` TXT → that id; then `az containerapp hostname bind --name e1-server --resource-group e1-prod --hostname app.lanxtor.com --environment e1-apps --validation-method CNAME`. Add `https://app.lanxtor.com/auth/callback` as a redirect URI in the Entra app registration, and deploy with `E1_PUBLIC_URL=https://app.lanxtor.com E1_SITE_ORIGINS=https://www.lanxtor.com,https://lanxtor.com`.
+   3. After a few days of everything working: in Netlify delete the DNS zone and the site, and raise the `www` and `@` TTLs to 3600.
+5. **Point the website at the server** once `https://app.lanxtor.com` answers: in `assets/js/config.js` set `apiBase` and `appUrl` to `https://app.lanxtor.com` (`staticwebapp.config.json` already allows only that address for `connect-src`).
 
 ## 3. What the E1 server provides (`Lanxtor/E1`, branch `claude/website-account-api`)
 
