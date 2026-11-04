@@ -1,9 +1,9 @@
 # Publishes the website to Azure Static Web Apps (docs/AZURE-INTEGRATION.md).
 #
 # Every push to main publishes two versions of the same files:
-#   - the full site to the "preview" environment (its own address, which can
-#     be password-protected in the portal: Configuration → Password protection
-#     → Protect staging environments only);
+#   - the full site to the second Static Web App, e1-website-preview
+#     (preview.lanxtor.com, password-protected in the portal: Configuration →
+#     Password protection), with the secret AZURE_STATIC_WEB_APPS_PREVIEW_TOKEN;
 #   - the public site (lanxtor.com): the coming-soon page for every address,
 #     until the repository variable SITE_MODE is set to "live"
 #     (Settings → Secrets and variables → Actions → Variables).
@@ -31,6 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+      PREVIEW_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_PREVIEW_TOKEN }}
       SITE_MODE: ${{ vars.SITE_MODE }}
     steps:
       - uses: actions/checkout@v4
@@ -39,16 +40,15 @@ jobs:
         if: env.TOKEN == ''
         run: echo "::notice::AZURE_STATIC_WEB_APPS_API_TOKEN is not set; nothing deployed. See docs/AZURE-INTEGRATION.md."
 
-      - name: Full site to the preview environment
-        if: env.TOKEN != '' && github.event_name != 'pull_request'
+      - name: Full site to e1-website-preview (preview.lanxtor.com)
+        if: env.PREVIEW_TOKEN != '' && github.event_name != 'pull_request'
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_PREVIEW_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           app_location: /
           skip_app_build: true
-          deployment_environment: preview
 
       - name: Public site shows the coming-soon page (SITE_MODE is not "live")
         if: env.TOKEN != '' && github.event_name != 'pull_request' && env.SITE_MODE != 'live'

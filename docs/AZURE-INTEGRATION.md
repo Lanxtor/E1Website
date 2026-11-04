@@ -56,7 +56,7 @@ How the LANXTOR E1 website (this repository) moves from Netlify to Azure and con
 
 ### Coming soon, and the full site on a preview address
 
-Until launch, lanxtor.com answers every address with `coming-soon.html`; the full site is published at the same time to the Static Web App's **preview** environment (its address is printed in the GitHub Actions log, *Full site to the preview environment*). Protect it in the portal: *e1-website → Configuration → General settings → Password protection → Protect staging environments only*.
+Until launch, lanxtor.com answers every address with `coming-soon.html`; the full site is published at the same time to a second Static Web App, **e1-website-preview** at `preview.lanxtor.com` (secret `AZURE_STATIC_WEB_APPS_PREVIEW_TOKEN`). It has its own lanxtor.com address so that sign-in works there too (the session cookie is sent only within one site). Protect it in the portal: *e1-website-preview → Configuration → Password protection → Protect both staging and production environments*.
 
 To launch the full site: GitHub → *Settings → Secrets and variables → Actions → Variables → New repository variable* `SITE_MODE` = `live`, then *Actions → Website on Azure → Run workflow*. Deleting the variable (or any other value) brings the coming-soon page back.
 
