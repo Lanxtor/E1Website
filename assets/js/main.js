@@ -102,7 +102,6 @@
       "<div><h4>Company</h4><ul>" +
       '<li><a href="about.html">About us</a></li>' +
       '<li><a href="shape-e1.html">Contact us</a></li>' +
-      '<li><a href="about.html#contact">Contact</a></li>' +
       '<li><a href="account.html">Your account</a></li>' +
       '<li><a href="account.html#academy">Academy</a></li>' +
       '<li><a href="#">Privacy</a></li>' +
