@@ -6,13 +6,9 @@
 
   var NAV = [
     { href: "solutions.html", label: "Solutions" },
-    { href: "industries.html", label: "Industries" },
-    {
-      label: "Resources",
-      children: [
-        { href: "user-guides.html", label: "User guides", desc: "Learn E1 step by step" }
-      ]
-    },
+    { href: "user-guides.html", label: "User guides" },
+    { href: "shape-e1.html", label: "Shape E1 with us" },
+    { href: "pricing.html", label: "Pricing" },
     { href: "about.html", label: "About us" }
   ];
 
@@ -91,16 +87,13 @@
       "<div><h4>Product</h4><ul>" +
       '<li><a href="index.html">Overview</a></li>' +
       '<li><a href="solutions.html">Solutions</a></li>' +
+      '<li><a href="pricing.html">Pricing</a></li>' +
       '<li><a href="download.html">Download</a></li>' +
       '<li><a href="user-guides.html">User guides</a></li>' +
       "</ul></div>" +
-      "<div><h4>Industries</h4><ul>" +
-      '<li><a href="industries.html#automotive">Automotive</a></li>' +
-      '<li><a href="industries.html#aerospace">Aerospace</a></li>' +
-      '<li><a href="industries.html#machinery">Machinery</a></li>' +
-      "</ul></div>" +
       "<div><h4>Company</h4><ul>" +
       '<li><a href="about.html">About us</a></li>' +
+      '<li><a href="shape-e1.html">Shape E1 with us</a></li>' +
       '<li><a href="about.html#contact">Contact</a></li>' +
       '<li><a href="login.html">Log in</a></li>' +
       '<li><a href="#">Privacy</a></li>' +
@@ -254,6 +247,126 @@
     });
   }
 
+  function initCatalog() {
+    var list = document.querySelector("[data-catalog-list]");
+    if (!list) return;
+
+    var items = Array.prototype.slice.call(list.querySelectorAll(".catalog-item"));
+    var search = document.querySelector("[data-catalog-search]");
+    var chips = Array.prototype.slice.call(document.querySelectorAll("[data-catalog-filter]"));
+    var countEl = document.querySelector("[data-catalog-count]");
+    var emptyEl = document.querySelector("[data-catalog-empty]");
+    var resetBtn = document.querySelector("[data-catalog-reset]");
+    var activeFilter = "all";
+
+    function normalize(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/&amp;/g, "&")
+        .replace(/[^a-z0-9+&#.\s-]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function apply() {
+      var query = normalize(search ? search.value : "");
+      var visible = 0;
+
+      items.forEach(function (item) {
+        var categories = normalize(item.getAttribute("data-category")).split(" ");
+        var haystack = normalize([
+          item.getAttribute("data-tags"),
+          item.textContent
+        ].join(" "));
+
+        var categoryOk = activeFilter === "all" || categories.indexOf(activeFilter) !== -1;
+        var searchOk = !query || haystack.indexOf(query) !== -1;
+        var show = categoryOk && searchOk;
+
+        item.classList.toggle("is-hidden", !show);
+        if (show) visible += 1;
+      });
+
+      if (countEl) {
+        countEl.textContent = visible === items.length
+          ? visible + " features"
+          : "Showing " + visible + " of " + items.length;
+      }
+
+      if (emptyEl) emptyEl.hidden = visible !== 0;
+      list.hidden = visible === 0;
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      chips.forEach(function (chip) {
+        var on = chip.getAttribute("data-catalog-filter") === filter;
+        chip.classList.toggle("is-active", on);
+        chip.setAttribute("aria-pressed", String(on));
+      });
+      apply();
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        setFilter(chip.getAttribute("data-catalog-filter"));
+      });
+    });
+
+    if (search) {
+      search.addEventListener("input", apply);
+      search.addEventListener("search", apply);
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        if (search) search.value = "";
+        setFilter("all");
+        if (search) search.focus();
+      });
+    }
+
+    apply();
+  }
+
+  /*
+   * Launch strip: <div class="launch" data-launch="YYYY-MM-DD">
+   * Update the counters by changing data-count on each <dd>.
+   */
+  function initLaunch() {
+    var box = document.querySelector("[data-launch]");
+    if (!box) return;
+
+    var countdown = box.querySelector("[data-launch-countdown]");
+    var launch = new Date(box.getAttribute("data-launch") + "T00:00:00");
+    if (countdown && !isNaN(launch)) {
+      var days = Math.ceil((launch - new Date()) / 86400000);
+      countdown.textContent = days > 1 ? "in " + days + " days" : days === 1 ? "tomorrow" : days === 0 ? "today" : "live";
+    }
+
+    var counters = box.querySelectorAll("[data-count]");
+    var format = function (n) { return Math.round(n).toLocaleString("en-US"); };
+    var run = function () {
+      counters.forEach(function (el) {
+        var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+        if (target === 0) { el.textContent = "0"; return; }
+        var start = performance.now();
+        var step = function (now) {
+          var t = Math.min((now - start) / 1400, 1);
+          el.textContent = format(target * (1 - Math.pow(1 - t, 3)));
+          if (t < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    };
+
+    if (!("IntersectionObserver" in window)) { run(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { run(); io.disconnect(); }
+    }, { threshold: 0.4 });
+    io.observe(box);
+  }
+
   renderHeader();
   renderFooter();
 
@@ -262,5 +375,7 @@
     initReveal();
     initClips();
     initAuthTabs();
+    initCatalog();
+    initLaunch();
   });
 })();
