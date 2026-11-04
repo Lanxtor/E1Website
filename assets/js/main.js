@@ -103,7 +103,6 @@
       '<li><a href="about.html">About us</a></li>' +
       '<li><a href="shape-e1.html">Contact us</a></li>' +
       '<li><a href="account.html">Your account</a></li>' +
-      '<li><a href="account.html#academy">Academy</a></li>' +
       '<li><a href="#">Privacy</a></li>' +
       "</ul></div>" +
       "</div>" +
