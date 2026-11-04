@@ -54,6 +54,12 @@ How the LANXTOR E1 website (this repository) moves from Netlify to Azure and con
    3. After a few days of everything working: in Netlify delete the DNS zone and the site, and raise the `www` and `@` TTLs to 3600.
 5. **Point the website at the server** once `https://app.lanxtor.com` answers: in `assets/js/config.js` set `apiBase` and `appUrl` to `https://app.lanxtor.com` (`staticwebapp.config.json` already allows only that address for `connect-src`).
 
+### Coming soon, and the full site on a preview address
+
+Until launch, lanxtor.com answers every address with `coming-soon.html`; the full site is published at the same time to the Static Web App's **preview** environment (its address is printed in the GitHub Actions log, *Full site to the preview environment*). Protect it in the portal: *e1-website → Configuration → General settings → Password protection → Protect staging environments only*.
+
+To launch the full site: GitHub → *Settings → Secrets and variables → Actions → Variables → New repository variable* `SITE_MODE` = `live`, then *Actions → Website on Azure → Run workflow*. Deleting the variable (or any other value) brings the coming-soon page back.
+
 ## 3. What the E1 server provides (`Lanxtor/E1`, branch `claude/website-account-api`)
 
 Built and tested (`server/tests/website.test.mjs`); the full reference is `docs/website/account-api.md` in that repository. Until the branch is merged and deployed, the website shows preview data (account page) and its examples (Shape E1 board). None of it changes how the app itself signs in.

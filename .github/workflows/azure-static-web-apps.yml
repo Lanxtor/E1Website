@@ -1,7 +1,16 @@
-# Publishes the website to Azure Static Web Apps on every push to main, and a
-# preview address for every pull request. Needs the repository secret
-# AZURE_STATIC_WEB_APPS_API_TOKEN (the Static Web App's deployment token,
-# docs/AZURE-INTEGRATION.md step 2); without it the job only says so.
+# Publishes the website to Azure Static Web Apps (docs/AZURE-INTEGRATION.md).
+#
+# Every push to main publishes two versions of the same files:
+#   - the full site to the "preview" environment (its own address, which can
+#     be password-protected in the portal: Configuration → Password protection
+#     → Protect staging environments only);
+#   - the public site (lanxtor.com): the coming-soon page for every address,
+#     until the repository variable SITE_MODE is set to "live"
+#     (Settings → Secrets and variables → Actions → Variables).
+# Pull requests get their own preview address with the full site.
+#
+# Needs the repository secret AZURE_STATIC_WEB_APPS_API_TOKEN (the Static Web
+# App's deployment token); without it the job only says so.
 name: Website on Azure
 
 on:
@@ -22,12 +31,33 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+      SITE_MODE: ${{ vars.SITE_MODE }}
     steps:
       - uses: actions/checkout@v4
+
       - name: No deployment token yet
         if: env.TOKEN == ''
         run: echo "::notice::AZURE_STATIC_WEB_APPS_API_TOKEN is not set; nothing deployed. See docs/AZURE-INTEGRATION.md."
-      - name: Deploy
+
+      - name: Full site to the preview environment
+        if: env.TOKEN != '' && github.event_name != 'pull_request'
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: upload
+          app_location: /
+          skip_app_build: true
+          deployment_environment: preview
+
+      - name: Public site shows the coming-soon page (SITE_MODE is not "live")
+        if: env.TOKEN != '' && github.event_name != 'pull_request' && env.SITE_MODE != 'live'
+        run: |
+          jq '.routes = ([{"route": "/assets/*", "allowedRoles": ["anonymous"]}, {"route": "/*", "rewrite": "/coming-soon.html"}] + .routes)' staticwebapp.config.json > config.tmp
+          mv config.tmp staticwebapp.config.json
+          echo "::notice::lanxtor.com shows the coming-soon page. Set the repository variable SITE_MODE to live to publish the full site."
+
+      - name: Public site (production), or the pull request's preview
         if: env.TOKEN != ''
         uses: Azure/static-web-apps-deploy@v1
         with:
