@@ -118,6 +118,24 @@
     return request("POST", "/api/account/billing/portal", { return: accountPage() + "#billing" });
   };
 
+  /*
+   * The Shape E1 board (shape-e1.html) on the server: reading is public,
+   * posting, voting and commenting need sign-in. Only when apiBase is set;
+   * otherwise board.js keeps its examples and the visitor's browser storage.
+   */
+  E1.community = {
+    /** GET /api/community/requests → { requests, viewer, csrf, categories } */
+    list: function () {
+      return request("GET", "/api/community/requests").then(function (data) {
+        if (data && data.csrf) csrf = data.csrf;
+        return data;
+      });
+    },
+    post: function (fields) { return request("POST", "/api/community/requests", fields); },
+    vote: function (id, on) { return request(on ? "POST" : "DELETE", "/api/community/requests/" + encodeURIComponent(id) + "/vote"); },
+    comment: function (id, body) { return request("POST", "/api/community/requests/" + encodeURIComponent(id) + "/comments", { body: body }); }
+  };
+
   /** POST /auth/logout. */
   E1.logout = function () {
     E1.rememberSignedIn(false);

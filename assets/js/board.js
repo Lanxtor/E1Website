@@ -3,8 +3,13 @@
 
   /*
    * Feature board for shape-e1.html.
-   * SEED holds example requests until a backend exists. Votes, comments and
-   * new requests made by a visitor are kept in that visitor's browser only.
+   *
+   * Connected (E1_CONFIG.apiBase set): requests, votes and comments live in
+   * the E1 cloud (GET/POST /api/community/*, docs/AZURE-INTEGRATION.md);
+   * anyone reads, signing in is needed to post, vote or comment.
+   *
+   * Not connected: SEED holds example requests, and a visitor's votes,
+   * comments and new requests are kept in their browser only.
    */
   var STORE_KEY = "e1-board-v1";
 
@@ -12,7 +17,8 @@
     open: "Open",
     planned: "Planned",
     progress: "In progress",
-    shipped: "Shipped"
+    shipped: "Shipped",
+    declined: "Declined"
   };
 
   var SEED = [
@@ -167,10 +173,61 @@
     var sort = "top";
     var openId = null;
 
-    function requests() { return state.added.concat(SEED); }
-    function hasVoted(r) { return state.voted.indexOf(r.id) !== -1; }
-    function voteCount(r) { return r.votes + (hasVoted(r) ? 1 : 0); }
-    function commentsOf(r) { return (r.comments || []).concat(state.comments[r.id] || []); }
+    var api = window.E1;
+    var remote = Boolean(api && api.configured());
+    var remoteItems = [];
+    var viewer = null;
+    var loading = remote;
+
+    if (remote) {
+      // The account's email is used for updates; the optional field is not needed.
+      var emailField = composer.elements.email && composer.elements.email.closest(".field");
+      if (emailField) emailField.hidden = true;
+    }
+
+    function requests() { return remote ? remoteItems : state.added.concat(SEED); }
+    function byId(id) { return requests().filter(function (r) { return r.id === id; })[0]; }
+    function hasVoted(r) { return remote ? Boolean(r.voted) : state.voted.indexOf(r.id) !== -1; }
+    function voteCount(r) { return remote ? r.votes : r.votes + (hasVoted(r) ? 1 : 0); }
+    function commentsOf(r) {
+      if (remote) {
+        return (r.comments || []).map(function (c) { return { who: c.mine ? "You" : c.authorName, when: c.created, text: c.body }; });
+      }
+      return (r.comments || []).concat(state.comments[r.id] || []);
+    }
+
+    function say(html) {
+      notice.innerHTML = html;
+      notice.hidden = false;
+    }
+
+    function loginLink() {
+      return '<a href="login.html?return=' + encodeURIComponent("shape-e1.html") + '">Log in</a>';
+    }
+
+    /** Connected only: signing in is needed to write. Returns true when signed in. */
+    function needSignIn(what) {
+      if (!remote || viewer) return true;
+      say(loginLink() + " to " + what + ". It is free, and the same account works in E1.");
+      return false;
+    }
+
+    function failed(err) {
+      say(escapeHtml((err && err.message) || "Something went wrong. Try again."));
+    }
+
+    function reload() {
+      return api.community.list().then(function (data) {
+        remoteItems = data.requests || [];
+        viewer = data.viewer || null;
+        loading = false;
+        render();
+      }, function (err) {
+        loading = false;
+        render();
+        failed(err);
+      });
+    }
 
     function matches(r, query) {
       if (!query) return true;
@@ -223,9 +280,11 @@
 
       var typed = search.value.trim();
 
-      list.innerHTML = items.length
-        ? items.map(itemHtml).join("")
-        : typed.length < 3 ? '<li class="board-empty">No requests match.</li>' : "";
+      list.innerHTML = loading
+        ? '<li class="board-empty">Loading requests…</li>'
+        : items.length
+          ? items.map(itemHtml).join("")
+          : typed.length < 3 ? '<li class="board-empty">' + (remote && !requests().length ? "No requests yet. Be the first to ask." : "No requests match.") + "</li>" : "";
 
       suggest.hidden = typed.length < 3 || !composer.hidden;
       if (!suggest.hidden) {
@@ -243,6 +302,7 @@
     }
 
     function openComposer() {
+      if (!needSignIn("post a request")) return;
       composer.hidden = false;
       composer.elements.title.value = search.value.trim();
       suggest.hidden = true;
@@ -268,6 +328,28 @@
       e.preventDefault();
       var title = composer.elements.title.value.trim();
       if (!title) { composer.elements.title.focus(); return; }
+
+      if (remote) {
+        if (!needSignIn("post a request")) return;
+        var submit = composer.querySelector('[type="submit"]');
+        submit.disabled = true;
+        api.community.post({ title: title, body: composer.elements.body.value.trim(), category: composer.elements.category.value }).then(function (answer) {
+          submit.disabled = false;
+          remoteItems.unshift(answer.request);
+          search.value = "";
+          status = "all";
+          sort = "new";
+          openId = answer.request.id;
+          setGroup(statusBtns, "data-board-status", status);
+          setGroup(sortBtns, "data-board-sort", sort);
+          closeComposer();
+          say("Posted. Others can now find and vote for your request.");
+        }, function (err) {
+          submit.disabled = false;
+          failed(err);
+        });
+        return;
+      }
 
       var request = {
         id: "u" + Date.now(),
@@ -316,7 +398,16 @@
       if (!item) return;
       var id = item.getAttribute("data-id");
 
-      if (e.target.closest("[data-board-vote]")) {
+      if (e.target.closest("[data-board-vote]") && remote) {
+        if (!needSignIn("vote")) return;
+        var r = byId(id);
+        if (!r) return;
+        api.community.vote(id, !r.voted).then(function (answer) {
+          r.votes = answer.votes;
+          r.voted = answer.voted;
+          render();
+        }, failed);
+      } else if (e.target.closest("[data-board-vote]")) {
         var i = state.voted.indexOf(id);
         if (i === -1) state.voted.push(id); else state.voted.splice(i, 1);
         save(state);
@@ -338,12 +429,22 @@
       var text = form.elements.text.value.trim();
       if (!text) return;
       var id = form.closest(".board-item").getAttribute("data-id");
+      if (remote) {
+        if (!needSignIn("comment")) return;
+        api.community.comment(id, text).then(function (answer) {
+          var r = byId(id);
+          if (r) (r.comments = r.comments || []).push(answer.comment);
+          render();
+        }, failed);
+        return;
+      }
       (state.comments[id] = state.comments[id] || []).push({ who: "You", when: new Date().toISOString(), text: text });
       save(state);
       render();
     });
 
     render();
+    if (remote) reload();
   }
 
   document.addEventListener("DOMContentLoaded", init);

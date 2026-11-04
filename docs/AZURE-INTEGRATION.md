@@ -37,23 +37,25 @@ How the LANXTOR E1 website (this repository) moves from Netlify to Azure and con
    - Lower the TTL of the records a day before, keep Netlify running until the new records have spread, then delete the Netlify site. Email (MX) records are not touched.
 5. **Point the website at the server:** in `assets/js/config.js` set `apiBase` and `appUrl` to `https://app.<domain>`. When the domain is known, narrow `connect-src` in `staticwebapp.config.json` from `https:` to that address.
 
-## 3. What the E1 server needs (changes in `Lanxtor/E1`)
+## 3. What the E1 server provides (`Lanxtor/E1`, branch `claude/website-account-api`)
 
-The website side is done and works on preview data until these exist. None of them changes how the app itself signs in.
+Built and tested (`server/tests/website.test.mjs`); the full reference is `docs/website/account-api.md` in that repository. Until the branch is merged and deployed, the website shows preview data (account page) and its examples (Shape E1 board). None of it changes how the app itself signs in.
+
+Server settings: `E1_SITE_ORIGINS` (the website's origins), `E1_COMMUNITY_MODERATORS` (emails of board moderators), `E1_BILLING_PORTAL_URL` (until a billing provider exists). `deploy/azure/deploy.sh` passes the first two to the template.
 
 ### 3.1 Sign-in return to the website
 
-`server/identity/auth.mjs` `safeReturn()` accepts only paths on the server. Allow absolute addresses whose origin is in a new setting `E1_SITE_ORIGINS` (comma-separated, for example `https://www.<domain>,https://<domain>`); anything else falls back to `/` as now. The website calls:
+Sign-in returns to an absolute address only when its origin is in `E1_SITE_ORIGINS` (for example `https://www.<domain>,https://<domain>`); anything else falls back to `/`. The website calls:
 
 ```text
 GET https://app.<domain>/auth/login?return=https://www.<domain>/account.html[&signup=1]
 ```
 
-`signup=1` is optional: the server may pass `prompt=create` to Entra External ID so the user flow opens on its sign-up step.
+`signup=1` makes the server pass `prompt=create`, so Entra External ID opens on its sign-up step.
 
 ### 3.2 CORS for the website's origins
 
-For `/auth/me`, `/auth/switch`, `/auth/logout` and `/api/account/*`, when `Origin` is in `E1_SITE_ORIGINS`: answer the `OPTIONS` preflight and add `Access-Control-Allow-Origin: <that origin>`, `Access-Control-Allow-Credentials: true`, `Access-Control-Allow-Headers: Content-Type, X-E1-CSRF`, `Access-Control-Allow-Methods: GET, POST`, `Vary: Origin`. No other origin and no other route.
+For `/auth/me`, `/auth/switch`, `/auth/logout`, `/api/account/*` and `/api/community/*`, when `Origin` is in `E1_SITE_ORIGINS`: the `OPTIONS` preflight is answered and `Access-Control-Allow-Origin: <that origin>`, `Access-Control-Allow-Credentials: true`, `Vary: Origin` are added. No other origin and no other route.
 
 ### 3.3 The account overview
 
@@ -67,7 +69,7 @@ For `/auth/me`, `/auth/switch`, `/auth/logout` and `/api/account/*`, when `Origi
 | `roles { org [{ key, name }], permissions [key] }` | `role_assignment` + `ORG_ROLES` keys, capped by the license (`effectiveOn([])`) |
 | `groups [{ id, name }]` | `user_group_member` |
 | `subscription { plan, planName, status, source, periodStart, periodEnd, trialEndsAt, addOns, seats }` | `subscription`; `seats` as `seats()` returns them |
-| `aiUsage { periodStart, periodEnd, you { credits, requests }, organization { credits, included, personalCap }, byModel [{ model, credits, requests }] }` | `ai_log` token counts now; the usage table and credits of design 09 *AI usage and credits* later. Until credits exist, `credits` may be token counts and `included` null |
+| `aiUsage { periodStart, periodEnd, unit, you { credits, tokens, requests }, organization { credits, included, personalCap, tokens, requests }, byModel [{ model, credits, tokens, requests }] }` | `ai_log` token counts now (`unit: "tokens"`, credits null); credits of design 09 *AI usage and credits* later (`unit: "credits"`) |
 | `storage { you { bytes }, organization { bytes, quota }, byProject [{ project, bytes }] }` | `sum(file.size)` where `deleted_at IS NULL`, by `owner_id` and by `project_id`; `quota` from the plan (null: no limit shown) |
 | `projects [{ id, name, role, roleName, lastOpenedAt, objects }]` | `visibleProjects()` and the person's project `role_assignment`; `lastOpenedAt` from `user_state` |
 | `packages [{ key, name, version }]` | `package_entitlement` + `content_package` |
@@ -84,19 +86,17 @@ For `/auth/me`, `/auth/switch`, `/auth/logout` and `/api/account/*`, when `Origi
 
 When the release pipeline exists (`commercial-readiness.md` §5.4), it uploads the signed installers to a public Blob Storage container behind Azure Front Door or the CDN (for example `https://downloads.<domain>/e1/<version>/…`) and writes this file in the same step. The website needs no change for a new release.
 
-## 5. The user forum
+## 5. The Shape E1 board (the user forum)
 
-A forum (posts, likes, comments) needs a database and must use the same accounts. Proposal:
+`shape-e1.html` lets people post feature requests, vote and comment. It is built into E1, not a separate forum product:
 
-- **Same sign-in, same PostgreSQL.** Forum tables (`forum_topic`, `forum_post`, `forum_reaction`, `forum_report`) in the E1 server's database, served by the E1 server under `/api/community/*` with the same session, CSRF and CORS rules as §3. Reading is public (no session), writing needs sign-in. No second user list, no second password.
-- **Not tenant data.** Forum rows are public, not part of any organization's projects, so they sit outside the organization row-level security, and the E1 back office moderates them. Every post is checked for size, rate-limited per person, and can be reported and hidden.
-- **Pages** on the website: `community.html` (topics), `topic.html?id=…` (posts and comments), both static pages that fetch from the server, like the account page.
-
-Alternative: a hosted forum product (for example Discourse) on its own subdomain, signing in through the same Entra tenant. Less to build and moderate, but a second system and another data processor.
+- **Same sign-in, same PostgreSQL.** Tables `community_request`, `community_vote`, `community_comment` (migration `0014_community.sql`) in the E1 server's database, served under `/api/community/*`. Reading is public; posting, voting and commenting need an E1 account. No second user list, no second password, and the board never shows anyone's email.
+- **Not tenant data.** The rows are public, outside any organization's projects. Row-level security is still forced: people write only their own rows, and only moderators (`E1_COMMUNITY_MODERATORS`) change a request's status (open, planned, in progress, shipped, declined) or hide a post. Writes are rate-limited per person.
+- **The page** (`assets/js/board.js`) uses the server once `apiBase` is set; before that it keeps its examples and stores a visitor's votes in their own browser, as before.
 
 ## 6. Open decisions
 
 1. The domain name (the documents say `<domain>`), and whether `www.<domain>` and `app.<domain>` are the names.
 2. Billing provider (Stripe Billing + Tax, or a merchant of record).
-3. Forum: built into E1 (§5) or a hosted forum product; and where the current forum lives today, so its posts and users can be moved.
+3. Moderation of the board: who the moderators are, and whether the example requests in `board.js` should be posted on the live board at launch.
 4. Storage quota per plan, and whether AI is shown as credits or tokens until credits exist.
