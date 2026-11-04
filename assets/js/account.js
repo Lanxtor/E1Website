@@ -1,5 +1,5 @@
 /*
- * account.html: the signed-in person's profile, licenses, usage,
+ * account.html: the signed-in person's profile, academy, licenses, usage,
  * organizations, projects, permissions, billing and downloads, from
  * GET /api/account/overview (assets/js/e1-api.js).
  */
@@ -240,10 +240,73 @@
       bill.canManage ? "No invoices yet." : "Invoices are visible to the organization's billing administrators.");
   }
 
+  /* ---------- academy: courses, progress, certificates ---------- */
+
+  var COURSE_STATUS = { not_started: "Not started", in_progress: "In progress", completed: "Completed" };
+
+  function renderAcademy(d) {
+    var ac = d.academy || {};
+    var courses = ac.courses || [];
+    var certs = ac.certificates || [];
+    var done = courses.filter(function (c) { return c.status === "completed"; }).length;
+    var active = courses.filter(function (c) { return c.status === "in_progress"; }).length;
+    var lessons = courses.reduce(function (n, c) { return n + (c.lessonsDone || 0); }, 0);
+    var minutes = courses.reduce(function (n, c) { return n + (c.minutesWatched || 0); }, 0);
+    var tiles = [
+      { label: "Courses completed", value: String(done), sub: courses.length ? "of " + courses.length + " available" : "Courses coming soon", href: "#academy-courses" },
+      { label: "In progress", value: String(active), sub: lessons + " lessons watched", href: "#academy-courses" },
+      { label: "Time learning", value: minutes >= 60 ? (Math.round(minutes / 6) / 10) + " h" : minutes + " min", sub: ac.discussions ? fmt.number(ac.discussions) + " discussion posts" : "", href: "#academy-courses" },
+      { label: "Certificates", value: String(certs.length), sub: certs.length ? "earned" : "Finish a course to earn one", href: "#academy-certificates" }
+    ];
+    $("[data-academy-stats]").innerHTML = tiles.map(function (t) {
+      return '<a class="stat" href="' + t.href + '"><span class="stat-label">' + t.label + '</span><span class="stat-value">' + t.value + "</span>" +
+        (t.sub ? '<span class="stat-sub">' + esc(t.sub) + "</span>" : "") + "</a>";
+    }).join("");
+
+    var list = $("[data-academy-courses]");
+    if (!courses.length) {
+      list.innerHTML = '<div class="card course-empty"><h3>Video courses are on their way.</h3>' +
+        "<p class=\"muted\">Short films that walk you through E1 will appear here. Your progress, discussions and certificates will be kept with them.</p></div>";
+    } else {
+      list.innerHTML = courses.map(function (c) {
+        var total = c.lessons || 0, seen = c.lessonsDone || 0;
+        var left = Math.max(0, (c.minutes || 0) - (c.minutesWatched || 0));
+        var label = c.status === "completed" ? "Watch again" : c.status === "in_progress" ? "Continue" : "Start";
+        var action = c.url
+          ? '<a class="btn btn-ghost btn-sm" href="' + esc(c.url) + '">' + label + "</a>"
+          : '<span class="badge">Coming soon</span>';
+        return '<article class="card course">' +
+          '<div class="course-body">' +
+            (c.category ? '<span class="eyebrow">' + esc(c.category) + "</span>" : "") +
+            "<h3>" + esc(c.title) + "</h3>" +
+            (c.summary ? '<p class="muted">' + esc(c.summary) + "</p>" : "") +
+            meter(seen, total).replace('class="meter', 'class="meter course-meter' + (c.status === "completed" ? " is-done" : "")).replace(/ is-(full|high)/, "") +
+            '<p class="course-meta">' + esc(COURSE_STATUS[c.status] || "") + " · " + seen + " of " + total + " lessons" +
+              (c.status === "in_progress" && left ? " · " + left + " min left" : "") +
+              (c.certificate ? " · certificate" : "") + "</p>" +
+          "</div>" +
+          '<div class="course-action">' + action + "</div>" +
+        "</article>";
+      }).join("");
+    }
+
+    table($("[data-academy-certificates]"), ["Certificate", "Earned", "Credential", ""],
+      certs.map(function (c) {
+        return [
+          "<strong>" + esc(c.title) + "</strong>",
+          esc(fmt.date(c.issuedAt)),
+          "<code>" + esc(c.credentialId || "–") + "</code>",
+          c.url ? '<a class="link-btn" href="' + esc(c.url) + '">Download PDF</a>' : ""
+        ];
+      }),
+      "No certificates yet. Complete a course to earn your first one.");
+  }
+
   function render(d) {
     $("[data-demo-banner]").hidden = !E1.isDemo();
     renderHead(d);
     renderOverview(d);
+    renderAcademy(d);
     renderLicenses(d);
     renderUsage(d);
     renderOrgs(d);

@@ -250,6 +250,17 @@
       { id: "p-2", name: "Compressor station retrofit", role: "engineer", roleName: "Engineer", lastOpenedAt: "2026-10-29T08:05:00Z", objects: 1388 },
       { id: "p-3", name: "Utility steam network", role: "reviewer", roleName: "Reviewer", lastOpenedAt: "2026-10-12T11:20:00Z", objects: 962 }
     ],
+    academy: {
+      discussions: 6,
+      courses: [
+        { id: "c-start", title: "E1 in 30 minutes", category: "Getting started", summary: "Open a project, find your way around the model and make your first change.", lessons: 6, lessonsDone: 6, minutes: 32, minutesWatched: 32, status: "completed", certificate: true, url: "" },
+        { id: "c-pid", title: "P&ID and process design", category: "Process", summary: "Equipment, lines and instruments in one model, from flowsheet to P&ID.", lessons: 9, lessonsDone: 4, minutes: 74, minutesWatched: 31, status: "in_progress", certificate: true, url: "" },
+        { id: "c-branches", title: "Branches, pull and push", category: "Collaboration", summary: "Work on modification projects in a branch and bring the changes back to main.", lessons: 5, lessonsDone: 0, minutes: 41, minutesWatched: 0, status: "not_started", certificate: false, url: "" }
+      ],
+      certificates: [
+        { id: "cert-1", title: "E1 Foundations", issuedAt: "2026-10-21T10:00:00Z", credentialId: "E1-F-26-0412", url: "" }
+      ]
+    },
     packages: [{ key: "core", name: "Core", version: "1.1.0" }, { key: "plant", name: "Plant", version: "1.1.0" }],
     billing: {
       canManage: true,

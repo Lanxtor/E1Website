@@ -96,6 +96,7 @@ For `/auth/me`, `/auth/switch`, `/auth/logout`, `/api/account/*` and `/api/commu
 | `storage { you { bytes }, organization { bytes, quota }, byProject [{ project, bytes }] }` | `sum(file.size)` where `deleted_at IS NULL`, by `owner_id` and by `project_id`; `quota` from the plan (null: no limit shown) |
 | `projects [{ id, name, role, roleName, lastOpenedAt, objects }]` | `visibleProjects()` and the person's project `role_assignment`; `lastOpenedAt` from `user_state` |
 | `packages [{ key, name, version }]` | `package_entitlement` + `content_package` |
+| `academy { discussions, courses [{ id, title, category, summary, lessons, lessonsDone, minutes, minutesWatched, status, certificate, url }], certificates [{ id, title, issuedAt, credentialId, url }] }` (optional) | the Academy: hosted video courses and the person's progress (`status`: `not_started`, `in_progress`, `completed`), course discussion posts, and earned certificates. Without it the page shows "Video courses are on their way". Not built on the server yet |
 | `billing { canManage, nextInvoice, paymentMethod, invoices [{ id, date, amount, currency, status, url }] }` | the billing provider (below); `canManage` = `org.manage-billing` |
 | `csrf` | the session's CSRF value |
 

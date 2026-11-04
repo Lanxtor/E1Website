@@ -6,7 +6,7 @@
   <title>Your account — LANXTOR E1</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=27">
+  <link rel="stylesheet" href="assets/css/styles.css?v=28">
 </head>
 <body>
   <div id="site-header"></div>
@@ -21,7 +21,7 @@
     <div class="account-state container" data-state="signed-out" hidden>
       <div class="auth-box account-gate">
         <h1>Sign in to your account</h1>
-        <p>See your licenses, usage, organizations, projects and billing, and download E1.</p>
+        <p>See your academy courses and certificates, licenses, usage, organizations, projects and billing, and download E1.</p>
         <a class="btn btn-primary" href="login.html">Log in</a>
       </div>
     </div>
@@ -62,6 +62,10 @@
       <div class="account-layout">
         <nav class="account-nav" aria-label="Account">
           <a href="#overview">Overview</a>
+          <a href="#academy">Academy</a>
+          <a class="account-nav-sub" href="#academy-courses">Courses</a>
+          <a class="account-nav-sub" href="#academy-guides">User guides</a>
+          <a class="account-nav-sub" href="#academy-certificates">Certificates</a>
           <a href="#licenses">Licenses</a>
           <a href="#usage">Usage</a>
           <a href="#organizations">Organizations</a>
@@ -75,6 +79,58 @@
           <section id="overview" class="account-section">
             <h2>Overview</h2>
             <div class="stat-grid" data-overview></div>
+          </section>
+
+          <section id="academy" class="account-section">
+            <h2>Academy</h2>
+            <p class="section-note">Learn E1 at your own pace: video courses, user guides, and the certificates you earn along the way.</p>
+            <div class="stat-grid stat-grid-4" data-academy-stats></div>
+
+            <div id="academy-courses" class="academy-block">
+              <h3 class="sub-head">Courses</h3>
+              <div class="course-list" data-academy-courses></div>
+            </div>
+
+            <div id="academy-guides" class="academy-block">
+              <h3 class="sub-head">User guides</h3>
+              <div class="grid grid-3 guide-grid">
+              <a class="card guide-card" href="#">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                <h3>Getting started</h3>
+                <p>First steps with E1.</p>
+              </a>
+              <a class="card guide-card" href="#">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>
+                <h3>Installation</h3>
+                <p>Install and update the application.</p>
+              </a>
+              <a class="card guide-card" href="#">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.5-7.97A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9H7z"/></svg>
+                <h3>Account &amp; workspace</h3>
+                <p>Create and manage your cloud environment.</p>
+              </a>
+              <a class="card guide-card" href="#">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+                <h3>Design</h3>
+                <p>Process, instrumentation, electrical and automation.</p>
+              </a>
+              <a class="card guide-card" href="#">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 8.5v7M18 11.5c0 3-3 4-9.5 5"/></svg>
+                <h3>Collaboration &amp; branches</h3>
+                <p>Branches, pull and push, shared projects.</p>
+              </a>
+              <a class="card guide-card" href="#">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+                <h3>AI assistant</h3>
+                <p>Working with the native AI agents.</p>
+              </a>
+              </div>
+            </div>
+
+            <div id="academy-certificates" class="academy-block">
+              <h3 class="sub-head">Certificates</h3>
+              <div class="table-wrap"><table class="data-table" data-academy-certificates></table></div>
+            </div>
           </section>
 
           <section id="licenses" class="account-section">
@@ -142,9 +198,9 @@
 
   <div id="site-footer"></div>
   <script src="assets/js/config.js?v=2"></script>
-  <script src="assets/js/e1-api.js?v=2"></script>
-  <script src="assets/js/main.js?v=16"></script>
+  <script src="assets/js/e1-api.js?v=3"></script>
+  <script src="assets/js/main.js?v=17"></script>
   <script src="assets/js/downloads.js?v=1"></script>
-  <script src="assets/js/account.js?v=3"></script>
+  <script src="assets/js/account.js?v=4"></script>
 </body>
 </html>
