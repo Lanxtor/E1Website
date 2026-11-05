@@ -58,6 +58,8 @@ How the LANXTOR E1 website (this repository) moves from Netlify to Azure and con
 
 Until launch, lanxtor.com answers every address with `coming-soon.html`; the full site is published at the same time to a second Static Web App, **e1-website-preview** at `preview.lanxtor.com` (secret `AZURE_STATIC_WEB_APPS_PREVIEW_TOKEN`). It has its own lanxtor.com address so that sign-in works there too (the session cookie is sent only within one site). Protect it in the portal: *e1-website-preview → Configuration → Password protection → Protect both staging and production environments*. `https://preview.lanxtor.com` must be in the server's `E1_SITE_ORIGINS`; without it the server does not accept the preview's return address, so signing in from the preview ends in the E1 app instead of `account.html`, and the account page cannot load its data.
 
+**Which version is live.** Every deployment publishes `/version.json`, `{"commit":"<short sha>","builtAt":"…"}`, on both addresses (https://preview.lanxtor.com/version.json and https://www.lanxtor.com/version.json, also while lanxtor.com shows the coming-soon page). The owner's review boards (`Lanxtor/E1`, `docs/3-implementation/manual-review.md`) count a website check only on the deployed site, against that commit; a run with `python3 -m http.server` is a preview and never counts.
+
 To launch the full site: GitHub → *Settings → Secrets and variables → Actions → Variables → New repository variable* `SITE_MODE` = `live`, then *Actions → Website on Azure → Run workflow*. Deleting the variable (or any other value) brings the coming-soon page back.
 
 ## 3. What the E1 server provides (`Lanxtor/E1`, branch `claude/website-account-api`)

@@ -11,6 +11,10 @@
 #
 # Needs the repository secret AZURE_STATIC_WEB_APPS_API_TOKEN (the Static Web
 # App's deployment token); without it the job only says so.
+#
+# Every deployment also publishes /version.json, {"commit", "builtAt"}: the
+# commit that is live, read by the owner's review boards (only the deployed
+# site counts for a review, as only app.lanxtor.com does for the app).
 name: Website on Azure
 
 on:
@@ -36,6 +40,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Version stamp (/version.json names the commit that is live)
+        run: printf '{"commit":"%s","builtAt":"%s"}\n' "${GITHUB_SHA::7}" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > version.json
+
       - name: No deployment token yet
         if: env.TOKEN == ''
         run: echo "::notice::AZURE_STATIC_WEB_APPS_API_TOKEN is not set; nothing deployed. See docs/AZURE-INTEGRATION.md."
@@ -53,7 +60,7 @@ jobs:
       - name: Public site shows the coming-soon page (SITE_MODE is not "live")
         if: env.TOKEN != '' && github.event_name != 'pull_request' && env.SITE_MODE != 'live'
         run: |
-          jq '.routes = [{"route": "/assets/*", "allowedRoles": ["anonymous"]}, {"route": "/*", "rewrite": "/coming-soon.html"}] | del(.responseOverrides)' staticwebapp.config.json > config.tmp
+          jq '.routes = [{"route": "/assets/*", "allowedRoles": ["anonymous"]}, {"route": "/version.json", "allowedRoles": ["anonymous"], "headers": {"Cache-Control": "no-store"}}, {"route": "/*", "rewrite": "/coming-soon.html"}] | del(.responseOverrides)' staticwebapp.config.json > config.tmp
           mv config.tmp staticwebapp.config.json
           echo "::notice::lanxtor.com shows the coming-soon page. Set the repository variable SITE_MODE to live to publish the full site."
 
