@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training — LANXTOR E1</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=34">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="account training" data-training>
+    <div class="account-state container" data-state="loading">
+      <p class="muted">Loading the course…</p>
+    </div>
+
+    <div class="account-state container" data-state="signed-out" hidden>
+      <div class="auth-box account-gate">
+        <h1>Sign in to take this course</h1>
+        <p>Your progress and certificates are saved to your E1 account.</p>
+        <a class="btn btn-primary" href="login.html" data-login>Log in</a>
+      </div>
+    </div>
+
+    <div class="account-state container" data-state="error" hidden>
+      <div class="auth-box account-gate">
+        <h1>Something went wrong</h1>
+        <p data-error-text>The E1 cloud could not be reached.</p>
+        <a class="btn btn-primary" href="account.html#academy-courses">Back to the Academy</a>
+      </div>
+    </div>
+
+    <div class="account-shell container" data-state="ready" hidden>
+      <p class="notice account-demo" data-demo-banner hidden>
+        Preview. The courses and videos are examples, and your progress is kept in this browser only.
+      </p>
+
+      <a class="back-link" href="account.html#academy-courses">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        The Academy
+      </a>
+
+      <header class="course-head">
+        <div>
+          <span class="eyebrow" data-course-meta></span>
+          <h1 data-course-title></h1>
+          <p class="course-summary" data-course-summary></p>
+        </div>
+        <div class="course-progress" data-course-progress></div>
+      </header>
+
+      <div class="course-done" data-course-done hidden></div>
+
+      <div class="course-layout">
+        <div class="lesson-main" data-lesson aria-live="polite"></div>
+        <aside class="course-outline" aria-label="Course contents">
+          <div data-buy hidden></div>
+          <nav data-outline></nav>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/config.js?v=3"></script>
+  <script src="assets/js/e1-api.js?v=4"></script>
+  <script src="assets/js/main.js?v=23"></script>
+  <script src="assets/js/training.js?v=1"></script>
+</body>
+</html>

@@ -13,6 +13,16 @@
  * releases  The release manifest the download area reads (see
  *           docs/AZURE-INTEGRATION.md, "Downloads").
  *
+ * siteUrl   The public address of this website, without a trailing slash,
+ *           for example "https://www.lanxtor.com". Certificate links that
+ *           people share and add to LinkedIn are built on it, so they stay
+ *           right whichever address the page was opened on. Empty: the
+ *           current address is used.
+ *
+ * linkedinOrgId  The numeric ID of the LANXTOR company page on LinkedIn.
+ *           With it, "Add to LinkedIn profile" links the certificate to the
+ *           company page (and its logo); empty: LinkedIn shows the name only.
+ *
  * The website and the E1 server must share one registrable domain
  * (www.lanxtor.com and app.lanxtor.com), because the sign-in cookie is
  * SameSite=Lax: browsers send it to app.lanxtor.com from www.lanxtor.com,
@@ -21,5 +31,7 @@
 window.E1_CONFIG = {
   apiBase: "https://app.lanxtor.com",
   appUrl: "https://app.lanxtor.com",
-  releases: "assets/data/releases.json"
+  releases: "assets/data/releases.json",
+  siteUrl: "",
+  linkedinOrgId: ""
 };

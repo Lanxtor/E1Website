@@ -120,9 +120,14 @@ When the release pipeline exists (`commercial-readiness.md` §5.4), it uploads t
 - **Not tenant data.** The rows are public, outside any organization's projects. Row-level security is still forced: people write only their own rows, and only moderators (`E1_COMMUNITY_MODERATORS`) change a request's status (open, planned, in progress, shipped, declined) or hide a post. Writes are rate-limited per person.
 - **The page** (`assets/js/board.js`) uses the server once `apiBase` is set; before that it keeps its examples and stores a visitor's votes in their own browser, as before.
 
+## 5a. Training and certificates
+
+Courses, progress, assessments and public certificates are served by the E1 server under `/api/training/*` (not built yet) and shown in the Academy on `account.html#academy`, on `training.html` (the course player) and on `certificate.html` (public, verifiable). When `/api/training` answers, the Academy shows its courses and certificates; until then it shows the overview's `academy` above. The full reference is in `docs/TRAINING.md`.
+
 ## 6. Open decisions
 
 1. The domain name (the documents say `<domain>`), and whether `www.<domain>` and `app.<domain>` are the names.
 2. Billing provider (Stripe Billing + Tax, or a merchant of record).
 3. Moderation of the board: who the moderators are, and whether the example requests in `board.js` should be posted on the live board at launch.
 4. Storage quota per plan, and whether AI is shown as credits or tokens until credits exist.
+5. Training: which courses are included in which plans, prices, and video hosting (`docs/TRAINING.md` §7).

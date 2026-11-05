@@ -1,5 +1,6 @@
 /*
- * account.html: the signed-in person's profile, academy, licenses, usage,
+ * account.html: the signed-in person's profile, academy (courses from
+ * GET /api/training when the server has it), licenses, usage,
  * organizations, projects, permissions, billing and downloads, from
  * GET /api/account/overview (assets/js/e1-api.js).
  */
@@ -244,7 +245,126 @@
 
   var COURSE_STATUS = { not_started: "Not started", in_progress: "In progress", completed: "Completed" };
 
+  /*
+   * The hosted courses (GET /api/training, docs/TRAINING.md): when the server
+   * answers, the Academy shows them, with links to the course player
+   * (training.html) and the public certificate page (certificate.html).
+   * Until those routes exist it falls back to the overview's `academy`.
+   */
+  var TRAINING_STATUS = {
+    not_started: ["Not started", ""],
+    in_progress: ["In progress", "status-trialing"],
+    completed: ["Completed", "status-active"]
+  };
+
+  function demoSuffix() {
+    return E1.isDemo() && E1.configured() ? "&demo=1" : "";
+  }
+
+  function courseHref(c, lesson) {
+    return "training.html?course=" + encodeURIComponent(c.key) + (lesson ? "&lesson=" + encodeURIComponent(lesson) : "") + demoSuffix();
+  }
+
+  function certHref(id) {
+    return "certificate.html?id=" + encodeURIComponent(id) + demoSuffix();
+  }
+
+  function duration(min) {
+    if (min < 60) return min + " min";
+    var h = Math.floor(min / 60), m = min % 60;
+    return h + " h" + (m ? " " + m + " min" : "");
+  }
+
+  function levelLine(c) {
+    var parts = [c.level, c.durationMinutes ? duration(c.durationMinutes) : "", c.lessons ? c.lessons + " lessons" : ""];
+    return parts.filter(Boolean).map(esc).join(" · ");
+  }
+
+  /* Course progress: unlike the usage meters, full is good. */
+  function progressMeter(done, total) {
+    var p = pct(done, total);
+    return '<div class="meter is-progress' + (p >= 100 ? " is-done" : "") + '" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + p + '">' +
+      '<span style="width:' + p + '%"></span></div>';
+  }
+
+  function courseCard(c) {
+    var p = c.progress || { percent: 0, completedLessons: 0, totalLessons: c.lessons, status: "not_started" };
+    var locked = c.access === "available";
+    var st = TRAINING_STATUS[p.status] || TRAINING_STATUS.not_started;
+    var badge = locked
+      ? '<span class="badge">' + (c.price ? fmt.money(c.price.amount, c.price.currency) : "Available") + "</span>"
+      : '<span class="badge ' + st[1] + '">' + st[0] + "</span>";
+    var action;
+    if (locked) action = '<a class="btn btn-ghost btn-sm" href="' + courseHref(c) + '">See the course</a>';
+    else if (p.status === "completed") {
+      action = (c.certificateId ? '<a class="btn btn-primary btn-sm" href="' + certHref(c.certificateId) + '">View certificate</a> ' : "") +
+        '<a class="btn btn-ghost btn-sm" href="' + courseHref(c) + '">Review the course</a>';
+    } else if (p.status === "in_progress") action = '<a class="btn btn-primary btn-sm" href="' + courseHref(c, p.nextLessonId) + '">Continue</a>';
+    else action = '<a class="btn btn-primary btn-sm" href="' + courseHref(c) + '">Start the course</a>';
+
+    return '<article class="card course-card' + (locked ? " is-locked" : "") + '">' +
+      '<span class="eyebrow">' + levelLine(c) + "</span>" +
+      "<h3>" + esc(c.title) + badge + "</h3>" +
+      "<p>" + esc(c.summary) + "</p>" +
+      (locked
+        ? '<p class="meta-line">Not included in your plan. Buy it for yourself or your organization.</p>'
+        : progressMeter(p.completedLessons, p.totalLessons) +
+          '<p class="meta-line">' + fmt.number(p.completedLessons) + " of " + fmt.number(p.totalLessons) + " lessons · " + p.percent + "%" +
+          (p.lastActivityAt ? " · last studied " + fmt.date(p.lastActivityAt) : "") + "</p>") +
+      '<div class="card-actions">' + action + "</div>" +
+      "</article>";
+  }
+
+  function renderTrainingAcademy(t) {
+    var courses = t.courses || [];
+    var certs = t.certificates || [];
+    var taking = courses.filter(function (c) { return c.access !== "available"; });
+    var done = taking.filter(function (c) { return c.progress && c.progress.status === "completed"; }).length;
+    var active = taking.filter(function (c) { return c.progress && c.progress.status === "in_progress"; });
+    var lessons = taking.reduce(function (n, c) { return n + ((c.progress && c.progress.completedLessons) || 0); }, 0);
+    var tiles = [
+      { label: "Courses completed", value: String(done), sub: "of " + taking.length + " in your plan", href: "#academy-courses" },
+      { label: "In progress", value: String(active.length), sub: lessons + " lessons completed", href: "#academy-courses" },
+      { label: "More courses", value: String(courses.length - taking.length), sub: "to add to your plan", href: "#academy-courses" },
+      { label: "Certificates", value: String(certs.length), sub: certs.length ? "earned" : "Finish a course to earn one", href: "#academy-certificates" }
+    ];
+    $("[data-academy-stats]").innerHTML = tiles.map(function (x) {
+      return '<a class="stat" href="' + x.href + '"><span class="stat-label">' + x.label + '</span><span class="stat-value">' + x.value + "</span>" +
+        (x.sub ? '<span class="stat-sub">' + esc(x.sub) + "</span>" : "") + "</a>";
+    }).join("");
+
+    var current = active.slice().sort(function (a, b) {
+      return String(b.progress.lastActivityAt || "").localeCompare(String(a.progress.lastActivityAt || ""));
+    })[0];
+    var cont = current
+      ? '<a class="continue-card" href="' + courseHref(current, current.progress.nextLessonId) + '">' +
+        '<span class="continue-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7.5v9l7.5-4.5z" fill="currentColor"/></svg></span>' +
+        '<span class="continue-text"><span class="eyebrow">Continue where you left off</span>' +
+        "<strong>" + esc(current.title) + "</strong>" +
+        '<span class="muted">' + (current.progress.nextLessonTitle ? "Next: " + esc(current.progress.nextLessonTitle) + " · " : "") + current.progress.percent + "% done</span></span>" +
+        '<span class="continue-meter">' + progressMeter(current.progress.completedLessons, current.progress.totalLessons) + "</span></a>"
+      : "";
+    $("[data-academy-courses]").innerHTML = cont + '<div class="grid grid-2 course-grid">' + courses.map(courseCard).join("") + "</div>";
+
+    table($("[data-academy-certificates]"), ["Certificate", "Earned", "Credential", ""],
+      certs.map(function (c) {
+        var links = E1.training.shareLinks(c);
+        return [
+          "<strong>" + esc(c.courseTitle) + "</strong>",
+          esc(fmt.date(c.issuedAt)),
+          "<code>" + esc(c.id) + "</code>",
+          '<a class="link-btn" href="' + certHref(c.id) + '">View and share</a> · ' +
+            '<a class="link-btn" href="' + esc(links.linkedinProfile) + '" target="_blank" rel="noopener">Add to LinkedIn</a>'
+        ];
+      }),
+      "No certificates yet. Complete a course and pass its final assessment to earn your first one.");
+  }
+
   function renderAcademy(d) {
+    if (d.training && !d.training.error && (d.training.courses || []).length) {
+      renderTrainingAcademy(d.training);
+      return;
+    }
     var ac = d.academy || {};
     var courses = ac.courses || [];
     var certs = ac.certificates || [];
@@ -321,7 +441,13 @@
 
   function load() {
     show("loading");
-    E1.overview().then(function (d) {
+    /* The training routes are optional: until the server has them, the Academy uses the overview's data. */
+    var training = E1.training.list().catch(function (err) {
+      return { error: (err && err.message) || "Training could not be loaded." };
+    });
+    Promise.all([E1.overview(), training]).then(function (both) {
+      var d = both[0];
+      d.training = both[1];
       if (!E1.isDemo()) {
         E1.rememberSignedIn(true);
         var headerLogin = document.querySelector('.nav-actions a[href="login.html"]');
