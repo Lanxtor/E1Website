@@ -92,7 +92,7 @@
       '<div class="footer-grid">' +
       "<div>" +
       '<a class="brand" href="index.html">' + LOGO_SVG + "<span>" + BRAND + "</span></a>" +
-      "<p>Engineering software for plants, machines and harnesses.</p>" +
+      "<p>Engineering software for production plants and energy.</p>" +
       "</div>" +
       "<div><h4>Product</h4><ul>" +
       '<li><a href="index.html">Overview</a></li>' +
