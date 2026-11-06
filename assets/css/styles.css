@@ -1469,15 +1469,11 @@ a.card:hover { opacity: 0.6; }
 .selfhost .hero-actions { justify-content: flex-start; margin-top: 32px; }
 
 
-.uni-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; margin-top: 20px; padding: 24px 28px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 255, 255, 0.85); }
-.uni-card .icon-tile { margin: 0; }
-.uni-card p { margin-top: 4px; }
 
 @media (max-width: 900px) {
   .selfhost { grid-template-columns: 1fr; padding: 40px 28px; }
 }
 @media (max-width: 640px) {
-  .uni-card { grid-template-columns: 1fr; }
 }
 
 /* Hosting map in the private-installation banner */
@@ -1584,6 +1580,66 @@ a.card:hover { opacity: 0.6; }
 }
 .saas-list li { align-items: flex-start; }
 .saas-list li svg { margin-top: 1px; }
+
+/* People (Notionists illustrations, CC0) */
+.face { display: inline-grid; place-items: end center; flex: none; width: 44px; height: 44px; overflow: hidden; border-radius: 50%; background: #eef1f5; border: 2px solid #fff; }
+.face img { width: 112%; height: 112%; max-width: none; margin-bottom: -6%; }
+.face-lg { width: 56px; height: 56px; }
+.face-xl { width: 116px; height: 116px; border: 0; background: linear-gradient(160deg, #eef2ff, #f4f6f9); }
+.face-pip { width: 64px; height: 64px; background: #f4f6f9; }
+
+/* Trial team with faces */
+.dot { display: inline-grid; place-items: end center; overflow: hidden; box-sizing: border-box; width: 28px; height: 28px; }
+.dot img { width: 120%; height: 120%; max-width: none; margin-bottom: -10%; }
+.d-editor { background: #fff; border: 2px solid var(--text); }
+.d-editor.d-you { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(31, 92, 255, 0.22); background: #fff; }
+.d-reviewer { background: #fff; border: 2px solid #9db5ff; }
+.d-viewer { background: #fff; border: 1.5px solid #c3c8d0; }
+.d-viewer img { opacity: 0.6; }
+
+/* Home: engineers */
+.people-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 980px; margin: 0 auto; }
+.person { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; font-weight: 600; }
+.person:nth-child(even) .face-xl { background: linear-gradient(160deg, #f4f6f9, #eef2ff); }
+@media (max-width: 760px) { .people-row { grid-template-columns: repeat(3, 1fr); } .face-xl { width: 92px; height: 92px; } }
+
+/* Academy: instructor picture-in-picture */
+.pm-pip { position: absolute; right: 20px; bottom: 38px; display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 99px; background: #fff; color: var(--text); font-size: 0.78rem; font-weight: 600; box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.6); }
+.pm-pip .face img { position: static; left: auto; top: auto; width: 112%; height: 112%; transform: none; filter: none; opacity: 1; }
+.pm-pip .face { width: 40px; height: 40px; border: 0; background: #eef1f5; }
+
+/* Contact sales: team */
+.team-stack { display: flex; align-items: center; margin-top: 26px; }
+.team-stack .face { width: 52px; height: 52px; margin-right: -12px; border-width: 3px; }
+.team-stack span:last-child { margin-left: 26px; font-weight: 500; color: var(--text); }
+
+/* Universities */
+.uni { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 64px; border: 1px solid var(--line); border-radius: 28px; background: radial-gradient(70% 100% at 0% 100%, rgba(31, 92, 255, 0.08), transparent 60%), radial-gradient(60% 80% at 100% 0%, rgba(255, 196, 0, 0.10), transparent 60%), rgba(255, 255, 255, 0.92); }
+.uni > * { min-width: 0; }
+.uni h2 { margin-top: 18px; font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1.05; letter-spacing: -0.03em; }
+.uni-text > p { margin-top: 18px; max-width: 520px; font-size: 1.1rem; color: var(--text-muted); }
+.uni .hero-actions { justify-content: flex-start; margin-top: 30px; }
+.classroom { position: relative; padding: 26px; border: 1px solid var(--line); border-radius: 22px; background: #fff; box-shadow: 0 34px 70px -40px rgba(14, 17, 22, 0.45); }
+.cr-head { display: grid; gap: 2px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.cr-head b { font-size: 1.15rem; }
+.cr-badge { width: fit-content; margin-bottom: 6px; padding: 3px 10px; border-radius: 99px; background: #fff4d6; color: #8a6100; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.cr-sub { font-size: 0.85rem; color: var(--text-muted); }
+.cr-teacher { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+.cr-teacher > span:last-child { display: grid; font-size: 0.8rem; color: var(--text-muted); }
+.cr-teacher b { font-size: 0.92rem; color: var(--text); }
+.cr-students { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; margin-top: 16px; padding: 14px; border-radius: 14px; background: #f6f7f9; }
+.cr-students .face { width: 100%; height: auto; aspect-ratio: 1; }
+.cr-tasks { display: grid; gap: 8px; margin-top: 16px; font-size: 0.86rem; }
+.cr-tasks span { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; color: var(--text-muted); }
+.cr-tasks span::before { content: ""; flex: none; box-sizing: border-box; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid #c3c8d0; }
+.cr-tasks span.done { color: var(--text); }
+.cr-tasks span.done::before { display: none; }
+.cr-tasks svg { flex: none; width: 16px; height: 16px; padding: 2px; border-radius: 50%; background: var(--accent); color: #fff; stroke-width: 3; }
+.cr-free { position: absolute; top: -14px; right: 22px; padding: 6px 14px; border-radius: 99px; background: var(--text); color: #fff; font-size: 0.78rem; font-weight: 600; box-shadow: 0 10px 24px -12px rgba(14, 17, 22, 0.6); }
+@media (max-width: 900px) {
+  .uni { grid-template-columns: 1fr; padding: 40px 28px; }
+  .cr-students { grid-template-columns: repeat(4, 1fr); }
+}
 
 /* Courses */
 .course-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
