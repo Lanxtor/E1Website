@@ -1685,19 +1685,44 @@ a.card:hover { opacity: 0.6; }
 .currency-switch button:hover { color: var(--text); }
 .currency-switch button.is-active { background: var(--text); color: #fff; }
 
-/* Meet Alex (a feature row on the home page) */
-.alex-media { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: radial-gradient(70% 90% at 100% 0%, rgba(31, 92, 255, 0.08), transparent 60%), radial-gradient(60% 80% at 0% 100%, rgba(240, 140, 46, 0.07), transparent 60%), #fafbfc; }
-.alex-media figure { display: flex; flex-direction: column; margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
-.alex-portrait { justify-content: space-between; }
-.alex-portrait img { display: block; width: 100%; max-width: 230px; height: auto; margin: 18px auto 0; mix-blend-mode: multiply; }
-.alex-machine { justify-content: space-between; }
-.aeolipile { display: block; width: 100%; max-width: 300px; height: auto; margin: 18px auto 0; }
+/* Meet Alex: a feature row whose "clip" is one composed picture */
+.alex-scene {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(55% 70% at 78% 40%, rgba(31, 92, 255, 0.10), transparent 70%),
+    linear-gradient(rgba(14, 17, 22, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 17, 22, 0.045) 1px, transparent 1px),
+    var(--bg-soft);
+  background-size: auto, 32px 32px, 32px 32px, auto;
+  background-position: center;
+}
+.alex-hero {
+  position: absolute;
+  left: 4%;
+  bottom: 0;
+  height: 92%;
+  width: auto;
+  max-width: none;
+  mix-blend-mode: multiply;
+}
+.alex-drawing { position: absolute; right: 6%; top: 50%; width: 38%; transform: translateY(-50%); }
+.aeolipile { display: block; width: 100%; height: auto; }
 .ae-spin { transform-origin: 160px 120px; animation: ae-spin 9s linear infinite; }
 @keyframes ae-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .ae-spin { animation: none; } }
-.alex-media figcaption { display: grid; gap: 2px; padding: 14px 16px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--text-muted); }
-.alex-media figcaption b { font-size: 0.95rem; color: var(--text); }
-@media (max-width: 560px) { .alex-media { grid-template-columns: 1fr; } }
+.alex-tag { white-space: nowrap; display: block; width: fit-content; margin: 10px auto 0; padding: 4px 12px; border: 1px solid rgba(14, 17, 22, 0.15); border-radius: 99px; background: rgba(255, 255, 255, 0.85); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text-muted); }
+.alex-scene figcaption { position: absolute; left: 4%; bottom: 5%; display: grid; gap: 2px; padding: 10px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.92); box-shadow: 0 10px 30px -18px rgba(14, 17, 22, 0.5); }
+.alex-scene figcaption b { font-size: 0.95rem; }
+.alex-scene figcaption span { font-size: 0.78rem; color: var(--text-muted); }
+@media (max-width: 560px) {
+  .alex-scene figcaption { padding: 7px 10px; }
+  .alex-scene figcaption span { display: none; }
+  .alex-tag { display: none; }
+}
 
 /* Courses */
 .course-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
