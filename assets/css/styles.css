@@ -1685,48 +1685,18 @@ a.card:hover { opacity: 0.6; }
 .currency-switch button:hover { color: var(--text); }
 .currency-switch button.is-active { background: var(--text); color: #fff; }
 
-/* Meet Alex */
-.alex { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; padding: 64px; border: 1px solid var(--line); border-radius: 28px; background: radial-gradient(70% 90% at 100% 0%, rgba(31, 92, 255, 0.09), transparent 60%), radial-gradient(60% 80% at 0% 100%, rgba(240, 140, 46, 0.07), transparent 60%), rgba(255, 255, 255, 0.92); }
-.alex > * { min-width: 0; }
-.alex h2 { margin-top: 18px; font-size: clamp(2.4rem, 4.8vw, 3.6rem); line-height: 1.05; letter-spacing: -0.03em; }
-.alex-lead { margin-top: 16px; font-size: 1.15rem; color: var(--text); }
-.alex h3 { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 1.15rem; }
-.alex-text > p:not(.alex-lead) { margin-top: 10px; color: var(--text-muted); }
-.alex-figure { margin: 0; padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: #fff; box-shadow: 0 34px 70px -42px rgba(14, 17, 22, 0.45); }
-.aeolipile { display: block; width: 100%; max-width: 340px; height: auto; margin: 0 auto; }
+/* Meet Alex (a feature row on the home page) */
+.alex-media { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: radial-gradient(70% 90% at 100% 0%, rgba(31, 92, 255, 0.08), transparent 60%), radial-gradient(60% 80% at 0% 100%, rgba(240, 140, 46, 0.07), transparent 60%), #fafbfc; }
+.alex-media figure { display: flex; flex-direction: column; margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+.alex-portrait img { display: block; width: 100%; aspect-ratio: 4 / 4.4; object-fit: cover; object-position: center 20%; filter: grayscale(1) contrast(1.05); }
+.alex-machine { justify-content: space-between; }
+.aeolipile { display: block; width: 100%; max-width: 300px; height: auto; margin: 18px auto 0; }
 .ae-spin { transform-origin: 160px 120px; animation: ae-spin 9s linear infinite; }
 @keyframes ae-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .ae-spin { animation: none; } }
-.alex-figure figcaption { margin-top: 14px; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
-.alex-inventions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
-.alex-inventions li { display: grid; gap: 2px; padding: 10px 12px; border-radius: 12px; background: var(--bg-soft); font-size: 0.8rem; color: var(--text-muted); }
-.alex-inventions b { font-size: 0.88rem; color: var(--text); }
-@media (max-width: 900px) { .alex { grid-template-columns: 1fr; padding: 40px 24px; } }
-
-/* Legal pages */
-.legal { max-width: 820px; }
-.legal h2 { margin-top: 44px; font-size: 1.5rem; }
-.legal h2:first-child { margin-top: 0; }
-.legal p { margin-top: 12px; color: var(--text-muted); line-height: 1.7; }
-.legal p a, .legal li a { color: var(--accent); }
-.legal .spec-list { margin-top: 16px; }
-.legal-list { margin: 12px 0 0; padding-left: 20px; color: var(--text-muted); line-height: 1.7; }
-.legal-list li + li { margin-top: 6px; }
-.legal-list b { color: var(--text); }
-.ph { padding: 1px 6px; border-radius: 6px; background: #fff4d6; color: #8a6100; font-weight: 500; }
-
-/* Footer legal links */
-.footer-legal { display: flex; flex-wrap: wrap; gap: 6px 20px; }
-.footer-legal a { color: var(--text-muted); }
-.footer-legal a:hover { color: var(--text); }
-
-/* Cookie notice */
-.cookie-notice { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 100; display: flex; align-items: center; gap: 20px; max-width: 720px; margin: 0 auto; padding: 16px 18px 16px 22px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 24px 60px -24px rgba(14, 17, 22, 0.45); }
-.cookie-notice p { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
-.cookie-notice b { color: var(--text); }
-.cookie-notice a { color: var(--accent); }
-.cookie-notice .btn { flex: none; }
-@media (max-width: 560px) { .cookie-notice { flex-direction: column; align-items: stretch; } }
+.alex-media figcaption { display: grid; gap: 2px; padding: 14px 16px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--text-muted); }
+.alex-media figcaption b { font-size: 0.95rem; color: var(--text); }
+@media (max-width: 560px) { .alex-media { grid-template-columns: 1fr; } }
 
 /* Courses */
 .course-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
