@@ -275,7 +275,7 @@
     },
     money: function (amount, currency) {
       try {
-        return Number(amount).toLocaleString(undefined, { style: "currency", currency: currency || "EUR" });
+        return Number(amount).toLocaleString(undefined, { style: "currency", currency: currency || "USD" });
       } catch (e) { return amount + " " + (currency || ""); }
     }
   };
@@ -357,12 +357,12 @@
     billing: {
       canManage: true,
       provider: "Billing provider",
-      nextInvoice: { date: "2026-12-01T00:00:00Z", amount: 1490, currency: "EUR" },
+      nextInvoice: { date: "2026-12-01T00:00:00Z", amount: 1490, currency: "USD" },
       paymentMethod: "Card ending 4242",
       invoices: [
-        { id: "INV-2026-011", date: "2026-11-01T00:00:00Z", amount: 1490, currency: "EUR", status: "paid", url: "" },
-        { id: "INV-2026-010", date: "2026-10-01T00:00:00Z", amount: 1490, currency: "EUR", status: "paid", url: "" },
-        { id: "INV-2026-009", date: "2026-09-01T00:00:00Z", amount: 1192, currency: "EUR", status: "paid", url: "" }
+        { id: "INV-2026-011", date: "2026-11-01T00:00:00Z", amount: 1490, currency: "USD", status: "paid", url: "" },
+        { id: "INV-2026-010", date: "2026-10-01T00:00:00Z", amount: 1490, currency: "USD", status: "paid", url: "" },
+        { id: "INV-2026-009", date: "2026-09-01T00:00:00Z", amount: 1192, currency: "USD", status: "paid", url: "" }
       ]
     }
   };
@@ -455,7 +455,7 @@
         summary: "The instrument index, datasheets and loop diagrams, then cable schedules and single-line diagrams, all from one model.",
         level: "Advanced",
         access: "available",
-        price: { amount: 149, currency: "EUR" },
+        price: { amount: 149, currency: "USD" },
         passMark: 75,
         modules: [
           { title: "Instrumentation", lessons: [

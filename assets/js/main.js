@@ -7,6 +7,7 @@
   var NAV = [
     { href: "index.html", label: "Home" },
     { href: "solutions.html", label: "Solutions" },
+    { href: "academy.html", label: "Academy" },
     { href: "shape-e1.html", label: "Contact us" },
     { href: "pricing.html", label: "Pricing" },
     { href: "about.html", label: "About us" }
@@ -97,6 +98,7 @@
       "<div><h4>Product</h4><ul>" +
       '<li><a href="index.html">Overview</a></li>' +
       '<li><a href="solutions.html">Solutions</a></li>' +
+      '<li><a href="academy.html">Academy</a></li>' +
       '<li><a href="pricing.html">Pricing</a></li>' +
       '<li><a href="download.html">Download</a></li>' +
       "</ul></div>" +
