@@ -97,6 +97,41 @@
     });
   }
 
+  /*
+   * Page tabs: <nav data-page-tabs> with <a href="#x" data-tab="x"> links and
+   * sections with data-tab-panel="x". One panel shows at a time; the first is
+   * the default, and the address (#x) opens a tab directly. Without JS, all
+   * sections stay visible and the links jump to them.
+   */
+  function initPageTabs() {
+    var nav = document.querySelector("[data-page-tabs]");
+    if (!nav) return;
+    var links = Array.prototype.slice.call(nav.querySelectorAll("[data-tab]"));
+    var panels = document.querySelectorAll("[data-tab-panel]");
+    function show(id, scroll) {
+      if (!links.some(function (a) { return a.getAttribute("data-tab") === id; })) id = links[0].getAttribute("data-tab");
+      links.forEach(function (a) {
+        if (a.getAttribute("data-tab") === id) a.setAttribute("aria-current", "true");
+        else a.removeAttribute("aria-current");
+      });
+      panels.forEach(function (p) {
+        p.hidden = p.getAttribute("data-tab-panel") !== id;
+        if (!p.hidden) p.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-visible"); });
+      });
+      if (scroll) nav.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    links.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = a.getAttribute("data-tab");
+        history.replaceState(null, "", "#" + id);
+        show(id, false);
+      });
+    });
+    show(location.hash.slice(1), !!location.hash);
+    window.addEventListener("hashchange", function () { show(location.hash.slice(1), true); });
+  }
+
   function initLangSwitch() {
     var box = document.querySelector(".lang-switch");
     if (!box) return;
@@ -480,6 +515,7 @@
     initHeaderBehaviour();
     initLangSwitch();
     initCookies();
+    initPageTabs();
     initReveal();
     initClips();
     initAuthTabs();
