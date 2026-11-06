@@ -13,8 +13,14 @@
  * a guess from the time zone (Europe/London: GBP, Europe/Oslo: NOK, the rest
  * of Europe: EUR, elsewhere: USD).
  *
+ * The prices themselves come from the E1 server's price list when it can be
+ * reached (GET <apiBase>/api/site/prices, kept in the operator console): an
+ * element with data-product="editor" takes that product's current price. The
+ * price written in the page stays as the fallback.
+ *
  * Mount points:
  *   [data-usd]               a price, its text is replaced
+ *   [data-product]           with data-usd: the product id in E1's price list
  *   [data-currency-switch]   the USD / EUR / GBP / NOK buttons are drawn here
  *   [data-currency-note]     "Prices in …" text for the current currency
  */
@@ -128,9 +134,37 @@
     });
   }
 
+  // The live price list from E1; the page's own prices stay if it cannot be read.
+  function livePrices() {
+    var config = window.E1_CONFIG || {};
+    if (!config.apiBase || !document.querySelector("[data-product]") || !window.fetch) return;
+    var base = String(config.apiBase).replace(/\/+$/, "");
+    var controller = window.AbortController ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, 5000) : null;
+    fetch(base + "/api/site/prices", { credentials: "omit", signal: controller ? controller.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error("prices"); return r.json(); })
+      .then(function (data) {
+        var byId = {};
+        (data && data.products || []).forEach(function (p) {
+          if (p && p.id && typeof p.usd === "number" && p.usd >= 0) byId[p.id] = p.usd;
+        });
+        var changed = false;
+        document.querySelectorAll("[data-product][data-usd]").forEach(function (el) {
+          var usd = byId[el.getAttribute("data-product")];
+          if (usd === undefined || String(usd) === el.getAttribute("data-usd")) return;
+          el.setAttribute("data-usd", String(usd));
+          changed = true;
+        });
+        if (changed) render();
+      })
+      .catch(function () {})
+      .then(function () { if (timer) clearTimeout(timer); });
+  }
+
   function load() {
     if (!document.querySelector("[data-usd]")) return;
     drawSwitches();
+    livePrices();
     fetch(RATES_URL, { cache: "no-cache" })
       .then(function (r) { if (!r.ok) throw new Error("rates"); return r.json(); })
       .then(function (data) {
