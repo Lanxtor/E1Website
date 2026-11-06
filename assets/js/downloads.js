@@ -12,6 +12,7 @@
  */
 (function () {
   "use strict";
+  var T = function (x) { return window.E1_T ? window.E1_T(x) : x; };
 
   var ORDER = ["windows", "mac", "linux"];
 
@@ -49,7 +50,7 @@
   function card(key, platform, version, mine) {
     var files = (platform.files || []).map(function (f) {
       if (!f.url) {
-        return '<span class="btn btn-ghost btn-sm" aria-disabled="true">' + esc(f.label) + " · Coming soon</span>";
+        return '<span class="btn btn-ghost btn-sm" aria-disabled="true">' + esc(f.label) + " · " + T("Coming soon") + "</span>";
       }
       var meta = [f.size ? size(f.size) : "", f.sha256 ? "SHA-256 " + esc(f.sha256.slice(0, 12)) + "…" : ""].filter(Boolean).join(" · ");
       return '<a class="btn ' + (mine ? "btn-primary" : "btn-ghost") + ' btn-sm" href="' + esc(f.url) + '" download' +
@@ -58,9 +59,9 @@
     }).join("");
 
     return '<div class="card download-card' + (mine ? " is-mine" : "") + '">' +
-      '<div class="download-card-head">' + icon(key) + "<h3>" + esc(platform.name) + "</h3>" + (mine ? '<span class="badge">Your system</span>' : "") + "</div>" +
+      '<div class="download-card-head">' + icon(key) + "<h3>" + esc(platform.name) + "</h3>" + (mine ? '<span class="badge">' + T("Your system") + '</span>' : "") + "</div>" +
       '<p class="muted">' + esc(platform.requirements) + "</p>" +
-      '<span class="meta">Version ' + esc(version) + "</span>" +
+      '<span class="meta">' + T("Version") + " " + esc(version) + "</span>" +
       '<div class="download-files">' + files + "</div>" +
       "</div>";
   }
@@ -75,8 +76,8 @@
     });
 
     document.querySelectorAll("[data-release-line]").forEach(function (el) {
-      el.textContent = "Current version " + manifest.version + (manifest.date ? " · released " + (window.E1 ? E1.format.date(manifest.date) : manifest.date) : "") +
-        (manifest.channel ? " · " + manifest.channel + " channel" : "");
+      el.textContent = T("Current version") + " " + manifest.version + (manifest.date ? " · " + T("released") + " " + (window.E1 ? E1.format.date(manifest.date) : manifest.date) : "") +
+        (manifest.channel ? " · " + manifest.channel + " " + T("channel") : "");
     });
 
     document.querySelectorAll("[data-release-notes]").forEach(function (list) {
@@ -91,7 +92,7 @@
     var get = window.E1 ? E1.releases() : fetch("assets/data/releases.json").then(function (r) { return r.json(); });
     get.then(render, function () {
       document.querySelectorAll("[data-downloads]").forEach(function (mount) {
-        mount.innerHTML = '<p class="muted">Downloads are not available right now.</p>';
+        mount.innerHTML = '<p class="muted">' + T("Downloads are not available right now.") + "</p>";
       });
     });
   }

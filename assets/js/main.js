@@ -2,6 +2,8 @@
   "use strict";
 
   var BRAND = "LANXTOR";
+  var T = function (s, v) { return window.E1_T ? window.E1_T(s, v) : s; };
+  var H = function (h) { return window.E1_href ? window.E1_href(h) : h; };
   var PRODUCT = "E1";
 
   var NAV = [
@@ -37,9 +39,46 @@
     var signedIn = window.E1 && E1.probablySignedIn();
     var page = currentPage();
     if (signedIn) {
-      return '<a class="btn btn-ghost btn-sm" href="account.html"' + (page === "account.html" ? ' aria-current="page"' : "") + ">Account</a>";
+      return '<a class="btn btn-ghost btn-sm" href="account.html"' + (page === "account.html" ? ' aria-current="page"' : "") + ">" + T("Account") + "</a>";
     }
-    return '<a class="btn btn-ghost btn-sm" href="login.html">Log in</a>';
+    return '<a class="btn btn-ghost btn-sm" href="login.html">' + T("Log in") + "</a>";
+  }
+
+  var GLOBE_SVG =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
+
+  /* Language switch: the same page in another language. */
+  function langSwitch() {
+    var langs = window.E1_LANGS;
+    if (!langs) return "";
+    var cur = window.E1_LANG || "en";
+    var items = langs.map(function (l) {
+      return '<li><a href="' + window.E1_hrefFor(l.code) + '" data-lang-pick="' + l.code + '" lang="' + l.code + '"' +
+        (l.code === cur ? ' aria-current="true"' : "") + ">" + l.name + "</a></li>";
+    }).join("");
+    return '<div class="lang-switch">' +
+      '<button type="button" class="lang-toggle" aria-expanded="false" aria-label="' + T("Language") + '">' +
+      GLOBE_SVG + "<span>" + cur.toUpperCase() + "</span>" + CHEVRON_SVG + "</button>" +
+      '<ul class="lang-menu">' + items + "</ul></div>";
+  }
+
+  function initLangSwitch() {
+    var box = document.querySelector(".lang-switch");
+    if (!box) return;
+    var btn = box.querySelector(".lang-toggle");
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = box.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(open));
+    });
+    box.querySelectorAll("[data-lang-pick]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.E1_rememberLang) window.E1_rememberLang(a.getAttribute("data-lang-pick"));
+      });
+    });
+    document.addEventListener("click", function () { box.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") { box.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); } });
   }
 
   function renderHeader() {
@@ -52,31 +91,32 @@
         var active = item.children.some(function (c) { return c.href === page; });
         var sub = item.children.map(function (c) {
           var cur = c.href === page ? ' aria-current="page"' : "";
-          return '<li><a href="' + c.href + '"' + cur + ">" +
-            '<span class="sub-label">' + c.label + "</span>" +
+          return '<li><a href="' + H(c.href) + '"' + cur + ">" +
+            '<span class="sub-label">' + T(c.label) + "</span>" +
             (c.desc ? '<span class="sub-desc">' + c.desc + "</span>" : "") +
             "</a></li>";
         }).join("");
         return '<li class="has-sub' + (active ? " is-active" : "") + '">' +
-          '<button type="button" class="sub-toggle" aria-expanded="false">' + item.label + CHEVRON_SVG + "</button>" +
+          '<button type="button" class="sub-toggle" aria-expanded="false">' + T(item.label) + CHEVRON_SVG + "</button>" +
           '<ul class="submenu">' + sub + "</ul></li>";
       }
       var current = item.href === page ? ' aria-current="page"' : "";
-      return '<li><a href="' + item.href + '"' + current + ">" + item.label + "</a></li>";
+      return '<li><a href="' + H(item.href) + '"' + current + ">" + T(item.label) + "</a></li>";
     }).join("");
 
     mount.outerHTML =
       '<header class="site-header">' +
       '<div class="container">' +
-      '<a class="brand" href="index.html" aria-label="' + BRAND + ' home">' + LOGO_SVG + "<span>" + BRAND + "</span></a>" +
+      '<a class="brand" href="' + H("index.html") + '" aria-label="' + BRAND + '">' + LOGO_SVG + "<span>" + BRAND + "</span></a>" +
       '<nav class="nav" aria-label="Main">' +
       '<ul class="nav-links">' + links + "</ul>" +
       '<div class="nav-actions">' +
+      langSwitch() +
       accountLink() +
-      '<a class="btn btn-primary btn-sm" href="download.html">Get ' + PRODUCT + "</a>" +
+      '<a class="btn btn-primary btn-sm" href="' + H("download.html") + '">' + T("Get E1") + "</a>" +
       "</div>" +
       "</nav>" +
-      '<button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
+      '<button class="nav-toggle" aria-label="' + T("Toggle menu") + '" aria-expanded="false"><span></span><span></span><span></span></button>' +
       "</div>" +
       "</header>";
   }
@@ -91,25 +131,25 @@
       '<div class="container">' +
       '<div class="footer-grid">' +
       "<div>" +
-      '<a class="brand" href="index.html">' + LOGO_SVG + "<span>" + BRAND + "</span></a>" +
-      "<p>Engineering software for production plants and energy.</p>" +
+      '<a class="brand" href="' + H("index.html") + '">' + LOGO_SVG + "<span>" + BRAND + "</span></a>" +
+      "<p>" + T("Engineering software for production plants and energy.") + "</p>" +
       "</div>" +
-      "<div><h4>Product</h4><ul>" +
-      '<li><a href="index.html">Overview</a></li>' +
-      '<li><a href="solutions.html">Solutions</a></li>' +
-      '<li><a href="academy.html">Academy</a></li>' +
-      '<li><a href="download.html">Get E1</a></li>' +
-      '<li><a href="download.html#pricing">Pricing</a></li>' +
+      "<div><h4>" + T("Product") + "</h4><ul>" +
+      '<li><a href="' + H("index.html") + '">' + T("Overview") + "</a></li>" +
+      '<li><a href="' + H("solutions.html") + '">' + T("Solutions") + "</a></li>" +
+      '<li><a href="' + H("academy.html") + '">' + T("Academy") + "</a></li>" +
+      '<li><a href="' + H("download.html") + '">' + T("Get E1") + "</a></li>" +
+      '<li><a href="' + H("download.html#pricing") + '">' + T("Pricing") + "</a></li>" +
       "</ul></div>" +
-      "<div><h4>Company</h4><ul>" +
-      '<li><a href="about.html">About us</a></li>' +
-      '<li><a href="shape-e1.html">Contact us</a></li>' +
-      '<li><a href="contact-sales.html">Contact sales</a></li>' +
-      '<li><a href="account.html">Your account</a></li>' +
-      '<li><a href="#">Privacy</a></li>' +
+      "<div><h4>" + T("Company") + "</h4><ul>" +
+      '<li><a href="' + H("about.html") + '">' + T("About us") + "</a></li>" +
+      '<li><a href="' + H("shape-e1.html") + '">' + T("Contact us") + "</a></li>" +
+      '<li><a href="' + H("contact-sales.html") + '">' + T("Contact sales") + "</a></li>" +
+      '<li><a href="account.html">' + T("Your account") + "</a></li>" +
+      '<li><a href="#">' + T("Privacy") + "</a></li>" +
       "</ul></div>" +
       "</div>" +
-      '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". All rights reserved.</span><span>" + PRODUCT + "</span></div>" +
+      '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". " + T("All rights reserved.") + "</span><span>" + PRODUCT + "</span></div>" +
       "</div>" +
       "</footer>";
   }
@@ -183,7 +223,7 @@
     var clips = document.querySelectorAll(".clip");
 
     clips.forEach(function (clip) {
-      var label = clip.getAttribute("data-label") || "Clip placeholder";
+      var label = clip.getAttribute("data-label") || T("Clip placeholder");
       var ph = document.createElement("div");
       ph.className = "clip-placeholder";
       ph.innerHTML = PLAY_SVG + "<span>" + label + "</span>";
@@ -315,8 +355,8 @@
 
       if (countEl) {
         countEl.textContent = visible === items.length
-          ? visible + " features"
-          : "Showing " + visible + " of " + items.length;
+          ? visible + " " + T("features")
+          : T("Showing {visible} of {total}", { visible: visible, total: items.length });
       }
 
       if (emptyEl) emptyEl.hidden = visible !== 0;
@@ -398,6 +438,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     initHeaderBehaviour();
+    initLangSwitch();
     initReveal();
     initClips();
     initAuthTabs();
