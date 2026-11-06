@@ -1480,13 +1480,7 @@ a.card:hover { opacity: 0.6; }
   .uni-card { grid-template-columns: 1fr; }
 }
 
-/* Hosting: logo strip in the hero and the hosting map in the banner */
-.host-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 26px; padding: 12px 18px; width: fit-content; max-width: 100%; border: 1px solid var(--line); border-radius: 16px; background: rgba(255, 255, 255, 0.9); }
-.hs-item { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 0.92rem; font-weight: 600; color: var(--text); }
-.host-strip img { height: 24px; width: auto; }
-.host-strip img.hs-aws { height: 22px; }
-.host-strip-label, .hs-or { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
-.hs-srv { width: 22px; height: 22px; color: var(--text); }
+/* Hosting map in the private-installation banner */
 
 .selfhost-list li { align-items: flex-start; }
 .selfhost-list li svg { margin-top: 1px; }
@@ -1517,6 +1511,67 @@ a.card:hover { opacity: 0.6; }
   .host-tiles { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
   .host-tile { min-height: 84px; padding: 12px 4px; }
   .host-tile img { height: 26px; }
+}
+
+/* Get E1: centred hero with the two ways to run E1 */
+.getE1-hero { text-align: center; }
+.getE1-hero p.lead { margin-left: auto; margin-right: auto; max-width: 680px; }
+.getE1-hero .hero-links { justify-content: center; }
+.getE1-hero .hero-links a:first-child { border-color: var(--line); background: rgba(255, 255, 255, 0.85); color: var(--text); }
+.choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 980px; margin: 44px auto 0; text-align: left; }
+.choice { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 28px 30px 26px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255, 255, 255, 0.92); color: var(--text); transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease); }
+.choice:hover { transform: translateY(-3px); box-shadow: 0 22px 44px -26px rgba(14, 17, 22, 0.45); }
+.choice-tag { width: fit-content; padding: 4px 11px; border-radius: 99px; background: rgba(31, 92, 255, 0.09); color: var(--accent); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.choice-title { margin-top: 6px; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; }
+.choice-desc { color: var(--text-muted); font-size: 0.98rem; }
+.choice-logos { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 12px; font-size: 0.88rem; font-weight: 500; }
+.choice-logos > img { height: 24px; }
+.logo-chip { display: grid; place-items: center; width: 48px; height: 38px; border-radius: 10px; background: #fff; }
+.logo-chip img { height: 20px; max-width: 34px; }
+.chip-srv { width: 20px; height: 20px; color: var(--text); }
+.choice-arrow { position: absolute; right: 26px; top: 28px; width: 22px; height: 22px; color: var(--text-muted); transition: transform 0.25s var(--ease); }
+.choice:hover .choice-arrow { transform: translateX(4px); }
+.choice-dark { border-color: transparent; color: #fff; background: radial-gradient(90% 120% at 100% 0%, rgba(31, 92, 255, 0.38), transparent 60%), radial-gradient(120% 140% at 0% 100%, #121a27, #0b0e13 70%); }
+.choice-dark .choice-tag { background: rgba(255, 255, 255, 0.1); color: #c9d6ff; }
+.choice-dark .choice-desc { color: rgba(255, 255, 255, 0.7); }
+.choice-dark .choice-arrow { color: rgba(255, 255, 255, 0.7); }
+
+/* E1 Cloud (SaaS) */
+.saas { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; padding: 56px; border: 1px solid var(--line); border-radius: 28px; background: radial-gradient(80% 100% at 100% 0%, rgba(31, 92, 255, 0.09), transparent 60%), rgba(255, 255, 255, 0.92); }
+.saas-kicker { display: inline-block; padding: 5px 12px; border-radius: 99px; background: rgba(31, 92, 255, 0.09); color: var(--accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.saas h2 { margin-top: 18px; font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1.05; letter-spacing: -0.03em; }
+.saas-text > p { margin-top: 18px; max-width: 500px; font-size: 1.1rem; color: var(--text-muted); }
+.saas-list { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 11px; }
+.saas-list li { display: flex; align-items: center; gap: 12px; }
+.saas-list svg { flex: none; width: 22px; height: 22px; padding: 4px; border-radius: 50%; background: rgba(31, 92, 255, 0.12); color: var(--accent); }
+.saas .hero-actions { justify-content: flex-start; margin-top: 30px; }
+
+.saas-vis { position: relative; padding: 26px 0 30px; }
+.app-window { overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 34px 70px -40px rgba(14, 17, 22, 0.5); }
+.aw-bar { display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; border-bottom: 1px solid var(--line); background: #f6f7f8; }
+.aw-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d5dae1; }
+.aw-url { margin-left: 14px; padding: 3px 14px; border-radius: 99px; background: #fff; border: 1px solid var(--line); font-size: 0.74rem; color: var(--text-muted); }
+.aw-body { display: grid; grid-template-columns: 74px 1fr; min-height: 230px; }
+.aw-side { display: flex; flex-direction: column; gap: 9px; padding: 14px 12px; border-right: 1px solid var(--line); background: #fbfbfc; }
+.aw-side b { width: 22px; height: 22px; margin-bottom: 6px; border-radius: 6px; background: var(--text); }
+.aw-side span { height: 7px; border-radius: 4px; background: #e3e6eb; }
+.aw-side span.on { background: rgba(31, 92, 255, 0.45); }
+.aw-pid { width: 100%; height: auto; padding: 12px; background-image: radial-gradient(rgba(14, 17, 22, 0.07) 1px, transparent 1px); background-size: 12px 12px; }
+.saas-badge { position: absolute; display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 16px 34px -20px rgba(14, 17, 22, 0.45); }
+.saas-badge img, .badge-icon { flex: none; width: 26px; height: 26px; }
+.badge-icon { color: var(--accent); }
+.saas-badge span { display: grid; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3; }
+.saas-badge b { font-size: 0.84rem; color: var(--text); }
+.saas-badge-1 { left: -22px; bottom: 0; }
+.saas-badge-2 { right: -14px; top: 0; }
+
+@media (max-width: 900px) {
+  .saas { grid-template-columns: 1fr; padding: 40px 28px; }
+  .saas-badge-1 { left: 8px; }
+  .saas-badge-2 { right: 8px; }
+}
+@media (max-width: 720px) {
+  .choice-grid { grid-template-columns: 1fr; }
 }
 
 /* Courses */
