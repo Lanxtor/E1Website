@@ -29,14 +29,14 @@ window.E1_I18N_DICT = {
   "Version": "Version",
   "Current version": "Aktuelle Version",
   "released": "veröffentlicht",
-  "channel": "Kanal",
   "Downloads are not available right now.": "Downloads sind derzeit nicht verfügbar.",
   "Currency": "Währung",
   "Prices in US dollars": "Preise in US-Dollar",
   "Prices in euros": "Preise in Euro",
   "Prices in British pounds": "Preise in britischen Pfund",
   "Prices in Norwegian kroner": "Preise in norwegischen Kronen",
-  ", converted from US dollars at the European Central Bank rate of ": ", umgerechnet aus US-Dollar zum Kurs der Europäischen Zentralbank von "
+  ", converted from US dollars at the European Central Bank rate of ": ", umgerechnet aus US-Dollar zum Kurs der Europäischen Zentralbank von ",
+  "{channel} channel": "Kanal {channel}"
  },
  "fr": {
   "Home": "Accueil",
@@ -66,14 +66,14 @@ window.E1_I18N_DICT = {
   "Version": "Version",
   "Current version": "Version actuelle",
   "released": "publiée le",
-  "channel": "canal",
   "Downloads are not available right now.": "Les téléchargements ne sont pas disponibles pour le moment.",
   "Currency": "Devise",
   "Prices in US dollars": "Prix en dollars américains",
   "Prices in euros": "Prix en euros",
   "Prices in British pounds": "Prix en livres sterling",
   "Prices in Norwegian kroner": "Prix en couronnes norvégiennes",
-  ", converted from US dollars at the European Central Bank rate of ": ", convertis depuis le dollar américain au taux de la Banque centrale européenne de "
+  ", converted from US dollars at the European Central Bank rate of ": ", convertis depuis le dollar américain au taux de la Banque centrale européenne de ",
+  "{channel} channel": "canal {channel}"
  },
  "es": {
   "Home": "Inicio",
@@ -103,14 +103,14 @@ window.E1_I18N_DICT = {
   "Version": "Versión",
   "Current version": "Versión actual",
   "released": "publicada",
-  "channel": "canal",
   "Downloads are not available right now.": "Las descargas no están disponibles en este momento.",
   "Currency": "Moneda",
   "Prices in US dollars": "Precios en dólares estadounidenses",
   "Prices in euros": "Precios en euros",
   "Prices in British pounds": "Precios en libras esterlinas",
   "Prices in Norwegian kroner": "Precios en coronas noruegas",
-  ", converted from US dollars at the European Central Bank rate of ": ", convertidos desde dólares estadounidenses al tipo del Banco Central Europeo de "
+  ", converted from US dollars at the European Central Bank rate of ": ", convertidos desde dólares estadounidenses al tipo del Banco Central Europeo de ",
+  "{channel} channel": "canal {channel}"
  },
  "no": {
   "Home": "Hjem",
@@ -140,13 +140,13 @@ window.E1_I18N_DICT = {
   "Version": "Versjon",
   "Current version": "Gjeldende versjon",
   "released": "utgitt",
-  "channel": "kanal",
   "Downloads are not available right now.": "Nedlastinger er ikke tilgjengelige akkurat nå.",
   "Currency": "Valuta",
   "Prices in US dollars": "Priser i amerikanske dollar",
   "Prices in euros": "Priser i euro",
   "Prices in British pounds": "Priser i britiske pund",
   "Prices in Norwegian kroner": "Priser i norske kroner",
-  ", converted from US dollars at the European Central Bank rate of ": ", omregnet fra amerikanske dollar etter Den europeiske sentralbankens kurs på "
+  ", converted from US dollars at the European Central Bank rate of ": ", omregnet fra amerikanske dollar etter Den europeiske sentralbankens kurs på ",
+  "{channel} channel": "{channel}-kanal"
  }
 };

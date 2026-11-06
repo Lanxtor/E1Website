@@ -136,11 +136,20 @@ def inline_only(n):
 
 def collect(src, node, out):
     """Segments: (start, end) ranges of translatable inner HTML."""
+    run = []  # adjacent text pieces (text, &amp; ...) form one segment
+
+    def flush():
+        if run and any(LETTER.search(text_of(src, t)) for t in run):
+            out.append((run[0]["s"], run[-1]["e"]))
+        del run[:]
+
     for c in node["children"]:
         if c["tag"] == "#text":
-            if LETTER.search(text_of(src, c)):
-                out.append((c["s"], c["e"]))
+            if run and run[-1]["e"] != c["s"]:
+                flush()
+            run.append(c)
             continue
+        flush()
         if c["tag"] in SKIP:
             continue
         if c["tag"] in VOID or "cs" not in c:
@@ -149,6 +158,7 @@ def collect(src, node, out):
             out.append((c["oe"], c["cs"]))
         else:
             collect(src, c, out)
+    flush()
 
 
 def all_nodes(n):

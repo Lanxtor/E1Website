@@ -51,6 +51,7 @@ h1, h2, h3 {
 
 h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); }
 h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+h1, h2, h3 { hyphens: auto; overflow-wrap: break-word; }
 h3 { font-size: 1.15rem; letter-spacing: -0.01em; }
 
 p { margin: 0; }
@@ -1616,10 +1617,11 @@ a.card:hover { opacity: 0.6; }
 .d-viewer img { opacity: 0.6; }
 
 /* Home: engineers */
-.people-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 980px; margin: 0 auto; }
+.people-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; max-width: 980px; margin: 0 auto; }
+.person > span:last-child { max-width: 100%; hyphens: auto; overflow-wrap: anywhere; }
 .person { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; font-weight: 600; }
 .person:nth-child(even) .face-xl { background: linear-gradient(160deg, #f4f6f9, #eef2ff); }
-@media (max-width: 760px) { .people-row { grid-template-columns: repeat(3, 1fr); } .face-xl { width: 92px; height: 92px; } }
+@media (max-width: 760px) { .people-row { grid-template-columns: repeat(3, minmax(0, 1fr)); } .face-xl { width: 92px; height: 92px; } }
 
 /* Academy: instructor picture-in-picture */
 .pm-pip { position: absolute; right: 20px; bottom: 38px; display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 99px; background: #fff; color: var(--text); font-size: 0.78rem; font-weight: 600; box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.6); }

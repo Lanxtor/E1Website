@@ -77,7 +77,7 @@
 
     document.querySelectorAll("[data-release-line]").forEach(function (el) {
       el.textContent = T("Current version") + " " + manifest.version + (manifest.date ? " · " + T("released") + " " + (window.E1 ? E1.format.date(manifest.date) : manifest.date) : "") +
-        (manifest.channel ? " · " + manifest.channel + " " + T("channel") : "");
+        (manifest.channel ? " · " + T("{channel} channel").replace("{channel}", manifest.channel) : "");
     });
 
     document.querySelectorAll("[data-release-notes]").forEach(function (list) {
