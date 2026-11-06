@@ -71,7 +71,7 @@
     var launcher = document.createElement("button");
     launcher.type = "button";
     launcher.className = "alex-launcher";
-    launcher.innerHTML = '<span class="alex-launcher-face"><img src="assets/img/hero-avatar.png?v=1" alt=""></span><span>' + T("Ask Alex") + "</span>";
+    launcher.innerHTML = '<span class="alex-launcher-face"><img src="assets/img/hero-avatar.png?v=2" alt=""></span><span>' + T("Ask Alex") + "</span>";
     launcher.addEventListener("click", function () { open(); });
     document.body.appendChild(launcher);
 
@@ -82,7 +82,7 @@
     panel.hidden = true;
     panel.innerHTML =
       '<header class="alex-head">' +
-      '<span class="alex-face"><img src="assets/img/hero-avatar.png?v=1" alt=""></span>' +
+      '<span class="alex-face"><img src="assets/img/hero-avatar.png?v=2" alt=""></span>' +
       '<div><b>Alex</b><span>' + T("Ask anything about E1. Answers are written by AI.") + "</span></div>" +
       (canSpeak ? '<button type="button" class="alex-icon" data-sound aria-label="' + T("Read answers aloud") + '"></button>' : "") +
       '<button type="button" class="alex-icon" data-close aria-label="' + T("Close") + '">' + ICON.close + "</button>" +
