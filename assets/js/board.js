@@ -106,16 +106,6 @@
       votes: 11,
       created: "2026-10-29",
       comments: []
-    },
-    {
-      id: "ipad-markup",
-      title: "Markups on the iPad viewer",
-      body: "Review drawings on site and leave markups that show up for the engineer in E1.",
-      category: "Collaboration",
-      status: "shipped",
-      votes: 14,
-      created: "2026-08-10",
-      comments: []
     }
   ];
 

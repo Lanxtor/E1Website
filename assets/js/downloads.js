@@ -1,5 +1,5 @@
 /*
- * The download area: Windows, macOS and Linux cards built from the release
+ * The download area: Windows and macOS cards built from the release
  * manifest (assets/data/releases.json, or the address in E1_CONFIG.releases).
  * Used by download.html and the Downloads section of account.html.
  *
@@ -14,7 +14,8 @@
   "use strict";
   var T = function (x) { return window.E1_T ? window.E1_T(x) : x; };
 
-  var ORDER = ["windows", "mac", "linux"];
+  // Desktop apps for Windows and macOS; every other system uses E1 in the browser.
+  var ORDER = ["windows", "mac"];
 
   /* Platform marks (Apple and Linux from Simple Icons, CC0). */
   var ICONS = {
@@ -33,7 +34,6 @@
     ua = ua.toLowerCase();
     if (ua.indexOf("win") !== -1) return "windows";
     if (ua.indexOf("mac") !== -1) return "mac";
-    if (ua.indexOf("linux") !== -1 || ua.indexOf("x11") !== -1) return "linux";
     return "";
   }
 
@@ -97,7 +97,7 @@
     });
   }
 
-  /* <div data-os-icons></div>: the three platform marks in a row. */
+  /* <div data-os-icons></div>: the platform marks in a row. */
   function renderIconRow() {
     document.querySelectorAll("[data-os-icons]").forEach(function (row) {
       row.innerHTML = ORDER.map(function (k) {
