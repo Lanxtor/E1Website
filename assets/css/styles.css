@@ -1693,29 +1693,30 @@ a.card:hover { opacity: 0.6; }
   overflow: hidden;
   border-radius: var(--radius);
   background:
-    radial-gradient(55% 70% at 78% 40%, rgba(31, 92, 255, 0.10), transparent 70%),
-    linear-gradient(rgba(14, 17, 22, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 17, 22, 0.045) 1px, transparent 1px),
-    var(--bg-soft);
-  background-size: auto, 32px 32px, 32px 32px, auto;
-  background-position: center;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500' fill='none' stroke='%23a07a3c' stroke-opacity='0.16' stroke-width='1'%3E%3Ccircle cx='560' cy='230' r='190'/%3E%3Ccircle cx='560' cy='230' r='120'/%3E%3Ccircle cx='430' cy='230' r='190' stroke-dasharray='3 6'/%3E%3Cpath d='M370 230h380M560 40v380M425 95l270 270M425 365l270-270'/%3E%3Cpath d='M60 470 L740 30' stroke-dasharray='2 8'/%3E%3C/svg%3E") center / cover no-repeat,
+    radial-gradient(60% 75% at 72% 42%, rgba(255, 252, 244, 0.95), transparent 70%),
+    radial-gradient(120% 120% at 0% 100%, #e9dcc3, transparent 60%),
+    linear-gradient(160deg, #f8f3e9, #efe5d2);
+  box-shadow: inset 0 0 0 1px rgba(120, 90, 40, 0.12);
 }
 .alex-hero {
   position: absolute;
-  left: 4%;
-  bottom: 0;
-  height: 92%;
+  left: 7%;
+  top: 50%;
+  height: 70%;
   width: auto;
   max-width: none;
+  transform: translateY(-56%);
   mix-blend-mode: multiply;
+  opacity: 0.92;
 }
 .alex-drawing { position: absolute; right: 6%; top: 50%; width: 38%; transform: translateY(-50%); }
 .aeolipile { display: block; width: 100%; height: auto; }
 .ae-spin { transform-origin: 160px 120px; animation: ae-spin 9s linear infinite; }
 @keyframes ae-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .ae-spin { animation: none; } }
-.alex-tag { white-space: nowrap; display: block; width: fit-content; margin: 10px auto 0; padding: 4px 12px; border: 1px solid rgba(14, 17, 22, 0.15); border-radius: 99px; background: rgba(255, 255, 255, 0.85); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text-muted); }
-.alex-scene figcaption { position: absolute; left: 4%; bottom: 5%; display: grid; gap: 2px; padding: 10px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.92); box-shadow: 0 10px 30px -18px rgba(14, 17, 22, 0.5); }
+.alex-tag { white-space: nowrap; display: block; width: fit-content; margin: 10px auto 0; padding: 4px 12px; border: 1px solid rgba(120, 90, 40, 0.25); border-radius: 99px; background: rgba(255, 252, 244, 0.9); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text-muted); }
+.alex-scene figcaption { position: absolute; left: 5%; bottom: 6%; display: grid; gap: 2px; padding: 10px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.92); box-shadow: 0 10px 30px -18px rgba(14, 17, 22, 0.5); }
 .alex-scene figcaption b { font-size: 0.95rem; }
 .alex-scene figcaption span { font-size: 0.78rem; color: var(--text-muted); }
 @media (max-width: 560px) {
