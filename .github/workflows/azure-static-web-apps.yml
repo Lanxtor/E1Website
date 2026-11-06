@@ -24,6 +24,10 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches: [main]
   workflow_dispatch:
+  # Every working day after the European Central Bank publishes its rates,
+  # so the prices in EUR, GBP and NOK follow the day's exchange rate.
+  schedule:
+    - cron: "35 15 * * 1-5"
 
 permissions:
   contents: read
@@ -42,6 +46,24 @@ jobs:
 
       - name: Version stamp (/version.json names the commit that is live)
         run: printf '{"commit":"%s","builtAt":"%s"}\n' "${GITHUB_SHA::7}" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > version.json
+
+      - name: Exchange rates (/assets/data/rates.json, from the European Central Bank)
+        # Keeps the committed fallback when the ECB cannot be reached.
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, xml.etree.ElementTree as ET
+          try:
+              xml = urllib.request.urlopen("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml", timeout=30).read()
+              ns = {"e": "http://www.ecb.int/vocabulary/2002-08-01/eurofxref"}
+              day = ET.fromstring(xml).find(".//e:Cube[@time]", ns)
+              rates = {c.get("currency"): float(c.get("rate")) for c in day.findall("e:Cube", ns)}
+              out = {"source": "European Central Bank euro reference rates", "base": "EUR", "date": day.get("time"),
+                     "rates": {k: rates[k] for k in ("USD", "GBP", "NOK")}}
+              json.dump(out, open("assets/data/rates.json", "w"), indent=2)
+              print("Rates of", out["date"], out["rates"])
+          except Exception as e:
+              print("::warning::Exchange rates not updated:", e)
+          PY
 
       - name: No deployment token yet
         if: env.TOKEN == ''
