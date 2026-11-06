@@ -65,6 +65,9 @@ jobs:
               print("::warning::Exchange rates not updated:", e)
           PY
 
+      - name: Website knowledge for the Alex assistant (api/knowledge.txt)
+        run: python3 tools/chat/build_knowledge.py
+
       - name: No deployment token yet
         if: env.TOKEN == ''
         run: echo "::notice::AZURE_STATIC_WEB_APPS_API_TOKEN is not set; nothing deployed. See docs/AZURE-INTEGRATION.md."
@@ -77,6 +80,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           app_location: /
+          api_location: api
           skip_app_build: true
 
       - name: Public site shows the coming-soon page (SITE_MODE is not "live")
@@ -94,6 +98,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           app_location: /
+          api_location: api
           skip_app_build: true
 
   close-preview:
