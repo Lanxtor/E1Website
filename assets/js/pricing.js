@@ -6,7 +6,7 @@
  *   - USD is the price as written.
  *   - EUR, GBP and NOK are converted with the day's European Central Bank
  *     rate (assets/data/rates.json, refreshed by the deploy workflow every
- *     working day) and rounded UP to the next whole number ending in 5.
+ *     working day) and rounded to a clean number (see nice() below).
  *
  * The currency is, in order: the one the visitor picked (remembered in this
  * browser), the one that fits the page language (de/fr/es: EUR, no: NOK), or
@@ -53,15 +53,23 @@
 
   var current = stored() || guess();
 
-  /* Round up to the next whole number ending in 5: 17.4 -> 25, 593 -> 595. */
-  function niceUp(x) {
-    if (x <= 5) return x <= 0 ? 0 : 5;
-    return Math.ceil((x - 5) / 10) * 10 + 5;
+  /*
+   * A clean price: rounded to the nearest step that suits its size, so it
+   * reads like a price list and not like a conversion.
+   *   under 100      nearest 5      (17.6 -> 20, 14.6 -> 15)
+   *   100 to 999     nearest 10     (226.9 -> 230, 597 -> 600)
+   *   1,000 to 9,999 nearest 100    (2,590 -> 2,600, 6,966 -> 7,000)
+   *   10,000 and up  nearest 500
+   */
+  function nice(x) {
+    if (x <= 0) return 0;
+    var step = x < 100 ? 5 : x < 1000 ? 10 : x < 10000 ? 100 : 500;
+    return Math.max(step, Math.round(x / step) * step);
   }
 
   function amount(usd, cur) {
     if (cur === "USD" || !rates || !rates[cur]) return usd;
-    return niceUp(usd * rates[cur]);
+    return nice(usd * rates[cur]);
   }
 
   function format(value, cur) {

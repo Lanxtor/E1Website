@@ -37,7 +37,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 HERE = os.path.join(ROOT, "tools", "i18n")
 
 PAGES = ["index.html", "solutions.html", "academy.html", "download.html",
-         "about.html", "contact-sales.html", "shape-e1.html"]
+         "about.html", "contact-sales.html", "shape-e1.html",
+         "legal.html", "privacy.html", "terms.html"]
 LANGS = {"de": "de", "fr": "fr", "es": "es", "no": "nb"}  # folder: html lang
 SITE = "https://www.lanxtor.com"
 

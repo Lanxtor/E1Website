@@ -63,6 +63,40 @@
       '<ul class="lang-menu">' + items + "</ul></div>";
   }
 
+  /*
+   * Cookie notice. The site uses only storage it needs to work (language,
+   * currency, sign-in), which needs no consent; the notice tells visitors so,
+   * once. If optional cookies (analytics) are ever added, ask here first and
+   * read the answer from E1_consent() before loading them.
+   */
+  var COOKIE_KEY = "e1.cookies";
+  window.E1_consent = function () { try { return localStorage.getItem(COOKIE_KEY) || ""; } catch (e) { return ""; } };
+
+  function showCookieNotice() {
+    if (document.querySelector(".cookie-notice")) return;
+    var box = document.createElement("div");
+    box.className = "cookie-notice";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-label", T("Cookies"));
+    box.innerHTML =
+      "<p><b>" + T("Cookies") + ".</b> " +
+      T("We only use cookies and browser storage that this website needs to work, such as your language, your currency and staying signed in. No tracking, no advertising.") +
+      ' <a href="' + H("privacy.html#cookies") + '">' + T("Privacy policy") + "</a></p>" +
+      '<button type="button" class="btn btn-primary btn-sm">' + T("OK") + "</button>";
+    box.querySelector("button").addEventListener("click", function () {
+      try { localStorage.setItem(COOKIE_KEY, "necessary"); } catch (e) {}
+      box.remove();
+    });
+    document.body.appendChild(box);
+  }
+
+  function initCookies() {
+    if (!window.E1_consent()) showCookieNotice();
+    document.querySelectorAll("[data-cookie-settings]").forEach(function (a) {
+      a.addEventListener("click", function (e) { e.preventDefault(); showCookieNotice(); });
+    });
+  }
+
   function initLangSwitch() {
     var box = document.querySelector(".lang-switch");
     if (!box) return;
@@ -146,10 +180,16 @@
       '<li><a href="' + H("shape-e1.html") + '">' + T("Contact us") + "</a></li>" +
       '<li><a href="' + H("contact-sales.html") + '">' + T("Contact sales") + "</a></li>" +
       '<li><a href="account.html">' + T("Your account") + "</a></li>" +
-      '<li><a href="#">' + T("Privacy") + "</a></li>" +
+      '<li><a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a></li>" +
       "</ul></div>" +
       "</div>" +
-      '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". " + T("All rights reserved.") + "</span><span>" + PRODUCT + "</span></div>" +
+      '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". " + T("All rights reserved.") + "</span>" +
+      '<nav class="footer-legal" aria-label="' + T("Legal") + '">' +
+      '<a href="' + H("legal.html") + '">' + T("Legal notice") + "</a>" +
+      '<a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a>" +
+      '<a href="' + H("privacy.html#cookies") + '" data-cookie-settings>' + T("Cookies") + "</a>" +
+      '<a href="' + H("terms.html") + '">' + T("Terms of use") + "</a>" +
+      "</nav></div>" +
       "</div>" +
       "</footer>";
   }
@@ -439,6 +479,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     initHeaderBehaviour();
     initLangSwitch();
+    initCookies();
     initReveal();
     initClips();
     initAuthTabs();

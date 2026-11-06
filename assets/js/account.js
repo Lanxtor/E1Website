@@ -13,8 +13,8 @@
   var fmt = E1.format;
   var LICENSE_NAMES = { editor: "Editor", reviewer: "Reviewer", viewer: "Viewer", administrator: "Administrator" };
   var LICENSE_CAPS = {
-    editor: "Full use of E1: view, edit, review, export and the co-engineer, within your project roles.",
-    reviewer: "View, comment, approve branches, export and ask the co-engineer. No editing.",
+    editor: "Full use of E1: view, edit, review, export and Alex, the AI co-engineer, within your project roles.",
+    reviewer: "View, comment, approve branches, export and ask Alex, the AI co-engineer. No editing.",
     viewer: "View and export only.",
     administrator: "Manage the organization: members, licenses, groups, roles, sign-on and policies. No project editing."
   };
@@ -139,7 +139,7 @@
     var cap = org.personalCap;
     var mine = amount(ai.you) || 0;
     $("[data-ai-usage]").innerHTML =
-      '<span class="eyebrow">AI co-engineer</span>' +
+      '<span class="eyebrow">Alex, AI co-engineer</span>' +
       '<h3><span class="big">' + fmt.number(mine) + "</span> " + unit + " used by you</h3>" +
       (cap ? meter(mine, cap) + '<p class="meta-line">Your monthly cap: ' + fmt.number(cap) + " " + unit + "</p>" : "") +
       '<p class="meta-line">Organization: ' + fmt.number(amount(org)) + " " + unit +
