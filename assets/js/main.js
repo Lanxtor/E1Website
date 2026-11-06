@@ -9,7 +9,6 @@
     { href: "solutions.html", label: "Solutions" },
     { href: "academy.html", label: "Academy" },
     { href: "shape-e1.html", label: "Contact us" },
-    { href: "pricing.html", label: "Pricing" },
     { href: "about.html", label: "About us" }
   ];
 
@@ -99,8 +98,8 @@
       '<li><a href="index.html">Overview</a></li>' +
       '<li><a href="solutions.html">Solutions</a></li>' +
       '<li><a href="academy.html">Academy</a></li>' +
-      '<li><a href="pricing.html">Pricing</a></li>' +
-      '<li><a href="download.html">Download</a></li>' +
+      '<li><a href="download.html">Get E1</a></li>' +
+      '<li><a href="download.html#pricing">Pricing</a></li>' +
       "</ul></div>" +
       "<div><h4>Company</h4><ul>" +
       '<li><a href="about.html">About us</a></li>' +
