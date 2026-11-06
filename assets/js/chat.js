@@ -2,7 +2,10 @@
  * Alex, the website assistant: the chat panel, the "Ask Alex" button on every
  * page, the ask box on the home page ([data-ask]) and voice ("Talk to me").
  *
- * Answers come from POST /api/chat (api/src/functions/chat.js). Voice uses the
+ * Answers come from the E1 server: POST <apiBase>/api/site/assistant
+ * (Lanxtor/E1, server/site/assistant.mjs), which asks the installation's own
+ * model (on Azure the GPT-4.1 deployment). The server reads what Alex knows
+ * from assets/data/assistant-knowledge.txt (tools/chat/build_knowledge.py). Voice uses the
  * browser's own speech recognition and speech synthesis (Chrome, Edge, Safari);
  * where the browser has none, the microphone buttons are hidden.
  * The conversation is kept for this browser tab only (sessionStorage).
@@ -15,7 +18,8 @@
   var LANG = window.E1_LANG || "en";
   var SPEECH_LANG = { en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", no: "nb-NO" }[LANG] || "en-US";
   var KEY = "e1.chat";
-  var API = "api/chat";
+  var CONFIG = window.E1_CONFIG || {};
+  var API = (CONFIG.apiBase ? String(CONFIG.apiBase).replace(/\/+$/, "") : "") + "/api/site/assistant";
   var Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   var canSpeak = "speechSynthesis" in window;
 
@@ -186,6 +190,7 @@
     draw();
     fetch(API, {
       method: "POST",
+      credentials: "omit",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         messages: state.messages.slice(-16),
@@ -200,15 +205,15 @@
       .then(function (res) {
         var reply;
         if (res.ok && res.body.reply) reply = res.body.reply;
-        else if (res.status === 503 && res.body.code === "not_configured") reply = T("I'm not connected yet. Until then, the team is happy to help: [contact sales](contact-sales.html) or write to sales@lanxtor.com.");
+        else if (res.status === 503 || res.status === 404 || !CONFIG.apiBase) reply = T("I'm not connected yet. Until then, the team is happy to help: [contact sales](contact-sales.html) or write to sales@lanxtor.com.");
         else if (res.status === 429) reply = T("That was a lot of questions in a short time. Please wait a few minutes and ask again.");
-        else if (res.status === 404) reply = T("I'm not connected yet. Until then, the team is happy to help: [contact sales](contact-sales.html) or write to sales@lanxtor.com.");
         else reply = T("Sorry, I couldn't answer just now. Please try again in a moment.");
         state.messages.push({ role: "assistant", content: reply });
         if (voice) say(reply);
       })
       .catch(function () {
-        state.messages.push({ role: "assistant", content: T("Sorry, I couldn't answer just now. Please try again in a moment.") });
+        // The E1 server could not be reached (or does not offer the route yet).
+        state.messages.push({ role: "assistant", content: T("I'm not connected yet. Until then, the team is happy to help: [contact sales](contact-sales.html) or write to sales@lanxtor.com.") });
       })
       .then(function () {
         busy = false;

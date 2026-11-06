@@ -65,7 +65,7 @@ jobs:
               print("::warning::Exchange rates not updated:", e)
           PY
 
-      - name: Website knowledge for the Alex assistant (api/knowledge.txt)
+      - name: Website knowledge for the Alex assistant (assets/data/assistant-knowledge.txt)
         run: python3 tools/chat/build_knowledge.py
 
       - name: No deployment token yet
@@ -80,7 +80,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           app_location: /
-          api_location: api
           skip_app_build: true
 
       - name: Public site shows the coming-soon page (SITE_MODE is not "live")
@@ -98,7 +97,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           app_location: /
-          api_location: api
           skip_app_build: true
 
   close-preview:

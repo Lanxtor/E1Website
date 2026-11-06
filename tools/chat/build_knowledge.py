@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Writes api/knowledge.txt: the visible text of the English public pages, which
-the website assistant (api/src/functions/chat.js) answers from.
+Writes assets/data/assistant-knowledge.txt: the visible text of the English
+public pages, which Alex, the website assistant, answers from. The E1 server
+(Lanxtor/E1, server/site/assistant.mjs, POST /api/site/assistant) reads this
+file from the live website once an hour.
 
   python3 tools/chat/build_knowledge.py
 
@@ -73,7 +75,7 @@ def main():
     # Prices shown on the pages come from data-usd attributes; say so plainly.
     out.append("## Price notes\nAll prices are set in US dollars, excluding VAT. The website shows them in USD, EUR, GBP or NOK; "
                "other currencies are converted at the daily European Central Bank rate and rounded to a clean number.")
-    path = os.path.join(ROOT, "api", "knowledge.txt")
+    path = os.path.join(ROOT, "assets", "data", "assistant-knowledge.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n\n".join(out) + "\n")
     print("Wrote %s (%d characters)" % (os.path.relpath(path, ROOT), sum(len(x) for x in out)))
