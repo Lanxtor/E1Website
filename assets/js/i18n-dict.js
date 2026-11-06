@@ -17,7 +17,6 @@ window.E1_I18N_DICT = {
   "Company": "Unternehmen",
   "Contact sales": "Vertrieb kontaktieren",
   "Your account": "Ihr Konto",
-  "Privacy": "Datenschutz",
   "All rights reserved.": "Alle Rechte vorbehalten.",
   "Language": "Sprache",
   "Toggle menu": "Menü ein-/ausblenden",
@@ -36,7 +35,14 @@ window.E1_I18N_DICT = {
   "Prices in British pounds": "Preise in britischen Pfund",
   "Prices in Norwegian kroner": "Preise in norwegischen Kronen",
   ", converted from US dollars at the European Central Bank rate of ": ", umgerechnet aus US-Dollar zum Kurs der Europäischen Zentralbank von ",
-  "{channel} channel": "Kanal {channel}"
+  "{channel} channel": "Kanal {channel}",
+  "Privacy policy": "Datenschutzerklärung",
+  "Legal": "Rechtliches",
+  "Legal notice": "Impressum",
+  "Cookies": "Cookies",
+  "Terms of use": "Nutzungsbedingungen",
+  "OK": "OK",
+  "We only use cookies and browser storage that this website needs to work, such as your language, your currency and staying signed in. No tracking, no advertising.": "Wir verwenden nur Cookies und Browserspeicher, die diese Website zum Funktionieren benötigt, etwa für Ihre Sprache, Ihre Währung und um angemeldet zu bleiben. Kein Tracking, keine Werbung."
  },
  "fr": {
   "Home": "Accueil",
@@ -54,7 +60,6 @@ window.E1_I18N_DICT = {
   "Company": "Entreprise",
   "Contact sales": "Contacter les ventes",
   "Your account": "Votre compte",
-  "Privacy": "Confidentialité",
   "All rights reserved.": "Tous droits réservés.",
   "Language": "Langue",
   "Toggle menu": "Afficher/masquer le menu",
@@ -73,7 +78,14 @@ window.E1_I18N_DICT = {
   "Prices in British pounds": "Prix en livres sterling",
   "Prices in Norwegian kroner": "Prix en couronnes norvégiennes",
   ", converted from US dollars at the European Central Bank rate of ": ", convertis depuis le dollar américain au taux de la Banque centrale européenne de ",
-  "{channel} channel": "canal {channel}"
+  "{channel} channel": "canal {channel}",
+  "Privacy policy": "Politique de confidentialité",
+  "Legal": "Informations légales",
+  "Legal notice": "Mentions légales",
+  "Cookies": "Cookies",
+  "Terms of use": "Conditions d'utilisation",
+  "OK": "OK",
+  "We only use cookies and browser storage that this website needs to work, such as your language, your currency and staying signed in. No tracking, no advertising.": "Nous utilisons uniquement les cookies et le stockage du navigateur dont ce site web a besoin pour fonctionner, comme votre langue, votre devise et le maintien de votre connexion. Ni traçage, ni publicité."
  },
  "es": {
   "Home": "Inicio",
@@ -91,7 +103,6 @@ window.E1_I18N_DICT = {
   "Company": "Empresa",
   "Contact sales": "Contactar con ventas",
   "Your account": "Tu cuenta",
-  "Privacy": "Privacidad",
   "All rights reserved.": "Todos los derechos reservados.",
   "Language": "Idioma",
   "Toggle menu": "Mostrar u ocultar menú",
@@ -110,7 +121,14 @@ window.E1_I18N_DICT = {
   "Prices in British pounds": "Precios en libras esterlinas",
   "Prices in Norwegian kroner": "Precios en coronas noruegas",
   ", converted from US dollars at the European Central Bank rate of ": ", convertidos desde dólares estadounidenses al tipo del Banco Central Europeo de ",
-  "{channel} channel": "canal {channel}"
+  "{channel} channel": "canal {channel}",
+  "Privacy policy": "Política de privacidad",
+  "Legal": "Legal",
+  "Legal notice": "Aviso legal",
+  "Cookies": "Cookies",
+  "Terms of use": "Condiciones de uso",
+  "OK": "OK",
+  "We only use cookies and browser storage that this website needs to work, such as your language, your currency and staying signed in. No tracking, no advertising.": "Solo usamos las cookies y el almacenamiento del navegador que este sitio web necesita para funcionar, como tu idioma, tu moneda y mantener tu sesión iniciada. Sin seguimiento ni publicidad."
  },
  "no": {
   "Home": "Hjem",
@@ -128,7 +146,6 @@ window.E1_I18N_DICT = {
   "Company": "Selskap",
   "Contact sales": "Kontakt salg",
   "Your account": "Din konto",
-  "Privacy": "Personvern",
   "All rights reserved.": "Alle rettigheter forbeholdt.",
   "Language": "Språk",
   "Toggle menu": "Vis/skjul meny",
@@ -147,6 +164,13 @@ window.E1_I18N_DICT = {
   "Prices in British pounds": "Priser i britiske pund",
   "Prices in Norwegian kroner": "Priser i norske kroner",
   ", converted from US dollars at the European Central Bank rate of ": ", omregnet fra amerikanske dollar etter Den europeiske sentralbankens kurs på ",
-  "{channel} channel": "{channel}-kanal"
+  "{channel} channel": "{channel}-kanal",
+  "Privacy policy": "Personvernerklæring",
+  "Legal": "Juridisk",
+  "Legal notice": "Juridisk informasjon",
+  "Cookies": "Informasjonskapsler",
+  "Terms of use": "Vilkår for bruk",
+  "OK": "OK",
+  "We only use cookies and browser storage that this website needs to work, such as your language, your currency and staying signed in. No tracking, no advertising.": "Vi bruker bare informasjonskapsler og lagring i nettleseren som dette nettstedet trenger for å fungere, for eksempel språket ditt, valutaen din og at du forblir innlogget. Ingen sporing, ingen annonsering."
  }
 };
