@@ -62,7 +62,16 @@ window.E1_I18N_DICT = {
   "Sorry, I couldn't answer just now. Please try again in a moment.": "Entschuldigung, ich konnte gerade nicht antworten. Bitte versuchen Sie es gleich noch einmal.",
   "Listening… speak now": "Ich höre zu… sprechen Sie jetzt",
   "I can't hear you: the microphone is blocked. Allow it in your browser's address bar, or type your question.": "Ich kann Sie nicht hören: Das Mikrofon ist blockiert. Erlauben Sie es in der Adressleiste Ihres Browsers oder tippen Sie Ihre Frage.",
-  "Ask": "Fragen"
+  "Ask": "Fragen",
+  "New conversation": "Neues Gespräch",
+  "Let me fill your RFI": "Ich fülle Ihre RFI aus",
+  "Download the PDF": "PDF herunterladen",
+  "Please fill in my RFI: ": "Bitte füllen Sie meine RFI aus: ",
+  "I can read an RFI as an Excel workbook (.xlsx) or a Word document (.docx). Save it in one of those and try again.": "Ich kann eine RFI als Excel-Arbeitsmappe (.xlsx) oder Word-Dokument (.docx) lesen. Speichern Sie sie in einem dieser Formate und versuchen Sie es erneut.",
+  "That file is larger than 5 MB. Please send it to sales@lanxtor.com instead.": "Die Datei ist größer als 5 MB. Bitte senden Sie sie stattdessen an sales@lanxtor.com.",
+  "I'm reading your RFI and answering every question from what LANXTOR has published about E1. For a long RFI this takes a minute or two; please keep this page open.": "Ich lese Ihre RFI und beantworte jede Frage anhand dessen, was LANXTOR über E1 veröffentlicht hat. Bei einer langen RFI dauert das ein bis zwei Minuten; bitte lassen Sie diese Seite geöffnet.",
+  "Done: your RFI is answered and the PDF is downloading. Items marked 'To confirm' will be answered by our team; please check the answers with [sales](contact-sales.html) before relying on them in a contract.": "Fertig: Ihre RFI ist beantwortet und das PDF wird heruntergeladen. Punkte mit „To confirm“ beantwortet unser Team; bitte prüfen Sie die Antworten mit dem [Vertrieb](contact-sales.html), bevor Sie sich in einem Vertrag darauf stützen.",
+  "Sorry, I couldn't fill the RFI just now. Please try again, or send it to sales@lanxtor.com.": "Leider konnte ich die RFI gerade nicht ausfüllen. Bitte versuchen Sie es erneut oder senden Sie sie an sales@lanxtor.com."
  },
  "fr": {
   "Home": "Accueil",
@@ -125,7 +134,16 @@ window.E1_I18N_DICT = {
   "Sorry, I couldn't answer just now. Please try again in a moment.": "Désolé, je n'ai pas pu répondre. Réessayez dans un instant.",
   "Listening… speak now": "Je vous écoute… parlez maintenant",
   "I can't hear you: the microphone is blocked. Allow it in your browser's address bar, or type your question.": "Je ne vous entends pas : le micro est bloqué. Autorisez-le dans la barre d'adresse de votre navigateur, ou tapez votre question.",
-  "Ask": "Demander"
+  "Ask": "Demander",
+  "New conversation": "Nouvelle conversation",
+  "Let me fill your RFI": "Je remplis votre RFI",
+  "Download the PDF": "Télécharger le PDF",
+  "Please fill in my RFI: ": "Merci de remplir ma RFI : ",
+  "I can read an RFI as an Excel workbook (.xlsx) or a Word document (.docx). Save it in one of those and try again.": "Je peux lire une RFI sous forme de classeur Excel (.xlsx) ou de document Word (.docx). Enregistrez-la dans l’un de ces formats et réessayez.",
+  "That file is larger than 5 MB. Please send it to sales@lanxtor.com instead.": "Ce fichier dépasse 5 Mo. Merci de l’envoyer plutôt à sales@lanxtor.com.",
+  "I'm reading your RFI and answering every question from what LANXTOR has published about E1. For a long RFI this takes a minute or two; please keep this page open.": "Je lis votre RFI et je réponds à chaque question à partir de ce que LANXTOR a publié sur E1. Pour une longue RFI, cela prend une à deux minutes ; merci de garder cette page ouverte.",
+  "Done: your RFI is answered and the PDF is downloading. Items marked 'To confirm' will be answered by our team; please check the answers with [sales](contact-sales.html) before relying on them in a contract.": "C’est fait : votre RFI est complétée et le PDF est en cours de téléchargement. Les points marqués « To confirm » seront traités par notre équipe ; vérifiez les réponses avec [l’équipe commerciale](contact-sales.html) avant de vous y fier dans un contrat.",
+  "Sorry, I couldn't fill the RFI just now. Please try again, or send it to sales@lanxtor.com.": "Désolé, je n’ai pas pu remplir la RFI pour le moment. Réessayez ou envoyez-la à sales@lanxtor.com."
  },
  "es": {
   "Home": "Inicio",
@@ -188,7 +206,16 @@ window.E1_I18N_DICT = {
   "Sorry, I couldn't answer just now. Please try again in a moment.": "Lo siento, no he podido responder. Inténtalo de nuevo en un momento.",
   "Listening… speak now": "Te escucho… habla ahora",
   "I can't hear you: the microphone is blocked. Allow it in your browser's address bar, or type your question.": "No te oigo: el micrófono está bloqueado. Permítelo en la barra de direcciones del navegador o escribe tu pregunta.",
-  "Ask": "Preguntar"
+  "Ask": "Preguntar",
+  "New conversation": "Nueva conversación",
+  "Let me fill your RFI": "Deja que rellene tu RFI",
+  "Download the PDF": "Descargar el PDF",
+  "Please fill in my RFI: ": "Rellena mi RFI, por favor: ",
+  "I can read an RFI as an Excel workbook (.xlsx) or a Word document (.docx). Save it in one of those and try again.": "Puedo leer una RFI como libro de Excel (.xlsx) o documento de Word (.docx). Guárdala en uno de esos formatos e inténtalo de nuevo.",
+  "That file is larger than 5 MB. Please send it to sales@lanxtor.com instead.": "El archivo supera los 5 MB. Envíalo mejor a sales@lanxtor.com.",
+  "I'm reading your RFI and answering every question from what LANXTOR has published about E1. For a long RFI this takes a minute or two; please keep this page open.": "Estoy leyendo tu RFI y respondiendo cada pregunta con lo que LANXTOR ha publicado sobre E1. Con una RFI larga tarda uno o dos minutos; mantén esta página abierta.",
+  "Done: your RFI is answered and the PDF is downloading. Items marked 'To confirm' will be answered by our team; please check the answers with [sales](contact-sales.html) before relying on them in a contract.": "Listo: tu RFI está respondida y el PDF se está descargando. Los puntos marcados como «To confirm» los responderá nuestro equipo; revisa las respuestas con [ventas](contact-sales.html) antes de usarlas en un contrato.",
+  "Sorry, I couldn't fill the RFI just now. Please try again, or send it to sales@lanxtor.com.": "Lo siento, no he podido rellenar la RFI ahora. Inténtalo de nuevo o envíala a sales@lanxtor.com."
  },
  "no": {
   "Home": "Hjem",
@@ -251,6 +278,15 @@ window.E1_I18N_DICT = {
   "Sorry, I couldn't answer just now. Please try again in a moment.": "Beklager, jeg kunne ikke svare akkurat nå. Prøv igjen om et øyeblikk.",
   "Listening… speak now": "Jeg lytter… snakk nå",
   "I can't hear you: the microphone is blocked. Allow it in your browser's address bar, or type your question.": "Jeg kan ikke høre deg: mikrofonen er blokkert. Tillat den i adressefeltet i nettleseren, eller skriv spørsmålet ditt.",
-  "Ask": "Spør"
+  "Ask": "Spør",
+  "New conversation": "Ny samtale",
+  "Let me fill your RFI": "La meg fylle ut RFI-en din",
+  "Download the PDF": "Last ned PDF-en",
+  "Please fill in my RFI: ": "Fyll ut RFI-en min: ",
+  "I can read an RFI as an Excel workbook (.xlsx) or a Word document (.docx). Save it in one of those and try again.": "Jeg kan lese en RFI som Excel-arbeidsbok (.xlsx) eller Word-dokument (.docx). Lagre den i et av disse formatene og prøv igjen.",
+  "That file is larger than 5 MB. Please send it to sales@lanxtor.com instead.": "Filen er større enn 5 MB. Send den heller til sales@lanxtor.com.",
+  "I'm reading your RFI and answering every question from what LANXTOR has published about E1. For a long RFI this takes a minute or two; please keep this page open.": "Jeg leser RFI-en din og svarer på hvert spørsmål ut fra det LANXTOR har publisert om E1. For en lang RFI tar dette et par minutter; la denne siden være åpen.",
+  "Done: your RFI is answered and the PDF is downloading. Items marked 'To confirm' will be answered by our team; please check the answers with [sales](contact-sales.html) before relying on them in a contract.": "Ferdig: RFI-en din er besvart, og PDF-en lastes ned. Punkter merket «To confirm» besvarer teamet vårt; sjekk svarene med [salg](contact-sales.html) før du bruker dem i en kontrakt.",
+  "Sorry, I couldn't fill the RFI just now. Please try again, or send it to sales@lanxtor.com.": "Beklager, jeg fikk ikke fylt ut RFI-en akkurat nå. Prøv igjen, eller send den til sales@lanxtor.com."
  }
 };

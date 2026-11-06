@@ -8,7 +8,15 @@
  * from assets/data/assistant-knowledge.txt (tools/chat/build_knowledge.py). Voice uses the
  * browser's own speech recognition and speech synthesis (Chrome, Edge, Safari);
  * where the browser has none, the microphone buttons are hidden.
- * The conversation is kept for this browser tab only (sessionStorage).
+ * The conversation is kept for this browser tab only (sessionStorage), so it
+ * follows the visitor from page to page; "New conversation" (the panel's
+ * header and the ask box) clears it.
+ *
+ * "Let me fill your RFI" ([data-ask-rfi], and the paper clip in the panel):
+ * the visitor picks a request for information (.xlsx or .docx); it is sent
+ * to POST <apiBase>/api/site/rfi (server/site/rfi.mjs), Alex answers every
+ * item, and the answers come back as a PDF that is downloaded and offered
+ * again in the chat.
  */
 (function () {
   "use strict";
@@ -19,7 +27,14 @@
   var SPEECH_LANG = { en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", no: "nb-NO" }[LANG] || "en-US";
   var KEY = "e1.chat";
   var CONFIG = window.E1_CONFIG || {};
-  var API = (CONFIG.apiBase ? String(CONFIG.apiBase).replace(/\/+$/, "") : "") + "/api/site/assistant";
+  var BASE = CONFIG.apiBase ? String(CONFIG.apiBase).replace(/\/+$/, "") : "";
+  var API = BASE + "/api/site/assistant";
+  var RFI_API = BASE + "/api/site/rfi";
+  var RFI_TYPES = {
+    xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  };
+  var files = {}; // finished RFI PDFs of this page: id -> { url, name }
   var Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   var canSpeak = "speechSynthesis" in window;
 
@@ -29,6 +44,9 @@
     send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
     sound: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>',
+    reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
+    clip: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.4 11.1-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/></svg>',
+    download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>',
     mute: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>'
   };
 
@@ -88,11 +106,13 @@
       '<header class="alex-head">' +
       '<span class="alex-face"><img src="assets/img/hero-avatar.png?v=2" alt=""></span>' +
       '<div><b>Alex</b><span>' + T("Ask anything about E1. Answers are written by AI.") + "</span></div>" +
+      '<button type="button" class="alex-icon" data-reset aria-label="' + T("New conversation") + '" title="' + T("New conversation") + '">' + ICON.reset + "</button>" +
       (canSpeak ? '<button type="button" class="alex-icon" data-sound aria-label="' + T("Read answers aloud") + '"></button>' : "") +
       '<button type="button" class="alex-icon" data-close aria-label="' + T("Close") + '">' + ICON.close + "</button>" +
       "</header>" +
       '<div class="alex-list" aria-live="polite"></div>' +
       '<form class="alex-form">' +
+      '<button type="button" class="alex-icon" data-rfi aria-label="' + T("Let me fill your RFI") + '" title="' + T("Let me fill your RFI") + '">' + ICON.clip + "</button>" +
       '<textarea rows="1" maxlength="2000" placeholder="' + T("Ask Alex anything about E1…") + '" aria-label="' + T("Your question") + '"></textarea>' +
       (Recognition ? '<button type="button" class="alex-icon alex-mic" data-mic aria-label="' + T("Talk to me") + '">' + ICON.mic + "</button>" : "") +
       '<button type="submit" class="alex-send" aria-label="' + T("Send") + '">' + ICON.send + "</button>" +
@@ -105,6 +125,8 @@
     soundBtn = panel.querySelector("[data-sound]");
 
     panel.querySelector("[data-close]").addEventListener("click", close);
+    panel.querySelector("[data-reset]").addEventListener("click", reset);
+    panel.querySelector("[data-rfi]").addEventListener("click", pickRfi);
     panel.querySelector("form").addEventListener("submit", function (e) { e.preventDefault(); ask(input.value, false); });
     input.addEventListener("keydown", function (e) {
       if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(input.value, false); }
@@ -143,7 +165,9 @@
       ].map(function (q) { return '<button type="button" data-q="' + esc(T(q)) + '">' + esc(T(q)) + "</button>"; }).join("") + "</div>";
     }
     state.messages.forEach(function (m) {
-      html += '<div class="alex-msg ' + (m.role === "user" ? "alex-me" : "alex-bot") + '">' + (m.role === "user" ? "<p>" + esc(m.content) + "</p>" : render(m.content)) + "</div>";
+      var file = m.file && files[m.file];
+      html += '<div class="alex-msg ' + (m.role === "user" ? "alex-me" : "alex-bot") + '">' + (m.role === "user" ? "<p>" + esc(m.content) + "</p>" : render(m.content)) +
+        (file ? '<a class="alex-file" href="' + file.url + '" download="' + esc(file.name) + '">' + ICON.download + "<span>" + esc(T("Download the PDF")) + "</span></a>" : "") + "</div>";
     });
     if (busy) html += '<div class="alex-msg alex-bot alex-typing" aria-label="' + T("Alex is writing") + '"><i></i><i></i><i></i></div>';
     list.innerHTML = html;
@@ -151,6 +175,19 @@
       b.addEventListener("click", function () { ask(b.getAttribute("data-q"), false); });
     });
     list.scrollTop = list.scrollHeight;
+    document.querySelectorAll("[data-ask-reset]").forEach(function (b) { b.hidden = !state.messages.length; });
+  }
+
+  /* ---------- start over ---------- */
+  function reset() {
+    if (busy) return;
+    stopListening();
+    if (canSpeak) speechSynthesis.cancel();
+    state.messages = [];
+    save();
+    if (!panel) build();
+    draw();
+    if (input) { input.value = ""; grow(); }
   }
 
   function open(question, voice) {
@@ -193,7 +230,7 @@
       credentials: "omit",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        messages: state.messages.slice(-16),
+        messages: state.messages.slice(-16).map(function (m) { return { role: m.role, content: m.content }; }),
         lang: LANG,
         voice: !!voice,
         page: location.pathname.split("/").pop() || "index.html"
@@ -221,6 +258,85 @@
         if (state.messages.length > 40) state.messages = state.messages.slice(-40);
         save();
         draw();
+      });
+  }
+
+  /* ---------- "Let me fill your RFI" ---------- */
+  var picker = null;
+  function pickRfi() {
+    if (busy) return;
+    if (!picker) {
+      picker = document.createElement("input");
+      picker.type = "file";
+      picker.accept = ".xlsx,.docx," + RFI_TYPES.xlsx + "," + RFI_TYPES.docx;
+      picker.hidden = true;
+      picker.addEventListener("change", function () {
+        var file = picker.files && picker.files[0];
+        picker.value = "";
+        if (file) fillRfi(file);
+      });
+      document.body.appendChild(picker);
+    }
+    picker.click();
+  }
+
+  function fillRfi(file) {
+    open();
+    var ext = (file.name.match(/\.(xlsx|docx)$/i) || [])[1];
+    state.messages.push({ role: "user", content: T("Please fill in my RFI: ") + file.name });
+    if (!ext) {
+      state.messages.push({ role: "assistant", content: T("I can read an RFI as an Excel workbook (.xlsx) or a Word document (.docx). Save it in one of those and try again.") });
+      save(); draw();
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      state.messages.push({ role: "assistant", content: T("That file is larger than 5 MB. Please send it to sales@lanxtor.com instead.") });
+      save(); draw();
+      return;
+    }
+    state.messages.push({ role: "assistant", content: T("I'm reading your RFI and answering every question from what LANXTOR has published about E1. For a long RFI this takes a minute or two; please keep this page open.") });
+    busy = true;
+    document.querySelectorAll("[data-ask-rfi]").forEach(function (b) { b.classList.add("is-busy"); });
+    save(); draw();
+    var done = function (message, pdf) {
+      busy = false;
+      document.querySelectorAll("[data-ask-rfi]").forEach(function (b) { b.classList.remove("is-busy"); });
+      var entry = { role: "assistant", content: message };
+      if (pdf) {
+        var id = "f" + Date.now();
+        files[id] = pdf;
+        entry.file = id;
+      }
+      state.messages.push(entry);
+      save(); draw();
+    };
+    if (!BASE) {
+      done(T("I'm not connected yet. Until then, the team is happy to help: [contact sales](contact-sales.html) or write to sales@lanxtor.com."));
+      return;
+    }
+    fetch(RFI_API + "?name=" + encodeURIComponent(file.name) + "&lang=" + encodeURIComponent(LANG), {
+      method: "POST",
+      credentials: "omit",
+      headers: { "Content-Type": file.type || RFI_TYPES[ext.toLowerCase()] },
+      body: file
+    })
+      .then(function (r) {
+        if (r.ok) {
+          return r.blob().then(function (blob) {
+            var name = file.name.replace(/\.(xlsx|docx)$/i, "") + " - LANXTOR response.pdf";
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+            done(T("Done: your RFI is answered and the PDF is downloading. Items marked 'To confirm' will be answered by our team; please check the answers with [sales](contact-sales.html) before relying on them in a contract."), { url: url, name: name });
+          });
+        }
+        return r.json().catch(function () { return {}; }).then(function (body) {
+          if (r.status === 503 || r.status === 404) done(T("I'm not connected yet. Until then, the team is happy to help: [contact sales](contact-sales.html) or write to sales@lanxtor.com."));
+          else done((body && body.error && body.error.message) || T("Sorry, I couldn't fill the RFI just now. Please try again, or send it to sales@lanxtor.com."));
+        });
+      })
+      .catch(function () {
+        done(T("Sorry, I couldn't fill the RFI just now. Please try again, or send it to sales@lanxtor.com."));
       });
   }
 
@@ -283,6 +399,10 @@
         open(q || null, false);
       });
       if (mic) mic.addEventListener("click", function () { listen(); });
+      var rfi = form.querySelector("[data-ask-rfi]");
+      if (rfi) rfi.addEventListener("click", pickRfi);
+      var again = form.querySelector("[data-ask-reset]");
+      if (again) again.addEventListener("click", function () { reset(); field.focus(); });
     });
   }
 
