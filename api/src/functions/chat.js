@@ -5,9 +5,13 @@
  *             "lang": "en"|"de"|"fr"|"es"|"no", "voice": true|false, "page": "download.html" }
  * Response: { "reply": "..." }  or  { "error": "...", "code": "..." }
  *
+ * The model is the Azure OpenAI GPT-4.1 deployment that the E1 app uses.
  * Configuration (Azure Portal > Static Web App > Settings > Environment variables):
- *   ANTHROPIC_API_KEY   required; without it the endpoint answers 503 "not configured".
- *   CHAT_MODEL          optional, default claude-opus-5-5.
+ *   AZURE_OPENAI_ENDPOINT     required, e.g. https://<resource>.openai.azure.com/
+ *   AZURE_OPENAI_API_KEY      required (Azure OpenAI resource > Keys and Endpoint)
+ *   AZURE_OPENAI_DEPLOYMENT   optional, the deployment name, default "gpt-4.1"
+ *   AZURE_OPENAI_API_VERSION  optional, default 2024-10-21
+ * Without endpoint and key the endpoint answers 503 "not configured".
  *
  * The website's own text (api/knowledge.txt, generated from the English pages by
  * tools/chat/build_knowledge.py at every deploy) is the assistant's knowledge.
@@ -15,9 +19,10 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { app } = require("@azure/functions");
-const Anthropic = require("@anthropic-ai/sdk");
+const { AzureOpenAI, APIError, RateLimitError, BadRequestError } = require("openai");
 
-const MODEL = process.env.CHAT_MODEL || "claude-opus-5-5";
+const DEPLOYMENT = process.env.AZURE_OPENAI_DEPLOYMENT || "gpt-4.1";
+const API_VERSION = process.env.AZURE_OPENAI_API_VERSION || process.env.OPENAI_API_VERSION || "2024-10-21";
 const MAX_TURNS = 16;          // messages kept from the conversation
 const MAX_CHARS = 2000;        // per message
 const LIMIT_PER_WINDOW = 30;   // requests per visitor ...
@@ -49,7 +54,14 @@ How to answer:
 ${knowledge}
 === END OF WEBSITE TEXT ===`;
 
-const client = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
+const client = process.env.AZURE_OPENAI_ENDPOINT && process.env.AZURE_OPENAI_API_KEY
+  ? new AzureOpenAI({
+      endpoint: process.env.AZURE_OPENAI_ENDPOINT,
+      apiKey: process.env.AZURE_OPENAI_API_KEY,
+      apiVersion: API_VERSION,
+      deployment: DEPLOYMENT,
+    })
+  : null;
 const hits = new Map(); // ip -> [timestamps]
 
 function limited(ip) {
@@ -104,35 +116,35 @@ app.http("chat", {
       (body.voice ? " The visitor is speaking and will hear your answer read aloud: answer in plain spoken sentences, no Markdown, no links, no lists, at most 4 sentences." : "");
 
     try {
-      const response = await client.beta.messages.create({
-        model: MODEL,
-        max_tokens: 2048,
-        betas: ["server-side-fallback-2026-07-01"],
-        fallbacks: "default",
-        output_config: { effort: "low" },
-        system: [
-          { type: "text", text: SYSTEM, cache_control: { type: "ephemeral" } },
-          { type: "text", text: note },
+      // The long, unchanging system prompt comes first so Azure OpenAI's automatic
+      // prompt caching can reuse it; the per-request note follows it.
+      const completion = await client.chat.completions.create({
+        model: DEPLOYMENT,
+        max_tokens: 1200,
+        temperature: 0.3,
+        messages: [
+          { role: "system", content: SYSTEM },
+          { role: "system", content: note },
+          ...messages,
         ],
-        messages,
       });
-
-      if (response.stop_reason === "refusal") {
+      const choice = completion.choices && completion.choices[0];
+      if (choice && choice.finish_reason === "content_filter") {
         return json(200, { reply: "I can't help with that one. Ask me anything about E1 or LANXTOR." });
       }
-      const reply = response.content
-        .filter((b) => b.type === "text")
-        .map((b) => b.text)
-        .join("\n")
-        .trim();
-      context.log(`chat ok model=${response.model} in=${response.usage.input_tokens} cached=${response.usage.cache_read_input_tokens || 0} out=${response.usage.output_tokens}`);
+      const reply = ((choice && choice.message && choice.message.content) || "").trim();
+      const u = completion.usage || {};
+      context.log(`chat ok deployment=${DEPLOYMENT} in=${u.prompt_tokens} cached=${(u.prompt_tokens_details && u.prompt_tokens_details.cached_tokens) || 0} out=${u.completion_tokens}`);
       return json(200, { reply: reply || "Sorry, I have no answer for that. Try asking in another way." });
     } catch (error) {
-      if (error instanceof Anthropic.RateLimitError) {
+      if (error instanceof RateLimitError) {
         return json(503, { code: "busy", error: "Alex is busy right now. Please try again in a minute." });
       }
-      if (error instanceof Anthropic.APIError) {
-        context.error(`Anthropic API error ${error.status}: ${error.message}`);
+      if (error instanceof BadRequestError && error.code === "content_filter") {
+        return json(200, { reply: "I can't help with that one. Ask me anything about E1 or LANXTOR." });
+      }
+      if (error instanceof APIError) {
+        context.error(`Azure OpenAI error ${error.status}: ${error.message}`);
         return json(502, { code: "upstream", error: "Alex could not answer right now. Please try again." });
       }
       context.error(error);

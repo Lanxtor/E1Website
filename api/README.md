@@ -11,10 +11,13 @@ go to **Settings > Environment variables** and add:
 
 | Name | Value |
 |---|---|
-| `ANTHROPIC_API_KEY` | An API key from https://console.anthropic.com (Settings > API keys) |
-| `CHAT_MODEL` | Optional. Default `claude-opus-5-5`. |
+| `AZURE_OPENAI_ENDPOINT` | The Azure OpenAI resource the E1 app uses, e.g. `https://<resource>.openai.azure.com/` |
+| `AZURE_OPENAI_API_KEY` | That resource's key (Azure OpenAI resource > Resource Management > Keys and Endpoint) |
+| `AZURE_OPENAI_DEPLOYMENT` | Optional. The GPT-4.1 deployment name, default `gpt-4.1` |
+| `AZURE_OPENAI_API_VERSION` | Optional. Default `2024-10-21` |
 
-Without the key, the chat answers "not connected yet" and points to the sales contact.
+The model is the same Azure OpenAI GPT-4.1 deployment the E1 app uses. Without
+endpoint and key, the chat answers "not connected yet" and points to the sales contact.
 
 ## What Alex knows
 
@@ -25,5 +28,5 @@ deployment, so Alex always answers from what the live pages say.
 ## Limits
 
 30 questions per visitor per 10 minutes (per server instance), 2,000 characters
-per message, the last 16 messages of a conversation. The site text is sent with
-prompt caching, so repeated questions are billed mostly at the cached rate.
+per message, the last 16 messages of a conversation. The site text comes first in
+every request, so Azure OpenAI's automatic prompt caching can reuse it.
