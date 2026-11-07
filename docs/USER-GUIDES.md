@@ -8,6 +8,14 @@ The user guides are the *User guides* of the Academy on the account page (`accou
 
 Started 2026-11-07. Keeping them current is a standing job: every change to E1 that a user can see updates its guide in the same week.
 
+## Linked from E1 (the E1 Trainer)
+
+E1's trainer (Alex → **E1 Trainer**, `Lanxtor/E1`, `docs/2-design/26-e1-trainer.md`) shows bubbles on the app's buttons, and each bubble links to a feature of these guides **by its feature id** (`LIB-company-library`). So:
+
+- Never rename or remove a feature id; keep its `anchor` stable. If one must change, update `src/ui/trainer/lessons.mjs` in `Lanxtor/E1` in the same week.
+- After the catalog changes, E1 runs `node scripts/sync-guide-links.mjs` (it reads `assets/data/user-guide-features.json` from this repository) and its check fails on a lesson that links to a missing or only planned feature.
+- A new guide feature for something on screen should get a trainer step in E1 too: the guides and the trainer's lessons are kept current together.
+
 ## Files
 
 | File | What |
