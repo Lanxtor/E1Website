@@ -1,0 +1,503 @@
+[
+ {
+  "id": "OBJ-new-object",
+  "title": "Create an object",
+  "summary": "Make an equipment item, function, area or other object from a library class allowed in the section.",
+  "anchor": "obj-new-object",
+  "status": "available",
+  "since": "2026-11-02",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M1.5"
+  ],
+  "checks": [
+   "C1",
+   "C5"
+  ],
+  "related": [
+   "OBJ-several",
+   "OBJ-object-window",
+   "OBJ-tags",
+   "PRJ-sections",
+   "LIB-catalogs",
+   "DRAW-place-symbol"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Creating objects from classes",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "new-asset-dialog.webp"
+  ]
+ },
+ {
+  "id": "OBJ-several",
+  "title": "Make several objects at once",
+  "summary": "Create up to 100 objects of one class in one go, numbered after the tag or name you type.",
+  "anchor": "obj-several",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "OBJ-new-object",
+   "OBJ-tags"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Making many objects at once",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "new-asset-centrifugal.webp"
+  ]
+ },
+ {
+  "id": "OBJ-object-window",
+  "title": "The object window and its tabs",
+  "summary": "Each object's own tab: header with class, tag and name, and the tabs Attributes, Relationships, Deep view, Data sheet, Attachments, Comments and History.",
+  "anchor": "obj-object-window",
+  "status": "available",
+  "since": "2026-11-02",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M1.5"
+  ],
+  "checks": [
+   "C1",
+   "F1",
+   "H1",
+   "H3"
+  ],
+  "related": [
+   "OBJ-attributes",
+   "OBJ-relationships",
+   "DOC-datasheet",
+   "COL-history",
+   "COL-comments",
+   "COL-tasks"
+  ],
+  "roles": "Anyone who can open the project; editing needs a role that may edit objects",
+  "training": {
+   "topic": "The object window",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "object-page.webp"
+  ]
+ },
+ {
+  "id": "OBJ-attributes",
+  "title": "Fill in attributes: values, units, pick lists and required values",
+  "summary": "Enter values with units, choose from pick lists, filter the attributes and see which required values are missing.",
+  "anchor": "obj-attributes",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.5"
+  ],
+  "checks": [
+   "C1",
+   "C2"
+  ],
+  "related": [
+   "OBJ-sub-attributes",
+   "OBJ-add-attribute",
+   "OBJ-object-window",
+   "OBJ-units",
+   "DOC-datasheet"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Attributes, units and required values",
+   "level": "Beginner",
+   "minutes": 5
+  },
+  "screenshots": [
+   "object-new-pump.webp"
+  ]
+ },
+ {
+  "id": "OBJ-sub-attributes",
+  "title": "Sub-attributes",
+  "summary": "Read and fill indented sub-attributes such as Design pressure / In, and add your own to one object.",
+  "anchor": "obj-sub-attributes",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.5"
+  ],
+  "checks": [],
+  "related": [
+   "OBJ-attributes",
+   "OBJ-add-attribute"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Sub-attributes",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "object-tab-attributes.webp"
+  ]
+ },
+ {
+  "id": "OBJ-add-attribute",
+  "title": "Add an attribute to one object",
+  "summary": "Add a library attribute or a free text attribute to a single object.",
+  "anchor": "obj-add-attribute",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.5"
+  ],
+  "checks": [],
+  "related": [
+   "OBJ-attributes",
+   "OBJ-sub-attributes",
+   "LIB-company-library"
+  ],
+  "roles": "The permission to add attributes to objects",
+  "training": {
+   "topic": "Adding an attribute to one object",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "OBJ-tags",
+  "title": "Automatic tags and reference designations",
+  "summary": "New objects are tagged from the project's rules (P-001, P-002) with their designation, and a tag whose input changed is marked out of date.",
+  "anchor": "obj-tags",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.7"
+  ],
+  "checks": [
+   "B3",
+   "C4",
+   "K2"
+  ],
+  "related": [
+   "OBJ-tag-dialog",
+   "OBJ-retag",
+   "OBJ-tag-rules",
+   "OBJ-new-object"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "How tags work",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "OBJ-tag-dialog",
+  "title": "Set a manual tag with Tag…",
+  "summary": "See where a tag comes from and set a manual tag, or go back to the rule's tag.",
+  "anchor": "obj-tag-dialog",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.7"
+  ],
+  "checks": [
+   "C4"
+  ],
+  "related": [
+   "OBJ-tags",
+   "OBJ-retag",
+   "OBJ-tag-rules"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Manual tags",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "tree-menu-object.webp"
+  ]
+ },
+ {
+  "id": "OBJ-retag",
+  "title": "Retag… with preview",
+  "summary": "Give objects the tags their rules give now, after a preview of every old and new tag.",
+  "anchor": "obj-retag",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.7"
+  ],
+  "checks": [
+   "C4"
+  ],
+  "related": [
+   "OBJ-tags",
+   "OBJ-tag-rules",
+   "OBJ-tag-dialog",
+   "PRJ-explorer-header"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Retagging with preview",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "OBJ-tag-rules",
+  "title": "Set up tag rules for a project",
+  "summary": "Build a project's tag rules from segments, lookup tables and options, see a sample, test against the project and save.",
+  "anchor": "obj-tag-rules",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.8"
+  ],
+  "checks": [
+   "C3",
+   "K2"
+  ],
+  "related": [
+   "OBJ-tags",
+   "OBJ-retag",
+   "LIB-configuration",
+   "OBJ-calculations"
+  ],
+  "roles": "A project role that may change the project's settings",
+  "training": {
+   "topic": "The tag configurator",
+   "level": "Advanced",
+   "minutes": 7
+  },
+  "screenshots": [
+   "config-project-settings.webp"
+  ]
+ },
+ {
+  "id": "OBJ-relationships",
+  "title": "Relate objects",
+  "summary": "Connect objects, for example a function that is implemented by a pump, see it from both sides and remove it.",
+  "anchor": "obj-relationships",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.6"
+  ],
+  "checks": [
+   "C5"
+  ],
+  "related": [
+   "OBJ-object-window",
+   "OBJ-new-object",
+   "DRAW-loop-diagram",
+   "PRJ-tree-rows"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Relationships between objects",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "object-tab-relationships.webp"
+  ]
+ },
+ {
+  "id": "OBJ-rename",
+  "title": "Rename an object",
+  "summary": "Change an object's name in the explorer or in its window.",
+  "anchor": "obj-rename",
+  "status": "available",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "OBJ-object-window",
+   "OBJ-tag-dialog",
+   "COL-history"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Renaming objects",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "OBJ-cases",
+  "title": "Cases of an object",
+  "summary": "Make variants of an object that inherit its values until you type their own.",
+  "anchor": "obj-cases",
+  "status": "available",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "OBJ-attributes",
+   "OBJ-relationships"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Cases",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "OBJ-move",
+  "title": "Move an object",
+  "summary": "Drag an object to a folder or section where its class may live.",
+  "anchor": "obj-move",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.4"
+  ],
+  "checks": [],
+  "related": [
+   "PRJ-drag-drop",
+   "DRAW-place-symbol"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Moving objects",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "OBJ-void",
+  "title": "Void an object",
+  "summary": "Take an object out of use without deleting it; unvoid it from the Voided bin.",
+  "anchor": "obj-void",
+  "status": "available",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "OBJ-delete",
+   "PRJ-project-bin"
+  ],
+  "roles": "A license and a project role that may edit objects",
+  "training": {
+   "topic": "Voiding objects",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "OBJ-delete",
+  "title": "Delete an object, restore it, or delete it permanently",
+  "summary": "Delete moves an object to the Deleted bin; Restore brings it back, and Delete permanently… previews what goes with it.",
+  "anchor": "obj-delete",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.4"
+  ],
+  "checks": [
+   "C7",
+   "A3"
+  ],
+  "related": [
+   "PRJ-project-bin",
+   "OBJ-void",
+   "COL-history"
+  ],
+  "roles": "A license and a project role that may delete objects",
+  "training": {
+   "topic": "Deleting and restoring objects",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "tree-menu-object.webp"
+  ]
+ },
+ {
+  "id": "OBJ-deep-view",
+  "title": "Deep view",
+  "summary": "A graphical view of an object; today the tab and menu item show a placeholder.",
+  "anchor": "obj-deep-view",
+  "status": "placeholder",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M4"
+  ],
+  "checks": [],
+  "related": [
+   "OBJ-object-window",
+   "GS-under-construction"
+  ],
+  "roles": "Everyone",
+  "training": {
+   "topic": "Deep view: what is coming",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "object-tab-deep-view.webp"
+  ]
+ },
+ {
+  "id": "OBJ-units",
+  "title": "Units of measurement",
+  "summary": "Real units of measurement and a choice of units shown are planned; the units chip opens Under construction today.",
+  "anchor": "obj-units",
+  "status": "planned",
+  "roadmap": [
+   "01.2b"
+  ],
+  "checks": [],
+  "related": [
+   "OBJ-attributes",
+   "GS-under-construction"
+  ],
+  "roles": "Everyone",
+  "training": {
+   "topic": "Units of measurement: what is coming",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "OBJ-calculations",
+  "title": "Calculations and copy rules on attributes",
+  "summary": "Attribute values computed from other attributes or related objects, check rules and copy rules are planned in M6 Rules.",
+  "anchor": "obj-calculations",
+  "status": "planned",
+  "roadmap": [
+   "12.1",
+   "12.2",
+   "12.3",
+   "12.4",
+   "12.6"
+  ],
+  "checks": [],
+  "related": [
+   "OBJ-attributes",
+   "OBJ-relationships",
+   "OBJ-tag-rules"
+  ],
+  "roles": "",
+  "training": {
+   "topic": "Calculations: what is coming",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ }
+]
