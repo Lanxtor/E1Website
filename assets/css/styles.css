@@ -2738,9 +2738,82 @@ code {
 .btn-microsoft[hidden] { display: none; }
 .btn-microsoft svg { width: 16px; height: 16px; flex: none; }
 
-/* Contact us page (shape-e1.html): Sales and Support boxes above the Shape E1 board */
-.contact-boxes { margin-top: 40px; }
-.contact-boxes .contact-line { word-break: break-all; }
+/* Contact us page (shape-e1.html): Sales and Support panels above the Shape E1 board */
+.contact-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
+.contact-panel { display: flex; flex-direction: column; overflow: hidden; border-radius: 24px; transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease); }
+.contact-panel:hover { transform: translateY(-3px); box-shadow: 0 24px 50px -28px rgba(14, 17, 22, 0.45); }
+.contact-sales { background: linear-gradient(150deg, #0e1116 0%, #16224a 60%, #1f3a9e 130%); color: #fff; }
+.contact-support { background: linear-gradient(150deg, #eaf0ff 0%, #f4f7ff 55%, #e3ebff 100%); border: 1px solid rgba(31, 92, 255, 0.18); }
+.contact-vis { position: relative; display: flex; align-items: center; justify-content: center; gap: 22px; height: 230px; padding: 24px; }
+.contact-vis::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(currentColor 1px, transparent 1px); background-size: 16px 16px; opacity: 0.12; -webkit-mask-image: linear-gradient(to bottom, #000, transparent 85%); mask-image: linear-gradient(to bottom, #000, transparent 85%); }
+.contact-support .contact-vis { color: var(--accent); }
+.contact-vis > * { position: relative; z-index: 1; }
+.contact-body { display: flex; flex-direction: column; flex: 1; padding: 8px 36px 36px; }
+.contact-kicker { align-self: flex-start; padding: 5px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.contact-sales .contact-kicker { background: rgba(255, 255, 255, 0.12); color: #b9caff; }
+.contact-support .contact-kicker { background: rgba(31, 92, 255, 0.12); color: var(--accent); }
+.contact-body h2 { margin-top: 14px; font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+.contact-body > p { margin-top: 10px; font-size: 1.05rem; color: var(--text-muted); }
+.contact-sales .contact-body > p { color: rgba(255, 255, 255, 0.72); }
+.contact-points { display: grid; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; font-size: 0.98rem; }
+.contact-points li { position: relative; padding-left: 28px; }
+.contact-points li::before { content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 11px no-repeat; }
+.contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: auto; padding-top: 28px; }
+.contact-btn { padding: 13px 22px; font-size: 1rem; }
+.contact-sales .contact-btn { background: #fff; color: var(--text); }
+.contact-sales .contact-btn:hover { background: #dfe7ff; }
+.contact-support .contact-btn { background: var(--accent); color: #fff; }
+.contact-support .contact-btn:hover { filter: brightness(1.08); }
+.contact-more { font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid currentColor; }
+.contact-sales .contact-more { color: #fff; }
+.contact-support .contact-more { color: var(--accent); }
+
+/* Sales visual: a quote card with seats, a rising chart and the sales team */
+.cv-quote { width: 230px; padding: 16px 18px; border-radius: 16px; background: rgba(255, 255, 255, 0.96); color: var(--text); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.6); transform: rotate(-3deg); }
+.cv-quote-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.cv-quote-title { font-weight: 700; font-size: 0.92rem; }
+.cv-pill { padding: 2px 9px; border-radius: 99px; background: rgba(31, 92, 255, 0.12); color: var(--accent); font-size: 0.7rem; font-weight: 700; }
+.cv-seat { display: grid; grid-template-columns: 74px auto; align-items: center; gap: 8px; margin-top: 7px; }
+.cv-seat .team-label { font-size: 0.62rem; }
+.cv-dots { display: flex; gap: 5px; }
+.cv-dots .dot { display: block; width: 15px; height: 15px; border-radius: 50%; }
+.cv-dots .d-editor { background: #16224a; border: 0; }
+.cv-dots .d-reviewer { border-width: 4px; }
+.cv-chart { width: 150px; height: auto; }
+.cv-chart rect { fill: rgba(255, 255, 255, 0.16); }
+.cv-chart .cv-bar-hi { fill: #4d7dff; }
+.cv-trend { stroke: #9fb7ff; }
+.cv-trend-dot { fill: #fff; }
+.cv-faces { position: absolute; right: 24px; bottom: 18px; display: flex; }
+.cv-faces .face, .cv-msg .face { width: 40px; height: 40px; }
+.cv-faces .face + .face { margin-left: -10px; }
+
+/* Support visual: a question, an answer and a user guide link */
+.cv-chat { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 380px; color: var(--text); }
+.cv-msg { display: flex; align-items: flex-end; gap: 8px; }
+.cv-msg-out { justify-content: flex-end; }
+.cv-msg .bubble { max-width: 80%; font-size: 0.86rem; }
+.cv-msg .bubble-me { background: var(--accent); }
+.cv-guide { align-self: flex-end; display: inline-flex; align-items: center; gap: 8px; margin-right: 46px; padding: 8px 12px; border-radius: 12px; background: #fff; border: 1px solid rgba(31, 92, 255, 0.2); color: var(--accent); font-size: 0.8rem; font-weight: 600; box-shadow: 0 8px 18px -12px rgba(31, 92, 255, 0.6); }
+.cv-guide svg { width: 16px; height: 16px; }
+.cv-guide .cv-check { color: #1a9e5c; }
+
+@media (max-width: 900px) {
+  .contact-boxes { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .contact-vis { height: 200px; gap: 12px; padding: 18px 16px; }
+  .contact-body { padding: 4px 22px 26px; }
+  .cv-quote { width: 200px; padding: 14px; }
+  .cv-chart { width: 90px; }
+  .cv-seat { grid-template-columns: 66px auto; }
+  .cv-dots { gap: 4px; }
+  .cv-dots .dot { width: 12px; height: 12px; }
+  .cv-dots .d-reviewer { border-width: 3px; }
+  .cv-faces { right: 16px; bottom: 12px; }
+  .contact-actions .contact-btn { width: 100%; justify-content: center; }
+}
+
 .shape-intro { padding-bottom: 0; }
 .shape-intro h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
 .shape-intro p.lead { max-width: 600px; margin-top: 16px; font-size: 1.15rem; color: var(--text-muted); }

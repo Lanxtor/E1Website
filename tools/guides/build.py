@@ -97,7 +97,7 @@ def page(title, description, body, toc, crumbs):
   <meta name="description" content="{desc}">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=72">
+  <link rel="stylesheet" href="assets/css/styles.css?v=74">
   <link rel="stylesheet" href="assets/css/guides.css?v={css}">
 </head>
 <body>
