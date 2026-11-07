@@ -1,0 +1,834 @@
+<section class="g-feature" id="drawing-overview">
+  <h2>About this guide</h2>
+  <p class="g-summary">This guide covers the sheet view, where you draw P&amp;IDs. Every symbol on a sheet is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
+  <h3>The typical workflow</h3>
+  <ol>
+    <li>Open a sheet and find your way around it: <a href="guide-drawing.html#draw-sheet-view">the sheet view</a>, <a href="guide-drawing.html#draw-toolbar">the drawing toolbar</a> and <a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>.</li>
+    <li>Place equipment: <a href="guide-drawing.html#draw-place-symbol">place a symbol</a>, or <a href="guide-drawing.html#draw-drop-from-explorer">drop an object from the explorer</a>. Other kinds of objects come from <a href="guide-drawing.html#draw-object-types">the Object button</a>.</li>
+    <li>Connect it: <a href="guide-drawing.html#draw-connector">draw pipes, signals and cables with Connector</a>, following <a href="guide-drawing.html#draw-connection-rules">the connection rules</a>.</li>
+    <li>Arrange it: <a href="guide-drawing.html#draw-select">select</a>, <a href="guide-drawing.html#draw-arrange">move, flip, resize and align</a>, <a href="guide-drawing.html#draw-clipboard">copy and paste</a>, <a href="guide-drawing.html#draw-delete">delete</a>.</li>
+    <li>Annotate it: <a href="guide-drawing.html#draw-tags-labels">tags and line numbers</a>, <a href="guide-drawing.html#draw-text">text notes</a>, <a href="guide-drawing.html#draw-line-style">line styles</a>, <a href="guide-drawing.html#draw-flow-arrows">flow arrows and crossings</a>.</li>
+    <li>Organize and check it: <a href="guide-drawing.html#draw-layers">layers</a>, <a href="guide-drawing.html#draw-frames">system and area frames</a>, <a href="guide-drawing.html#draw-off-page">off-page connectors</a>, <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a>, <a href="guide-drawing.html#draw-comment-here">comments pinned on the sheet</a>.</li>
+    <li>Let E1 help: <a href="guide-drawing.html#draw-predictive">predictive mode</a>, <a href="guide-drawing.html#draw-patterns">engineering patterns</a> and <a href="guide-drawing.html#draw-loop-diagram">generated loop diagrams</a>.</li>
+  </ol>
+  <p>Printing a sheet and its PDF are described in <a href="guide-documents.html#doc-sheet-pdf">the documents guide</a>. The end of this page lists what is planned for drawing: the symbol designer, piping (pipelines, pipe classes, the line list, DEXPI), CAD import and redlining.</p>
+  <h3>Before you start</h3>
+  <ul>
+    <li>You are signed in and have a project open (<a href="guide-projects.html#prj-new-project">create a project</a>).</li>
+    <li>To change a drawing you need an Editor license and a project role that may edit drawings. With read access you can open, zoom, pan, select and highlight, but not change anything.</li>
+    <li>The examples use the demo project: the sheet <span class="ui">Assets</span> with the pumps Pump1 to Pump3 and the valves V1 to V10. On your own project, use your own names.</li>
+  </ul>
+</section>
+
+<section class="g-feature" id="draw-sheet-view">
+  <h2>Open a sheet, zoom and pan</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-sheet-view</span><span>Roadmap M3.2, M3.11</span><span>Review check B1</span></div>
+  <p class="g-summary">A sheet opens in its own tab as a 2D drawing. You zoom with the mouse wheel or the zoom controls, and pan with a drag, the Pan tool or the Space bar. Symbols and text stay sharp at every zoom.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Double-click a sheet in the explorer, or click its tab. Zoom: <span class="ui">View</span> menu and the zoom controls at the right end of the status bar under the sheet.</dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
+    <dt>Before you start</dt><dd>The project has a sheet, for example <span class="ui">Assets</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Double-click the sheet <span class="ui">Assets</span> in the explorer.</td><td>The sheet opens in a tab. The drawing toolbar is above it, and the status bar below it shows <span class="ui">Select</span>, the toggles <span class="ui">Snap</span>, <span class="ui">Grid</span>, <span class="ui">Ortho</span> and the zoom controls.</td></tr>
+      <tr><td>2</td><td>Point at a symbol and turn the mouse wheel.</td><td>The view zooms in or out. The point under the pointer stays where it is.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Fit drawing</span> in the status bar (or press <kbd>Ctrl+0</kbd> (<kbd>⌘0</kbd>)).</td><td>The whole drawing is shown.</td></tr>
+      <tr><td>4</td><td>Click the zoom percentage in the status bar (<span class="ui">Zoom</span>) and choose <span class="ui">200%</span>.</td><td>The menu offers <span class="ui">Zoom in</span>, <span class="ui">Zoom out</span>, 50%, 75%, 100%, 150%, 200%, 400%, <span class="ui">Fit drawing</span> and <span class="ui">Zoom to selection</span>. After the choice the button reads 200%.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Zoom in</span> or <span class="ui">Zoom out</span> in the status bar, or choose <span class="ui">View → Zoom in</span> (<kbd>Ctrl++</kbd> (<kbd>⌘+</kbd>)) or <span class="ui">View → Zoom out</span> (<kbd>Ctrl+−</kbd> (<kbd>⌘−</kbd>)).</td><td>The zoom steps up by a quarter or down by a fifth. At the closest or farthest zoom the button is greyed out.</td></tr>
+      <tr><td>6</td><td>Select a symbol, then choose <span class="ui">View → Zoom to selection</span>.</td><td>The view zooms to the selected symbol.</td></tr>
+      <tr><td>7</td><td>Drag with the middle mouse button, or with the right button held down.</td><td>The drawing pans, whatever tool is active. A right-click without moving opens a menu instead.</td></tr>
+      <tr><td>8</td><td>Hold <kbd>Shift</kbd> and turn the mouse wheel.</td><td>The drawing pans sideways.</td></tr>
+      <tr><td>9</td><td>Click <span class="ui">Pan</span> on the toolbar (or press <kbd>H</kbd>), then drag with the left button.</td><td>The status bar reads <span class="ui">Pan</span>, and a left-drag pans. Press <kbd>V</kbd> or click <span class="ui">Select</span> to go back to selecting.</td></tr>
+      <tr><td>10</td><td>With <span class="ui">Select</span> active, hold <kbd>Space</kbd> and drag.</td><td>The drawing pans while Space is held.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-view.webp" alt="The View menu with Zoom in, Zoom out, Fit drawing and Zoom to selection, and the check items Grid, Snap and Ortho" width="424" height="798" loading="lazy"><figcaption>The View menu holds the zoom commands and the drawing aids.</figcaption></figure>
+  <p class="g-note">The space name at the right end of the toolbar's first row (for example <span class="ui">Assets</span>) names the space this sheet draws.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-toolbar">The drawing toolbar</a> · <a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a> · <a href="guide-getting-started.html#gs-shortcuts">Keyboard shortcuts</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a></p>
+</section>
+
+<section class="g-feature" id="draw-toolbar">
+  <h2>The drawing toolbar and the formatting bar</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-toolbar</span><span>Roadmap M3.3, M3.11</span></div>
+  <p class="g-summary">The toolbar above the sheet has three rows: what to add, the editing tools, and the formatting of text and lines. Every button shows its name when you point at it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Above an open sheet</dd>
+    <dt>Who</dt><dd>Everyone sees it; the editing buttons need edit rights on the drawing</dd>
+    <dt>Before you start</dt><dd>A sheet is open.</dd>
+  </dl>
+  <figure class="g-shot g-small"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar: Object and Asset, Connector and Flow lines, Let Alex help and the space name Assets; below the tools Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align and Layers; below that Font, text color, B I U S, A− A+, Rotate, Line thickness, line color, Style, minus and plus" width="1596" height="246" loading="lazy"><figcaption>The three rows of the drawing toolbar.</figcaption></figure>
+  <h3>What is on it</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Row</th><th>Control</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><span class="ui">Object</span> with <span class="ui">Object type</span> (shows <span class="ui">Asset</span>)</td><td>Adds an object of the chosen type; Asset opens the <span class="ui">Add asset</span> window. See <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> and <a href="guide-drawing.html#draw-object-types">Object types</a>.</td></tr>
+      <tr><td>1</td><td><span class="ui">Connector</span> with <span class="ui">Connector type</span> (shows <span class="ui">Flow lines</span>)</td><td>Draws lines of the chosen kind. See <a href="guide-drawing.html#draw-connector">Connector</a>.</td></tr>
+      <tr><td>1</td><td><span class="ui">Let Alex help</span> / <span class="ui">Alex is live</span></td><td>Turns predictive mode on and off. See <a href="guide-drawing.html#draw-predictive">Predictive mode</a>.</td></tr>
+      <tr><td>2</td><td><span class="ui">Select</span> (<kbd>V</kbd>), <span class="ui">Pan</span> (<kbd>H</kbd>)</td><td>The pointer tools.</td></tr>
+      <tr><td>2</td><td><span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>, <span class="ui">Delete</span></td><td>Editing. Delete is greyed out with nothing selected. See <a href="guide-drawing.html#draw-clipboard">Copy, paste and undo</a>.</td></tr>
+      <tr><td>2</td><td><span class="ui">Text</span>, <span class="ui">Tag</span></td><td>Place a text note; tag a symbol. See <a href="guide-drawing.html#draw-text">Text notes</a> and <a href="guide-drawing.html#draw-tags-labels">Tags on the sheet</a>.</td></tr>
+      <tr><td>2</td><td>Frame tools (only while a system or area is picked)</td><td>Draw a rectangle, circle or freehand frame. See <a href="guide-drawing.html#draw-frames">Frames</a>.</td></tr>
+      <tr><td>2</td><td><span class="ui">Flip</span>, <span class="ui">Align</span> ▾, <span class="ui">Layers</span> ▾</td><td>See <a href="guide-drawing.html#draw-arrange">Move, flip, resize, align</a> and <a href="guide-drawing.html#draw-layers">Layers</a>.</td></tr>
+      <tr><td>3</td><td>Text format: <span class="ui">Font</span>, <span class="ui">Text color</span>, <span class="ui">Bold</span>, <span class="ui">Italic</span>, <span class="ui">Underline</span>, <span class="ui">Strikethrough</span>, <span class="ui">Smaller</span>, <span class="ui">Larger</span>, <span class="ui">Rotate</span></td><td>Greyed out until a note or a symbol name is selected. See <a href="guide-drawing.html#draw-text">Text notes</a>.</td></tr>
+      <tr><td>3</td><td>Line style: <span class="ui">Line thickness</span>, <span class="ui">Line color</span>, <span class="ui">Style</span>, <span class="ui">Thinner</span>, <span class="ui">Thicker</span></td><td>Greyed out until a line is selected. See <a href="guide-drawing.html#draw-line-style">Line style</a>.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a sheet and point at each button of the second row.</td><td>Each shows its name: Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align, Layers.</td></tr>
+      <tr><td>2</td><td>With nothing selected, look at the third row.</td><td>All format controls are greyed out; <span class="ui">Font</span>, <span class="ui">Line thickness</span> and <span class="ui">Style</span> show their names.</td></tr>
+      <tr><td>3</td><td>Select a pipe.</td><td>The line style controls become active; the text format controls stay greyed out. The toolbar keeps its height.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-sheet-view">Open a sheet, zoom and pan</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
+</section>
+
+<section class="g-feature" id="draw-aids">
+  <h2>Snap, Grid and Ortho</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-aids</span><span>Roadmap M3.3</span><span>Review check B4</span></div>
+  <p class="g-summary">Three drawing aids help you draw clean P&amp;IDs: a grid, snapping of line ends onto nozzles, and lines that stay horizontal or vertical. They are your own settings and stay as you left them after a reload.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The toggles <span class="ui">Snap</span>, <span class="ui">Grid</span> and <span class="ui">Ortho</span> in the status bar under the sheet, and the same check items in the <span class="ui">View</span> menu</dd>
+    <dt>Who</dt><dd>Everyone; the setting is per person</dd>
+    <dt>Before you start</dt><dd>A sheet is open.</dd>
+  </dl>
+  <ul>
+    <li><span class="ui">Grid</span> shows a grid of 0.5 m (2.5 m when you zoom far out).</li>
+    <li><span class="ui">Snap</span>: a line end you move within 16 pixels of a free nozzle or point joins it.</li>
+    <li><span class="ui">Ortho</span>: each connector segment stays horizontal or vertical. With Ortho off, lines run straight at any angle.</li>
+  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Choose <span class="ui">View → Grid</span>.</td><td>The grid disappears, the check mark in the menu goes, and the <span class="ui">Grid</span> toggle in the status bar is off.</td></tr>
+      <tr><td>2</td><td>Reload the page.</td><td>Grid is still off.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Ortho</span> in the status bar to turn it off, then draw a line with <span class="ui">Connector</span> by clicking two points at an angle.</td><td>The line runs straight at an angle. The status hint says you can draw "at any angle".</td></tr>
+      <tr><td>4</td><td>Turn <span class="ui">Ortho</span> and <span class="ui">Grid</span> back on.</td><td>New segments stay horizontal or vertical; the grid is shown again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-sheet-view">Open a sheet, zoom and pan</a></p>
+</section>
+
+<section class="g-feature" id="draw-place-symbol">
+  <h2>Place a symbol</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-place-symbol</span><span>Roadmap M3.11, M1.1b</span><span>Review checks B2, B3, A3</span></div>
+  <p class="g-summary">You place equipment, valves and instruments from the <span class="ui">Add asset</span> window. Each symbol you place is a new object in the project with its next free name or tag. Two clicks set its inlet and outlet, so you choose its direction and size as you place it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object</span> while <span class="ui">Object type</span> shows <span class="ui">Asset</span>, or <span class="ui">Object type</span> → <span class="ui">Asset</span></dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet is open.</dd>
+  </dl>
+  <h3>The Add asset window</h3>
+  <ul>
+    <li><span class="ui">Search symbols</span> finds symbols by name, type, standard, key, class or diagram type.</li>
+    <li>The filter menus <span class="ui">Standard</span> and <span class="ui">Diagram</span> have check boxes with counts and a <span class="ui">Show all</span> button. <span class="ui">Clear filters</span> resets them. On a sheet with a diagram type, the Diagram filter starts on that type.</li>
+    <li>On the left, <span class="ui">All</span> with a count and the class tree.</li>
+    <li>The <span class="ui">Name</span> field is filled with the next free name.</li>
+    <li>The symbol grid, grouped by kind; on <span class="ui">All</span>, a <span class="ui">Recent</span> group comes first.</li>
+    <li>The details of the chosen symbol, with <span class="ui">Diagram types</span> check boxes. Ticking one sets that diagram type for the shape across the project. With nothing chosen it says "Select a symbol to see its details."</li>
+    <li><span class="ui">Cancel</span> and <span class="ui">Add to diagram</span>. A double-click on a symbol adds it at once; the arrow keys move the choice.</li>
+  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Object</span> on the toolbar (its type shows <span class="ui">Asset</span>).</td><td>The <span class="ui">Add asset</span> window opens. <kbd>Esc</kbd> would close it.</td></tr>
+      <tr><td>2</td><td>Type "centrifugal" in <span class="ui">Search symbols</span>.</td><td>The grid shows only the matching symbols. A search with no match shows "No symbols match "…"."</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Centrifugal pump</span>, type the name P-NEW in <span class="ui">Name</span>, then click <span class="ui">Add to diagram</span>.</td><td>The window closes. The status bar reads <span class="ui">Place asset</span> with the hint "Click to set the inlet, then the outlet. Placing repeats for the next one; right-click or Esc stops. F flips the symbol."</td></tr>
+      <tr><td>4</td><td>Click once on free sheet.</td><td>The inlet is set, and a ghost of the pump follows the pointer.</td></tr>
+      <tr><td>5</td><td>Move the pointer straight down and click.</td><td>A vertical pump P-NEW is placed. A short second click keeps the default size; a longer one sets the size, within limits.</td></tr>
+      <tr><td>6</td><td>Click elsewhere, press <kbd>F</kbd>, then click a second time.</td><td>A second pump is placed, facing the other way, with the next free name.</td></tr>
+      <tr><td>7</td><td>Right-click, or press <kbd>Esc</kbd> twice.</td><td>Placing stops; no menu opens. The status bar reads <span class="ui">Select</span>.</td></tr>
+      <tr><td>8</td><td>Open the window again, choose <span class="ui">Gate valve</span>, click <span class="ui">Add to diagram</span>, then click once on the middle of an existing pipe.</td><td>The valve sits in the line along it, and the pipe is split there.</td></tr>
+      <tr><td>9</td><td>Look at the explorer under <span class="ui">Assets</span>.</td><td>The new pumps and the valve are there as objects. Pumps whose class has a tag rule get tags such as P-001, P-002.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/asset-window.webp" alt="The Add asset window: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add asset window, opened from the Object button.</figcaption></figure>
+  <p class="g-warn"><span class="ui">Insert → Asset…</span> does nothing on a sheet today. Use the toolbar's <span class="ui">Object</span> button with <span class="ui">Asset</span>. Manual-review check B2 still says "Place symbols from Insert → Asset"; follow it with the Object button instead.</p>
+  <p class="g-note">The tags come from your project's tag rules (<a href="guide-objects.html#obj-tag-rules">Tag rules</a>). To place an object that already exists, drag it from the explorer (<a href="guide-drawing.html#draw-drop-from-explorer">Drop from the explorer</a>).</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-object-types">Object types</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-standards">ISA 5.1 and ISO 10628 symbols</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-new-object">Create an object</a></p>
+</section>
+
+<section class="g-feature" id="draw-object-types">
+  <h2>Add other objects with the Object button</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-object-types</span><span>Roadmap M3.11</span></div>
+  <p class="g-summary">The <span class="ui">Object</span> button adds more than assets. Its type menu also makes unit operations, systems, processes and areas while you draw, and the button remembers the type you used last.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object type</span> (the right part of the Object button)</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Object type</span>.</td><td>A menu with <span class="ui">Unit operation</span>, <span class="ui">Asset</span>, <span class="ui">System</span>, <span class="ui">Process</span> and <span class="ui">Area</span>; Asset is checked the first time.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Area</span>.</td><td>The dialog "New object in Areas" opens.</td></tr>
+      <tr><td>3</td><td>In the classes, click <span class="ui">Area</span>, type the name "Area North", then click <span class="ui">Create</span>.</td><td>You are back on the sheet. The frame tools for area Area North appear on the toolbar, and the button now reads <span class="ui">Area</span>.</td></tr>
+      <tr><td>4</td><td>Reload the page and look at the Object button.</td><td>It still shows the last type you chose (the choice is kept in this browser).</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The dialog is the same one the explorer opens for a new object (<a href="guide-objects.html#obj-new-object">Create an object</a>). Drawing a frame for the new area is described in <a href="guide-drawing.html#draw-frames">Frames</a>.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-frames">Frames</a> · <a href="guide-projects.html#prj-sections">Project sections</a></p>
+</section>
+
+<section class="g-feature" id="draw-connector">
+  <h2>Draw pipes, signals and cables with Connector</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11</span><span>Review checks B4, A3</span></div>
+  <p class="g-summary">Connector draws the lines between symbols: flow lines (pipes), cables, wires and logic signals. Every line is an object in the model and connects the symbols it touches, so the connection shows in lists and in Highlight flow.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Connector</span>; the kind in <span class="ui">Connector type</span>. Also <span class="ui">Insert → Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> or <span class="ui">Logic</span>.</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet with at least two symbols is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Connector type</span>.</td><td>A menu with <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> and <span class="ui">Logic</span>, each with its colour swatch.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Flow lines</span>, then click <span class="ui">Connector</span>.</td><td>The button is highlighted. The status bar reads <span class="ui">Connector · Flow lines</span> with the hint "Click point by point to draw; each segment stays horizontal or vertical. Clicking a nozzle or a line connects and ends the run; Esc or a double-click ends it too, and right-click leaves the Connector."</td></tr>
+      <tr><td>3</td><td>Drag from the outlet of one pump to the inlet of a valve.</td><td>One routed pipe is drawn, and the two symbols are connected. The pipe shows its flow arrow.</td></tr>
+      <tr><td>4</td><td>Click on free sheet, then click a few more points.</td><td>Each click adds a segment from where the last one ended. The line being drawn looks like its kind.</td></tr>
+      <tr><td>5</td><td>Click on a nozzle, a symbol or another line.</td><td>The run connects there and ends. Ending on a pipe makes a junction that splits it; ending within 8 pixels of a symbol attaches to it.</td></tr>
+      <tr><td>6</td><td>Start another run, then press <kbd>Esc</kbd> or double-click.</td><td>The run ends, and Connector stays on.</td></tr>
+      <tr><td>7</td><td>Right-click on the sheet.</td><td>You leave Connector: the status bar reads <span class="ui">Select</span>, and no menu opens.</td></tr>
+      <tr><td>8</td><td>Choose <span class="ui">Insert → Logic</span> and draw a line between two instruments.</td><td>Connector starts with Logic; the line is dashed while you draw it. Cable, Wire and Logic lines have no flow arrows.</td></tr>
+      <tr><td>9</td><td>Choose <span class="ui">Cable</span> and end a cable on a pump body.</td><td>A port is made on the pump's outline, and the cable ends there.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/connector-on.webp" alt="The sheet with the Connector tool active; the Connector button is framed in red" width="2160" height="1350" loading="lazy"><figcaption>Connector is on: the button is highlighted and the status bar names the kind.</figcaption></figure>
+  <p class="g-note">With <span class="ui">Ortho</span> off, segments run at any angle (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>). Each drawn pipe run is an object under <span class="ui">Assets → Lines</span>.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows and crossings</a> · <a href="guide-drawing.html#draw-line-style">Line style</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a></p>
+</section>
+
+<section class="g-feature" id="draw-connection-rules">
+  <h2>Connection rules: one pipe per nozzle, lines that follow and heal</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-connection-rules</span><span>Roadmap M3.1</span><span>Review checks B4, A3</span></div>
+  <p class="g-summary">E1 keeps the drawing a correct model. A nozzle takes one pipe end, connected lines follow when you move a symbol, and deleting a symbol that sits in a line joins the line again.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On any sheet, while you draw, move and delete</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet with a pump, a valve and a pipe between them.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Drag the pump to a new place.</td><td>The pipe follows and stays connected, its segments horizontal or vertical.</td></tr>
+      <tr><td>2</td><td>With <span class="ui">Connector</span> on <span class="ui">Flow lines</span>, draw a second pipe to the nozzle that already has the first pipe.</td><td>It is refused with a message of the form "The nozzle … already ends …; … cannot end there too", and nothing is drawn.</td></tr>
+      <tr><td>3</td><td>Draw a <span class="ui">Wire</span> or <span class="ui">Logic</span> line to that same nozzle.</td><td>It is allowed: signals may still end there.</td></tr>
+      <tr><td>4</td><td>Place a valve into the middle of a pipe, then select the valve and delete it (<span class="ui">Delete the object</span>).</td><td>The pipe is continuous again across the gap. A branch that ended on the valve goes with it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a> · <a href="guide-drawing.html#draw-arrange">Move, flip, resize and align</a></p>
+</section>
+
+<section class="g-feature" id="draw-select">
+  <h2>Select symbols, lines and notes</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">DRAW-select</span><span>Roadmap M3.3</span><span>Review check B5</span></div>
+  <p class="g-summary">With the Select tool you pick one item with a click, add or remove items with Shift or Ctrl, take a region with a frame, or a whole pipe run with a double-click. The status bar shows how many items are selected.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Select</span> (<kbd>V</kbd>)</dd>
+    <dt>Who</dt><dd>Everyone who can open the sheet</dd>
+    <dt>Before you start</dt><dd>A sheet with symbols and lines is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click Pump1.</td><td>Pump1 shows its grips. The status bar reads "1 selected", and the bottom right of the sheet reads "Selected: Pump1". The hint says "Drag a symbol to move it. Shift-click or Ctrl-click adds to the selection. A frame selects a pipe only when the whole segment is inside it."</td></tr>
+      <tr><td>2</td><td>Shift-click (or Ctrl-click (⌘-click)) a valve.</td><td>"2 selected"; the sheet reads "Selected: 2 items". Shift-clicking it again takes it away.</td></tr>
+      <tr><td>3</td><td>Click close to a pipe, not exactly on it.</td><td>The pipe is selected ("Selected: Line"); lines are picked near them.</td></tr>
+      <tr><td>4</td><td>Double-click a pipe.</td><td>Its whole run between two symbols is selected. Shift and double-click adds another run.</td></tr>
+      <tr><td>5</td><td>Drag a frame across part of the drawing on empty sheet.</td><td>Symbols whose center is inside are selected; a pipe segment only when it lies fully inside.</td></tr>
+      <tr><td>6</td><td>Press <kbd>Ctrl+A</kbd> (<kbd>⌘A</kbd>), or choose <span class="ui">Edit → Select all</span>.</td><td>Everything on the sheet is selected.</td></tr>
+      <tr><td>7</td><td>Press <kbd>Esc</kbd>.</td><td>The selection is cleared.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/sheet-selected.webp" alt="Pump1 selected on the sheet with its resize grips, the status bar reading 1 selected" width="2160" height="1350" loading="lazy"><figcaption>One symbol selected: its grips are shown and the status bar counts it.</figcaption></figure>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-arrange">Move, flip, resize and align</a> · <a href="guide-drawing.html#draw-clipboard">Copy, paste and undo</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a></p>
+</section>
+
+<section class="g-feature" id="draw-arrange">
+  <h2>Move, flip, resize and align</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3</span><span>Review check B5</span></div>
+  <p class="g-summary">Drag the selection to move it; connected lines follow and stay square. Flip a symbol, resize it with its grips, or line several symbols up with the Align menu.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Flip</span> and <span class="ui">Align</span> ▾; right-click a symbol → <span class="ui">Flip horizontal</span> / <span class="ui">Flip vertical</span></dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet with several connected symbols is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select a pump and drag it.</td><td>It moves; its pipes follow and stay horizontal or vertical.</td></tr>
+      <tr><td>2</td><td>Press <kbd>F</kbd> (or click <span class="ui">Flip</span>).</td><td>The pump is mirrored. Doing it again turns it back.</td></tr>
+      <tr><td>3</td><td>Right-click the pump → <span class="ui">Flip vertical</span>.</td><td>The pump is mirrored top to bottom.</td></tr>
+      <tr><td>4</td><td>With one symbol selected, drag the grip on its right side (<span class="ui">Resize e</span>).</td><td>The symbol grows along its flow direction. The top and bottom grips (<span class="ui">Resize n</span>, <span class="ui">Resize s</span>) scale across it; the corner grips scale both ways. Its line width stays the same.</td></tr>
+      <tr><td>5</td><td>Select two or more symbols, click <span class="ui">Align</span> ▾ and choose <span class="ui">Align top</span>.</td><td>The menu offers <span class="ui">Align left</span>, <span class="ui">Align center</span>, <span class="ui">Align right</span>, <span class="ui">Align top</span>, <span class="ui">Align middle</span>, <span class="ui">Align bottom</span>, <span class="ui">Distribute horizontally</span>, <span class="ui">Distribute vertically</span> and <span class="ui">Same size</span>. The symbols line up at the top; connected pipes stay horizontal or vertical.</td></tr>
+      <tr><td>6</td><td>Select three symbols and choose <span class="ui">Align</span> ▾ → <span class="ui">Distribute horizontally</span>.</td><td>They are spaced evenly. Distribute needs three or more items.</td></tr>
+      <tr><td>7</td><td>Select two symbols and choose <span class="ui">Same size</span>.</td><td>The second takes the size of the first one selected.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">With lines selected, <kbd>F</kbd> flips their flow direction instead (<a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a>).</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol's right-click menu</a></p>
+</section>
+
+<section class="g-feature" id="draw-clipboard">
+  <h2>Undo, redo, copy, paste and duplicate</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4</span><span>Review checks A4, B5</span></div>
+  <p class="g-summary">Copy, paste and duplicate make new objects with new tags; cut removes them to the Deleted bin. Undo and redo work step by step across the drawing, the explorer and attributes, one history per person per project.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar (<span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>), the <span class="ui">Edit</span> menu, and the right-click menus</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet with symbols is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Move a symbol, then press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The move is undone.</td></tr>
+      <tr><td>2</td><td>Press <kbd>Ctrl+Shift+Z</kbd> (<kbd>⇧⌘Z</kbd>) or <kbd>Ctrl+Y</kbd>.</td><td>The move is done again.</td></tr>
+      <tr><td>3</td><td>Select a pump and press <kbd>Ctrl+C</kbd> (<kbd>⌘C</kbd>), then <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>A copy of the pump appears. It is a new object with a new tag, shown in the explorer.</td></tr>
+      <tr><td>4</td><td>Select a valve and press <kbd>Ctrl+D</kbd> (<kbd>⌘D</kbd>) or click <span class="ui">Duplicate</span>.</td><td>A duplicate with a new name appears beside it.</td></tr>
+      <tr><td>5</td><td>Select the copy and press <kbd>Ctrl+X</kbd> (<kbd>⌘X</kbd>).</td><td>It leaves the sheet and goes to the Deleted bin.</td></tr>
+      <tr><td>6</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu with Undo, Redo, Cut, Copy, Paste, Duplicate, Delete and Select all and their shortcuts" width="424" height="594" loading="lazy"><figcaption>The Edit menu shows the editing commands with their keys.</figcaption></figure>
+  <p class="g-note">Paste in the right-click menu is greyed out until you have copied something. To undo a change of someone else's, or an older change, use History (<a href="guide-collaboration.html#col-history">History and undo</a>).</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a> · <a href="guide-collaboration.html#col-history">History and undo</a></p>
+</section>
+
+<section class="g-feature" id="draw-delete">
+  <h2>Delete on the drawing: the placement or the object</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-delete</span><span>Roadmap M3.11</span><span>Review checks A3, C7</span></div>
+  <p class="g-summary">Deleting one symbol asks whether to remove it only from this drawing, keeping the object in the project, or to delete the object. Deleted objects go to the Deleted bin, from where they can be restored.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><kbd>Delete</kbd> or <kbd>Backspace</kbd>, the toolbar <span class="ui">Delete</span>, <span class="ui">Edit → Delete</span>, or right-click → <span class="ui">Delete</span></dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet with symbols, lines and a note is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select V3 and click <span class="ui">Delete</span> on the toolbar.</td><td>The dialog "Delete V3" asks: "Remove only this placement, and keep the object in the project (under Assets), or delete the object? A deleted object goes to the Deleted bin, from where it can be restored." with <span class="ui">Cancel</span>, <span class="ui">Remove from this drawing</span> and <span class="ui">Delete the object</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Remove from this drawing</span>.</td><td>V3 leaves the sheet but stays under <span class="ui">Assets</span> in the explorer; its shortcut row for the drawing goes.</td></tr>
+      <tr><td>3</td><td>Select two symbols and press <kbd>Delete</kbd>.</td><td>Both go to the Deleted bin without a question.</td></tr>
+      <tr><td>4</td><td>Select a line or a note and press <kbd>Delete</kbd>.</td><td>It is deleted at once.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-warn">Manual-review check C7 expects a preview of what goes with the object on the first Delete. Delete moves an object to the Bin; the preview of what goes with it is shown only at <span class="ui">Delete permanently…</span> in the Bin.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-clipboard">Undo</a> · <a href="guide-projects.html#prj-sections">Project sections and the Bin</a></p>
+</section>
+
+<section class="g-feature" id="draw-tags-labels">
+  <h2>Tags, names and line numbers on the sheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-tags-labels</span><span>Roadmap M3.10, M1.7</span><span>Review check B3</span></div>
+  <p class="g-summary">Every symbol shows its tag or name, and every tagged or named pipe run shows its line number along it. You can drag and rotate the labels, and tag a symbol by hand with the Tag tool. Renames by other people appear on the open drawing.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On the sheet; drawing toolbar → <span class="ui">Tag</span>, or <span class="ui">Insert → Tag</span></dd>
+    <dt>Who</dt><dd>Everyone sees labels; moving them and tagging need edit rights</dd>
+    <dt>Before you start</dt><dd>A sheet with tagged symbols and pipes is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Place two new centrifugal pumps.</td><td>Each shows its tag, for example P-001 and P-002, if your project has a tag rule for pumps.</td></tr>
+      <tr><td>2</td><td>Look along a tagged pipe run.</td><td>Its line number (for example L-101) is drawn along it.</td></tr>
+      <tr><td>3</td><td>Drag a pump's name label away from the pump.</td><td>The label stays where you dropped it, also after a reload.</td></tr>
+      <tr><td>4</td><td>Select the label and drag its round handle (<span class="ui">Rotate the name</span>).</td><td>The label turns in steps of 15°.</td></tr>
+      <tr><td>5</td><td>Select one pump, then click <span class="ui">Tag</span> on the toolbar.</td><td>The tag dialog opens with the pump's tag, its state, and a field for a manual tag, with <span class="ui">Cancel</span> and <span class="ui">Set tag</span> (and <span class="ui">Use the rule's tag</span> when the rule gives a different tag).</td></tr>
+      <tr><td>6</td><td>Close the dialog, click <span class="ui">Tag</span> with nothing selected, then click a symbol.</td><td>The tag dialog opens for that symbol.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-insert.webp" alt="The Insert menu with Asset…, Flow lines, Cable, Wire, Logic, Text and Tag" width="424" height="520" loading="lazy"><figcaption>The Insert menu: Tag opens the tag dialog for the selected symbol.</figcaption></figure>
+  <p class="g-note">Labels are formatted with the text format row (<a href="guide-drawing.html#draw-text">Text notes</a>) and hidden with the Annotation layer (<a href="guide-drawing.html#draw-layers">Layers</a>). How tags are made is described in <a href="guide-objects.html#obj-tags">Tags</a> and <a href="guide-objects.html#obj-tag-rules">Tag rules</a>.</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-drawing.html#draw-text">Text notes</a></p>
+</section>
+
+<section class="g-feature" id="draw-text">
+  <h2>Text notes and text formatting</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-text</span><span>Roadmap M3.11</span><span>Review check B8</span></div>
+  <p class="g-summary">Text notes put free text on the sheet. Notes and symbol names are formatted with the text format row: font, colour, bold, italic, underline, strikethrough, size and rotation.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Text</span>, or <span class="ui">Insert → Text</span>; the text format group in the third toolbar row</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Text</span>.</td><td>The status bar reads <span class="ui">Text</span> with the hint "Click the sheet to place text. Double-click a note to edit it."</td></tr>
+      <tr><td>2</td><td>Click the sheet.</td><td>A note "Text" is placed with its text selected.</td></tr>
+      <tr><td>3</td><td>Type "Feed from tank farm" and press <kbd>Enter</kbd> (or click away).</td><td>The text is kept. <kbd>Esc</kbd> instead keeps the old text; emptying a note deletes it.</td></tr>
+      <tr><td>4</td><td>Double-click the note.</td><td>You edit it again. Dragging the note moves it; its round handle (<span class="ui">Rotate the note</span>) turns it in 15° steps.</td></tr>
+      <tr><td>5</td><td>With the note selected, open <span class="ui">Font</span> and choose <span class="ui">Mono</span>.</td><td>The text format controls are active. Font offers Sans, Serif, Mono and Narrow; the note changes font.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Bold</span>, then <span class="ui">Larger</span> (A+).</td><td>The note is bold and one size larger. Bold shows as pressed.</td></tr>
+      <tr><td>7</td><td>Open <span class="ui">Text color</span> and choose Red.</td><td>The note turns red. The colours are Ink, White, Black, Red, Amber, Green, Blue and Violet.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Rotate</span> (↻).</td><td>The note turns by 90°.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar; the third row starts with Font, the colour swatch, B, I, U, S, A−, A+ and the rotate arrow" width="1596" height="246" loading="lazy"><figcaption>The text format group is the left part of the third row.</figcaption></figure>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-line-style">Line style</a> · <a href="guide-drawing.html#draw-tags-labels">Tags and labels</a> · <a href="guide-drawing.html#draw-toolbar">The drawing toolbar</a></p>
+</section>
+
+<section class="g-feature" id="draw-line-style">
+  <h2>Line style, thickness and colour</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-line-style</span><span>Roadmap M3.11</span><span>Review check B8</span></div>
+  <p class="g-summary">Selected lines get their thickness, colour and pattern from the line style group, with the line thicknesses of ISO drawing practice for main, subsidiary and auxiliary lines.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The line style group in the third toolbar row</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet with a pipe is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select a pipe.</td><td>The line style controls become active. The thickness button shows the line's thickness, for example "Flow lines (1 mm)".</td></tr>
+      <tr><td>2</td><td>Open the thickness menu and choose Subsidiary flow lines.</td><td>The choices are Flow lines 1 mm, Subsidiary flow lines 0.5 mm and Auxiliary lines 0.25 mm. The pipe becomes thinner.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Thicker</span> (+).</td><td>The pipe steps back to the next thicker width. <span class="ui">Thinner</span> (−) steps the other way; each is greyed out at its end.</td></tr>
+      <tr><td>4</td><td>Open <span class="ui">Style</span> and choose Dashed.</td><td>The pipe is drawn dashed, and the button reads Dashed.</td></tr>
+      <tr><td>5</td><td>Open <span class="ui">Line color</span> and choose Blue, then choose Connector.</td><td>The pipe turns blue, then back to the colour of its kind.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-text">Text notes and text formatting</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
+</section>
+
+<section class="g-feature" id="draw-flow-arrows">
+  <h2>Flow arrows, flow direction and line crossings</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-flow-arrows</span><span>Roadmap M3.11</span><span>Review check B4</span></div>
+  <p class="g-summary">Flow lines carry filled flow arrows (10 × 7 mm, ISO 14617-2) at equipment inlets, just upstream of branches, and where a line enters or leaves the sheet. Where lines cross, E1 draws a gap or a line jump, as your project chooses.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On the sheet; flip direction with <kbd>F</kbd> or right-click a line → <span class="ui">Flip direction</span>; crossings in <span class="ui">File → Project settings…</span> → <span class="ui">Drawing</span> → <span class="ui">Crossing lines</span></dd>
+    <dt>Who</dt><dd>Editor license; changing the crossing style needs a role that may change project settings</dd>
+    <dt>Before you start</dt><dd>A sheet with pipes, two of which cross.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Look at a pipe into a vessel.</td><td>A filled arrow sits at the vessel's inlet. A pump inlet gets no arrow. Cables, wires and logic lines have no arrows.</td></tr>
+      <tr><td>2</td><td>Select the pipe and press <kbd>F</kbd>.</td><td>The pipe's flow direction turns round; its arrows point the other way.</td></tr>
+      <tr><td>3</td><td>Select two pipes, right-click one → <span class="ui">Flip direction of selected lines</span>.</td><td>Both turn round.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">File → Project settings…</span>, go to <span class="ui">Drawing</span>, and set <span class="ui">Crossing lines</span> to "Arc (line jump)".</td><td>The choice saves at once. Every open sheet redraws: crossings show an arc instead of a gap ("Gap (ISO 10628-1)").</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">With several projects selected in the settings, a value that differs between them reads "Mixed".</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-library.html#lib-configuration">Configuration and project settings</a></p>
+</section>
+
+<section class="g-feature" id="draw-highlight-flow">
+  <h2>Highlight flow</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">DRAW-highlight-flow</span><span>Roadmap M3.11</span><span>Review check B9</span></div>
+  <p class="g-summary">Highlight flow traces where a line or a symbol's flow goes: from an open end, through valves, to the next equipment. It can also go on through pumps and compressors and across off-page connectors to other sheets.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click a line or a symbol → <span class="ui">Highlight flow</span> or <span class="ui">Highlight flow through pumps and compressors</span></dd>
+    <dt>Who</dt><dd>Everyone who can open the sheet</dd>
+    <dt>Before you start</dt><dd>A sheet with a connected pipe run is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click the line from V3 into Pump1 → <span class="ui">Highlight flow</span>.</td><td>The path is highlighted, and a bar says where it runs, for example "Flow from an open end to Pump1 inlet.", with <span class="ui">Clear</span>.</td></tr>
+      <tr><td>2</td><td>Right-click again → <span class="ui">Highlight flow through pumps and compressors</span>.</td><td>The flow goes on past the pump, and the text adds "(through pumps and compressors)". If the path leaves through an off-page connector, it adds "It goes on on …" with the other sheet.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Clear</span> (or right-click → <span class="ui">Clear flow highlight</span>).</td><td>The highlight and the bar disappear.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/flow-highlight.webp" alt="Highlight flow on Pump1: the path is highlighted and a banner reads Flow from an open end to an open end, with Clear" width="2160" height="1350" loading="lazy"><figcaption>A highlighted flow path with its description and Clear.</figcaption></figure>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol's right-click menu</a></p>
+</section>
+
+<section class="g-feature" id="draw-layers">
+  <h2>Layers</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-layers</span><span>Roadmap M3.10</span><span>Review check B6</span></div>
+  <p class="g-summary">Layers hide parts of a sheet for you: process equipment and pipes, instrumentation, electrical, or annotation. Hiding a layer changes only your view, per sheet, and is kept after a reload.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Layers</span> ▾</dd>
+    <dt>Who</dt><dd>Everyone; the setting is per person and per sheet</dd>
+    <dt>Before you start</dt><dd>A sheet with pipes, instruments and names is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Layers</span>.</td><td>A menu with the check items <span class="ui">Process</span>, <span class="ui">Instrumentation</span>, <span class="ui">Electrical</span> and <span class="ui">Annotation</span>, all checked.</td></tr>
+      <tr><td>2</td><td>Uncheck <span class="ui">Process</span>.</td><td>The pipes and the process equipment disappear.</td></tr>
+      <tr><td>3</td><td>Uncheck <span class="ui">Annotation</span>.</td><td>The names and line numbers disappear.</td></tr>
+      <tr><td>4</td><td>Reload the page, and open another sheet.</td><td>This sheet still hides those layers; the other sheet shows all of them.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/layers-menu.webp" alt="The Layers menu with Process, Instrumentation, Electrical and Annotation" width="536" height="404" loading="lazy"><figcaption>The Layers menu of the drawing toolbar.</figcaption></figure>
+  <p class="g-note">Two more layers are planned: Markups, for redlining, and Background, for imported CAD drawings (<a href="guide-drawing.html#draw-redlining">Redlining</a>, <a href="guide-drawing.html#draw-cad-import">CAD import</a>).</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-tags-labels">Tags and labels</a> · <a href="guide-drawing.html#draw-toolbar">The drawing toolbar</a></p>
+</section>
+
+<section class="g-feature" id="draw-frames">
+  <h2>System and area frames</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-frames</span><span>Roadmap M3.11</span></div>
+  <p class="g-summary">A frame drawn around symbols makes them belong to a system or an area. The framed symbols then show under that system or area in the explorer.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The frame tools on the drawing toolbar. They appear only while a system or area is picked in the explorer, or right after you made an area with the Object button.</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A function or system, for example TIC-101, exists under <span class="ui">Systems</span> (<a href="guide-objects.html#obj-new-object">Create an object</a>), and a sheet is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>With the sheet open, click TIC-101 in the explorer.</td><td>The toolbar shows the frame tools <span class="ui">Rectangle frame for system TIC-101</span>, <span class="ui">Circle frame for system TIC-101</span> and <span class="ui">Freehand frame for system TIC-101</span>.</td></tr>
+      <tr><td>2</td><td>Click the rectangle frame tool.</td><td>The hint reads "Drag from corner to corner to draw the rectangle. The symbols inside belong to the system or area. Esc ends."</td></tr>
+      <tr><td>3</td><td>Drag across some symbols. If the browser asks to confirm, confirm.</td><td>A frame labelled TIC-101 is drawn.</td></tr>
+      <tr><td>4</td><td>Expand TIC-101 in the explorer.</td><td>The framed symbols are listed under it as references.</td></tr>
+      <tr><td>5</td><td>Click the frame's edge and drag it.</td><td>The frame is selected and moves.</td></tr>
+      <tr><td>6</td><td>Press <kbd>Delete</kbd>.</td><td>The frame is removed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The circle frame is drawn from the center outward. The freehand frame: hold the button and draw around the symbols; on release the outline closes back to where it started.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-object-types">Object types</a> · <a href="guide-objects.html#obj-relationships">Relationships</a> · <a href="guide-projects.html#prj-sections">Project sections</a></p>
+</section>
+
+<section class="g-feature" id="draw-off-page">
+  <h2>Off-page connectors and Continue on sheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-off-page</span><span>Roadmap M3.11</span><span>Review check B9</span></div>
+  <p class="g-summary">An off-page connector carries a line on to another sheet. Connectors of the same name on two sheets of a project pair up, show where they go, and take you there with a double-click.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The symbol <span class="ui">Off-page connector</span> in the Add asset window; right-click a connector for its links</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>The project has two sheets.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Place an <span class="ui">Off-page connector</span> named OPC-901 on both sheets, and one named OPC-999 on one sheet only.</td><td>OPC-901 shows "→" and the other sheet's name beside its name. OPC-999 shows "· no partner" in red, with the tooltip "No connector of this name on another sheet".</td></tr>
+      <tr><td>2</td><td>Double-click OPC-901.</td><td>The other sheet opens with its OPC-901 selected.</td></tr>
+      <tr><td>3</td><td>Right-click OPC-999 → <span class="ui">Connect to off-page connector…</span>.</td><td>A bar reads "Click an off-page connector on another sheet to connect it to OPC-999 (…). Esc cancels." with <span class="ui">Cancel</span>; possible targets are marked.</td></tr>
+      <tr><td>4</td><td>Go to the other sheet and click a connector there.</td><td>Both connectors show "→" pointing to each other's sheet.</td></tr>
+      <tr><td>5</td><td>Right-click it → <span class="ui">Disconnect from …</span>.</td><td>It reads "· no partner" again.</td></tr>
+      <tr><td>6</td><td>Right-click a connector → <span class="ui">Continue on sheet</span> ▸ and choose a sheet.</td><td>The submenu lists the sheets the connector is not on yet. That sheet opens with a new linked connector selected, labelled "→" and the first sheet.</td></tr>
+      <tr><td>7</td><td>Right-click a paired connector → <span class="ui">Go to OPC-901 on …</span>.</td><td>The partner's sheet opens with the partner selected.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-warn">With an older project library, <span class="ui">Connect to off-page connector…</span> and <span class="ui">Continue on sheet</span> are greyed out; the first reads "Connect to off-page connector… (update the project library to version 8)". Update the library first (<a href="guide-library.html#lib-company-library">Company library</a>).</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-pipelines">Pipelines (planned)</a></p>
+</section>
+
+<section class="g-feature" id="draw-symbol-menu">
+  <h2>The right-click menus on the sheet, and Replace</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-symbol-menu</span><span>Roadmap M3.11</span><span>Review checks B4, B5, H5</span></div>
+  <p class="g-summary">Right-click a symbol, a line or empty sheet for the commands that fit it, in groups: clipboard, open, review, flow, arrange, and Delete last. Replace swaps a symbol's shape and keeps the object, its name and its connections.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click on the sheet with the Select tool. While Connector or placing is active, a right-click leaves the tool instead.</dd>
+    <dt>Who</dt><dd>Everyone; editing items need edit rights</dd>
+    <dt>Before you start</dt><dd>A sheet with symbols and lines is open.</dd>
+  </dl>
+  <h3>What the menus hold</h3>
+  <ul>
+    <li><strong>Symbol:</strong> <span class="ui">Cut</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span> · <span class="ui">Object properties</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Open datasheet</span> · <span class="ui">Comment here</span> · <span class="ui">Highlight flow</span>, <span class="ui">Highlight flow through pumps and compressors</span> (and the off-page items on an off-page connector) · <span class="ui">Flip horizontal</span>, <span class="ui">Flip vertical</span>, <span class="ui">Replace</span> · <span class="ui">Delete</span>.</li>
+    <li><strong>Line:</strong> <span class="ui">Cut</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span> · <span class="ui">Highlight flow</span>, <span class="ui">Highlight flow through pumps and compressors</span>, <span class="ui">Clear flow highlight</span> (while shown) · <span class="ui">Flip direction</span> · <span class="ui">Delete</span>.</li>
+    <li><strong>Empty sheet:</strong> <span class="ui">Paste</span>, <span class="ui">Select all</span> · <span class="ui">Comment here</span>.</li>
+  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click Pump1.</td><td>The symbol menu opens with its groups separated by lines and <span class="ui">Delete</span> last. If Pump1 was part of a selection, the selection is kept.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Object properties</span>.</td><td>Pump1's object page opens (<a href="guide-objects.html#obj-object-window">The object window</a>).</td></tr>
+      <tr><td>3</td><td>Right-click Pump1 → <span class="ui">Deep view</span>.</td><td>The object page opens on its Deep view tab.</td></tr>
+      <tr><td>4</td><td>Right-click Pump1 → <span class="ui">Open datasheet</span>.</td><td>The pump's datasheet opens (<a href="guide-documents.html#doc-datasheet">Datasheets</a>).</td></tr>
+      <tr><td>5</td><td>Right-click Pump1 → <span class="ui">Replace</span>.</td><td>The asset window opens, titled "Replace", with a <span class="ui">Replace</span> button.</td></tr>
+      <tr><td>6</td><td>Choose another pump symbol and click <span class="ui">Replace</span>.</td><td>The symbol on the sheet changes. The object keeps its name, tag and connections.</td></tr>
+      <tr><td>7</td><td>Right-click a pipe.</td><td>The line menu opens, with <span class="ui">Flip direction</span>.</td></tr>
+      <tr><td>8</td><td>Right-click empty sheet.</td><td>A short menu with <span class="ui">Paste</span>, <span class="ui">Select all</span> and <span class="ui">Comment here</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol: Cut, Copy, Paste, Duplicate, Object properties, Deep view, Data sheet, Open datasheet, Comment here, Highlight flow, Highlight flow through pumps and compressors, Flip horizontal (F), Flip vertical, Replace, Delete" width="810" height="1026" loading="lazy"><figcaption>The symbol menu, grouped, with Delete last.</figcaption></figure>
+  <p class="g-note"><span class="ui">Data sheet</span> opens the object on its attributes view, as the same item in the explorer does; <span class="ui">Open datasheet</span> opens the formatted datasheet document. Deep view is a placeholder tab today.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Comment here</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-arrange">Flip</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-documents.html#doc-datasheet">Datasheets</a></p>
+</section>
+
+<section class="g-feature" id="draw-comment-here">
+  <h2>Comment here: pin a comment on the drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">DRAW-comment-here</span><span>Roadmap 07.8</span><span>Review check H5</span></div>
+  <p class="g-summary">A comment pinned on a symbol marks the object as needing review until the comment is resolved. The pin stays where you put it on the sheet and opens the object's discussion.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click a symbol or empty sheet → <span class="ui">Comment here</span></dd>
+    <dt>Who</dt><dd>Anyone who may comment in the project</dd>
+    <dt>Before you start</dt><dd>A sheet with Pump1 is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Comment here</span>.</td><td>A small form opens where you clicked: "A comment on Pump1, pinned here", a comment box, <span class="ui">Pin comment</span> and <span class="ui">Cancel</span>.</td></tr>
+      <tr><td>2</td><td>Type "Check the seal type" and click <span class="ui">Pin comment</span>.</td><td>A pin appears on the sheet ("Comment 1 on Pump1"). Pump1 in the explorer shows its Needs review mark ("Needs review: 1 unresolved comment").</td></tr>
+      <tr><td>3</td><td>Click the pin.</td><td>The card "Comment 1" shows the comment, with <span class="ui">Resolve</span>, <span class="ui">Open discussion</span> and <span class="ui">Close</span>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Resolve</span>.</td><td>The pin reads "Comment 1 on Pump1, resolved", and the Needs review mark goes. <span class="ui">Reopen</span> would open it again.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/pin-form.webp" alt="The form A comment on Pump1, pinned here, with a typed comment and the buttons Pin comment and Cancel" width="760" height="410" loading="lazy"><figcaption>The pin form opened with Comment here.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/pin-needs-review.webp" alt="After pinning: Pump1 in the explorer framed with its Needs review mark, and the pin on the sheet" width="2160" height="1350" loading="lazy"><figcaption>The pinned comment and the Needs review mark in the explorer.</figcaption></figure>
+  <p class="g-related">Related: <a href="guide-collaboration.html#col-comments">Comments and mentions</a> · <a href="guide-collaboration.html#col-tasks">Tasks</a> · <a href="guide-drawing.html#draw-symbol-menu">The right-click menus</a></p>
+</section>
+
+<section class="g-feature" id="draw-standards">
+  <h2>ISA 5.1 and ISO 10628 symbols</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-standards</span><span>Roadmap M3.12</span><span>Review checks B7, B2</span></div>
+  <p class="g-summary">The shapes follow ISO 10628-2 for process equipment and ISA 5.1 for instruments, valves and logic. In Configuration → Shapes you browse the shapes by standard and see each shape's ISA table and number.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Shapes</span>; the <span class="ui">Standard</span> filter is also in the Add asset window</dd>
+    <dt>Who</dt><dd>Everyone can browse</dd>
+    <dt>Before you start</dt><dd>A project is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Configuration</span> on the left rail, then <span class="ui">Shapes</span>.</td><td>The shape list with the filters <span class="ui">Standard</span>, <span class="ui">Category</span>, <span class="ui">Diagram</span> and <span class="ui">Package</span>, the search "Find a shape by name or key" and <span class="ui">Clear filters</span>.</td></tr>
+      <tr><td>2</td><td>Set <span class="ui">Standard</span> to ISA 5.1.</td><td>Only ISA 5.1 shapes are listed; each instrument, valve and logic shape shows its ISA table and number, for example Table 5.4.1 No. 6.</td></tr>
+      <tr><td>3</td><td>On a sheet, open the Add asset window, filter <span class="ui">Standard</span> to ISA 5.1, and place a <span class="ui">Pressure gauge</span>.</td><td>The gauge is placed and tagged PG-001 (with the default tag rules).</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/config-shapes.webp" alt="The Shapes section of the Configuration place with its filters and the list of shapes" width="2160" height="1350" loading="lazy"><figcaption>Configuration → Shapes, where shapes are browsed and filtered.</figcaption></figure>
+  <p class="g-warn">The <span class="ui">Standard</span> setting in Configuration → Shapes only filters the shape list. It is not a drawing standard for the project, and it does not change the symbols on your sheets. Manual-review check B7 reads as if it were a project-wide switch. <span class="ui">New shape</span> is shown as a planned action (the symbol designer).</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-library.html#lib-configuration">Configuration</a> · <a href="guide-drawing.html#draw-symbol-designer">Symbol designer (planned)</a></p>
+</section>
+
+<section class="g-feature" id="draw-drop-from-explorer">
+  <h2>Drop an object from the explorer onto the sheet or a line</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">DRAW-drop-from-explorer</span><span>Roadmap M3.11</span></div>
+  <p class="g-summary">An object that already exists, for example one made in a list or the explorer, is placed by dragging it from the explorer onto the sheet. Dropped on a pipe, it goes into the line.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drag an object row from the explorer onto an open sheet</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>An object under <span class="ui">Assets</span> that is not yet on this sheet, and a sheet with a pipe.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Drag a pump row from <span class="ui">Assets</span> onto free sheet and drop it.</td><td>The pump is drawn where you dropped it, with its class's shape for the sheet's diagram type.</td></tr>
+      <tr><td>2</td><td>Drag a valve row close to a pipe (within about 14 pixels).</td><td>The pipe lights up while you hover.</td></tr>
+      <tr><td>3</td><td>Drop it.</td><td>The valve goes into the line.</td></tr>
+      <tr><td>4</td><td>Drag the valve's grips.</td><td>It is resized.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A sheet's <span class="ui">Diagram type</span> is set in its attributes (it includes "Unspecified diagram"). It decides which shapes are offered and drawn. The explorer's <span class="ui">Place on drawing…</span> is another way (<a href="guide-objects.html#obj-new-object">Objects</a>).</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-objects.html#obj-new-object">Create an object</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
+</section>
+
+<section class="g-feature" id="draw-predictive">
+  <h2>Predictive mode: Let Alex help</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-predictive</span><span>Roadmap M3.11</span></div>
+  <p class="g-summary">With predictive mode on, Alex reviews the drawing as you work and offers what usually comes next, for example the valves around a new pump, as ghost symbols you accept or ignore. It runs locally, without the cloud.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Let Alex help</span> (reads <span class="ui">Alex is live</span> while on); Alex's skill and level in the <span class="ui">Alex</span> tab of the side panel</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A sheet is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Point at <span class="ui">Let Alex help</span>.</td><td>The tooltip reads "Let Alex (…) review the drawing as you work and suggest what comes next: local AI, no cloud." with Alex's current skill.</td></tr>
+      <tr><td>2</td><td>Click it.</td><td>The button is pressed and reads <span class="ui">Alex is live</span>.</td></tr>
+      <tr><td>3</td><td>Place a centrifugal pump.</td><td>A <span class="ui">Suggestion</span> bar appears with ghost symbols on the sheet, the reason, and <span class="ui">Accept</span> and <span class="ui">Ignore</span>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Accept</span>.</td><td>The ghost symbols are placed as real objects.</td></tr>
+      <tr><td>5</td><td>Place another pump and press <span class="ui">Ignore</span> (or <kbd>Esc</kbd>).</td><td>The offer is dismissed and nothing is placed.</td></tr>
+      <tr><td>6</td><td>In the side panel, open the <span class="ui">Alex</span> tab and set the skill to Process engineer.</td><td>The skill choices are Plant engineer, Process engineer and Automation engineer; the level choices are Quiet, Normal and Mentor. The choice is kept.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Alex is live</span>.</td><td>Predictive mode stops; the button reads <span class="ui">Let Alex help</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: markers on the sheet, cards with warnings, questions and suggestions, and the toolbar showing Alex is live" width="2160" height="1350" loading="lazy"><figcaption>Alex is live: the toolbar switch is pressed and Alex's cards are in the side panel.</figcaption></figure>
+  <p class="g-note">There is no separate Skills button on the toolbar any more; the skill is chosen in the Alex tab.</p>
+  <p class="g-related">Related: <a href="guide-ai.html#ai-alex">Alex</a> · <a href="guide-drawing.html#draw-patterns">Engineering patterns</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
+</section>
+
+<section class="g-feature" id="draw-patterns">
+  <h2>Engineering patterns</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">DRAW-patterns</span><span>Roadmap 02.2</span><span>Review checks I7, I8</span></div>
+  <p class="g-summary">Engineering patterns draw a whole typical arrangement at once: a redundant pump train, an instrument tap, or a motor feeder. E1 places, routes and checks the pattern, and says what it repaired.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Cloud AI (chat), or the command palette (<kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>)) with <span class="ui">Redundant pump train</span>, <span class="ui">Instrument tap</span>, <span class="ui">Motor feeder</span> and <span class="ui">Check a pattern</span></dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings; Cloud AI must be turned on for the chat</dd>
+    <dt>Before you start</dt><dd>A sheet with a feed line and pumps is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In Cloud AI, ask for "a redundant pump train on the feed line".</td><td>Two pumps side by side, each with an isolation valve before it and a check valve and an isolation valve after it, joined by a header at each end, all pipes. The reply names the pattern and says the check passed, or what it repaired.</td></tr>
+      <tr><td>2</td><td>Ask for "a pressure transmitter on Pump1".</td><td>The transmitter is joined to Pump1 by a signal line; no pipe touches it.</td></tr>
+      <tr><td>3</td><td>Ask for "a motor for Pump2 fed from the MCC".</td><td>The motor is joined by a cable; no pipe touches it.</td></tr>
+      <tr><td>4</td><td>Press <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>) and type "pattern".</td><td>The palette lists <span class="ui">Check a pattern</span> among the commands.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/palette-open.webp" alt="The command palette opened with Ctrl+K over the E1 window" width="2160" height="1350" loading="lazy"><figcaption>The command palette, where the pattern commands are found.</figcaption></figure>
+  <p class="g-related">Related: <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a> · <a href="guide-getting-started.html#gs-command-palette">Command palette</a> · <a href="guide-drawing.html#draw-predictive">Predictive mode</a></p>
+</section>
+
+<section class="g-feature" id="draw-loop-diagram">
+  <h2>Generated loop diagrams</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">DRAW-loop-diagram</span><span>Roadmap 06.4</span><span>Review checks E5, E6</span></div>
+  <p class="g-summary">E1 draws the loop diagram of a control function from the model: the instruments that implement it and the devices it controls, in signal order. You can move symbols by hand; Regenerate brings in model changes and keeps your moves.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click a function in the explorer → <span class="ui">Generate loop diagram</span></dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit the project</dd>
+    <dt>Before you start</dt><dd>A function TIC-101 under <span class="ui">Systems</span>; a transmitter TT-101 and a controller TC-101 that implement it, and a valve TV-101 it controls (<a href="guide-objects.html#obj-relationships">Relationships</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click TIC-101 → <span class="ui">Generate loop diagram</span>.</td><td>The loop diagram opens with the panel "Loop diagram": "Generated from TIC-101" (a link), <span class="ui">Regenerate</span>, <span class="ui">Export PDF</span>, and a line such as "3 devices, 1 lines, in signal order." The transmitter, controller and valve are drawn from left to right.</td></tr>
+      <tr><td>2</td><td>Drag the transmitter to a new place.</td><td>The panel reads "Moved by hand: TT-101".</td></tr>
+      <tr><td>3</td><td>Relate one more instrument to TIC-101 (implements), then click <span class="ui">Regenerate</span>.</td><td>The panel reads "4 devices…"; the new instrument appears and the transmitter stays where you put it.</td></tr>
+      <tr><td>4</td><td>Draw a line from the transmitter to the controller.</td><td>It becomes a signal in the model. A line not drawn between two devices is refused with "Draw the line from one device of the loop to another."</td></tr>
+      <tr><td>5</td><td>Delete a device you moved, then click <span class="ui">Regenerate</span>.</td><td>A warning reads "One override names an object the loop no longer reaches.", with <span class="ui">Remove</span> and <span class="ui">Re-apply</span>.</td></tr>
+      <tr><td>6</td><td>Expand TIC-101 in the explorer.</td><td>The loop diagram is listed under it as a reference.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">With nothing related, the panel says "Nothing implements this function yet: relate its instruments to it (implements), then regenerate." Other edits are refused with "A loop diagram is generated: move its symbols, draw a line between two devices, or change the model and regenerate."</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-relationships">Relationships</a> · <a href="guide-objects.html#obj-new-object">Create an object</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-documents.html#doc-sheet-pdf">Sheet PDF</a></p>
+</section>
+
+<section class="g-feature" id="draw-symbol-designer">
+  <h2>Symbol designer and Modify shape…</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-symbol-designer</span><span>Roadmap 21.2</span></div>
+  <p class="g-summary">A designer for drawing your own symbols and publishing them in the company library, and a way to adapt a placed symbol for one project.</p>
+  <p class="g-dev">Planned in the Library lifecycle milestone, stage 21.2 "Symbol designer and publishing". Not started. Today <span class="ui">New shape</span> in Configuration → Shapes is shown as a planned action, and <span class="ui">Modify shape…</span> is not in any menu yet; it will be added once the designer exists.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Draw a new shape with its nozzles and publish it to the company library.</li>
+    <li>Right-click a symbol on a sheet or in the explorer → <span class="ui">Modify shape…</span>: E1 makes a project copy of the shape and opens it in the designer. On save, the placement uses the copy.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-standards">ISA 5.1 and ISO 10628 symbols</a> · <a href="guide-drawing.html#draw-svg-import">SVG import</a> · <a href="guide-drawing.html#draw-symbol-versions">Symbol versions</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
+</section>
+
+<section class="g-feature" id="draw-attribute-labels">
+  <h2>Attribute labels on symbols</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-attribute-labels</span><span>Roadmap 21.3</span></div>
+  <p class="g-summary">Labels on a symbol that show its attribute values, for example design pressure or size, and update when the value changes.</p>
+  <p class="g-dev">Planned in the Library lifecycle milestone, stage 21.3 "Attribute labels on symbols". Not started. Today a symbol shows only its tag or name.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Show chosen attributes of an object as labels beside its symbol.</li>
+    <li>See the label change when someone changes the value in the object, a list or a datasheet.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-tags-labels">Tags and labels</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
+</section>
+
+<section class="g-feature" id="draw-svg-import">
+  <h2>SVG import into the symbol designer</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-svg-import</span><span>Roadmap 21.4</span></div>
+  <p class="g-summary">Bring existing symbol drawings into E1 as SVG files instead of drawing them again.</p>
+  <p class="g-dev">Planned in the Library lifecycle milestone, stage 21.4 "SVG import into the symbol designer". Not started; it follows the symbol designer.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Import an SVG file into the symbol designer and add its nozzles.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a></p>
+</section>
+
+<section class="g-feature" id="draw-symbol-versions">
+  <h2>Symbol versions on placements</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-symbol-versions</span><span>Roadmap 21.5</span></div>
+  <p class="g-summary">Each placed symbol will remember the version of its shape, so a new version in the library does not change your sheets until you upgrade them.</p>
+  <p class="g-dev">Planned in the Library lifecycle milestone, stage 21.5 "Symbol versions on placements and upgrade". Not started.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>See which shape version a placement uses.</li>
+    <li>Upgrade placements to a new shape version with a preview.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
+</section>
+
+<section class="g-feature" id="draw-pipelines">
+  <h2>Pipelines and completeness checks</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
+  <p class="g-summary">Pipelines group pipe runs from one end point to another, also across sheets, so you can select, check and list a whole line.</p>
+  <p class="g-dev">Planned in the Piping milestone, stages 13.1 "Pipelines and selection" and 13.2 "Completeness and detection". Not started. Today each drawn run is its own object with a line number.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Create a pipeline, redefine its boundaries, and swap runs between pipelines.</li>
+    <li>Select a whole pipeline, across off-page connectors.</li>
+    <li>Find runs that belong to no pipeline, and pipelines that are not complete.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
+</section>
+
+<section class="g-feature" id="draw-pipe-classes">
+  <h2>Pipe classes</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-pipe-classes</span><span>Roadmap 13.3</span></div>
+  <p class="g-summary">Pipe classes (piping specifications) give each line its material, rating and allowed components.</p>
+  <p class="g-dev">Planned in the Piping milestone, stage 13.3 "Pipe classes". Not started.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Assign a pipe class to a pipeline and see the components that are allowed in it.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-line-list">Line list</a></p>
+</section>
+
+<section class="g-feature" id="draw-line-list">
+  <h2>Pipe schedule (line list)</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-line-list</span><span>Roadmap 13.4</span></div>
+  <p class="g-summary">A line list of all pipelines with their data, kept up to date from the drawing.</p>
+  <p class="g-dev">Planned in the Piping milestone, stage 13.4 "Pipe schedule (line list)". Not started. Today you can list the line objects under Assets → Lines with a query (<a href="guide-lists.html#list-new-query">New query</a>).</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Open a line list document of the project's pipelines, and issue and export it like other list documents.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-lists.html#list-new-query">New query</a></p>
+</section>
+
+<section class="g-feature" id="draw-dexpi">
+  <h2>DEXPI exchange and handover</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-dexpi</span><span>Roadmap 13.5</span></div>
+  <p class="g-summary">Exchange P&amp;IDs with other tools and hand them over to the owner in the DEXPI format.</p>
+  <p class="g-dev">Planned in the Piping milestone, stage 13.5 "DEXPI exchange and handover". Not started.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Export a sheet with its objects and connections as DEXPI, and read DEXPI from other tools.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-cad-import">CAD import</a></p>
+</section>
+
+<section class="g-feature" id="draw-cad-import">
+  <h2>CAD import (DXF, later DWG)</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-cad-import</span><span>Roadmap 22</span></div>
+  <p class="g-summary">Import existing CAD drawings as a dimmed background to trace over, starting with DXF files.</p>
+  <p class="g-dev">Planned after the first release (stage 22 "CAD import (DXF, later DWG)"). Not started. The imported drawing will sit on its own Background layer, under everything and not selectable item by item.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Import a DXF file onto a sheet as a background reference, and show or hide it with Layers.</li>
+    <li>Later: DWG files.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-layers">Layers</a> · <a href="guide-drawing.html#draw-dexpi">DEXPI exchange</a></p>
+</section>
+
+<section class="g-feature" id="draw-redlining">
+  <h2>Redlining</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-redlining</span></div>
+  <p class="g-summary">Mark up a sheet in review rounds with clouds, callouts and notes, on a separate Markups layer that never changes the drawing itself.</p>
+  <p class="g-dev">Designed, but not yet a stage on the roadmap. Not started. Until then, use <a href="guide-drawing.html#draw-comment-here">Comment here</a> to pin review comments on a sheet.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Start a review round for one or more sheets, or for an issued revision, and invite reviewers with a due date.</li>
+    <li>Draw markups (for example a cloud with a callout) marked as add or change, delete, remark, question or verified, on the Markups layer; hiding the layer shows the drawing unchanged.</li>
+    <li>Open the Markups list of a sheet, a round or the project, filter it, zoom to a markup, and change the status of several at once.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Comment here</a> · <a href="guide-drawing.html#draw-layers">Layers</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a></p>
+</section>

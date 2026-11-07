@@ -35,13 +35,388 @@
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#access-overview">About this guide</a></li>
+          <li><a href="#acc-browser">Open E1 in the browser</a></li>
+          <li><a href="#acc-desktop-app">The desktop app for Windows and macOS</a></li>
+          <li><a href="#acc-sign-in">Sign in to E1</a></li>
+          <li><a href="#acc-microsoft">Sign in with your company&#x27;s Microsoft account</a></li>
+          <li><a href="#acc-claim-installation">Claim a new installation</a></li>
+          <li><a href="#acc-sign-in-problems">When sign-in is refused</a></li>
+          <li><a href="#acc-passkeys">Passkeys</a></li>
+          <li><a href="#acc-step-up">Confirm it is you</a></li>
+          <li><a href="#acc-session">Session length, sign out and switching organization</a></li>
+          <li><a href="#acc-trial">The 30-day trial</a></li>
+          <li><a href="#acc-store">Which store and cloud E1 runs on</a></li>
+          <li><a href="#acc-cloud-deployment">E1&#x27;s reference cloud</a></li>
+          <li><a href="#acc-company-sso">Company single sign-on and directory sync</a></li>
+        </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Installation and sign-in</p>
         <h1>2. Installation and sign-in</h1>
         <p class="lead">Open E1 in the browser or the desktop app, sign in with your company account or Microsoft, passkeys, sessions and the store E1 runs on.</p>
         <div class="g-meta"><span>0 features</span><span>0 available</span><span>Guide updated 2026-11-07</span></div>
-<p>This guide is being written.</p>
+<section class="g-feature" id="access-overview">
+  <h2>About this guide</h2>
+  <p class="g-summary">This guide covers how you get into E1: opening it in the browser or the desktop app, signing in with your company account or with Microsoft, passkeys and the "Confirm it is you" check, how long a sign-in lasts, trials, and how to see which store and cloud E1 runs on.</p>
+  <h3>The usual order</h3>
+  <ol>
+    <li>Open E1 <a href="#acc-browser">in the browser</a> (or, once it is released, <a href="#acc-desktop-app">the desktop app</a>).</li>
+    <li><a href="#acc-sign-in">Sign in</a>, or <a href="#acc-microsoft">sign in with your company's Microsoft account</a>. On a new installation, the first sign-in <a href="#acc-claim-installation">claims it</a>. If sign-in is refused, see <a href="#acc-sign-in-problems">When sign-in is refused</a>.</li>
+    <li><a href="#acc-passkeys">Add a passkey</a>: it signs you in faster and is needed for administrator roles. Learn when E1 asks you to <a href="#acc-step-up">confirm it is you</a>.</li>
+    <li>Know <a href="#acc-session">how long a sign-in lasts and how to sign out</a>, and what happens when <a href="#acc-trial">a trial</a> ends.</li>
+    <li>Check <a href="#acc-store">which store E1 runs on</a> in the status bar.</li>
+  </ol>
+  <h3>Before you start</h3>
+  <p>You need the address of your E1 server (E1's own cloud is <em>app.lanxtor.com</em>) and an account with your organization's sign-in provider, or an invitation to E1.</p>
+</section>
+
+<section class="g-feature" id="acc-browser">
+  <h2>Open E1 in the browser</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ACC-browser</span></div>
+  <p class="g-summary">E1 runs in the browser with nothing to install. Use it on any computer, on Linux and on tablets; the desktop app is for Windows and macOS.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Your E1 server's address; for E1's cloud, <em>app.lanxtor.com</em>. On the website, the account page has <span class="ui">Open E1 in the browser</span>.</dd>
+    <dt>Who</dt><dd>Anyone with an E1 account</dd>
+    <dt>Before you start</dt><dd>Allow pop-ups for E1 if you want floating windows.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open your E1 server's address in the browser.</td><td>On a server with sign-in, the screen <span class="ui">Sign in to E1</span> appears. Otherwise E1 opens directly.</td></tr>
+      <tr><td>2</td><td>Sign in (see <a href="#acc-sign-in">Sign in to E1</a>).</td><td>E1 opens with your projects; the status bar shows <span class="ui">Saved</span>.</td></tr>
+      <tr><td>3</td><td>On the website account page, click <span class="ui">Open E1 in the browser</span>.</td><td>E1 opens at app.lanxtor.com.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/web-download.webp" alt="The website's Get E1 page with the E1 Cloud and Your cloud cards" width="2160" height="1350" loading="lazy"><figcaption>The website's Get E1 page. "On any other computer or a tablet, use E1 in the browser."</figcaption></figure>
+  <p class="g-note">In the browser, floating windows open as pop-ups. Your appearance, panel widths and hidden panels are kept per browser; your tabs, selection and open rows are kept for you on the server.</p>
+  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-desktop-app">The desktop app</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a> · <a href="guide-account.html#web-account-page">The account page</a></p>
+</section>
+
+<section class="g-feature" id="acc-desktop-app">
+  <h2>The desktop app for Windows and macOS</h2>
+  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">ACC-desktop-app</span><span>Roadmap PR</span></div>
+  <p class="g-summary">E1 will come as a desktop app for Windows 10 or 11 (64-bit, also Arm) and macOS 12 or newer. The installers are not released yet; use E1 in the browser until then.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Website → <span class="ui">Get E1</span> → <span class="ui">Download E1</span></dd>
+    <dt>Who</dt><dd>Anyone with an E1 account</dd>
+    <dt>Before you start</dt><dd>Windows or macOS. Linux and tablets use the browser.</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Under development (roadmap stage PR, pilot readiness: "signed desktop app").</strong> The download page lists the installers, each marked <span class="ui">Coming soon</span>, with "Current version 0.0.0 · stable channel". Development builds of the app already work as described below.</p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Download <span class="ui">Installer (.exe)</span> or <span class="ui">Installer for Arm (.exe)</span> for Windows, or <span class="ui">Apple silicon (.dmg)</span> or <span class="ui">Intel (.dmg)</span> for macOS. Your own system is shown first, marked <span class="ui">Your system</span>.</li>
+    <li>At the first start, connect the app to its server on the page <span class="ui">Connect E1 to its server</span>: "E1 keeps projects on a server: your organization's, or E1's cloud. Enter its address; you sign in next." Type the address in <span class="ui">Server address</span> (for example https://e1.example.com) and click <span class="ui">Connect</span>. The app restarts on that server and remembers it.</li>
+    <li>Sign in with the same sign-in screen and the same account as in the browser.</li>
+    <li>Use floating windows as real windows; the app opens them again where they were at the next start.</li>
+  </ul>
+  <p>Wrong addresses are refused with "That is not an address. Enter one like https://e1.example.com.", "The address starts with https://." or "Use https:// for a server that is not on this computer."</p>
+  <figure class="g-shot"><img src="assets/img/guides/web-download.webp" alt="The website's Get E1 page where the Windows and macOS installers will be offered" width="2160" height="1350" loading="lazy"><figcaption>The download page; the installer buttons say <span class="ui">Coming soon</span>.</figcaption></figure>
+  <p class="g-warn">The app's window title is "Lanxtor E1". On Windows the system menu bar hides itself; use E1's own menu bar inside the window. The plan is to sign in through your system browser; today the app shows the server's sign-in inside its own window.</p>
+  <p class="g-related">Related: <a href="#acc-browser">Open E1 in the browser</a> · <a href="#acc-sign-in">Sign in to E1</a> · <a href="guide-getting-started.html#gs-floating-windows">Floating windows</a></p>
+</section>
+
+<section class="g-feature" id="acc-sign-in">
+  <h2>Sign in to E1</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ACC-sign-in</span><span>Roadmap M2.2</span><span>Review check Z2</span></div>
+  <p class="g-summary">On a server with sign-in, E1 shows its sign-in screen until you sign in. You sign in with your organization's account on its sign-in page; E1 stores no passwords. The first time, signing in creates your account and a personal workspace.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The screen <span class="ui">Sign in to E1</span>, shown instead of the app</dd>
+    <dt>Who</dt><dd>Anyone with an account at the installation's sign-in provider (on E1's cloud: a LANXTOR E1 account, made with email and password or a one-time code)</dd>
+    <dt>Before you start</dt><dd>Your email address is verified at the sign-in provider.</dd>
+  </dl>
+  <h3>The sign-in screen</h3>
+  <ul>
+    <li>The heading <span class="ui">Sign in to E1</span> and "Sign in with your organization's account. New here? Signing in creates your account and a personal workspace."</li>
+    <li><span class="ui">Sign in</span>: goes to the sign-in provider and back into E1.</li>
+    <li><span class="ui">Sign in with your company's Microsoft account</span>: only where the server has Microsoft connected. See <a href="#acc-microsoft">Sign in with Microsoft</a>.</li>
+    <li><span class="ui">Sign in with a passkey</span>: only where the browser supports passkeys. See <a href="#acc-passkeys">Passkeys</a>.</li>
+    <li>A problem shows in red above the buttons.</li>
+  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open E1 on a server with sign-in.</td><td>The screen <span class="ui">Sign in to E1</span> with the <span class="ui">Sign in</span> button appears.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Sign in</span>.</td><td>The sign-in provider's page opens (on app.lanxtor.com: Microsoft's sign-in page for LANXTOR E1).</td></tr>
+      <tr><td>3</td><td>Sign in there.</td><td>You are back in E1 with your projects. On E1's cloud the status bar shows <span class="ui">Microsoft Azure</span> at the bottom right.</td></tr>
+      <tr><td>4</td><td>Click your initial at the bottom of the left rail.</td><td>The <span class="ui">Account</span> tab shows your name, email and organization.</td></tr>
+      <tr><td>5</td><td>Sign in for the first time with a new address.</td><td>E1 creates your account with a personal workspace and opens it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">There is no picture of the sign-in screen in this guide yet. A sign-in you start must be finished within 10 minutes; after that E1 says "The sign-in expired or was started elsewhere. Try again." Your name and picture come from the sign-in provider each time you sign in.</p>
+  <p class="g-related">Related: <a href="#acc-microsoft">Sign in with Microsoft</a> · <a href="#acc-claim-installation">Claim a new installation</a> · <a href="#acc-sign-in-problems">When sign-in is refused</a> · <a href="#acc-passkeys">Passkeys</a> · <a href="#acc-session">Session length and sign out</a></p>
+</section>
+
+<section class="g-feature" id="acc-microsoft">
+  <h2>Sign in with your company's Microsoft account</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">ACC-microsoft</span><span>Roadmap 09.4 (first part)</span></div>
+  <p class="g-summary">Where your company has connected its Microsoft accounts (Microsoft Entra ID) to E1, you sign in with your work account and land straight in your company's organization.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Sign-in screen → <span class="ui">Sign in with your company's Microsoft account</span> (with the Microsoft logo)</dd>
+    <dt>Who</dt><dd>People whose email domain is one of the company's domains in E1</dd>
+    <dt>Before you start</dt><dd>LANXTOR has connected your company's directory (its tenant, its email domains and the default license). Your company's IT may first have to allow E1 once.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open E1.</td><td>The sign-in screen shows <span class="ui">Sign in with your company's Microsoft account</span> under <span class="ui">Sign in</span>. If the button is missing, the server has no Microsoft connection.</td></tr>
+      <tr><td>2</td><td>Click it.</td><td>Microsoft's page asks you to pick an account.</td></tr>
+      <tr><td>3</td><td>Pick your work account.</td><td>You are back in E1, a member of your company's organization. An E1 account you already had with the same address is linked to it.</td></tr>
+      <tr><td>4</td><td>Open <span class="ui">Account</span> from the left rail.</td><td><span class="ui">Your access</span> shows the license, if a seat was free; otherwise "None assigned · Without a license you can only view. An administrator assigns one."</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Messages you may see</h3>
+  <ul>
+    <li>"Your company has not connected its Microsoft accounts to E1 yet. Ask your E1 administrator, or write to sales@lanxtor.com."</li>
+    <li>"Sign in with your <em>organization</em> email address. This Microsoft account is not one of its domains in E1."</li>
+    <li>"Your access to <em>organization</em> in E1 was removed. Ask its E1 administrator."</li>
+    <li>"Your company's Microsoft administrator has to allow E1 once before people can sign in with it."</li>
+    <li>"Microsoft did not say which company account this is. Try again."</li>
+    <li>"Signing in with a Microsoft company account is not set up here."</li>
+  </ul>
+  <p class="g-warn">Owners and Administrators still need a passkey before their role takes effect. Sign-in with SAML and automatic directory sync (SCIM) come later; see <a href="#acc-company-sso">Company single sign-on</a>. There is no review check for Microsoft sign-in yet.</p>
+  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-passkeys">Passkeys</a> · <a href="#acc-company-sso">Company single sign-on</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a></p>
+</section>
+
+<section class="g-feature" id="acc-claim-installation">
+  <h2>Claim a new installation</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ACC-claim-installation</span><span>Roadmap M2.2</span></div>
+  <p class="g-summary">A new E1 server with sign-in has no owner. The first person who signs in claims it: its projects, chat and settings become theirs, and they become its owner.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Sign-in screen → <span class="ui">Sign in and claim this installation</span></dd>
+    <dt>Who</dt><dd>The first person to sign in, normally whoever set up the server</dd>
+    <dt>Before you start</dt><dd>Nobody has signed in on this installation yet.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open E1 on the new installation.</td><td>The sign-in screen reads "This installation has no owner yet. The first person who signs in claims it: its projects, chat, and settings become theirs." and has one button, <span class="ui">Sign in and claim this installation</span>. The Microsoft and passkey buttons are not shown.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Sign in and claim this installation</span> and sign in.</td><td>E1 opens with the installation's projects, which are now yours.</td></tr>
+      <tr><td>3</td><td>Sign out and open E1 again.</td><td>The normal sign-in screen appears, with <span class="ui">Sign in</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">As the owner, add a passkey straight away: without one you act as a Member, not as the Owner.</p>
+  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-passkeys">Passkeys</a></p>
+</section>
+
+<section class="g-feature" id="acc-sign-in-problems">
+  <h2>When sign-in is refused</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ACC-sign-in-problems</span></div>
+  <p class="g-summary">If E1 cannot let you in, you are back on the sign-in screen with the reason in red. This section lists the messages and what to do.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The sign-in screen, above the buttons</dd>
+    <dt>Who</dt><dd>Everyone signing in</dd>
+    <dt>Before you start</dt><dd>—</dd>
+  </dl>
+  <h3>Messages</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Message</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td>"Verify your email address with the sign-in provider first, then sign in again."</td><td>Confirm your address with the sign-in provider (for example from its email), then sign in again.</td></tr>
+      <tr><td>"E1 is open by invitation only for now. Ask LANXTOR for an invitation, then sign in with the invited email address."</td><td>Ask for an invitation and sign in with exactly the invited address.</td></tr>
+      <tr><td>"This email address already has an account with another sign-in method."</td><td>Sign in the way you did before, for example with Microsoft.</td></tr>
+      <tr><td>"This email address cannot be used with E1. If you think this is a mistake, write to sales@lanxtor.com."</td><td>The address's domain is blocked for E1. Write to sales@lanxtor.com.</td></tr>
+      <tr><td>"Your account belongs to no organization."</td><td>Ask your E1 administrator.</td></tr>
+      <tr><td>"The sign-in was cancelled."</td><td>Start again.</td></tr>
+      <tr><td>"The sign-in expired or was started elsewhere. Try again."</td><td>Start again and finish within 10 minutes, in the same browser.</td></tr>
+      <tr><td>"The sign-in could not be completed. Try again."</td><td>Try again; if it repeats, tell your E1 administrator.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Sign in</span>, then cancel on the provider's page.</td><td>You are back on the sign-in screen with "The sign-in was cancelled." in red.</td></tr>
+      <tr><td>2</td><td>Sign in with an account whose email is not verified.</td><td>"Verify your email address with the sign-in provider first, then sign in again."</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">For the messages of Sign in with Microsoft, see <a href="#acc-microsoft">Sign in with Microsoft</a>; for passkeys, see <a href="#acc-passkeys">Passkeys</a>.</p>
+  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-microsoft">Sign in with Microsoft</a></p>
+</section>
+
+<section class="g-feature" id="acc-passkeys">
+  <h2>Passkeys</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">ACC-passkeys</span><span>Review check J7</span></div>
+  <p class="g-summary">A passkey signs you in with this device's screen lock or a security key, confirms important actions, and is needed before an Owner, Administrator or Project administrator role takes effect.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Left rail → your initial → <span class="ui">Account</span> → <span class="ui">Passkeys</span>; sign-in screen → <span class="ui">Sign in with a passkey</span></dd>
+    <dt>Who</dt><dd>Everyone signed in on a server with sign-in</dd>
+    <dt>Before you start</dt><dd>You are signed in; your device has a screen lock or you have a security key.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Account</span> and find <span class="ui">Passkeys</span>.</td><td>The card explains what a passkey does. With none yet: "You have no passkey yet."</td></tr>
+      <tr><td>2</td><td>Type a name in <span class="ui">Passkey name</span> (placeholder "Name, for example Work laptop", up to 60 characters).</td><td>The name is in the field.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Add a passkey</span> and complete the browser's or system's prompt.</td><td>"Passkey added." The list shows the name with "Added <em>date</em> · last used <em>date</em>". If you cancel the prompt: "No passkey was added."</td></tr>
+      <tr><td>4</td><td>Sign out, then on the sign-in screen click <span class="ui">Sign in with a passkey</span> and confirm with your screen lock.</td><td>E1 opens, signed in. Cancelled: "The sign-in was cancelled." Failed: "The passkey could not be used: …".</td></tr>
+      <tr><td>5</td><td>In <span class="ui">Passkeys</span>, click <span class="ui">Remove</span> next to a passkey and confirm "Remove the passkey <em>name</em>?".</td><td>"Passkey removed." If your sign-in is older than 15 minutes, E1 first asks you to confirm it is you; if you cancel, "The passkey was kept."</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-warn">Without a passkey, an Owner or Administrator acts as a Member, and a Project administrator acts as a Lead engineer. <span class="ui">Your access</span> then shows "acts as <em>role</em> until you add a passkey". Refusals add: "Your Owner role needs a passkey: add one under Account → Passkeys (your initial at the bottom of the left rail)."</p>
+  <p class="g-related">Related: <a href="#acc-step-up">Confirm it is you</a> · <a href="#acc-sign-in">Sign in to E1</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a> · <a href="guide-organization.html#org-project-members">Project members and roles</a></p>
+</section>
+
+<section class="g-feature" id="acc-step-up">
+  <h2>Confirm it is you</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">ACC-step-up</span><span>Roadmap PR1</span><span>Review check J7</span></div>
+  <p class="g-summary">For important actions E1 wants a recent sign-in. If you signed in or last confirmed more than 15 minutes ago, it asks you to confirm it is you with your passkey or by signing in again.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The dialog <span class="ui">Confirm it is you</span>, opened by the action</dd>
+    <dt>Who</dt><dd>Whoever starts one of the actions below</dd>
+    <dt>Before you start</dt><dd>Best with a passkey; without one you sign in again.</dd>
+  </dl>
+  <h3>Actions that ask</h3>
+  <ul>
+    <li>Exporting the whole organization (<span class="ui">File → Organization… → Export → Export everything…</span>)</li>
+    <li>Giving or removing Owner, Administrator or Library administrator</li>
+    <li>Changing an organization policy</li>
+    <li>Deleting a project</li>
+    <li>Removing a passkey</li>
+    <li>Exporting a restricted project</li>
+  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>More than 15 minutes after signing in, as an Owner with a passkey, choose <span class="ui">File → Organization… → Export</span> and click <span class="ui">Export everything…</span>.</td><td>The dialog <span class="ui">Confirm it is you</span> opens: "Confirm it is you to export the whole organization: use your passkey or sign in again." with <span class="ui">Cancel</span>, <span class="ui">Sign in again</span> and <span class="ui">Use passkey</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Use passkey</span> and confirm with your screen lock.</td><td>The dialog closes and the export starts ("Writing the archive…").</td></tr>
+      <tr><td>3</td><td>Start the export again within 15 minutes.</td><td>No dialog: the export starts at once.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Use passkey</span> is shown only if you have a passkey. If the passkey does not match: "That passkey did not confirm it is you. Try again, or sign in again."</p>
+  <p class="g-related">Related: <a href="#acc-passkeys">Passkeys</a> · <a href="#acc-session">Session length and sign out</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a></p>
+</section>
+
+<section class="g-feature" id="acc-session">
+  <h2>Session length, sign out and switching organization</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">ACC-session</span><span>Roadmap M2.9</span></div>
+  <p class="g-summary">A sign-in lasts 12 hours, unless your installation sets another length. Then E1 shows the sign-in screen again. You can sign out yourself, and switch between the organizations you belong to.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Account</span> → <span class="ui">Session</span> → <span class="ui">Sign out</span>; explorer header → organization name → <span class="ui">Switch organization</span> ▸</dd>
+    <dt>Who</dt><dd>Everyone signed in</dd>
+    <dt>Before you start</dt><dd>You are signed in on a server with sign-in.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Account</span> from the left rail and click <span class="ui">Sign out</span> in the <span class="ui">Session</span> card.</td><td>The sign-in screen <span class="ui">Sign in to E1</span> appears.</td></tr>
+      <tr><td>2</td><td>Sign in again and click the organization name in the explorer header.</td><td>A menu with <span class="ui">New project</span>, <span class="ui">New folder</span>, <span class="ui">Query</span> ▸ and <span class="ui">Switch organization</span> ▸.</td></tr>
+      <tr><td>3</td><td>Open <span class="ui">Switch organization</span> ▸.</td><td>Your organizations are listed; the current one reads "✓ <em>name</em>" and cannot be chosen. With no other: "You belong to no other organization".</td></tr>
+      <tr><td>4</td><td>Choose another organization.</td><td>E1 reloads in that organization; the explorer header shows its name.</td></tr>
+      <tr><td>5</td><td>More than 12 hours after signing in, reload E1.</td><td>The sign-in screen appears again.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/place-account.webp" alt="The Account place on an installation without sign-in, where Sign out reads Not available" width="2160" height="1350" loading="lazy"><figcaption>Without sign-in (desktop app with its own store, or a file store), Account is a placeholder and <span class="ui">Sign out</span> reads "Not available".</figcaption></figure>
+  <p class="g-warn">E1 does not yet sign you out after a time without activity; only the 12-hour limit applies. An idle timeout set by the organization is planned.</p>
+  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-step-up">Confirm it is you</a> · <a href="guide-getting-started.html#gs-places">The places</a></p>
+</section>
+
+<section class="g-feature" id="acc-trial">
+  <h2>The 30-day trial</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">ACC-trial</span></div>
+  <p class="g-summary">A trial gives you an organization of your own, with you as its owner, for 30 days. When it ends, the organization becomes read-only: everything stays visible and can be exported.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Website → <span class="ui">Request a trial</span>; LANXTOR then sends you an invitation</dd>
+    <dt>Who</dt><dd>Anyone LANXTOR invites to a trial</dd>
+    <dt>Before you start</dt><dd>Accept the invitation within 14 days and sign in with the invited email address.</dd>
+  </dl>
+  <h3>What a trial includes</h3>
+  <ul>
+    <li>5 Editor licenses (one is yours), 5 Reviewer and 5 Viewer licenses.</li>
+    <li>18 000 AI credits, with a daily limit per person (Editor 600, Reviewer 150).</li>
+    <li>5 GB of files.</li>
+    <li>Premium AI models are "Not included in a trial."</li>
+  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open the invitation link and sign in with the invited address.</td><td>E1 opens in your new organization; you are its owner.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">File → Organization…</span>.</td><td>The Members tab shows "Trial until <em>date</em>."</td></tr>
+      <tr><td>3</td><td>After the trial ended, change anything, for example rename a project.</td><td>Refused: "The trial of this organization ended on <em>date</em>, so it is read-only now: everything can still be viewed and exported. Contact LANXTOR to continue."</td></tr>
+      <tr><td>4</td><td>Open <span class="ui">Account</span>.</td><td>A note: "The trial of this organization has ended: everything is read-only, and can still be viewed and exported."</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">After the end, the Organization dialog's trial line turns red and everyone works like a Viewer. LANXTOR lifts the lock when a contract is in place. There is no review check for an ending trial yet.</p>
+  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a> · <a href="guide-account.html#web-account-page">The account page</a></p>
+</section>
+
+<section class="g-feature" id="acc-store">
+  <h2>Which store and cloud E1 runs on</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ACC-store</span><span>Review check Z2</span></div>
+  <p class="g-summary">The right end of the status bar names where your projects are kept: E1's cloud on Microsoft Azure, a PostgreSQL database, or a local file. Check it when you are not sure which installation you are in.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Status bar, far right</dd>
+    <dt>Who</dt><dd>Everyone</dd>
+    <dt>Before you start</dt><dd>E1 is open.</dd>
+  </dl>
+  <h3>What it can say</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Label</th><th>Meaning (hover text)</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ui">Microsoft Azure · <em>version</em></span></td><td>E1's cloud: "Stored in the cloud on Microsoft Azure; this server runs commit …". Without a version it reads just <span class="ui">Microsoft Azure</span>.</td></tr>
+      <tr><td><span class="ui">PostgreSQL on this computer</span></td><td>A database on your own computer, the same kind of store as the cloud.</td></tr>
+      <tr><td><span class="ui">PostgreSQL · <em>host</em></span></td><td>A PostgreSQL database on another server, for example your company's.</td></tr>
+      <tr><td>A file name such as <span class="ui">data/db.json</span></td><td>A local file: "JSON file (…), chosen with E1_STORE=json or E1_DB. Not the store the cloud runs on." Used for trying E1 out and for tests; there is no sign-in.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Sign in at app.lanxtor.com and look at the bottom right.</td><td>The status bar reads <span class="ui">Microsoft Azure · </span> followed by a short version code.</td></tr>
+      <tr><td>2</td><td>Hover the label.</td><td>The hover text explains where the projects are stored.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/statusbar.webp" alt="The status bar of the demo, with the store data/db.json at the far right" width="2160" height="39" loading="lazy"><figcaption>The demo runs on a local file: <span class="ui">data/db.json</span> at the far right.</figcaption></figure>
+  <p class="g-related">Related: <a href="guide-getting-started.html#gs-status-bar">The status bar</a> · <a href="#acc-cloud-deployment">E1's reference cloud</a> · <a href="#acc-browser">Open E1 in the browser</a></p>
+</section>
+
+<section class="g-feature" id="acc-cloud-deployment">
+  <h2>E1's reference cloud</h2>
+  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">ACC-cloud-deployment</span><span>Roadmap M2.8</span></div>
+  <p class="g-summary">E1's own cloud on Microsoft Azure (app.lanxtor.com) is being finished as the reference installation that customers use. It already runs and is used for review, but the roadmap stage is not done.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>app.lanxtor.com</dd>
+    <dt>Who</dt><dd>Everyone with an E1 cloud account</dd>
+    <dt>Before you start</dt><dd>—</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Under development (roadmap M2.8 "Reference cloud deployment", the last MVP stage of milestone M2 Platform).</strong> Pilot readiness (stage PR) adds a second cloud, subscriptions and billing, a penetration test and a data processing agreement.</p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Use E1's cloud as a finished, supported installation, signed in with your LANXTOR E1 account or your company's Microsoft account.</li>
+    <li>Check in the status bar that you are on it: <span class="ui">Microsoft Azure</span>.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#acc-store">Which store E1 runs on</a> · <a href="#acc-browser">Open E1 in the browser</a> · <a href="guide-getting-started.html#gs-under-construction">Under construction</a></p>
+</section>
+
+<section class="g-feature" id="acc-company-sso">
+  <h2>Company single sign-on and directory sync</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">ACC-company-sso</span><span>Roadmap 09.4</span></div>
+  <p class="g-summary">Beyond Sign in with Microsoft, E1 is to work with other company sign-in systems and keep its members in step with the company directory.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet</dd>
+    <dt>Who</dt><dd>Companies with their own sign-in system</dd>
+    <dt>Before you start</dt><dd>—</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 09.4 "Company single sign-on and directory sync", in the parallel track).</strong> Its first part, Sign in with Microsoft, was delivered on 2026-11-07; the stage stays open for the rest.</p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Sign in with your company's SAML sign-in.</li>
+    <li>Have people added to and removed from your organization automatically from the company directory (SCIM).</li>
+  </ul>
+  <p class="g-related">Related: <a href="#acc-microsoft">Sign in with Microsoft</a> · <a href="#acc-sign-in">Sign in to E1</a></p>
+</section>
+
         <p class="g-related">← <a href="guide-getting-started.html">Getting started</a> · <a href="guide-projects.html">Projects and the explorer</a> →</p>
 
       </article>
