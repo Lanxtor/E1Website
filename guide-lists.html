@@ -434,8 +434,8 @@
 
 <section class="g-feature" id="list-fill-handle">
   <h2>Drag the fill handle to copy a value down</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">LIST-fill-handle</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
-  <p class="g-summary">As in Excel: select a cell, then drag the small square at its bottom-right corner down over the cells below. The value is copied into every cell you pass, as one step you can undo. You can count on as a series instead (P-101, P-102, …).</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-07</span><span class="g-id">LIST-fill-handle</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">As in Excel: select a cell, then drag the small square at its bottom-right corner down over the cells below. When you let go, the value is copied into every cell you passed, at once, as one step you can undo. Hold <kbd>Ctrl</kbd> (<kbd>⌘</kbd>) as you let go to count on as a series instead (P-101, P-102, …).</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → select a cell or a block → drag the small square at the bottom-right corner of the selection</dd>
     <dt>Who</dt><dd>A project role that may edit objects</dd>
@@ -446,14 +446,15 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click the top Design pressure cell.</td><td>The cell is outlined, with a small square at its bottom-right corner (the fill handle). Pointing at the square shows a cross.</td></tr>
-      <tr><td>2</td><td>Drag the square down three rows and let go.</td><td>While you drag, the cells you pass have a dashed outline. When you let go, a Fill dialog “Fill 3 cells” opens with <span class="ui">Copy cells</span> chosen and says “3 cells change, as one step you can undo.”.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Apply</span> (or press <kbd>Enter</kbd>).</td><td>All four cells read “10 bar(g)” and are selected.</td></tr>
-      <tr><td>4</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The three filled cells are back as before.</td></tr>
-      <tr><td>5</td><td>Click a Name cell that reads <code>P-101</code>, drag its fill handle down two rows, and choose <span class="ui">Fill series (P-101, P-102, …)</span> in the dialog.</td><td>The dialog still says “2 cells change, as one step you can undo.”. After <span class="ui">Apply</span> the two cells read P-102 and P-103.</td></tr>
+      <tr><td>2</td><td>Drag the square down three rows and let go.</td><td>While you drag, the cells you pass have a dashed outline. When you let go, all four cells read “10 bar(g)” and are selected; no dialog opens. A bar says “3 cells filled. Ctrl+Z undoes it.” with <span class="ui">Fill series instead</span>.</td></tr>
+      <tr><td>3</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The three filled cells are back as before.</td></tr>
+      <tr><td>4</td><td>Click a Name cell that reads <code>P-101</code> and drag its fill handle down two rows.</td><td>Both cells read P-101.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Fill series instead</span> in the bar.</td><td>The two cells read P-102 and P-103, and the bar offers <span class="ui">Copy cells instead</span>.</td></tr>
+      <tr><td>6</td><td>Undo twice, then drag the handle again holding <kbd>Ctrl</kbd> (<kbd>⌘</kbd>) as you let go.</td><td>The cells read P-102 and P-103 straight away.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The handle also drags up, right and left; it follows the direction you moved furthest. A block of several cells repeats down (A, B, A, B, …); as a series, two values such as V-1 and V-3 go on by the same step (V-5, V-7). Near the top or bottom of the table, the rows scroll as you drag.</p>
-  <p class="g-warn">A fill over a cell that cannot be changed (a <a href="guide-lists.html#list-read-only-cells">blue cell</a>, such as Class) shows the problem in the dialog, and <span class="ui">Apply</span> stays off until you cancel and drag a shorter or other range. The fill handle works on the rows loaded in the table, the ones you scrolled past.</p>
+  <p class="g-note">The handle also drags up, right and left; it follows the direction you moved furthest. A block of several cells repeats down (A, B, A, B, …); as a series, two values such as V-1 and V-3 go on by the same step (V-5, V-7). Near the top or bottom of the table, the rows scroll as you drag. <kbd>Esc</kbd> or × closes the bar. <span class="ui">Fill series instead</span> is a second step: undo it to get the copied values back.</p>
+  <p class="g-warn">A fill over a cell that cannot be changed (a <a href="guide-lists.html#list-read-only-cells">blue cell</a>, such as Class), or with a value the column refuses, is not made: a Fill box lists each problem and <span class="ui">Apply</span> stays off. Click <span class="ui">Cancel</span> and drag a shorter or other range. The fill handle works on the rows loaded in the table, the ones you scrolled past.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-cell-menu">Cut, Copy and Paste with the right-click menu</a>, <a href="guide-lists.html#list-read-only-cells">Read-only cells are tinted blue</a>, <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a></p>
 </section>
 
