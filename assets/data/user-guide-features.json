@@ -4630,7 +4630,7 @@
   {
    "id": "ORG-organization-dialog",
    "title": "The Organization dialog",
-   "summary": "File → Organization… holds the members with licenses and roles, invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
+   "summary": "File → Organization… holds the members with licenses and roles (Owner, Administrator or Member), invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
    "anchor": "org-organization-dialog",
    "status": "available",
    "since": "2026-11-03",
@@ -4646,10 +4646,12 @@
    ],
    "related": [
     "ORG-invitations",
+    "ORG-administrators",
     "ORG-licenses-seats",
     "ORG-groups",
     "ORG-audit",
-    "ORG-export"
+    "ORG-export",
+    "ORG-join-requests"
    ],
    "roles": "Owner or Administrator with a passkey",
    "training": {
@@ -4678,7 +4680,8 @@
     "ORG-organization-dialog",
     "ORG-licenses-seats",
     "ORG-trials",
-    "ORG-blocked-domains"
+    "ORG-blocked-domains",
+    "ORG-join-requests"
    ],
    "roles": "Owner or Administrator with a passkey",
    "training": {
@@ -4732,7 +4735,8 @@
    "related": [
     "ACC-sign-in",
     "ORG-project-members",
-    "ORG-export"
+    "ORG-export",
+    "ORG-administrators"
    ],
    "roles": "Everyone, for their own account",
    "training": {
@@ -4743,6 +4747,59 @@
    "screenshots": [],
    "category": "organization",
    "page": "guide-organization.html#org-roles-passkey"
+  },
+  {
+   "id": "ORG-administrators",
+   "title": "Who administers the organization",
+   "summary": "The person who starts the organization is its first Owner; an Owner makes others Owner or Administrator, and LANXTOR can set them when the company names someone else.",
+   "anchor": "org-administrators",
+   "status": "available",
+   "since": "2026-11-07",
+   "roadmap": [],
+   "checks": [],
+   "related": [
+    "ORG-organization-dialog",
+    "ORG-roles-passkey",
+    "ORG-trials",
+    "ORG-audit",
+    "ORG-invitations",
+    "ORG-join-requests"
+   ],
+   "roles": "Owner (Owner role); Owner or Administrator (Administrator and Member)",
+   "training": {
+    "topic": "Choosing your administrators",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-administrators"
+  },
+  {
+   "id": "ORG-join-requests",
+   "title": "Requests to join from your company's domain",
+   "summary": "Colleagues with your company's email address who sign in ask to join your organization; an Owner or Administrator approves or declines.",
+   "anchor": "org-join-requests",
+   "status": "available",
+   "since": "2026-11-07",
+   "roadmap": [],
+   "checks": [],
+   "related": [
+    "ORG-organization-dialog",
+    "ORG-administrators",
+    "ORG-invitations",
+    "ORG-licenses-seats",
+    "ORG-trials"
+   ],
+   "roles": "Owner or Administrator with a passkey",
+   "training": {
+    "topic": "Letting colleagues in",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-join-requests"
   },
   {
    "id": "ORG-project-members",
@@ -4925,7 +4982,8 @@
    "related": [
     "ORG-organization-dialog",
     "ORG-export",
-    "WEB-account-page"
+    "WEB-account-page",
+    "ORG-administrators"
    ],
    "roles": "Everyone in the trial organization",
    "training": {
