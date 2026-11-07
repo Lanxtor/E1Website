@@ -308,10 +308,10 @@
 
 <section class="g-feature" id="obj-relationships">
   <h2>Relate objects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
-  <p class="g-summary">Relationships connect objects across sections, for example a function under Systems that "is implemented by" a pump under Assets. A relationship shows from both sides, and removing it leaves both objects in place.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
+  <p class="g-summary">Relationships connect objects across sections, for example a function under Systems that "is implemented by" a pump under Assets. You pick the other object in a tree that shows only what fits the relationship, or you drag one object onto the other in the explorer with the right mouse button. A relationship shows from both sides, and removing it leaves both objects in place.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Object window → <span class="ui">Relationships</span></dd>
+    <dt>Where</dt><dd>Object window → <span class="ui">Relationships</span>; or the explorer, dragging with the right mouse button</dd>
     <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
     <dt>Before you start</dt><dd>A pump such as Pump1 under Assets.</dd>
   </dl>
@@ -321,17 +321,28 @@
     <tbody>
       <tr><td>1</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span> and click <span class="ui">Function</span> in the class tree.</td><td>Its description ("What something does…") shows under the tree.</td></tr>
       <tr><td>2</td><td>Type <code>TIC-101</code> in <span class="ui">Tag</span> and click <span class="ui">Create</span>.</td><td>TIC-101 opens in its object window.</td></tr>
-      <tr><td>3</td><td>Click the <span class="ui">Relationships</span> tab.</td><td>"No relationships yet." with a drop-down <span class="ui">Add a relationship…</span>, a field "Name of the other object" and <span class="ui">Add</span>.</td></tr>
-      <tr><td>4</td><td>Choose <span class="ui">is implemented by</span>, type <code>Pump1</code> and click <span class="ui">Add</span>.</td><td>A group "is implemented by" with the count 1, holding a link <span class="ui">Pump1</span> and a <span class="ui">Remove</span> button.</td></tr>
-      <tr><td>5</td><td>In the explorer, expand TIC-101 under Systems.</td><td>Pump1 shows under it as a reference row with a link mark. Pump1 is still under Assets.</td></tr>
-      <tr><td>6</td><td>Click the link <span class="ui">Pump1</span> on the tab, then open its <span class="ui">Relationships</span> tab.</td><td>Pump1 opens; the relationship shows from its side, with the inverse name and TIC-101.</td></tr>
-      <tr><td>7</td><td>Right-click the reference row under TIC-101 → <span class="ui">Remove reference</span>.</td><td>The browser asks "Remove the relationship to Pump1? Both objects stay."</td></tr>
-      <tr><td>8</td><td>Click <span class="ui">OK</span>.</td><td>The reference row is gone, Pump1 is still under Assets, and TIC-101 shows "No relationships yet."</td></tr>
+      <tr><td>3</td><td>Click the <span class="ui">Relationships</span> tab.</td><td>"No relationships yet." with a drop-down <span class="ui">Add a relationship…</span> and <span class="ui">Add</span>. The drop-down lists only the types a function takes part in.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">is implemented by</span>.</td><td>A tree opens under it with a line that says how many objects fit "is implemented by", a box <span class="ui">Filter by tag or name</span> and the sections and folders that hold equipment, valves, instruments, motors or parts. Functions, areas and everything else are not in it, and neither is what is in a bin.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Pump1</span> in the tree, then <span class="ui">Add</span>.</td><td>A group "is implemented by" with the count 1, holding a link <span class="ui">Pump1</span> and a <span class="ui">Remove</span> button. A double-click on Pump1 in the tree adds it at once, without <span class="ui">Add</span>.</td></tr>
+      <tr><td>6</td><td>In the explorer, expand TIC-101 under Systems.</td><td>Pump1 shows under it as a reference row with a link mark. Pump1 is still under Assets.</td></tr>
+      <tr><td>7</td><td>Click the link <span class="ui">Pump1</span> on the tab, then open its <span class="ui">Relationships</span> tab.</td><td>Pump1 opens; the relationship shows from its side, with the inverse name and TIC-101.</td></tr>
+      <tr><td>8</td><td>Right-click the reference row under TIC-101 → <span class="ui">Remove reference</span>.</td><td>The browser asks "Remove the relationship to Pump1? Both objects stay."</td></tr>
+      <tr><td>9</td><td>Click <span class="ui">OK</span>.</td><td>The reference row is gone, Pump1 is still under Assets, and TIC-101 shows "No relationships yet."</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/object-tab-relationships.webp" alt="Pump1 on its Relationships tab: the text No relationships yet., the drop-down Add a relationship…, the field Name of the other object and the Add button." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Relationships</span> tab before a relationship is added.</figcaption></figure>
-  <p class="g-note">Instead of step 7 you can click <span class="ui">Remove</span> on the tab. A reference row's right-click menu has <span class="ui">Open</span> and <span class="ui">Remove reference</span>; selecting it and pressing <kbd>Delete</kbd> asks the same question. A case shows its object's relationships read-only: "A case has its object's relationships; change them on the object." Framing symbols on a drawing also relates them to a system or area (see <a href="guide-drawing.html#draw-sheet-view">the drawing guide</a>), and functions can generate a <a href="guide-drawing.html#draw-loop-diagram">loop diagram</a>.</p>
-  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-new-object">Create an object</a> · <a href="guide-drawing.html#draw-loop-diagram">Loop diagrams</a> · <a href="guide-projects.html#prj-tree-rows">Rows in the explorer</a></p>
+  <h3>Relate in the explorer: drag with the right mouse button</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the explorer, press and hold the right mouse button on <span class="ui">Pump1</span> under Assets and move the mouse.</td><td>Pump1 fades: it is being dragged to relate it, not to move it.</td></tr>
+      <tr><td>2</td><td>Move it over <span class="ui">TIC-101</span> under Systems.</td><td>TIC-101 is outlined. A row that cannot be related (a section, a folder, a sheet, what is in a bin) is not outlined.</td></tr>
+      <tr><td>3</td><td>Release the right mouse button.</td><td>The window <span class="ui">Make a relationship?</span> says "Pump1 implements TIC-101." and "Both objects stay where they are." When several types fit, it lists them to choose from. When none fits, it says <span class="ui">No relationship fits</span> and why.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Make relationship</span>.</td><td>The window closes. Pump1 shows under TIC-101 as a reference row, and Pump1 is still under Assets.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/object-tab-relationships.webp" alt="Pump1 on its Relationships tab before a relationship is added: the text No relationships yet. and the drop-down Add a relationship…." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Relationships</span> tab before a relationship is added.</figcaption></figure>
+  <p class="g-note">A right-click without dragging still opens the row's menu, and <kbd>Esc</kbd> during the drag cancels it. A drag with the left mouse button moves an object, as before (see <a href="#obj-move">Move an object</a>); only the right button relates. Both objects must be in the same project. Instead of step 8 you can click <span class="ui">Remove</span> on the tab. A reference row's right-click menu has <span class="ui">Open</span> and <span class="ui">Remove reference</span>; selecting it and pressing <kbd>Delete</kbd> asks the same question. A case shows its object's relationships read-only: "A case has its object's relationships; change them on the object." Framing symbols on a drawing also relates them to a system or area (see <a href="guide-drawing.html#draw-sheet-view">the drawing guide</a>), and functions can generate a <a href="guide-drawing.html#draw-loop-diagram">loop diagram</a>.</p>
+  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-new-object">Create an object</a> · <a href="#obj-move">Move an object</a> · <a href="guide-drawing.html#draw-loop-diagram">Loop diagrams</a> · <a href="guide-projects.html#prj-tree-rows">Rows in the explorer</a></p>
 </section>
 
 <section class="g-feature" id="obj-rename">
