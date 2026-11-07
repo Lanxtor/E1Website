@@ -26,7 +26,7 @@ PAGES = [
     ("download.html", "Get E1: E1 Cloud, enterprise installation, universities, licenses and prices, trial, download"),
     ("academy.html", "E1 Academy"),
     ("contact-sales.html", "Contact sales"),
-    ("shape-e1.html", "Contact us: feature requests and open roles"),
+    ("shape-e1.html", "Contact us: sales and support emails, feature requests and open roles"),
     ("about.html", "About us"),
     ("legal.html", "Legal notice"),
     ("privacy.html", "Privacy policy"),
