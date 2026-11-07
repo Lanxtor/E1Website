@@ -1,0 +1,1204 @@
+{
+ "app": {
+  "updated": "2026-11-04",
+  "milestones": [
+   {
+    "id": "M0",
+    "title": "Foundation",
+    "summary": "The application as it runs today: projects, 2D sheets with P&ID symbols and lines, attributes, history and undo, floating windows, and Cloud AI in the chat. Every action is one command, used the same way by the interface, Cloud AI, and outside agents, with a local-first AI policy and the command palette.",
+    "mvp": false,
+    "stages": [
+     {
+      "id": "R1-5",
+      "title": "Refactoring: tests, one domain model, server modules, migrations, the server as the only writer",
+      "done": true,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "The code was restructured and covered by tests. The app looks and works as before."
+     },
+     {
+      "id": "R-F",
+      "title": "Follow-up: per-user state, frontend structure, types",
+      "done": true,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "Per-user state and code structure. Nothing new on screen."
+     },
+     {
+      "id": "6A-6H",
+      "title": "One command registry, safe AI edits, local-first AI, command palette",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Press Ctrl+K (⌘K) and run any command from the palette. In the chat, check the mode chip in the header, ask Cloud AI to change a sheet, and use Undo on its reply (or turn on \"Review changes first\" and use Apply / Discard)."
+     },
+     {
+      "id": "6I",
+      "title": "Parity tests, enforcement, and the evaluation set for AI models",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": false,
+      "tryIt": "Tests that the interface, Cloud AI, and outside agents run the same commands. Nothing new on screen."
+     }
+    ]
+   },
+   {
+    "id": "M1",
+    "title": "Object model",
+    "summary": "Every engineering thing becomes one object with one owner, a class from a versioned library, attributes with sub-attributes and units, and typed relationships to other objects across sections. The library defines how objects behave (where they may live, what they may contain and relate to), and every tool follows the same rules. Tags come from the project's own naming rules. Today's symbols move into signed content packages as records, and every command works object by object, ready for the database of M2.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "M1.0",
+      "title": "Parity, enforcement, and the evaluation set",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": false,
+      "tryIt": "Parity checks and the AI evaluation set. Nothing new on screen."
+     },
+     {
+      "id": "M1.0b",
+      "title": "Test automation pipeline (CI)",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": false,
+      "tryIt": "Every test now runs automatically on each change (GitHub Actions). Nothing new in the app."
+     },
+     {
+      "id": "M1.1",
+      "title": "Content packages and the library",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": false,
+      "tryIt": "The symbols now come from signed content packages. The symbol picker and the sheets look exactly as before; asking Cloud AI which symbols exist gives the same list."
+     },
+     {
+      "id": "M1.1b",
+      "title": "Symbols as content package records, drawn by one renderer (formerly M1.9)",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": false,
+      "tryIt": "Nothing should look different: every symbol is now drawn from its record in the content packages. Open Insert > Asset and page through the types, place a few symbols on a sheet and connect them, and open Model Space: all should look exactly as before."
+     },
+     {
+      "id": "M1.2",
+      "title": "Record-level store and the object model migration",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Mostly under the hood. Open an existing project: the tree, sheets, and History should look as before, and every edit (and Cloud AI) should still work."
+     },
+     {
+      "id": "M1.3",
+      "title": "Content packages visible in project settings",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Select a project and choose File > Project settings: its content packages (Core, Electrical foundation, and Plant engineering, which includes instrumentation & control) are listed with versions and what requires each. Ask Cloud AI which content packages the project uses, or what you can place from Plant."
+     },
+     {
+      "id": "M1.4",
+      "title": "Tree from ownership, move and delete with preview",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "In the tree, assets appear under Assets, nothing is listed under their sheets, and under each asset its drawings are listed as shortcuts: double-click one to open that drawing with the asset in view. Drag an object to a folder, delete an object and read the preview of what goes with it, then undo through History."
+     },
+     {
+      "id": "M1.5",
+      "title": "Classes, attributes, sub-attributes, creating objects",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Right-click Assets, choose New asset… and create a Centrifugal pump: its page marks Design pressure and Flow rate as required. Set 10 bar(g), a value under Design pressure / In, and Add attribute; New system… offers no pump."
+     },
+     {
+      "id": "M1.6",
+      "title": "Relationships between objects",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Create a function under Systems (New system…), and on its page add \"is implemented by\" with a pump: the pump shows as a reference under the function. Open the pump to see the relationship from its side; right-click the reference and remove it: the pump stays."
+     },
+     {
+      "id": "M1.7",
+      "title": "Tags and reference designations",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Create a few pumps under Assets without a name: they become P-001, P-002 with the designation -P. Change a pump's short code and see its tag marked out of date; right-click it, Tag…, type a manual tag; then More (…) > Retag… with the preview."
+     },
+     {
+      "id": "M1.8",
+      "title": "Tag configurator",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Open File > Project settings: under Tag rules, add a rule for pumps (text PU, then the number from 101), watch the sample, Test against project, Save rules, then create a pump under Assets and see it tagged PU-101."
+     }
+    ]
+   },
+   {
+    "id": "M2",
+    "title": "Platform",
+    "summary": "E1 moves onto PostgreSQL and into the vendor's cloud. People sign in, belong to organizations, and are invited to projects with roles down to a single section or drawing. Two engineers can work in the same project at the same time without overwriting each other, Cloud AI's proposals are kept safely on the server, and the technical security baseline is in place.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "M2.1",
+      "title": "PostgreSQL store with the object and history tables",
+      "done": true,
+      "doneOn": "2026-11-03",
+      "visible": false,
+      "tryIt": "Behind the scenes: with npm run db:up, db:migrate, and db:seed, then E1_STORE=postgres, projects open and edit as before, stored in PostgreSQL tables that keep each organization apart."
+     },
+     {
+      "id": "M2.2",
+      "title": "Accounts and sign-in",
+      "done": true,
+      "doneOn": "2026-11-03",
+      "visible": true,
+      "tryIt": "Start npm run dev:identity and the server with E1_AUTH=oidc (README): the sign-in screen appears; the first sign-in claims the installation, a second email gets its own empty workspace."
+     },
+     {
+      "id": "M2.3",
+      "title": "Import of existing workspaces",
+      "done": true,
+      "doneOn": "2026-11-03",
+      "visible": true,
+      "tryIt": "Run npm run db:import -- data/db.json, start the server on PostgreSQL, and open it: the tree, sheets, history, and your chat are all there."
+     },
+     {
+      "id": "M2.4",
+      "title": "Organizations, invitations, and license tables",
+      "done": true,
+      "doneOn": "2026-11-03",
+      "visible": true,
+      "tryIt": "On the server with sign-in on, open File > Organization…, invite a colleague by email, open the link signed in as them, and see them listed with their license and the seats used."
+     },
+     {
+      "id": "M2.5",
+      "title": "Project permissions",
+      "done": true,
+      "doneOn": "2026-11-03",
+      "visible": true,
+      "tryIt": "Open a project and choose Members: give a colleague Reviewer; signed in as them, the project opens but moving a symbol is refused with the permission it needs."
+     },
+     {
+      "id": "M2.6",
+      "title": "Live refresh, safe saves per object, and stored proposals",
+      "done": true,
+      "doneOn": "2026-11-03",
+      "visible": true,
+      "tryIt": "Sign in as two people on one project in two browsers: a rename in one appears in the other without reloading; a reply held for review is still there to apply after the server restarts."
+     },
+     {
+      "id": "M2.7",
+      "title": "File storage",
+      "done": true,
+      "doneOn": "2026-11-03",
+      "visible": true,
+      "tryIt": "On the server, attach a file to a chat message or upload one to a project, reload the page, and open it again; signed in as someone without a role in the project, it is not found."
+     },
+     {
+      "id": "M2.8",
+      "title": "Reference cloud deployment",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open E1 from its public cloud address in a normal browser, without installing anything, and sign in."
+     },
+     {
+      "id": "M2.9",
+      "title": "Technical security baseline and the M2 gate",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": false,
+      "tryIt": "Mostly under the hood: security settings and checks. You may notice session timeouts and stricter sign-in rules."
+     }
+    ]
+   },
+   {
+    "id": "M3",
+    "title": "Lists and connectivity",
+    "summary": "Pipes, cables, wires, and signals become objects connected to ports. Any list is a live table of the model: right-click any node, Query ▸ New query… lists every object below it, in an Excel-like query view that can be filtered, edited, saved as a template (then listed under Query ▸), and exported to Excel. There are no fixed lists. The large 2D drawing editor arrives here. After M3, a first informal pilot preview.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "M3.1",
+      "title": "The drawing migration: lines as objects, placements in 2D",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Open a drawn sheet: it looks and edits as before. Under Assets, open Lines: each drawn pipe run, signal, cable, or wire is an object with its own attributes; drawing a second pipe to a nozzle that already has one is refused."
+     },
+     {
+      "id": "M3.2",
+      "title": "The 2D sheet view",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Open a sheet: the drawing as SVG. Scroll to zoom about the pointer, drag to pan, Fit to see it all, and click a symbol to select it."
+     },
+     {
+      "id": "M3.3",
+      "title": "Editing on the 2D view",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "On a sheet: click and Shift-click to select, drag to move, drag on empty sheet to frame a selection; draw with Connector, add a note with Text, place a symbol from Place symbol…; F flips, Delete deletes, Align lines several up, the grips resize; Pan, Grid, Snap, and Ortho are in the bar."
+     },
+     {
+      "id": "M3.4",
+      "title": "Undo, redo, copy, paste, and the editing commands",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Undo and redo across the drawing, the tree, and attributes; copy, paste, and duplicate symbols with their tags."
+     },
+     {
+      "id": "M3.5",
+      "title": "Query view: read-only table",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Right-click a project or section, New query…: a table of the objects below it; click a header to sort, Columns to add attributes."
+     },
+     {
+      "id": "M3.6",
+      "title": "Query view: filters, templates, and expressions",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Filter with AND/OR/NOT, read the plain-language summary, and save the view as a template for yourself or the project."
+     },
+     {
+      "id": "M3.7",
+      "title": "Query view: editing like Excel",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Type, paste from Excel, and fill down in the table; one undo restores a whole paste."
+     },
+     {
+      "id": "M3.8",
+      "title": "Jobs: spreadsheet export and import with preview",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Export a table to Excel, change a cell, then Update from Excel…: Check shows exactly that change, Apply makes it."
+     },
+     {
+      "id": "M3.9",
+      "title": "Engineering columns",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Right-click Assets, Query ▸ New query…; in Columns add Designation and Connects to; Group & totals by Class; save it as your equipment list: it is under Query ▸ from then on. F2 on an owner cell moves the object."
+     },
+     {
+      "id": "M3.10",
+      "title": "On the drawing: tags, line numbers, others' changes, layers",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "On a sheet, each symbol shows its tag and each tagged or named run its line number; Layers hides Process, Instrumentation, Electrical, or Annotation on this sheet."
+     },
+     {
+      "id": "M3.11",
+      "title": "The 2D view becomes the sheet view",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Open any sheet: it is the 2D view, with flow arrows and line crossings, the right-click menus, name labels to drag, formatting, frames, predictive mode, and Layers."
+     },
+     {
+      "id": "M3.12",
+      "title": "ISA 5.1 in the Plant package",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Open Configuration → Shapes and set Standard to ISA 5.1: every instrument, valve, and logic shape shows its table and number. Place an ISA pressure gauge from the asset window: it is tagged PG-001."
+     }
+    ]
+   },
+   {
+    "id": "M4",
+    "title": "Documents",
+    "summary": "Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Revisions and issued documents, PDF of sheets, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, and Cloud AI's engineering patterns. M4 ends with pilot readiness: access control first (permissions by category, custom roles, objects assigned to a person or group, an exportable access history), then a second cloud, billing, passkeys, and the security and legal reviews a pilot partner needs.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "07.1",
+      "title": "Object history and search",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Rename a pump, open it, and see the change on its History tab with the name before and after; Undo this change takes it back. Search the explorer or Ctrl+K for a tag, a name, or a line number."
+     },
+     {
+      "id": "07.2",
+      "title": "Documents and revisions",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Right-click Revisions → New document…, make a list, and add revisions A and B on its page; set B in review. The Revisions section shows Updated for someone who has not looked yet."
+     },
+     {
+      "id": "07.3",
+      "title": "List documents, PDF, and Excel",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Choose a saved query for a list document, then download its PDF and its Excel workbook: both carry the project, the document, its revision, and the date."
+     },
+     {
+      "id": "07.4",
+      "title": "The datasheet as the object's screen",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Double-click an object: its datasheet opens, and you can view and edit its values there."
+     },
+     {
+      "id": "07.5",
+      "title": "Datasheet designer",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Open the datasheet designer, change a datasheet layout, and see objects of that class use it."
+     },
+     {
+      "id": "07.6",
+      "title": "P&ID sheet PDF",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Open a sheet and choose File → Export PDF or press Ctrl+P: the sheet prints on its page format with its title block."
+     },
+     {
+      "id": "07.7",
+      "title": "Issue and \"changed since\"",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Issue Rev A of a pump list, change a pump's design pressure, and see \"Changed since Rev A\" on the list and Modified on the pump in the explorer."
+     },
+     {
+      "id": "07.8",
+      "title": "Comments, tasks, mentions, and notifications",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Comment on a pump's Comments tab with an @mention, reply, and like; New task… assigns it, and the Inbox marks it done. Right-click the pump on its sheet → Comment here: it shows Needs review in the explorer until you Resolve the pin."
+     },
+     {
+      "id": "05.5a",
+      "title": "List PDF and update from Excel",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Print a list to PDF, and update a list from a changed Excel file with a preview."
+     },
+     {
+      "id": "06.4",
+      "title": "Generated loop diagrams",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Relate a transmitter and a controller to a loop function (implements) and let it control a valve; right-click the function → Generate loop diagram. Move the transmitter, add a device to the loop, press Regenerate: the move stays. A line drawn between two devices becomes a signal in the model."
+     },
+     {
+      "id": "02.2",
+      "title": "Engineering patterns for Cloud AI",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Ask Cloud AI for \"a redundant pump train on the feed line\", \"a pressure transmitter on Pump1\", or \"a motor for Pump2 fed from the MCC\": it draws the pattern, checks it, and says what it repaired. The same three are in the command palette (Ctrl+K)."
+     },
+     {
+      "id": "PR1",
+      "title": "Pilot readiness: organization export, seat notices, customer-cloud path",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "As an owner, Organization… → Export → Export everything…, confirm with your passkey: the archive of the whole organization downloads. Assigning the license that fills 80 % or 100 % of the seats puts a notice in the Inbox of every owner and administrator."
+     },
+     {
+      "id": "09.6a",
+      "title": "Access control: permissions by category and custom roles",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Organization… → Access → Roles: make a role that edits diagrams but cannot delete them, give it to a group, and see a member of that group refused when deleting a sheet."
+     },
+     {
+      "id": "09.6r",
+      "title": "Access control: objects assigned to a person or group",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Right-click a folder → Assign to… a colleague: signed in as someone else, its objects are read-only with the reason, and moving or connecting a line to one is refused."
+     },
+     {
+      "id": "09.6h",
+      "title": "Access control: access history and audit export",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Change a group, a role, and an assignment, then open Access → Access history: the three changes show with before and after, and Export gives the history and the current access report in Excel."
+     },
+     {
+      "id": "PR",
+      "title": "Pilot readiness: second cloud, subscription and billing, pen test, DPA, signed desktop app, standards rights and legal review",
+      "done": false,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "Mostly behind the scenes (second cloud, billing, legal and security reviews). You may see a subscription page, passkey sign-in, and a signed desktop app."
+     }
+    ]
+   },
+   {
+    "id": "M5",
+    "title": "Library lifecycle",
+    "summary": "Companies edit and publish their own library: classes, attributes, relationship types, and how they behave. Projects see which updates are available and upgrade with a preview. Equipment catalogs with manufacturer data, a symbol designer with SVG import and live attribute labels, and switching and licensing of content packages.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "11.1",
+      "title": "Library editor: draft, review, publish",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Configuration → Company library: make an attribute (a choice of values) and a class that is a kind of Centrifugal pump with that attribute, save them as drafts, publish. The class is then in Object classes, New object offers it, and E1 checks its owners like its own classes."
+     },
+     {
+      "id": "11.2",
+      "title": "Updates available, checked against projects",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Configuration → Company library: publish a second version of a company class; Updates available in this project lists its objects still on version 1 and what changed. Save a draft that removes a choice or narrows where a class may be owned, and Check against projects lists every object it would break."
+     },
+     {
+      "id": "11.3",
+      "title": "Upgrade with preview",
+      "done": true,
+      "doneOn": "2026-11-06",
+      "visible": true,
+      "tryIt": "Publish a new version of a company class, then Configuration → Company library → Preview upgrade: each object is upgraded, has values retired, or is skipped with the reason; Upgrade applies it as one change. A retired value shows with Discard and cannot be edited."
+     },
+     {
+      "id": "11.4",
+      "title": "Project library and convention templates",
+      "done": true,
+      "doneOn": "2026-11-06",
+      "visible": true,
+      "tryIt": "Configuration → Company library: choose This project only and publish a class only this project has. Publish a convention template, Apply to this project, then publish a new version: the project keeps its rules until you apply it again."
+     },
+     {
+      "id": "20.1",
+      "title": "Company catalogs and items",
+      "done": true,
+      "doneOn": "2026-11-06",
+      "visible": true,
+      "tryIt": "Configuration → Catalogs: create a catalog, add a pump item with manufacturer, model, ordering code and a flow rate, Publish it, then New version, change the flow rate, and Publish again: both versions stay."
+     },
+     {
+      "id": "20.2",
+      "title": "Create objects from catalog items",
+      "done": true,
+      "doneOn": "2026-11-06",
+      "visible": true,
+      "tryIt": "New asset… on Assets: choose Centrifugal pump, then a catalog item under From catalog. The pump opens with the item's values and From catalog: … above them; change a value and it is marked as differing from the catalog."
+     },
+     {
+      "id": "20.3",
+      "title": "Catalog updates, re-apply, replace, detach",
+      "done": true,
+      "doneOn": "2026-11-06",
+      "visible": true,
+      "tryIt": "Publish a new version of a catalog item used by pumps: Company library → Updates available lists it. Re-apply…: a value changed by hand is kept unless ticked; Apply, then Edit → Undo. On a pump, Detach keeps its values."
+     },
+     {
+      "id": "20.4",
+      "title": "Project and content package catalogs",
+      "done": true,
+      "doneOn": "2026-11-06",
+      "visible": true,
+      "tryIt": "Configuration → Catalogs: New catalog for This project only, add and publish an item, and make an object from it. Open another project: its catalogs do not list it."
+     },
+     {
+      "id": "20.5",
+      "title": "Catalog import",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Import a catalog from a spreadsheet and check the items in the catalog."
+     },
+     {
+      "id": "21.2",
+      "title": "Symbol designer and publishing",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open the symbol designer, draw or edit a symbol, publish it, and place it on a sheet."
+     },
+     {
+      "id": "21.3",
+      "title": "Attribute labels on symbols",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Show attribute values as labels on a symbol and see them update when the value changes."
+     },
+     {
+      "id": "21.4",
+      "title": "SVG import into the symbol designer",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Import an SVG file into the symbol designer and turn it into a symbol."
+     },
+     {
+      "id": "21.5",
+      "title": "Symbol versions on placements and upgrade",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Change a symbol and see placements on sheets offer to upgrade to the new version."
+     },
+     {
+      "id": "01.2b",
+      "title": "Units of measurement",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Work in real units of measurement; change the units shown. (The Model Space 3D view is archived.)"
+     },
+     {
+      "id": "04.2",
+      "title": "Switching content packages on and off",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "In project settings, switch a content package on or off and see its classes and symbols appear or disappear."
+     },
+     {
+      "id": "04.3",
+      "title": "Content package licensing",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "See which content packages your license covers; a package you are not licensed for is marked."
+     },
+     {
+      "id": "04.5",
+      "title": "Content package updates",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "See that a content package has an update and install it into a project."
+     }
+    ]
+   },
+   {
+    "id": "M6",
+    "title": "Rules",
+    "summary": "Rule-based engineering without programming: values calculated from other values and from related objects, copy rules that fill values from their source, and check rules that find problems and can block issuing a revision.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "12.1",
+      "title": "Rule engine and calculations on the object",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set a calculation on an attribute (for example power from voltage and current) and see the value update when an input changes."
+     },
+     {
+      "id": "12.2",
+      "title": "Calculations through relationships",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set a calculation that reads a related object (for example a motor's value from its pump) and see it update."
+     },
+     {
+      "id": "12.3",
+      "title": "Check rules and findings",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Add a check rule, see the findings it reports, and see a revision blocked until they are fixed."
+     },
+     {
+      "id": "12.4",
+      "title": "Copy rules",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Add a copy rule and see a value copied from its source object, and updated when the source changes."
+     },
+     {
+      "id": "12.5",
+      "title": "Rules everywhere, tag configurator on the engine",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Use rules in the tag configurator and in lists; tags follow the same rule engine."
+     },
+     {
+      "id": "12.6",
+      "title": "Organization and content package rules",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "See rules that come from your organization or a content package applied in a project."
+     }
+    ]
+   },
+   {
+    "id": "M7",
+    "title": "Piping",
+    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, the pipe schedule (line list), and DEXPI exchange for 3D design tools.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "13.1",
+      "title": "Pipelines and selection",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Draw a pipeline between two boundaries and double-click it: the whole pipeline is selected."
+     },
+     {
+      "id": "13.2",
+      "title": "Completeness and detection",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "See an incomplete pipeline marked, and see pipelines detected from lines that are already drawn. Already live: an off-page connector shows its partner's sheet, and a double-click opens it; here a stored link replaces pairing by name."
+     },
+     {
+      "id": "13.3",
+      "title": "Pipe classes",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Give a line a pipe class and see schedule, material, and rating filled in."
+     },
+     {
+      "id": "13.4",
+      "title": "Pipe schedule (line list)",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open the pipe schedule (line list) of the project as a live table."
+     },
+     {
+      "id": "13.5",
+      "title": "DEXPI exchange and handover",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Export the model as a DEXPI file and import it in a 3D design tool (or import one back)."
+     }
+    ]
+   },
+   {
+    "id": "M8",
+    "title": "Branches",
+    "summary": "Git-like branches on the model: take part of the design into a branch, work apart from the shared design, pull others' changes, resolve conflicts object by object and on the drawing, and push back. Merge requests with review, branch types, automatic resolution rules, branch packages such as commissioning packages, and Cloud AI working inside a branch.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "15.1",
+      "title": "Branch records and scope",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Create a branch from part of the design and see it in the branch list."
+     },
+     {
+      "id": "15.2",
+      "title": "Working in a branch",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Work in a branch: your changes are not seen in the shared design until you push them."
+     },
+     {
+      "id": "15.3",
+      "title": "Pull and the conflict view",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Pull others' changes into your branch and resolve conflicts object by object in the conflict view."
+     },
+     {
+      "id": "15.4",
+      "title": "Conflicts on the drawing",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "See conflicts shown on the drawing itself and resolve them there."
+     },
+     {
+      "id": "15.5",
+      "title": "Push and update notices",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Push your branch back to the shared design and see others get a notice of the update."
+     },
+     {
+      "id": "16.1",
+      "title": "Branch types and options",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Create branches of different types (for example design or commissioning) with their own options."
+     },
+     {
+      "id": "16.2",
+      "title": "Merge requests",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open a merge request for a branch, have a colleague review it, and merge it."
+     },
+     {
+      "id": "16.3",
+      "title": "Automatic resolution rules",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set an automatic resolution rule and see conflicts of that kind resolved without asking."
+     },
+     {
+      "id": "16.4",
+      "title": "Branch packages",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Create a branch package such as a commissioning package and track it."
+     },
+     {
+      "id": "17.1",
+      "title": "Cloud AI in the person's branch",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Ask Cloud AI for a change and see it made in your own branch, not in the shared design."
+     },
+     {
+      "id": "17.2",
+      "title": "Review first as a temporary branch",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "See a Cloud AI change held as a temporary branch to review before it lands."
+     },
+     {
+      "id": "17.3",
+      "title": "Stored assistants in a branch",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Run a stored assistant inside a branch."
+     },
+     {
+      "id": "09.6b",
+      "title": "Branch push and approval permissions",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set who may push a branch or approve a merge request, and see the rules enforced."
+     }
+    ]
+   },
+   {
+    "id": "P",
+    "title": "In parallel: integration API, stored assistants, company sign-on, chat modes",
+    "summary": "Built alongside the milestones once the platform exists. An open, versioned integration API with access tokens, change feed, webhooks, and bulk import and export jobs. Stored assistants: repeatable procedures saved from an assistant turn or from manual work, run with one click. Company single sign-on, directory sync, and the remaining access features.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "19.1",
+      "title": "Command API, OpenAPI, and access tokens",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Create an access token in settings and run a command through the integration API (its OpenAPI page is browsable)."
+     },
+     {
+      "id": "19.2",
+      "title": "Resource API, queries, and external ids",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Read and query objects through the API, and see external ids on objects."
+     },
+     {
+      "id": "19.3",
+      "title": "Change feed and webhooks",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Register a webhook and see it called when an object changes."
+     },
+     {
+      "id": "19.4",
+      "title": "Connections and mappings to other systems",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set up a connection to another system with a field mapping and run it."
+     },
+     {
+      "id": "18.1",
+      "title": "Stored assistants: save and run",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Save an assistant turn as a stored assistant and run it again with one click."
+     },
+     {
+      "id": "18.2",
+      "title": "Stored assistants: record by hand and repeat",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Record a few manual steps as an assistant and repeat them on other objects."
+     },
+     {
+      "id": "18.3",
+      "title": "Stored assistants: sharing",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Share a stored assistant with colleagues and see them run it."
+     },
+     {
+      "id": "18.4",
+      "title": "Instruction assistants",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Create an assistant from written instructions and run it."
+     },
+     {
+      "id": "18.5",
+      "title": "Assistants in content packages and from the API",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Use an assistant that comes with a content package, or start one through the API."
+     },
+     {
+      "id": "09.4",
+      "title": "Company single sign-on and directory sync",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Sign in with your company account (single sign-on); new colleagues appear from the company directory."
+     },
+     {
+      "id": "09.5",
+      "title": "Tokens, service accounts, and agents",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Create a service account or agent token in settings and see it listed with its access."
+     },
+     {
+      "id": "09.6",
+      "title": "Discipline permissions, four-eyes approval, support access",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Limit a role to one discipline's attributes, require a second approver on merge requests, and approve a time-limited support access request."
+     },
+     {
+      "id": "02.3",
+      "title": "Chat modes and attachments",
+      "done": true,
+      "doneOn": "2026-11-03",
+      "visible": true,
+      "tryIt": "Ask in Ask mode and see nothing change; ask for a change in Plan mode and Apply it; attach a file and ask about it."
+     },
+     {
+      "id": "05.5b",
+      "title": "Queries from a sentence and templates through the API",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Type a sentence like \"all pumps without a motor\" and get the matching table."
+     }
+    ]
+   },
+   {
+    "id": "after",
+    "title": "After the MVP",
+    "summary": "Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat.",
+    "mvp": false,
+    "stages": [
+     {
+      "id": "22",
+      "title": "CAD import (DXF, later DWG)",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Import a DXF drawing and see it converted into E1 symbols and lines."
+     },
+     {
+      "id": "04.6",
+      "title": "Wire harness and marine content packages",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Switch on the wire harness or marine content package and see its classes and symbols."
+     },
+     {
+      "id": "04.7",
+      "title": "Partner content packages",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Install a partner's content package into a project."
+     },
+     {
+      "id": "19.5",
+      "title": "Message queues and more formats",
+      "done": false,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "Mostly under the hood: connections to message queues and more file formats."
+     },
+     {
+      "id": "18.6",
+      "title": "Script step for stored assistants",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Add a script step to a stored assistant and run it."
+     },
+     {
+      "id": "02.4",
+      "title": "Voice input",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Press the microphone in the chat, speak, press it again: the text appears in the composer to edit before you send it."
+     }
+    ]
+   },
+   {
+    "id": "parked",
+    "title": "Parked: Power (IEC 61850)",
+    "summary": "Parked by the owner (2026-11-05, 00-D12): not part of the MVP, not scheduled, and it may never be built. Formerly M9: substation engineering following IEC 61850, SCL import and export, generated single-line diagrams.",
+    "mvp": false,
+    "stages": [
+     {
+      "id": "14.1",
+      "title": "Power library content and topology",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Build a substation with voltage levels, bays, primary equipment, and IEDs in the tree."
+     },
+     {
+      "id": "14.2",
+      "title": "SCL import",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Import an SCL file and see the substation appear in the model."
+     },
+     {
+      "id": "14.3",
+      "title": "SCL export with schema validation",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Export the substation as an SCL file that passes schema validation."
+     },
+     {
+      "id": "14.4",
+      "title": "Single-line diagrams",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Generate a single-line diagram from the substation model and open it."
+     },
+     {
+      "id": "04.4",
+      "title": "The power (PTD) content package",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Switch on the power (PTD) content package and see its classes and symbols."
+     }
+    ]
+   }
+  ]
+ },
+ "website": {
+  "updated": "2026-11-05",
+  "milestones": [
+   {
+    "id": "W1",
+    "title": "Pages and content",
+    "summary": "The marketing site for LANXTOR E1: home, solutions, industries, pricing with Editor, Reviewer and Viewer licenses, about, user guides, downloads, sign-in and the account page, and the Shape E1 board where people post and vote on feature requests.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "W1.1",
+      "title": "The LANXTOR E1 marketing website",
+      "done": true,
+      "doneOn": "2026-11-02",
+      "visible": true,
+      "tryIt": "Open the preview site: the home page, Solutions, Industries and About pages are there."
+     },
+     {
+      "id": "W1.2",
+      "title": "Pricing, Shape E1 board, and a richer Solutions page",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Open Pricing: Editor, Reviewer and Viewer licenses, the 30-day trial, content packages. Open Contact us (Shape E1): post a request and vote."
+     },
+     {
+      "id": "W1.3",
+      "title": "Account portal, three-platform downloads, Academy in the account page",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "Open Get E1: Windows, macOS and Linux with your own system first. Open the account page: preview data with licenses, AI usage, storage, projects and the Academy."
+     },
+     {
+      "id": "W1.4",
+      "title": "Focus on production plants and energy",
+      "done": true,
+      "doneOn": "2026-11-05",
+      "visible": true,
+      "tryIt": "Read the home and Solutions pages: the copy speaks to production plants and energy."
+     }
+    ]
+   },
+   {
+    "id": "W2",
+    "title": "Hosting and launch",
+    "summary": "The site moves from Netlify to Azure Static Web Apps, lanxtor.com's DNS moves to Azure DNS without breaking mail, and the full site goes live in place of the coming-soon page (docs/AZURE-INTEGRATION.md in Lanxtor/E1Website).",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "W2.1",
+      "title": "Azure Static Web Apps workflow, coming-soon page, preview site",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": true,
+      "tryIt": "lanxtor.com shows the coming-soon page; preview.lanxtor.com (password-protected) shows the full site."
+     },
+     {
+      "id": "W2.2",
+      "title": "DNS Phase A: lanxtor.com DNS on Azure, mail kept",
+      "done": false,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "dig +short NS lanxtor.com shows the Azure nameservers; mail to and from lanxtor.com still works."
+     },
+     {
+      "id": "W2.3",
+      "title": "DNS Phase B: www, apex, and app.lanxtor.com on Azure",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "www.lanxtor.com and lanxtor.com open from Azure with a certificate; app.lanxtor.com opens the E1 server."
+     },
+     {
+      "id": "W2.4",
+      "title": "Netlify retired",
+      "done": false,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "The Netlify site and DNS zone are deleted; TTLs raised to 3600."
+     },
+     {
+      "id": "W2.5",
+      "title": "Launch: the full site on lanxtor.com (SITE_MODE = live)",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open lanxtor.com: the full site instead of \"Coming soon.\""
+     }
+    ]
+   },
+   {
+    "id": "W3",
+    "title": "Connected to the E1 cloud",
+    "summary": "One account for the app and the website: \"Log in\" signs in through the E1 server, the account page reads licenses, usage, projects and billing from it, and the Shape E1 board stores posts and votes in E1's PostgreSQL.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "W3.1",
+      "title": "Website pointed at app.lanxtor.com; account API and board routes on the server",
+      "done": true,
+      "doneOn": "2026-11-04",
+      "visible": false,
+      "tryIt": "assets/js/config.js points at https://app.lanxtor.com; the server answers /api/account/overview and /api/community/* (server/tests/website.test.mjs)."
+     },
+     {
+      "id": "W3.2",
+      "title": "Sign-in from the website end to end",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "On the website choose Log in, sign in, and land back on the account page with your real license and projects (needs app M2.8, cloud deployment)."
+     },
+     {
+      "id": "W3.3",
+      "title": "Shape E1 board live on the server",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Post a request on Shape E1 while signed in, reload in another browser: it is there, with its votes."
+     },
+     {
+      "id": "W3.4",
+      "title": "Academy courses served by the E1 server",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "The account page lists video courses with your progress and certificates instead of \"Video courses are on their way\"."
+     }
+    ]
+   },
+   {
+    "id": "W4",
+    "title": "Commerce and downloads",
+    "summary": "People can buy and manage subscriptions through a billing provider's portal, and download signed installers for Windows, macOS, and Linux from the release manifest.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "W4.1",
+      "title": "Billing provider and the billing portal",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "On the account page choose Manage billing: the provider's portal opens to change plan, seats, and payment method."
+     },
+     {
+      "id": "W4.2",
+      "title": "First signed installers in the release manifest",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open Get E1: the installer for your system downloads, with its size and SHA-256."
+     }
+    ]
+   }
+  ]
+ }
+}
