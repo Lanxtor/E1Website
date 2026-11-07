@@ -52,6 +52,9 @@
           <li><a href="#list-paste">Paste a block from Excel</a></li>
           <li><a href="#list-set-value">Select many cells and Set value…</a></li>
           <li><a href="#list-fill">Fill down and Fill right</a></li>
+          <li><a href="#list-fill-handle">Drag the fill handle to copy a value down</a></li>
+          <li><a href="#list-cell-menu">Cut, Copy and Paste with the right-click menu</a></li>
+          <li><a href="#list-read-only-cells">Read-only cells are tinted blue</a></li>
           <li><a href="#list-find-replace">Find and replace…</a></li>
           <li><a href="#list-owner-cell">Owner cell: open the object, or move it with F2</a></li>
           <li><a href="#list-excel-export">Export a query to Excel or CSV</a></li>
@@ -66,7 +69,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Lists and queries</p>
         <h1>6. Lists and queries</h1>
         <p class="lead">Any list is a live query of the model: columns, filters, grouping, editing like Excel, templates, and Excel export and import.</p>
-        <div class="g-meta"><span>22 features</span><span>21 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>25 features</span><span>24 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="lists-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 a list is not a separate file: it is a live <em>query</em> of the project's objects. You pick where it starts, choose the columns, filter, group and total, edit the cells like a spreadsheet, save the layout as a template, and move the table to and from Excel.</p>
@@ -76,7 +79,7 @@
     <li>Add <a href="#list-columns">columns</a>: attributes, <a href="#list-eng-columns">engineering columns</a> and <a href="#list-catalog-columns">catalog columns</a>.</li>
     <li><a href="#list-filter">Filter</a> the rows, read the <a href="#list-filter-summary">summary in words</a>, and use <a href="#list-parameters">Ask when opened</a> for values you change often.</li>
     <li><a href="#list-group-totals">Group and total</a> the rows, then <a href="#list-templates">save the query as a template</a> for yourself, the project or the organization.</li>
-    <li>Change values in the table: <a href="#list-edit-cell">type</a>, <a href="#list-paste">paste from Excel</a>, <a href="#list-fill">fill down</a>, <a href="#list-set-value">set many cells</a>, <a href="#list-find-replace">find and replace</a>, and <a href="#list-owner-cell">move objects</a>. Each change is one undo step.</li>
+    <li>Change values in the table: <a href="#list-edit-cell">type</a>, <a href="#list-paste">paste from Excel</a>, <a href="#list-fill">fill down</a> or <a href="#list-fill-handle">drag the fill handle</a>, <a href="#list-cell-menu">cut, copy and paste</a>, <a href="#list-set-value">set many cells</a>, <a href="#list-find-replace">find and replace</a>, and <a href="#list-owner-cell">move objects</a>. Each change is one undo step.</li>
     <li><a href="#list-excel-export">Export to Excel</a>, change the file, and <a href="#list-update-from-excel">update the project from it</a>; bring in new rows with <a href="#list-import-excel">Import Excel…</a>.</li>
   </ol>
   <p>A saved query can be issued as a list document with its own revisions and PDF: see <a href="guide-documents.html#doc-list-document">List documents</a>.</p>
@@ -332,7 +335,7 @@
 
 <section class="g-feature" id="list-edit-cell">
   <h2>Edit a cell like in Excel</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-edit-cell</span><span>Roadmap M3.7, M3.9</span><span>Review check D4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">LIST-edit-cell</span><span>Roadmap M3.7, M3.9</span><span>Review check D4</span></div>
   <p class="g-summary">Double-click or press F2 on a cell to change a name or an attribute value; Ctrl+Z undoes it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → double-click a cell, or select it and press <kbd>F2</kbd></dd>
@@ -343,7 +346,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Hover the <span class="ui">Class</span> cell.</td><td>The hover text says the class is fixed: the cell is read-only.</td></tr>
+      <tr><td>1</td><td>Hover the <span class="ui">Class</span> cell.</td><td>The cell has a light blue background, and the hover text reads “Read only: The class is fixed; Replace on the drawing changes it.”.</td></tr>
       <tr><td>2</td><td>Hover the Design pressure cell.</td><td>The hover text reads “Double-click or F2 to edit”.</td></tr>
       <tr><td>3</td><td>Double-click the Design pressure cell, type <code>16</code>, and press <kbd>Enter</kbd>.</td><td>The cell shows “16 bar(g)”: a bare number gets the attribute's unit.</td></tr>
       <tr><td>4</td><td>Double-click it again, type <code>3 m</code>, and press <kbd>Enter</kbd>.</td><td>An alert in the cell says the value is not a unit of pressure, and nothing is saved.</td></tr>
@@ -352,7 +355,7 @@
     </tbody>
   </table></div>
   <p class="g-note"><kbd>Enter</kbd> saves, <kbd>Esc</kbd> cancels, and leaving the cell (a click elsewhere, <kbd>Tab</kbd>) saves. A Name cell renames the object; a tagged name is read-only. The rows refresh when anyone changes the project.</p>
-  <p class="g-related">Related: <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-collaboration.html#col-history">History and undo</a></p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-read-only-cells">Read-only cells are tinted blue</a>, <a href="guide-collaboration.html#col-history">History and undo</a></p>
 </section>
 
 <section class="g-feature" id="list-paste">
@@ -377,7 +380,7 @@
   </table></div>
   <p class="g-note">The block fills from the first selected cell. One copied value pasted into several selected cells fills each of them.</p>
   <p class="g-warn">If someone else changed one of the rows meanwhile, the dialog says “N rows were changed by someone else since; nothing was applied.” and offers <span class="ui">Apply the other rows</span>. A paste that changes an Owner cell is reported as a problem.</p>
-  <p class="g-related">Related: <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a>, <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a></p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a>, <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-cell-menu">Cut, Copy and Paste with the right-click menu</a></p>
 </section>
 
 <section class="g-feature" id="list-set-value">
@@ -422,8 +425,81 @@
       <tr><td>4</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The two filled cells are back as before.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Fill down copies each column's top cell; Fill right copies each row's left cell. A value ending in a number counts on (P-101, P-102, …, keeping leading zeros); any other value is copied.</p>
-  <p class="g-related">Related: <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a></p>
+  <p class="g-note">Fill down copies each column's top cell; Fill right copies each row's left cell. A value ending in a number counts on (P-101, P-102, …, keeping leading zeros); any other value is copied. To copy a value without selecting the cells first, <a href="guide-lists.html#list-fill-handle">drag the fill handle</a>.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-fill-handle">Drag the fill handle to copy a value down</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a></p>
+</section>
+
+<section class="g-feature" id="list-fill-handle">
+  <h2>Drag the fill handle to copy a value down</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">LIST-fill-handle</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">As in Excel: select a cell, then drag the small square at its bottom-right corner down over the cells below. The value is copied into every cell you pass, as one step you can undo. You can count on as a series instead (P-101, P-102, …).</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → select a cell or a block → drag the small square at the bottom-right corner of the selection</dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A query with a Design pressure column; the top Design pressure cell holds 10 bar(g).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the top Design pressure cell.</td><td>The cell is outlined, with a small square at its bottom-right corner (the fill handle). Pointing at the square shows a cross.</td></tr>
+      <tr><td>2</td><td>Drag the square down three rows and let go.</td><td>While you drag, the cells you pass have a dashed outline. When you let go, a Fill dialog “Fill 3 cells” opens with <span class="ui">Copy cells</span> chosen and says “3 cells change, as one step you can undo.”.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Apply</span> (or press <kbd>Enter</kbd>).</td><td>All four cells read “10 bar(g)” and are selected.</td></tr>
+      <tr><td>4</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The three filled cells are back as before.</td></tr>
+      <tr><td>5</td><td>Click a Name cell that reads <code>P-101</code>, drag its fill handle down two rows, and choose <span class="ui">Fill series (P-101, P-102, …)</span> in the dialog.</td><td>The dialog still says “2 cells change, as one step you can undo.”. After <span class="ui">Apply</span> the two cells read P-102 and P-103.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The handle also drags up, right and left; it follows the direction you moved furthest. A block of several cells repeats down (A, B, A, B, …); as a series, two values such as V-1 and V-3 go on by the same step (V-5, V-7). Near the top or bottom of the table, the rows scroll as you drag.</p>
+  <p class="g-warn">A fill over a cell that cannot be changed (a <a href="guide-lists.html#list-read-only-cells">blue cell</a>, such as Class) shows the problem in the dialog, and <span class="ui">Apply</span> stays off until you cancel and drag a shorter or other range. The fill handle works on the rows loaded in the table, the ones you scrolled past.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-cell-menu">Cut, Copy and Paste with the right-click menu</a>, <a href="guide-lists.html#list-read-only-cells">Read-only cells are tinted blue</a>, <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a></p>
+</section>
+
+<section class="g-feature" id="list-cell-menu">
+  <h2>Cut, Copy and Paste with the right-click menu</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">LIST-cell-menu</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">Right-click a cell or a selected block for <span class="ui">Cut</span>, <span class="ui">Copy</span> and <span class="ui">Paste</span>, with the same keys as in Excel. Copy puts the cells on the clipboard as a table that Excel pastes into cells; Cut and then Paste moves the values.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → right-click a cell → <span class="ui">Cut</span>, <span class="ui">Copy</span> or <span class="ui">Paste</span>; or <kbd>Ctrl+X</kbd>, <kbd>Ctrl+C</kbd>, <kbd>Ctrl+V</kbd> (<kbd>⌘X</kbd>, <kbd>⌘C</kbd>, <kbd>⌘V</kbd>)</dd>
+    <dt>Who</dt><dd>Copy: anyone who may view the project. Cut and Paste: a project role that may edit objects.</dd>
+    <dt>Before you start</dt><dd>A query with a Design pressure column; the first row holds 10 bar(g), the fourth row is empty.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the first Name cell, then Shift-click the Design pressure cell of the second row.</td><td>A block of cells is selected.</td></tr>
+      <tr><td>2</td><td>Right-click inside the block.</td><td>A menu opens with <span class="ui">Cut</span>, <span class="ui">Copy</span> and <span class="ui">Paste</span>, each with its key, then <span class="ui">Set value…</span>, <span class="ui">Fill down</span> and <span class="ui">Fill right</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Copy</span>, then paste into an empty Excel sheet.</td><td>Excel shows the same block, one value per cell.</td></tr>
+      <tr><td>4</td><td>Right-click the first Design pressure cell and click <span class="ui">Cut</span>.</td><td>The cell gets a dashed outline.</td></tr>
+      <tr><td>5</td><td>Right-click the Design pressure cell of the fourth row and click <span class="ui">Paste</span>.</td><td>A Paste dialog “Move 1 cell” says “The cut cells are cleared in the same step.” and “2 cells change, as one step you can undo.”.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Apply</span>.</td><td>The fourth row reads 10 bar(g) and the first row is empty. One <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) takes both back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A right-click outside the selection selects that cell first. <kbd>Esc</kbd> ends a cut. A paste of something else after a cut is a normal paste: nothing is cleared. A cut Name or Owner cell is copied but never cleared.</p>
+  <p class="g-warn">Some browsers ask before a page may read the clipboard. If <span class="ui">Paste</span> in the menu cannot read it, a note asks you to press <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>) instead, which always works.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-fill-handle">Drag the fill handle to copy a value down</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-read-only-cells">Read-only cells are tinted blue</a></p>
+</section>
+
+<section class="g-feature" id="list-read-only-cells">
+  <h2>Read-only cells are tinted blue</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">LIST-read-only-cells</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">Cells you cannot change in the table have a light blue background, so you see at once where typing, pasting or filling will not work. A column no row can change, such as Class, also shows a lock on its header.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → the table</dd>
+    <dt>Who</dt><dd>Anyone who may view the project</dd>
+    <dt>Before you start</dt><dd>A query with the columns <span class="ui">Class</span> and Design pressure.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Look at the <span class="ui">Class</span> column.</td><td>Its cells and its header have a light blue background, and the header shows a lock before “Class”.</td></tr>
+      <tr><td>2</td><td>Hover the <span class="ui">Class</span> header.</td><td>The hover text starts “Read only: The class is fixed; Replace on the drawing changes it.”.</td></tr>
+      <tr><td>3</td><td>Hover a Design pressure cell.</td><td>It has no tint, and the hover text reads “Double-click or F2 to edit”.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Each blue cell says why on hover, for example a tagged name (“The name column shows the tag; change it with Tag….”), an attribute the object's class does not have, a count of related objects, or a row of a project you may only view. The designation, owner path, catalog and related-object columns are always read-only.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a>, <a href="guide-lists.html#list-eng-columns">Engineering columns: Designation, Owner path and related objects</a>, <a href="guide-lists.html#list-fill-handle">Drag the fill handle to copy a value down</a></p>
 </section>
 
 <section class="g-feature" id="list-find-replace">
