@@ -8,12 +8,11 @@ module.exports = {
     await go(h, 'account.html?demo=1#overview', 'web-account-overview');
     for (const s of ['academy', 'academy-guides', 'academy-certificates', 'licenses', 'usage', 'organizations', 'projects', 'permissions', 'billing', 'downloads']) {
       await p.goto(B + 'account.html?demo=1#' + s); await p.waitForTimeout(1500);
-      await p.evaluate((id) => document.getElementById(id)?.scrollIntoView(), s); await p.waitForTimeout(600);
+      await p.evaluate((id) => { document.getElementById(id)?.scrollIntoView(); document.querySelectorAll('[class*=alex-launcher]').forEach((e) => e.style.display = 'none'); }, s); await p.waitForTimeout(600);
       await h.shot('web-account-' + s);
     }
-    await go(h, 'training.html?demo=1&course=e1-fundamentals', 'web-training');
+    await p.goto(B + 'training.html?demo=1&course=e1-fundamentals'); await p.waitForTimeout(1800); await h.shot('web-training', { clip: { x: 0, y: 0, width: 1440, height: 505 } });
     await go(h, 'download.html', 'web-download');
-    await go(h, 'shape-e1.html?demo=1', 'web-shape-e1');
     await go(h, 'academy.html', 'web-academy');
   },
 };
