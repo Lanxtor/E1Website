@@ -110,8 +110,8 @@
       <tr><td>6</td><td>Right-click the object <span class="ui">V3</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</td><td>A second query opens; its bar reads “All objects below V3”.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/query-submenu.webp" alt="Right-click menu of the Assets section with the Query submenu open, showing New query…" width="576" height="316" loading="lazy"><figcaption>Right-click <span class="ui">Assets</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</figcaption></figure>
-  <figure class="g-shot"><img src="assets/img/guides/query-view.webp" alt="The Query: Assets tab with 48 rows and the columns Owner, Name and Class; the bar holds Filter, Find and replace…, Export, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption>A new query on Assets: 48 rows, sorted by Name.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:341px"><img src="assets/img/guides/query-submenu.webp" alt="Right-click menu of the Assets section with the Query submenu open, showing New query…" width="682" height="206" loading="lazy"><figcaption>Right-click <span class="ui">Assets</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-view.webp" alt="The Query: Assets tab with 48 rows and the columns Owner, Name and Class; the bar holds Filter, Find and replace…, Export, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption>A new query on Assets: 48 rows, sorted by Name.</figcaption></figure>
   <p class="g-note">The Name column shows an object's tag, or its name when it has no tag. Ports and objects in the Bin are not rows. An empty result reads “No objects below &lt;start&gt;.”.</p>
   <p class="g-note">The <span class="ui">Query</span> item is not offered in the Bin, on a case or on a voided object.</p>
   <p class="g-warn">A query tab whose definition is gone shows “This query is no longer open. Open it again from the explorer: right-click, Query, New query.”.</p>
@@ -160,7 +160,7 @@
       <tr><td>5</td><td>Click <span class="ui">Columns</span> again.</td><td>The panel closes.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/query-columns.webp" alt="The Columns panel open over the query table, with Related: Choose a relationship…, the Search attributes box and a list of attribute checkboxes." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Columns</span> panel.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-columns.webp" alt="The Columns panel open over the query table, with Related: Choose a relationship…, the Search attributes box and a list of attribute checkboxes." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Columns</span> panel.</figcaption></figure>
   <p class="g-note">While the attributes load the panel reads “Loading the attributes of these objects…”; when there are none, “These objects have no attributes.”.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-eng-columns">Engineering columns: Designation, Owner path and related objects</a>, <a href="guide-lists.html#list-catalog-columns">Catalog columns</a>, <a href="guide-lists.html#list-group-totals">Group &amp; totals</a>, <a href="guide-objects.html#obj-attributes">Attributes and units</a></p>
 </section>
@@ -186,7 +186,7 @@
       <tr><td>7</td><td>Tick <span class="ui">Owner path</span>.</td><td>An Owner path column shows where each object sits in the project.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/query-columns.webp" alt="The Columns panel with the Related dropdown at the top." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Related</span> dropdown lists every relationship type both ways.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-columns.webp" alt="The Columns panel with the Related dropdown at the top." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Related</span> dropdown lists every relationship type both ways.</figcaption></figure>
   <p class="g-warn">Designation, Owner path, related and count columns cannot be sorted, grouped or filtered.</p>
   <p class="g-warn">Attributes of the owner or of a related object can be asked for through Cloud AI or the API, but are not in the Columns picker yet.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-columns">Choose the columns</a>, <a href="guide-lists.html#list-group-totals">Group &amp; totals</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a></p>
@@ -236,7 +236,7 @@
   </table></div>
   <h3>Operators</h3>
   <p>Depending on the field: <span class="ui">is</span>, <span class="ui">is not</span>, <span class="ui">contains</span>, <span class="ui">does not contain</span>, <span class="ui">starts with</span>, <span class="ui">ends with</span>, <span class="ui">matches (* ?)</span>, <span class="ui">is one of</span>, <span class="ui">is empty</span>, <span class="ui">is not empty</span>, <span class="ui">=</span>, <span class="ui">≠</span>, <span class="ui">&lt;</span>, <span class="ui">≤</span>, <span class="ui">&gt;</span>, <span class="ui">≥</span>, <span class="ui">between</span>. <span class="ui">is one of</span> takes a list such as <code>a, b, c</code>; <span class="ui">between</span> shows a second box “and”. Quantities have a <span class="ui">Unit</span> and are compared after unit conversion, so 1 bar matches 100 kPa. An empty value never matches a comparison, but does match <span class="ui">is not</span>, <span class="ui">does not contain</span> and <span class="ui">≠</span>.</p>
-  <figure class="g-shot"><img src="assets/img/guides/query-filter.webp" alt="The Filter panel open over the query: Rows that match all of these (AND), with Add condition, Apply and Cancel." width="2160" height="1350" loading="lazy"><figcaption>The filter builder.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-filter.webp" alt="The Filter panel open over the query: Rows that match all of these (AND), with Add condition, Apply and Cancel." width="2160" height="1350" loading="lazy"><figcaption>The filter builder.</figcaption></figure>
   <p class="g-note">This filter language is what E1 calls expressions: typed, unit-aware conditions. Calculated columns are not in the query view.</p>
   <p class="g-note">A filter with groups inside groups, for example one made by Cloud AI, is shown in words. The builder then says “This filter has groups inside groups; it is shown above in words. Clear it to build a new one here.” and offers only <span class="ui">Clear filter</span> and <span class="ui">Close</span>.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-filter-summary">Read the filter in words and clear it</a>, <a href="guide-lists.html#list-parameters">Ask when opened: one query for many values</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a></p>
@@ -567,7 +567,7 @@
       <tr><td>3</td><td>Open the file in Excel.</td><td>Row 1 holds the view's columns plus <span class="ui">E1 id</span>, for example Owner, Name, Class, E1 id. There is one row per query row: all rows, not only those loaded on screen. Every cell is a value, never a formula.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/query-view.webp" alt="The query bar with the Export button among Filter, Find and replace…, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Export</span> is in the query bar.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-view.webp" alt="The query bar with the Export button among Filter, Find and replace…, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Export</span> is in the query bar.</figcaption></figure>
   <p class="g-note">Keep the <span class="ui">E1 id</span> column: <span class="ui">Update from Excel…</span> uses it to match the rows. A CSV file opens in Excel with the right characters.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a>, <a href="guide-lists.html#list-project-excel">File → Export Excel…: every saved query in one workbook</a>, <a href="guide-lists.html#list-new-query">Open a query with New query…</a></p>
 </section>
@@ -621,7 +621,7 @@
       <tr><td>7</td><td>Click <span class="ui">Close</span>, then <span class="ui">Edit</span> → <span class="ui">Undo</span>.</td><td>Both the change and the new pump are gone.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-data.webp" alt="The Data menu open: Datasheet…, Revisions, Import Excel…." width="424" height="278" loading="lazy"><figcaption><span class="ui">Data</span> → <span class="ui">Import Excel…</span>.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-data.webp" alt="The Data menu open: Datasheet…, Revisions, Import Excel…." width="380" height="252" loading="lazy"><figcaption><span class="ui">Data</span> → <span class="ui">Import Excel…</span>.</figcaption></figure>
   <p class="g-note">A header such as Tag, Tag No., Tag number or Item maps to the tag automatically. Changing a mapping turns <span class="ui">Apply</span> off until you <span class="ui">Check</span> again.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a>, <a href="guide-objects.html#obj-new-object">Make a new object</a></p>
 </section>
@@ -643,7 +643,7 @@
       <tr><td>2</td><td>Open it.</td><td>It has one sheet per saved query you can see, each headed with the project, the query and the date.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-file.webp" alt="The File menu open: New project, Save, Export PDF…, Export Excel…, Print…, Project settings…, Organization…." width="424" height="538" loading="lazy"><figcaption><span class="ui">File</span> → <span class="ui">Export Excel…</span>.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-file.webp" alt="The File menu open: New project, Save, Export PDF…, Export Excel…, Print…, Project settings…, Organization…." width="380" height="512" loading="lazy"><figcaption><span class="ui">File</span> → <span class="ui">Export Excel…</span>.</figcaption></figure>
   <p class="g-note">A long export says “The export is taking long; it goes on in the background.”. A section's own toolbar <span class="ui">Export</span> downloads the objects under it, for example “Assets.xlsx”.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a></p>
 </section>
