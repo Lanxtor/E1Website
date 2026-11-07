@@ -16,7 +16,7 @@ module.exports = {
     const d = p.getByRole('dialog', { name: 'New object in Assets' }); await d.waitFor();
     await h.shot('new-asset-dialog', { clip: d });
     await d.getByRole('textbox', { name: 'Search classes' }).fill('centrifugal');
-    await d.getByRole('option', { name: /^Centrifugal pump(?! tag| \(CFIHOS)/ }).click();
+    await d.getByRole('tree', { name: 'Classes' }).getByRole('button', { name: 'Centrifugal pump', exact: true }).click();
     await p.waitForTimeout(400);
     await h.shot('new-asset-centrifugal', { clip: d });
     await d.getByRole('button', { name: 'Create' }).click();
