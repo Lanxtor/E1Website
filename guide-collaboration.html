@@ -58,7 +58,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Working together</p>
         <h1>8. Working together</h1>
         <p class="lead">History and undo, comments and mentions, tasks and the Inbox, comments pinned on drawings, attachments and live updates between people.</p>
-        <div class="g-meta"><span>14 features</span><span>11 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>14 features</span><span>10 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="collaboration-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers how people work together on one E1 project: taking back changes, reading what changed and who changed it, discussing an object in comments, handing out tasks, following everything in the Inbox, pinning review comments on a drawing, attaching files, and what you see when two people change the project at the same time. It ends with branches, which are planned.</p>
@@ -107,7 +107,7 @@
       <tr><td>5</td><td>Type in a text field, then press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) while the field still has the cursor.</td><td>Only the typing in that field is undone; the project is not changed.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu open, with Undo and Redo at the top, then Cut, Copy, Paste, Duplicate, Delete and Select all" width="424" height="594" loading="lazy"><figcaption>The Edit menu: Undo and Redo come first.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu open, with Undo and Redo at the top, then Cut, Copy, Paste, Duplicate, Delete and Select all" width="380" height="568" loading="lazy"><figcaption>The Edit menu: Undo and Redo come first.</figcaption></figure>
   <p class="g-note">If someone else has changed the same thing since your step, the undo is refused as a conflict and the step stays in your list. See <a href="#col-conflicts">When two people change the same thing</a>.</p>
   <p class="g-note">Editors with their own draft, such as the datasheet designer, have their own <span class="ui">Undo</span> button until you save the draft.</p>
   <p class="g-warn">The list of steps is kept in the open app. It is probably lost when you reload the page; this has not been confirmed yet. To take back an older change after a reload, use <a href="#col-history">Undo this change</a> on the object's History tab.</p>
@@ -136,7 +136,7 @@
       <tr><td>7</td><td>If the object has many changes, click <span class="ui">Older changes</span> at the bottom.</td><td>Older rows are added. While more pages exist, the count reads <span class="ui">N+ changes</span>.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/object-history.webp" alt="The History tab of Feed pump: one row, Nov 7, 2:44 PM, Signed-in user, Edited Feed pump, name Pump1 struck through then Feed pump, with the link Undo this change" width="2160" height="1350" loading="lazy"><figcaption>Pump1 renamed to Feed pump: the History tab shows the name before and after, and <span class="ui">Undo this change</span>.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/object-history.webp" alt="The History tab of Feed pump: one row by Signed-in user: Edited Feed pump, name Pump1 struck through then Feed pump, with the link Undo this change" width="2160" height="1350" loading="lazy"><figcaption>Pump1 renamed to Feed pump: the History tab shows the name before and after, and <span class="ui">Undo this change</span>.</figcaption></figure>
   <p class="g-note">An object without changes shows <span class="ui">No changes recorded yet.</span></p>
   <p class="g-warn">If someone has changed the object since, the undo is refused with <span class="ui">Changed since, so the change cannot be undone: …</span> and nothing changes.</p>
   <p class="g-warn">Projects, folders and sheets also have a History tab, but it lists only the changes the app has loaded, and it has no <span class="ui">Undo this change</span>.</p>
@@ -145,31 +145,11 @@
 
 <section class="g-feature" id="col-history-place">
   <h2>The History place: every change in the project</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">COL-history-place</span><span>Roadmap 07.1</span><span>Review check H1</span></div>
-  <p class="g-summary">The History place lists the changes from the drawing, Cloud AI and outside agents in one place, with filters by date, person and kind of change. Changes made by Cloud AI or an agent can be undone from here as a whole.</p>
-  <dl class="g-facts">
-    <dt>Where</dt><dd>Command palette (<kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>)) → <span class="ui">Open place</span> → <span class="ui">Place</span> <code>history</code> → <span class="ui">Run</span>. It is not on the left rail.</dd>
-    <dt>Who</dt><dd>Anyone who may view the project</dd>
-    <dt>Before you start</dt><dd>A project is open and some changes have been made.</dd>
-  </dl>
-  <h3>Steps</h3>
-  <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
-    <tbody>
-      <tr><td>1</td><td>Press <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>) and type <code>Open place</code>.</td><td>The palette lists the command <span class="ui">Open place</span>.</td></tr>
-      <tr><td>2</td><td>Choose it, pick <code>history</code> in the <span class="ui">Place</span> list and click <span class="ui">Run</span>.</td><td>A tab <span class="ui">History</span> opens with the heading <span class="ui">History</span> and the text <span class="ui">Changes from the drawing, Cloud AI, and MCP are recorded here.</span></td></tr>
-      <tr><td>3</td><td>Read the list.</td><td>Each entry shows the kind of change, who made it, when, and a description. The count reads <span class="ui">N changes</span>.</td></tr>
-      <tr><td>4</td><td>Set <span class="ui">Date</span> to <span class="ui">Today</span> (others: <span class="ui">All dates</span>, <span class="ui">Last 7 days</span>, <span class="ui">On a date</span> with a date under <span class="ui">On</span>).</td><td>Only today's changes stay. The count reads <span class="ui">X of N changes</span>.</td></tr>
-      <tr><td>5</td><td>Set <span class="ui">Who</span> (for example <span class="ui">Cloud AI</span>; <span class="ui">Anyone</span> shows all) and <span class="ui">Change</span> (for example <span class="ui">Renamed</span>; others are Added, Removed, Resized, Connected, Disconnected, Moved, Flipped, Edited; <span class="ui">Any change</span> shows all).</td><td>The list narrows. With nothing left: <span class="ui">No changes match these filters.</span></td></tr>
-      <tr><td>6</td><td>Type in <span class="ui">Description</span> (placeholder <span class="ui">Filter the description</span>).</td><td>Only entries whose description contains the text stay.</td></tr>
-      <tr><td>7</td><td>On a change made by Cloud AI, click <span class="ui">Undo this change</span> (tooltip <span class="ui">Undo everything this change did</span>).</td><td>Everything that change did is taken back in one step.</td></tr>
-    </tbody>
-  </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/palette-open.webp" alt="The command palette open over the E1 window, with its search field Run a command… and the list of commands" width="2160" height="1350" loading="lazy"><figcaption>The History place opens from the command palette with <span class="ui">Open place</span>.</figcaption></figure>
-  <p class="g-note"><span class="ui">Undo this change</span> appears only on changes by Cloud AI or an outside agent, once per change. Take back your own changes with <a href="#col-undo-redo">Edit → Undo</a> or on the object's <a href="#col-history">History tab</a>.</p>
-  <p class="g-note">The palette command <span class="ui">Project activity</span> gives the changes of one project as a result in the palette.</p>
-  <p class="g-warn">The place lists the changes the app has loaded, not the full history from the server. A project with no changes yet shows <span class="ui">No changes have been recorded yet. Place a symbol, rename it, or ask Cloud AI to edit the project.</span></p>
-  <p class="g-related">Related: <a href="#col-history">An object's History tab</a> · <a href="guide-getting-started.html#gs-command-palette">The command palette</a> · <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a></p>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">COL-history-place</span><span>Roadmap 07.1</span></div>
+  <p class="g-summary">A History place that lists every change in the project in one tab, from the drawing, Cloud AI and outside agents. E1 already contains it, but it has no button on the screen yet, so you cannot open it today.</p>
+  <p class="g-dev">The History place will list each change with its kind, who made it, when, and a description, with filters for <span class="ui">Date</span> (<span class="ui">All dates</span>, <span class="ui">Today</span>, <span class="ui">Last 7 days</span>, <span class="ui">On a date</span>), <span class="ui">Who</span>, <span class="ui">Change</span> and <span class="ui">Description</span>. A change made by Cloud AI or an outside agent can be taken back as a whole with <span class="ui">Undo this change</span>.</p>
+  <p class="g-note">Today, the changes of one object are on its <a href="#col-history">History tab</a>, and <a href="#col-undo-redo">Edit → Undo</a> takes back your own changes one by one. A Cloud AI reply has its own Undo (see <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a>).</p>
+  <p class="g-related">Related: <a href="#col-history">An object's History tab</a> · <a href="#col-undo-redo">Undo and redo</a> · <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a></p>
 </section>
 
 <section class="g-feature" id="col-comments">
@@ -197,7 +177,7 @@
       <tr><td>10</td><td>Signed in as the colleague in a second browser, keep Pump1's Comments tab open while the first person sends a comment.</td><td>The comment appears within about 3 seconds without reloading, marked <span class="ui">New</span>.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/comments-thread.webp" alt="Pump1's Comments tab: a comment Check the design pressure against #V3 with Like 1, Resolve, Edit, Create task and Delete, an indented reply 16 bar(g), same as V3., the Reply link and the comment box with Send" width="2160" height="1350" loading="lazy"><figcaption>A comment linking #V3, a reply and a like.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/comments-thread.webp" alt="Pump1's Comments tab: a comment Check the design pressure against #V3 with Like 1, Resolve, Edit, Create task and Delete, an indented reply 16 bar(g), same as V3., the Reply link and the comment box with Send" width="2160" height="1350" loading="lazy"><figcaption>A comment linking #V3, a reply and a like.</figcaption></figure>
   <ul>
     <li>A comment written by Cloud AI shows the author with <span class="ui">(via Cloud AI)</span>.</li>
     <li>A comment pinned on a drawing shows <span class="ui">Pinned on a sheet</span> (see <a href="#col-sheet-pins">Comment here</a>).</li>
@@ -231,8 +211,8 @@
       <tr><td>7</td><td>Open the <span class="ui">Tasks</span> section and use its filter button <span class="ui">All</span> → <span class="ui">Done</span>, then <span class="ui">Open</span>.</td><td>The lists <span class="ui">Tasks: Done</span> and <span class="ui">Tasks: Open</span>. An empty list reads, for example, <span class="ui">No done tasks.</span></td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/task-new.webp" alt="The New task form: Task title Check the seal, the For list, a Due date field, and the buttons Create task and Cancel" width="1580" height="248" loading="lazy"><figcaption>The <span class="ui">New task</span> form.</figcaption></figure>
-  <figure class="g-shot"><img src="assets/img/guides/inbox-assigned.webp" alt="The Inbox with the I assigned view selected, listing the task Check the seal with a checkbox; the Tasks section in the explorer has a mark" width="2160" height="1350" loading="lazy"><figcaption>The task in the Inbox's <span class="ui">I assigned</span> view.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:746px"><img src="assets/img/guides/task-new.webp" alt="The New task form: Task title Check the seal, the For list, a Due date field, and the buttons Create task and Cancel" width="1492" height="160" loading="lazy"><figcaption>The <span class="ui">New task</span> form.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/inbox-assigned.webp" alt="The Inbox with the I assigned view selected, listing the task Check the seal with a checkbox; the Tasks section in the explorer has a mark" width="2160" height="1350" loading="lazy"><figcaption>The task in the Inbox's <span class="ui">I assigned</span> view.</figcaption></figure>
   <p class="g-note">The person gets an email for a new task by default; the one who assigned it is told in the app when it is done. Change this in <a href="#col-notifications">notification settings</a>.</p>
   <p class="g-warn">The object window does not yet show the number of open tasks in its header; look at the mark in the explorer.</p>
   <p class="g-related">Related: <a href="#col-comments">Comments</a> · <a href="#col-inbox">The Inbox</a> · <a href="guide-objects.html#obj-relationships">Relationships</a></p>
@@ -259,7 +239,7 @@
       <tr><td>6</td><td>Type a word in <span class="ui">Filter</span>.</td><td>Only matching lines stay; with none: <span class="ui">Nothing here.</span></td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/inbox.webp" alt="The Inbox place with the views Assigned to me, Mentions, I assigned and All and a Filter box; Assigned to me is selected" width="2160" height="1350" loading="lazy"><figcaption>The Inbox on <span class="ui">Assigned to me</span>.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/inbox.webp" alt="The Inbox place with the views Assigned to me, Mentions, I assigned and All and a Filter box; Assigned to me is selected" width="2160" height="1350" loading="lazy"><figcaption>The Inbox on <span class="ui">Assigned to me</span>.</figcaption></figure>
   <p class="g-note">Owners and Administrators also get the seat notice <span class="ui">E1 counted the seats</span> here (see <a href="guide-organization.html#org-licenses-seats">Licenses and seats</a>).</p>
   <p class="g-note">The list refreshes every 10 seconds and the badge every 15 seconds, so a new notice may take a moment to show.</p>
   <p class="g-related">Related: <a href="#col-comments">Comments</a> · <a href="#col-tasks">Tasks</a> · <a href="#col-notifications">Notification settings</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a></p>
@@ -283,7 +263,7 @@
       <tr><td>3</td><td>Click <span class="ui">In the app only</span> on the mentions row.</td><td>It is selected. A later mention shows on the bell but sends no email.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/place-settings.webp" alt="The Settings place with the Notifications card: four rows with the choices Email me and In the app only" width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Notifications</span> card in Settings.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/place-settings.webp" alt="The Settings place with the Notifications card: four rows with the choices Email me and In the app only" width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Notifications</span> card in Settings.</figcaption></figure>
   <p class="g-note">The seat notices for administrators come in the app only, never by email.</p>
   <p class="g-related">Related: <a href="#col-inbox">The Inbox</a> · <a href="#col-comments">Comments</a> · <a href="#col-tasks">Tasks</a></p>
 </section>
@@ -310,9 +290,9 @@
       <tr><td>7</td><td>Back on the sheet, click the pin and then <span class="ui">Resolve</span>.</td><td>The pin shows as resolved, the Needs review mark disappears, and the card offers <span class="ui">Reopen</span>.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol with Cut, Copy, Paste, Duplicate, Object properties, Deep view, Data sheet, Open datasheet, Comment here, Highlight flow and more" width="810" height="1026" loading="lazy"><figcaption><span class="ui">Comment here</span> in the right-click menu of a symbol.</figcaption></figure>
-  <figure class="g-shot g-small"><img src="assets/img/guides/pin-form.webp" alt="The card A comment on Pump1, pinned here with a text box and the buttons Pin comment and Cancel" width="760" height="410" loading="lazy"><figcaption>The card for the pinned comment.</figcaption></figure>
-  <figure class="g-shot"><img src="assets/img/guides/pin-needs-review.webp" alt="The sheet with a numbered pin next to Pump1, and Pump1 in the explorer framed in red with its Needs review mark" width="2160" height="1350" loading="lazy"><figcaption>After pinning: the pin on the sheet and Pump1's Needs review mark in the explorer.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:347px"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol with Cut, Copy, Paste, Duplicate, Object properties, Deep view, Data sheet, Open datasheet, Comment here, Highlight flow and more" width="694" height="954" loading="lazy"><figcaption><span class="ui">Comment here</span> in the right-click menu of a symbol.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:340px"><img src="assets/img/guides/pin-form.webp" alt="The card A comment on Pump1, pinned here with a text box and the buttons Pin comment and Cancel" width="680" height="438" loading="lazy"><figcaption>Comment here opens this form on the symbol; Pin comment pins it.</figcaption></figure>
+  <figure class="g-shot" style="max-width:943px"><img src="assets/img/guides/pin-needs-review.webp" alt="The sheet with a numbered pin next to Pump1, and Pump1 in the explorer framed in red with its Needs review mark" width="2160" height="1650" loading="lazy"><figcaption>After pinning: the pin on the sheet and Pump1's Needs review mark in the explorer.</figcaption></figure>
   <p class="g-warn">Pins are not printed in the sheet PDF. The mark <em>Under merge review</em> is not built yet; it comes with branches (see <a href="#col-branches">Branches</a>).</p>
   <p class="g-related">Related: <a href="#col-comments">Comments</a> · <a href="guide-drawing.html#draw-sheet-view">The sheet view</a> · <a href="guide-documents.html#doc-sheet-pdf">Sheet PDF</a></p>
 </section>
@@ -337,7 +317,7 @@
       <tr><td>5</td><td>Click <span class="ui">Remove</span> and confirm <span class="ui">Remove &lt;file&gt; from Pump1? The file is deleted.</span> with OK.</td><td>The file is gone from the list.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/object-tab-attachments.webp" alt="Pump1's Attachments tab with the Add files… button and the drop hint" width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Attachments</span> tab of Pump1.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/object-tab-attachments.webp" alt="Pump1's Attachments tab with the Add files… button and the drop hint" width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Attachments</span> tab of Pump1.</figcaption></figure>
   <p class="g-note">Someone without a role on the project cannot open the file: it answers as not found.</p>
   <p class="g-note">The storage your organization has used is shown in <a href="guide-organization.html#org-organization-dialog">File → Organization…</a> as <span class="ui">Files: x GB of y GB used.</span> A trial has 5 GB.</p>
   <p class="g-related">Related: <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-organization.html#org-trials">Trials</a></p>
@@ -392,27 +372,16 @@
       <tr><td>3</td><td>In a list, Ben pastes values into rows that Anna changed a moment before.</td><td>The paste is refused with <span class="ui">N rows were changed by someone else since; nothing was changed.</span></td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/statusbar.webp" alt="The status bar strip: Saved at the left, the open object, the units chip m, Dark and the store at the right" width="2160" height="39" loading="lazy"><figcaption>The save state is the first item in the status bar.</figcaption></figure>
+  <figure class="g-shot" style="max-width:600px"><img src="assets/img/guides/statusbar.webp" alt="The status bar in two parts: at the left Saved and the open item Assets; at the right the units chip m, the appearance chip Dark and the store data/db.json" width="1200" height="120" loading="lazy"><figcaption>The save state is the first item in the status bar.</figcaption></figure>
   <p class="g-note">Other messages of the same kind: an undo that meets a newer change reads <span class="ui">Changed since, so the change cannot be undone: …</span>; a change to a whole project reads <span class="ui">The project was changed by someone else. Reload and try again.</span></p>
   <p class="g-related">Related: <a href="#col-live-refresh">Live refresh</a> · <a href="#col-undo-redo">Undo and redo</a> · <a href="guide-organization.html#org-refusals">Why a change is refused</a></p>
 </section>
 
 <section class="g-feature" id="col-messages">
   <h2>Messages (direct messages)</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span class="g-id">COL-messages</span></div>
-  <p class="g-summary">A Messages place for direct messages between people exists as a placeholder. It shows an example conversation and does not send anything.</p>
-  <dl class="g-facts">
-    <dt>Where</dt><dd>Command palette → <span class="ui">Open place</span> → <span class="ui">Place</span> <code>messages</code> → <span class="ui">Run</span>. It is not on the left rail.</dd>
-    <dt>Who</dt><dd>Everyone</dd>
-  </dl>
-  <h3>Steps</h3>
-  <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
-    <tbody>
-      <tr><td>1</td><td>Open the place as above.</td><td>A tab <span class="ui">Messages</span> with <span class="ui">Example conversation</span>, the text <span class="ui">Direct messages are not connected yet.</span> and a composer you cannot use.</td></tr>
-    </tbody>
-  </table></div>
-  <p class="g-warn">Use <a href="#col-comments">comments with @mentions</a> to reach a colleague about an object.</p>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">COL-messages</span></div>
+  <p class="g-summary">Direct messages between the people of an organization. They are not connected yet and have no button on the screen.</p>
+  <p class="g-dev">A Messages place to write to colleagues directly. Until then, talk about an object in its <a href="#col-comments">comments</a> with @mentions.</p>
   <p class="g-related">Related: <a href="#col-comments">Comments</a> · <a href="guide-getting-started.html#gs-under-construction">Under construction</a></p>
 </section>
 

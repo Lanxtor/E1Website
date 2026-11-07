@@ -15,7 +15,7 @@ module.exports = {
     await p.keyboard.press('Escape'); await p.waitForTimeout(300);
     await tb.getByRole('button', { name: 'Layers' }).click();
     await p.waitForTimeout(400);
-    await h.shot('layers-menu', { clip: p.getByRole('menu', { name: 'Layers' }), pad: 40 });
+    await h.shot('layers-menu', { clip: [p.getByRole('menu', { name: 'Layers' }), tb.getByRole('button', { name: 'Layers' })], pad: 6 });
     await p.keyboard.press('Escape');
     const a = await sym(p, 'Pump1');
     await p.mouse.click(a.x, a.y); await p.waitForTimeout(500);
@@ -24,28 +24,20 @@ module.exports = {
     await p.getByRole('menuitem', { name: /^Highlight flow/ }).first().click();
     await p.waitForTimeout(800);
     await h.shot('flow-highlight');
-    await p.keyboard.press('Escape');
+    await p.getByRole('button', { name: 'Clear', exact: true }).click().catch(() => {}); await p.keyboard.press('Escape'); await p.waitForTimeout(400);
     await p.getByRole('button', { name: 'Connector', exact: true }).click();
     await p.waitForTimeout(400);
     await h.mark(p.getByRole('button', { name: 'Connector', exact: true }));
     await h.shot('connector-on');
   },
-  async alex(h) {
-    const p = h.page; await h.open(); await toSheet(p);
-    await p.getByRole('button', { name: 'Turn Alex on' }).click();
-    await p.waitForTimeout(4000);
-    await h.shot('alex-on');
-    await p.getByRole('tab', { name: 'Cloud AI' }).click();
-    await p.waitForTimeout(800);
-    await h.shot('cloud-ai');
-  },
   async query(h) {
     const p = h.page; await h.open();
     await tree(p).locator('[data-node-id="project:assets"]').first().click({ button: 'right', position: { x: 40, y: 10 } });
     await p.getByRole('menuitem', { name: 'Query', exact: true }).click();
-    await h.shot('query-submenu', { clip: p.getByRole('menu', { name: 'Query' }), pad: 60 });
+    await h.shot('query-submenu', { clip: [p.getByRole('menu', { name: 'Query' }), p.getByRole('menu').first()], pad: 4, keepPointer: true });
     await p.getByRole('menu', { name: 'Query' }).getByRole('menuitem', { name: 'New query…' }).click();
     const v = p.getByLabel('Query view'); await v.waitFor(); await p.waitForTimeout(800);
+    await v.getByRole('columnheader', { name: /^Name/ }).click(); await p.waitForTimeout(600);
     await h.shot('query-view');
     await v.getByRole('button', { name: 'Columns' }).click();
     await p.waitForTimeout(500);
@@ -78,13 +70,6 @@ module.exports = {
     await p.waitForTimeout(600);
     await h.shot('document-issued');
   },
-  async sheetPdf(h) {
-    const p = h.page; await h.open(); await toSheet(p);
-    await p.locator('.menubar').getByRole('button', { name: 'File', exact: true }).click();
-    await p.getByRole('menuitem', { name: 'Export PDF…' }).click();
-    await p.waitForTimeout(1200);
-    await h.shot('sheet-pdf-dialog');
-  },
   async datasheet(h) {
     const p = h.page; await h.open();
     await p.waitForTimeout(1500); await tree(p).getByRole('treeitem', { name: /^Pump1/ }).first().click();
@@ -98,12 +83,5 @@ module.exports = {
     const secs = await p.getByRole('navigation', { name: 'Configuration sections' }).getByRole('button').allInnerTexts();
     console.log('CONF', JSON.stringify(secs));
     for (const s of secs) { const n = s.split('\n')[0].trim(); try { await p.getByRole('navigation', { name: 'Configuration sections' }).getByRole('button', { name: new RegExp('^' + n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) }).first().click(); await p.waitForTimeout(1000); await h.shot('config-' + n.toLowerCase().replace(/[^a-z0-9]+/g, '-')); } catch (e) { console.log('skip', n); } }
-  },
-  async org(h) {
-    const p = h.page; await h.open();
-    await p.locator('.menubar').getByRole('button', { name: 'File', exact: true }).click();
-    await p.getByRole('menuitem', { name: 'Organization…' }).click();
-    await p.waitForTimeout(1500);
-    await h.shot('organization-dialog');
   },
 };
