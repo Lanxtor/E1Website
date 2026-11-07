@@ -13,6 +13,25 @@ const BASE = process.env.BASE || 'http://localhost:5173/';
 const scen = require(path.resolve(process.argv[2]));
 const only = process.argv.slice(3);
 
+// The command palette is being removed from E1 (owner, 2026-11-07): it is taken off every screen before a picture.
+async function scrubPalette(p) {
+  await p.evaluate(() => {
+    const hide = (el) => { if (el) el.style.display = 'none'; };
+    document.querySelectorAll('[role=menuitem], .shortcut-row, button').forEach((el) => {
+      const t = el.textContent || '';
+      if (/Command palette|command palette|Ctrl\+K or ⌘K/.test(t)) {
+        hide(el);
+        const prev = el.previousElementSibling, next = el.nextElementSibling;
+        if (el.getAttribute('role') === 'menuitem' && next && next.getAttribute('role') === 'separator' && (!prev || prev.getAttribute('role') === 'separator' || !prev)) hide(next);
+      }
+    });
+    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let n; while ((n = walk.nextNode())) {
+      if (/command palette/i.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(/,? (with a local-first AI policy )?and the command palette/i, ', with a local-first AI policy').replace(/ ?The command palette \(Ctrl\+K\) runs any command\.?/i, '');
+    }
+  });
+}
+
 function helpers(page, log) {
   const h = {
     page,
@@ -25,25 +44,27 @@ function helpers(page, log) {
     },
     async mark(locators, opts = {}) {
       const boxes = [];
-      for (const l of [].concat(locators)) { const b = await l.first().boundingBox(); if (b) boxes.push(b); }
+      for (const l of [].concat(locators)) { const b = (l && l.width !== undefined) ? l : await l.first().boundingBox(); if (b) boxes.push(b); }
       await page.evaluate(({ boxes, pad, label }) => {
         boxes.forEach((b, i) => {
           const d = document.createElement('div'); d.className = '__guide_mark';
           Object.assign(d.style, { position: 'fixed', left: (b.x - pad) + 'px', top: (b.y - pad) + 'px', width: (b.width + 2 * pad) + 'px', height: (b.height + 2 * pad) + 'px', border: '3px solid #ff3b6b', borderRadius: '6px', zIndex: 2147483647, pointerEvents: 'none', boxShadow: '0 0 0 3px rgba(255,59,107,.25)' });
-          if (boxes.length > 1 || label) { const n = document.createElement('span'); n.textContent = label ? label[i] ?? (i + 1) : (i + 1); Object.assign(n.style, { position: 'absolute', left: '-14px', top: '-14px', background: '#ff3b6b', color: '#fff', font: '700 12px/22px system-ui', minWidth: '22px', height: '22px', borderRadius: '11px', textAlign: 'center', padding: '0 4px' }); d.appendChild(n); }
+          if (boxes.length > 1 || label) { const n = document.createElement('span'); n.textContent = label ? label[i] ?? (i + 1) : (i + 1); Object.assign(n.style, { position: 'absolute', left: (b.width > 60 ? 6 : -12) + 'px', top: (b.width > 60 ? 6 : -12) + 'px', background: '#ff3b6b', color: '#fff', font: '700 14px/24px system-ui', minWidth: '24px', height: '24px', borderRadius: '12px', textAlign: 'center', padding: '0 4px', boxShadow: '0 1px 3px rgba(0,0,0,.5)' }); d.appendChild(n); }
           document.body.appendChild(d);
         });
       }, { boxes, pad: opts.pad ?? 4, label: opts.label });
     },
     async unmark() { await page.evaluate(() => document.querySelectorAll('.__guide_mark').forEach((e) => e.remove())); },
     async shot(name, opts = {}) {
+      if (!opts.keepPointer) await page.mouse.move(1439, 470);
       await page.waitForTimeout(opts.wait ?? 400);
+      await scrubPalette(page);
       const png = `${OUT}/${name}.png`;
       let clip;
       if (opts.clip) {
         const els = [].concat(opts.clip); let x1 = 1e9, y1 = 1e9, x2 = 0, y2 = 0;
-        for (const l of els) { const b = await l.first().boundingBox(); if (!b) continue; x1 = Math.min(x1, b.x); y1 = Math.min(y1, b.y); x2 = Math.max(x2, b.x + b.width); y2 = Math.max(y2, b.y + b.height); }
-        const pad = opts.pad ?? 16; const vp = page.viewportSize();
+        for (const l of els) { const b = (l && l.width !== undefined) ? l : await l.first().boundingBox(); if (!b) continue; x1 = Math.min(x1, b.x); y1 = Math.min(y1, b.y); x2 = Math.max(x2, b.x + b.width); y2 = Math.max(y2, b.y + b.height); }
+        const pad = opts.pad ?? 4; const vp = page.viewportSize();
         clip = { x: Math.max(0, x1 - pad), y: Math.max(0, y1 - pad) }; clip.width = Math.min(vp.width, x2 + pad) - clip.x; clip.height = Math.min(vp.height, y2 + pad) - clip.y;
       }
       await page.screenshot({ path: png, clip });
