@@ -382,6 +382,7 @@
     </tbody>
   </table></div>
   <p class="g-note">The handle also drags up, right and left; it follows the direction you moved furthest. A block of several cells repeats down (A, B, A, B, …); as a series, two values such as V-1 and V-3 go on by the same step (V-5, V-7). Near the top or bottom of the table, the rows scroll as you drag. <kbd>Esc</kbd> or × closes the bar. <span class="ui">Fill series instead</span> is a second step: undo it to get the copied values back.</p>
+  <p class="g-note">Grey striped cells (an attribute the object’s class does not have) are passed over: a fill down a column of pumps and pipe runs sets the pumps, and the bar says how many grey cells were passed over.</p>
   <p class="g-warn">A fill over a cell that cannot be changed (a <a href="guide-lists.html#list-read-only-cells">blue cell</a>, such as Class), or with a value the column refuses, is not made: a Fill box lists each problem and <span class="ui">Apply</span> stays off. Click <span class="ui">Cancel</span> and drag a shorter or other range. The fill handle works on the rows loaded in the table, the ones you scrolled past.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-cell-menu">Cut, Copy and Paste with the right-click menu</a>, <a href="guide-lists.html#list-read-only-cells">Read-only cells are tinted blue</a>, <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a></p>
 </section>
@@ -414,24 +415,28 @@
 
 <section class="g-feature" id="list-read-only-cells">
   <h2>Read-only cells are tinted blue</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">LIST-read-only-cells</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
-  <p class="g-summary">Cells you cannot change in the table have a light blue background, so you see at once where typing, pasting or filling will not work. A column no row can change, such as Class, also shows a lock on its header.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-07</span><span class="g-id">LIST-read-only-cells</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">The table shows at a glance which cells you can change. A light blue cell is read only, such as Class. A grey striped cell is an attribute the object's class does not have, so there is no value to set. Click either one and a line above the table says why.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → the table</dd>
     <dt>Who</dt><dd>Anyone who may view the project</dd>
-    <dt>Before you start</dt><dd>A query with the columns <span class="ui">Class</span> and Design pressure.</dd>
+    <dt>Before you start</dt><dd>A query of Assets with the columns <span class="ui">Class</span> and ATEX category, with pumps, valves and pipe runs in it; one pipe run has a tag such as L-001.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Look at the <span class="ui">Class</span> column.</td><td>Its cells and its header have a light blue background, and the header shows a lock before “Class”.</td></tr>
-      <tr><td>2</td><td>Hover the <span class="ui">Class</span> header.</td><td>The hover text starts “Read only: The class is fixed; Replace on the drawing changes it.”.</td></tr>
-      <tr><td>3</td><td>Hover a Design pressure cell.</td><td>It has no tint, and the hover text reads “Double-click or F2 to edit”.</td></tr>
+      <tr><td>1</td><td>Look at the <span class="ui">Class</span> column.</td><td>Its cells and its header have a light blue background, and the header shows a lock before “Class”. The grid lines between the cells stay visible.</td></tr>
+      <tr><td>2</td><td>Click a <span class="ui">Class</span> cell.</td><td>A line above the table reads “Read only: The class is fixed; Replace on the drawing changes it.”.</td></tr>
+      <tr><td>3</td><td>Look at the ATEX category column.</td><td>The cells of the pumps are white. The cells of the pipe runs and valves are grey with fine stripes: their classes have no ATEX category. The header has no lock, because some rows have the attribute.</td></tr>
+      <tr><td>4</td><td>Click a grey cell.</td><td>The line above the table reads “Not in this class: Pipe run has no ATEX category: there is no value to set here.”.</td></tr>
+      <tr><td>5</td><td>Click the Name cell that reads L-001.</td><td>It is light blue. The line reads “Read only: The Name column shows this object’s tag, so it is changed with Tag…: double-click the cell or press F2.” with a <span class="ui">Tag…</span> button.</td></tr>
+      <tr><td>6</td><td>Double-click the L-001 cell.</td><td>The Tag dialog of that pipe run opens.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Each blue cell says why on hover, for example a tagged name (“The name column shows the tag; change it with Tag….”), an attribute the object's class does not have, a count of related objects, or a row of a project you may only view. The designation, owner path, catalog and related-object columns are always read-only.</p>
-  <p class="g-related">Related: <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a>, <a href="guide-lists.html#list-eng-columns">Engineering columns: Designation, Owner path and related objects</a>, <a href="guide-lists.html#list-fill-handle">Drag the fill handle to copy a value down</a></p>
+  <p class="g-note">Name shows the tag when an object has one, else its name, so a tagged object's name is changed with Tag…, never by typing. Other blue cells: the designation, owner path, catalog and related-object columns, a count of related objects, and every cell of a project you may only view. A paste, fill or Set value… passes over grey cells and sets the objects that have the attribute; it stops with the reason on a blue cell.</p>
+  <p class="g-warn">E1 itself refuses a value for a blue or grey cell, whatever sends it (the table, a paste, Cloud AI or the API), so the colours are a guide, not the only guard.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a>, <a href="guide-lists.html#list-eng-columns">Engineering columns: Designation, Owner path and related objects</a>, <a href="guide-lists.html#list-fill-handle">Drag the fill handle to copy a value down</a>, <a href="guide-objects.html#obj-tag-dialog">Set a manual tag with Tag…</a></p>
 </section>
 
 <section class="g-feature" id="list-find-replace">
