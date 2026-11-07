@@ -52,6 +52,19 @@ def esc(s):
     return html.escape(s or "", quote=True)
 
 
+PALETTE = re.compile(r"palette|Ctrl\+K|⌘K", re.I)
+
+
+def no_palette(text):
+    """The command palette is being removed (owner, 2026-11-07): the guides never mention it,
+    not even where they quote the roadmap."""
+    if not text or not PALETTE.search(text):
+        return text
+    text = re.sub(r",? (?:and |with )?(?:the )?command palette", "", text, flags=re.I)
+    parts = re.split(r"(?<=[.!?])\s+", text)
+    return " ".join(p for p in parts if not PALETTE.search(p)).strip()
+
+
 def load():
     cats = json.loads(read(os.path.join(SRC, "categories.json")))
     features = []
@@ -64,6 +77,13 @@ def load():
             features.append(item)
     roadmap_path = os.path.join(SRC, "roadmap.json")
     roadmap = json.loads(read(roadmap_path)) if os.path.exists(roadmap_path) else None
+    if roadmap:
+        for key in ("app", "website"):
+            for m in roadmap[key]["milestones"]:
+                m["summary"] = no_palette(m["summary"])
+                for st in m["stages"]:
+                    st["title"] = no_palette(st["title"])
+                    st["tryIt"] = no_palette(st["tryIt"])
     return cats, features, roadmap
 
 
@@ -126,6 +146,21 @@ def nav_toc(cats, current, sections=None):
     return "\n".join(out)
 
 
+FIG_RE = re.compile(r'<figure class="(g-shot[^"]*)"(?: style="[^"]*")?>(\s*<img [^>]*?width="(\d+)" height="(\d+)")')
+
+
+def size_figures(frag):
+    """Shows each screenshot at its size on screen (they are taken at device scale 2),
+    never wider than the column and never taller than 720 px, so a narrow crop such as
+    a menu is not blown up across the page."""
+    def fix(m):
+        w, h = int(m.group(3)), int(m.group(4))
+        css = w / 2 if w < 2160 else 1080  # full screens: 1440 px wide, stored at 2160
+        css = min(css, 720 * w / h)
+        return '<figure class="%s" style="max-width:%dpx">%s' % (m.group(1), round(css), m.group(2))
+    return FIG_RE.sub(fix, frag)
+
+
 SECTION_RE = re.compile(r'<section class="g-feature[^"]*" id="([^"]+)"[^>]*>\s*<h2>(.*?)</h2>', re.S)
 
 
@@ -154,7 +189,7 @@ def build():
     # Category pages
     for i, c in enumerate(cats):
         frag_path = os.path.join(SRC, "src", c["id"] + ".html")
-        frag = read(frag_path) if os.path.exists(frag_path) else "<p>This guide is being written.</p>"
+        frag = size_figures(read(frag_path)) if os.path.exists(frag_path) else "<p>This guide is being written.</p>"
         sections = [(sid, strip_tags(h)) for sid, h in SECTION_RE.findall(frag)]
         n_av = sum(1 for f in by_cat[c["id"]] if f["status"] == "available")
         head = (

@@ -9,20 +9,6 @@ async function openPump(h, tab) {
 }
 async function sym(p, name) { const s = p.locator(`[data-pick="symbol"][aria-label="${name}"]`); await s.waitFor(); const b = await s.boundingBox(); return { s, x: b.x + b.width / 2, y: b.y + b.height / 2 }; }
 module.exports = {
-  async treeMenus(h) {
-    const p = h.page; await h.open();
-    await assetsRow(p).click({ button: 'right', position: { x: 40, y: 10 } });
-    const m = p.getByRole('menu').first(); await m.waitFor();
-    await h.shot('tree-menu-assets', { clip: [m, assetsRow(p)] });
-    await p.keyboard.press('Escape');
-    await tree(p).locator('[data-node-id="project"]').first().click({ button: 'right', position: { x: 40, y: 10 } });
-    const m2 = p.getByRole('menu').first(); await m2.waitFor();
-    await h.shot('tree-menu-project', { clip: [m2] , pad: 40});
-    await p.keyboard.press('Escape');
-    await tree(p).getByRole('treeitem', { name: 'Pump1', exact: true }).click({ button: 'right', position: { x: 40, y: 10 } });
-    const m3 = p.getByRole('menu').first(); await m3.waitFor();
-    await h.shot('tree-menu-object', { clip: [m3], pad: 40 });
-  },
   async newAsset(h) {
     const p = h.page; await h.open();
     await assetsRow(p).click({ button: 'right', position: { x: 40, y: 10 } });
@@ -69,7 +55,7 @@ module.exports = {
     await p.getByRole('button', { name: 'New task…' }).first().click().catch(() => {});
     await p.waitForTimeout(500);
     const f = p.getByRole('form', { name: 'New task' });
-    if (await f.count()) { await p.getByRole('textbox', { name: 'Task title' }).fill('Check the seal'); await h.shot('task-new', { clip: f, pad: 30 }); await f.getByRole('button', { name: 'Create task' }).click(); await p.waitForTimeout(600); }
+    if (await f.count()) { await p.getByRole('textbox', { name: 'Task title' }).fill('Check the seal'); await h.shot('task-new', { clip: f, pad: 8 }); await f.getByRole('button', { name: 'Create task' }).click(); await p.waitForTimeout(600); }
     await p.getByRole('navigation', { name: 'Application' }).getByRole('button', { name: /^Inbox/ }).click();
     await p.waitForTimeout(1000);
     await h.shot('inbox');
@@ -91,23 +77,18 @@ module.exports = {
     await tabs.getByRole('tab', { name: /^History/ }).click().catch(() => {});
     await p.waitForTimeout(800);
     await h.shot('object-history');
-    await p.getByRole('navigation', { name: 'Application' }).getByRole('button', { name: /^History/ }).click().catch(async () => {
-      // history may not be on rail
-    });
-    await p.waitForTimeout(800);
-    await h.shot('place-history');
   },
   async sheetPin(h) {
-    const p = h.page; await h.open();
+    const p = h.page; await p.setViewportSize({ width: 1440, height: 1100 }); await h.open();
     await p.getByRole('tablist', { name: 'Open tabs' }).getByRole('tab', { name: /Assets/ }).click();
     const { x, y } = await sym(p, 'Pump1');
     await p.mouse.click(x, y, { button: 'right' });
     const m = p.getByRole('menu').first(); await m.waitFor();
-    await h.shot('symbol-menu', { clip: m, pad: 30 });
+    
     await p.getByRole('menuitem', { name: 'Comment here' }).click();
     const f = p.getByRole('form', { name: 'Pin a comment' }); await f.waitFor();
     await f.getByRole('textbox', { name: 'Comment' }).fill('Check the NPSH margin');
-    await h.shot('pin-form', { clip: f, pad: 60 });
+    await h.shot('pin-form', { clip: f, pad: 40 });
     await f.getByRole('button', { name: 'Pin comment' }).click();
     await p.waitForTimeout(1000);
     await h.mark(tree(p).getByRole('treeitem', { name: /^Pump1, Needs review/ }));

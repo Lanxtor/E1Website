@@ -86,10 +86,11 @@ It fails on a duplicate feature id, an unknown status, a feature whose section i
 - **Exact labels.** Every label, menu item, button and message is written exactly as on screen, with its capitalization and ellipsis (`New asset…`), in `<span class="ui">`. Take it from the code, never from memory.
 - **One action per step, and what you should see.** The expected result is observable: what appears, what changes, what is refused and with which message. A tester must be able to say pass or fail.
 - **Paths:** menus as *File → Project settings…*, right-click menus as *right-click Assets → New asset…*, submenus with ▸ where the app shows one.
-- **Keys:** Windows first, Mac in brackets: <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>).
+- **Keys:** Windows first, Mac in brackets: <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).
 - **Honest status.** Describe what E1 does today. What is not built yet is marked *Under development* or *Planned*, and a limitation of today's version goes in a `g-warn` box. Never describe a planned feature as available (manual-review check W3).
 - **Links between features:** every feature links the features it depends on and the ones that follow from it (`related`, and a *Related* line). Use the feature ids.
 - **Plain English**, short sentences, no internal terms (no file names, milestone codes only in the metadata line).
+- **No command palette.** The command palette (Ctrl+K) is being removed from E1 (owner's decision, 2026-11-07): E1 must be simple to use, and the guides describe only the menus, toolbars, right-click menus and panels. Never mention the palette or Ctrl+K, never use it in a step, and never show it in a picture. A feature that can only be reached through the palette is described as having no button on the screen yet.
 
 ## Screenshots
 
@@ -105,7 +106,20 @@ E1_GUIDE_WORK=/tmp/guide-work NODE_PATH=../E1/node_modules node tools/guides/scr
 python3 tools/guides/screenshots/towebp.py /tmp/guide-work/shots assets/img/guides
 ```
 
-Each scenario file (`shell`, `objects`, `more`, `web`) is a list of named flows; name one after the file to run only that flow. Every flow starts from the demo workspace again. `CHROMIUM=<path>` uses another Chromium. Screens that need sign-in, several people or a model (the Organization dialog, live refresh, Cloud AI answers) are taken on the Azure app instead, where those work.
+Each scenario file (`fix`, `shell`, `objects`, `more`, `web`) is a list of named flows; name one after the file to run only that flow. Every flow starts from the demo workspace again. `CHROMIUM=<path>` uses another Chromium. Screens that need sign-in, several people or a model (the Organization dialog, live refresh, Cloud AI answers) are taken on the Azure app instead, where those work.
+
+### Rules for every screenshot
+
+`run.cjs` applies the first three to every picture by itself.
+
+1. **The palette is taken off the screen** before the picture: its menu item, its keyboard shortcut row, its button in Cloud AI and its mention in texts.
+2. **The pointer is moved out of the way**, so no menu item or button shows a hover highlight. A submenu that only stays open under the pointer is taken with `keepPointer`.
+3. **Crops are tight:** a menu or dialog is cut 1–4 px around its own border, so no half rows of the window behind it show.
+4. **Shown at its real size.** The pictures are taken at device scale 2; `build.py` sets each figure's width to half the picture's width (a full window to 1080 px) and never taller than 720 px, so a narrow crop such as a menu or the left rail is never blown up across the page. Very narrow or very thin parts of the window (the left rail, the status bar) are not cropped on their own: show the rail as the whole window with its buttons framed and numbered, and the status bar as its two ends stacked (`make-statusbar.py`).
+5. **One clean state:** no highlight, banner or dialog left over from an earlier step, no error message from the local preview (for example "could not be reached"), no cookie banner, and on the website no floating *Ask Alex* button over the content.
+6. **Lists show meaningful rows:** sort or scroll so the first rows have names.
+7. **The picture matches its caption and alt text**, including counts and names. Leave times out of alt texts.
+8. **Look at every picture before it is published**, and check the published pages: every image loads, its `width` and `height` match the file, it is not enlarged, and it is not taller than 720 px.
 
 ## Keeping the guides current
 
@@ -124,6 +138,9 @@ Once a week, and whenever a change a user can see reaches `main` of `Lanxtor/E1`
 3. Run `python3 tools/guides/build.py --check` and commit the sources with the generated pages.
 
 ## Open points (2026-11-07)
+
+- **History and Messages have no button on the screen** without the command palette: the whole-project History place can only be opened from the palette today, and so can the Messages placeholder. The guides describe them as planned until they get a button.
+- On a pump's **History** tab in the demo, the tab's badge says 6 while the list says "No changes recorded yet." (the fixture's changes are not object-level). The guide uses a picture taken after a real rename.
 
 Found while writing the guides; each is noted in its guide.
 
