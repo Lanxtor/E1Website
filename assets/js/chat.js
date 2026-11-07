@@ -1,13 +1,15 @@
 /*
  * Alex, the website assistant: the chat panel, the "Ask Alex" button on every
- * page, the ask box on the home page ([data-ask]) and voice ("Talk to me").
+ * page, the ask box on the home page ([data-ask]) and the suggested questions.
  *
  * Answers come from the E1 server: POST <apiBase>/api/site/assistant
  * (Lanxtor/E1, server/site/assistant.mjs), which asks the installation's own
  * model (on Azure the GPT-4.1 deployment). The server reads what Alex knows
- * from assets/data/assistant-knowledge.txt (tools/chat/build_knowledge.py). Voice uses the
- * browser's own speech recognition and speech synthesis (Chrome, Edge, Safari);
- * where the browser has none, the microphone buttons are hidden.
+ * from assets/data/assistant-knowledge.txt (tools/chat/build_knowledge.py).
+ * Most visitors click rather than type, so after every answer Alex offers
+ * 3 to 5 suggested questions that follow the direction of the conversation
+ * (QUESTIONS below: each question names its own follow-ups; a typed question
+ * is matched to a topic by its words).
  * The conversation is kept for this browser tab only (sessionStorage), so it
  * follows the visitor from page to page; "New conversation" (the panel's
  * header and the ask box) clears it.
@@ -24,7 +26,6 @@
   var T = function (s) { return window.E1_T ? window.E1_T(s) : s; };
   var H = function (h) { return window.E1_href ? window.E1_href(h) : h; };
   var LANG = window.E1_LANG || "en";
-  var SPEECH_LANG = { en: "en-US", de: "de-DE", fr: "fr-FR", es: "es-ES", no: "nb-NO" }[LANG] || "en-US";
   var KEY = "e1.chat";
   var CONFIG = window.E1_CONFIG || {};
   var BASE = CONFIG.apiBase ? String(CONFIG.apiBase).replace(/\/+$/, "") : "";
@@ -35,27 +36,104 @@
     docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
   };
   var files = {}; // finished RFI PDFs of this page: id -> { url, name }
-  var Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  var canSpeak = "speechSynthesis" in window;
 
   var ICON = {
     spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg>',
-    mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg>',
     send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
-    sound: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>',
     reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
     clip: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.4 11.1-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/></svg>',
-    download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>',
-    mute: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>'
+    download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>'
+  };
+
+  /*
+   * The suggested questions. id: [question, topic, follow-ups]. After an
+   * answer Alex offers the unasked follow-ups of the last question, topped up
+   * from the same topic and its related topics (RELATED), and, from the
+   * second question on, one next step ("How do I get started?" and the like).
+   * Every question is a js string of tools/i18n (translated with E1_T).
+   */
+  var QUESTIONS = {
+    what: ["What is E1?", "product", ["disciplines", "alexApp", "industries", "cost", "cloud"]],
+    disciplines: ["Which disciplines does E1 cover?", "product", ["pid", "deliverables", "brownfield", "companies"]],
+    pid: ["How does E1 handle P&IDs and instruments?", "product", ["deliverables", "alexChanges", "disciplines", "courses"]],
+    deliverables: ["Can E1 generate datasheets and reports?", "product", ["pid", "brownfield", "review", "licenses"]],
+    brownfield: ["Does E1 support brownfield modifications?", "product", ["branches", "deliverables", "industries", "trial"]],
+    industries: ["Which industries is E1 made for?", "product", ["disciplines", "brownfield", "servers", "trial"]],
+    platforms: ["Does E1 run on Mac and in the browser?", "deploy", ["download", "cloud", "servers", "trial"]],
+
+    cost: ["What does E1 cost?", "pricing", ["licenses", "credits", "trial", "students", "enterprise"]],
+    licenses: ["What is the difference between Viewer, Reviewer and Editor?", "pricing", ["credits", "alexLicense", "review", "cost"]],
+    credits: ["How many AI credits are included?", "pricing", ["alexApp", "licenses", "enterprise", "trial"]],
+    currency: ["Can I see the prices in my currency?", "pricing", ["cost", "licenses", "enterprise", "trial"]],
+    enterprise: ["What does an Enterprise license include?", "pricing", ["servers", "sso", "credits", "sales"]],
+    academyPrice: ["Is the E1 Academy included in the price?", "pricing", ["courses", "certificate", "licenses", "cost"]],
+
+    servers: ["Can E1 run on our own servers?", "deploy", ["providers", "database", "sso", "enterprise", "cloud"]],
+    cloud: ["What is E1 Cloud?", "deploy", ["hosting", "platforms", "servers", "cost"]],
+    hosting: ["Where is my data hosted?", "deploy", ["providers", "servers", "alexSafe", "cloud"]],
+    providers: ["Which cloud providers can we use?", "deploy", ["hosting", "database", "servers", "sso"]],
+    database: ["Can we use our own PostgreSQL database?", "deploy", ["servers", "sso", "providers", "enterprise"]],
+    sso: ["Does E1 support single sign-on?", "deploy", ["enterprise", "database", "servers", "sales"]],
+
+    alexApp: ["What can Alex do in E1?", "alex", ["alexChanges", "alexSafe", "predictive", "alexLicense", "credits"]],
+    alexChanges: ["Can Alex make changes to my design?", "alex", ["branches", "review", "alexLicense", "alexSafe"]],
+    alexSafe: ["Is my data safe when I use Alex?", "alex", ["hosting", "servers", "alexApp", "predictive"]],
+    alexLicense: ["Which licenses include Alex?", "alex", ["credits", "licenses", "alexChanges", "trial"]],
+    predictive: ["What is predictive engineering?", "alex", ["alexApp", "simulate", "alexSafe", "trial"]],
+    simulate: ["Can Alex check and validate my design?", "alex", ["predictive", "alexChanges", "pid", "trial"]],
+
+    branches: ["How do branches work in E1?", "collab", ["review", "companies", "alexChanges", "brownfield"]],
+    review: ["How do review and approval work?", "collab", ["branches", "licenses", "companies", "deliverables"]],
+    companies: ["Can several companies work on one project?", "collab", ["branches", "review", "sso", "enterprise"]],
+
+    trial: ["How does the 30-day trial work?", "trial", ["trialTeam", "trialAfter", "trialRequest", "cost"]],
+    trialTeam: ["Who can join my trial?", "trial", ["trialAfter", "trialRequest", "licenses", "alexApp"]],
+    trialAfter: ["What happens after the 30 days?", "trial", ["cost", "trialRequest", "licenses", "sales"]],
+    trialRequest: ["How do I request a trial?", "trial", ["trialTeam", "download", "courses", "sales"]],
+    download: ["How do I download E1?", "trial", ["platforms", "cloud", "trial", "courses"]],
+
+    academy: ["What is the E1 Academy?", "academy", ["courses", "academyPrice", "certificate", "students"]],
+    courses: ["Which courses are there?", "academy", ["certificate", "academyPrice", "academy", "trial"]],
+    certificate: ["Do I get a certificate?", "academy", ["courses", "academyPrice", "academy", "students"]],
+    students: ["Is E1 free for students and universities?", "academy", ["university", "academy", "cost", "courses"]],
+    university: ["How can a university use E1 in a course?", "academy", ["students", "courses", "sales", "academy"]],
+
+    start: ["How do I get started?", "next", ["download", "trial", "courses", "sales"]],
+    sales: ["How can I talk to sales?", "next", ["enterprise", "trial", "rfi", "support"]],
+    support: ["How do I get support?", "next", ["sales", "courses", "download", "start"]],
+    rfi: ["Can Alex fill in our RFI?", "next", ["sales", "servers", "enterprise", "cost"]]
+  };
+  var START = ["what", "cost", "servers", "alexApp", "trial"];
+  var NEXT_STEPS = ["start", "trial", "sales", "rfi"];
+  var RELATED = {
+    product: ["alex", "collab", "pricing"],
+    pricing: ["trial", "deploy", "next"],
+    deploy: ["pricing", "alex", "next"],
+    alex: ["product", "pricing", "deploy"],
+    collab: ["product", "alex", "pricing"],
+    trial: ["pricing", "academy", "next"],
+    academy: ["pricing", "trial", "next"],
+    next: ["pricing", "trial", "deploy"]
+  };
+  /* Words that place a typed question in a topic (English, German, French, Spanish, Norwegian). */
+  var WORDS = {
+    pricing: /pric|cost|licen|pay|euro|dollar|budget|cheap|expens|preis|kost|lizenz|prix|coût|tarif|precio|cuest|pris|lisens|betal/i,
+    trial: /trial|try|test|demo|download|install|essai|prueba|prøv|herunterlad|télécharg|descarg|last ned/i,
+    deploy: /server|premis|cloud|host|azure|aws|google|postgres|database|sso|sign-on|region|datenbank|serveur|servidor|nube|sky|data ?center|rechenzentrum|mac\b|windows|browser|navigateur|navegador|nettleser/i,
+    alex: /alex|\bai\b|\bki\b|\bia\b|\bki-|artificial|intelligen|gpt|agent|predict|simul|validat|automatisk/i,
+    collab: /branch|collab|review|approv|team|compan|partner|share|zweig|freigab|zusammen|branche|collabor|rama|colabor|gren|samarbeid|godkjenn/i,
+    academy: /academy|course|training|learn|certif|lesson|student|universit|teach|school|kurs|schulung|lern|formation|cours|étudiant|curso|formación|estudiant|opplæring|studen/i,
+    product: /p&?id|instrument|electr|elektr|automat|process|prozess|procédé|proceso|feed|datasheet|datenblatt|report|bericht|brownfield|maint|wartung|discipline|disziplin|industr|what is e1|was ist e1|qu'est-ce|qué es e1|hva er e1/i,
+    next: /sales|contact|support|help|email|phone|kontakt|vertrieb|vente|ventas|contacto|salg|hjelp|rfi|tender|ausschreib|appel d'offres|licitación|anbud/i
   };
 
   var state = load();
-  var panel, list, input, micBtn, soundBtn, busy = false, recognizer = null, listening = false;
+  var panel, list, input, busy = false;
 
   function load() {
     try { var s = JSON.parse(sessionStorage.getItem(KEY)); if (s && Array.isArray(s.messages)) return s; } catch (e) {}
-    return { messages: [], sound: true };
+    return { messages: [], asked: [] };
   }
   function save() { try { sessionStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
 
@@ -85,10 +163,6 @@
     }).join("");
   }
 
-  function plain(md) {
-    return md.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/[*_#`>]/g, "").replace(/^\s*[-•] /gm, "");
-  }
-
   function build() {
     var launcher = document.createElement("button");
     launcher.type = "button";
@@ -107,45 +181,82 @@
       '<span class="alex-face"><img src="assets/img/hero-avatar.png?v=2" alt=""></span>' +
       '<div><b>Alex</b><span>' + T("Ask anything about E1. Answers are written by AI.") + "</span></div>" +
       '<button type="button" class="alex-icon" data-reset aria-label="' + T("New conversation") + '" title="' + T("New conversation") + '">' + ICON.reset + "</button>" +
-      (canSpeak ? '<button type="button" class="alex-icon" data-sound aria-label="' + T("Read answers aloud") + '"></button>' : "") +
       '<button type="button" class="alex-icon" data-close aria-label="' + T("Close") + '">' + ICON.close + "</button>" +
       "</header>" +
       '<div class="alex-list" aria-live="polite"></div>' +
       '<form class="alex-form">' +
       '<button type="button" class="alex-icon" data-rfi aria-label="' + T("Let me fill your RFI") + '" title="' + T("Let me fill your RFI") + '">' + ICON.clip + "</button>" +
       '<textarea rows="1" maxlength="2000" placeholder="' + T("Ask Alex anything about E1…") + '" aria-label="' + T("Your question") + '"></textarea>' +
-      (Recognition ? '<button type="button" class="alex-icon alex-mic" data-mic aria-label="' + T("Talk to me") + '">' + ICON.mic + "</button>" : "") +
       '<button type="submit" class="alex-send" aria-label="' + T("Send") + '">' + ICON.send + "</button>" +
       "</form>";
     document.body.appendChild(panel);
 
     list = panel.querySelector(".alex-list");
     input = panel.querySelector("textarea");
-    micBtn = panel.querySelector("[data-mic]");
-    soundBtn = panel.querySelector("[data-sound]");
 
     panel.querySelector("[data-close]").addEventListener("click", close);
     panel.querySelector("[data-reset]").addEventListener("click", reset);
     panel.querySelector("[data-rfi]").addEventListener("click", pickRfi);
-    panel.querySelector("form").addEventListener("submit", function (e) { e.preventDefault(); ask(input.value, false); });
+    panel.querySelector("form").addEventListener("submit", function (e) { e.preventDefault(); ask(input.value); });
     input.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(input.value, false); }
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(input.value); }
     });
     input.addEventListener("input", grow);
-    if (micBtn) micBtn.addEventListener("click", function () { listening ? stopListening() : listen(); });
-    if (soundBtn) soundBtn.addEventListener("click", function () {
-      state.sound = !state.sound; save(); drawSound();
-      if (!state.sound && canSpeak) speechSynthesis.cancel();
-    });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) close(); });
-    drawSound();
     draw();
   }
 
-  function drawSound() {
-    if (!soundBtn) return;
-    soundBtn.innerHTML = state.sound ? ICON.sound : ICON.mute;
-    soundBtn.setAttribute("aria-pressed", String(state.sound));
+  /* ---------- suggested questions ---------- */
+  function norm(s) { return String(s).toLowerCase().replace(/[^\p{L}\p{N}&]+/gu, " ").trim(); }
+
+  /* The id of a suggested question typed or clicked word for word, if any. */
+  function questionId(text) {
+    var n = norm(text);
+    for (var id in QUESTIONS) {
+      if (norm(T(QUESTIONS[id][0])) === n || norm(QUESTIONS[id][0]) === n) return id;
+    }
+    return null;
+  }
+
+  /* The topic a typed question is about: the one whose words it uses most. */
+  function topicOf(text) {
+    var best = null, score = 0;
+    for (var t in WORDS) {
+      var m = String(text).match(new RegExp(WORDS[t].source, "gi"));
+      if (m && m.length > score) { best = t; score = m.length; }
+    }
+    return best;
+  }
+
+  /* 3 to 5 questions that follow the way the visitor is going. */
+  function suggestions() {
+    var asked = state.asked || [];
+    var users = state.messages.filter(function (m) { return m.role === "user"; }).length;
+    if (!users) return START.slice();
+    var out = [];
+    var add = function (id) {
+      if (out.length < 4 && QUESTIONS[id] && asked.indexOf(id) < 0 && out.indexOf(id) < 0) out.push(id);
+    };
+    var inTopic = function (t) { for (var id in QUESTIONS) if (QUESTIONS[id][1] === t) add(id); };
+    var last = state.last && QUESTIONS[state.last];
+    var topic = last ? last[1] : (state.topic || "product");
+    if (last) last[2].forEach(add);
+    inTopic(topic);
+    (RELATED[topic] || []).forEach(inTopic);
+    for (var id in QUESTIONS) add(id);
+    if (users >= 2) {
+      var step = NEXT_STEPS.filter(function (s) { return asked.indexOf(s) < 0 && out.indexOf(s) < 0; })[0];
+      if (step) out.push(step);
+    }
+    if (out.length < 3) START.forEach(function (s) { if (out.length < 3 && out.indexOf(s) < 0) out.push(s); });
+    return out.slice(0, 5);
+  }
+
+  function chips(ids) {
+    return '<div class="alex-suggest" role="group" aria-label="' + esc(T("Suggested questions")) + '">' + ids.map(function (id) {
+      var q = T(QUESTIONS[id][0]);
+      return '<button type="button" data-q="' + esc(q) + '" data-id="' + id + '">' + esc(q) + "</button>";
+    }).join("") + "</div>";
   }
 
   function grow() {
@@ -156,13 +267,7 @@
   function draw() {
     var html = "";
     if (!state.messages.length) {
-      html += '<div class="alex-msg alex-bot">' + render(T("Hi, I'm Alex. Ask me anything about E1: features, licenses and prices, the cloud or your own servers, the Academy. You can also talk to me.")) + "</div>";
-      html += '<div class="alex-suggest">' + [
-        "What does E1 cost?",
-        "Can E1 run on our own servers?",
-        "What can Alex do in E1?",
-        "How does the 30-day trial work?"
-      ].map(function (q) { return '<button type="button" data-q="' + esc(T(q)) + '">' + esc(T(q)) + "</button>"; }).join("") + "</div>";
+      html += '<div class="alex-msg alex-bot">' + render(T("Hi, I'm Alex. Ask me anything about E1: features, licenses and prices, the cloud or your own servers, the Academy.")) + "</div>";
     }
     state.messages.forEach(function (m) {
       var file = m.file && files[m.file];
@@ -170,9 +275,10 @@
         (file ? '<a class="alex-file" href="' + file.url + '" download="' + esc(file.name) + '">' + ICON.download + "<span>" + esc(T("Download the PDF")) + "</span></a>" : "") + "</div>";
     });
     if (busy) html += '<div class="alex-msg alex-bot alex-typing" aria-label="' + T("Alex is writing") + '"><i></i><i></i><i></i></div>';
+    else html += chips(suggestions());
     list.innerHTML = html;
     list.querySelectorAll("[data-q]").forEach(function (b) {
-      b.addEventListener("click", function () { ask(b.getAttribute("data-q"), false); });
+      b.addEventListener("click", function () { ask(b.getAttribute("data-q"), b.getAttribute("data-id")); });
     });
     list.scrollTop = list.scrollHeight;
     document.querySelectorAll("[data-ask-reset]").forEach(function (b) { b.hidden = !state.messages.length; });
@@ -181,46 +287,46 @@
   /* ---------- start over ---------- */
   function reset() {
     if (busy) return;
-    stopListening();
-    if (canSpeak) speechSynthesis.cancel();
     state.messages = [];
+    state.asked = [];
+    state.last = null;
+    state.topic = null;
     save();
     if (!panel) build();
     draw();
     if (input) { input.value = ""; grow(); }
   }
 
-  function open(question, voice) {
+  function open(question) {
     if (!panel) build();
     panel.hidden = false;
     document.body.classList.add("alex-open");
-    if (question) ask(question, voice);
+    if (question) ask(question);
     else setTimeout(function () { input.focus(); }, 50);
   }
 
   function close() {
     panel.hidden = true;
     document.body.classList.remove("alex-open");
-    stopListening();
-    if (canSpeak) speechSynthesis.cancel();
   }
 
-  function say(text) {
-    if (!canSpeak || !state.sound) return;
-    speechSynthesis.cancel();
-    var u = new SpeechSynthesisUtterance(plain(text));
-    u.lang = SPEECH_LANG;
-    var voice = speechSynthesis.getVoices().filter(function (v) { return v.lang && v.lang.replace("_", "-").indexOf(SPEECH_LANG.slice(0, 2)) === 0; })[0];
-    if (voice) u.voice = voice;
-    speechSynthesis.speak(u);
-  }
-
-  function ask(text, voice) {
+  /* id: the suggested question that was clicked, if one was. */
+  function ask(text, id) {
     text = String(text || "").trim();
     if (!text || busy) return;
     if (!panel) build();
     input.value = "";
     grow();
+    id = (id && QUESTIONS[id]) ? id : questionId(text);
+    if (!Array.isArray(state.asked)) state.asked = [];
+    if (id) {
+      if (state.asked.indexOf(id) < 0) state.asked.push(id);
+      state.last = id;
+      state.topic = QUESTIONS[id][1];
+    } else {
+      state.last = null;
+      state.topic = topicOf(text) || state.topic || "product";
+    }
     state.messages.push({ role: "user", content: text.slice(0, 2000) });
     busy = true;
     save();
@@ -232,7 +338,6 @@
       body: JSON.stringify({
         messages: state.messages.slice(-16).map(function (m) { return { role: m.role, content: m.content }; }),
         lang: LANG,
-        voice: !!voice,
         page: location.pathname.split("/").pop() || "index.html"
       })
     })
@@ -246,7 +351,6 @@
         else if (res.status === 429) reply = T("That was a lot of questions in a short time. Please wait a few minutes and ask again.");
         else reply = T("Sorry, I couldn't answer just now. Please try again in a moment.");
         state.messages.push({ role: "assistant", content: reply });
-        if (voice) say(reply);
       })
       .catch(function () {
         // The E1 server could not be reached (or does not offer the route yet).
@@ -340,65 +444,16 @@
       });
   }
 
-  /* ---------- voice ---------- */
-  function setListening(on, button) {
-    listening = on;
-    document.querySelectorAll("[data-mic], [data-ask-mic]").forEach(function (b) { b.classList.toggle("is-listening", on); });
-    if (input) input.placeholder = on ? T("Listening… speak now") : T("Ask Alex anything about E1…");
-  }
-
-  function listen() {
-    if (!Recognition) return;
-    if (!panel) build();
-    if (panel.hidden) open();
-    if (canSpeak) speechSynthesis.cancel();
-    recognizer = new Recognition();
-    recognizer.lang = SPEECH_LANG;
-    recognizer.interimResults = true;
-    recognizer.continuous = false;
-    var finalText = "";
-    recognizer.onresult = function (e) {
-      var interim = "";
-      for (var i = e.resultIndex; i < e.results.length; i++) {
-        if (e.results[i].isFinal) finalText += e.results[i][0].transcript;
-        else interim += e.results[i][0].transcript;
-      }
-      input.value = (finalText + interim).trim();
-      grow();
-    };
-    recognizer.onerror = function (e) {
-      setListening(false);
-      if (e.error === "not-allowed" || e.error === "service-not-allowed") {
-        state.messages.push({ role: "assistant", content: T("I can't hear you: the microphone is blocked. Allow it in your browser's address bar, or type your question.") });
-        save(); draw();
-      }
-    };
-    recognizer.onend = function () {
-      setListening(false);
-      var text = (finalText || input.value).trim();
-      if (text) ask(text, true);
-    };
-    try { recognizer.start(); setListening(true); } catch (e) { setListening(false); }
-  }
-
-  function stopListening() {
-    if (recognizer && listening) { try { recognizer.stop(); } catch (e) {} }
-    setListening(false);
-  }
-
   /* ---------- the ask box on the home page ---------- */
   function initAskBox() {
     document.querySelectorAll("[data-ask]").forEach(function (form) {
       var field = form.querySelector("input");
-      var mic = form.querySelector("[data-ask-mic]");
-      if (mic && !Recognition) mic.hidden = true;
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         var q = field.value.trim();
         field.value = "";
-        open(q || null, false);
+        open(q || null);
       });
-      if (mic) mic.addEventListener("click", function () { listen(); });
       var rfi = form.querySelector("[data-ask-rfi]");
       if (rfi) rfi.addEventListener("click", pickRfi);
       var again = form.querySelector("[data-ask-reset]");
