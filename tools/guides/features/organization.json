@@ -2,11 +2,11 @@
  {
   "id": "ORG-organization-dialog",
   "title": "The Organization dialog",
-  "summary": "File → Organization… holds the members with licenses and roles, invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
+  "summary": "File → Organization… holds the members with licenses and roles (Owner, Administrator or Member), invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
   "anchor": "org-organization-dialog",
   "status": "available",
   "since": "2026-11-03",
-  "updated": "2026-11-05",
+  "updated": "2026-11-07",
   "roadmap": [
    "M2.4",
    "PR1"
@@ -18,6 +18,7 @@
   ],
   "related": [
    "ORG-invitations",
+   "ORG-administrators",
    "ORG-licenses-seats",
    "ORG-groups",
    "ORG-audit",
@@ -98,13 +99,38 @@
   "related": [
    "ACC-sign-in",
    "ORG-project-members",
-   "ORG-export"
+   "ORG-export",
+   "ORG-administrators"
   ],
   "roles": "Everyone, for their own account",
   "training": {
    "topic": "Roles and passkeys",
    "level": "Intermediate",
    "minutes": 5
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ORG-administrators",
+  "title": "Who administers the organization",
+  "summary": "The person who starts the organization is its first Owner; an Owner makes others Owner or Administrator, and LANXTOR can set them when the company names someone else.",
+  "anchor": "org-administrators",
+  "status": "available",
+  "since": "2026-11-07",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "ORG-organization-dialog",
+   "ORG-roles-passkey",
+   "ORG-trials",
+   "ORG-audit",
+   "ORG-invitations"
+  ],
+  "roles": "Owner (Owner role); Owner or Administrator (Administrator and Member)",
+  "training": {
+   "topic": "Choosing your administrators",
+   "level": "Beginner",
+   "minutes": 3
   },
   "screenshots": []
  },
@@ -272,7 +298,8 @@
   "related": [
    "ORG-organization-dialog",
    "ORG-export",
-   "WEB-account-page"
+   "WEB-account-page",
+   "ORG-administrators"
   ],
   "roles": "Everyone in the trial organization",
   "training": {
