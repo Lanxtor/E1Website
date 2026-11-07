@@ -34,7 +34,7 @@ STATUS = {
     "preview": "Preview data only",
     "parked": "Parked",
 }
-CSS_V = "1"
+CSS_V = "2"
 
 
 def read(path):
