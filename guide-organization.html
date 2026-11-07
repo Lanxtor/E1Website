@@ -43,6 +43,7 @@
           <li><a href="#org-licenses-seats">Licenses and seats</a></li>
           <li><a href="#org-roles-passkey">Organization roles and the passkey rule</a></li>
           <li><a href="#org-administrators">Who administers the organization</a></li>
+          <li><a href="#org-join-requests">Requests to join from your company&#x27;s domain</a></li>
           <li><a href="#org-project-members">Project members and roles</a></li>
           <li><a href="#org-drawing-roles">Roles on a single drawing: Share and Mark as read-only</a></li>
           <li><a href="#org-refusals">Why a change is refused</a></li>
@@ -63,7 +64,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>19 features</span><span>13 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>20 features</span><span>14 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -231,8 +232,35 @@
   </table></div>
   <p class="g-note">A new Owner or Administrator acts as a Member until they add a passkey (<a href="#org-roles-passkey">passkey rule</a>).</p>
   <p class="g-note">When the person who started the trial is not the right administrator and is not available, the company writes to LANXTOR (sales@lanxtor.com) naming who it should be. LANXTOR sets it; the change shows in your <span class="ui">Audit</span> tab as done by <em>LANXTOR support</em>.</p>
-  <p class="g-warn">Colleagues with the same company email domain do not join the organization by themselves yet: an Owner or Administrator invites them, or LANXTOR connects your company's Microsoft sign-in. Joining by verified company domain is planned.</p>
-  <p class="g-related">Related: <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-roles-passkey">Organization roles and the passkey rule</a> · <a href="#org-invitations">Invite a colleague</a> · <a href="#org-trials">Trials</a> · <a href="#org-audit">Audit</a></p>
+  <p class="g-note">Colleagues with your company's email address can also ask to join by themselves, once LANXTOR has verified your domain: see <a href="#org-join-requests">Requests to join</a>.</p>
+  <p class="g-related">Related: <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-roles-passkey">Organization roles and the passkey rule</a> · <a href="#org-invitations">Invite a colleague</a> · <a href="#org-join-requests">Requests to join</a> · <a href="#org-trials">Trials</a> · <a href="#org-audit">Audit</a></p>
+</section>
+
+<section class="g-feature" id="org-join-requests">
+  <h2>Requests to join from your company's domain</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">ORG-join-requests</span></div>
+  <p class="g-summary">Once LANXTOR has verified your company's email domain (for example acme.com) for your organization, a colleague with an address in it who signs in to E1 for the first time does not get a separate account: they ask to join your organization. An Owner or Administrator approves the request, choosing the license, and E1 sends the colleague the ordinary invitation; or declines it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The colleague: the E1 sign-in. You: <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>, section <span class="ui">Requests to join</span>; a notice in the Inbox (<span class="ui">asks to join</span>).</dd>
+    <dt>Who</dt><dd>Owner or Administrator with a passkey decides. LANXTOR verifies and adds the domain (write to sales@lanxtor.com).</dd>
+    <dt>Before you start</dt><dd>LANXTOR has added your domain. Public mail providers (Gmail, Outlook.com, …) are never a company domain. A domain and its subdomains (lab.acme.com) belong to one organization.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>As a colleague who has no E1 account, sign in with your company address.</td><td>The sign-in page says <span class="ui">&lt;Organization&gt; already uses E1. We asked its administrators to let you in. When they approve, you get an invitation by email; then sign in again.</span> No account is made yet.</td></tr>
+      <tr><td>2</td><td>Sign in again before anyone decided.</td><td><span class="ui">Your request to join &lt;Organization&gt; is still waiting for its administrators.</span> …</td></tr>
+      <tr><td>3</td><td>As an Owner or Administrator, open the Inbox.</td><td>A notice <span class="ui">&lt;name&gt; asks to join</span>.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>On <span class="ui">Members</span>, above the members, <span class="ui">Requests to join</span> lists each person with <span class="ui">Asked</span>, a <span class="ui">License</span> list, <span class="ui">Approve</span> and <span class="ui">Decline</span>.</td></tr>
+      <tr><td>5</td><td>Choose the license and click <span class="ui">Approve</span>.</td><td><span class="ui">Invitation sent. Link: …</span> The colleague gets the invitation email; signing in with its link makes them a Member with that license. The request leaves the list.</td></tr>
+      <tr><td>6</td><td>For another request, click <span class="ui">Decline</span>.</td><td>The request leaves the list. When that person signs in, they read <span class="ui">The administrators of &lt;Organization&gt; declined your request to join. Ask one of them to invite you.</span> They can ask again after 30 days.</td></tr>
+      <tr><td>7</td><td>Open the <span class="ui">Audit</span> tab.</td><td><span class="ui">join.requested</span>, <span class="ui">join.approved</span> and <span class="ui">join.declined</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">With your domain verified, nobody from it can start a second trial organization: LANXTOR's trial invitation is refused and points to your organization.</p>
+  <p class="g-warn">Only people without an E1 account ask to join this way. Someone who already has an account (for example from an earlier trial) is invited as usual. Verifying the domain yourself with a DNS record is not available yet: LANXTOR adds it.</p>
+  <p class="g-related">Related: <a href="#org-administrators">Who administers the organization</a> · <a href="#org-invitations">Invite a colleague</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-trials">Trials</a></p>
 </section>
 
 <section class="g-feature" id="org-project-members">
