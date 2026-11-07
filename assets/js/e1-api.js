@@ -85,6 +85,18 @@
     return url;
   };
 
+  /** Sign in with a company's Microsoft account (E1 server: identity/microsoft.mjs). */
+  E1.microsoftLoginUrl = function (returnTo) {
+    if (!base) return "";
+    return base + "/auth/login/microsoft?return=" + encodeURIComponent(returnTo || accountPage());
+  };
+
+  /** GET /auth/providers: which sign-ins the E1 server offers ({ microsoft }). */
+  E1.providers = function () {
+    if (E1.isDemo() || !base) return later({ microsoft: false });
+    return request("GET", "/auth/providers").catch(function () { return { microsoft: false }; });
+  };
+
   /** GET /auth/me: who is signed in. Resolves null when nobody is. */
   E1.me = function () {
     if (E1.isDemo()) return later({ user: DEMO.user, org: DEMO.org, orgs: DEMO.orgs });

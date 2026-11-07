@@ -379,6 +379,16 @@
     if (location.hash === "#signup") setMode("signup");
     else setMode("login");
 
+    // Companies whose Microsoft accounts are connected to E1 sign in with them.
+    var microsoft = box.querySelector("[data-auth-microsoft]");
+    if (microsoft && api && api.configured() && !api.isDemo()) {
+      api.providers().then(function (p) {
+        if (!p || !p.microsoft) return;
+        microsoft.setAttribute("href", api.microsoftLoginUrl(returnTo && new URL(returnTo, location.href).href));
+        microsoft.hidden = false;
+      });
+    }
+
     submit.addEventListener("click", function (e) {
       if (api && api.configured()) return;
       // Not connected yet: say so, and offer the preview of the account page.
