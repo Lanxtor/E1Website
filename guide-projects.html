@@ -126,7 +126,7 @@
 
 <section class="g-feature" id="prj-sections">
   <h2>The sections of a project</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-04</span><span class="g-id">PRJ-sections</span><span>Roadmap M1.4</span><span>Review check A1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">PRJ-sections</span><span>Roadmap M1.4</span><span>Review check A1</span></div>
   <p class="g-summary">Every project has the same nine sections, always in the same order. Each section holds one kind of thing, and right-clicking a section offers exactly what can be made there. The sections cannot be added, removed or reordered.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → expand a project</dd>
@@ -157,7 +157,7 @@
       <tr><td>3</td><td>Right-click <span class="ui">Assets</span>.</td><td>A menu with <span class="ui">New asset…</span>, <span class="ui">New folder</span> and <span class="ui">Query</span> ▸.</td></tr>
       <tr><td>4</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span>.</td><td>A window <span class="ui">New object in Systems</span> opens. Click <span class="ui">Cancel</span>.</td></tr>
       <tr><td>5</td><td>Double-click <span class="ui">Model Space</span>.</td><td>Its page opens with the heading "Model Space" and the list of its sheets. An empty Model Space says "No 2D spaces yet."</td></tr>
-      <tr><td>6</td><td>Double-click an empty section such as <span class="ui">Areas</span> in a new project.</td><td>Its page says "Nothing in this section yet." The page has a toolbar with the section's <span class="ui">New …</span> button, <span class="ui">New folder</span>, <span class="ui">Import</span> and <span class="ui">Export</span>.</td></tr>
+      <tr><td>6</td><td>Click an empty section such as <span class="ui">Areas</span> in a new project.</td><td>The click opens its page; a double-click on a section other than <span class="ui">Model Space</span> does nothing more. The page says "Nothing in this section yet." The page has a toolbar with the section's <span class="ui">New …</span> button, <span class="ui">New folder</span>, <span class="ui">Import</span> and <span class="ui">Export</span>.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small" style="max-width:170px"><img src="assets/img/guides/tree-menu-assets.webp" alt="The right-click menu of the Assets section with the items New asset…, New folder and Query with a submenu arrow." width="340" height="192" loading="lazy"><figcaption>Right-click <span class="ui">Assets</span>: what can be made in this section.</figcaption></figure>
@@ -168,7 +168,7 @@
 
 <section class="g-feature" id="prj-tree-rows">
   <h2>Rows, clicks and marks in the explorer</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">PRJ-tree-rows</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">PRJ-tree-rows</span></div>
   <p class="g-summary">A click selects a row, a double-click opens it, and only the arrow expands or collapses it. Small marks at the end of a row tell you that something needs your attention, and a parent row rolls them up.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer</dd>
@@ -191,16 +191,17 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click a section name (not its arrow).</td><td>The row is selected; it does not expand.</td></tr>
+      <tr><td>1</td><td>Click a section name (not its arrow).</td><td>The row is selected and its page opens; it does not expand.</td></tr>
       <tr><td>2</td><td>Click the arrow in front of it (<span class="ui">Expand <i>name</i></span>).</td><td>The row expands; the arrow now reads <span class="ui">Collapse <i>name</i></span>.</td></tr>
       <tr><td>3</td><td>Double-click a sheet under <span class="ui">Model Space</span>.</td><td>The drawing opens as a tab and the path bar shows organization / project / Model Space / sheet.</td></tr>
       <tr><td>4</td><td>Expand an object under <span class="ui">Assets</span> that is drawn on a sheet and double-click its drawing shortcut.</td><td>That drawing opens with the object in view.</td></tr>
       <tr><td>5</td><td>Hover a mark at the end of a row.</td><td>A tooltip explains it (see the list below).</td></tr>
+      <tr><td>6</td><td>Click a mark on an object row.</td><td>The <span class="ui">Tag…</span> dialog of that object opens, whatever the mark says (see <a href="guide-objects.html#obj-tag-dialog">Set a manual tag with Tag…</a>).</td></tr>
     </tbody>
   </table></div>
   <p>The marks and their tooltips: "Modified since <i>document</i>" and "Added since <i>document</i>" (changed after a revision was issued), "Needs review: N unresolved comment(s)", "Open tasks: N", "Tag pending: an input of its tag rule is missing", "Tag out of date: an input of its tag rule changed", "Updated" (on <span class="ui">Revisions</span>) and "Open branch" (on <span class="ui">Branches</span>). A collapsed parent shows "Needs attention", "Modified", "Added" or "In review" for what is inside.</p>
   <figure class="g-shot" style="max-width:943px"><img src="assets/img/guides/pin-needs-review.webp" alt="The E1 window after pinning a comment on a sheet: Pump1 in the explorer is framed in red with its Needs review mark, and the pin is visible on the drawing." width="2160" height="1650" loading="lazy"><figcaption>Pump1 carries a mark in the explorer while a comment on it is unresolved.</figcaption></figure>
-  <p class="g-note">Keys in the tree: <kbd>F2</kbd> renames the selected project or object, <kbd>Delete</kbd> or <kbd>Backspace</kbd> deletes it (see <a href="#prj-delete">Delete a project</a> and <a href="guide-objects.html#obj-delete">Delete an object</a>), and <kbd>Esc</kbd> clears projects picked with <kbd>Ctrl</kbd>-click.</p>
+  <p class="g-note">Keys in the tree: <kbd>F2</kbd> renames the selected project or object (not a sheet or folder: use right-click → <span class="ui">Rename</span> for those), <kbd>Delete</kbd> or <kbd>Backspace</kbd> deletes it (see <a href="#prj-delete">Delete a project</a> and <a href="guide-objects.html#obj-delete">Delete an object</a>), and <kbd>Esc</kbd> clears projects picked with <kbd>Ctrl</kbd>-click.</p>
   <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-collaboration.html#col-comments">Comments</a></p>
 </section>
 
@@ -258,8 +259,8 @@
 
 <section class="g-feature" id="prj-search">
   <h2>Search the explorer</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">PRJ-search</span><span>Roadmap 07.1</span></div>
-  <p class="g-summary">The explorer search filters the tree to the rows that match what you type, and also finds tags, names and line numbers in every project you may open, even ones that are not expanded.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">PRJ-search</span><span>Roadmap 07.1</span></div>
+  <p class="g-summary">The explorer search filters the tree to the rows whose name or attribute values match what you type, and also finds tags, names and line numbers in every project you may open, even ones that are not expanded.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer header → <span class="ui">Search</span> (magnifier)</dd>
     <dt>Who</dt><dd>Anyone who can open the project</dd>
@@ -270,7 +271,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Search</span> in the explorer header.</td><td>A box "Search tags and names" appears under the header and has the focus.</td></tr>
-      <tr><td>2</td><td>Type <code>pump2</code>.</td><td>The tree shows Pump2; Pump1 and other rows that do not match are hidden.</td></tr>
+      <tr><td>2</td><td>Type <code>pump2</code>.</td><td>The tree shows Pump2; Pump1 and other rows that do not match are hidden. A row also matches when one of its attribute values contains the text.</td></tr>
       <tr><td>3</td><td>Wait a moment.</td><td>A list "Found in the projects" shows the matches with tag, name and project. With none it says "Nothing found in the projects".</td></tr>
       <tr><td>4</td><td>Click a match in that list.</td><td>The object opens.</td></tr>
       <tr><td>5</td><td>Type a word that matches nothing, such as <code>xyzzy</code>.</td><td>The tree says "No matches".</td></tr>
@@ -392,7 +393,7 @@
 
 <section class="g-feature" id="prj-project-bin">
   <h2>The project Bin: Deleted bin and Voided bin</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">PRJ-project-bin</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">PRJ-project-bin</span></div>
   <p class="g-summary">Inside each project, a group <span class="ui">Bin</span> collects what you deleted (<span class="ui">Deleted bin</span>) and what you voided (<span class="ui">Voided bin</span>), sorted by section. Deleted things can be restored or deleted permanently; voided things can only be unvoided.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → the project → <span class="ui">Bin</span> (shown only when something is in it)</dd>
@@ -412,7 +413,7 @@
       <tr><td>7</td><td>Right-click an object → <span class="ui">Void</span>, then expand <span class="ui">Bin</span> → <span class="ui">Voided bin</span> and right-click it there.</td><td>Only <span class="ui">Unvoid</span> is offered: nothing voided can be deleted.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">For a sheet or folder in the Deleted bin, <span class="ui">Delete permanently…</span> asks <span class="ui">Delete sheet "<i>name</i>" permanently? It cannot be restored.</span> or <span class="ui">Delete folder "<i>name</i>" permanently with everything inside it? It cannot be restored.</span> For an object it opens a preview of what goes with it: see <a href="guide-objects.html#obj-delete">Delete an object</a>.</p>
+  <p class="g-note">Selecting an item in the Deleted bin and pressing <kbd>Delete</kbd> (or <kbd>Backspace</kbd>) does the same as <span class="ui">Delete permanently…</span>. For a sheet or folder in the Deleted bin, <span class="ui">Delete permanently…</span> asks <span class="ui">Delete sheet "<i>name</i>" permanently? It cannot be restored.</span> or <span class="ui">Delete folder "<i>name</i>" permanently with everything inside it? It cannot be restored.</span> For an object it opens a preview of what goes with it: see <a href="guide-objects.html#obj-delete">Delete an object</a>.</p>
   <p class="g-related">Related: <a href="guide-objects.html#obj-delete">Delete an object</a> · <a href="guide-objects.html#obj-void">Void an object</a> · <a href="#prj-folders-sheets">Folders and sheets</a> · <a href="#prj-delete">Delete a project</a></p>
 </section>
 
