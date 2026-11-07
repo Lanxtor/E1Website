@@ -1,30 +1,12 @@
-// The command palette is being removed from E1 (owner, 2026-11-07): it is taken off the screen before each picture.
-async function scrub(p) {
-  await p.evaluate(() => {
-    const hide = (el) => { if (el) el.style.display = 'none'; };
-    document.querySelectorAll('[role=menuitem], .shortcut-row, button').forEach((el) => {
-      const t = el.textContent || '';
-      if (/Command palette|command palette|Ctrl\+K or ⌘K/.test(t)) {
-        hide(el);
-        const prev = el.previousElementSibling, next = el.nextElementSibling;
-        if (el.getAttribute('role') === 'menuitem' && next && next.getAttribute('role') === 'separator' && (!prev || prev.getAttribute('role') === 'separator' || !prev)) hide(next);
-      }
-    });
-    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    let n; while ((n = walk.nextNode())) {
-      if (/command palette/i.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(/,? (with a local-first AI policy )?and the command palette/i, ', with a local-first AI policy').replace(/ ?The command palette \(Ctrl\+K\) runs any command\.?/i, '');
-    }
-  });
-}
 // statusbar writes statusbar-full.png; make-statusbar.py turns it into the two-strip statusbar.png.
 module.exports = {
   async menus(h) {
     const p = h.page; await h.open();
-    for (const m of ['File', 'Edit', 'View', 'Insert', 'Data', 'Help']) {
+    for (const m of ['File', 'Edit', 'Help']) {
       const b = p.locator('.menubar').getByRole('button', { name: m, exact: true });
       await b.click();
       const menu = p.getByRole('menu', { name: m }); await menu.waitFor();
-      await p.mouse.move(1430, 600); await scrub(p); await p.waitForTimeout(200);
+      await p.mouse.move(1430, 600); await p.waitForTimeout(200);
       await h.shot('menu-' + m.toLowerCase(), { clip: [menu, b], pad: 1 });
       await p.keyboard.press('Escape'); await p.mouse.click(1430, 600); await p.waitForTimeout(200);
     }
@@ -53,14 +35,14 @@ module.exports = {
     await p.locator('.menubar').getByRole('button', { name: 'Help' }).click();
     await p.getByRole('menuitem', { name: 'Keyboard shortcuts' }).click();
     const d = p.getByRole('dialog', { name: 'Keyboard shortcuts' }); await d.waitFor();
-    await scrub(p);
+   
     await h.shot('help-shortcuts', { clip: d, pad: 2 });
   },
   async underConstruction(h) {
     const p = h.page; await h.open();
     await p.locator('.menubar').getByRole('button', { name: 'Help' }).click();
     await p.getByRole('menuitem', { name: 'Under construction' }).click();
-    await p.waitForTimeout(1500); await scrub(p);
+    await p.waitForTimeout(1500);
     await h.shot('help-under-construction');
   },
   async alex(h) {
@@ -74,7 +56,7 @@ module.exports = {
     const p = h.page; await h.open();
     await p.getByRole('tablist', { name: 'Open tabs' }).getByRole('tab', { name: /Assets/ }).click();
     await p.getByRole('tab', { name: 'Cloud AI' }).click();
-    await p.waitForTimeout(1000); await scrub(p);
+    await p.waitForTimeout(1000);
     await h.shot('cloud-ai');
   },
   async rail(h) {

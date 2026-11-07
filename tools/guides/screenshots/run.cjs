@@ -13,25 +13,6 @@ const BASE = process.env.BASE || 'http://localhost:5173/';
 const scen = require(path.resolve(process.argv[2]));
 const only = process.argv.slice(3);
 
-// The command palette is being removed from E1 (owner, 2026-11-07): it is taken off every screen before a picture.
-async function scrubPalette(p) {
-  await p.evaluate(() => {
-    const hide = (el) => { if (el) el.style.display = 'none'; };
-    document.querySelectorAll('[role=menuitem], .shortcut-row, button').forEach((el) => {
-      const t = el.textContent || '';
-      if (/Command palette|command palette|Ctrl\+K or ⌘K/.test(t)) {
-        hide(el);
-        const prev = el.previousElementSibling, next = el.nextElementSibling;
-        if (el.getAttribute('role') === 'menuitem' && next && next.getAttribute('role') === 'separator' && (!prev || prev.getAttribute('role') === 'separator' || !prev)) hide(next);
-      }
-    });
-    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    let n; while ((n = walk.nextNode())) {
-      if (/command palette/i.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(/,? (with a local-first AI policy )?and the command palette/i, ', with a local-first AI policy').replace(/ ?The command palette \(Ctrl\+K\) runs any command\.?/i, '');
-    }
-  });
-}
-
 function helpers(page, log) {
   const h = {
     page,
@@ -58,7 +39,6 @@ function helpers(page, log) {
     async shot(name, opts = {}) {
       if (!opts.keepPointer) await page.mouse.move(1439, 470);
       await page.waitForTimeout(opts.wait ?? 400);
-      await scrubPalette(page);
       const png = `${OUT}/${name}.png`;
       let clip;
       if (opts.clip) {
