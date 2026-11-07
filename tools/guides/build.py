@@ -97,7 +97,7 @@ def page(title, description, body, toc, crumbs):
   <meta name="description" content="{desc}">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=71">
+  <link rel="stylesheet" href="assets/css/styles.css?v=74">
   <link rel="stylesheet" href="assets/css/guides.css?v={css}">
 </head>
 <body>
@@ -117,12 +117,12 @@ def page(title, description, body, toc, crumbs):
   </main>
 
   <div id="site-footer"></div>
-  <script src="assets/js/i18n-dict.js?v=1"></script>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=1"></script>
   <script src="assets/js/config.js?v=3"></script>
   <script src="assets/js/e1-api.js?v=6"></script>
   <script src="assets/js/main.js?v=30"></script>
-  <script src="assets/js/chat.js?v=4"></script>
+  <script src="assets/js/chat.js?v=5"></script>
   <script src="assets/js/guides.js?v=1"></script>
 </body>
 </html>

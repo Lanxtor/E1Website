@@ -1743,18 +1743,11 @@ a.card:hover { opacity: 0.6; }
 .ask-face img, .alex-face img, .alex-launcher-face img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
 .ask-box input { flex: 1; min-width: 0; height: 44px; padding: 0 6px; border: 0; outline: 0; background: transparent; font: inherit; font-size: 1.05rem; color: var(--text); }
 .ask-box input::placeholder { color: var(--text-muted); }
-.ask-mic { display: inline-flex; align-items: center; gap: 8px; flex: none; height: 44px; padding: 0 18px 0 14px; border: 0; border-radius: 99px; background: var(--accent); color: #fff; font: inherit; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s, box-shadow 0.2s; }
-.ask-mic svg { width: 20px; height: 20px; }
-.ask-mic:hover { background: #1749d6; }
 .ask-send { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--text); color: #fff; cursor: pointer; }
 .ask-send svg { width: 20px; height: 20px; }
-.ask-mic.is-listening, .alex-mic.is-listening { background: #e5484d; color: #fff; animation: alex-pulse 1.2s ease-in-out infinite; }
-@keyframes alex-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(229, 72, 77, 0.45); } 50% { box-shadow: 0 0 0 10px rgba(229, 72, 77, 0); } }
 @media (max-width: 560px) {
   .ask-box { padding: 6px; gap: 6px; }
   .ask-face { display: none; }
-  .ask-mic { padding: 0 12px; }
-  .ask-mic span { display: none; }
 }
 
 /* The "Ask Alex" button on every page */
@@ -1784,7 +1777,8 @@ body.alex-open .alex-launcher { display: none; }
 .alex-me { align-self: flex-end; background: var(--text); color: #fff; border-bottom-right-radius: 4px; }
 .alex-suggest { display: flex; flex-wrap: wrap; gap: 6px; }
 .alex-suggest button { padding: 7px 12px; border: 1.5px solid var(--text); border-radius: 99px; background: #fff; color: var(--text); font: inherit; font-size: 0.82rem; font-weight: 500; cursor: pointer; text-align: left; }
-.alex-suggest button:hover { background: var(--text); color: #fff; }
+.alex-suggest button:hover, .alex-suggest button:focus-visible { background: var(--text); color: #fff; }
+.alex-msg + .alex-suggest { margin-top: 2px; }
 .alex-typing { display: inline-flex; gap: 4px; padding: 14px; }
 .alex-typing i { width: 7px; height: 7px; border-radius: 50%; background: #9aa1ab; animation: alex-dot 1s infinite; }
 .alex-typing i:nth-child(2) { animation-delay: 0.15s; }
@@ -1793,8 +1787,6 @@ body.alex-open .alex-launcher { display: none; }
 .alex-form { display: flex; align-items: flex-end; gap: 6px; padding: 10px; border-top: 1px solid var(--line); }
 .alex-form textarea { flex: 1; min-height: 44px; max-height: 140px; padding: 11px 14px; border: 1.5px solid #c3c8d0; border-radius: 22px; outline: 0; resize: none; font: inherit; font-size: 0.95rem; line-height: 1.4; }
 .alex-form textarea:focus { border-color: var(--text); }
-.alex-mic { width: 44px; height: 44px; background: var(--accent); color: #fff; }
-.alex-mic:hover { background: #1749d6; }
 .alex-send { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--text); color: #fff; cursor: pointer; }
 .alex-send svg { width: 20px; height: 20px; }
 @media (max-width: 560px) {
