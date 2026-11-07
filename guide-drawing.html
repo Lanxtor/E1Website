@@ -80,7 +80,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>36 features</span><span>26 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>36 features</span><span>28 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the sheet view, where you draw P&amp;IDs. Every symbol on a sheet is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -613,7 +613,7 @@
 
 <section class="g-feature" id="draw-symbol-menu">
   <h2>The right-click menus on the sheet, and Replace</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-symbol-menu</span><span>Roadmap M3.11</span><span>Review checks B4, B5, H5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">DRAW-symbol-menu</span><span>Roadmap M3.11</span><span>Review checks B4, B5, H5</span></div>
   <p class="g-summary">Right-click a symbol, a line or empty sheet for the commands that fit it, in groups: clipboard, open, review, flow, arrange, and Delete last. Replace swaps a symbol's shape and keeps the object, its name and its connections.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click on the sheet with the Select tool. While Connector or placing is active, a right-click leaves the tool instead.</dd>
@@ -622,7 +622,7 @@
   </dl>
   <h3>What the menus hold</h3>
   <ul>
-    <li><strong>Symbol:</strong> <span class="ui">Cut</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span> · <span class="ui">Object properties</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Open datasheet</span> · <span class="ui">Comment here</span> · <span class="ui">Highlight flow</span>, <span class="ui">Highlight flow through pumps and compressors</span> (and the off-page items on an off-page connector) · <span class="ui">Flip horizontal</span>, <span class="ui">Flip vertical</span>, <span class="ui">Replace</span> · <span class="ui">Delete</span>.</li>
+    <li><strong>Symbol:</strong> <span class="ui">Cut</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span> · <span class="ui">Object properties</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Open datasheet</span> · <span class="ui">Comment here</span> · <span class="ui">Highlight flow</span>, <span class="ui">Highlight flow through pumps and compressors</span> (and the off-page items on an off-page connector) · <span class="ui">Flip horizontal</span>, <span class="ui">Flip vertical</span>, <span class="ui">Replace</span>, <span class="ui">Modify shape…</span> (<a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a>) · <span class="ui">Delete</span>.</li>
     <li><strong>Line:</strong> <span class="ui">Cut</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span> · <span class="ui">Highlight flow</span>, <span class="ui">Highlight flow through pumps and compressors</span>, <span class="ui">Clear flow highlight</span> (while shown) · <span class="ui">Flip direction</span> · <span class="ui">Delete</span>.</li>
     <li><strong>Empty sheet:</strong> <span class="ui">Paste</span>, <span class="ui">Select all</span> · <span class="ui">Comment here</span>.</li>
   </ul>
@@ -689,7 +689,7 @@
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/config-shapes.webp" alt="The Shapes section of the Configuration place with its filters and the list of shapes" width="2160" height="1350" loading="lazy"><figcaption>Configuration → Shapes, where shapes are browsed and filtered.</figcaption></figure>
   <p class="g-warn">The <span class="ui">Standard</span> setting in Configuration → Shapes only filters the shape list. It is not a drawing standard for the project, and it does not change the symbols on your sheets. Manual-review check B7 reads as if it were a project-wide switch. <span class="ui">New shape</span> is shown as a planned action (the symbol designer).</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-library.html#lib-configuration">Configuration</a> · <a href="guide-drawing.html#draw-symbol-designer">Symbol designer (planned)</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-library.html#lib-configuration">Configuration</a> · <a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a></p>
 </section>
 
 <section class="g-feature" id="draw-drop-from-explorer">
@@ -793,28 +793,62 @@
 
 <section class="g-feature" id="draw-symbol-designer">
   <h2>Symbol designer and Modify shape…</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-symbol-designer</span><span>Roadmap 21.2</span></div>
-  <p class="g-summary">A designer for drawing your own symbols and publishing them in the company library, and a way to adapt a placed symbol for one project.</p>
-  <p class="g-dev">Planned in the Library lifecycle milestone, stage 21.2 "Symbol designer and publishing". Not started. Today <span class="ui">New shape</span> in Configuration → Shapes is shown as a planned action, and <span class="ui">Modify shape…</span> is not in any menu yet; it will be added once the designer exists.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Draw a new shape with its nozzles and publish it to the company library.</li>
-    <li>Right-click a symbol on a sheet or in the explorer → <span class="ui">Modify shape…</span>: E1 makes a project copy of the shape and opens it in the designer. On save, the placement uses the copy.</li>
-  </ul>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-standards">ISA 5.1 and ISO 10628 symbols</a> · <a href="guide-drawing.html#draw-svg-import">SVG import</a> · <a href="guide-drawing.html#draw-symbol-versions">Symbol versions</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">DRAW-symbol-designer</span><span>Roadmap 21.2</span><span>Review checks L20, L21</span></div>
+  <p class="g-summary">Draw your own symbols on a grid, with their connection points, and publish them in the company library; or adapt a placed symbol for one project with Modify shape…. E1's own shapes are never changed: you work on a copy.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a sheet: right-click a symbol → <span class="ui">Modify shape…</span>. In Configuration → <span class="ui">Shapes</span>: <span class="ui">New shape</span>, and on a shape <span class="ui">Derive</span>, <span class="ui">Edit shape</span> (your own shapes) and <span class="ui">Allow for a class…</span></dd>
+    <dt>Who</dt><dd>Modify shape…: a project role that may edit shapes (Project administrator). New shape, Derive and Publish in the company library: Library administrator.</dd>
+    <dt>Before you start</dt><dd>A sheet with a pump is open (for Modify shape…), or a project is open (for Configuration → Shapes).</dd>
+  </dl>
+  <h3>Modify a shape on the sheet</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Modify shape…</span>.</td><td>The designer opens, titled "Modify shape: Centrifugal pump (this project's copy)", with the pump on a grid, its connection points <em>suction</em> and <em>discharge</em> as blue dots, and "No problems." under the preview.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Line</span>, then drag on the grid under the pump.</td><td>A line is drawn, snapped to the grid, and selected: "Shape s4 (line)" with its weight and pattern on the right.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Undo</span> (or press Ctrl+Z).</td><td>The line goes away.</td></tr>
+      <tr><td>4</td><td>Draw the line again. Click <span class="ui">Select</span> and drag the <em>discharge</em> dot.</td><td>The connection point moves with the pointer; its key, direction and the line kinds it takes are shown on the right.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Save and use here</span>.</td><td>The designer closes. Pump1 is drawn with the changed shape; the other pumps keep E1's.</td></tr>
+      <tr><td>6</td><td>Configuration → <span class="ui">Shapes</span>, search "project.symbol".</td><td>The project's copy is listed, key <code>project.symbol.centrifugal-pump</code>.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Draw a new shape for the company</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Configuration → <span class="ui">Shapes</span> → <span class="ui">New shape</span>.</td><td>The designer opens on an empty frame; Problems says it has no shapes yet.</td></tr>
+      <tr><td>2</td><td>Draw a <span class="ui">Circle</span>; with <span class="ui">Connection point</span> click its left and right edge and give the keys <em>inlet</em> and <em>outlet</em>.</td><td>The circle and two connection points appear; "No problems."</td></tr>
+      <tr><td>3</td><td>Type a name, choose what it draws under <span class="ui">Draws</span>, click <span class="ui">Publish</span>.</td><td>The shape is published as version 1 and listed in Shapes.</td></tr>
+      <tr><td>4</td><td>On the shape, choose a class in <span class="ui">Allow for a class…</span> and click <span class="ui">Allow</span>.</td><td>A class whose connection points the shape lacks is refused with the reason, for example "cannot draw Vertical vessel: it has no connection point inlet, outlet". Otherwise the shape is offered when placing that class.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Delete removes the selected shape, connection point or label; Esc stops drawing. The designer draws lines, circles, arcs and texts; other kinds of E1's own art are kept, moved and deleted. Modify shape… is on the sheet's menu; the explorer's comes later.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-attribute-labels">Attribute labels</a> · <a href="guide-drawing.html#draw-symbol-menu">Right-click menus</a> · <a href="guide-drawing.html#draw-standards">ISA 5.1 and ISO 10628 symbols</a> · <a href="guide-drawing.html#draw-svg-import">SVG import</a> · <a href="guide-drawing.html#draw-symbol-versions">Symbol versions</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
 </section>
 
 <section class="g-feature" id="draw-attribute-labels">
   <h2>Attribute labels on symbols</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-attribute-labels</span><span>Roadmap 21.3</span></div>
-  <p class="g-summary">Labels on a symbol that show its attribute values, for example design pressure or size, and update when the value changes.</p>
-  <p class="g-dev">Planned in the Library lifecycle milestone, stage 21.3 "Attribute labels on symbols". Not started. Today a symbol shows only its tag or name.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Show chosen attributes of an object as labels beside its symbol.</li>
-    <li>See the label change when someone changes the value in the object, a list or a datasheet.</li>
-  </ul>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-tags-labels">Tags and labels</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">DRAW-attribute-labels</span><span>Roadmap 21.3</span><span>Review checks L22, L23</span></div>
+  <p class="g-summary">A shape can carry labels that show an attribute of the object it draws, for example the design pressure, with its unit. The label always shows the current value: change the value anywhere and every sheet shows the new one, and so does the PDF. No label text is stored.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>In the symbol designer: the <span class="ui">Label</span> tool and <span class="ui">Label shows</span>. On a placement: ask Cloud AI to hide, show or move a label (set_symbol_label).</dd>
+    <dt>Who</dt><dd>Adding labels: whoever may edit the shape (see the symbol designer). Hiding or moving one on a placement: a project role that may edit drawings.</dd>
+    <dt>Before you start</dt><dd>Pump1 has a design pressure in (for example 16 bar(g)).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Modify shape…</span>, click <span class="ui">Label</span>.</td><td><span class="ui">Label shows</span> lists the attributes of the class the shape draws.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Design pressure / In</span> and click under the pump on the grid.</td><td>A label "‹Design pressure / In›" is placed and selected; on the right <span class="ui">Shows</span>, <span class="ui">Prefix</span> and <span class="ui">Height (mm)</span>.</td></tr>
+      <tr><td>3</td><td>Type P as the prefix and click <span class="ui">Save and use here</span>.</td><td>Under Pump1 the sheet reads "P 16 bar(g)".</td></tr>
+      <tr><td>4</td><td>Change Pump1's design pressure in to 18 bar(g) (its page, a list or the datasheet).</td><td>The label reads "P 18 bar(g)" on every open sheet, without reloading.</td></tr>
+      <tr><td>5</td><td>File → <span class="ui">Export PDF</span>.</td><td>The PDF shows "P 18 bar(g)" as text.</td></tr>
+      <tr><td>6</td><td>Ask Cloud AI: "hide the design pressure label on Pump1".</td><td>The label goes from this placement only; the shape, the object and other placements keep it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A value of a restricted attribute is never shown in a label. A label with no value shows nothing.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a> · <a href="guide-drawing.html#draw-tags-labels">Tags and labels</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
 </section>
 
 <section class="g-feature" id="draw-svg-import">
