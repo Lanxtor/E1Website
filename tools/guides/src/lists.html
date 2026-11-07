@@ -31,7 +31,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>In the explorer, right-click <span class="ui">Assets</span>.</td><td>A menu opens with <span class="ui">Query</span> and an arrow ▸.</td></tr>
-      <tr><td>2</td><td>Hover <span class="ui">Query</span>.</td><td>A submenu opens. It lists the saved templates, if any, then <span class="ui">New query…</span>. With nothing saved, <span class="ui">New query…</span> is the only item: there are no built-in lists.</td></tr>
+      <tr><td>2</td><td>Hover <span class="ui">Query</span> (or click it, or press the right arrow key on it).</td><td>A submenu opens. It lists the saved templates, if any, then <span class="ui">New query…</span>. With nothing saved, <span class="ui">New query…</span> is the only item: there are no built-in lists.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">New query…</span>.</td><td>A tab <span class="ui">Query: Assets</span> opens. The bar reads “All objects below Assets · N rows”. The columns are <span class="ui">Owner</span>, <span class="ui">Name</span> and <span class="ui">Class</span>, sorted by Name ascending (▲).</td></tr>
       <tr><td>4</td><td>Scroll down the table.</td><td>Rows load 200 at a time; a row not loaded yet shows “…” for a moment.</td></tr>
       <tr><td>5</td><td>Reload the page.</td><td>The query tab comes back with the same columns and sort.</td></tr>
@@ -238,7 +238,7 @@
 
 <section class="g-feature" id="list-templates">
   <h2>Save a query as a template and reopen it under Query ▸</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">LIST-templates</span><span>Roadmap M3.6, M3.9</span><span>Review check D2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">LIST-templates</span><span>Roadmap M3.6, M3.9</span><span>Review check D2</span></div>
   <p class="g-summary">Save the columns, filter, sort and grouping as a named template for yourself, the project or the organization.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → <span class="ui">Save</span></dd>
@@ -250,7 +250,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Save</span>.</td><td>The Save query form opens with <span class="ui">Name</span>, the choices <span class="ui">For me</span> (selected), <span class="ui">For this project (everyone on it)</span> and <span class="ui">For the organization (every project; published to the company library)</span>, and the buttons <span class="ui">Save template</span> and <span class="ui">Cancel</span>. <span class="ui">Save template</span> is off while the name is empty.</td></tr>
-      <tr><td>2</td><td>Type <code>Pumps</code>, choose <span class="ui">For this project (everyone on it)</span>, and click <span class="ui">Save template</span>.</td><td>The form closes and the bar starts with “Pumps ·”.</td></tr>
+      <tr><td>2</td><td>Type <code>Pumps</code>, choose <span class="ui">For this project (everyone on it)</span>, and click <span class="ui">Save template</span> (or press <kbd>Enter</kbd> in <span class="ui">Name</span>).</td><td>The form closes and the bar starts with “Pumps ·”.</td></tr>
       <tr><td>3</td><td>Right-click the project in the explorer and hover <span class="ui">Query</span>.</td><td>The submenu lists <span class="ui">Pumps</span>, then <span class="ui">New query…</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Pumps</span>.</td><td>A query opens on the project with “Name contains pump” and only pump rows.</td></tr>
     </tbody>
@@ -263,10 +263,10 @@
 
 <section class="g-feature" id="list-edit-cell">
   <h2>Edit a cell like in Excel</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-edit-cell</span><span>Roadmap M3.7, M3.9</span><span>Review check D4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">LIST-edit-cell</span><span>Roadmap M3.7, M3.9</span><span>Review check D4</span></div>
   <p class="g-summary">Double-click or press F2 on a cell to change a name or an attribute value; Ctrl+Z undoes it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Query tab → double-click a cell, or select it and press <kbd>F2</kbd></dd>
+    <dt>Where</dt><dd>Query tab → double-click a cell, or select only that cell and press <kbd>F2</kbd></dd>
     <dt>Who</dt><dd>A project role that may edit objects</dd>
     <dt>Before you start</dt><dd>A query filtered on Name <span class="ui">is</span> <code>pump1</code>, with the column “Design pressure / In” added from <span class="ui">Columns</span>.</dd>
   </dl>
@@ -280,9 +280,11 @@
       <tr><td>4</td><td>Double-click it again, type <code>3 m</code>, and press <kbd>Enter</kbd>.</td><td>An alert in the cell says the value is not a unit of pressure, and nothing is saved.</td></tr>
       <tr><td>5</td><td>Press <kbd>Esc</kbd>.</td><td>The cell shows “16 bar(g)” again.</td></tr>
       <tr><td>6</td><td>Click the table and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The cell is empty again: one undo step per edit.</td></tr>
+      <tr><td>7</td><td>Click the Design pressure cell once and type <code>20</code>.</td><td>Nothing happens: typing on a selected cell does not start an edit.</td></tr>
+      <tr><td>8</td><td>Press <kbd>F2</kbd>.</td><td>The cell opens for editing. <kbd>F2</kbd> works only when exactly one cell is selected.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note"><kbd>Enter</kbd> saves, <kbd>Esc</kbd> cancels, and leaving the cell (a click elsewhere, <kbd>Tab</kbd>) saves. A Name cell renames the object; a tagged name is read-only. The rows refresh when anyone changes the project.</p>
+  <p class="g-note"><kbd>Enter</kbd> saves, <kbd>Esc</kbd> cancels, and leaving the cell (a click elsewhere, <kbd>Tab</kbd>) saves. <kbd>Tab</kbd> does not move to the next cell; it only leaves the edit. A Name cell renames the object; a tagged name is read-only. The rows refresh when anyone changes the project.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-collaboration.html#col-history">History and undo</a></p>
 </section>
 
@@ -313,7 +315,7 @@
 
 <section class="g-feature" id="list-set-value">
   <h2>Select many cells and Set value…</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-set-value</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">LIST-set-value</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
   <p class="g-summary">Select a block of cells and give them all one value in one undoable step.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → select cells → <span class="ui">Set value…</span></dd>
@@ -325,18 +327,19 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click a cell, then Shift-click a cell two rows below.</td><td>A block of three cells is selected. A bar shows “3 cells selected” with <span class="ui">Set value…</span>, <span class="ui">Fill down</span> and <span class="ui">Fill right</span>.</td></tr>
-      <tr><td>2</td><td><kbd>Ctrl</kbd> (<kbd>⌘</kbd>)-click one more cell in the column.</td><td>It is added to the selection: “4 cells selected”.</td></tr>
+      <tr><td>2</td><td><kbd>Ctrl</kbd> (<kbd>⌘</kbd>)-click one more cell in the column.</td><td>It is added to the selection: “4 cells selected”. <kbd>Ctrl</kbd> (<kbd>⌘</kbd>)-clicking a selected cell takes it out again.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Set value…</span>.</td><td>A dialog “Set 4 cells” opens with a box “Value for the selected cells”.</td></tr>
       <tr><td>4</td><td>Type a valid value.</td><td>The preview reads “4 cells change, as one step you can undo.”. A value that is refused shows “Nothing is applied while this problem remains:” with the reason.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Apply</span>.</td><td>All four cells show the value. One <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) takes them all back.</td></tr>
     </tbody>
   </table></div>
+  <p class="g-note">Cells are selected with clicks only: dragging across cells does not select them. Use Shift-click for a block.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-find-replace">Find and replace…</a></p>
 </section>
 
 <section class="g-feature" id="list-fill">
   <h2>Fill down and Fill right</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-fill</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">LIST-fill</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
   <p class="g-summary">Copy the top or left cell into the selected cells, counting on values that end in a number.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → select cells → <span class="ui">Fill down</span> or <span class="ui">Fill right</span></dd>
@@ -353,7 +356,7 @@
       <tr><td>4</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The two filled cells are back as before.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Fill down copies each column's top cell; Fill right copies each row's left cell. A value ending in a number counts on (P-101, P-102, …, keeping leading zeros); any other value is copied.</p>
+  <p class="g-note">Select the cells with a click and Shift-click (or <kbd>Ctrl</kbd> (<kbd>⌘</kbd>)-click); dragging does not select. Fill down copies each column's top cell; Fill right copies each row's left cell. A value ending in a number counts on (P-101, P-102, …, keeping leading zeros); any other value is copied.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a></p>
 </section>
 
@@ -456,7 +459,7 @@
 
 <section class="g-feature" id="list-import-excel">
   <h2>Import Excel…: bring a tag list into a section</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">LIST-import-excel</span><span>Roadmap 05.5a, 07.3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">LIST-import-excel</span><span>Roadmap 05.5a, 07.3</span></div>
   <p class="g-summary">Import an Excel or CSV tag list into a section: matching rows are updated, the others become new objects.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Data → <span class="ui">Import Excel…</span>, or a section's toolbar → <span class="ui">Import</span></dd>
@@ -469,7 +472,7 @@
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Data</span> → <span class="ui">Import Excel…</span>.</td><td>The Import Excel dialog opens with the note “A tag list into a section: rows are matched by the E1 id, the tag, or a name only one object has; the others become new objects of the class you choose.”, <span class="ui">File</span>, <span class="ui">Into</span>, <span class="ui">New rows are</span>, <span class="ui">Make rows that match nothing new objects</span> (ticked) and <span class="ui">When a row has a problem</span>.</td></tr>
       <tr><td>2</td><td>Pick the file and set <span class="ui">Into</span> to <span class="ui">Assets</span>.</td><td>Assets is the section; by default a section whose name contains “Assets” is chosen.</td></tr>
-      <tr><td>3</td><td>In <span class="ui">New rows are</span>, search <code>Centrifugal pump</code> and choose <span class="ui">Centrifugal pump</span>.</td><td>The class is chosen for new rows.</td></tr>
+      <tr><td>3</td><td>In <span class="ui">New rows are</span>, type <code>Centrifugal pump</code> in <span class="ui">Search classes</span>.</td><td>The first class that matches is chosen at once, letter by letter, so check that it reads <span class="ui">Centrifugal pump</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Check</span>.</td><td>“Checking…”, then the Column mapping table (“Column in the file” → “Fills”): <span class="ui">Design pressure</span> is guessed from its header, <span class="ui">Remarks</span> is at <span class="ui">Leave out</span>.</td></tr>
       <tr><td>5</td><td>Set <span class="ui">Equipment</span> to <span class="ui">Name (the tag, else the name)</span> and click <span class="ui">Check</span> again.</td><td>The summary reads “1 change in 1 row, 1 new row, 0 with a problem.”. The rows read “Row n … · column: from → to”, the new one marked “(new)”.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Apply</span>.</td><td>“1 change and 1 new object written. Undo (Ctrl+Z) takes them back.”. Pump1's design pressure is 12 and there is one more pump.</td></tr>
@@ -477,7 +480,8 @@
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/menu-data.webp" alt="The Data menu open: Datasheet…, Revisions, Import Excel…." width="424" height="278" loading="lazy"><figcaption><span class="ui">Data</span> → <span class="ui">Import Excel…</span>.</figcaption></figure>
-  <p class="g-note">A header such as Tag, Tag No., Tag number or Item maps to the tag automatically. Changing a mapping turns <span class="ui">Apply</span> off until you <span class="ui">Check</span> again.</p>
+  <p class="g-note">A header such as Tag, Tag No., Tag number or Item maps to the tag automatically. Changing a mapping or the class turns <span class="ui">Apply</span> off until you <span class="ui">Check</span> again.</p>
+  <p class="g-warn">A click outside the dialog closes it, and the file, the class and the mapping you set are lost.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a>, <a href="guide-objects.html#obj-new-object">Make a new object</a></p>
 </section>
 
@@ -517,7 +521,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Hover the organization name at the top of the explorer.</td><td>The hover text reads “&lt;organization&gt;: click or right-click for the organization's menu”.</td></tr>
-      <tr><td>2</td><td>Right-click it and choose <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</td><td>A query of objects from every project you may view opens, named “&lt;organization&gt; query”. The path bar starts with the organization's name. The last column, <span class="ui">Project</span>, is read-only.</td></tr>
+      <tr><td>2</td><td>Right-click it, hover <span class="ui">Query</span> (or click it, or press the right arrow key on it) and choose <span class="ui">New query…</span>.</td><td>A query of objects from every project you may view opens, named “&lt;organization&gt; query”. The path bar starts with the organization's name. The last column, <span class="ui">Project</span>, is read-only.</td></tr>
       <tr><td>3</td><td>Look at the query bar.</td><td>There is no <span class="ui">Update from Excel…</span> and no <span class="ui">Save</span> button.</td></tr>
     </tbody>
   </table></div>

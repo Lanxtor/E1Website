@@ -87,7 +87,7 @@
 
 <section class="g-feature" id="org-organization-dialog">
   <h2>The Organization dialog</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-05</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1</span><span>Review checks J4, J7, J8</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1</span><span>Review checks J4, J7, J8</span></div>
   <p class="g-summary">One dialog holds your organization: its members with their licenses and roles, open invitations, groups, the audit log and the export. Its first lines tell you how much of the trial, the AI credits, the file storage and the seats is used.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span></dd>
@@ -100,11 +100,12 @@
     <tbody>
       <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Groups</span>, <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
       <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u of t · Student u of t · Administrator u of t</span>.</td></tr>
-      <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Roles</span>. Each person has a License list and a <span class="ui">Remove</span> button; Roles shows their organization roles as text.</td></tr>
+      <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Roles</span>. Each person has a License list and a <span class="ui">Remove</span> button; Roles shows their organization roles as text. A license chosen in the list is saved at once.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
-      <tr><td>5</td><td>Press <kbd>Esc</kbd> or click <span class="ui">Close</span>.</td><td>The dialog closes.</td></tr>
+      <tr><td>5</td><td>Press <kbd>Esc</kbd>, click <span class="ui">Close</span>, or click outside the dialog.</td><td>The dialog closes.</td></tr>
     </tbody>
   </table></div>
+  <p class="g-warn"><span class="ui">Remove</span> on a member acts at once, without asking first.</p>
   <p class="g-note">When the AI credits are used up the line reads <span class="ui">Cloud AI's AI credits are used up (X of Y). Everything else goes on.</span></p>
   <p class="g-warn">There is no <em>Access</em> tab yet. It comes with the access control under development (see <a href="#org-custom-roles">Permission categories and custom roles</a>).</p>
   <p class="g-warn">The dialog has no place to give an organization role such as Library administrator or Catalog maintainer; how these are given today is not yet documented. An invitation always makes the person a Member.</p>
@@ -286,7 +287,7 @@
 
 <section class="g-feature" id="org-groups">
   <h2>Groups</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span class="g-id">ORG-groups</span><span>Roadmap M2.4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ORG-groups</span><span>Roadmap M2.4</span></div>
   <p class="g-summary">A group collects people so that you can give a project or drawing role to all of them at once.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Groups</span></dd>
@@ -296,8 +297,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Type <code>Process team</code> in <span class="ui">Group name</span> and click <span class="ui">Create group</span>.</td><td>The group is listed with a checkbox for each member.</td></tr>
-      <tr><td>2</td><td>Tick two members.</td><td>They are in the group.</td></tr>
+      <tr><td>1</td><td>Type <code>Process team</code> in <span class="ui">Group name</span> and click <span class="ui">Create group</span> (or press <kbd>Enter</kbd>).</td><td>The group is listed with a checkbox for each member.</td></tr>
+      <tr><td>2</td><td>Tick two members.</td><td>They are in the group; each tick is saved at once.</td></tr>
       <tr><td>3</td><td>In a project's <span class="ui">Members</span> dialog, open <span class="ui">Person or group</span>.</td><td><em>Process team (group)</em> can be chosen and given a role.</td></tr>
     </tbody>
   </table></div>

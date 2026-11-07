@@ -82,7 +82,7 @@
 
 <section class="g-feature" id="obj-new-object">
   <h2>Create an object</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-06</span><span class="g-id">OBJ-new-object</span><span>Roadmap M1.5</span><span>Review checks C1, C5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-new-object</span><span>Roadmap M1.5</span><span>Review checks C1, C5</span></div>
   <p class="g-summary">Right-click a section and choose its <span class="ui">New …</span> item: a window lists the classes that may live there, you pick one, and E1 makes the object, tags it from the project's rules and opens it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click a section or a folder in it → <span class="ui">New asset…</span> (Assets), <span class="ui">New unit operation…</span>, <span class="ui">New system…</span>, <span class="ui">New process…</span>, <span class="ui">New area…</span>, <span class="ui">New document…</span> (Revisions) or <span class="ui">New task…</span> (Tasks); the same buttons are on the section's page</dd>
@@ -99,7 +99,8 @@
       <tr><td>4</td><td>Leave <span class="ui">Tag</span> ("Leave empty for the tag from the rule") and <span class="ui">Name</span> ("Optional; can be changed at any time") empty.</td><td>No change yet.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Create</span> (or press <kbd>Enter</kbd> in Tag or Name).</td><td>The window closes. The new pump opens in its object window with its tag, for example <span class="ui">P-001</span>, as the heading. It appears under <span class="ui">Assets</span> in the explorer.</td></tr>
       <tr><td>6</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span> and search <code>centrifugal pump</code>.</td><td>The window <span class="ui">New object in Systems</span> offers "Centrifugal pump tag", not the pump itself: a section only offers the classes that may live in it.</td></tr>
-      <tr><td>7</td><td>Click <span class="ui">Cancel</span> (or click outside the window).</td><td>The window closes and nothing is created.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Cancel</span> (or click outside the window).</td><td>The window closes and nothing is created. <kbd>Esc</kbd> does not close it.</td></tr>
+      <tr><td>8</td><td>Open <span class="ui">New asset…</span> again and double-click <span class="ui">Centrifugal pump</span> under <span class="ui">Recent</span>.</td><td>The pump is created at once, with the tag from the rule, and opens. A double-click in the class tree or in the search results only chooses the class; click <span class="ui">Create</span> after it.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/new-asset-dialog.webp" alt="The New object in Assets window with the Search classes box, the class tree, the Tag and Name fields, the How many field, and the Cancel and Create buttons." width="1104" height="1364" loading="lazy"><figcaption>The <span class="ui">New object in Assets</span> window.</figcaption></figure>
@@ -169,7 +170,7 @@
 
 <section class="g-feature" id="obj-attributes">
   <h2>Fill in attributes: values, units, pick lists and required values</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-attributes</span><span>Roadmap M1.5</span><span>Review checks C1, C2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-attributes</span><span>Roadmap M1.5</span><span>Review checks C1, C2</span></div>
   <p class="g-summary">The <span class="ui">Attributes</span> tab lists everything the object's class says about it, grouped in sections. You type numbers with their unit, choose from pick lists, and see at once which required values are still missing.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Object window → <span class="ui">Attributes</span></dd>
@@ -202,21 +203,21 @@
       <tr><td>1</td><td>Open the new pump on <span class="ui">Attributes</span>.</td><td><span class="ui">Design pressure</span> and <span class="ui">Flow rate</span> are marked <span class="ui">Required</span> and highlighted as missing; the <span class="ui">Process</span> section shows "2 missing".</td></tr>
       <tr><td>2</td><td>Choose <span class="ui">Required, missing</span> in the drop-down.</td><td>Only the rows with a missing required value are listed.</td></tr>
       <tr><td>3</td><td>Set the drop-down back to <span class="ui">All attributes</span>. On the <span class="ui">Flow rate</span> row type <code>40</code> in <span class="ui">Value</span> and press <kbd>Enter</kbd>.</td><td>The <span class="ui">Required</span> mark disappears; the unit shows m³/h. The count of missing values goes down by one.</td></tr>
-      <tr><td>4</td><td>On <span class="ui">Design pressure</span> type <code>10</code> and choose <code>bar(g)</code> in its <span class="ui">Unit</span> drop-down.</td><td>The value is kept as 10 bar(g); after a reload it still shows 10 bar(g).</td></tr>
+      <tr><td>4</td><td>On <span class="ui">Design pressure</span> type <code>10</code>, press <kbd>Enter</kbd>, then choose <code>bar(g)</code> in its <span class="ui">Unit</span> drop-down.</td><td>The value is kept as 10 bar(g); after a reload it still shows 10 bar(g). Type the value first: a unit chosen on a row with no value is not kept.</td></tr>
       <tr><td>5</td><td>Type <code>pressure</code> in <span class="ui">Filter attributes</span>.</td><td>Only rows whose name contains "pressure" remain. <kbd>Esc</kbd> clears the filter.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Collapse all</span>, then <span class="ui">Expand all</span>.</td><td>All sections close, then all open.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/object-new-pump.webp" alt="The new pump P-001 on its Attributes tab: the filter box, the All attributes drop-down, Expand all and Collapse all, the General section, and the Process section with 2 missing and Design pressure marked Required with bar(g) as its unit and the sub-rows In and Out." width="2160" height="1350" loading="lazy"><figcaption>A new pump: <span class="ui">Design pressure</span> is marked <span class="ui">Required</span>.</figcaption></figure>
   <p class="g-note">Units offered for pressure: Pa, Pa(g), kPa, kPa(g), MPa, MPa(g), bar, bar(g), psi, psi(g), atm, atm(g); for temperature: °C, K, °F; volume flow includes m³/h. A value that is no longer in its pick list stays shown as "<i>value</i> (not in the list)". When the class has a newer version that no longer takes some values, they are listed under "Retired values (…)" with a <span class="ui">Discard</span> button each.</p>
-  <p class="g-warn">Choose the unit in the <span class="ui">Unit</span> drop-down. Whether typing "10 bar(g)" into the value field is understood was not verified. Real units of measurement (converting between units, choosing the units shown) are planned: see <a href="#obj-units">Units of measurement</a>.</p>
+  <p class="g-warn">Choose the unit in the <span class="ui">Unit</span> drop-down, after the value is typed; on an empty row the unit you choose is dropped. Whether typing "10 bar(g)" into the value field is understood was not verified. Real units of measurement (converting between units, choosing the units shown) are planned: see <a href="#obj-units">Units of measurement</a>.</p>
   <p class="g-related">Related: <a href="#obj-sub-attributes">Sub-attributes</a> · <a href="#obj-add-attribute">Add an attribute</a> · <a href="#obj-object-window">The object window</a> · <a href="#obj-units">Units of measurement</a> · <a href="guide-documents.html#doc-datasheet">Datasheet</a></p>
 </section>
 
 <section class="g-feature" id="obj-sub-attributes">
   <h2>Sub-attributes</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-sub-attributes</span><span>Roadmap M1.5</span></div>
-  <p class="g-summary">An attribute can have sub-attributes, for example <span class="ui">Design pressure</span> with <span class="ui">In</span> and <span class="ui">Out</span>. They are indented under their parent row, and you can add your own to one object.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-sub-attributes</span><span>Roadmap M1.5</span></div>
+  <p class="g-summary">An attribute can have sub-attributes, for example <span class="ui">Design pressure</span> with <span class="ui">In</span> and <span class="ui">Out</span>. The class's sub-attributes are indented under their parent row. You can also add a value of your own to one object; it is listed under <span class="ui">Attributes of this object</span> as "Parent / name".</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Object window → <span class="ui">Attributes</span> → a row with a chevron or a <span class="ui">+</span></dd>
     <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
@@ -230,7 +231,7 @@
       <tr><td>2</td><td>Click the chevron.</td><td>The sub-rows are hidden; the chevron now reads <span class="ui">Expand Design pressure</span>.</td></tr>
       <tr><td>3</td><td>Expand it again and type a value under <span class="ui">In</span>, then press <kbd>Enter</kbd>.</td><td>The value is saved on the sub-row.</td></tr>
       <tr><td>4</td><td>On a row that shows <span class="ui">+</span> (for example <span class="ui">Type note</span>), click <span class="ui">+</span> (<span class="ui">Add sub-attribute to Type note</span>).</td><td>E1 asks "Name of the new sub-attribute of Type note".</td></tr>
-      <tr><td>5</td><td>Type a name and confirm.</td><td>A new indented row with that name appears under the parent.</td></tr>
+      <tr><td>5</td><td>Type a name, for example <code>Source</code>, and confirm.</td><td>A value of this object only is saved under the key "Type note / Source". It is shown in the section <span class="ui">Attributes of this object</span> as "Type note / Source", not indented under <span class="ui">Type note</span>.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/object-tab-attributes.webp" alt="Pump1 with the Attributes tab selected in the Object views tab row, showing attribute sections with rows, values, units and comments." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Attributes</span> tab of Pump1.</figcaption></figure>
@@ -374,7 +375,7 @@
 
 <section class="g-feature" id="obj-relationships">
   <h2>Relate objects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
   <p class="g-summary">Relationships connect objects across sections, for example a function under Systems that "is implemented by" a pump under Assets. A relationship shows from both sides, and removing it leaves both objects in place.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Object window → <span class="ui">Relationships</span></dd>
@@ -388,7 +389,7 @@
       <tr><td>1</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span> and click <span class="ui">Function</span> in the class tree.</td><td>Its description ("What something does…") shows under the tree.</td></tr>
       <tr><td>2</td><td>Type <code>TIC-101</code> in <span class="ui">Tag</span> and click <span class="ui">Create</span>.</td><td>TIC-101 opens in its object window.</td></tr>
       <tr><td>3</td><td>Click the <span class="ui">Relationships</span> tab.</td><td>"No relationships yet." with a drop-down <span class="ui">Add a relationship…</span>, a field "Name of the other object" and <span class="ui">Add</span>.</td></tr>
-      <tr><td>4</td><td>Choose <span class="ui">is implemented by</span>, type <code>Pump1</code> and click <span class="ui">Add</span>.</td><td>A group "is implemented by" with the count 1, holding a link <span class="ui">Pump1</span> and a <span class="ui">Remove</span> button.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">is implemented by</span>, type <code>Pump1</code> and click <span class="ui">Add</span>. (<kbd>Enter</kbd> in the name field does not add; click <span class="ui">Add</span>.)</td><td>A group "is implemented by" with the count 1, holding a link <span class="ui">Pump1</span> and a <span class="ui">Remove</span> button.</td></tr>
       <tr><td>5</td><td>In the explorer, expand TIC-101 under Systems.</td><td>Pump1 shows under it as a reference row with a link mark. Pump1 is still under Assets.</td></tr>
       <tr><td>6</td><td>Click the link <span class="ui">Pump1</span> on the tab, then open its <span class="ui">Relationships</span> tab.</td><td>Pump1 opens; the relationship shows from its side, with the inverse name and TIC-101.</td></tr>
       <tr><td>7</td><td>Right-click the reference row under TIC-101 → <span class="ui">Remove reference</span>.</td><td>The browser asks "Remove the relationship to Pump1? Both objects stay."</td></tr>
