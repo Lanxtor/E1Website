@@ -172,30 +172,31 @@
 
 <section class="g-feature" id="org-drawing-roles">
   <h2>Roles on a single drawing: Share and Mark as read-only</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span class="g-id">ORG-drawing-roles</span><span>Roadmap M2.5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ORG-drawing-roles</span><span>Roadmap M2.5, M4.31</span></div>
   <p class="g-summary">You can give someone a role on one drawing only, for example to let a subcontractor edit one sheet, or to keep others from changing a finished sheet by giving them Reviewer or Viewer on it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The sheet's page toolbar: <span class="ui">Share</span> and <span class="ui">Mark as read-only</span> (beside <span class="ui">Open</span> and <span class="ui">Export PDF</span>)</dd>
     <dt>Who</dt><dd>Project administrator</dd>
-    <dt>Before you start</dt><dd>E1 with sign-in; a project with a sheet.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in; a project with a sheet; the person is a member of the organization and holds a role on the project (Viewer is enough), or they will not see the project.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open the sheet's page (the one with the toolbar <span class="ui">Open</span>, <span class="ui">Share</span>, <span class="ui">Export PDF</span>, <span class="ui">Mark as read-only</span>) and click <span class="ui">Share</span>.</td><td>The Members dialog for the sheet, with the hint <span class="ui">Give a person or a group a role on this drawing only.</span></td></tr>
+      <tr><td>1</td><td>Open the sheet's page (the one with the toolbar <span class="ui">Open</span>, <span class="ui">Share</span>, <span class="ui">Export PDF</span>, <span class="ui">Mark as read-only</span>) and click <span class="ui">Share</span>.</td><td>The Members dialog for the sheet, with the hint <span class="ui">Give a person or a group a role on this drawing only. They also need a role on the project (Viewer is enough) to open it.</span> The roles offered are Lead engineer, Engineer, Reviewer and Viewer.</td></tr>
       <tr><td>2</td><td>Choose a person and the role <span class="ui">Engineer</span>, then <span class="ui">Give role</span>.</td><td>The list shows the person with <em>Engineer on object</em>.</td></tr>
       <tr><td>3</td><td>Close it and click <span class="ui">Mark as read-only</span>.</td><td>The dialog with the hint <span class="ui">To keep others from editing this drawing, give them Reviewer or Viewer on it: they can look and comment, not change it.</span> <span class="ui">Reviewer</span> is preselected.</td></tr>
       <tr><td>4</td><td>Give a colleague Reviewer here, then, signed in as them, try to move a symbol on that sheet.</td><td><span class="ui">Change refused</span> with the permission named.</td></tr>
     </tbody>
   </table></div>
+  <p class="g-note">Since 2026-11-07 a role on a drawing works inside what the person may do on the project: it no longer shows the project to someone without a role there, and it never includes managing the project. <span class="ui">Project administrator</span> is given on the whole project only, in <a href="#org-project-members">Members</a>. Sharing a drawing with someone who has no other role in the project comes back with project membership (<a href="#org-custom-roles">Permission categories and custom roles</a>).</p>
   <p class="g-warn">E1 can also hold a role on a section or on one object, but the app has no place to give one yet: only the project (<span class="ui">Members</span>) and a sheet (<span class="ui">Share</span>, <span class="ui">Mark as read-only</span>) can be reached.</p>
   <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-responsibility">Assign to…</a> · <a href="guide-drawing.html#draw-sheet-view">The sheet view</a></p>
 </section>
 
 <section class="g-feature" id="org-refusals">
   <h2>Why a change is refused</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span class="g-id">ORG-refusals</span><span>Roadmap M2.5, M2.9</span><span>Review check J3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ORG-refusals</span><span>Roadmap M2.5, M2.9, M4.31</span><span>Review check J3</span></div>
   <p class="g-summary">When you may not do something, E1 says so and names the permission that is missing, where it was needed, and whether your role or your license is the reason. Nothing is changed.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The status bar (<span class="ui">Change refused</span> and the reason), a red line in a dialog, a read-only cell in a list (it shows the same reason), and the Comments tab</dd>
@@ -207,6 +208,9 @@
     <li>License too small: <span class="ui">… Your &lt;License&gt; license does not include &lt;permission&gt;.</span> Ask an administrator for another license.</li>
     <li>Role waiting for a passkey: the text adds <span class="ui">Your Owner role needs a passkey: add one under Account → Passkeys (your initial at the bottom of the left rail).</span></li>
     <li>Trial ended: see <a href="#org-trials">Trials and the read-only lock</a>.</li>
+    <li>Giving a role with more than you hold: <span class="ui">You may not give &lt;role&gt; here: it includes &lt;permissions&gt;, which you do not hold here yourself.</span> Ask someone who holds them.</li>
+    <li>The last one: <span class="ui">An organization always keeps at least one Owner.</span> or <span class="ui">A project always keeps at least one Project administrator.</span> Give the role to someone else first.</li>
+    <li>Not a member: <span class="ui">Roles are given to members of the organization; invite the person first.</span></li>
   </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
