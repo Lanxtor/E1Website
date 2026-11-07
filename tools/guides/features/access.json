@@ -1,0 +1,317 @@
+[
+ {
+  "id": "ACC-browser",
+  "title": "Open E1 in the browser",
+  "summary": "Use E1 in the browser with nothing to install, on any computer or tablet.",
+  "anchor": "acc-browser",
+  "status": "available",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "ACC-sign-in",
+   "ACC-desktop-app",
+   "GS-layout",
+   "WEB-account-page"
+  ],
+  "roles": "Anyone with an E1 account",
+  "training": {
+   "topic": "Opening E1 in the browser",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "web-download.webp"
+  ]
+ },
+ {
+  "id": "ACC-desktop-app",
+  "title": "The desktop app for Windows and macOS",
+  "summary": "A desktop app for Windows and macOS that connects to your E1 server; the installers are not released yet.",
+  "anchor": "acc-desktop-app",
+  "status": "under-development",
+  "roadmap": [
+   "PR"
+  ],
+  "checks": [],
+  "related": [
+   "ACC-browser",
+   "ACC-sign-in",
+   "GS-floating-windows"
+  ],
+  "roles": "Anyone with an E1 account",
+  "training": {
+   "topic": "Installing the desktop app",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "web-download.webp"
+  ]
+ },
+ {
+  "id": "ACC-sign-in",
+  "title": "Sign in to E1",
+  "summary": "Sign in with your organization's account; the first sign-in creates your account and a personal workspace.",
+  "anchor": "acc-sign-in",
+  "status": "available",
+  "since": "2026-11-03",
+  "updated": "2026-11-07",
+  "roadmap": [
+   "M2.2"
+  ],
+  "checks": [
+   "Z2"
+  ],
+  "related": [
+   "ACC-microsoft",
+   "ACC-claim-installation",
+   "ACC-sign-in-problems",
+   "ACC-passkeys",
+   "ACC-session"
+  ],
+  "roles": "Anyone with an account at the installation's sign-in provider",
+  "training": {
+   "topic": "Signing in to E1",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ACC-microsoft",
+  "title": "Sign in with your company's Microsoft account",
+  "summary": "Sign in with your work Microsoft account where your company has connected it to E1.",
+  "anchor": "acc-microsoft",
+  "status": "available",
+  "since": "2026-11-07",
+  "roadmap": [
+   "09.4"
+  ],
+  "checks": [],
+  "related": [
+   "ACC-sign-in",
+   "ACC-passkeys",
+   "ACC-company-sso",
+   "ORG-organization-dialog"
+  ],
+  "roles": "People whose email domain is one of the company's domains in E1",
+  "training": {
+   "topic": "Sign in with Microsoft",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ACC-claim-installation",
+  "title": "Claim a new installation",
+  "summary": "The first person who signs in on a new installation becomes its owner.",
+  "anchor": "acc-claim-installation",
+  "status": "available",
+  "roadmap": [
+   "M2.2"
+  ],
+  "checks": [],
+  "related": [
+   "ACC-sign-in",
+   "ACC-passkeys"
+  ],
+  "roles": "The first person to sign in",
+  "training": {
+   "topic": "Claiming a new installation",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ACC-sign-in-problems",
+  "title": "When sign-in is refused",
+  "summary": "The messages E1 shows when it cannot let you in, and what to do.",
+  "anchor": "acc-sign-in-problems",
+  "status": "available",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "ACC-sign-in",
+   "ACC-microsoft"
+  ],
+  "roles": "Everyone signing in",
+  "training": {
+   "topic": "When sign-in is refused",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ACC-passkeys",
+  "title": "Passkeys",
+  "summary": "Sign in with your screen lock or a security key, confirm important actions, and make administrator roles take effect.",
+  "anchor": "acc-passkeys",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [],
+  "checks": [
+   "J7"
+  ],
+  "related": [
+   "ACC-step-up",
+   "ACC-sign-in",
+   "ORG-organization-dialog",
+   "ORG-project-members"
+  ],
+  "roles": "Everyone signed in on a server with sign-in",
+  "training": {
+   "topic": "Passkeys",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ACC-step-up",
+  "title": "Confirm it is you",
+  "summary": "Important actions need a sign-in younger than 15 minutes, or a passkey confirmation.",
+  "anchor": "acc-step-up",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "PR1"
+  ],
+  "checks": [
+   "J7"
+  ],
+  "related": [
+   "ACC-passkeys",
+   "ACC-session",
+   "ORG-organization-dialog"
+  ],
+  "roles": "Whoever starts an important action",
+  "training": {
+   "topic": "Confirm it is you",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ACC-session",
+  "title": "Session length, sign out and switching organization",
+  "summary": "A sign-in lasts 12 hours; sign out, and switch between your organizations.",
+  "anchor": "acc-session",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M2.9"
+  ],
+  "checks": [],
+  "related": [
+   "ACC-sign-in",
+   "ACC-step-up",
+   "GS-places"
+  ],
+  "roles": "Everyone signed in",
+  "training": {
+   "topic": "Sessions and signing out",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "place-account.webp"
+  ]
+ },
+ {
+  "id": "ACC-trial",
+  "title": "The 30-day trial",
+  "summary": "An organization of your own for 30 days; afterwards it is read-only and can still be viewed and exported.",
+  "anchor": "acc-trial",
+  "status": "available",
+  "updated": "2026-11-06",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "ACC-sign-in",
+   "ORG-organization-dialog",
+   "WEB-account-page"
+  ],
+  "roles": "Anyone LANXTOR invites to a trial",
+  "training": {
+   "topic": "The E1 trial",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ACC-store",
+  "title": "Which store and cloud E1 runs on",
+  "summary": "The status bar names where your projects are kept: Microsoft Azure, PostgreSQL or a local file.",
+  "anchor": "acc-store",
+  "status": "available",
+  "roadmap": [],
+  "checks": [
+   "Z2"
+  ],
+  "related": [
+   "GS-status-bar",
+   "ACC-cloud-deployment",
+   "ACC-browser"
+  ],
+  "roles": "Everyone who can open E1",
+  "training": {
+   "topic": "Which E1 am I in?",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "statusbar.webp"
+  ]
+ },
+ {
+  "id": "ACC-cloud-deployment",
+  "title": "E1's reference cloud",
+  "summary": "E1's own cloud on Microsoft Azure is being finished as the reference installation.",
+  "anchor": "acc-cloud-deployment",
+  "status": "under-development",
+  "roadmap": [
+   "M2.8",
+   "PR"
+  ],
+  "checks": [],
+  "related": [
+   "ACC-store",
+   "ACC-browser",
+   "GS-under-construction"
+  ],
+  "roles": "Everyone with an E1 cloud account",
+  "training": {
+   "topic": "E1's cloud",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ACC-company-sso",
+  "title": "Company single sign-on and directory sync",
+  "summary": "SAML sign-in and directory sync for companies, beyond Sign in with Microsoft.",
+  "anchor": "acc-company-sso",
+  "status": "planned",
+  "roadmap": [
+   "09.4"
+  ],
+  "checks": [],
+  "related": [
+   "ACC-microsoft",
+   "ACC-sign-in"
+  ],
+  "roles": "Companies with their own sign-in system",
+  "training": {
+   "topic": "Company single sign-on",
+   "level": "Advanced",
+   "minutes": 2
+  },
+  "screenshots": []
+ }
+]

@@ -35,13 +35,545 @@
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#objects-overview">About this guide</a></li>
+          <li><a href="#obj-new-object">Create an object</a></li>
+          <li><a href="#obj-several">Make several objects at once</a></li>
+          <li><a href="#obj-object-window">The object window and its tabs</a></li>
+          <li><a href="#obj-attributes">Fill in attributes: values, units, pick lists and required values</a></li>
+          <li><a href="#obj-sub-attributes">Sub-attributes</a></li>
+          <li><a href="#obj-add-attribute">Add an attribute to one object</a></li>
+          <li><a href="#obj-tags">Automatic tags and reference designations</a></li>
+          <li><a href="#obj-tag-dialog">Set a manual tag with Tag…</a></li>
+          <li><a href="#obj-retag">Retag… with preview</a></li>
+          <li><a href="#obj-tag-rules">Set up tag rules for a project</a></li>
+          <li><a href="#obj-relationships">Relate objects</a></li>
+          <li><a href="#obj-rename">Rename an object</a></li>
+          <li><a href="#obj-cases">Cases of an object</a></li>
+          <li><a href="#obj-move">Move an object</a></li>
+          <li><a href="#obj-void">Void an object</a></li>
+          <li><a href="#obj-delete">Delete an object, restore it, or delete it permanently</a></li>
+          <li><a href="#obj-deep-view">Deep view</a></li>
+          <li><a href="#obj-units">Units of measurement</a></li>
+          <li><a href="#obj-calculations">Calculations and copy rules on attributes</a></li>
+        </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Objects, attributes and tags</p>
         <h1>4. Objects, attributes and tags</h1>
         <p class="lead">Make equipment and other objects from library classes, fill in attributes with units, relate objects, and tag them with your project&#x27;s rules.</p>
         <div class="g-meta"><span>0 features</span><span>0 available</span><span>Guide updated 2026-11-07</span></div>
-<p>This guide is being written.</p>
+<section class="g-feature" id="objects-overview">
+  <h2>About this guide</h2>
+  <p class="g-summary">In E1 everything in the plant is an object: a pump, a valve, a function, an area, a pipe run. Each object is made from a class of the library, carries attributes with units, can be related to other objects, and gets its tag from your project's rules. Drawings, lists and datasheets all show the same objects.</p>
+  <h3>The typical workflow</h3>
+  <ol>
+    <li><a href="#obj-new-object">Create an object</a> from a section of the explorer, or <a href="#obj-several">several at once</a>.</li>
+    <li>Open it in <a href="#obj-object-window">the object window</a> and fill in <a href="#obj-attributes">its attributes</a>, with <a href="#obj-sub-attributes">sub-attributes</a> and <a href="#obj-add-attribute">attributes of your own</a>.</li>
+    <li>Read and adjust its tag: <a href="#obj-tags">automatic tags</a>, <a href="#obj-tag-dialog">a manual tag with Tag…</a>, <a href="#obj-retag">Retag… with preview</a>, and <a href="#obj-tag-rules">the project's tag rules</a>.</li>
+    <li><a href="#obj-relationships">Relate it to other objects</a>, for example a function that is implemented by a pump.</li>
+    <li><a href="#obj-rename">Rename</a>, <a href="#obj-cases">add cases</a>, <a href="#obj-move">move</a>, <a href="#obj-void">void</a> or <a href="#obj-delete">delete</a> it.</li>
+    <li>See what is coming: <a href="#obj-deep-view">Deep view</a>, <a href="#obj-units">units of measurement</a> and <a href="#obj-calculations">calculations on attributes</a>.</li>
+  </ol>
+  <h3>Before you start</h3>
+  <p>You have a project with its sections (<a href="guide-projects.html#prj-new-project">Create a project</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a>). The classes and attributes you can choose come from the library in <span class="ui">Configuration</span> (<a href="guide-library.html#lib-configuration">Configuration</a>). The examples use the demo project with pumps Pump1 to Pump3 and valves V1 to V10; on a project of your own, use your own names.</p>
+</section>
+
+<section class="g-feature" id="obj-new-object">
+  <h2>Create an object</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-06</span><span class="g-id">OBJ-new-object</span><span>Roadmap M1.5</span><span>Review checks C1, C5</span></div>
+  <p class="g-summary">Right-click a section and choose its <span class="ui">New …</span> item: a window lists the classes that may live there, you pick one, and E1 makes the object, tags it from the project's rules and opens it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click a section or a folder in it → <span class="ui">New asset…</span> (Assets), <span class="ui">New unit operation…</span>, <span class="ui">New system…</span>, <span class="ui">New process…</span>, <span class="ui">New area…</span>, <span class="ui">New document…</span> (Revisions) or <span class="ui">New task…</span> (Tasks); the same buttons are on the section's page</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A project is expanded in the explorer.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span>.</td><td>The window <span class="ui">New object in Assets</span> opens with a box <span class="ui">Search classes</span> and a tree of classes. If you have made objects before, a row <span class="ui">Recent</span> with class buttons is above the tree.</td></tr>
+      <tr><td>2</td><td>Type <code>centrifugal</code> in <span class="ui">Search classes</span>.</td><td>A flat list of matches, each with its name, description and place in the class tree ("A › B"). If nothing matches: "No class matches."</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Centrifugal pump</span>.</td><td>The chosen class and its description show under the list. If the class has published catalog items, a drop-down <span class="ui">From catalog</span> appears, starting with "No catalog item".</td></tr>
+      <tr><td>4</td><td>Leave <span class="ui">Tag</span> ("Leave empty for the tag from the rule") and <span class="ui">Name</span> ("Optional; can be changed at any time") empty.</td><td>No change yet.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Create</span> (or press <kbd>Enter</kbd> in Tag or Name).</td><td>The window closes. The new pump opens in its object window with its tag, for example <span class="ui">P-001</span>, as the heading. It appears under <span class="ui">Assets</span> in the explorer.</td></tr>
+      <tr><td>6</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span> and search <code>centrifugal pump</code>.</td><td>The window <span class="ui">New object in Systems</span> offers "Centrifugal pump tag", not the pump itself: a section only offers the classes that may live in it.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Cancel</span> (or click outside the window).</td><td>The window closes and nothing is created.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/new-asset-dialog.webp" alt="The New object in Assets window with the Search classes box, the class tree, the Tag and Name fields, the How many field, and the Cancel and Create buttons." width="1104" height="1364" loading="lazy"><figcaption>The <span class="ui">New object in Assets</span> window.</figcaption></figure>
+  <p class="g-note">Where no class may be created, the window says "No class can be created here." Under <span class="ui">Unit Operations</span> a search for "pump" offers "Pumping". Making an object from a catalog item is described in <a href="guide-library.html#lib-catalogs">Catalogs</a>. Symbols placed on a drawing also make objects: see <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a>.</p>
+  <p class="g-related">Related: <a href="#obj-several">Several at once</a> · <a href="#obj-object-window">The object window</a> · <a href="#obj-tags">Automatic tags</a> · <a href="guide-projects.html#prj-sections">The sections of a project</a> · <a href="guide-library.html#lib-catalogs">Catalogs</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
+</section>
+
+<section class="g-feature" id="obj-several">
+  <h2>Make several objects at once</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span class="g-id">OBJ-several</span></div>
+  <p class="g-summary">The <span class="ui">How many</span> field of the New object window makes up to 100 objects of one class in one go, numbered after the tag or name you type.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The New object window (for example right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span>) → <span class="ui">How many</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A project with an Assets section.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span>, search <code>gate valve</code> and click <span class="ui">Gate valve</span>.</td><td>The class is chosen.</td></tr>
+      <tr><td>2</td><td>Type <code>XV-200</code> in <span class="ui">Tag</span> and <code>3</code> in <span class="ui">How many</span>.</td><td>A <span class="ui">Numbering</span> box appears with <span class="ui">Start at</span> (1), <span class="ui">Digits</span> (2) and <span class="ui">Separator</span> (<span class="ui">Dash (-)</span>). The preview reads "Tags: XV-200-01, XV-200-02, XV-200-03". The button reads <span class="ui">Create 3</span>.</td></tr>
+      <tr><td>3</td><td>Set <span class="ui">Start at</span> to 5.</td><td>The preview reads "Tags: XV-200-05, XV-200-06, XV-200-07".</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Create 3</span>.</td><td>"Making 1 of 3…" and so on shows while it works. XV-200-05, XV-200-06 and XV-200-07 appear under Assets.</td></tr>
+      <tr><td>5</td><td>Open the window again, choose a class, leave Tag and Name empty and type 3 in <span class="ui">How many</span>.</td><td>The preview reads "3 objects, each with the next tag from the rule. Type a tag or a name to number it."</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/new-asset-centrifugal.webp" alt="The New object in Assets window after searching centrifugal: Centrifugal pump chosen, with the Tag, Name and How many fields below." width="1104" height="900" loading="lazy"><figcaption>The <span class="ui">How many</span> field under Tag and Name.</figcaption></figure>
+  <p class="g-note">A name typed instead of a tag is numbered the same way ("Names: …"). The separator can also be <span class="ui">Underscore (_)</span>, <span class="ui">Dot (.)</span>, <span class="ui">Space</span> or <span class="ui">None</span>. If E1 refuses one of the objects part-way (for example a tag that already exists), the rest are not made and the window says "<i>k</i> of <i>n</i> made; then: <i>reason</i>".</p>
+  <p class="g-related">Related: <a href="#obj-new-object">Create an object</a> · <a href="#obj-tags">Automatic tags</a></p>
+</section>
+
+<section class="g-feature" id="obj-object-window">
+  <h2>The object window and its tabs</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-06</span><span class="g-id">OBJ-object-window</span><span>Roadmap M1.5</span><span>Review checks C1, F1, H1, H3</span></div>
+  <p class="g-summary">Every object opens in a window of its own, as a tab: a header with its class, tag, name and actions, and seven tabs for its attributes, relationships, datasheet, files, comments and history.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Double-click an object in the explorer; right-click it → <span class="ui">Open</span>; right-click its symbol on a sheet → <span class="ui">Object properties</span>; it also opens by itself after <span class="ui">Create</span></dd>
+    <dt>Who</dt><dd>Anyone who can open the project; editing needs a role that may edit objects</dd>
+    <dt>Before you start</dt><dd>The project has an object, for example Pump1.</dd>
+  </dl>
+  <h3>The header</h3>
+  <ul>
+    <li>The heading (tag, or the name when there is no tag), then the class name, "· <i>class key</i> · version N".</li>
+    <li>The fields <span class="ui">Tag</span> (for tagged classes) and <span class="ui">Name</span>. <kbd>Enter</kbd> or leaving the field saves; <kbd>Esc</kbd> brings back the old text.</li>
+    <li>"Id …", a fixed identifier that never changes.</li>
+    <li>The buttons <span class="ui">New task…</span>, <span class="ui">Export</span> (the attributes as an Excel file) and <span class="ui">Export PDF</span>.</li>
+    <li>"Cases: none yet" with <span class="ui">New case</span> (see <a href="#obj-cases">Cases</a>).</li>
+    <li>The tag state, for example "Tag from the rule", with a <span class="ui">Tag…</span> button (see <a href="#obj-tag-dialog">Tag…</a>).</li>
+    <li>For an object made from a catalog item: "From catalog: …" with <span class="ui">Re-apply…</span> and <span class="ui">Detach</span>.</li>
+  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Double-click <span class="ui">Pump1</span> in the explorer.</td><td>A tab "Pump1" opens with the heading "Pump1" and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Attachments</span>, <span class="ui">Comments</span>, <span class="ui">History</span>. Because Centrifugal pump has a datasheet design, the <span class="ui">Data sheet</span> tab is shown ("Datasheet of Pump1"); for a class without one, <span class="ui">Attributes</span> is shown.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Attributes</span>, then press the <kbd>→</kbd> key.</td><td><span class="ui">Relationships</span> is selected. <kbd>←</kbd>, <kbd>Home</kbd> and <kbd>End</kbd> also move between tabs.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Attachments</span>, then double-click <span class="ui">Pump2</span> in the explorer.</td><td>Pump2 opens on <span class="ui">Attachments</span> too: the window opens on the tab you chose last.</td></tr>
+      <tr><td>4</td><td>Click in <span class="ui">Name</span>, type a new name and press <kbd>Esc</kbd>.</td><td>The old name is back; nothing is saved.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Export</span>.</td><td>An Excel file with the object's attributes is downloaded.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/object-page.webp" alt="The object window of Pump1 opened by a double-click in the explorer: the header with class, Tag and Name, the buttons, and the tab row with the Data sheet tab selected showing the pump's datasheet." width="2160" height="1350" loading="lazy"><figcaption>Pump1 in its object window, on the <span class="ui">Data sheet</span> tab.</figcaption></figure>
+  <p class="g-note">The tabs are described in their own guides: <a href="#obj-attributes">Attributes</a>, <a href="#obj-relationships">Relationships</a>, <a href="#obj-deep-view">Deep view</a>, <a href="guide-documents.html#doc-datasheet">Data sheet</a>, <a href="guide-collaboration.html#col-comments">Comments</a> and <a href="guide-collaboration.html#col-history">History</a>. On <span class="ui">Attachments</span> you add files with <span class="ui">Add files…</span> or by dropping them on the tab; each file has <span class="ui">Open</span> and <span class="ui">Remove</span>, and a PDF is previewed in the tab.</p>
+  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="guide-documents.html#doc-datasheet">Datasheet</a> · <a href="guide-collaboration.html#col-history">History</a> · <a href="guide-collaboration.html#col-comments">Comments</a> · <a href="guide-collaboration.html#col-tasks">Tasks</a></p>
+</section>
+
+<section class="g-feature" id="obj-attributes">
+  <h2>Fill in attributes: values, units, pick lists and required values</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-attributes</span><span>Roadmap M1.5</span><span>Review checks C1, C2</span></div>
+  <p class="g-summary">The <span class="ui">Attributes</span> tab lists everything the object's class says about it, grouped in sections. You type numbers with their unit, choose from pick lists, and see at once which required values are still missing.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Object window → <span class="ui">Attributes</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A new Centrifugal pump (see <a href="#obj-new-object">Create an object</a>).</dd>
+  </dl>
+  <h3>What is on the tab</h3>
+  <ul>
+    <li>A box <span class="ui">Filter attributes</span> (<kbd>Esc</kbd> clears it; with no match: "No attribute matches."), a drop-down with <span class="ui">All attributes</span>, <span class="ui">With a value</span>, <span class="ui">Without a value</span> and <span class="ui">Required, missing</span>, and the buttons <span class="ui">Expand all</span> and <span class="ui">Collapse all</span>.</li>
+    <li>A count such as "148 attributes · 0 with a value · 2 required missing".</li>
+    <li>One collapsible section per group of the class (for example <span class="ui">General</span>, <span class="ui">Process</span>), each with its count and "N missing", then a section <span class="ui">Attributes of this object</span>. The first section is open; others with more than 12 attributes start collapsed.</li>
+    <li>The columns <span class="ui">Attribute</span>, <span class="ui">Value</span>, <span class="ui">Unit</span> and <span class="ui">Comment</span>.</li>
+  </ul>
+  <h3>How values are entered</h3>
+  <div class="g-table-wrap"><table>
+    <thead><tr><th>Kind of value</th><th>Control</th></tr></thead>
+    <tbody>
+      <tr><td>Yes / no</td><td>A drop-down with Yes and No</td></tr>
+      <tr><td>Choice, or a closed pick list</td><td>A drop-down</td></tr>
+      <tr><td>Open pick list</td><td>A text field that suggests the list's values</td></tr>
+      <tr><td>Date</td><td>A date field</td></tr>
+      <tr><td>Number or quantity</td><td>A text field; a quantity has a <span class="ui">Unit</span> drop-down beside it</td></tr>
+      <tr><td>Data series</td><td>"N rows · columns" with a chart and editable rows</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open the new pump on <span class="ui">Attributes</span>.</td><td><span class="ui">Design pressure</span> and <span class="ui">Flow rate</span> are marked <span class="ui">Required</span> and highlighted as missing; the <span class="ui">Process</span> section shows "2 missing".</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Required, missing</span> in the drop-down.</td><td>Only the rows with a missing required value are listed.</td></tr>
+      <tr><td>3</td><td>Set the drop-down back to <span class="ui">All attributes</span>. On the <span class="ui">Flow rate</span> row type <code>40</code> in <span class="ui">Value</span> and press <kbd>Enter</kbd>.</td><td>The <span class="ui">Required</span> mark disappears; the unit shows m³/h. The count of missing values goes down by one.</td></tr>
+      <tr><td>4</td><td>On <span class="ui">Design pressure</span> type <code>10</code> and choose <code>bar(g)</code> in its <span class="ui">Unit</span> drop-down.</td><td>The value is kept as 10 bar(g); after a reload it still shows 10 bar(g).</td></tr>
+      <tr><td>5</td><td>Type <code>pressure</code> in <span class="ui">Filter attributes</span>.</td><td>Only rows whose name contains "pressure" remain. <kbd>Esc</kbd> clears the filter.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Collapse all</span>, then <span class="ui">Expand all</span>.</td><td>All sections close, then all open.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/object-new-pump.webp" alt="The new pump P-001 on its Attributes tab: the filter box, the All attributes drop-down, Expand all and Collapse all, the General section, and the Process section with 2 missing and Design pressure marked Required with bar(g) as its unit and the sub-rows In and Out." width="2160" height="1350" loading="lazy"><figcaption>A new pump: <span class="ui">Design pressure</span> is marked <span class="ui">Required</span>.</figcaption></figure>
+  <p class="g-note">Units offered for pressure: Pa, Pa(g), kPa, kPa(g), MPa, MPa(g), bar, bar(g), psi, psi(g), atm, atm(g); for temperature: °C, K, °F; volume flow includes m³/h. A value that is no longer in its pick list stays shown as "<i>value</i> (not in the list)". When the class has a newer version that no longer takes some values, they are listed under "Retired values (…)" with a <span class="ui">Discard</span> button each.</p>
+  <p class="g-warn">Choose the unit in the <span class="ui">Unit</span> drop-down. Whether typing "10 bar(g)" into the value field is understood was not verified. Real units of measurement (converting between units, choosing the units shown) are planned: see <a href="#obj-units">Units of measurement</a>.</p>
+  <p class="g-related">Related: <a href="#obj-sub-attributes">Sub-attributes</a> · <a href="#obj-add-attribute">Add an attribute</a> · <a href="#obj-object-window">The object window</a> · <a href="#obj-units">Units of measurement</a> · <a href="guide-documents.html#doc-datasheet">Datasheet</a></p>
+</section>
+
+<section class="g-feature" id="obj-sub-attributes">
+  <h2>Sub-attributes</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-sub-attributes</span><span>Roadmap M1.5</span></div>
+  <p class="g-summary">An attribute can have sub-attributes, for example <span class="ui">Design pressure</span> with <span class="ui">In</span> and <span class="ui">Out</span>. They are indented under their parent row, and you can add your own to one object.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Object window → <span class="ui">Attributes</span> → a row with a chevron or a <span class="ui">+</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A Centrifugal pump is open on <span class="ui">Attributes</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Look at the <span class="ui">Design pressure</span> row.</td><td>It has a chevron <span class="ui">Collapse Design pressure</span> and the indented rows <span class="ui">In</span> and <span class="ui">Out</span>, each with its own value and unit.</td></tr>
+      <tr><td>2</td><td>Click the chevron.</td><td>The sub-rows are hidden; the chevron now reads <span class="ui">Expand Design pressure</span>.</td></tr>
+      <tr><td>3</td><td>Expand it again and type a value under <span class="ui">In</span>, then press <kbd>Enter</kbd>.</td><td>The value is saved on the sub-row.</td></tr>
+      <tr><td>4</td><td>On a row that shows <span class="ui">+</span> (for example <span class="ui">Type note</span>), click <span class="ui">+</span> (<span class="ui">Add sub-attribute to Type note</span>).</td><td>E1 asks "Name of the new sub-attribute of Type note".</td></tr>
+      <tr><td>5</td><td>Type a name and confirm.</td><td>A new indented row with that name appears under the parent.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/object-tab-attributes.webp" alt="Pump1 with the Attributes tab selected in the Object views tab row, showing attribute sections with rows, values, units and comments." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Attributes</span> tab of Pump1.</figcaption></figure>
+  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-add-attribute">Add an attribute</a></p>
+</section>
+
+<section class="g-feature" id="obj-add-attribute">
+  <h2>Add an attribute to one object</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-add-attribute</span><span>Roadmap M1.5</span></div>
+  <p class="g-summary">When one object needs something its class does not have, add a library attribute or a free text attribute to that object only. It appears in the section <span class="ui">Attributes of this object</span>.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Object window → <span class="ui">Attributes</span> → foot of <span class="ui">Attributes of this object</span> → <span class="ui">Add attribute…</span></dd>
+    <dt>Who</dt><dd>The permission to add attributes to objects</dd>
+    <dt>Before you start</dt><dd>An object is open on <span class="ui">Attributes</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Scroll to the section <span class="ui">Attributes of this object</span>.</td><td>With nothing added yet it says "This object has no attributes beyond its class." Below is the drop-down <span class="ui">Add attribute…</span>.</td></tr>
+      <tr><td>2</td><td>Open <span class="ui">Add attribute…</span>.</td><td>Library attributes the class does not have, each as "<i>name</i> · <i>kind</i>", and at the end <span class="ui">Free text attribute…</span>.</td></tr>
+      <tr><td>3</td><td>Pick a library attribute.</td><td>A new row with it appears under <span class="ui">Attributes of this object</span>.</td></tr>
+      <tr><td>4</td><td>Open <span class="ui">Add attribute…</span> again → <span class="ui">Free text attribute…</span>, type a name and confirm.</td><td>E1 asked "Name of the new attribute"; a text row with that name appears.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Without the permission, the drop-down is replaced by "Adding an attribute to one object needs the permission to add attributes to objects." To add an attribute to every object of a class, change the class in the company library (<a href="guide-library.html#lib-company-library">Company library</a>).</p>
+  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-sub-attributes">Sub-attributes</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
+</section>
+
+<section class="g-feature" id="obj-tags">
+  <h2>Automatic tags and reference designations</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-tags</span><span>Roadmap M1.7</span><span>Review checks B3, C4, K2</span></div>
+  <p class="g-summary">A new object gets its tag from the project's tag rules at once, for example P-001, P-002 for pumps, and its reference designation (such as -P) shows in the explorer. When an input of the rule changes, the tag is marked out of date instead of changing behind your back.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The heading and tag state of the object window; the explorer row</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A project with the default tag rules.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Create a Centrifugal pump under <span class="ui">Assets</span> with Tag and Name empty.</td><td>It is tagged <span class="ui">P-001</span> (or the next free number). The header shows "Tag from the rule". In the explorer the designation "-P" shows at the end of its row.</td></tr>
+      <tr><td>2</td><td>Create a second pump the same way.</td><td>It is tagged with the next number, for example <span class="ui">P-002</span>.</td></tr>
+      <tr><td>3</td><td>On the first pump's <span class="ui">Attributes</span> tab, change <span class="ui">Short code</span> (for example to <code>PA</code>) and press <kbd>Enter</kbd>.</td><td>The tag stays as it was; the header shows "Tag out of date: an input changed" and the explorer row is marked "Tag out of date: an input of its tag rule changed".</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The tag states are "Tag from the rule", "Tag pending: an input is missing", "Tag out of date: an input changed" and "Manual tag". Whether a changed input only marks the tag or retags at once is an option of the <a href="#obj-tag-rules">tag rules</a> (default: mark it out of date). Bring out-of-date tags up to date with <a href="#obj-retag">Retag…</a>. An ISA pressure gauge placed on a drawing is tagged PG-001.</p>
+  <p class="g-related">Related: <a href="#obj-tag-dialog">Tag…</a> · <a href="#obj-retag">Retag…</a> · <a href="#obj-tag-rules">Tag rules</a> · <a href="#obj-new-object">Create an object</a></p>
+</section>
+
+<section class="g-feature" id="obj-tag-dialog">
+  <h2>Set a manual tag with Tag…</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-tag-dialog</span><span>Roadmap M1.7</span><span>Review check C4</span></div>
+  <p class="g-summary">The <span class="ui">Tag…</span> dialog shows where an object's tag comes from and what the rule would give, and lets you set a tag of your own or go back to the rule's tag.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click an object in the explorer → <span class="ui">Tag…</span>; the <span class="ui">Tag…</span> button in the object window; the <span class="ui">Tag</span> tool of the drawing toolbar or <span class="ui">Insert</span> → <span class="ui">Tag</span> (then click a symbol)</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>Two pumps tagged P-001 and P-002 (see <a href="#obj-tags">Automatic tags</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click P-001 → <span class="ui">Tag…</span>.</td><td>A dialog "Tag of P-001" with <span class="ui">State</span> "From the rule", <span class="ui">Designation</span>, <span class="ui">The rule gives</span> and a field <span class="ui">Manual tag</span>. <span class="ui">Set tag</span> is disabled while the field is empty or unchanged.</td></tr>
+      <tr><td>2</td><td>Type <code>P-002</code> and click <span class="ui">Set tag</span>.</td><td>Refused with the message "P-002 is already the tag of …". The tag is unchanged.</td></tr>
+      <tr><td>3</td><td>Type <code>P-500</code> and click <span class="ui">Set tag</span>.</td><td>The dialog closes. The pump is P-500 in the explorer and the window header shows "Manual tag".</td></tr>
+      <tr><td>4</td><td>Open <span class="ui">Tag…</span> again.</td><td>State "Manual". Because the rule now gives another tag, the button <span class="ui">Use the rule's tag</span> is shown; clicking it gives the pump the rule's tag again.</td></tr>
+      <tr><td>5</td><td>On a sheet, select one pump symbol and click <span class="ui">Tag</span> in the drawing toolbar.</td><td>The Tag dialog of that pump opens. With nothing selected the hint reads "Click the symbol to tag." and the next symbol you click opens.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/tree-menu-object.webp" alt="The right-click menu of Pump1 in the explorer with Open, Data sheet, Rename, Tag…, Place on drawing…, New case, Query with a submenu arrow, Void and Delete." width="502" height="684" loading="lazy"><figcaption>Right-click an object: <span class="ui">Tag…</span> is the fourth item.</figcaption></figure>
+  <p class="g-note"><span class="ui">Cancel</span> closes the dialog without a change. Other states you may see: "Pending: an input is missing", "Out of date: an input changed" and "Named" (an object without a tag).</p>
+  <p class="g-related">Related: <a href="#obj-tags">Automatic tags</a> · <a href="#obj-retag">Retag…</a> · <a href="#obj-tag-rules">Tag rules</a></p>
+</section>
+
+<section class="g-feature" id="obj-retag">
+  <h2>Retag… with preview</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-retag</span><span>Roadmap M1.7</span><span>Review check C4</span></div>
+  <p class="g-summary"><span class="ui">Retag…</span> gives objects the tags their rules give now. It shows every old and new tag first, and changes nothing until you click <span class="ui">Retag</span>.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer header → <span class="ui">More explorer actions</span> (…) → <span class="ui">Retag…</span> (for the selected project, or the first one)</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A pump whose tag is out of date (change its <span class="ui">Short code</span>, see <a href="#obj-tags">Automatic tags</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select the project, click <span class="ui">More explorer actions</span> → <span class="ui">Retag…</span>.</td><td>A dialog "Retag" with <span class="ui">Scope</span> "All objects", a check box <span class="ui">Include manual tags</span>, and the line "<i>n</i> of <i>m</i> change; <i>k</i> keep their tag."</td></tr>
+      <tr><td>2</td><td>Read the table "Retag preview".</td><td>The columns Now, New and Class; the out-of-date pump is listed with its old and new tag. Nothing has changed in the explorer yet.</td></tr>
+      <tr><td>3</td><td>Set <span class="ui">Scope</span> to "One class" and type <code>Pump</code> in <span class="ui">Class</span>.</td><td>The preview only lists pumps.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Retag</span>.</td><td>The dialog closes and the tags in the explorer change as previewed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Retag</span> stays disabled while nothing would change or while two objects would get the same tag; collisions are listed in red ("Collisions: …") and highlighted in the table. Manual tags are kept unless <span class="ui">Include manual tags</span> is ticked ("Manual tags left as they are: …"). A tag that is still pending is marked "(pending)". <span class="ui">Cancel</span> changes nothing.</p>
+  <p class="g-related">Related: <a href="#obj-tags">Automatic tags</a> · <a href="#obj-tag-rules">Tag rules</a> · <a href="#obj-tag-dialog">Tag…</a> · <a href="guide-projects.html#prj-explorer-header">Explorer header</a></p>
+</section>
+
+<section class="g-feature" id="obj-tag-rules">
+  <h2>Set up tag rules for a project</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-tag-rules</span><span>Roadmap M1.8</span><span>Review checks C3, K2</span></div>
+  <p class="g-summary">The tag configurator sets how a project's objects are tagged: rules per class built from segments (text, attributes, the owner, a running number), lookup tables and options. You see a sample tag as you build, test the rules against the project, and save.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Select one project, then <span class="ui">File</span> → <span class="ui">Project settings…</span> → <span class="ui">Tag rules</span>; or left rail <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Tag rules</span></dd>
+    <dt>Who</dt><dd>A project role that may change the project's settings</dd>
+    <dt>Before you start</dt><dd>A project with a few objects. Select only one project: with several selected the section says "Tag rules are set one project at a time. Select a single project to edit them."</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select the project and choose <span class="ui">File</span> → <span class="ui">Project settings…</span>, then go to <span class="ui">Tag rules</span>.</td><td>The text "New objects get their tags from these rules at once; existing objects change only when retagged." and a list <span class="ui">Rules</span> with the default rule.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add rule</span>.</td><td>A rule "New rule" is added and selected, with three segments (an attribute, the text "-", a running number).</td></tr>
+      <tr><td>3</td><td>Type <code>Pumps</code> in <span class="ui">Name</span> and <code>plant.class.equipment.pump</code> in <span class="ui">Applies to (class keys, comma separated; empty for the default rule)</span>.</td><td>The rule shows its name in the list.</td></tr>
+      <tr><td>4</td><td>Set <span class="ui">Segment 1 source</span> to <code>text</code> and type <code>PU</code> in its text field.</td><td>The sample tag changes to start with PU.</td></tr>
+      <tr><td>5</td><td>Set the start of segment 3 (the running number) to <code>101</code>.</td><td>The <span class="ui">Sample tag</span> reads <span class="ui">PU-101</span>.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Test against project</span>.</td><td>"<i>n</i> of <i>m</i> objects would get another tag." and a table with the columns Now, With these rules and Class. Nothing has changed yet.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Save rules</span>.</td><td>"Saved. New objects use these rules; retag to change existing tags."</td></tr>
+      <tr><td>8</td><td>Create a Centrifugal pump under <span class="ui">Assets</span>.</td><td>Its heading is <span class="ui">PU-101</span>. Existing pumps keep their tags until you use <a href="#obj-retag">Retag…</a>.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/config-project-settings.webp" alt="Configuration with the Project settings section open: the project Demo Plant ticked in the Projects list, and below it the buttons Content packages, Drawing and Tag rules, with the Content packages card shown." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Configuration</span> → <span class="ui">Project settings</span>: <span class="ui">Tag rules</span> is next to <span class="ui">Content packages</span> and <span class="ui">Drawing</span>.</figcaption></figure>
+  <h3>Options</h3>
+  <div class="g-table-wrap"><table>
+    <thead><tr><th>Option</th><th>Choices</th></tr></thead>
+    <tbody>
+      <tr><td>When an input changes</td><td>Mark the tag out of date, Retag at once</td></tr>
+      <tr><td>Numbers of deleted objects</td><td>Never reused, Reused (lowest free)</td></tr>
+      <tr><td>Comparing tags</td><td>Ignore case, Exact</td></tr>
+      <tr><td>A tag is unique in</td><td>The project, Its class family, Its rule</td></tr>
+      <tr><td>A manual tag off the pattern</td><td>Is fine, Is reported, Is refused</td></tr>
+      <tr><td>Retag after a revision is issued</td><td>Allowed, Warned, Blocked</td></tr>
+      <tr><td>Short codes</td><td>Conventional letters (P, V, TK), IEC 81346-2 letter codes (GPB, QM, CM)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The rule list has <span class="ui">Move up</span>, <span class="ui">Move down</span>, <span class="ui">Remove rule</span> and <span class="ui">Start from template</span> (the library's rules). Each segment has ↑, ↓ and ×; <span class="ui">Add segment</span> adds one. A segment's source can be text, an attribute, the owner, a related object, the project or a sequence. <span class="ui">Lookup tables</span> take one "text = replacement" per line; <span class="ui">Add table</span> makes a new one. The sample can be shown for another class with the class picker next to "Sample:".</p>
+  <div class="g-dev"><p><strong>Planned (roadmap 12.5, M6 Rules):</strong> the tag configurator will run on the same rule engine as calculations and lists, so that rules can be used everywhere and tags follow them.</p></div>
+  <p class="g-related">Related: <a href="#obj-tags">Automatic tags</a> · <a href="#obj-retag">Retag…</a> · <a href="guide-library.html#lib-configuration">Configuration</a> · <a href="#obj-calculations">Calculations</a></p>
+</section>
+
+<section class="g-feature" id="obj-relationships">
+  <h2>Relate objects</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
+  <p class="g-summary">Relationships connect objects across sections, for example a function under Systems that "is implemented by" a pump under Assets. A relationship shows from both sides, and removing it leaves both objects in place.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Object window → <span class="ui">Relationships</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A pump such as Pump1 under Assets.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span> and click <span class="ui">Function</span> in the class tree.</td><td>Its description ("What something does…") shows under the tree.</td></tr>
+      <tr><td>2</td><td>Type <code>TIC-101</code> in <span class="ui">Tag</span> and click <span class="ui">Create</span>.</td><td>TIC-101 opens in its object window.</td></tr>
+      <tr><td>3</td><td>Click the <span class="ui">Relationships</span> tab.</td><td>"No relationships yet." with a drop-down <span class="ui">Add a relationship…</span>, a field "Name of the other object" and <span class="ui">Add</span>.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">is implemented by</span>, type <code>Pump1</code> and click <span class="ui">Add</span>.</td><td>A group "is implemented by" with the count 1, holding a link <span class="ui">Pump1</span> and a <span class="ui">Remove</span> button.</td></tr>
+      <tr><td>5</td><td>In the explorer, expand TIC-101 under Systems.</td><td>Pump1 shows under it as a reference row with a link mark. Pump1 is still under Assets.</td></tr>
+      <tr><td>6</td><td>Click the link <span class="ui">Pump1</span> on the tab, then open its <span class="ui">Relationships</span> tab.</td><td>Pump1 opens; the relationship shows from its side, with the inverse name and TIC-101.</td></tr>
+      <tr><td>7</td><td>Right-click the reference row under TIC-101 → <span class="ui">Remove reference</span>.</td><td>The browser asks "Remove the relationship to Pump1? Both objects stay."</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">OK</span>.</td><td>The reference row is gone, Pump1 is still under Assets, and TIC-101 shows "No relationships yet."</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/object-tab-relationships.webp" alt="Pump1 on its Relationships tab: the text No relationships yet., the drop-down Add a relationship…, the field Name of the other object and the Add button." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Relationships</span> tab before a relationship is added.</figcaption></figure>
+  <p class="g-note">Instead of step 7 you can click <span class="ui">Remove</span> on the tab. A reference row's right-click menu has <span class="ui">Open</span> and <span class="ui">Remove reference</span>; selecting it and pressing <kbd>Delete</kbd> asks the same question. A case shows its object's relationships read-only: "A case has its object's relationships; change them on the object." Framing symbols on a drawing also relates them to a system or area (see <a href="guide-drawing.html#draw-sheet-view">the drawing guide</a>), and functions can generate a <a href="guide-drawing.html#draw-loop-diagram">loop diagram</a>.</p>
+  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-new-object">Create an object</a> · <a href="guide-drawing.html#draw-loop-diagram">Loop diagrams</a> · <a href="guide-projects.html#prj-tree-rows">Rows in the explorer</a></p>
+</section>
+
+<section class="g-feature" id="obj-rename">
+  <h2>Rename an object</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">OBJ-rename</span></div>
+  <p class="g-summary">Change an object's name in the explorer or in its window. The name is separate from the tag: an object can have both, and the explorer shows the tag when there is one.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click the object → <span class="ui">Rename</span>, or select it and press <kbd>F2</kbd>; or the <span class="ui">Name</span> field in the object window</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>An object such as Pump1.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Rename</span>.</td><td>The row turns into a text box.</td></tr>
+      <tr><td>2</td><td>Type <code>Feed pump</code> and press <kbd>Enter</kbd>.</td><td>The row shows "Feed pump", and so does its object window when you open it.</td></tr>
+      <tr><td>3</td><td>Open the object and look at <span class="ui">History</span>.</td><td>The rename is listed with the name before and after.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-tag-dialog">Tag…</a> · <a href="guide-collaboration.html#col-history">History</a></p>
+</section>
+
+<section class="g-feature" id="obj-cases">
+  <h2>Cases of an object</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">OBJ-cases</span></div>
+  <p class="g-summary">A case is a variant of an object, for example another operating condition of a pump. It takes over the object's values until you type its own, so you only enter what differs.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click the object → <span class="ui">New case</span>; or the <span class="ui">New case</span> button in the object window</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>An object with some attribute values.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">New case</span>.</td><td>A row "Case 1" appears under Pump1 in the explorer.</td></tr>
+      <tr><td>2</td><td>Open "Case 1".</td><td>Its header says "Case of Pump1". On <span class="ui">Attributes</span> the values read "Inherited".</td></tr>
+      <tr><td>3</td><td>Type a new value on one attribute and press <kbd>Enter</kbd>.</td><td>That row now reads "Own value" and has a ↺ button.</td></tr>
+      <tr><td>4</td><td>Click ↺.</td><td>The row goes back to the object's value and reads "Inherited" again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The object's own window lists its cases on the line "Cases:" ("none yet" when there are none). A case's relationships are those of its object and cannot be changed on the case.</p>
+  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a></p>
+</section>
+
+<section class="g-feature" id="obj-move">
+  <h2>Move an object</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-move</span><span>Roadmap M1.4</span></div>
+  <p class="g-summary">Drag an object to another folder or section. E1 only offers a drop where its class may live, and checks it again when you drop.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer, by drag and drop</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A folder under <span class="ui">Assets</span> (right-click Assets → <span class="ui">New folder</span>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Drag Pump1 onto the folder under <span class="ui">Assets</span>.</td><td>The folder is offered as a drop target.</td></tr>
+      <tr><td>2</td><td>Drop it.</td><td>Pump1 is now inside the folder. Its drawings and relationships are unchanged.</td></tr>
+      <tr><td>3</td><td>Drag Pump1 onto a folder under <span class="ui">Model Space</span>.</td><td>The drop is refused; nothing changes. If the server refuses a move, an alert gives the reason.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Dropping an object on an open drawing places it on that sheet instead of moving it.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-drag-drop">Drag and drop in the explorer</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
+</section>
+
+<section class="g-feature" id="obj-void">
+  <h2>Void an object</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">OBJ-void</span></div>
+  <p class="g-summary">Voiding takes an object out of use without deleting it, so that its record is kept. Voided objects go to the project's <span class="ui">Voided bin</span>, where the only action is <span class="ui">Unvoid</span>.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click an object (or a sheet or folder) → <span class="ui">Void</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>An object you can void, for example a valve.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click V2 → <span class="ui">Void</span>.</td><td>V2 is gone from Assets. A <span class="ui">Bin</span> row appears in the project.</td></tr>
+      <tr><td>2</td><td>Expand <span class="ui">Bin</span> → <span class="ui">Voided bin</span> → <span class="ui">Assets</span> and right-click V2.</td><td>Only <span class="ui">Unvoid</span> is offered. Nothing voided can be deleted.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Unvoid</span>.</td><td>V2 is back under Assets.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#obj-delete">Delete an object</a> · <a href="guide-projects.html#prj-project-bin">The project Bin</a></p>
+</section>
+
+<section class="g-feature" id="obj-delete">
+  <h2>Delete an object, restore it, or delete it permanently</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-delete</span><span>Roadmap M1.4</span><span>Review checks C7, A3</span></div>
+  <p class="g-summary">Delete moves an object to the project's Deleted bin at once, from where <span class="ui">Restore</span> brings it back and draws it again where it was. <span class="ui">Delete permanently…</span> in the bin first shows everything that goes with it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click the object → <span class="ui">Delete</span>, or select it and press <kbd>Delete</kbd>; in the bin, right-click → <span class="ui">Restore</span> or <span class="ui">Delete permanently…</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may delete objects</dd>
+    <dt>Before you start</dt><dd>An object you may delete, for example the check valve V3.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click V3 → <span class="ui">Delete</span>.</td><td>No question is asked. V3 is gone from Assets and shows under <span class="ui">Bin</span> → <span class="ui">Deleted bin</span> → <span class="ui">Assets</span>, styled as binned. The Bin row stays collapsed.</td></tr>
+      <tr><td>2</td><td>Right-click V3 in the bin → <span class="ui">Restore</span>.</td><td>V3 is back under Assets, and on its sheets where it was drawn.</td></tr>
+      <tr><td>3</td><td>Delete V3 again, then right-click it in the bin → <span class="ui">Delete permanently…</span>.</td><td>A dialog "Delete V3 permanently?" with "It leaves the deleted bin and cannot be restored.", the class (Check valve), "Objects that go with it", "Relationships" and "Placements on sheets" ("On <i>sheet</i>; the lines through it heal", or "It is on no sheet.").</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Delete permanently</span>.</td><td>V3 is gone for good. The Bin row disappears when it is empty.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/tree-menu-object.webp" alt="The right-click menu of Pump1 in the explorer; its last items are Void and Delete." width="502" height="684" loading="lazy"><figcaption><span class="ui">Void</span> and <span class="ui">Delete</span> at the end of an object's menu.</figcaption></figure>
+  <p class="g-warn">Review check C7 says "Delete an object: the preview lists what goes with it." The preview is not shown on the first <span class="ui">Delete</span>; it appears at <span class="ui">Delete permanently…</span> in the Deleted bin. To undo a delete, use <span class="ui">Restore</span>, or <span class="ui">Undo this change</span> on the History tab.</p>
+  <p class="g-note">On a drawing, deleting a selected symbol asks whether to remove only the placement or to delete the object; a deleted object lands in the same bin.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-project-bin">The project Bin</a> · <a href="#obj-void">Void an object</a> · <a href="guide-collaboration.html#col-history">History</a></p>
+</section>
+
+<section class="g-feature" id="obj-deep-view">
+  <h2>Deep view</h2>
+  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span>Updated 2026-11-06</span><span class="g-id">OBJ-deep-view</span><span>Roadmap M4</span></div>
+  <p class="g-summary">Deep view will be a graphical view of one object and what it is connected to. The tab and the menu item are there today, but they only show a placeholder.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Object window → <span class="ui">Deep view</span>; right-click a symbol on a sheet → <span class="ui">Deep view</span></dd>
+    <dt>Who</dt><dd>Everyone</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Pump1 and click the <span class="ui">Deep view</span> tab.</td><td>The heading "Deep view" and the text "A graphical view of Pump1 will be shown here. It is being designed."</td></tr>
+      <tr><td>2</td><td>On a sheet, right-click the pump's symbol → <span class="ui">Deep view</span>.</td><td>The object window opens on the same placeholder tab.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/object-tab-deep-view.webp" alt="Pump1 with the Deep view tab selected, showing the placeholder text that the graphical view is being designed." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Deep view</span> tab is a placeholder.</figcaption></figure>
+  <div class="g-dev"><p><strong>Being designed (listed under Controls that do not work yet in Help → Under construction, milestone M4).</strong> What it will show is not decided yet.</p></div>
+  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="guide-getting-started.html#gs-under-construction">Under construction</a></p>
+</section>
+
+<section class="g-feature" id="obj-units">
+  <h2>Units of measurement</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">OBJ-units</span><span>Roadmap 01.2b</span></div>
+  <p class="g-summary">Today each quantity keeps the value and the unit you chose. Real units of measurement will let you work in units, convert between them and choose the units shown.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Status bar → the units chip (<span class="ui">m</span>); the <span class="ui">Unit</span> column of the <span class="ui">Attributes</span> tab</dd>
+    <dt>Who</dt><dd>Everyone</dd>
+  </dl>
+  <div class="g-dev">
+    <p><strong>Planned (roadmap 01.2b "Units of measurement", milestone M5 Library lifecycle, not started).</strong> The units chip in the status bar already offers <span class="ui">Meters</span>, <span class="ui">Millimeters</span>, <span class="ui">Inches</span> and <span class="ui">Feet</span>, but choosing one only changes the chip and opens <span class="ui">Under construction</span>; no value is converted.</p>
+    <h3>What you will be able to do</h3>
+    <ul>
+      <li>Work in real units of measurement on attributes.</li>
+      <li>Change the units shown, with values converted.</li>
+    </ul>
+  </div>
+  <figure class="g-shot"><img src="assets/img/guides/statusbar.webp" alt="The status bar strip: Saved, the open object's name, the units chip m with a caret, the Dark chip and the store label data/db.json." width="2160" height="39" loading="lazy"><figcaption>The units chip <span class="ui">m</span> in the status bar.</figcaption></figure>
+  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="guide-getting-started.html#gs-under-construction">Under construction</a></p>
+</section>
+
+<section class="g-feature" id="obj-calculations">
+  <h2>Calculations and copy rules on attributes</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">OBJ-calculations</span><span>Roadmap 12.1, 12.2, 12.4</span></div>
+  <p class="g-summary">Attributes will be able to compute their value from other attributes, of the same object or of related objects, and to copy values from a source object, updating when the inputs change.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet</dd>
+  </dl>
+  <div class="g-dev">
+    <p><strong>Planned (milestone M6 Rules, not started).</strong></p>
+    <h3>What you will be able to do</h3>
+    <ul>
+      <li>Set a calculation on an attribute, for example power from voltage and current, and see the value update when an input changes (12.1).</li>
+      <li>Set a calculation that reads a related object, for example a motor's value from its pump (12.2).</li>
+      <li>Add check rules that report findings and can block a revision until they are fixed (12.3).</li>
+      <li>Add a copy rule that copies a value from its source object and updates it when the source changes (12.4).</li>
+      <li>See rules that come from your organization or a content package applied in a project (12.6).</li>
+    </ul>
+  </div>
+  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="#obj-tag-rules">Tag rules</a></p>
+</section>
+
         <p class="g-related">← <a href="guide-projects.html">Projects and the explorer</a> · <a href="guide-drawing.html">Drawing P&amp;IDs</a> →</p>
 
       </article>

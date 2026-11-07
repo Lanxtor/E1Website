@@ -1,0 +1,964 @@
+[
+ {
+  "id": "DRAW-sheet-view",
+  "title": "Open a sheet, zoom and pan",
+  "summary": "Open a sheet as a 2D drawing and move around it with the wheel, the zoom controls, Fit drawing, the Pan tool and Space.",
+  "anchor": "draw-sheet-view",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.2",
+   "M3.11"
+  ],
+  "checks": [
+   "B1"
+  ],
+  "related": [
+   "DRAW-toolbar",
+   "DRAW-aids",
+   "GS-shortcuts",
+   "GS-layout"
+  ],
+  "roles": "Anyone who can open the project",
+  "training": {
+   "topic": "Finding your way around a sheet",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "menu-view.webp"
+  ]
+ },
+ {
+  "id": "DRAW-toolbar",
+  "title": "The drawing toolbar and the formatting bar",
+  "summary": "The three rows above the sheet: what to add, the editing tools, and text and line formatting.",
+  "anchor": "draw-toolbar",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.3",
+   "M3.11"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-sheet-view",
+   "DRAW-place-symbol",
+   "DRAW-connector"
+  ],
+  "roles": "Everyone sees it; editing needs edit rights on the drawing",
+  "training": {
+   "topic": "A tour of the drawing toolbar",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "sheet-toolbar.webp"
+  ]
+ },
+ {
+  "id": "DRAW-aids",
+  "title": "Snap, Grid and Ortho",
+  "summary": "Turn the grid, snapping onto nozzles and horizontal-or-vertical lines on and off, kept per person.",
+  "anchor": "draw-aids",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.3"
+  ],
+  "checks": [
+   "B4"
+  ],
+  "related": [
+   "DRAW-connector",
+   "DRAW-sheet-view"
+  ],
+  "roles": "Everyone; the setting is per person",
+  "training": {
+   "topic": "Snap, Grid and Ortho",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "menu-view.webp"
+  ]
+ },
+ {
+  "id": "DRAW-place-symbol",
+  "title": "Place a symbol",
+  "summary": "Place equipment, valves and instruments from the Add asset window; each symbol becomes a new object with its next free name or tag.",
+  "anchor": "draw-place-symbol",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.11",
+   "M1.1b"
+  ],
+  "checks": [
+   "B2",
+   "B3",
+   "A3"
+  ],
+  "related": [
+   "DRAW-object-types",
+   "DRAW-connector",
+   "DRAW-standards",
+   "OBJ-tags",
+   "OBJ-tag-rules",
+   "OBJ-new-object",
+   "DRAW-drop-from-explorer"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Placing symbols",
+   "level": "Beginner",
+   "minutes": 5
+  },
+  "screenshots": [
+   "asset-window.webp"
+  ]
+ },
+ {
+  "id": "DRAW-object-types",
+  "title": "Add other objects with the Object button",
+  "summary": "Make unit operations, systems, processes and areas from the drawing toolbar's Object type menu.",
+  "anchor": "draw-object-types",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-place-symbol",
+   "DRAW-frames",
+   "PRJ-sections",
+   "OBJ-new-object"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "The Object button and its types",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-connector",
+  "title": "Draw pipes, signals and cables with Connector",
+  "summary": "Draw flow lines, cables, wires and logic signals point by point; every line is an object that connects what it touches.",
+  "anchor": "draw-connector",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.3",
+   "M3.11"
+  ],
+  "checks": [
+   "B4",
+   "A3"
+  ],
+  "related": [
+   "DRAW-connection-rules",
+   "DRAW-place-symbol",
+   "DRAW-flow-arrows",
+   "DRAW-line-style",
+   "DRAW-highlight-flow",
+   "DRAW-aids"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Drawing pipes and signals",
+   "level": "Beginner",
+   "minutes": 5
+  },
+  "screenshots": [
+   "connector-on.webp"
+  ]
+ },
+ {
+  "id": "DRAW-connection-rules",
+  "title": "Connection rules: one pipe per nozzle, lines that follow and heal",
+  "summary": "A nozzle takes one pipe end, lines follow moved symbols, and deleting an inline symbol joins the line again.",
+  "anchor": "draw-connection-rules",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.1"
+  ],
+  "checks": [
+   "B4",
+   "A3"
+  ],
+  "related": [
+   "DRAW-connector",
+   "DRAW-delete",
+   "DRAW-arrange"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "How connections stay correct",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-select",
+  "title": "Select symbols, lines and notes",
+  "summary": "Select with a click, Shift-click or Ctrl-click, a frame, a double-click on a run, or Select all.",
+  "anchor": "draw-select",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-05",
+  "roadmap": [
+   "M3.3"
+  ],
+  "checks": [
+   "B5"
+  ],
+  "related": [
+   "DRAW-arrange",
+   "DRAW-clipboard",
+   "DRAW-delete"
+  ],
+  "roles": "Anyone who can open the project",
+  "training": {
+   "topic": "Selecting on the sheet",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "sheet-selected.webp"
+  ]
+ },
+ {
+  "id": "DRAW-arrange",
+  "title": "Move, flip, resize and align",
+  "summary": "Move symbols with their lines, flip them, resize them with grips and align, distribute or match their size.",
+  "anchor": "draw-arrange",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.3"
+  ],
+  "checks": [
+   "B5"
+  ],
+  "related": [
+   "DRAW-select",
+   "DRAW-connection-rules",
+   "DRAW-symbol-menu"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Arranging symbols",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-clipboard",
+  "title": "Undo, redo, copy, paste and duplicate",
+  "summary": "Copy, paste and duplicate make new objects with new tags; undo and redo work step by step across the project.",
+  "anchor": "draw-clipboard",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-05",
+  "roadmap": [
+   "M3.4"
+  ],
+  "checks": [
+   "A4",
+   "B5"
+  ],
+  "related": [
+   "DRAW-select",
+   "DRAW-delete",
+   "COL-history"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Copy, paste and undo on the drawing",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "menu-edit.webp"
+  ]
+ },
+ {
+  "id": "DRAW-delete",
+  "title": "Delete on the drawing: the placement or the object",
+  "summary": "Remove a symbol from this drawing only, or delete its object to the Deleted bin.",
+  "anchor": "draw-delete",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [
+   "A3",
+   "C7"
+  ],
+  "related": [
+   "DRAW-connection-rules",
+   "DRAW-clipboard",
+   "PRJ-sections"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Deleting on the drawing",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-tags-labels",
+  "title": "Tags, names and line numbers on the sheet",
+  "summary": "Symbols show their tags, pipe runs their line numbers; drag and rotate the labels and tag a symbol with the Tag tool.",
+  "anchor": "draw-tags-labels",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.10",
+   "M1.7"
+  ],
+  "checks": [
+   "B3"
+  ],
+  "related": [
+   "OBJ-tags",
+   "OBJ-tag-rules",
+   "DRAW-text",
+   "DRAW-layers"
+  ],
+  "roles": "Everyone sees labels; moving them and tagging need edit rights",
+  "training": {
+   "topic": "Tags and line numbers on the sheet",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "menu-insert.webp"
+  ]
+ },
+ {
+  "id": "DRAW-text",
+  "title": "Text notes and text formatting",
+  "summary": "Place text notes and format notes and symbol names: font, colour, bold, italic, underline, strikethrough, size and rotation.",
+  "anchor": "draw-text",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [
+   "B8"
+  ],
+  "related": [
+   "DRAW-line-style",
+   "DRAW-tags-labels",
+   "DRAW-toolbar"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Text notes and formatting",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "sheet-toolbar.webp"
+  ]
+ },
+ {
+  "id": "DRAW-line-style",
+  "title": "Line style, thickness and colour",
+  "summary": "Set a selected line's thickness, colour and solid or dashed pattern.",
+  "anchor": "draw-line-style",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [
+   "B8"
+  ],
+  "related": [
+   "DRAW-text",
+   "DRAW-connector"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Line styles",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-flow-arrows",
+  "title": "Flow arrows, flow direction and line crossings",
+  "summary": "Flow arrows show the direction of flow lines; flip a line's direction, and choose gaps or line jumps at crossings.",
+  "anchor": "draw-flow-arrows",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [
+   "B4"
+  ],
+  "related": [
+   "DRAW-connector",
+   "DRAW-highlight-flow",
+   "LIB-configuration"
+  ],
+  "roles": "Editor license; the crossing style needs a role that may change project settings",
+  "training": {
+   "topic": "Flow arrows and crossings",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-highlight-flow",
+  "title": "Highlight flow",
+  "summary": "Trace where a line's or a symbol's flow goes, optionally through pumps and compressors and across sheets.",
+  "anchor": "draw-highlight-flow",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-05",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [
+   "B9"
+  ],
+  "related": [
+   "DRAW-off-page",
+   "DRAW-flow-arrows",
+   "DRAW-symbol-menu"
+  ],
+  "roles": "Anyone who can open the project",
+  "training": {
+   "topic": "Highlighting flow",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": [
+   "flow-highlight.webp"
+  ]
+ },
+ {
+  "id": "DRAW-layers",
+  "title": "Layers",
+  "summary": "Hide process, instrumentation, electrical or annotation content of a sheet for yourself.",
+  "anchor": "draw-layers",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.10"
+  ],
+  "checks": [
+   "B6"
+  ],
+  "related": [
+   "DRAW-tags-labels",
+   "DRAW-toolbar",
+   "DRAW-redlining",
+   "DRAW-cad-import"
+  ],
+  "roles": "Everyone; the setting is per person and per sheet",
+  "training": {
+   "topic": "Layers",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "layers-menu.webp"
+  ]
+ },
+ {
+  "id": "DRAW-frames",
+  "title": "System and area frames",
+  "summary": "Draw a rectangle, circle or freehand frame so the symbols inside belong to a system or area.",
+  "anchor": "draw-frames",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-object-types",
+   "OBJ-relationships",
+   "PRJ-sections"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "System and area frames",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-off-page",
+  "title": "Off-page connectors and Continue on sheet",
+  "summary": "Carry a line to another sheet with paired off-page connectors, jump between them, connect, disconnect and continue on a new sheet.",
+  "anchor": "draw-off-page",
+  "status": "available",
+  "since": "2026-11-06",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [
+   "B9"
+  ],
+  "related": [
+   "DRAW-highlight-flow",
+   "DRAW-place-symbol",
+   "DRAW-pipelines",
+   "LIB-company-library"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Off-page connectors",
+   "level": "Intermediate",
+   "minutes": 5
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-symbol-menu",
+  "title": "The right-click menus on the sheet, and Replace",
+  "summary": "The grouped right-click menus of symbols, lines and empty sheet, and Replace, which swaps a symbol and keeps the object.",
+  "anchor": "draw-symbol-menu",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [
+   "B4",
+   "B5",
+   "H5"
+  ],
+  "related": [
+   "DRAW-comment-here",
+   "DRAW-highlight-flow",
+   "DRAW-arrange",
+   "OBJ-object-window",
+   "DOC-datasheet"
+  ],
+  "roles": "Everyone; editing items need edit rights",
+  "training": {
+   "topic": "Right-click menus and Replace",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "symbol-menu.webp"
+  ]
+ },
+ {
+  "id": "DRAW-comment-here",
+  "title": "Comment here: pin a comment on the drawing",
+  "summary": "Pin a comment on a symbol; the object needs review until the comment is resolved.",
+  "anchor": "draw-comment-here",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.8"
+  ],
+  "checks": [
+   "H5"
+  ],
+  "related": [
+   "COL-comments",
+   "COL-tasks",
+   "DRAW-symbol-menu"
+  ],
+  "roles": "Anyone who may comment in the project",
+  "training": {
+   "topic": "Comments pinned on the drawing",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "pin-form.webp",
+   "pin-needs-review.webp"
+  ]
+ },
+ {
+  "id": "DRAW-standards",
+  "title": "ISA 5.1 and ISO 10628 symbols",
+  "summary": "Browse the shapes by standard in Configuration → Shapes and filter the Add asset window by standard.",
+  "anchor": "draw-standards",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.12"
+  ],
+  "checks": [
+   "B7",
+   "B2"
+  ],
+  "related": [
+   "DRAW-place-symbol",
+   "LIB-configuration",
+   "DRAW-symbol-designer"
+  ],
+  "roles": "Everyone can browse",
+  "training": {
+   "topic": "Symbol standards",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "config-shapes.webp"
+  ]
+ },
+ {
+  "id": "DRAW-drop-from-explorer",
+  "title": "Drop an object from the explorer onto the sheet or a line",
+  "summary": "Drag an existing object from the explorer onto a sheet; dropped on a pipe, it goes into the line.",
+  "anchor": "draw-drop-from-explorer",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-05",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-place-symbol",
+   "OBJ-new-object",
+   "OBJ-attributes"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Placing existing objects",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-predictive",
+  "title": "Predictive mode: Let Alex help",
+  "summary": "Alex reviews the drawing as you work and offers the next symbols as ghosts to accept or ignore, locally without the cloud.",
+  "anchor": "draw-predictive",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.11"
+  ],
+  "checks": [],
+  "related": [
+   "AI-alex",
+   "DRAW-patterns",
+   "DRAW-place-symbol"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Drawing with Alex's suggestions",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": [
+   "alex-on.webp"
+  ]
+ },
+ {
+  "id": "DRAW-patterns",
+  "title": "Engineering patterns",
+  "summary": "Draw a redundant pump train, an instrument tap or a motor feeder at once, placed, routed and checked.",
+  "anchor": "draw-patterns",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "02.2"
+  ],
+  "checks": [
+   "I7",
+   "I8"
+  ],
+  "related": [
+   "AI-cloud-ai",
+   "GS-command-palette",
+   "DRAW-predictive"
+  ],
+  "roles": "Editor license; Cloud AI turned on for the chat",
+  "training": {
+   "topic": "Engineering patterns",
+   "level": "Advanced",
+   "minutes": 4
+  },
+  "screenshots": [
+   "palette-open.webp"
+  ]
+ },
+ {
+  "id": "DRAW-loop-diagram",
+  "title": "Generated loop diagrams",
+  "summary": "Generate a control function's loop diagram from the model, move symbols by hand, and regenerate while keeping your moves.",
+  "anchor": "draw-loop-diagram",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "06.4"
+  ],
+  "checks": [
+   "E5",
+   "E6"
+  ],
+  "related": [
+   "OBJ-relationships",
+   "OBJ-new-object",
+   "DRAW-connector",
+   "DOC-sheet-pdf"
+  ],
+  "roles": "Editor license; a project role that may edit the project",
+  "training": {
+   "topic": "Generated loop diagrams",
+   "level": "Advanced",
+   "minutes": 6
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-symbol-designer",
+  "title": "Symbol designer and Modify shape…",
+  "summary": "Draw and publish your own symbols, and adapt a placed symbol for one project with Modify shape….",
+  "anchor": "draw-symbol-designer",
+  "status": "planned",
+  "roadmap": [
+   "21.2"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-standards",
+   "DRAW-svg-import",
+   "DRAW-symbol-versions",
+   "LIB-company-library"
+  ],
+  "roles": "Library editors",
+  "training": {
+   "topic": "The symbol designer",
+   "level": "Advanced",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-attribute-labels",
+  "title": "Attribute labels on symbols",
+  "summary": "Show attribute values as labels beside a symbol that update with the model.",
+  "anchor": "draw-attribute-labels",
+  "status": "planned",
+  "roadmap": [
+   "21.3"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-tags-labels",
+   "OBJ-attributes"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Attribute labels",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-svg-import",
+  "title": "SVG import into the symbol designer",
+  "summary": "Import existing symbol drawings as SVG files into the symbol designer.",
+  "anchor": "draw-svg-import",
+  "status": "planned",
+  "roadmap": [
+   "21.4"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-symbol-designer"
+  ],
+  "roles": "Library editors",
+  "training": {
+   "topic": "Importing SVG symbols",
+   "level": "Advanced",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-symbol-versions",
+  "title": "Symbol versions on placements",
+  "summary": "Placements remember their shape version and are upgraded with a preview.",
+  "anchor": "draw-symbol-versions",
+  "status": "planned",
+  "roadmap": [
+   "21.5"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-symbol-designer",
+   "LIB-company-library"
+  ],
+  "roles": "Library editors; project editors to upgrade",
+  "training": {
+   "topic": "Symbol versions",
+   "level": "Advanced",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-pipelines",
+  "title": "Pipelines and completeness checks",
+  "summary": "Group pipe runs into pipelines across sheets, select them whole and find incomplete ones.",
+  "anchor": "draw-pipelines",
+  "status": "planned",
+  "roadmap": [
+   "13.1",
+   "13.2"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-connector",
+   "DRAW-off-page",
+   "DRAW-pipe-classes"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Pipelines",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-pipe-classes",
+  "title": "Pipe classes",
+  "summary": "Give each pipeline its piping specification: material, rating and allowed components.",
+  "anchor": "draw-pipe-classes",
+  "status": "planned",
+  "roadmap": [
+   "13.3"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-pipelines",
+   "DRAW-line-list"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Pipe classes",
+   "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-line-list",
+  "title": "Pipe schedule (line list)",
+  "summary": "A line list of the project's pipelines, kept up to date from the drawing.",
+  "anchor": "draw-line-list",
+  "status": "planned",
+  "roadmap": [
+   "13.4"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-pipelines",
+   "LIST-new-query"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "The line list",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-dexpi",
+  "title": "DEXPI exchange and handover",
+  "summary": "Exchange P&IDs with other tools and hand them over in the DEXPI format.",
+  "anchor": "draw-dexpi",
+  "status": "planned",
+  "roadmap": [
+   "13.5"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-pipelines",
+   "DRAW-cad-import"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "DEXPI exchange",
+   "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-cad-import",
+  "title": "CAD import (DXF, later DWG)",
+  "summary": "Import CAD drawings as a dimmed background layer to trace over.",
+  "anchor": "draw-cad-import",
+  "status": "planned",
+  "roadmap": [
+   "22"
+  ],
+  "checks": [],
+  "related": [
+   "DRAW-layers",
+   "DRAW-dexpi"
+  ],
+  "roles": "Editor license; a project role that may edit drawings",
+  "training": {
+   "topic": "Importing CAD drawings",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-redlining",
+  "title": "Redlining",
+  "summary": "Mark up sheets in review rounds on a separate Markups layer that never changes the drawing.",
+  "anchor": "draw-redlining",
+  "status": "planned",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "DRAW-comment-here",
+   "DRAW-layers",
+   "DOC-issue"
+  ],
+  "roles": "Reviewers and editors",
+  "training": {
+   "topic": "Redlining a sheet",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ }
+]
