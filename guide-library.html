@@ -70,7 +70,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Configuration, library and catalogs</p>
         <h1>10. Configuration, library and catalogs</h1>
         <p class="lead">The Configuration place: classes, attributes, shapes, the company library with drafts, publishing and upgrades, catalogs, content packages and project settings.</p>
-        <div class="g-meta"><span>26 features</span><span>19 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>26 features</span><span>20 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="library-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the shared set-up of E1: the <span class="ui">Configuration</span> place with its object classes, attributes, shapes and relationships, the company library where your organization adds its own classes and attributes, catalogs of approved products, the content packages a project uses, and the project settings. A change made here applies to everyone, not only to you; your own preferences are in <span class="ui">Settings</span>.</p>
@@ -80,9 +80,9 @@
     <li>Look up what E1 already knows: <a href="#lib-object-classes">Object classes</a>, <a href="#lib-attributes">Attributes and pick lists</a>, <a href="#lib-shapes">Shapes</a>, <a href="#lib-relationships">Relationships</a>.</li>
     <li>See which content packages bring that content and which ones your project uses: <a href="#lib-content-packages">Content packages</a> and <a href="#lib-project-settings">Project settings</a>.</li>
     <li>Add your company's own attributes and classes, publish them and keep projects up to date: <a href="#lib-company-library">Company library</a>, <a href="#lib-library-updates">Updates available</a>, <a href="#lib-upgrade">Upgrade with preview</a>, <a href="#lib-project-library">This project only</a>, <a href="#lib-convention-templates">Convention templates</a>, <a href="#lib-pin-version">Pin a library version</a>.</li>
-    <li>Keep approved products in catalogs and make objects from them: <a href="#lib-catalogs">Catalogs</a>, <a href="#lib-from-catalog">From catalog</a>, <a href="#lib-catalog-reapply">Re-apply and Detach</a>.</li>
+    <li>Keep approved products in catalogs and make objects from them: <a href="#lib-catalogs">Catalogs</a>, <a href="#lib-from-catalog">From catalog</a>, <a href="#lib-catalog-reapply">Re-apply and Detach</a>, <a href="#lib-catalog-import">Catalog import</a>.</li>
     <li>The other sections in brief: <a href="#lib-alex-knowledge">Alex knowledge</a>, <a href="#lib-datasheets">Datasheets</a>, <a href="#lib-project-defaults">Project defaults</a>, <a href="#lib-cloud-ai-model">Cloud AI model</a>, <a href="#lib-storage">Storage</a>.</li>
-    <li>What comes next: <a href="#lib-rules">Rules</a>, <a href="#lib-units">Units of measurement</a>, <a href="#lib-package-switching">Switching packages on and off</a>, <a href="#lib-package-licensing">Package licensing and updates</a>, <a href="#lib-catalog-import">Catalog import</a>.</li>
+    <li>What comes next: <a href="#lib-rules">Rules</a>, <a href="#lib-units">Units of measurement</a>, <a href="#lib-package-switching">Switching packages on and off</a> and <a href="#lib-package-licensing">Package licensing and updates</a>.</li>
   </ol>
   <h3>Before you start</h3>
   <ul>
@@ -648,14 +648,30 @@
 
 <section class="g-feature" id="lib-catalog-import">
   <h2>Catalog import</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-catalog-import</span><span>Roadmap 20.5</span></div>
-  <p class="g-summary">You will be able to import a catalog from a spreadsheet instead of entering each item by hand.</p>
-  <p class="g-dev">Planned in milestone M5 Library lifecycle (stage 20.5), not started.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Import a catalog from a spreadsheet and check the items in the catalog.</li>
-  </ul>
-  <p class="g-related">Related: <a href="#lib-catalogs">Catalogs</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-07</span><span class="g-id">LIB-catalog-import</span><span>Roadmap 20.5</span></div>
+  <p class="g-summary">Import a vendor list from Excel or CSV into a catalog instead of entering each item by hand. A dry run shows first what each row would become; the import makes drafts only, which you then publish.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Catalogs</span> → a catalog → <span class="ui">Import…</span></dd>
+    <dt>Who</dt><dd>Company catalogs: Owner, Library administrator or Catalog maintainer. Project catalogs: Project administrator. A catalog from a content package is read only and has no <span class="ui">Import…</span>.</dd>
+    <dt>Before you start</dt><dd>A project is open and a catalog exists (see <a href="#lib-catalogs">Catalogs</a>). A vendor list as .xlsx or .csv with the columns Manufacturer, Model, Ordering code and the class's attributes, for example "Flow rate [m³/h]".</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open the catalog "Approved pumps" and click <span class="ui">Import…</span>.</td><td>The panel "Import a vendor list" opens with the note "An Excel workbook or CSV with Manufacturer, Model, Ordering code, and the class's attributes as columns (a unit in brackets, "Flow rate [m³/h]", applies to plain numbers). Rows are matched to this catalog's items by manufacturer and ordering code. Import makes drafts only.", a <span class="ui">File</span> picker, <span class="ui">Class of the rows</span> and the buttons <span class="ui">Dry run</span>, <span class="ui">Import</span> and <span class="ui">Close</span>. <span class="ui">Dry run</span> and <span class="ui">Import</span> are off until a file is chosen.</td></tr>
+      <tr><td>2</td><td>Choose the vendor list under <span class="ui">File</span>.</td><td><span class="ui">Dry run</span> and <span class="ui">Import</span> turn on.</td></tr>
+      <tr><td>3</td><td>In <span class="ui">Class of the rows</span>, choose <span class="ui">Centrifugal pump</span>.</td><td>Every row will be of this class. Leave it on <span class="ui">From a Class column</span> when the file has a Class column.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Dry run</span>.</td><td>A line reads "Dry run: N new, N new versions, N unchanged, N refused.", and a table lists each row with <span class="ui">Line</span>, <span class="ui">Manufacturer</span>, <span class="ui">Model</span>, <span class="ui">Ordering code</span>, <span class="ui">Result</span> (New, New version, Unchanged or Refused) and <span class="ui">Why</span>. A <span class="ui">Columns</span> box shows how each column of the file is read. Nothing in the catalog changes.</td></tr>
+      <tr><td>5</td><td>In <span class="ui">Columns</span>, set a column you do not want to <span class="ui">Leave out</span>, and click <span class="ui">Dry run</span> again.</td><td>Each column offers <span class="ui">Leave out</span>, <span class="ui">Manufacturer</span>, <span class="ui">Model</span>, <span class="ui">Ordering code</span>, <span class="ui">Description</span>, <span class="ui">Class</span> and, when it matches one, "Attribute: …". The new dry run reads the file with your choices.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Import</span>.</td><td>The line reads "Imported as drafts: N new, N new versions, N unchanged, N refused." The new items are listed with Status Draft; refused rows are left out. <span class="ui">Import</span> turns off and a button <span class="ui">Publish N drafts</span> appears.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Publish N drafts</span>.</td><td>The line starts with "Published." and the items are listed as Published, each with its version.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Close</span>.</td><td>The panel closes.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A row whose manufacturer and ordering code match an item of this catalog becomes a new version of it, or stays unchanged when nothing differs. A refused row says why in <span class="ui">Why</span>, for example a value in a unit that does not fit the attribute. Choosing another file clears the result and the column choices.</p>
+  <p class="g-warn">A long import may say "The import is taking long; look again in a moment."; the items appear in the catalog once it is done.</p>
+  <p class="g-related">Related: <a href="#lib-catalogs">Catalogs</a> · <a href="#lib-from-catalog">From catalog</a> · <a href="guide-lists.html#list-import-excel">Import Excel… into a section</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-organization.html">Organization, members and access</a> · <a href="guide-ai.html">AI: Alex and Cloud AI</a> →</p>

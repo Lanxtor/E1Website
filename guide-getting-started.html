@@ -110,6 +110,8 @@
       <tr><td>2</td><td>Look at the explorer header.</td><td>It shows a button named after your organization (here <span class="ui">Demo Company</span>). There is no <span class="ui">Workspace</span> row in the tree.</td></tr>
       <tr><td>3</td><td>Close every tab with its <span class="ui">×</span>.</td><td>The editor shows <span class="ui">No tab open</span> and "Select a project or section in the explorer to open it here."</td></tr>
       <tr><td>4</td><td>Drag the splitter to the right of the explorer to the right.</td><td>The explorer gets wider, up to its limit. After a reload it keeps its width.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">File</span>, then point at <span class="ui">Edit</span> without clicking.</td><td>The Edit menu opens in place of the File menu: while a menu is open, pointing at another menu name opens it.</td></tr>
+      <tr><td>6</td><td>Press <kbd>Esc</kbd> (or click outside the menu).</td><td>The menu closes.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/shell-tour.webp" alt="The E1 window with seven numbered red frames: 1 the menu bar, 2 the left rail, 3 the explorer, 4 the tab strip, 5 the editor area, 6 the Alex and Cloud AI side panel, 7 the status bar" width="2160" height="1350" loading="lazy"><figcaption>1 Menu bar · 2 Left rail · 3 Explorer · 4 Tab strip · 5 Editor area · 6 Side panel (Alex and Cloud AI) · 7 Status bar.</figcaption></figure>
@@ -120,7 +122,7 @@
 
 <section class="g-feature" id="gs-menu-file">
   <h2>The File menu</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">GS-menu-file</span><span>Review check A2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">GS-menu-file</span><span>Review check A2</span></div>
   <p class="g-summary">The File menu creates projects, saves, exports and prints, and opens the project settings and the Organization dialog.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Menu bar → <span class="ui">File</span></dd>
@@ -144,7 +146,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">File</span>.</td><td>The menu opens with the seven items above, with dividers after <span class="ui">New project</span> and after <span class="ui">Print…</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">File</span>.</td><td>The menu opens with the seven items above, with dividers after <span class="ui">New project</span> and after <span class="ui">Print…</span>. While it is open, pointing at another menu name opens that menu; <kbd>Esc</kbd> or a click outside closes it.</td></tr>
       <tr><td>2</td><td>Choose <span class="ui">New project</span>.</td><td>One more project appears in the explorer, selected; the status bar shows <span class="ui">Saved</span>.</td></tr>
       <tr><td>3</td><td>With no sheet open, choose <span class="ui">File → Export PDF…</span>.</td><td>A message says "Open a sheet first: its drawing is plotted to the PDF."</td></tr>
       <tr><td>4</td><td>Select a project, then choose <span class="ui">File → Project settings…</span>.</td><td>A tab opens with the heading "<em>project</em> settings".</td></tr>
@@ -289,27 +291,28 @@
 
 <section class="g-feature" id="gs-menu-help">
   <h2>The Help menu and About E1</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-menu-help</span></div>
-  <p class="g-summary">The Help menu lists the keyboard shortcuts, opens Under construction (what is still being built) and shows which version of E1 you run.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">GS-menu-help</span></div>
+  <p class="g-summary">The Help menu starts the E1 Trainer, lists the keyboard shortcuts, opens Under construction (what is still being built) and shows which version of E1 you run.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Menu bar → <span class="ui">Help</span></dd>
     <dt>Who</dt><dd>Everyone</dd>
     <dt>Before you start</dt><dd>E1 is open.</dd>
   </dl>
   <h3>Items</h3>
-  <p><span class="ui">Keyboard shortcuts</span>, <span class="ui">Under construction</span>, then after a divider <span class="ui">About E1</span>.</p>
+  <p><span class="ui">E1 Trainer</span>, <span class="ui">Keyboard shortcuts</span>, <span class="ui">Under construction</span>, then after a divider <span class="ui">About E1</span>.</p>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Help</span>.</td><td>The menu shows the three items.</td></tr>
-      <tr><td>2</td><td>Choose <span class="ui">About E1</span>.</td><td>A dialog titled <span class="ui">E1</span> opens with "Engineering workspace", "One project for the plant. Drawings, lists, and Cloud AI read the same objects." and "Version 0.1.0".</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Close</span> (or click outside the card).</td><td>The dialog closes.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Help</span>.</td><td>The menu shows the four items.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">E1 Trainer</span>.</td><td>The side panel opens (if it was hidden) on the <span class="ui">Alex</span> tab, with <span class="ui">E1 Trainer</span> pressed; the header reads "E1 Trainer · learn E1 where you are".</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Help → About E1</span>.</td><td>A dialog titled <span class="ui">E1</span> opens with "Engineering workspace", "One project for the plant. Drawings, lists, and Cloud AI read the same objects." and "Version 0.1.0".</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Close</span> (or click outside the card).</td><td>The dialog closes.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-help.webp" alt="The open Help menu: Keyboard shortcuts, Under construction, About E1" width="380" height="270" loading="lazy"><figcaption>The Help menu.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-help.webp" alt="The open Help menu: E1 Trainer, Keyboard shortcuts, Under construction, About E1" width="380" height="326" loading="lazy"><figcaption>The Help menu.</figcaption></figure>
   <figure class="g-shot g-small" style="max-width:428px"><img src="assets/img/guides/help-about.webp" alt="The About E1 dialog: E1, Engineering workspace, the one-line description, Version 0.1.0 and a Close button" width="856" height="428" loading="lazy"><figcaption>About E1.</figcaption></figure>
-  <p class="g-related">Related: <a href="#gs-shortcuts">Keyboard shortcuts</a> · <a href="#gs-under-construction">Under construction and the roadmap</a></p>
+  <p class="g-related">Related: <a href="#gs-shortcuts">Keyboard shortcuts</a> · <a href="#gs-under-construction">Under construction and the roadmap</a> · <a href="guide-ai.html#ai-alex">Alex</a></p>
 </section>
 
 <section class="g-feature" id="gs-rail">
@@ -391,7 +394,8 @@
   <ul>
     <li>Each tab has an icon, a name, <span class="ui">Detach</span> (to a floating window) and <span class="ui">Close</span>. Hover a tab to see its full path, for example <em>Demo Company / Demo Plant / Model Space / Assets</em>.</li>
     <li>Middle-click a tab to close it. Turn the mouse wheel over the strip to scroll it sideways.</li>
-    <li>With many tabs, a button <span class="ui">All open tabs (N)</span> appears at the end of the strip. It lists every tab, with a search box <span class="ui">Search tabs</span>.</li>
+    <li>With many tabs, a button <span class="ui">All open tabs (N)</span> appears at the end of the strip. It lists every tab, with a search box <span class="ui">Search tabs</span>; <kbd>↑</kbd> and <kbd>↓</kbd> move through the list.</li>
+    <li>Dragging a tab floats it only once the pointer leaves the tab strip; a short drag inside the strip does nothing. Tabs cannot be dragged to a new order.</li>
     <li>The path bar shows crumbs separated by <span class="ui">/</span>. The first one is the organization. Click a crumb to select that item. Places and Under construction have no path bar.</li>
   </ul>
   <h3>Steps</h3>
@@ -413,10 +417,10 @@
 
 <section class="g-feature" id="gs-floating-windows">
   <h2>Floating windows</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-floating-windows</span><span>Roadmap M0</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">GS-floating-windows</span><span>Roadmap M0</span></div>
   <p class="g-summary">Take a tab out of the main window to see two things side by side, for example a drawing on a second screen. Changes you make in a floating window are saved like any other.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A tab's <span class="ui">Detach</span> button, or drag a tab out of the tab strip</dd>
+    <dt>Where</dt><dd>A tab's <span class="ui">Detach</span> button, or drag a tab out of the tab strip; the same for a chat tab in the <span class="ui">Cloud AI</span> panel</dd>
     <dt>Who</dt><dd>Everyone</dd>
     <dt>Before you start</dt><dd>In the browser, allow pop-ups for E1.</dd>
   </dl>
@@ -431,7 +435,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/shell-tour.webp" alt="The E1 window; the Assets tab in frame 4 shows the Detach button next to its Close button" width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Detach</span> button is the box with an arrow on the Assets tab (frame 4).</figcaption></figure>
-  <p class="g-note">In the desktop app a floating window is a real window of its own, and E1 opens it again where it was at the next start. When the item in a floating window is deleted, it shows "This tab is closed" and "The item is no longer in the project."</p>
+  <p class="g-note">Chat tabs in the <span class="ui">Cloud AI</span> panel float the same way: click their <span class="ui">Detach</span>, or drag them out of the chat tab bar. In the desktop app a floating window is a real window of its own, and E1 opens it again where it was at the next start. When the item in a floating window is deleted, it shows "This tab is closed" and "The item is no longer in the project."</p>
   <p class="g-related">Related: <a href="#gs-tabs">Tabs and the path bar</a> · <a href="guide-access.html#acc-desktop-app">The desktop app</a></p>
 </section>
 
@@ -518,7 +522,7 @@
 
 <section class="g-feature" id="gs-shortcuts">
   <h2>Keyboard shortcuts</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-shortcuts</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">GS-shortcuts</span></div>
   <p class="g-summary">The Keyboard shortcuts dialog lists the keys and mouse moves of E1. This section lists them too, with a few that the dialog does not show.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Help → Keyboard shortcuts</span></dd>
@@ -530,7 +534,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Choose <span class="ui">Help → Keyboard shortcuts</span>.</td><td>The dialog <span class="ui">Keyboard shortcuts</span> opens with one row per key and what it does.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Close</span>.</td><td>The dialog closes.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Close</span> (or click outside the card).</td><td>The dialog closes. <kbd>Esc</kbd> does not close it.</td></tr>
     </tbody>
   </table></div>
   <h3>The list in the dialog</h3>

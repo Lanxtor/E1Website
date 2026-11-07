@@ -47,7 +47,7 @@
 
 <section class="g-feature" id="ai-alex">
   <h2>Alex: turn on the built-in engineering co-worker</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">AI-alex</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">AI-alex</span></div>
   <p class="g-summary">Alex reads the sheet you are drawing, like a process or automation engineer looking over your shoulder, and lists warnings, questions and suggestions. It is a local AI: it calls no language model and sends nothing outside E1. Alex is off until you turn it on.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Let Alex help</span>; or the <span class="ui">Alex</span> tab → <span class="ui">Turn Alex on</span></dd>
@@ -61,7 +61,7 @@
       <tr><td>1</td><td>Open a sheet and select the <span class="ui">Alex</span> tab.</td><td>The header says <span class="ui">Off</span>, with the text "Alex is off. Turn it on (or press Let Alex help on the drawing's toolbar) …" and a button <span class="ui">Turn Alex on</span>. The drawing toolbar shows <span class="ui">Let Alex help</span>.</td></tr>
       <tr><td>2</td><td>Point at <span class="ui">Let Alex help</span>.</td><td>The tooltip reads "Let Alex (Plant engineer) review the drawing as you work and suggest what comes next: local AI, no cloud."</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Let Alex help</span> (or <span class="ui">Turn Alex on</span>).</td><td>The toolbar button reads <span class="ui">Alex is live</span> and is shown pressed. The panel header reads "Plant engineer · local AI, no cloud", briefly with "· reading the sheet…".</td></tr>
-      <tr><td>4</td><td>Wait a few seconds.</td><td>The panel lists counts and groups such as <span class="ui">Warnings</span>, <span class="ui">Questions</span> and <span class="ui">Suggestions</span>; marks appear on the drawing. A clean sheet shows "Nothing to add on ‹sheet›. Looks good."</td></tr>
+      <tr><td>4</td><td>Wait a few seconds.</td><td>The panel lists counts and groups such as <span class="ui">Warnings</span>, <span class="ui">Questions</span> and <span class="ui">Design suggestions</span>; marks appear on the drawing. A clean sheet shows "Nothing to add on ‹sheet›. Looks good."</td></tr>
       <tr><td>5</td><td>Reload the page.</td><td>Alex is still on.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Alex is live</span>.</td><td>Alex turns off completely: the button reads <span class="ui">Let Alex help</span> again and the marks disappear.</td></tr>
     </tbody>
@@ -96,7 +96,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">AI-alex-trainer</span></div>
   <p class="g-summary">Alex has a second mode, E1 Trainer. Instead of reviewing your drawing, Alex offers short lessons for the place you are in, for example in Configuration → Object classes: look up a class, add a new class, give a class more attributes. A lesson shows a bubble on the real button, tells you what it is for and what to click, and goes on one bubble at a time. Above all, the bubbles teach what you cannot see on screen: double-clicks, right-click menus, dragging, keys and the order of the steps, each shown as a badge. Every bubble links to the matching section of this guide.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Alex</span> tab → <span class="ui">E1 Trainer</span>, or <span class="ui">Help</span> → <span class="ui">E1 Trainer: learn E1 where you are</span></dd>
+    <dt>Where</dt><dd><span class="ui">Alex</span> tab → <span class="ui">E1 Trainer</span>, or <span class="ui">Help</span> → <span class="ui">E1 Trainer</span></dd>
     <dt>Who</dt><dd>Everyone; a lesson can be taken as often as you like</dd>
     <dt>Before you start</dt><dd>The Alex and Cloud AI panel is shown.</dd>
   </dl>
@@ -147,7 +147,10 @@
       <tr><td>2</td><td>Set <span class="ui">Level</span> to <span class="ui">Mentor</span>.</td><td>A <span class="ui">Tips</span> group appears below the others.</td></tr>
       <tr><td>3</td><td>Set <span class="ui">Skill</span> to <span class="ui">Process engineer</span>.</td><td>Automation cards go; the button <span class="ui">Export instrument index (Excel)</span> disappears and <span class="ui">Import heat and material balance</span> is shown.</td></tr>
       <tr><td>4</td><td>Set <span class="ui">Skill</span> to <span class="ui">Automation engineer</span>.</td><td><span class="ui">Export instrument index (Excel)</span> is shown and <span class="ui">Import heat and material balance</span> is gone.</td></tr>
-      <tr><td>5</td><td>Reload the page.</td><td>The skill and level you chose are kept.</td></tr>
+      <tr><td>5</td><td>Set <span class="ui">Skill</span> to <span class="ui">Electrical engineer</span>.</td><td><span class="ui">Export load list and cable schedule (Excel)</span> is shown; the other exports and the import are gone.</td></tr>
+      <tr><td>6</td><td>Set <span class="ui">Skill</span> to <span class="ui">HAZOP leader</span>.</td><td><span class="ui">Export HAZOP worksheet (Excel)</span> is shown; the other exports and the import are gone.</td></tr>
+      <tr><td>7</td><td>Set <span class="ui">Skill</span> to <span class="ui">Plant engineer</span>.</td><td>All three exports and <span class="ui">Import heat and material balance</span> are shown.</td></tr>
+      <tr><td>8</td><td>Reload the page.</td><td>The skill and level you chose are kept.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Older notes mention a <em>Skills</em> button on the drawing toolbar. It is gone; the skill is chosen only in the Alex tab.</p>
@@ -157,7 +160,7 @@
 <section class="g-feature" id="ai-alex-cards">
   <h2>Read and act on Alex's cards</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-07</span><span class="g-id">AI-alex-cards</span></div>
-  <p class="g-summary">Each thing Alex notices is a card in one of the groups <span class="ui">Warnings</span>, <span class="ui">Questions</span>, <span class="ui">Suggestions</span>, <span class="ui">Notes</span> and, at Mentor level, <span class="ui">Tips</span>. A card says why, shows where on the drawing, and offers a fix, an answer field or a way to set it aside.</p>
+  <p class="g-summary">Each thing Alex notices is a card in one of the groups <span class="ui">Warnings</span>, <span class="ui">Questions</span>, <span class="ui">Design suggestions</span>, <span class="ui">Data suggestions</span>, <span class="ui">Notes</span> and, at Mentor level, <span class="ui">Tips</span>. A card says why, shows where on the drawing, and offers a fix, an answer field or a way to set it aside.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Alex</span> tab, below the counts</dd>
     <dt>Who</dt><dd>Reading: everyone. <span class="ui">Apply</span> and <span class="ui">Save</span> change the project and need edit rights.</dd>
@@ -167,16 +170,17 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Look at a card without opening it.</td><td>It shows its discipline (<span class="ui">Process</span> or <span class="ui">Automation</span>), its title and a chevron; sometimes a badge <span class="ui">Company convention</span> or <span class="ui">Usual at your company</span>.</td></tr>
-      <tr><td>2</td><td>Click the chevron of a suggestion card.</td><td>The card opens with its message, <span class="ui">Why?</span>, and buttons such as <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Not applicable</span> and <span class="ui">Ask Cloud AI</span>.</td></tr>
+      <tr><td>1</td><td>Look at a card without opening it.</td><td>It shows its discipline (<span class="ui">Process</span>, <span class="ui">Automation</span>, <span class="ui">Electrical</span>, <span class="ui">HAZOP</span> or <span class="ui">Drawing</span>), its title and a chevron, and sometimes a badge (see the list below). A card under <span class="ui">Design suggestions</span> shows <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Reject</span> and, when Cloud AI is set up, <span class="ui">Ask Cloud AI</span> even while it is closed.</td></tr>
+      <tr><td>2</td><td>Click the chevron of a design suggestion card.</td><td>The card opens with its message and <span class="ui">Why?</span>. A design card has no <span class="ui">Not applicable</span>.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Why?</span>.</td><td>The reason appears; the button now reads <span class="ui">Hide why</span>.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Show</span>.</td><td>The drawing shows the suggestion as ghost symbols where they would go.</td></tr>
-      <tr><td>5</td><td>Click <span class="ui">Apply</span>.</td><td>The symbols are placed on the sheet for real and the card goes away.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Show</span>.</td><td>The drawing shows the suggestion as ghost symbols where they would go; what it would take away is dashed in red. The button now reads <span class="ui">Hide</span>.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Apply</span>.</td><td>The symbols are placed on the sheet for real and the card goes away. <span class="ui">Reject</span> instead puts the suggestion away for this sheet.</td></tr>
       <tr><td>6</td><td>Open a question card (for example "Pump1: rated power?"), type <code>10</code> in the field and click <span class="ui">Save</span>.</td><td>The value is written to the object and the card disappears.</td></tr>
       <tr><td>7</td><td>Open a line data card on the pump inlet line. Enter Fluid "Cooling water", Phase "liquid", Flow rate 120, Operating pressure 5, Operating temperature 25 and Nominal size "DN 50", then click <span class="ui">Save</span>.</td><td>The question goes away and a warning that the velocity is high appears, giving the speed in m/s and marked on the line.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Some cards fill in a value with one click; the button names the value, for example <span class="ui">Use B1</span>. Tips have no <span class="ui">Not applicable</span>.</p>
+  <p class="g-note">Badges on a card: <span class="ui">After your change</span> (Alex's suggestion for your last change, already drawn on the sheet; always the first design card), <span class="ui">On the drawing</span> (a design suggestion: a change to the drawing), <span class="ui">Data</span> (a data suggestion: a value for the object's data; nothing on the drawing changes), <span class="ui">Company convention</span> (from your company's standards) and <span class="ui">Usual at your company</span> (team memory).</p>
+  <p class="g-note">Cards other than design suggestions have <span class="ui">Show</span> (when they point at something on the drawing), <span class="ui">Not applicable</span> (not on tips) and <span class="ui">Ask Cloud AI</span>. Some fill in a value with one click; the button names the value, for example <span class="ui">Use B1</span>.</p>
   <p class="g-note">What Alex checks: line velocity by service, pressure drop, erosional velocity and design margin; sour service and CO₂; instrument loops, tags, fail positions, interlocks with cause and effect, and anti-surge; questions about motor starting and signal types. The line checks need the line list attributes of the Plant library 1.3.0 or newer.</p>
   <p class="g-related">Related: <a href="#ai-alex-markers">Marks on the drawing</a> · <a href="#ai-alex-not-applicable">Not applicable</a> · <a href="#ai-alex-ask-cloud">Ask Cloud AI from a card</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
 </section>
@@ -256,11 +260,11 @@
 </section>
 
 <section class="g-feature" id="ai-alex-suggestions">
-  <h2>Suggestions while you draw: Accept or Ignore</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">AI-alex-suggestions</span></div>
-  <p class="g-summary">While Alex is live, placing or changing something can bring up a suggestion bar at the bottom of the drawing with what usually comes next, for example the valves around a new pump, shown as ghost symbols.</p>
+  <h2>Suggestions while you draw: Apply or Reject</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">AI-alex-suggestions</span></div>
+  <p class="g-summary">While Alex is live, placing or changing something can bring an offer of what usually comes next, for example the valves around a new pump. It is drawn as ghost symbols on the sheet and listed as the first card, <span class="ui">After your change</span>, under <span class="ui">Design suggestions</span> in the Alex tab. There is no suggestion bar on the sheet.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The bar <span class="ui">Suggestion</span> at the bottom of the sheet</dd>
+    <dt>Where</dt><dd>Ghost symbols on the sheet; <span class="ui">Alex</span> tab (<span class="ui">Co-worker</span>) → <span class="ui">Design suggestions</span> → the card <span class="ui">After your change</span></dd>
     <dt>Who</dt><dd>Anyone who may edit the sheet</dd>
     <dt>Before you start</dt><dd>The toolbar shows <span class="ui">Alex is live</span>.</dd>
   </dl>
@@ -268,9 +272,12 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Place a centrifugal pump on the sheet.</td><td>The bar appears with a reason, ghost valves around the pump, and the buttons <span class="ui">Accept</span> and <span class="ui">Ignore</span>.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Accept</span>.</td><td>The suggested objects are placed and connected.</td></tr>
-      <tr><td>3</td><td>Place another pump and press <kbd>Esc</kbd>.</td><td>The offer is gone and nothing is added.</td></tr>
+      <tr><td>1</td><td>Place a centrifugal pump on the sheet.</td><td>Ghost valves appear around the pump.</td></tr>
+      <tr><td>2</td><td>Open the <span class="ui">Alex</span> tab with <span class="ui">Co-worker</span> pressed.</td><td>The first card under <span class="ui">Design suggestions</span> has the badge <span class="ui">After your change</span>, a title such as "P-001: add …", and the buttons <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Reject</span> (and <span class="ui">Ask Cloud AI</span> when Cloud AI is set up). Open it for the reason.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Show</span>, then <span class="ui">Hide</span>.</td><td><span class="ui">Show</span> draws the suggestion on the sheet and pans to it; <span class="ui">Hide</span> takes it off.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Apply</span>.</td><td>The suggested objects are placed and connected.</td></tr>
+      <tr><td>5</td><td>Place another pump and click <span class="ui">Reject</span> on the new card.</td><td>The offer is gone and nothing is added.</td></tr>
+      <tr><td>6</td><td>Place another pump, click <span class="ui">Show</span> on its card, then click the sheet and press <kbd>Esc</kbd> twice.</td><td>The first <kbd>Esc</kbd> takes the shown suggestion off the sheet; the second drops the offer.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Alex follows the design your project repeats. Where there is none, it uses starter rules: isolation on a pump's suction and a check valve on its discharge, a motor for driven machines, isolation around control valves, and transmitters on vessels and exchangers. Changing the skill clears the offer.</p>
@@ -375,7 +382,7 @@
 
 <section class="g-feature" id="ai-alex-instrument-index">
   <h2>Export the instrument index from the drawing</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span class="g-id">AI-alex-instrument-index</span><span>Review check K3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-07</span><span class="g-id">AI-alex-instrument-index</span><span>Review check K3</span></div>
   <p class="g-summary">Alex reads the instruments, signals and motors on the sheet and writes the instrument index, I/O list, cause and effect and motor list as one Excel workbook.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Alex</span> tab → <span class="ui">Export instrument index (Excel)</span></dd>
@@ -391,6 +398,7 @@
       <tr><td>3</td><td>Open the workbook.</td><td>One sheet per list. If your company uploaded list column templates in Alex knowledge, the columns follow them.</td></tr>
     </tbody>
   </table></div>
+  <p class="g-note">Other skills export their own lists of the sheet the same way. <span class="ui">Electrical engineer</span>: <span class="ui">Export load list and cable schedule (Excel)</span>, the electrical load list (with the maximum demand), the cable schedule (capacity and voltage drop) and the Ex equipment list; the status reads "N loads, N cables, N Ex items.". <span class="ui">HAZOP leader</span>: <span class="ui">Export HAZOP worksheet (Excel)</span>, a prepared HAZOP with nodes, deviations, causes, consequences, safeguards, recommendations, a LOPA per scenario, the API 521 relief cases and the risk matrix; it shows "Preparing the study…", then "N nodes, N worksheet rows, N LOPA scenarios.". <span class="ui">Plant engineer</span> shows all three exports and <span class="ui">Import heat and material balance</span>.</p>
   <p class="g-related">Related: <a href="#ai-alex-skill-level">Skill and Level</a> · <a href="guide-lists.html#list-excel-export">Excel export of a query</a></p>
 </section>
 

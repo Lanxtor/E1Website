@@ -33,15 +33,16 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Groups</span>, <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
       <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u of t · Student u of t · Administrator u of t</span>.</td></tr>
-      <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
+      <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
-      <tr><td>5</td><td>Press <kbd>Esc</kbd> or click <span class="ui">Close</span>.</td><td>The dialog closes.</td></tr>
+      <tr><td>5</td><td>Press <kbd>Esc</kbd>, click <span class="ui">Close</span>, or click outside the dialog.</td><td>The dialog closes.</td></tr>
     </tbody>
   </table></div>
+  <p class="g-warn"><span class="ui">Remove</span> on a member acts at once, without asking first.</p>
   <p class="g-note">When the AI credits are used up the line reads <span class="ui">Cloud AI's AI credits are used up (X of Y). Everything else goes on.</span></p>
-  <p class="g-warn">There is no <em>Access</em> tab yet. It comes with the access control under development (see <a href="#org-custom-roles">Permission categories and custom roles</a>).</p>
+  <p class="g-note"><span class="ui">Access</span> holds the roles (<a href="#org-custom-roles">Permission categories and custom roles</a>), the <a href="#org-groups">groups</a>, and <span class="ui">Assignments</span>: every role given in the organization, who has it, where, and until when.</p>
   <p class="g-warn">The Role list gives Owner, Administrator or Member only. The dialog has no place yet to give Library administrator, Catalog maintainer or Engineering standards owner; how these are given today is not yet documented. An invitation always makes the person a Member.</p>
   <p class="g-related">Related: <a href="#org-invitations">Invitations</a> · <a href="#org-administrators">Who administers the organization</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-groups">Groups</a> · <a href="#org-audit">Audit</a> · <a href="#org-export">Export everything…</a></p>
 </section>
@@ -198,10 +199,10 @@
 
 <section class="g-feature" id="org-project-members">
   <h2>Project members and roles</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span class="g-id">ORG-project-members</span><span>Roadmap M2.5</span><span>Review check J3</span></div>
-  <p class="g-summary">A role on a project decides what a person may do in it. The Project administrator gives roles to people or groups in the project's Members dialog. Whoever creates a project becomes its Project administrator.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ORG-project-members</span><span>Roadmap M2.5, M4.32</span><span>Review check J3, J10</span></div>
+  <p class="g-summary">A role on a project decides what a person may do in it. The Project administrator admits people or groups to the project with a <em>maximum role</em> (the most they may hold anywhere in it) and gives them roles, in the project's Members or in Project settings → Access. Whoever creates a project becomes its Project administrator.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Select the project in the explorer; on the project's page click <span class="ui">Members</span>.</dd>
+    <dt>Where</dt><dd>Select the project in the explorer; on the project's page click <span class="ui">Members</span>. The same is in <span class="ui">File</span> → <span class="ui">Project settings…</span> → <span class="ui">Access</span>.</dd>
     <dt>Who</dt><dd>Project administrator (with a passkey) gives and removes roles</dd>
     <dt>Before you start</dt><dd>E1 with sign-in; a colleague in your organization (Ben).</dd>
   </dl>
@@ -217,13 +218,15 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>As Anna (Project administrator), select the project and click <span class="ui">Members</span>.</td><td>A dialog <span class="ui">Members of &lt;project&gt;</span> with the list <span class="ui">Roles</span> (or <span class="ui">No roles here yet.</span>) and the form <span class="ui">Give a role</span>.</td></tr>
-      <tr><td>2</td><td>In <span class="ui">Person or group</span> (<span class="ui">Choose a person or group</span>) choose Ben; in <span class="ui">Role</span> choose <span class="ui">Reviewer</span>; click <span class="ui">Give role</span>.</td><td>The list shows <span class="ui">Ben · Reviewer on project</span> with <span class="ui">Remove</span>.</td></tr>
+      <tr><td>1</td><td>As Anna (Project administrator), select the project and click <span class="ui">Members</span>.</td><td>A dialog <span class="ui">Members of &lt;project&gt;</span> with <span class="ui">Members of the project</span> (each with <em>at most &lt;role&gt;</em>), the form to admit someone, the list <span class="ui">Roles in the project</span> and the form <span class="ui">Give a role</span>.</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Admit a person or group</span> choose Ben, <span class="ui">at most</span> <span class="ui">Engineer</span>, <span class="ui">role on the project</span> <span class="ui">Reviewer</span>; click <span class="ui">Admit</span>.</td><td>Ben is listed as <span class="ui">Ben · at most Engineer</span>, and the roles show <span class="ui">Ben · Reviewer on project</span> with <span class="ui">Remove</span>.</td></tr>
       <tr><td>3</td><td>Sign in as Ben, open the project and drag a symbol on a sheet.</td><td>The project opens, but the move is refused. The status bar shows <span class="ui">Change refused</span> with <span class="ui">You may not do this here: it needs drawing.edit on …</span> and <span class="ui">No role you hold here includes drawing.edit.</span></td></tr>
+      <tr><td>3a</td><td>As Anna, choose Ben in <span class="ui">Give a role</span> and open <span class="ui">Role</span>.</td><td><span class="ui">Project administrator</span> and <span class="ui">Lead engineer</span> are greyed out: <span class="ui">(above Ben's maximum: Engineer)</span>.</td></tr>
       <tr><td>4</td><td>As Anna, click <span class="ui">Remove</span> beside Ben's role.</td><td>The role is gone from the list.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/project-settings.webp" alt="The page of the project Demo Plant with the buttons Members and Export at the top, and the tabs Attributes, Relationships, Deep view, Data sheet, Attachments, Comments and History" width="2160" height="1350" loading="lazy"><figcaption>The project's page: <span class="ui">Members</span> is the first button.</figcaption></figure>
+  <p class="g-note">A role on the project counts as being a member at that level. An explicit maximum is needed to give someone more on a section, folder or drawing than on the whole project (for example Viewer on the project, Engineer on the Electrical folder, at most Engineer). Nobody who is not a member can be given a role inside the project. <span class="ui">Until (optional)</span> ends a role on a day you choose.</p>
   <p class="g-note">Groups are shown in the list as <em>&lt;name&gt; (group)</em>. Only an administrator sees the whole organization in <span class="ui">Person or group</span>; others see only the people already on the project.</p>
   <p class="g-note">Without a passkey, a Project administrator acts as a Lead engineer and cannot give roles (see <a href="#org-roles-passkey">the passkey rule</a>).</p>
   <p class="g-related">Related: <a href="#org-drawing-roles">Roles on a drawing</a> · <a href="#org-refusals">Why a change is refused</a> · <a href="guide-projects.html#prj-new-project">Create a project</a></p>
@@ -236,13 +239,13 @@
   <dl class="g-facts">
     <dt>Where</dt><dd>The sheet's page toolbar: <span class="ui">Share</span> and <span class="ui">Mark as read-only</span> (beside <span class="ui">Open</span> and <span class="ui">Export PDF</span>)</dd>
     <dt>Who</dt><dd>Project administrator</dd>
-    <dt>Before you start</dt><dd>E1 with sign-in; a project with a sheet; the person is a member of the organization and holds a role on the project (Viewer is enough), or they will not see the project.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in; a project with a sheet; the person is a member of the project (<a href="#org-project-members">admitted</a> with a maximum role, or holding a role on the project: Viewer is enough), or they will not see it.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open the sheet's page (the one with the toolbar <span class="ui">Open</span>, <span class="ui">Share</span>, <span class="ui">Export PDF</span>, <span class="ui">Mark as read-only</span>) and click <span class="ui">Share</span>.</td><td>The Members dialog for the sheet, with the hint <span class="ui">Give a person or a group a role on this drawing only. They also need a role on the project (Viewer is enough) to open it.</span> The roles offered are Lead engineer, Engineer, Reviewer and Viewer.</td></tr>
+      <tr><td>1</td><td>Open the sheet's page (the one with the toolbar <span class="ui">Open</span>, <span class="ui">Share</span>, <span class="ui">Export PDF</span>, <span class="ui">Mark as read-only</span>) and click <span class="ui">Share</span>.</td><td>The Members dialog for the sheet, with the hint <span class="ui">Give a person or a group a role on this drawing only. They must be a member of the project first; their maximum role limits what you can give them here.</span> Roles above the chosen person's maximum are greyed out with the reason.</td></tr>
       <tr><td>2</td><td>Choose a person and the role <span class="ui">Engineer</span>, then <span class="ui">Give role</span>.</td><td>The list shows the person with <em>Engineer on object</em>.</td></tr>
       <tr><td>3</td><td>Close it and click <span class="ui">Mark as read-only</span>.</td><td>The dialog with the hint <span class="ui">To keep others from editing this drawing, give them Reviewer or Viewer on it: they can look and comment, not change it.</span> <span class="ui">Reviewer</span> is preselected.</td></tr>
       <tr><td>4</td><td>Give a colleague Reviewer here, then, signed in as them, try to move a symbol on that sheet.</td><td><span class="ui">Change refused</span> with the permission named.</td></tr>
@@ -284,18 +287,18 @@
 
 <section class="g-feature" id="org-groups">
   <h2>Groups</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span class="g-id">ORG-groups</span><span>Roadmap M2.4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ORG-groups</span><span>Roadmap M2.4</span></div>
   <p class="g-summary">A group collects people so that you can give a project or drawing role to all of them at once.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Groups</span></dd>
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Groups</span>. Each group shows the roles it holds and where.</dd>
     <dt>Who</dt><dd>Owner or Administrator with a passkey</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Type <code>Process team</code> in <span class="ui">Group name</span> and click <span class="ui">Create group</span>.</td><td>The group is listed with a checkbox for each member.</td></tr>
-      <tr><td>2</td><td>Tick two members.</td><td>They are in the group.</td></tr>
+      <tr><td>1</td><td>Type <code>Process team</code> in <span class="ui">Group name</span> and click <span class="ui">Create group</span> (or press <kbd>Enter</kbd>).</td><td>The group is listed with a checkbox for each member.</td></tr>
+      <tr><td>2</td><td>Tick two members.</td><td>They are in the group; each tick is saved at once.</td></tr>
       <tr><td>3</td><td>In a project's <span class="ui">Members</span> dialog, open <span class="ui">Person or group</span>.</td><td><em>Process team (group)</em> can be chosen and given a role.</td></tr>
     </tbody>
   </table></div>
@@ -399,18 +402,28 @@
 
 <section class="g-feature" id="org-custom-roles">
   <h2>Permission categories and custom roles</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">ORG-custom-roles</span><span>Roadmap 09.6a</span></div>
-  <p class="g-summary">You will be able to see every permission in plain words, grouped by category, and make your own roles, for example an Engineer who may not delete drawings.</p>
-  <div class="g-dev">
-    <p>Being built now (work order of 2026-11-07). The labels below are the planned ones and may still change. The Organization dialog gets the tabs Members, Access (with Roles, Groups and Assignments), Audit and Export, and Project settings gets an Access section.</p>
-  </div>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Open <em>Organization… → Access → Roles</em> and see each role's permissions as check boxes in categories: Organization administration; Projects; Objects and attributes; Drawings; Documents and revisions; Comments, tasks, and markups; Library: classes, attributes, and rules; Symbols; Catalogs; Rules and checks; Co-engineer and assistants; Branches; Integration.</li>
-    <li>Read each permission's name and a sentence about it, and search them.</li>
-    <li>Copy a built-in role to a custom role: for example copy Engineer, untick <em>Delete diagrams</em>, save it as "Engineer (no deleting)" and give it to a group. A member who then deletes a sheet is refused, and the refusal names the permission.</li>
-    <li>New separate permissions for creating and deleting drawings, assigning responsibility, and editing each kind of library content.</li>
-  </ul>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">ORG-custom-roles</span><span>Roadmap 09.6a, M4.32</span><span>Review check J10</span></div>
+  <p class="g-summary">Every permission in plain words, grouped by category, and roles of your own: for example an Engineer who may not delete drawings. A custom role is given like a built-in one, to a person or a group.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Roles</span></dd>
+    <dt>Who</dt><dd>Owner or Administrator with a passkey. You can only put permissions into a role that you hold yourself.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in.</dd>
+  </dl>
+  <h3>The categories</h3>
+  <p>Organization administration · Projects · Objects and attributes · Drawings · Documents and revisions · Comments and tasks · Library: classes, attributes, and templates · Symbols · Catalogs · Rules and checks · Co-engineer and assistants · Alex: company knowledge · Branches · Integration. Every permission also has a level: <em>view</em>, <em>contribute</em> or <em>manage</em>.</p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">File</span> → <span class="ui">Organization…</span> and click <span class="ui">Access</span>.</td><td>The tabs <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>; <span class="ui">Roles</span> lists every built-in and custom role, with how often each is given.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Engineer</span>.</td><td>Its permissions as ticked boxes by category, read only. Each category says how many of its permissions are ticked, for example <span class="ui">Drawings 4 of 4</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Copy to custom role</span>, untick <span class="ui">Delete diagrams</span>, name it "Engineer (no deleting)" and click <span class="ui">Save role</span>.</td><td>The role is in the list as <em>custom · project</em>.</td></tr>
+      <tr><td>4</td><td>In a project's <span class="ui">Members</span>, admit a group with <span class="ui">at most</span> "Engineer (no deleting)" and the same role on the project. As a member of the group, delete a sheet.</td><td><span class="ui">Change refused</span> naming <span class="ui">drawing.delete</span>; drawing on the sheet still works.</td></tr>
+      <tr><td>5</td><td>Change a role that people hold and click <span class="ui">Save role</span>.</td><td>A notice lists who holds it and what they gain and lose; <span class="ui">Confirm and save</span> applies it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Use <span class="ui">Find a permission</span> to search names and sentences. A role in use cannot be deleted: remove it from the people and groups that hold it first. Built-in roles cannot be changed. An organization role holds organization permissions only, a project role project and object permissions only.</p>
+  <p class="g-note">The library can be shared out by kind: <span class="ui">Edit library attributes</span>, <span class="ui">Edit library classes</span> and the others. <span class="ui">Edit the whole library</span> includes them all.</p>
   <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-groups">Groups</a> · <a href="#org-responsibility">Assign to…</a> · <a href="#org-access-history">Access history</a></p>
 </section>
 
