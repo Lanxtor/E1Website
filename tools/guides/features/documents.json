@@ -1,0 +1,521 @@
+[
+ {
+  "id": "DOC-revisions-section",
+  "title": "The Revisions section",
+  "summary": "The project section that holds every document and its revisions.",
+  "anchor": "doc-revisions-section",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.2"
+  ],
+  "checks": [
+   "E4"
+  ],
+  "related": [
+   "DOC-new-document",
+   "DOC-updated-mark",
+   "DOC-revisions-filter",
+   "PRJ-sections"
+  ],
+  "roles": "Any project role",
+  "training": {
+   "topic": "Where documents live",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "menu-data.webp"
+  ]
+ },
+ {
+  "id": "DOC-new-document",
+  "title": "New document…: list, plot, uploaded or datasheet document",
+  "summary": "Make a document in the Revisions section by choosing its kind.",
+  "anchor": "doc-new-document",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.2"
+  ],
+  "checks": [
+   "E1",
+   "E4"
+  ],
+  "related": [
+   "DOC-revisions-section",
+   "DOC-list-document",
+   "DOC-plot",
+   "DOC-upload",
+   "DOC-datasheet-document",
+   "OBJ-tag-rules"
+  ],
+  "roles": "A project role that may write documents",
+  "training": {
+   "topic": "Making a document",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "new-document-dialog.webp"
+  ]
+ },
+ {
+  "id": "DOC-list-document",
+  "title": "List documents from a saved query, with PDF and Excel",
+  "summary": "A list document shows a saved query from a starting point and prints it to PDF and Excel with a title block.",
+  "anchor": "doc-list-document",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.3",
+   "05.5a"
+  ],
+  "checks": [
+   "E1"
+  ],
+  "related": [
+   "DOC-new-document",
+   "DOC-revisions",
+   "DOC-issue",
+   "LIST-templates",
+   "LIST-update-from-excel"
+  ],
+  "roles": "A project role that may write documents; export needs a role that may export",
+  "training": {
+   "topic": "List documents and their PDF",
+   "level": "Intermediate",
+   "minutes": 5
+  },
+  "screenshots": [
+   "revision-new-form.webp"
+  ]
+ },
+ {
+  "id": "DOC-upload",
+  "title": "Uploaded documents: revise a PDF from outside",
+  "summary": "Keep a PDF made elsewhere as a document and attach files to each revision.",
+  "anchor": "doc-upload",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.2"
+  ],
+  "checks": [
+   "E4"
+  ],
+  "related": [
+   "DOC-new-document",
+   "DOC-revisions"
+  ],
+  "roles": "A project role that may write documents",
+  "training": {
+   "topic": "Uploading a document",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-revisions",
+  "title": "Add revisions A, B, …",
+  "summary": "Add a revision with its label, description and files; E1 proposes the next label.",
+  "anchor": "doc-revisions",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.2"
+  ],
+  "checks": [
+   "E1",
+   "E4"
+  ],
+  "related": [
+   "DOC-status",
+   "DOC-issue",
+   "DOC-list-document"
+  ],
+  "roles": "A project role that may write documents",
+  "training": {
+   "topic": "Revisions of a document",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "revision-new-form.webp"
+  ]
+ },
+ {
+  "id": "DOC-status",
+  "title": "Draft and In review",
+  "summary": "Mark a revision that is not issued yet as Draft or In review.",
+  "anchor": "doc-status",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.2"
+  ],
+  "checks": [
+   "E4"
+  ],
+  "related": [
+   "DOC-revisions",
+   "DOC-issue"
+  ],
+  "roles": "A project role that may write documents",
+  "training": {
+   "topic": "Revision status",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-updated-mark",
+  "title": "The Updated mark on Revisions",
+  "summary": "The Revisions row shows Updated when a colleague added a revision since you last looked.",
+  "anchor": "doc-updated-mark",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.2"
+  ],
+  "checks": [
+   "E4"
+  ],
+  "related": [
+   "DOC-revisions-section",
+   "DOC-revisions"
+  ],
+  "roles": "Any project role",
+  "training": {
+   "topic": "Seeing new revisions",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-issue",
+  "title": "Issue a revision",
+  "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards.",
+  "anchor": "doc-issue",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.7"
+  ],
+  "checks": [
+   "E2",
+   "E3"
+  ],
+  "related": [
+   "DOC-revisions",
+   "DOC-changed-since",
+   "DOC-list-document",
+   "DOC-status"
+  ],
+  "roles": "A Lead on the project; an Engineer is refused",
+  "training": {
+   "topic": "Issuing a revision",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": [
+   "document-issued.webp"
+  ]
+ },
+ {
+  "id": "DOC-changed-since",
+  "title": "Changed since Rev A, and Modified and Added marks",
+  "summary": "After an issue, the document lists what changed since, and the explorer marks each changed object.",
+  "anchor": "doc-changed-since",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.7"
+  ],
+  "checks": [
+   "E2"
+  ],
+  "related": [
+   "DOC-issue",
+   "COL-history"
+  ],
+  "roles": "Any project role",
+  "training": {
+   "topic": "What changed since the last issue",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": [
+   "document-issued.webp"
+  ]
+ },
+ {
+  "id": "DOC-sheet-pdf",
+  "title": "PDF of a P&ID sheet",
+  "summary": "File → Export PDF… plots the open sheet to a vector PDF with a border and a title block.",
+  "anchor": "doc-sheet-pdf",
+  "status": "available",
+  "since": "2026-11-05",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "07.6"
+  ],
+  "checks": [
+   "G1",
+   "G2",
+   "G3",
+   "G5"
+  ],
+  "related": [
+   "DOC-print",
+   "DOC-plot",
+   "DRAW-sheet-view"
+  ],
+  "roles": "A project role that may export",
+  "training": {
+   "topic": "Printing a P&ID to PDF",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "menu-file.webp"
+  ]
+ },
+ {
+  "id": "DOC-print",
+  "title": "Print… and Ctrl+P",
+  "summary": "Print the open sheet with File → Print… or Ctrl+P (⌘P).",
+  "anchor": "doc-print",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.6"
+  ],
+  "checks": [
+   "G1",
+   "G3"
+  ],
+  "related": [
+   "DOC-sheet-pdf",
+   "DOC-plot",
+   "GS-shortcuts"
+  ],
+  "roles": "A project role that may export",
+  "training": {
+   "topic": "Printing a sheet",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-plot",
+  "title": "Plot documents: sheet, page format and layers",
+  "summary": "A plot document prints a sheet on a chosen page format with chosen layers, and has revisions.",
+  "anchor": "doc-plot",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.6"
+  ],
+  "checks": [
+   "G1",
+   "G4"
+  ],
+  "related": [
+   "DOC-new-document",
+   "DOC-sheet-pdf",
+   "DOC-print",
+   "DOC-issue"
+  ],
+  "roles": "A project role that may write documents; output needs a role that may export",
+  "training": {
+   "topic": "Plots and page formats",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-datasheet",
+  "title": "Open an object's datasheet",
+  "summary": "Double-click an object to open its datasheet, the object's everyday screen.",
+  "anchor": "doc-datasheet",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.4"
+  ],
+  "checks": [
+   "F1"
+  ],
+  "related": [
+   "DOC-datasheet-edit",
+   "DOC-datasheet-pdf",
+   "DOC-datasheet-designer",
+   "OBJ-object-window",
+   "LIST-owner-cell"
+  ],
+  "roles": "Any project role (also read-only users)",
+  "training": {
+   "topic": "The datasheet",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "datasheet.webp",
+   "object-tab-data-sheet.webp"
+  ]
+ },
+ {
+  "id": "DOC-datasheet-edit",
+  "title": "Edit values on the datasheet",
+  "summary": "Type values straight into the datasheet; units are added and checked, and Undo takes a change back.",
+  "anchor": "doc-datasheet-edit",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.4"
+  ],
+  "checks": [
+   "F1"
+  ],
+  "related": [
+   "DOC-datasheet",
+   "OBJ-attributes",
+   "COL-history"
+  ],
+  "roles": "A project role that may edit objects",
+  "training": {
+   "topic": "Editing a datasheet",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-datasheet-pdf",
+  "title": "Datasheet PDF",
+  "summary": "Export PDF on the datasheet writes the layout's fields, section by section, to a PDF.",
+  "anchor": "doc-datasheet-pdf",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.4"
+  ],
+  "checks": [
+   "F2",
+   "F4"
+  ],
+  "related": [
+   "DOC-datasheet",
+   "DOC-datasheet-designer"
+  ],
+  "roles": "A project role that may export",
+  "training": {
+   "topic": "Datasheet to PDF",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-datasheet-document",
+  "title": "Datasheet documents",
+  "summary": "A datasheet document puts an object's datasheet under revision control.",
+  "anchor": "doc-datasheet-document",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.4",
+   "07.7"
+  ],
+  "checks": [],
+  "related": [
+   "DOC-new-document",
+   "DOC-issue",
+   "DOC-datasheet",
+   "AI-cloud-ai"
+  ],
+  "roles": "A project role that may write documents",
+  "training": {
+   "topic": "Datasheets under revision",
+   "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-datasheet-designer",
+  "title": "The datasheet designer",
+  "summary": "Copy or create a datasheet layout, add fields, preview it with an object, and publish it for a class.",
+  "anchor": "doc-datasheet-designer",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.5"
+  ],
+  "checks": [
+   "F3"
+  ],
+  "related": [
+   "DOC-datasheet",
+   "DOC-datasheet-pdf",
+   "LIB-configuration",
+   "LIB-company-library"
+  ],
+  "roles": "Datasheet design on the project",
+  "training": {
+   "topic": "Designing a datasheet",
+   "level": "Advanced",
+   "minutes": 8
+  },
+  "screenshots": [
+   "config-datasheets.webp"
+  ]
+ },
+ {
+  "id": "DOC-revisions-filter",
+  "title": "Filter documents by kind",
+  "summary": "The All ▾ filter on the Revisions page is meant to show only drawings, lists or datasheets.",
+  "anchor": "doc-revisions-filter",
+  "status": "placeholder",
+  "roadmap": [],
+  "checks": [
+   "E4"
+  ],
+  "related": [
+   "DOC-revisions-section"
+  ],
+  "roles": "Any project role",
+  "training": {
+   "topic": "Finding documents by kind",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-spec-datasheets",
+  "title": "Standard specification datasheets (ISA 20, API)",
+  "summary": "Specification datasheets in the industry formats, with operating-case tables and repeated blocks.",
+  "anchor": "doc-spec-datasheets",
+  "status": "planned",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "DOC-datasheet-designer",
+   "DOC-datasheet"
+  ],
+  "roles": "Datasheet design on the project",
+  "training": {
+   "topic": "Specification datasheets",
+   "level": "Advanced",
+   "minutes": 4
+  },
+  "screenshots": []
+ }
+]

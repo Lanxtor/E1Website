@@ -1,0 +1,663 @@
+[
+ {
+  "id": "LIB-configuration",
+  "title": "The Configuration place",
+  "summary": "Find the shared set-up of E1: data model, company library, catalogs, content packages, project settings and installation.",
+  "anchor": "lib-configuration",
+  "status": "available",
+  "updated": "2026-11-06",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "GS-layout",
+   "LIB-object-classes",
+   "LIB-company-library"
+  ],
+  "roles": "Everyone may look; changes need the rights named in each section",
+  "training": {
+   "topic": "A tour of Configuration",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "place-configuration.webp"
+  ]
+ },
+ {
+  "id": "LIB-object-classes",
+  "title": "Look up object classes",
+  "summary": "See every kind of object with its attributes, shapes, relationships and where it may be placed.",
+  "anchor": "lib-object-classes",
+  "status": "available",
+  "updated": "2026-11-06",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "LIB-attributes",
+   "LIB-company-library",
+   "OBJ-new-object"
+  ],
+  "roles": "Everyone",
+  "training": {
+   "topic": "Object classes explained",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "config-object-classes.webp"
+  ]
+ },
+ {
+  "id": "LIB-attributes",
+  "title": "Attributes and a project's pick lists",
+  "summary": "Look up attribute definitions and give a text or choice attribute a project's own pick list.",
+  "anchor": "lib-attributes",
+  "status": "available",
+  "updated": "2026-11-06",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "LIB-object-classes",
+   "OBJ-attributes",
+   "LIB-company-library"
+  ],
+  "roles": "Everyone may look; editing a project's pick list: Project administrator",
+  "training": {
+   "topic": "Attributes and pick lists",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": [
+   "config-attributes.webp"
+  ]
+ },
+ {
+  "id": "LIB-shapes",
+  "title": "Shapes and the Standard filter",
+  "summary": "Look up the symbols E1 draws, filtered by standard such as ISA 5.1, with ports, size and the classes using them.",
+  "anchor": "lib-shapes",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.12"
+  ],
+  "checks": [
+   "B7"
+  ],
+  "related": [
+   "DRAW-place-symbol",
+   "LIB-object-classes",
+   "LIB-content-packages"
+  ],
+  "roles": "Everyone",
+  "training": {
+   "topic": "Shapes and standards",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "config-shapes.webp"
+  ]
+ },
+ {
+  "id": "LIB-relationships",
+  "title": "Relationship types",
+  "summary": "Look up the kinds of links between objects, their direction and where they show.",
+  "anchor": "lib-relationships",
+  "status": "available",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "OBJ-relationships",
+   "LIB-company-library"
+  ],
+  "roles": "Everyone",
+  "training": {
+   "topic": "Relationship types",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "config-relationships.webp"
+  ]
+ },
+ {
+  "id": "LIB-company-library",
+  "title": "The company library: drafts, publishing and versions",
+  "summary": "Add your organization's own attributes, classes and relationship types as drafts and publish them to every project.",
+  "anchor": "lib-company-library",
+  "status": "available",
+  "since": "2026-11-05",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "11.1"
+  ],
+  "checks": [
+   "L1",
+   "L2",
+   "L3",
+   "L4"
+  ],
+  "related": [
+   "LIB-library-updates",
+   "LIB-upgrade",
+   "LIB-project-library",
+   "LIB-object-classes",
+   "OBJ-new-object"
+  ],
+  "roles": "Owner or Library administrator (company); Project administrator (This project only)",
+  "training": {
+   "topic": "Your own classes in the company library",
+   "level": "Intermediate",
+   "minutes": 6
+  },
+  "screenshots": [
+   "config-company-library.webp"
+  ]
+ },
+ {
+  "id": "LIB-library-updates",
+  "title": "Updates available and Check against projects",
+  "summary": "See what in a project is on an older library version, and check which objects a draft would break before publishing.",
+  "anchor": "lib-library-updates",
+  "status": "available",
+  "since": "2026-11-05",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "11.2"
+  ],
+  "checks": [
+   "L5",
+   "L6"
+  ],
+  "related": [
+   "LIB-company-library",
+   "LIB-upgrade",
+   "LIB-catalog-reapply"
+  ],
+  "roles": "Check against projects: Owner or Library administrator",
+  "training": {
+   "topic": "Library updates and impact checks",
+   "level": "Advanced",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-upgrade",
+  "title": "Upgrade objects to a new class version",
+  "summary": "Preview and apply an upgrade of objects to a new class version in one undoable step; discard retired values.",
+  "anchor": "lib-upgrade",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [
+   "11.3"
+  ],
+  "checks": [
+   "L7",
+   "L8"
+  ],
+  "related": [
+   "LIB-library-updates",
+   "LIB-company-library",
+   "COL-history"
+  ],
+  "roles": "Lead engineer or above",
+  "training": {
+   "topic": "Upgrading objects with preview",
+   "level": "Advanced",
+   "minutes": 5
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-project-library",
+  "title": "This project only: the project library",
+  "summary": "Publish classes and attributes that only one project has.",
+  "anchor": "lib-project-library",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [
+   "11.4"
+  ],
+  "checks": [
+   "L9"
+  ],
+  "related": [
+   "LIB-company-library",
+   "LIB-convention-templates",
+   "LIB-catalogs"
+  ],
+  "roles": "Project administrator",
+  "training": {
+   "topic": "The project library",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-convention-templates",
+  "title": "Convention templates for tag rules",
+  "summary": "Publish tag rules as a template, apply it to a project and take over new versions when you choose.",
+  "anchor": "lib-convention-templates",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [
+   "11.4"
+  ],
+  "checks": [
+   "L11"
+  ],
+  "related": [
+   "OBJ-tag-rules",
+   "LIB-company-library",
+   "AI-cloud-ai"
+  ],
+  "roles": "Publish: Owner or Library administrator; apply: Project administrator",
+  "training": {
+   "topic": "Convention templates",
+   "level": "Advanced",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-pin-version",
+  "title": "Pin a project to a library version",
+  "summary": "Keep a project on an earlier company library version, with a preview, through Cloud AI.",
+  "anchor": "lib-pin-version",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [
+   "11.4"
+  ],
+  "checks": [
+   "L10"
+  ],
+  "related": [
+   "LIB-library-updates",
+   "AI-cloud-ai"
+  ],
+  "roles": "Project administrator",
+  "training": {
+   "topic": "Pinning a library version",
+   "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-catalogs",
+  "title": "Catalogs of approved products",
+  "summary": "Keep approved products with their data and vendor documents in versioned company or project catalogs.",
+  "anchor": "lib-catalogs",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [
+   "20.1",
+   "20.4"
+  ],
+  "checks": [
+   "L12",
+   "L13",
+   "L18"
+  ],
+  "related": [
+   "LIB-from-catalog",
+   "LIB-catalog-reapply",
+   "LIB-catalog-import"
+  ],
+  "roles": "Owner, Library administrator or Catalog maintainer (company); Project administrator (project catalogs); everyone may read",
+  "training": {
+   "topic": "Building a product catalog",
+   "level": "Intermediate",
+   "minutes": 6
+  },
+  "screenshots": [
+   "config-catalogs.webp"
+  ]
+ },
+ {
+  "id": "LIB-from-catalog",
+  "title": "Make an object from a catalog item",
+  "summary": "Create an object filled with a catalog item's values and see which values differ from the catalog.",
+  "anchor": "lib-from-catalog",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [
+   "20.2"
+  ],
+  "checks": [
+   "L14",
+   "L15"
+  ],
+  "related": [
+   "LIB-catalogs",
+   "LIB-catalog-reapply",
+   "OBJ-new-object",
+   "LIST-new-query"
+  ],
+  "roles": "Anyone who may create objects",
+  "training": {
+   "topic": "Objects from catalog items",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "new-asset-centrifugal.webp"
+  ]
+ },
+ {
+  "id": "LIB-catalog-reapply",
+  "title": "Re-apply a catalog item, or detach from it",
+  "summary": "Bring objects up to a new catalog item version while keeping hand-changed values, or end the link.",
+  "anchor": "lib-catalog-reapply",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [
+   "20.3"
+  ],
+  "checks": [
+   "L16",
+   "L17"
+  ],
+  "related": [
+   "LIB-from-catalog",
+   "LIB-library-updates",
+   "COL-history"
+  ],
+  "roles": "Re-apply: may edit attributes; Detach: may edit the object",
+  "training": {
+   "topic": "Catalog updates: re-apply and detach",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-content-packages",
+  "title": "Content packages and standards",
+  "summary": "See the content packages Core, Electrical foundation, Plant engineering and CFIHOS, and which ones a project uses.",
+  "anchor": "lib-content-packages",
+  "status": "available",
+  "since": "2026-11-02",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M1.3"
+  ],
+  "checks": [],
+  "related": [
+   "LIB-project-settings",
+   "LIB-object-classes",
+   "LIB-shapes",
+   "LIB-package-licensing"
+  ],
+  "roles": "Everyone may look; switching: Project administrator",
+  "training": {
+   "topic": "Content packages and standards",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "config-content-and-standards.webp"
+  ]
+ },
+ {
+  "id": "LIB-project-settings",
+  "title": "Project settings: packages, drawing and tag rules",
+  "summary": "Set a project's content packages, crossing-line style and tag rules, for one or several projects at once.",
+  "anchor": "lib-project-settings",
+  "status": "available",
+  "since": "2026-11-02",
+  "roadmap": [
+   "M1.3",
+   "M1.8"
+  ],
+  "checks": [],
+  "related": [
+   "LIB-content-packages",
+   "OBJ-tag-rules",
+   "LIB-project-defaults",
+   "PRJ-new-project"
+  ],
+  "roles": "Changing: Project administrator; looking: everyone in the project",
+  "training": {
+   "topic": "Project settings",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "config-project-settings.webp"
+  ]
+ },
+ {
+  "id": "LIB-project-defaults",
+  "title": "Project defaults",
+  "summary": "See the settings a new project starts with (read only for now).",
+  "anchor": "lib-project-defaults",
+  "status": "placeholder",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "LIB-project-settings"
+  ],
+  "roles": "Everyone",
+  "training": {
+   "topic": "Project defaults",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "config-project-defaults.webp"
+  ]
+ },
+ {
+  "id": "LIB-alex-knowledge",
+  "title": "Alex knowledge: your company's conventions",
+  "summary": "Give Alex your company's standards, accept the conventions it proposes, and let it learn usual values from your projects.",
+  "anchor": "lib-alex-knowledge",
+  "status": "available",
+  "since": "2026-11-06",
+  "updated": "2026-11-07",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "AI-alex",
+   "AI-cloud-ai"
+  ],
+  "roles": "Engineering standards owner, Library administrator or Owner; accepting needs the permission to approve conventions",
+  "training": {
+   "topic": "Teaching Alex your conventions",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": [
+   "config-alex-knowledge.webp"
+  ]
+ },
+ {
+  "id": "LIB-datasheets",
+  "title": "Datasheet layouts",
+  "summary": "Find the datasheet layouts of the project, the company and the content packages, and open the designer.",
+  "anchor": "lib-datasheets",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "07.5"
+  ],
+  "checks": [],
+  "related": [
+   "DOC-datasheet-designer",
+   "DOC-datasheet"
+  ],
+  "roles": "Project layouts: Lead engineer or above; company layouts: Owner or Library administrator",
+  "training": {
+   "topic": "Where datasheet layouts live",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "config-datasheets.webp"
+  ]
+ },
+ {
+  "id": "LIB-cloud-ai-model",
+  "title": "The Cloud AI model of the installation",
+  "summary": "See which model Cloud AI uses in your installation, or whether it is off or runs locally.",
+  "anchor": "lib-cloud-ai-model",
+  "status": "available",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "AI-cloud-ai"
+  ],
+  "roles": "Everyone may look",
+  "training": {
+   "topic": "The installation's Cloud AI model",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "config-cloud-ai-model.webp"
+  ]
+ },
+ {
+  "id": "LIB-storage",
+  "title": "Storage",
+  "summary": "Where the installation keeps its data (placeholder).",
+  "anchor": "lib-storage",
+  "status": "placeholder",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "LIB-configuration"
+  ],
+  "roles": "Everyone",
+  "training": {
+   "topic": "Storage",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "config-storage.webp"
+  ]
+ },
+ {
+  "id": "LIB-rules",
+  "title": "Rules: calculations, check rules and copy rules",
+  "summary": "Calculated values, check rules with findings, and copy rules between objects.",
+  "anchor": "lib-rules",
+  "status": "planned",
+  "roadmap": [
+   "12.1",
+   "12.2",
+   "12.3",
+   "12.4",
+   "12.5",
+   "12.6"
+  ],
+  "checks": [],
+  "related": [
+   "OBJ-tag-rules",
+   "LIB-configuration"
+  ],
+  "roles": "",
+  "training": {
+   "topic": "Rules in E1",
+   "level": "Advanced",
+   "minutes": 5
+  },
+  "screenshots": [
+   "config-rules.webp"
+  ]
+ },
+ {
+  "id": "LIB-units",
+  "title": "Units of measurement",
+  "summary": "Work in real units of measurement and change the units shown.",
+  "anchor": "lib-units",
+  "status": "planned",
+  "roadmap": [
+   "01.2b"
+  ],
+  "checks": [],
+  "related": [
+   "OBJ-attributes",
+   "LIB-attributes"
+  ],
+  "roles": "",
+  "training": {
+   "topic": "Units of measurement",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-package-switching",
+  "title": "Switching content packages on and off",
+  "summary": "Switch a package on or off and see its classes and symbols appear or disappear, with a check of what still uses it.",
+  "anchor": "lib-package-switching",
+  "status": "planned",
+  "roadmap": [
+   "04.2"
+  ],
+  "checks": [],
+  "related": [
+   "LIB-content-packages",
+   "LIB-project-settings"
+  ],
+  "roles": "Project administrator",
+  "training": {
+   "topic": "Switching content packages",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-package-licensing",
+  "title": "Content package licensing and updates",
+  "summary": "See which packages your license covers and install package updates into a project.",
+  "anchor": "lib-package-licensing",
+  "status": "planned",
+  "roadmap": [
+   "04.3",
+   "04.5"
+  ],
+  "checks": [],
+  "related": [
+   "LIB-content-packages",
+   "LIB-package-switching"
+  ],
+  "roles": "",
+  "training": {
+   "topic": "Package licenses and updates",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-catalog-import",
+  "title": "Catalog import",
+  "summary": "Import a catalog from a spreadsheet.",
+  "anchor": "lib-catalog-import",
+  "status": "planned",
+  "roadmap": [
+   "20.5"
+  ],
+  "checks": [],
+  "related": [
+   "LIB-catalogs"
+  ],
+  "roles": "",
+  "training": {
+   "topic": "Importing a catalog",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ }
+]

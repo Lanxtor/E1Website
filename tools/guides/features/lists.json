@@ -1,0 +1,589 @@
+[
+ {
+  "id": "LIST-new-query",
+  "title": "Open a query with New query…",
+  "summary": "Opens a live table of every object below a project, section, folder, sheet or object.",
+  "anchor": "list-new-query",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-07",
+  "roadmap": [
+   "M3.5",
+   "M3.9"
+  ],
+  "checks": [
+   "D1"
+  ],
+  "related": [
+   "LIST-sort",
+   "LIST-columns",
+   "LIST-templates",
+   "LIST-workspace-query",
+   "PRJ-sections"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Your first query",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": [
+   "query-submenu.webp",
+   "query-view.webp"
+  ]
+ },
+ {
+  "id": "LIST-sort",
+  "title": "Sort by a column",
+  "summary": "Click a column header to sort the rows ascending or descending.",
+  "anchor": "list-sort",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.5"
+  ],
+  "checks": [
+   "D1"
+  ],
+  "related": [
+   "LIST-new-query",
+   "LIST-columns",
+   "LIST-filter"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Sorting a query",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-columns",
+  "title": "Choose the columns",
+  "summary": "Add properties, attributes and related objects as columns with the Columns picker.",
+  "anchor": "list-columns",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-06",
+  "roadmap": [
+   "M3.5",
+   "M3.9"
+  ],
+  "checks": [
+   "D1",
+   "D2"
+  ],
+  "related": [
+   "LIST-eng-columns",
+   "LIST-catalog-columns",
+   "LIST-group-totals",
+   "OBJ-attributes"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Choosing columns",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "query-columns.webp"
+  ]
+ },
+ {
+  "id": "LIST-eng-columns",
+  "title": "Engineering columns: Designation, Owner path and related objects",
+  "summary": "Show an object's designation, its owner path, and what it connects to, by name or as a count.",
+  "anchor": "list-eng-columns",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.9"
+  ],
+  "checks": [
+   "D2",
+   "D6",
+   "D7"
+  ],
+  "related": [
+   "LIST-columns",
+   "LIST-group-totals",
+   "LIST-templates"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Engineering columns for an equipment list",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": [
+   "query-columns.webp"
+  ]
+ },
+ {
+  "id": "LIST-catalog-columns",
+  "title": "Catalog columns",
+  "summary": "Show which catalog item an object was made from, its version and whether an update is available.",
+  "anchor": "list-catalog-columns",
+  "status": "available",
+  "since": "2026-11-06",
+  "roadmap": [
+   "20.2"
+  ],
+  "checks": [
+   "L15"
+  ],
+  "related": [
+   "LIST-columns",
+   "LIB-catalogs"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Catalog columns in a list",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-filter",
+  "title": "Filter rows with AND, OR and NOT",
+  "summary": "Build a filter from conditions joined by AND or OR, each one optionally negated with NOT.",
+  "anchor": "list-filter",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.6"
+  ],
+  "checks": [
+   "D3"
+  ],
+  "related": [
+   "LIST-filter-summary",
+   "LIST-parameters",
+   "LIST-templates"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Filtering with AND, OR and NOT",
+   "level": "Beginner",
+   "minutes": 5
+  },
+  "screenshots": [
+   "query-filter.webp"
+  ]
+ },
+ {
+  "id": "LIST-filter-summary",
+  "title": "Read the filter in words and clear it",
+  "summary": "The active filter is shown above the table in plain language; Clear filter removes it.",
+  "anchor": "list-filter-summary",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.6"
+  ],
+  "checks": [
+   "D3"
+  ],
+  "related": [
+   "LIST-filter",
+   "LIST-parameters"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "The filter in words",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-parameters",
+  "title": "Ask when opened: one query for many values",
+  "summary": "Leave a filter value out so whoever opens the query types it in each time.",
+  "anchor": "list-parameters",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.6"
+  ],
+  "checks": [
+   "D3"
+  ],
+  "related": [
+   "LIST-filter",
+   "LIST-templates"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Queries that ask for a value",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-group-totals",
+  "title": "Group & totals",
+  "summary": "Group the rows by a column and add a sum, minimum, maximum, average or count per attribute.",
+  "anchor": "list-group-totals",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.9"
+  ],
+  "checks": [
+   "D2"
+  ],
+  "related": [
+   "LIST-columns",
+   "LIST-templates",
+   "LIST-eng-columns"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Grouping and totals",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-templates",
+  "title": "Save a query as a template and reopen it under Query ▸",
+  "summary": "Save the columns, filter, sort and grouping as a named template for yourself, the project or the organization.",
+  "anchor": "list-templates",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-05",
+  "roadmap": [
+   "M3.6",
+   "M3.9"
+  ],
+  "checks": [
+   "D2"
+  ],
+  "related": [
+   "LIST-new-query",
+   "LIST-filter",
+   "LIST-group-totals",
+   "LIB-company-library"
+  ],
+  "roles": "For me: may view the project. For this project: may configure the project. For the organization: may publish to the company library",
+  "training": {
+   "topic": "Saving a list as a template",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-edit-cell",
+  "title": "Edit a cell like in Excel",
+  "summary": "Double-click or press F2 on a cell to change a name or an attribute value; Ctrl+Z undoes it.",
+  "anchor": "list-edit-cell",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.7",
+   "M3.9"
+  ],
+  "checks": [
+   "D4"
+  ],
+  "related": [
+   "LIST-paste",
+   "LIST-fill",
+   "LIST-set-value",
+   "COL-history"
+  ],
+  "roles": "A project role that may edit objects",
+  "training": {
+   "topic": "Editing in the table",
+   "level": "Beginner",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-paste",
+  "title": "Paste a block from Excel",
+  "summary": "Paste cells copied from Excel into the table; a preview shows every change or problem first.",
+  "anchor": "list-paste",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.7"
+  ],
+  "checks": [
+   "D4"
+  ],
+  "related": [
+   "LIST-edit-cell",
+   "LIST-fill",
+   "LIST-set-value"
+  ],
+  "roles": "A project role that may edit objects",
+  "training": {
+   "topic": "Pasting from Excel",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-set-value",
+  "title": "Select many cells and Set value…",
+  "summary": "Select a block of cells and give them all one value in one undoable step.",
+  "anchor": "list-set-value",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.7"
+  ],
+  "checks": [
+   "D4"
+  ],
+  "related": [
+   "LIST-fill",
+   "LIST-paste",
+   "LIST-find-replace"
+  ],
+  "roles": "A project role that may edit objects",
+  "training": {
+   "topic": "Changing many cells at once",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-fill",
+  "title": "Fill down and Fill right",
+  "summary": "Copy the top or left cell into the selected cells, counting on values that end in a number.",
+  "anchor": "list-fill",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.7"
+  ],
+  "checks": [
+   "D4"
+  ],
+  "related": [
+   "LIST-set-value",
+   "LIST-paste",
+   "LIST-edit-cell"
+  ],
+  "roles": "A project role that may edit objects",
+  "training": {
+   "topic": "Fill down and fill right",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-find-replace",
+  "title": "Find and replace…",
+  "summary": "Replace text in one column or in the selected cells, with a count of the matches first.",
+  "anchor": "list-find-replace",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.7"
+  ],
+  "checks": [
+   "D4"
+  ],
+  "related": [
+   "LIST-set-value",
+   "LIST-edit-cell"
+  ],
+  "roles": "A project role that may edit objects",
+  "training": {
+   "topic": "Find and replace in a list",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-owner-cell",
+  "title": "Owner cell: open the object, or move it with F2",
+  "summary": "Double-click an Owner cell to open the object; press F2 to move it to another owner.",
+  "anchor": "list-owner-cell",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.9"
+  ],
+  "checks": [
+   "D2",
+   "D4"
+  ],
+  "related": [
+   "LIST-edit-cell",
+   "OBJ-object-window"
+  ],
+  "roles": "A project role that may edit objects (to move)",
+  "training": {
+   "topic": "Moving objects from a list",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-excel-export",
+  "title": "Export a query to Excel or CSV",
+  "summary": "Download every row of the query as an Excel workbook or a CSV file, with an E1 id column.",
+  "anchor": "list-excel-export",
+  "status": "available",
+  "since": "2026-11-04",
+  "roadmap": [
+   "M3.8"
+  ],
+  "checks": [
+   "D5"
+  ],
+  "related": [
+   "LIST-update-from-excel",
+   "LIST-project-excel",
+   "LIST-new-query"
+  ],
+  "roles": "A project role that may export",
+  "training": {
+   "topic": "Exporting a list to Excel",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [
+   "query-view.webp"
+  ]
+ },
+ {
+  "id": "LIST-update-from-excel",
+  "title": "Update from Excel… with Check and Apply",
+  "summary": "Read an exported file back: Check lists every change row by row, Apply makes them in one undoable step.",
+  "anchor": "list-update-from-excel",
+  "status": "available",
+  "since": "2026-11-04",
+  "updated": "2026-11-05",
+  "roadmap": [
+   "M3.8",
+   "05.5a"
+  ],
+  "checks": [
+   "D5"
+  ],
+  "related": [
+   "LIST-excel-export",
+   "LIST-import-excel",
+   "COL-history"
+  ],
+  "roles": "A project role that may edit objects",
+  "training": {
+   "topic": "Updating a list from Excel",
+   "level": "Intermediate",
+   "minutes": 5
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-import-excel",
+  "title": "Import Excel…: bring a tag list into a section",
+  "summary": "Import an Excel or CSV tag list into a section: matching rows are updated, the others become new objects.",
+  "anchor": "list-import-excel",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [
+   "05.5a",
+   "07.3"
+  ],
+  "checks": [],
+  "related": [
+   "LIST-update-from-excel",
+   "LIST-excel-export",
+   "OBJ-new-object"
+  ],
+  "roles": "A project role that may edit objects",
+  "training": {
+   "topic": "Importing a tag list from Excel",
+   "level": "Intermediate",
+   "minutes": 6
+  },
+  "screenshots": [
+   "menu-data.webp"
+  ]
+ },
+ {
+  "id": "LIST-project-excel",
+  "title": "File → Export Excel…: every saved query in one workbook",
+  "summary": "Download one workbook for the project with a sheet per saved query.",
+  "anchor": "list-project-excel",
+  "status": "available",
+  "since": "2026-11-05",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "LIST-templates",
+   "LIST-excel-export"
+  ],
+  "roles": "A project role that may export",
+  "training": {
+   "topic": "Exporting the project's lists",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": [
+   "menu-file.webp"
+  ]
+ },
+ {
+  "id": "LIST-workspace-query",
+  "title": "Query over every project of the organization",
+  "summary": "One query over the objects of every project you may view, opened from the organization name.",
+  "anchor": "list-workspace-query",
+  "status": "available",
+  "since": "2026-11-06",
+  "updated": "2026-11-07",
+  "roadmap": [],
+  "checks": [],
+  "related": [
+   "LIST-new-query",
+   "LIST-excel-export"
+  ],
+  "roles": "Rows from every project the person may view",
+  "training": {
+   "topic": "A query across projects",
+   "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIST-sentence-query",
+  "title": "Queries from a sentence",
+  "summary": "Type a sentence such as “all pumps without a motor” and get the matching table.",
+  "anchor": "list-sentence-query",
+  "status": "planned",
+  "roadmap": [
+   "05.5b"
+  ],
+  "checks": [],
+  "related": [
+   "LIST-new-query",
+   "LIST-filter",
+   "AI-cloud-ai"
+  ],
+  "roles": "Any project role that may view the project",
+  "training": {
+   "topic": "Asking for a list in a sentence",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ }
+]

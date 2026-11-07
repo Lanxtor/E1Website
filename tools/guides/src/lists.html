@@ -1,0 +1,540 @@
+<section class="g-feature" id="lists-overview">
+  <h2>About this guide</h2>
+  <p class="g-summary">In E1 a list is not a separate file: it is a live <em>query</em> of the project's objects. You pick where it starts, choose the columns, filter, group and total, edit the cells like a spreadsheet, save the layout as a template, and move the table to and from Excel.</p>
+  <h3>Typical workflow</h3>
+  <ol>
+    <li><a href="#list-new-query">Open a query</a> on a section, folder or object, and <a href="#list-sort">sort</a> it.</li>
+    <li>Add <a href="#list-columns">columns</a>: attributes, <a href="#list-eng-columns">engineering columns</a> and <a href="#list-catalog-columns">catalog columns</a>.</li>
+    <li><a href="#list-filter">Filter</a> the rows, read the <a href="#list-filter-summary">summary in words</a>, and use <a href="#list-parameters">Ask when opened</a> for values you change often.</li>
+    <li><a href="#list-group-totals">Group and total</a> the rows, then <a href="#list-templates">save the query as a template</a> for yourself, the project or the organization.</li>
+    <li>Change values in the table: <a href="#list-edit-cell">type</a>, <a href="#list-paste">paste from Excel</a>, <a href="#list-fill">fill down</a>, <a href="#list-set-value">set many cells</a>, <a href="#list-find-replace">find and replace</a>, and <a href="#list-owner-cell">move objects</a>. Each change is one undo step.</li>
+    <li><a href="#list-excel-export">Export to Excel</a>, change the file, and <a href="#list-update-from-excel">update the project from it</a>; bring in new rows with <a href="#list-import-excel">Import Excel…</a>.</li>
+  </ol>
+  <p>A saved query can be issued as a list document with its own revisions and PDF: see <a href="guide-documents.html#doc-list-document">List documents</a>.</p>
+  <dl class="g-facts">
+    <dt>Before you start</dt><dd>A project with objects in it, for example the Assets section of <em>Demo Plant</em>.</dd>
+    <dt>Who</dt><dd>Anyone who may view the project can query it. Changing cells needs a project role that may edit objects; exporting needs a role that may export.</dd>
+  </dl>
+</section>
+
+<section class="g-feature" id="list-new-query">
+  <h2>Open a query with New query…</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">LIST-new-query</span><span>Roadmap M3.5, M3.9</span><span>Review check D1</span></div>
+  <p class="g-summary">A query is a live table of every object below the place you start from. It opens in its own tab, keeps its columns and sort when you reload, and changes as the model changes.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → right-click a project, section, folder, sheet or object → <span class="ui">Query</span> ▸ <span class="ui">New query…</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the project</dd>
+    <dt>Before you start</dt><dd>A project with objects is open in the explorer.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the explorer, right-click <span class="ui">Assets</span>.</td><td>A menu opens with <span class="ui">Query</span> and an arrow ▸.</td></tr>
+      <tr><td>2</td><td>Hover <span class="ui">Query</span>.</td><td>A submenu opens. It lists the saved templates, if any, then <span class="ui">New query…</span>. With nothing saved, <span class="ui">New query…</span> is the only item: there are no built-in lists.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">New query…</span>.</td><td>A tab <span class="ui">Query: Assets</span> opens. The bar reads “All objects below Assets · N rows”. The columns are <span class="ui">Owner</span>, <span class="ui">Name</span> and <span class="ui">Class</span>, sorted by Name ascending (▲).</td></tr>
+      <tr><td>4</td><td>Scroll down the table.</td><td>Rows load 200 at a time; a row not loaded yet shows “…” for a moment.</td></tr>
+      <tr><td>5</td><td>Reload the page.</td><td>The query tab comes back with the same columns and sort.</td></tr>
+      <tr><td>6</td><td>Right-click the object <span class="ui">V3</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</td><td>A second query opens; its bar reads “All objects below V3”.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/query-submenu.webp" alt="Right-click menu of the Assets section with the Query submenu open, showing New query…" width="576" height="316" loading="lazy"><figcaption>Right-click <span class="ui">Assets</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/query-view.webp" alt="The Query: Assets tab with 48 rows and the columns Owner, Name and Class; the bar holds Filter, Find and replace…, Export, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption>A new query on Assets: 48 rows, sorted by Name.</figcaption></figure>
+  <p class="g-note">The Name column shows an object's tag, or its name when it has no tag. Ports and objects in the Bin are not rows. An empty result reads “No objects below &lt;start&gt;.”.</p>
+  <p class="g-note">The <span class="ui">Query</span> item is not offered in the Bin, on a case or on a voided object.</p>
+  <p class="g-warn">A query tab whose definition is gone shows “This query is no longer open. Open it again from the explorer: right-click, Query, New query.”.</p>
+  <p class="g-warn">Speed has been measured up to 20,000 objects; very large projects may be slower.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-sort">Sort by a column</a>, <a href="guide-lists.html#list-columns">Choose the columns</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-workspace-query">Query over every project of the organization</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a></p>
+</section>
+
+<section class="g-feature" id="list-sort">
+  <h2>Sort by a column</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-sort</span><span>Roadmap M3.5</span><span>Review check D1</span></div>
+  <p class="g-summary">Click a column header to sort the rows ascending or descending.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → a column header</dd>
+    <dt>Before you start</dt><dd>A query is open (see <a href="#list-new-query">New query…</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Hover the <span class="ui">Name</span> header.</td><td>The hover text reads “Click to sort; right-click to filter on this column”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Name</span>.</td><td>The rows sort descending and the header shows ▼.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Name</span> again.</td><td>The rows sort ascending and the header shows ▲.</td></tr>
+      <tr><td>4</td><td>Reload the page.</td><td>The sort is kept.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Owner, Name, Class, Tag and attribute columns sort. Designation, Owner path, related columns, count columns and catalog columns do not: their hover text reads “This column does not sort yet” and a click changes nothing.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-new-query">Open a query with New query…</a>, <a href="guide-lists.html#list-columns">Choose the columns</a>, <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a></p>
+</section>
+
+<section class="g-feature" id="list-columns">
+  <h2>Choose the columns</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">LIST-columns</span><span>Roadmap M3.5, M3.9</span><span>Review checks D1, D2</span></div>
+  <p class="g-summary">Add properties, attributes and related objects as columns with the Columns picker.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Columns</span></dd>
+    <dt>Before you start</dt><dd>A query is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Columns</span>.</td><td>The Columns panel opens: <span class="ui">Properties</span> checkboxes (<span class="ui">Class</span>, <span class="ui">Tag</span>, <span class="ui">Designation</span>, <span class="ui">Owner path</span>, <span class="ui">Catalog item</span>, <span class="ui">Catalog version</span>, <span class="ui">Catalog state</span>), a <span class="ui">Related</span> dropdown “Choose a relationship…”, a <span class="ui">Search attributes</span> box and the list of attributes.</td></tr>
+      <tr><td>2</td><td>Type <code>Design pressure</code> in <span class="ui">Search attributes</span>.</td><td>The attribute list narrows to matching names, for example “Design pressure / In”.</td></tr>
+      <tr><td>3</td><td>Tick the first attribute in the list.</td><td>A new column with that attribute's name appears at the right of the table.</td></tr>
+      <tr><td>4</td><td>Untick it.</td><td>The column goes. A sort, group or total on that column goes with it.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Columns</span> again.</td><td>The panel closes.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/query-columns.webp" alt="The Columns panel open over the query table, with Related: Choose a relationship…, the Search attributes box and a list of attribute checkboxes." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Columns</span> panel.</figcaption></figure>
+  <p class="g-note">While the attributes load the panel reads “Loading the attributes of these objects…”; when there are none, “These objects have no attributes.”.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-eng-columns">Engineering columns: Designation, Owner path and related objects</a>, <a href="guide-lists.html#list-catalog-columns">Catalog columns</a>, <a href="guide-lists.html#list-group-totals">Group &amp; totals</a>, <a href="guide-objects.html#obj-attributes">Attributes and units</a></p>
+</section>
+
+<section class="g-feature" id="list-eng-columns">
+  <h2>Engineering columns: Designation, Owner path and related objects</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-eng-columns</span><span>Roadmap M3.9</span><span>Review checks D2, D6, D7</span></div>
+  <p class="g-summary">Show an object's designation, its owner path, and what it connects to, by name or as a count.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Columns</span> → <span class="ui">Properties</span> and <span class="ui">Related</span></dd>
+    <dt>Before you start</dt><dd>A query on <span class="ui">Assets</span> is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Columns</span> and tick <span class="ui">Designation</span>.</td><td>A <span class="ui">Designation</span> column appears.</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Related</span>, choose <span class="ui">Connects to</span>.</td><td>Two checkboxes appear: <span class="ui">Their names</span> and <span class="ui">How many</span>.</td></tr>
+      <tr><td>3</td><td>Tick <span class="ui">Their names</span>.</td><td>The headers read Owner, Name, Class, Designation, Connects to.</td></tr>
+      <tr><td>4</td><td>Scroll to a pipe run's row.</td><td>Its Connects to cell lists the objects at its ends, a port as “object · port”, for example “Pump1 · suction”. The cell is grey; its hover text says why it cannot be edited.</td></tr>
+      <tr><td>5</td><td>Tick <span class="ui">How many</span>.</td><td>A column headed “Count: …” with the relationship's name appears, with a number per row.</td></tr>
+      <tr><td>6</td><td>Click the <span class="ui">Connects to</span> header.</td><td>The row order does not change.</td></tr>
+      <tr><td>7</td><td>Tick <span class="ui">Owner path</span>.</td><td>An Owner path column shows where each object sits in the project.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/query-columns.webp" alt="The Columns panel with the Related dropdown at the top." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Related</span> dropdown lists every relationship type both ways.</figcaption></figure>
+  <p class="g-warn">Designation, Owner path, related and count columns cannot be sorted, grouped or filtered.</p>
+  <p class="g-warn">Attributes of the owner or of a related object can be asked for through Cloud AI or the API, but are not in the Columns picker yet.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-columns">Choose the columns</a>, <a href="guide-lists.html#list-group-totals">Group &amp; totals</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a></p>
+</section>
+
+<section class="g-feature" id="list-catalog-columns">
+  <h2>Catalog columns</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span class="g-id">LIST-catalog-columns</span><span>Roadmap 20.2</span><span>Review check L15</span></div>
+  <p class="g-summary">Show which catalog item an object was made from, its version and whether an update is available.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Columns</span> → <span class="ui">Properties</span> → <span class="ui">Catalog item</span>, <span class="ui">Catalog version</span>, <span class="ui">Catalog state</span></dd>
+    <dt>Before you start</dt><dd>Some objects were made from a catalog item (see <a href="guide-library.html#lib-catalogs">Catalogs</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a query on the section that holds the pumps made from a catalog item.</td><td>The query shows the pumps.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Columns</span> and tick <span class="ui">Catalog item</span>, <span class="ui">Catalog version</span> and <span class="ui">Catalog state</span>.</td><td>Three columns appear. Each pump shows its catalog item, its version (for example “1 (newest 2)”), and a state such as “update available” or “differs”.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">There is no menu item called “Catalog columns”: these are the three checkboxes under <span class="ui">Properties</span>.</p>
+  <p class="g-warn">The exact cell texts are taken from review check L15; they were not seen on screen while writing this guide.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-columns">Choose the columns</a>, <a href="guide-library.html#lib-catalogs">Catalogs</a></p>
+</section>
+
+<section class="g-feature" id="list-filter">
+  <h2>Filter rows with AND, OR and NOT</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-filter</span><span>Roadmap M3.6</span><span>Review check D3</span></div>
+  <p class="g-summary">Build a filter from conditions joined by AND or OR, each one optionally negated with NOT.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Filter</span>, or right-click a Name, Class or attribute header</dd>
+    <dt>Before you start</dt><dd>A query is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Filter</span>.</td><td>The Filter panel opens: “Rows that match” with <span class="ui">Match</span> set to <span class="ui">all of these (AND)</span>, and the buttons <span class="ui">Add condition</span>, <span class="ui">Apply</span> and <span class="ui">Cancel</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add condition</span>.</td><td>“Condition 1” appears with <span class="ui">NOT</span>, <span class="ui">Field</span>, <span class="ui">Operator</span>, <span class="ui">Value</span>, <span class="ui">Ask when opened</span> and ×.</td></tr>
+      <tr><td>3</td><td>Set <span class="ui">Field</span> to <span class="ui">Name</span>, <span class="ui">Operator</span> to <span class="ui">contains</span>, type <code>pump</code> in <span class="ui">Value</span>, and click <span class="ui">Apply</span>.</td><td>The panel closes. Below the bar the filter in words reads “Name contains pump”. The row count drops and every Name contains “pump”.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Filter</span>, tick <span class="ui">NOT</span> on Condition 1, and click <span class="ui">Apply</span>.</td><td>The summary contains “NOT”. The count equals all rows minus the pumps.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Filter</span>, add a second condition with <span class="ui">Field</span> <span class="ui">Class</span> and <span class="ui">Operator</span> <span class="ui">is</span>, and type part of a class name in <span class="ui">Value</span>.</td><td>A list of matching classes appears (“Type to find a class”); you pick the class from it, never type its key.</td></tr>
+      <tr><td>6</td><td>Set <span class="ui">Match</span> to <span class="ui">any of these (OR)</span> and click <span class="ui">Apply</span>.</td><td>Rows that match either condition are shown; the summary joins the conditions with OR.</td></tr>
+      <tr><td>7</td><td>Right-click the <span class="ui">Class</span> header.</td><td>The Filter panel opens with a new condition on Class.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Operators</h3>
+  <p>Depending on the field: <span class="ui">is</span>, <span class="ui">is not</span>, <span class="ui">contains</span>, <span class="ui">does not contain</span>, <span class="ui">starts with</span>, <span class="ui">ends with</span>, <span class="ui">matches (* ?)</span>, <span class="ui">is one of</span>, <span class="ui">is empty</span>, <span class="ui">is not empty</span>, <span class="ui">=</span>, <span class="ui">≠</span>, <span class="ui">&lt;</span>, <span class="ui">≤</span>, <span class="ui">&gt;</span>, <span class="ui">≥</span>, <span class="ui">between</span>. <span class="ui">is one of</span> takes a list such as <code>a, b, c</code>; <span class="ui">between</span> shows a second box “and”. Quantities have a <span class="ui">Unit</span> and are compared after unit conversion, so 1 bar matches 100 kPa. An empty value never matches a comparison, but does match <span class="ui">is not</span>, <span class="ui">does not contain</span> and <span class="ui">≠</span>.</p>
+  <figure class="g-shot"><img src="assets/img/guides/query-filter.webp" alt="The Filter panel open over the query: Rows that match all of these (AND), with Add condition, Apply and Cancel." width="2160" height="1350" loading="lazy"><figcaption>The filter builder.</figcaption></figure>
+  <p class="g-note">This filter language is what E1 calls expressions: typed, unit-aware conditions. Calculated columns are not in the query view.</p>
+  <p class="g-note">A filter with groups inside groups, for example one made by Cloud AI, is shown in words. The builder then says “This filter has groups inside groups; it is shown above in words. Clear it to build a new one here.” and offers only <span class="ui">Clear filter</span> and <span class="ui">Close</span>.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-filter-summary">Read the filter in words and clear it</a>, <a href="guide-lists.html#list-parameters">Ask when opened: one query for many values</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a></p>
+</section>
+
+<section class="g-feature" id="list-filter-summary">
+  <h2>Read the filter in words and clear it</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-filter-summary</span><span>Roadmap M3.6</span><span>Review check D3</span></div>
+  <p class="g-summary">The active filter is shown above the table in plain language; Clear filter removes it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → the line below “All objects below …”, and <span class="ui">Clear filter</span></dd>
+    <dt>Before you start</dt><dd>A filter is applied (see <a href="#list-filter">Filter</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Read the line below “All objects below …”.</td><td>It shows the filter in words, for example “Name contains pump”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Clear filter</span>.</td><td>All rows return, the summary disappears, and the <span class="ui">Clear filter</span> button goes.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Clear filter</span> is only shown while a filter is set.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a>, <a href="guide-lists.html#list-parameters">Ask when opened: one query for many values</a></p>
+</section>
+
+<section class="g-feature" id="list-parameters">
+  <h2>Ask when opened: one query for many values</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-parameters</span><span>Roadmap M3.6</span><span>Review check D3</span></div>
+  <p class="g-summary">Leave a filter value out so whoever opens the query types it in each time.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Filter panel → a condition → <span class="ui">Ask when opened</span></dd>
+    <dt>Before you start</dt><dd>The Filter panel is open with a condition on <span class="ui">Name</span> <span class="ui">contains</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Tick <span class="ui">Ask when opened</span> on the condition.</td><td>The value box is replaced by “Asked each time the query opens”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Apply</span>.</td><td>A form “This query asks for:” appears with a box labelled <span class="ui">Name</span> and a <span class="ui">Show rows</span> button.</td></tr>
+      <tr><td>3</td><td>Type <code>pump</code> and click <span class="ui">Show rows</span>.</td><td>The same rows appear as with “Name contains pump”.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">For a Class condition the form has a <span class="ui">Class</span> box: type “PUMP”, pick “Pump” from the list, and the box reads “Pump”.</p>
+  <p class="g-note">The values you type are kept while the tab is open. <span class="ui">Apply</span> and <span class="ui">Clear filter</span> reset them.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a></p>
+</section>
+
+<section class="g-feature" id="list-group-totals">
+  <h2>Group &amp; totals</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-group-totals</span><span>Roadmap M3.9</span><span>Review check D2</span></div>
+  <p class="g-summary">Group the rows by a column and add a sum, minimum, maximum, average or count per attribute.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Group &amp; totals</span></dd>
+    <dt>Before you start</dt><dd>A query on <span class="ui">Assets</span> is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Group &amp; totals</span>.</td><td>A panel opens with <span class="ui">Group by</span> (“No grouping”) and one <span class="ui">Total of …</span> dropdown per attribute column.</td></tr>
+      <tr><td>2</td><td>Set <span class="ui">Group by</span> to <span class="ui">Class</span>.</td><td>Header rows such as “Centrifugal pump” appear with “N rows”; the rows under each header are of that class.</td></tr>
+      <tr><td>3</td><td>Close the panel, add an attribute column with <span class="ui">Columns</span>, and open <span class="ui">Group &amp; totals</span> again.</td><td>A <span class="ui">Total of &lt;attribute&gt;</span> dropdown is shown for the new column.</td></tr>
+      <tr><td>4</td><td>Set it to <span class="ui">Count</span>.</td><td>A “Totals” row under the table shows “Count: N”. Hovering the total reads “Count of every row”.</td></tr>
+      <tr><td>5</td><td>Reload the page.</td><td>The grouping and the total are kept.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The choices are <span class="ui">None</span>, <span class="ui">Sum</span>, <span class="ui">Minimum</span>, <span class="ui">Maximum</span>, <span class="ui">Average</span> and <span class="ui">Count</span>. Sum, Minimum, Maximum and Average are offered only for number and quantity attributes. Totals count every row, not only the rows loaded, and quantities are shown in the attribute's unit.</p>
+  <p class="g-warn">One level of grouping only, and groups cannot be collapsed.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-columns">Choose the columns</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-eng-columns">Engineering columns: Designation, Owner path and related objects</a></p>
+</section>
+
+<section class="g-feature" id="list-templates">
+  <h2>Save a query as a template and reopen it under Query ▸</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">LIST-templates</span><span>Roadmap M3.6, M3.9</span><span>Review check D2</span></div>
+  <p class="g-summary">Save the columns, filter, sort and grouping as a named template for yourself, the project or the organization.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Save</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the project for <span class="ui">For me</span>; a role that may configure the project for <span class="ui">For this project (everyone on it)</span>; library rights for the organization</dd>
+    <dt>Before you start</dt><dd>A query filtered on Name contains <code>pump</code>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Save</span>.</td><td>The Save query form opens with <span class="ui">Name</span>, the choices <span class="ui">For me</span> (selected), <span class="ui">For this project (everyone on it)</span> and <span class="ui">For the organization (every project; published to the company library)</span>, and the buttons <span class="ui">Save template</span> and <span class="ui">Cancel</span>. <span class="ui">Save template</span> is off while the name is empty.</td></tr>
+      <tr><td>2</td><td>Type <code>Pumps</code>, choose <span class="ui">For this project (everyone on it)</span>, and click <span class="ui">Save template</span>.</td><td>The form closes and the bar starts with “Pumps ·”.</td></tr>
+      <tr><td>3</td><td>Right-click the project in the explorer and hover <span class="ui">Query</span>.</td><td>The submenu lists <span class="ui">Pumps</span>, then <span class="ui">New query…</span>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Pumps</span>.</td><td>A query opens on the project with “Name contains pump” and only pump rows.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A template saved <span class="ui">For me</span> is listed as “&lt;name&gt; (mine)”. A saved project template can be shown as a list document with revisions (see <a href="guide-documents.html#doc-list-document">List documents</a>).</p>
+  <p class="g-warn">Templates cannot be renamed, copied or deleted from a list yet.</p>
+  <p class="g-warn">The organization-wide query has no <span class="ui">Save</span> button.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-new-query">Open a query with New query…</a>, <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a>, <a href="guide-lists.html#list-group-totals">Group &amp; totals</a>, <a href="guide-library.html#lib-company-library">The company library</a></p>
+</section>
+
+<section class="g-feature" id="list-edit-cell">
+  <h2>Edit a cell like in Excel</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-edit-cell</span><span>Roadmap M3.7, M3.9</span><span>Review check D4</span></div>
+  <p class="g-summary">Double-click or press F2 on a cell to change a name or an attribute value; Ctrl+Z undoes it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → double-click a cell, or select it and press <kbd>F2</kbd></dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A query filtered on Name <span class="ui">is</span> <code>pump1</code>, with the column “Design pressure / In” added from <span class="ui">Columns</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Hover the <span class="ui">Class</span> cell.</td><td>The hover text says the class is fixed: the cell is read-only.</td></tr>
+      <tr><td>2</td><td>Hover the Design pressure cell.</td><td>The hover text reads “Double-click or F2 to edit”.</td></tr>
+      <tr><td>3</td><td>Double-click the Design pressure cell, type <code>16</code>, and press <kbd>Enter</kbd>.</td><td>The cell shows “16 bar(g)”: a bare number gets the attribute's unit.</td></tr>
+      <tr><td>4</td><td>Double-click it again, type <code>3 m</code>, and press <kbd>Enter</kbd>.</td><td>An alert in the cell says the value is not a unit of pressure, and nothing is saved.</td></tr>
+      <tr><td>5</td><td>Press <kbd>Esc</kbd>.</td><td>The cell shows “16 bar(g)” again.</td></tr>
+      <tr><td>6</td><td>Click the table and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The cell is empty again: one undo step per edit.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><kbd>Enter</kbd> saves, <kbd>Esc</kbd> cancels, and leaving the cell (a click elsewhere, <kbd>Tab</kbd>) saves. A Name cell renames the object; a tagged name is read-only. The rows refresh when anyone changes the project.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-collaboration.html#col-history">History and undo</a></p>
+</section>
+
+<section class="g-feature" id="list-paste">
+  <h2>Paste a block from Excel</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-paste</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">Paste cells copied from Excel into the table; a preview shows every change or problem first.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → select a cell → <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>)</dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A query with a Design pressure column. In Excel, three cells in a column hold <code>10</code>, <code>lots</code>, <code>12</code>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Copy the three Excel cells, click the top Design pressure cell, and press <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>A Paste dialog “Paste 3 cells” says “Nothing is applied while this problem remains:” with a problem saying the value is not a number. <span class="ui">Apply</span> is off.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Cancel</span>.</td><td>Nothing changed.</td></tr>
+      <tr><td>3</td><td>In Excel change <code>lots</code> to <code>11</code>, copy the three cells again, and paste.</td><td>The dialog says “3 cells change, as one step you can undo.”.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Apply</span>.</td><td>The cells read 10 bar(g), 11 bar(g) and 12 bar(g).</td></tr>
+      <tr><td>5</td><td>Click the table and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) once.</td><td>All three cells are back as before.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The block fills from the first selected cell. One copied value pasted into several selected cells fills each of them.</p>
+  <p class="g-warn">If someone else changed one of the rows meanwhile, the dialog says “N rows were changed by someone else since; nothing was applied.” and offers <span class="ui">Apply the other rows</span>. A paste that changes an Owner cell is reported as a problem.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a>, <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a></p>
+</section>
+
+<section class="g-feature" id="list-set-value">
+  <h2>Select many cells and Set value…</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-set-value</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">Select a block of cells and give them all one value in one undoable step.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → select cells → <span class="ui">Set value…</span></dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A query with an attribute column.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click a cell, then Shift-click a cell two rows below.</td><td>A block of three cells is selected. A bar shows “3 cells selected” with <span class="ui">Set value…</span>, <span class="ui">Fill down</span> and <span class="ui">Fill right</span>.</td></tr>
+      <tr><td>2</td><td><kbd>Ctrl</kbd> (<kbd>⌘</kbd>)-click one more cell in the column.</td><td>It is added to the selection: “4 cells selected”.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Set value…</span>.</td><td>A dialog “Set 4 cells” opens with a box “Value for the selected cells”.</td></tr>
+      <tr><td>4</td><td>Type a valid value.</td><td>The preview reads “4 cells change, as one step you can undo.”. A value that is refused shows “Nothing is applied while this problem remains:” with the reason.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Apply</span>.</td><td>All four cells show the value. One <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) takes them all back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-find-replace">Find and replace…</a></p>
+</section>
+
+<section class="g-feature" id="list-fill">
+  <h2>Fill down and Fill right</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-fill</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">Copy the top or left cell into the selected cells, counting on values that end in a number.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → select cells → <span class="ui">Fill down</span> or <span class="ui">Fill right</span></dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>The top Design pressure cell holds 10 bar(g).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the top Design pressure cell, then Shift-click the cell two rows below.</td><td>Three cells are selected; the selection bar shows <span class="ui">Fill down</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Fill down</span>.</td><td>The Fill dialog says “2 cells change, as one step you can undo.”.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Apply</span>.</td><td>All three cells read “10 bar(g)”.</td></tr>
+      <tr><td>4</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The two filled cells are back as before.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Fill down copies each column's top cell; Fill right copies each row's left cell. A value ending in a number counts on (P-101, P-102, …, keeping leading zeros); any other value is copied.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a></p>
+</section>
+
+<section class="g-feature" id="list-find-replace">
+  <h2>Find and replace…</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-find-replace</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <p class="g-summary">Replace text in one column or in the selected cells, with a count of the matches first.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Find and replace…</span></dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>Three Design pressure cells hold 10 bar(g).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Find and replace…</span>.</td><td>The Find and replace dialog opens with <span class="ui">Find</span>, <span class="ui">Replace with</span>, <span class="ui">In</span>, <span class="ui">Match case</span>, <span class="ui">Whole cell</span>, <span class="ui">Apply</span> and <span class="ui">Cancel</span>.</td></tr>
+      <tr><td>2</td><td>Set <span class="ui">In</span> to “Design pressure / In”, type <code>10</code> in <span class="ui">Find</span> and <code>20</code> in <span class="ui">Replace with</span>.</td><td>The dialog reads “3 cells match in the rows loaded.”.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Apply</span>.</td><td>The three cells read “20 bar(g)”.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">In</span> offers the Name column and the attribute columns. With more than one cell selected, <span class="ui">Only the selected cells</span> is offered instead.</p>
+  <p class="g-warn">Find and replace works on the rows loaded so far. Scroll to the end first if the table is long.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a></p>
+</section>
+
+<section class="g-feature" id="list-owner-cell">
+  <h2>Owner cell: open the object, or move it with F2</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-owner-cell</span><span>Roadmap M3.9</span><span>Review checks D2, D4</span></div>
+  <p class="g-summary">Double-click an Owner cell to open the object; press F2 to move it to another owner.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → an <span class="ui">Owner</span> cell</dd>
+    <dt>Who</dt><dd>Anyone may open; moving needs a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A query on <span class="ui">Assets</span> is open, and Assets holds a folder “Feed pumps”.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Hover an Owner cell.</td><td>The hover text reads “Double-click opens the object; F2 moves it to another owner”.</td></tr>
+      <tr><td>2</td><td>Double-click the Owner cell of Pump1.</td><td>Pump1 opens in a tab named after it: its datasheet when its class has a designed layout, else its page.</td></tr>
+      <tr><td>3</td><td>Back in the query, click Pump1's Owner cell (“Assets”) and press <kbd>F2</kbd>.</td><td>A box “Move to owner” appears, offering the owner and object names of the loaded rows.</td></tr>
+      <tr><td>4</td><td>Type <code>Systems</code> and press <kbd>Enter</kbd>.</td><td>An alert says “A Centrifugal pump cannot be owned by Systems. It may be owned by Assets or a folder in Assets.”.</td></tr>
+      <tr><td>5</td><td>Type <code>Feed pumps</code> and press <kbd>Enter</kbd>.</td><td>The cell shows “Feed pumps”.</td></tr>
+      <tr><td>6</td><td>Click the table and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The owner is “Assets” again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-lists.html#list-edit-cell">Edit a cell like in Excel</a>, <a href="guide-objects.html#obj-object-window">The object window</a></p>
+</section>
+
+<section class="g-feature" id="list-excel-export">
+  <h2>Export a query to Excel or CSV</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-excel-export</span><span>Roadmap M3.8</span><span>Review check D5</span></div>
+  <p class="g-summary">Download every row of the query as an Excel workbook or a CSV file, with an E1 id column.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Export</span> → <span class="ui">Excel (.xlsx)</span> or <span class="ui">CSV (.csv)</span></dd>
+    <dt>Who</dt><dd>A project role that may export. A restricted project asks you to sign in again first.</dd>
+    <dt>Before you start</dt><dd>A query is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Export</span>.</td><td>A menu opens with <span class="ui">Excel (.xlsx)</span> and <span class="ui">CSV (.csv)</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Excel (.xlsx)</span>.</td><td>“Exporting…” shows briefly, then an .xlsx file downloads.</td></tr>
+      <tr><td>3</td><td>Open the file in Excel.</td><td>Row 1 holds the view's columns plus <span class="ui">E1 id</span>, for example Owner, Name, Class, E1 id. There is one row per query row: all rows, not only those loaded on screen. Every cell is a value, never a formula.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot"><img src="assets/img/guides/query-view.webp" alt="The query bar with the Export button among Filter, Find and replace…, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Export</span> is in the query bar.</figcaption></figure>
+  <p class="g-note">Keep the <span class="ui">E1 id</span> column: <span class="ui">Update from Excel…</span> uses it to match the rows. A CSV file opens in Excel with the right characters.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a>, <a href="guide-lists.html#list-project-excel">File → Export Excel…: every saved query in one workbook</a>, <a href="guide-lists.html#list-new-query">Open a query with New query…</a></p>
+</section>
+
+<section class="g-feature" id="list-update-from-excel">
+  <h2>Update from Excel… with Check and Apply</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">LIST-update-from-excel</span><span>Roadmap M3.8, 05.5a</span><span>Review check D5</span></div>
+  <p class="g-summary">Read an exported file back: Check lists every change row by row, Apply makes them in one undoable step.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Query tab → <span class="ui">Update from Excel…</span></dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>You exported this query to Excel (see <a href="#list-excel-export">Export</a>), changed Pump1's Name to “Pump1 checked” and saved the file.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Update from Excel…</span>.</td><td>The Update from Excel panel opens with the note “Pick a file exported from this view (Excel or CSV). Rows are matched by the E1 id column, else by a name only one row has.”, a <span class="ui">File</span> box, <span class="ui">When a row has a problem</span> (<span class="ui">Change nothing (all or nothing)</span> selected, or <span class="ui">Change the other rows</span>), and <span class="ui">Check</span>, <span class="ui">Apply</span>, <span class="ui">Cancel</span>.</td></tr>
+      <tr><td>2</td><td>Pick the file.</td><td><span class="ui">Apply</span> is off and dimmed. Its hover text reads “Check the file first: Apply makes the changes Check shows”.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Check</span>.</td><td>“Reading…” shows, then “Changes by row” lists “Row &lt;n&gt; · Pump1: Name: Pump1 → Pump1 checked”, and the summary reads “N rows read: 1 change in 1 row, 0 rows with problems.”. The table has not changed yet.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Apply</span>.</td><td>The panel says “1 change made. Undo takes them back.”.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Close</span>.</td><td>The explorer shows “Pump1 checked”.</td></tr>
+      <tr><td>6</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The name is Pump1 again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Changing only a read-only column such as Class gives “Class: read only.” and the note “Nothing to apply: no change in the file can be made here. Each row above says why.”. Other messages: “Columns not in this view, not read: …”, “The file changes nothing in this view.”, and “The file is larger than 10 MB.”.</p>
+  <p class="g-warn">Update from Excel… changes existing rows only: it does not add or delete objects. Review check D5 asks to “add a row” here; new rows come in with <a href="#list-import-excel">Data → Import Excel…</a>.</p>
+  <p class="g-warn">Columns are matched by their header only. To map columns by hand, use Import Excel….</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a>, <a href="guide-lists.html#list-import-excel">Import Excel…: bring a tag list into a section</a>, <a href="guide-collaboration.html#col-history">History and undo</a></p>
+</section>
+
+<section class="g-feature" id="list-import-excel">
+  <h2>Import Excel…: bring a tag list into a section</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">LIST-import-excel</span><span>Roadmap 05.5a, 07.3</span></div>
+  <p class="g-summary">Import an Excel or CSV tag list into a section: matching rows are updated, the others become new objects.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Data → <span class="ui">Import Excel…</span>, or a section's toolbar → <span class="ui">Import</span></dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>An Excel file with the columns Equipment, Design pressure and Remarks, and the rows Pump1 / 12 / checked and P-900 / 7.5 / new. A node of the project is selected.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Data</span> → <span class="ui">Import Excel…</span>.</td><td>The Import Excel dialog opens with the note “A tag list into a section: rows are matched by the E1 id, the tag, or a name only one object has; the others become new objects of the class you choose.”, <span class="ui">File</span>, <span class="ui">Into</span>, <span class="ui">New rows are</span>, <span class="ui">Make rows that match nothing new objects</span> (ticked) and <span class="ui">When a row has a problem</span>.</td></tr>
+      <tr><td>2</td><td>Pick the file and set <span class="ui">Into</span> to <span class="ui">Assets</span>.</td><td>Assets is the section; by default a section whose name contains “Assets” is chosen.</td></tr>
+      <tr><td>3</td><td>In <span class="ui">New rows are</span>, search <code>Centrifugal pump</code> and choose <span class="ui">Centrifugal pump</span>.</td><td>The class is chosen for new rows.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Check</span>.</td><td>“Checking…”, then the Column mapping table (“Column in the file” → “Fills”): <span class="ui">Design pressure</span> is guessed from its header, <span class="ui">Remarks</span> is at <span class="ui">Leave out</span>.</td></tr>
+      <tr><td>5</td><td>Set <span class="ui">Equipment</span> to <span class="ui">Name (the tag, else the name)</span> and click <span class="ui">Check</span> again.</td><td>The summary reads “1 change in 1 row, 1 new row, 0 with a problem.”. The rows read “Row n … · column: from → to”, the new one marked “(new)”.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Apply</span>.</td><td>“1 change and 1 new object written. Undo (Ctrl+Z) takes them back.”. Pump1's design pressure is 12 and there is one more pump.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Close</span>, then <span class="ui">Edit</span> → <span class="ui">Undo</span>.</td><td>Both the change and the new pump are gone.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-data.webp" alt="The Data menu open: Datasheet…, Revisions, Import Excel…." width="424" height="278" loading="lazy"><figcaption><span class="ui">Data</span> → <span class="ui">Import Excel…</span>.</figcaption></figure>
+  <p class="g-note">A header such as Tag, Tag No., Tag number or Item maps to the tag automatically. Changing a mapping turns <span class="ui">Apply</span> off until you <span class="ui">Check</span> again.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a>, <a href="guide-objects.html#obj-new-object">Make a new object</a></p>
+</section>
+
+<section class="g-feature" id="list-project-excel">
+  <h2>File → Export Excel…: every saved query in one workbook</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">LIST-project-excel</span></div>
+  <p class="g-summary">Download one workbook for the project with a sheet per saved query.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Export Excel…</span>, or the project page's toolbar → <span class="ui">Export</span></dd>
+    <dt>Who</dt><dd>A project role that may export</dd>
+    <dt>Before you start</dt><dd>The project has saved queries (see <a href="#list-templates">templates</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">File</span> → <span class="ui">Export Excel…</span>.</td><td>An .xlsx file named after the project downloads.</td></tr>
+      <tr><td>2</td><td>Open it.</td><td>It has one sheet per saved query you can see, each headed with the project, the query and the date.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-file.webp" alt="The File menu open: New project, Save, Export PDF…, Export Excel…, Print…, Project settings…, Organization…." width="424" height="538" loading="lazy"><figcaption><span class="ui">File</span> → <span class="ui">Export Excel…</span>.</figcaption></figure>
+  <p class="g-note">A long export says “The export is taking long; it goes on in the background.”. A section's own toolbar <span class="ui">Export</span> downloads the objects under it, for example “Assets.xlsx”.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a></p>
+</section>
+
+<section class="g-feature" id="list-workspace-query">
+  <h2>Query over every project of the organization</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-07</span><span class="g-id">LIST-workspace-query</span></div>
+  <p class="g-summary">One query over the objects of every project you may view, opened from the organization name.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer header → the organization name → <span class="ui">Query</span> ▸ <span class="ui">New query…</span></dd>
+    <dt>Who</dt><dd>Anyone; the rows come from every project you may view</dd>
+    <dt>Before you start</dt><dd>You belong to an organization with more than one project.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Hover the organization name at the top of the explorer.</td><td>The hover text reads “&lt;organization&gt;: click or right-click for the organization's menu”.</td></tr>
+      <tr><td>2</td><td>Right-click it and choose <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</td><td>A query of objects from every project you may view opens, named “&lt;organization&gt; query”. The path bar starts with the organization's name. The last column, <span class="ui">Project</span>, is read-only.</td></tr>
+      <tr><td>3</td><td>Look at the query bar.</td><td>There is no <span class="ui">Update from Excel…</span> and no <span class="ui">Save</span> button.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Edits, moves, fills, find and replace, and pastes each go to the row's own project, as one undo step per project. Groups and totals add up across projects; an average is only shown when one project has rows. Export reads every project you may export.</p>
+  <p class="g-warn">Until 2026-11-07 this was under a “Workspace” row in the explorer. That row is gone; the menu is on the organization name.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-new-query">Open a query with New query…</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a></p>
+</section>
+
+<section class="g-feature" id="list-sentence-query">
+  <h2>Queries from a sentence</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span></div>
+  <p class="g-summary">Type a sentence such as “all pumps without a motor” and get the matching table.</p>
+  <p class="g-dev">Planned in roadmap stage 05.5b, “Queries from a sentence and templates through the API”. It is not built yet; today you build the filter in the <a href="#list-filter">Filter</a> panel.</p>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Type a sentence such as “all pumps without a motor” and get the matching table.</li>
+    <li>Read and save query templates through the API.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-lists.html#list-new-query">Open a query with New query…</a>, <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a>, <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a></p>
+</section>
