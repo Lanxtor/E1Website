@@ -128,7 +128,7 @@
       <tr><td>10</td><td>With <span class="ui">Select</span> active, hold <kbd>Space</kbd> and drag.</td><td>The drawing pans while Space is held.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-view.webp" alt="The View menu with Zoom in, Zoom out, Fit drawing and Zoom to selection, and the check items Grid, Snap and Ortho" width="424" height="798" loading="lazy"><figcaption>The View menu holds the zoom commands and the drawing aids.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-view.webp" alt="The View menu with Zoom in, Zoom out, Fit drawing and Zoom to selection, and the check items Grid, Snap and Ortho" width="380" height="698" loading="lazy"><figcaption>The View menu holds the zoom commands and the drawing aids.</figcaption></figure>
   <p class="g-note">The space name at the right end of the toolbar's first row (for example <span class="ui">Assets</span>) names the space this sheet draws.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-toolbar">The drawing toolbar</a> · <a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a> · <a href="guide-getting-started.html#gs-shortcuts">Keyboard shortcuts</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a></p>
 </section>
@@ -142,7 +142,7 @@
     <dt>Who</dt><dd>Everyone sees it; the editing buttons need edit rights on the drawing</dd>
     <dt>Before you start</dt><dd>A sheet is open.</dd>
   </dl>
-  <figure class="g-shot g-small"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar: Object and Asset, Connector and Flow lines, Let Alex help and the space name Assets; below the tools Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align and Layers; below that Font, text color, B I U S, A− A+, Rotate, Line thickness, line color, Style, minus and plus" width="1596" height="246" loading="lazy"><figcaption>The three rows of the drawing toolbar.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:798px"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar: Object and Asset, Connector and Flow lines, Let Alex help and the space name Assets; below the tools Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align and Layers; below that Font, text color, B I U S, A− A+, Rotate, Line thickness, line color, Style, minus and plus" width="1596" height="246" loading="lazy"><figcaption>The three rows of the drawing toolbar.</figcaption></figure>
   <h3>What is on it</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Row</th><th>Control</th><th>What it does</th></tr></thead>
@@ -200,7 +200,7 @@
 
 <section class="g-feature" id="draw-place-symbol">
   <h2>Place a symbol</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-place-symbol</span><span>Roadmap M3.11, M1.1b</span><span>Review checks B2, B3, A3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">DRAW-place-symbol</span><span>Roadmap M3.11, M1.1b</span><span>Review checks B2, B3, A3</span></div>
   <p class="g-summary">You place equipment, valves and instruments from the <span class="ui">Add asset</span> window. Each symbol you place is a new object in the project with its next free name or tag. Two clicks set its inlet and outlet, so you choose its direction and size as you place it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object</span> while <span class="ui">Object type</span> shows <span class="ui">Asset</span>, or <span class="ui">Object type</span> → <span class="ui">Asset</span></dd>
@@ -224,15 +224,16 @@
       <tr><td>1</td><td>Click <span class="ui">Object</span> on the toolbar (its type shows <span class="ui">Asset</span>).</td><td>The <span class="ui">Add asset</span> window opens. <kbd>Esc</kbd> would close it.</td></tr>
       <tr><td>2</td><td>Type "centrifugal" in <span class="ui">Search symbols</span>.</td><td>The grid shows only the matching symbols. A search with no match shows "No symbols match "…"."</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Centrifugal pump</span>, type the name P-NEW in <span class="ui">Name</span>, then click <span class="ui">Add to diagram</span>.</td><td>The window closes. The status bar reads <span class="ui">Place asset</span> with the hint "Click to set the inlet, then the outlet. Placing repeats for the next one; right-click or Esc stops. F flips the symbol."</td></tr>
-      <tr><td>4</td><td>Click once on free sheet.</td><td>The inlet is set, and a ghost of the pump follows the pointer.</td></tr>
+      <tr><td>4</td><td>Click once on free sheet.</td><td>The inlet is set, and a ghost of the pump follows the pointer. A first or second click near the end point of a pipe or a nozzle takes that point, so the symbol connects there.</td></tr>
       <tr><td>5</td><td>Move the pointer straight down and click.</td><td>A vertical pump P-NEW is placed. A short second click keeps the default size; a longer one sets the size, within limits.</td></tr>
       <tr><td>6</td><td>Click elsewhere, press <kbd>F</kbd>, then click a second time.</td><td>A second pump is placed, facing the other way, with the next free name.</td></tr>
-      <tr><td>7</td><td>Right-click, or press <kbd>Esc</kbd> twice.</td><td>Placing stops; no menu opens. The status bar reads <span class="ui">Select</span>.</td></tr>
-      <tr><td>8</td><td>Open the window again, choose <span class="ui">Gate valve</span>, click <span class="ui">Add to diagram</span>, then click once on the middle of an existing pipe.</td><td>The valve sits in the line along it, and the pipe is split there.</td></tr>
-      <tr><td>9</td><td>Look at the explorer under <span class="ui">Assets</span>.</td><td>The new pumps and the valve are there as objects. Pumps whose class has a tag rule get tags such as P-001, P-002.</td></tr>
+      <tr><td>7</td><td>Click once on free sheet, then press <kbd>Esc</kbd>.</td><td>The first click is taken back; the tool still places.</td></tr>
+      <tr><td>8</td><td>Press <kbd>Esc</kbd> again (or right-click).</td><td>Placing stops; no menu opens. The status bar reads <span class="ui">Select</span>. With no first click, one <kbd>Esc</kbd> stops placing.</td></tr>
+      <tr><td>9</td><td>Open the window again, choose <span class="ui">Gate valve</span>, click <span class="ui">Add to diagram</span>, then click once on the middle of an existing pipe.</td><td>The valve sits in the line along it, and the pipe is split there.</td></tr>
+      <tr><td>10</td><td>Look at the explorer under <span class="ui">Assets</span>.</td><td>The new pumps and the valve are there as objects. Pumps whose class has a tag rule get tags such as P-001, P-002.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/asset-window.webp" alt="The Add asset window: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add asset window, opened from the Object button.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/asset-window.webp" alt="The Add asset window: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add asset window, opened from the Object button.</figcaption></figure>
   <p class="g-warn"><span class="ui">Insert → Asset…</span> does nothing on a sheet today. Use the toolbar's <span class="ui">Object</span> button with <span class="ui">Asset</span>. Manual-review check B2 still says "Place symbols from Insert → Asset"; follow it with the Object button instead.</p>
   <p class="g-note">The tags come from your project's tag rules (<a href="guide-objects.html#obj-tag-rules">Tag rules</a>). To place an object that already exists, drag it from the explorer (<a href="guide-drawing.html#draw-drop-from-explorer">Drop from the explorer</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-object-types">Object types</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-standards">ISA 5.1 and ISO 10628 symbols</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-new-object">Create an object</a></p>
@@ -285,7 +286,7 @@
       <tr><td>9</td><td>Choose <span class="ui">Cable</span> and end a cable on a pump body.</td><td>A port is made on the pump's outline, and the cable ends there.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/connector-on.webp" alt="The sheet with the Connector tool active; the Connector button is framed in red" width="2160" height="1350" loading="lazy"><figcaption>Connector is on: the button is highlighted and the status bar names the kind.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/connector-on.webp" alt="The sheet with the Connector tool active; the Connector button is framed in red" width="2160" height="1350" loading="lazy"><figcaption>Connector is on: the button is highlighted and the status bar names the kind.</figcaption></figure>
   <p class="g-note">With <span class="ui">Ortho</span> off, segments run at any angle (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>). Each drawn pipe run is an object under <span class="ui">Assets → Lines</span>.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows and crossings</a> · <a href="guide-drawing.html#draw-line-style">Line style</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a></p>
 </section>
@@ -314,7 +315,7 @@
 
 <section class="g-feature" id="draw-select">
   <h2>Select symbols, lines and notes</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">DRAW-select</span><span>Roadmap M3.3</span><span>Review check B5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">DRAW-select</span><span>Roadmap M3.3</span><span>Review check B5</span></div>
   <p class="g-summary">With the Select tool you pick one item with a click, add or remove items with Shift or Ctrl, take a region with a frame, or a whole pipe run with a double-click. The status bar shows how many items are selected.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Select</span> (<kbd>V</kbd>)</dd>
@@ -330,11 +331,12 @@
       <tr><td>3</td><td>Click close to a pipe, not exactly on it.</td><td>The pipe is selected ("Selected: Line"); lines are picked near them.</td></tr>
       <tr><td>4</td><td>Double-click a pipe.</td><td>Its whole run between two symbols is selected. Shift and double-click adds another run.</td></tr>
       <tr><td>5</td><td>Drag a frame across part of the drawing on empty sheet.</td><td>Symbols whose center is inside are selected; a pipe segment only when it lies fully inside.</td></tr>
-      <tr><td>6</td><td>Press <kbd>Ctrl+A</kbd> (<kbd>⌘A</kbd>), or choose <span class="ui">Edit → Select all</span>.</td><td>Everything on the sheet is selected.</td></tr>
+      <tr><td>6</td><td>Click the sheet, then press <kbd>Ctrl+A</kbd> (<kbd>⌘A</kbd>), or choose <span class="ui">Edit → Select all</span>.</td><td>Everything on the sheet is selected.</td></tr>
       <tr><td>7</td><td>Press <kbd>Esc</kbd>.</td><td>The selection is cleared.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/sheet-selected.webp" alt="Pump1 selected on the sheet with its resize grips, the status bar reading 1 selected" width="2160" height="1350" loading="lazy"><figcaption>One symbol selected: its grips are shown and the status bar counts it.</figcaption></figure>
+  <p class="g-note"><kbd>Ctrl+A</kbd> (<kbd>⌘A</kbd>) acts on the sheet only when the sheet was the last pane you clicked; after a click in the explorer it does not. <kbd>Ctrl+A</kbd>, <span class="ui">Select all</span> and <kbd>Esc</kbd> select and clear only for people who may edit the drawing.</p>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/sheet-selected.webp" alt="Pump1 selected on the sheet with its resize grips, the status bar reading 1 selected" width="2160" height="1350" loading="lazy"><figcaption>One symbol selected: its grips are shown and the status bar counts it.</figcaption></figure>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-arrange">Move, flip, resize and align</a> · <a href="guide-drawing.html#draw-clipboard">Copy, paste and undo</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a></p>
 </section>
 
@@ -366,7 +368,7 @@
 
 <section class="g-feature" id="draw-clipboard">
   <h2>Undo, redo, copy, paste and duplicate</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4</span><span>Review checks A4, B5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4</span><span>Review checks A4, B5</span></div>
   <p class="g-summary">Copy, paste and duplicate make new objects with new tags; cut removes them to the Deleted bin. Undo and redo work step by step across the drawing, the explorer and attributes, one history per person per project.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar (<span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>), the <span class="ui">Edit</span> menu, and the right-click menus</dd>
@@ -385,8 +387,8 @@
       <tr><td>6</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu with Undo, Redo, Cut, Copy, Paste, Duplicate, Delete and Select all and their shortcuts" width="424" height="594" loading="lazy"><figcaption>The Edit menu shows the editing commands with their keys.</figcaption></figure>
-  <p class="g-note">Paste in the right-click menu is greyed out until you have copied something. To undo a change of someone else's, or an older change, use History (<a href="guide-collaboration.html#col-history">History and undo</a>).</p>
+  <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu with Undo, Redo, Cut, Copy, Paste, Duplicate, Delete and Select all and their shortcuts" width="380" height="568" loading="lazy"><figcaption>The Edit menu shows the editing commands with their keys.</figcaption></figure>
+  <p class="g-note"><kbd>Ctrl+C</kbd>, <kbd>Ctrl+X</kbd>, <kbd>Ctrl+V</kbd>, <kbd>Ctrl+D</kbd> and <kbd>Ctrl+A</kbd> (<kbd>⌘</kbd> on a Mac) act on the sheet only when the sheet was the last pane you clicked. After a click in the explorer, click the sheet first. Paste in the right-click menu is greyed out until you have copied something. To undo a change of someone else's, or an older change, use History (<a href="guide-collaboration.html#col-history">History and undo</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a> · <a href="guide-collaboration.html#col-history">History and undo</a></p>
 </section>
 
@@ -415,7 +417,7 @@
 
 <section class="g-feature" id="draw-tags-labels">
   <h2>Tags, names and line numbers on the sheet</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">DRAW-tags-labels</span><span>Roadmap M3.10, M1.7</span><span>Review check B3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">DRAW-tags-labels</span><span>Roadmap M3.10, M1.7</span><span>Review check B3</span></div>
   <p class="g-summary">Every symbol shows its tag or name, and every tagged or named pipe run shows its line number along it. You can drag and rotate the labels, and tag a symbol by hand with the Tag tool. Renames by other people appear on the open drawing.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On the sheet; drawing toolbar → <span class="ui">Tag</span>, or <span class="ui">Insert → Tag</span></dd>
@@ -428,13 +430,13 @@
     <tbody>
       <tr><td>1</td><td>Place two new centrifugal pumps.</td><td>Each shows its tag, for example P-001 and P-002, if your project has a tag rule for pumps.</td></tr>
       <tr><td>2</td><td>Look along a tagged pipe run.</td><td>Its line number (for example L-101) is drawn along it.</td></tr>
-      <tr><td>3</td><td>Drag a pump's name label away from the pump.</td><td>The label stays where you dropped it, also after a reload.</td></tr>
-      <tr><td>4</td><td>Select the label and drag its round handle (<span class="ui">Rotate the name</span>).</td><td>The label turns in steps of 15°.</td></tr>
+      <tr><td>3</td><td>Press on a pump's name label and drag it away from the pump.</td><td>The label moves with the pointer and stays where you dropped it, also after a reload. The pump need not be selected first.</td></tr>
+      <tr><td>4</td><td>Click the pump to select it, then drag the round handle above its name (<span class="ui">Rotate the name</span>).</td><td>The handle appears above the name only while the symbol is selected. The label turns in steps of 15°.</td></tr>
       <tr><td>5</td><td>Select one pump, then click <span class="ui">Tag</span> on the toolbar.</td><td>The tag dialog opens with the pump's tag, its state, and a field for a manual tag, with <span class="ui">Cancel</span> and <span class="ui">Set tag</span> (and <span class="ui">Use the rule's tag</span> when the rule gives a different tag).</td></tr>
       <tr><td>6</td><td>Close the dialog, click <span class="ui">Tag</span> with nothing selected, then click a symbol.</td><td>The tag dialog opens for that symbol.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-insert.webp" alt="The Insert menu with Asset…, Flow lines, Cable, Wire, Logic, Text and Tag" width="424" height="520" loading="lazy"><figcaption>The Insert menu: Tag opens the tag dialog for the selected symbol.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-insert.webp" alt="The Insert menu with Asset…, Flow lines, Cable, Wire, Logic, Text and Tag" width="380" height="494" loading="lazy"><figcaption>The Insert menu: Tag opens the tag dialog for the selected symbol.</figcaption></figure>
   <p class="g-note">Labels are formatted with the text format row (<a href="guide-drawing.html#draw-text">Text notes</a>) and hidden with the Annotation layer (<a href="guide-drawing.html#draw-layers">Layers</a>). How tags are made is described in <a href="guide-objects.html#obj-tags">Tags</a> and <a href="guide-objects.html#obj-tag-rules">Tag rules</a>.</p>
   <p class="g-related">Related: <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-drawing.html#draw-text">Text notes</a></p>
 </section>
@@ -462,7 +464,7 @@
       <tr><td>8</td><td>Click <span class="ui">Rotate</span> (↻).</td><td>The note turns by 90°.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar; the third row starts with Font, the colour swatch, B, I, U, S, A−, A+ and the rotate arrow" width="1596" height="246" loading="lazy"><figcaption>The text format group is the left part of the third row.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:798px"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar; the third row starts with Font, the colour swatch, B, I, U, S, A−, A+ and the rotate arrow" width="1596" height="246" loading="lazy"><figcaption>The text format group is the left part of the third row.</figcaption></figure>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-line-style">Line style</a> · <a href="guide-drawing.html#draw-tags-labels">Tags and labels</a> · <a href="guide-drawing.html#draw-toolbar">The drawing toolbar</a></p>
 </section>
 
@@ -514,10 +516,10 @@
 
 <section class="g-feature" id="draw-highlight-flow">
   <h2>Highlight flow</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-05</span><span class="g-id">DRAW-highlight-flow</span><span>Roadmap M3.11</span><span>Review check B9</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">DRAW-highlight-flow</span><span>Roadmap M3.11</span><span>Review check B9</span></div>
   <p class="g-summary">Highlight flow traces where a line or a symbol's flow goes: from an open end, through valves, to the next equipment. It can also go on through pumps and compressors and across off-page connectors to other sheets.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click a line or a symbol → <span class="ui">Highlight flow</span> or <span class="ui">Highlight flow through pumps and compressors</span></dd>
+    <dt>Where</dt><dd>Right-click a line or a symbol → <span class="ui">Highlight flow</span> or <span class="ui">Highlight flow through pumps and compressors</span>; to clear, the bar's <span class="ui">Clear</span> or right-click a line → <span class="ui">Clear flow highlight</span></dd>
     <dt>Who</dt><dd>Everyone who can open the sheet</dd>
     <dt>Before you start</dt><dd>A sheet with a connected pipe run is open.</dd>
   </dl>
@@ -527,10 +529,10 @@
     <tbody>
       <tr><td>1</td><td>Right-click the line from V3 into Pump1 → <span class="ui">Highlight flow</span>.</td><td>The path is highlighted, and a bar says where it runs, for example "Flow from an open end to Pump1 inlet.", with <span class="ui">Clear</span>.</td></tr>
       <tr><td>2</td><td>Right-click again → <span class="ui">Highlight flow through pumps and compressors</span>.</td><td>The flow goes on past the pump, and the text adds "(through pumps and compressors)". If the path leaves through an off-page connector, it adds "It goes on on …" with the other sheet.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Clear</span> (or right-click → <span class="ui">Clear flow highlight</span>).</td><td>The highlight and the bar disappear.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Clear</span> on the bar (or right-click a line → <span class="ui">Clear flow highlight</span>).</td><td>The highlight and the bar disappear. <span class="ui">Clear flow highlight</span> is only in a line's right-click menu, not in a symbol's; the bar's <span class="ui">Clear</span> always works.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/flow-highlight.webp" alt="Highlight flow on Pump1: the path is highlighted and a banner reads Flow from an open end to an open end, with Clear" width="2160" height="1350" loading="lazy"><figcaption>A highlighted flow path with its description and Clear.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/flow-highlight.webp" alt="Highlight flow on Pump1: the path is highlighted and a banner reads Flow from an open end to an open end, with Clear" width="2160" height="1350" loading="lazy"><figcaption>A highlighted flow path with its description and Clear.</figcaption></figure>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol's right-click menu</a></p>
 </section>
 
@@ -553,7 +555,7 @@
       <tr><td>4</td><td>Reload the page, and open another sheet.</td><td>This sheet still hides those layers; the other sheet shows all of them.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/layers-menu.webp" alt="The Layers menu with Process, Instrumentation, Electrical and Annotation" width="536" height="404" loading="lazy"><figcaption>The Layers menu of the drawing toolbar.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:200px"><img src="assets/img/guides/layers-menu.webp" alt="The Layers menu with Process, Instrumentation, Electrical and Annotation" width="400" height="332" loading="lazy"><figcaption>The Layers menu of the drawing toolbar.</figcaption></figure>
   <p class="g-note">Two more layers are planned: Markups, for redlining, and Background, for imported CAD drawings (<a href="guide-drawing.html#draw-redlining">Redlining</a>, <a href="guide-drawing.html#draw-cad-import">CAD import</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-tags-labels">Tags and labels</a> · <a href="guide-drawing.html#draw-toolbar">The drawing toolbar</a></p>
 </section>
@@ -638,7 +640,7 @@
       <tr><td>8</td><td>Right-click empty sheet.</td><td>A short menu with <span class="ui">Paste</span>, <span class="ui">Select all</span> and <span class="ui">Comment here</span>.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol: Cut, Copy, Paste, Duplicate, Object properties, Deep view, Data sheet, Open datasheet, Comment here, Highlight flow, Highlight flow through pumps and compressors, Flip horizontal (F), Flip vertical, Replace, Delete" width="810" height="1026" loading="lazy"><figcaption>The symbol menu, grouped, with Delete last.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:347px"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol: Cut, Copy, Paste, Duplicate, Object properties, Deep view, Data sheet, Open datasheet, Comment here, Highlight flow, Highlight flow through pumps and compressors, Flip horizontal (F), Flip vertical, Replace, Delete" width="694" height="954" loading="lazy"><figcaption>The symbol menu, grouped, with Delete last.</figcaption></figure>
   <p class="g-note"><span class="ui">Data sheet</span> opens the object on its attributes view, as the same item in the explorer does; <span class="ui">Open datasheet</span> opens the formatted datasheet document. Deep view is a placeholder tab today.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Comment here</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-arrange">Flip</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-documents.html#doc-datasheet">Datasheets</a></p>
 </section>
@@ -662,8 +664,8 @@
       <tr><td>4</td><td>Click <span class="ui">Resolve</span>.</td><td>The pin reads "Comment 1 on Pump1, resolved", and the Needs review mark goes. <span class="ui">Reopen</span> would open it again.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/pin-form.webp" alt="The form A comment on Pump1, pinned here, with a typed comment and the buttons Pin comment and Cancel" width="760" height="410" loading="lazy"><figcaption>The pin form opened with Comment here.</figcaption></figure>
-  <figure class="g-shot"><img src="assets/img/guides/pin-needs-review.webp" alt="After pinning: Pump1 in the explorer framed with its Needs review mark, and the pin on the sheet" width="2160" height="1350" loading="lazy"><figcaption>The pinned comment and the Needs review mark in the explorer.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:340px"><img src="assets/img/guides/pin-form.webp" alt="The form A comment on Pump1, pinned here, with a typed comment and the buttons Pin comment and Cancel" width="680" height="438" loading="lazy"><figcaption>The pin form opened with Comment here.</figcaption></figure>
+  <figure class="g-shot" style="max-width:943px"><img src="assets/img/guides/pin-needs-review.webp" alt="After pinning: Pump1 in the explorer framed with its Needs review mark, and the pin on the sheet" width="2160" height="1650" loading="lazy"><figcaption>The pinned comment and the Needs review mark in the explorer.</figcaption></figure>
   <p class="g-related">Related: <a href="guide-collaboration.html#col-comments">Comments and mentions</a> · <a href="guide-collaboration.html#col-tasks">Tasks</a> · <a href="guide-drawing.html#draw-symbol-menu">The right-click menus</a></p>
 </section>
 
@@ -685,7 +687,7 @@
       <tr><td>3</td><td>On a sheet, open the Add asset window, filter <span class="ui">Standard</span> to ISA 5.1, and place a <span class="ui">Pressure gauge</span>.</td><td>The gauge is placed and tagged PG-001 (with the default tag rules).</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/config-shapes.webp" alt="The Shapes section of the Configuration place with its filters and the list of shapes" width="2160" height="1350" loading="lazy"><figcaption>Configuration → Shapes, where shapes are browsed and filtered.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/config-shapes.webp" alt="The Shapes section of the Configuration place with its filters and the list of shapes" width="2160" height="1350" loading="lazy"><figcaption>Configuration → Shapes, where shapes are browsed and filtered.</figcaption></figure>
   <p class="g-warn">The <span class="ui">Standard</span> setting in Configuration → Shapes only filters the shape list. It is not a drawing standard for the project, and it does not change the symbols on your sheets. Manual-review check B7 reads as if it were a project-wide switch. <span class="ui">New shape</span> is shown as a planned action (the symbol designer).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-library.html#lib-configuration">Configuration</a> · <a href="guide-drawing.html#draw-symbol-designer">Symbol designer (planned)</a></p>
 </section>
@@ -715,8 +717,8 @@
 
 <section class="g-feature" id="draw-predictive">
   <h2>Predictive mode: Let Alex help</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">DRAW-predictive</span><span>Roadmap M3.11</span></div>
-  <p class="g-summary">With predictive mode on, Alex reviews the drawing as you work and offers what usually comes next, for example the valves around a new pump, as ghost symbols you accept or ignore. It runs locally, without the cloud.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">DRAW-predictive</span><span>Roadmap M3.11</span></div>
+  <p class="g-summary">With predictive mode on, Alex reviews the drawing as you work and offers what usually comes next, for example the valves around a new pump. The offer is drawn as ghost symbols on the sheet and listed as the first card, <span class="ui">After your change</span>, under <span class="ui">Design suggestions</span> in the Alex tab, where you apply or reject it. It runs locally, without the cloud.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Let Alex help</span> (reads <span class="ui">Alex is live</span> while on); Alex's skill and level in the <span class="ui">Alex</span> tab of the side panel</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -728,14 +730,17 @@
     <tbody>
       <tr><td>1</td><td>Point at <span class="ui">Let Alex help</span>.</td><td>The tooltip reads "Let Alex (…) review the drawing as you work and suggest what comes next: local AI, no cloud." with Alex's current skill.</td></tr>
       <tr><td>2</td><td>Click it.</td><td>The button is pressed and reads <span class="ui">Alex is live</span>.</td></tr>
-      <tr><td>3</td><td>Place a centrifugal pump.</td><td>A <span class="ui">Suggestion</span> bar appears with ghost symbols on the sheet, the reason, and <span class="ui">Accept</span> and <span class="ui">Ignore</span>.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Accept</span>.</td><td>The ghost symbols are placed as real objects.</td></tr>
-      <tr><td>5</td><td>Place another pump and press <span class="ui">Ignore</span> (or <kbd>Esc</kbd>).</td><td>The offer is dismissed and nothing is placed.</td></tr>
-      <tr><td>6</td><td>In the side panel, open the <span class="ui">Alex</span> tab and set the skill to Process engineer.</td><td>The skill choices are Plant engineer, Process engineer and Automation engineer; the level choices are Quiet, Normal and Mentor. The choice is kept.</td></tr>
-      <tr><td>7</td><td>Click <span class="ui">Alex is live</span>.</td><td>Predictive mode stops; the button reads <span class="ui">Let Alex help</span>.</td></tr>
+      <tr><td>3</td><td>Place a centrifugal pump.</td><td>Ghost symbols of what usually comes next appear on the sheet. There is no bar on the sheet for the offer.</td></tr>
+      <tr><td>4</td><td>In the side panel, open the <span class="ui">Alex</span> tab with <span class="ui">Co-worker</span> pressed.</td><td>Under <span class="ui">Design suggestions</span>, the first card has the badge <span class="ui">After your change</span>, a title such as "P-001: add …", and <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Reject</span> (and <span class="ui">Ask Cloud AI</span> when Cloud AI is set up).</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Show</span> on the card.</td><td>The suggestion is drawn on the sheet and the button reads <span class="ui">Hide</span>; clicking it again takes it off.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Apply</span>.</td><td>The ghost symbols are placed as real objects.</td></tr>
+      <tr><td>7</td><td>Place another pump, then click <span class="ui">Reject</span> on the new card.</td><td>The offer is dropped and nothing is placed.</td></tr>
+      <tr><td>8</td><td>Place another pump, click the sheet and press <kbd>Esc</kbd>.</td><td>If you had clicked <span class="ui">Show</span>, the first <kbd>Esc</kbd> takes the shown suggestion off the sheet. The next <kbd>Esc</kbd> drops the offer.</td></tr>
+      <tr><td>9</td><td>Set the skill to Process engineer.</td><td>The skill choices are Plant engineer, Process engineer, Automation engineer, Electrical engineer and HAZOP leader; the level choices are Quiet, Normal and Mentor. The choice is kept.</td></tr>
+      <tr><td>10</td><td>Click <span class="ui">Alex is live</span>.</td><td>Predictive mode stops; the button reads <span class="ui">Let Alex help</span>.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: markers on the sheet, cards with warnings, questions and suggestions, and the toolbar showing Alex is live" width="2160" height="1350" loading="lazy"><figcaption>Alex is live: the toolbar switch is pressed and Alex's cards are in the side panel.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: markers on the sheet, cards with warnings, questions and suggestions, and the toolbar showing Alex is live" width="2160" height="1350" loading="lazy"><figcaption>Alex is live: the toolbar switch is pressed and Alex's cards are in the side panel.</figcaption></figure>
   <p class="g-note">There is no separate Skills button on the toolbar any more; the skill is chosen in the Alex tab.</p>
   <p class="g-related">Related: <a href="guide-ai.html#ai-alex">Alex</a> · <a href="guide-drawing.html#draw-patterns">Engineering patterns</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
 </section>
@@ -745,7 +750,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">DRAW-patterns</span><span>Roadmap 02.2</span><span>Review checks I7, I8</span></div>
   <p class="g-summary">Engineering patterns draw a whole typical arrangement at once: a redundant pump train, an instrument tap, or a motor feeder. E1 places, routes and checks the pattern, and says what it repaired.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Cloud AI (chat), or the command palette (<kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>)) with <span class="ui">Redundant pump train</span>, <span class="ui">Instrument tap</span>, <span class="ui">Motor feeder</span> and <span class="ui">Check a pattern</span></dd>
+    <dt>Where</dt><dd>Cloud AI (chat)</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings; Cloud AI must be turned on for the chat</dd>
     <dt>Before you start</dt><dd>A sheet with a feed line and pumps is open.</dd>
   </dl>
@@ -756,11 +761,9 @@
       <tr><td>1</td><td>In Cloud AI, ask for "a redundant pump train on the feed line".</td><td>Two pumps side by side, each with an isolation valve before it and a check valve and an isolation valve after it, joined by a header at each end, all pipes. The reply names the pattern and says the check passed, or what it repaired.</td></tr>
       <tr><td>2</td><td>Ask for "a pressure transmitter on Pump1".</td><td>The transmitter is joined to Pump1 by a signal line; no pipe touches it.</td></tr>
       <tr><td>3</td><td>Ask for "a motor for Pump2 fed from the MCC".</td><td>The motor is joined by a cable; no pipe touches it.</td></tr>
-      <tr><td>4</td><td>Press <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>) and type "pattern".</td><td>The palette lists <span class="ui">Check a pattern</span> among the commands.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/palette-open.webp" alt="The command palette opened with Ctrl+K over the E1 window" width="2160" height="1350" loading="lazy"><figcaption>The command palette, where the pattern commands are found.</figcaption></figure>
-  <p class="g-related">Related: <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a> · <a href="guide-getting-started.html#gs-command-palette">Command palette</a> · <a href="guide-drawing.html#draw-predictive">Predictive mode</a></p>
+  <p class="g-related">Related: <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a> · <a href="guide-drawing.html#draw-predictive">Predictive mode</a></p>
 </section>
 
 <section class="g-feature" id="draw-loop-diagram">

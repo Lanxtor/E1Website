@@ -1,13 +1,13 @@
 <section class="g-feature" id="getting-started-overview">
   <h2>About this guide</h2>
-  <p class="g-summary">This guide shows you around the E1 window: the menus, the left rail and its places, the explorer, the tabs, the side panel, the status bar, the command palette, the keyboard shortcuts, your own settings and Help. Read it first. The other guides assume you know where these things are.</p>
+  <p class="g-summary">This guide shows you around the E1 window: the menus, the left rail and its places, the explorer, the tabs, the side panel, the status bar, the keyboard shortcuts, your own settings and Help. Read it first. The other guides assume you know where these things are.</p>
   <h3>The usual order</h3>
   <ol>
     <li>Learn the <a href="#gs-layout">window layout</a> and the <a href="#gs-rail">left rail</a>.</li>
     <li>Look through the menus: <a href="#gs-menu-file">File</a>, <a href="#gs-menu-edit">Edit</a>, <a href="#gs-menu-view">View</a>, <a href="#gs-menu-insert">Insert</a>, <a href="#gs-menu-data">Data</a> and <a href="#gs-menu-help">Help</a>.</li>
     <li>Work with <a href="#gs-tabs">tabs and the path bar</a>, <a href="#gs-floating-windows">floating windows</a> and <a href="#gs-hide-panels">hiding and showing panels</a>.</li>
     <li>Read the <a href="#gs-status-bar">status bar</a> and choose your <a href="#gs-appearance">appearance</a>.</li>
-    <li>Run any command from the <a href="#gs-command-palette">command palette</a> and learn the <a href="#gs-shortcuts">keyboard shortcuts</a>.</li>
+    <li>Learn the <a href="#gs-shortcuts">keyboard shortcuts</a>.</li>
     <li>Open the <a href="#gs-places">places</a> (Inbox, Configuration, Settings, Account) and set your <a href="#gs-settings">Settings</a>.</li>
     <li>See what is still being built in <a href="#gs-under-construction">Under construction</a>.</li>
   </ol>
@@ -43,6 +43,8 @@
       <tr><td>2</td><td>Look at the explorer header.</td><td>It shows a button named after your organization (here <span class="ui">Demo Company</span>). There is no <span class="ui">Workspace</span> row in the tree.</td></tr>
       <tr><td>3</td><td>Close every tab with its <span class="ui">×</span>.</td><td>The editor shows <span class="ui">No tab open</span> and "Select a project or section in the explorer to open it here."</td></tr>
       <tr><td>4</td><td>Drag the splitter to the right of the explorer to the right.</td><td>The explorer gets wider, up to its limit. After a reload it keeps its width.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">File</span>, then point at <span class="ui">Edit</span> without clicking.</td><td>The Edit menu opens in place of the File menu: while a menu is open, pointing at another menu name opens it.</td></tr>
+      <tr><td>6</td><td>Press <kbd>Esc</kbd> (or click outside the menu).</td><td>The menu closes.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/shell-tour.webp" alt="The E1 window with seven numbered red frames: 1 the menu bar, 2 the left rail, 3 the explorer, 4 the tab strip, 5 the editor area, 6 the Alex and Cloud AI side panel, 7 the status bar" width="2160" height="1350" loading="lazy"><figcaption>1 Menu bar · 2 Left rail · 3 Explorer · 4 Tab strip · 5 Editor area · 6 Side panel (Alex and Cloud AI) · 7 Status bar.</figcaption></figure>
@@ -53,7 +55,7 @@
 
 <section class="g-feature" id="gs-menu-file">
   <h2>The File menu</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">GS-menu-file</span><span>Review check A2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">GS-menu-file</span><span>Review check A2</span></div>
   <p class="g-summary">The File menu creates projects, saves, exports and prints, and opens the project settings and the Organization dialog.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Menu bar → <span class="ui">File</span></dd>
@@ -77,14 +79,14 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">File</span>.</td><td>The menu opens with the seven items above, with dividers after <span class="ui">New project</span> and after <span class="ui">Print…</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">File</span>.</td><td>The menu opens with the seven items above, with dividers after <span class="ui">New project</span> and after <span class="ui">Print…</span>. While it is open, pointing at another menu name opens that menu; <kbd>Esc</kbd> or a click outside closes it.</td></tr>
       <tr><td>2</td><td>Choose <span class="ui">New project</span>.</td><td>One more project appears in the explorer, selected; the status bar shows <span class="ui">Saved</span>.</td></tr>
       <tr><td>3</td><td>With no sheet open, choose <span class="ui">File → Export PDF…</span>.</td><td>A message says "Open a sheet first: its drawing is plotted to the PDF."</td></tr>
       <tr><td>4</td><td>Select a project, then choose <span class="ui">File → Project settings…</span>.</td><td>A tab opens with the heading "<em>project</em> settings".</td></tr>
       <tr><td>5</td><td>Press <kbd>Ctrl+S</kbd> (<kbd>⌘S</kbd>), also while typing in a field.</td><td>The status bar shows <span class="ui">Saved</span>.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-file.webp" alt="The open File menu: New project Ctrl+N, Save Ctrl+S, Export PDF…, Export Excel…, Print… Ctrl+P, Project settings…, Organization…" width="424" height="538" loading="lazy"><figcaption>The File menu.</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-file.webp" alt="The open File menu: New project Ctrl+N, Save Ctrl+S, Export PDF…, Export Excel…, Print… Ctrl+P, Project settings…, Organization…" width="380" height="512" loading="lazy"><figcaption>The File menu.</figcaption></figure>
   <p class="g-warn"><span class="ui">New project</span> shows <kbd>Ctrl+N</kbd>, but the key does nothing in E1 today; the browser may open a new window instead. Use the menu item or the explorer's <span class="ui">New project</span> button.</p>
   <p class="g-related">Related: <a href="guide-projects.html#prj-new-project">Create a project</a> · <a href="guide-documents.html#doc-sheet-pdf">Sheet PDF and printing</a> · <a href="guide-lists.html#list-excel-export">Excel export</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a></p>
 </section>
@@ -120,7 +122,7 @@
       <tr><td>4</td><td>Click a text field (for example the explorer search) and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>Only the text in the field changes; the project is not undone.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The open Edit menu: Undo, Redo, Cut, Copy, Paste, Duplicate, Delete and Select all with their shortcuts" width="424" height="594" loading="lazy"><figcaption>The Edit menu.</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The open Edit menu: Undo, Redo, Cut, Copy, Paste, Duplicate, Delete and Select all with their shortcuts" width="380" height="568" loading="lazy"><figcaption>The Edit menu.</figcaption></figure>
   <p class="g-note">The keys do nothing while you type in a text field, except <kbd>Ctrl+S</kbd>. Cut, copy, paste, duplicate and select all work when the drawing was the pane you used last.</p>
   <p class="g-related">Related: <a href="guide-collaboration.html#col-history">History and undo</a> · <a href="guide-drawing.html#draw-sheet-view">The sheet view</a> · <a href="#gs-shortcuts">Keyboard shortcuts</a></p>
 </section>
@@ -128,7 +130,7 @@
 <section class="g-feature" id="gs-menu-view">
   <h2>The View menu</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-menu-view</span></div>
-  <p class="g-summary">The View menu opens the command palette, switches the appearance, zooms the drawing, shows or hides the explorer and the chat, and turns the drawing aids on and off.</p>
+  <p class="g-summary">The View menu switches the appearance, zooms the drawing, shows or hides the explorer and the chat, and turns the drawing aids on and off.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Menu bar → <span class="ui">View</span></dd>
     <dt>Who</dt><dd>Everyone. These are your own view settings; they change nothing for others.</dd>
@@ -138,7 +140,6 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Item</th><th>Shortcut or state</th><th>What it does</th></tr></thead>
     <tbody>
-      <tr><td><span class="ui">Command palette…</span></td><td><kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>)</td><td>Opens the command palette.</td></tr>
       <tr><td><span class="ui">Light appearance</span></td><td>ticked when light</td><td>Switches between the light and the dark appearance.</td></tr>
       <tr><td><span class="ui">Zoom in</span></td><td><kbd>Ctrl++</kbd> or <kbd>Ctrl+=</kbd> (<kbd>⌘+</kbd>)</td><td>Zooms into the drawing.</td></tr>
       <tr><td><span class="ui">Zoom out</span></td><td><kbd>Ctrl+−</kbd> (<kbd>⌘−</kbd>)</td><td>Zooms out.</td></tr>
@@ -160,8 +161,8 @@
       <tr><td>5</td><td>Choose <span class="ui">View → Explorer</span>.</td><td>The explorer is hidden; the item is no longer ticked.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-view.webp" alt="The open View menu: Command palette… Ctrl+K, Light appearance, Zoom in, Zoom out, Fit drawing, Zoom to selection, and ticked Explorer, Chat, Grid, Snap and Ortho" width="424" height="798" loading="lazy"><figcaption>The View menu in the dark appearance, with every panel and drawing aid on.</figcaption></figure>
-  <p class="g-related">Related: <a href="#gs-command-palette">The command palette</a> · <a href="#gs-appearance">Light and dark appearance</a> · <a href="#gs-hide-panels">Hide and show panels</a> · <a href="guide-drawing.html#draw-sheet-view">The sheet view</a></p>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-view.webp" alt="The open View menu: Light appearance, Zoom in, Zoom out, Fit drawing, Zoom to selection, and ticked Explorer, Chat, Grid, Snap and Ortho" width="380" height="698" loading="lazy"><figcaption>The View menu in the dark appearance, with every panel and drawing aid on.</figcaption></figure>
+  <p class="g-related">Related: <a href="#gs-appearance">Light and dark appearance</a> · <a href="#gs-hide-panels">Hide and show panels</a> · <a href="guide-drawing.html#draw-sheet-view">The sheet view</a></p>
 </section>
 
 <section class="g-feature" id="gs-menu-insert">
@@ -184,7 +185,7 @@
       <tr><td>3</td><td>Press <kbd>Esc</kbd>.</td><td>The stroke is cancelled.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-insert.webp" alt="The open Insert menu: Asset…, Flow lines, Cable, Wire, Logic, Text, Tag" width="424" height="520" loading="lazy"><figcaption>The Insert menu.</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-insert.webp" alt="The open Insert menu: Asset…, Flow lines, Cable, Wire, Logic, Text, Tag" width="380" height="494" loading="lazy"><figcaption>The Insert menu.</figcaption></figure>
   <p class="g-warn"><span class="ui">Insert → Asset…</span> does nothing today. To place a symbol, use the drawing toolbar's <span class="ui">Object</span> button or <span class="ui">Asset</span>.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-connector">Draw pipes, signals and cables</a></p>
 </section>
@@ -216,34 +217,35 @@
       <tr><td>3</td><td>Choose <span class="ui">Data → Revisions</span>.</td><td>The Revisions section of the project is selected and opens as a tab.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-data.webp" alt="The open Data menu: Datasheet…, Revisions, Import Excel…" width="424" height="278" loading="lazy"><figcaption>The Data menu.</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-data.webp" alt="The open Data menu: Datasheet…, Revisions, Import Excel…" width="380" height="252" loading="lazy"><figcaption>The Data menu.</figcaption></figure>
   <p class="g-note">There are no fixed lists in this menu. You make any list with right-click → <span class="ui">Query</span> ▸ in the explorer.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet">Datasheets</a> · <a href="guide-documents.html#doc-new-document">Documents and revisions</a> · <a href="guide-lists.html#list-new-query">Make a list with a query</a> · <a href="guide-lists.html#list-update-from-excel">Update from Excel</a></p>
 </section>
 
 <section class="g-feature" id="gs-menu-help">
   <h2>The Help menu and About E1</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-menu-help</span></div>
-  <p class="g-summary">The Help menu lists the keyboard shortcuts, opens Under construction (what is still being built) and shows which version of E1 you run.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">GS-menu-help</span></div>
+  <p class="g-summary">The Help menu starts the E1 Trainer, lists the keyboard shortcuts, opens Under construction (what is still being built) and shows which version of E1 you run.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Menu bar → <span class="ui">Help</span></dd>
     <dt>Who</dt><dd>Everyone</dd>
     <dt>Before you start</dt><dd>E1 is open.</dd>
   </dl>
   <h3>Items</h3>
-  <p><span class="ui">Keyboard shortcuts</span>, <span class="ui">Under construction</span>, then after a divider <span class="ui">About E1</span>.</p>
+  <p><span class="ui">E1 Trainer</span>, <span class="ui">Keyboard shortcuts</span>, <span class="ui">Under construction</span>, then after a divider <span class="ui">About E1</span>.</p>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Help</span>.</td><td>The menu shows the three items.</td></tr>
-      <tr><td>2</td><td>Choose <span class="ui">About E1</span>.</td><td>A dialog titled <span class="ui">E1</span> opens with "Engineering workspace", "One project for the plant. Drawings, lists, and Cloud AI read the same objects." and "Version 0.1.0".</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Close</span> (or click outside the card).</td><td>The dialog closes.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Help</span>.</td><td>The menu shows the four items.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">E1 Trainer</span>.</td><td>The side panel opens (if it was hidden) on the <span class="ui">Alex</span> tab, with <span class="ui">E1 Trainer</span> pressed; the header reads "E1 Trainer · learn E1 where you are".</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Help → About E1</span>.</td><td>A dialog titled <span class="ui">E1</span> opens with "Engineering workspace", "One project for the plant. Drawings, lists, and Cloud AI read the same objects." and "Version 0.1.0".</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Close</span> (or click outside the card).</td><td>The dialog closes.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-help.webp" alt="The open Help menu: Keyboard shortcuts, Under construction, About E1" width="424" height="296" loading="lazy"><figcaption>The Help menu.</figcaption></figure>
-  <figure class="g-shot g-small"><img src="assets/img/guides/help-about.webp" alt="The About E1 dialog: E1, Engineering workspace, the one-line description, Version 0.1.0 and a Close button" width="904" height="476" loading="lazy"><figcaption>About E1.</figcaption></figure>
-  <p class="g-related">Related: <a href="#gs-shortcuts">Keyboard shortcuts</a> · <a href="#gs-under-construction">Under construction and the roadmap</a></p>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-help.webp" alt="The open Help menu: E1 Trainer, Keyboard shortcuts, Under construction, About E1" width="380" height="326" loading="lazy"><figcaption>The Help menu.</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/help-about.webp" alt="The About E1 dialog: E1, Engineering workspace, the one-line description, Version 0.1.0 and a Close button" width="856" height="428" loading="lazy"><figcaption>About E1.</figcaption></figure>
+  <p class="g-related">Related: <a href="#gs-shortcuts">Keyboard shortcuts</a> · <a href="#gs-under-construction">Under construction and the roadmap</a> · <a href="guide-ai.html#ai-alex">Alex</a></p>
 </section>
 
 <section class="g-feature" id="gs-rail">
@@ -273,11 +275,11 @@
     <tbody>
       <tr><td>1</td><td>Click the bell.</td><td>An <span class="ui">Inbox</span> tab opens and is selected; the bell is highlighted.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Configuration</span>, then the gear, then your initial.</td><td>Each opens its tab (<span class="ui">Configuration</span>, <span class="ui">Settings</span>, <span class="ui">Account</span>) and becomes the highlighted icon.</td></tr>
-      <tr><td>3</td><td>Look for Messages and History on the rail.</td><td>They are not there. Open them from the command palette with <span class="ui">Open place</span>.</td></tr>
+      <tr><td>3</td><td>Look for Messages and History on the rail.</td><td>They are not there: neither has a button on the screen yet.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/rail.webp" alt="The left rail alone: the Inbox bell, the Explorer and Alex and Cloud AI icons, then at the bottom Configuration, Settings and the signed-in user's initial" width="108" height="1688" loading="lazy"><figcaption>The left rail.</figcaption></figure>
-  <p class="g-related">Related: <a href="#gs-places">The places</a> · <a href="#gs-hide-panels">Hide and show panels</a> · <a href="#gs-command-palette">The command palette</a></p>
+  <figure class="g-shot"><img src="assets/img/guides/rail.webp" alt="The E1 window with the six buttons of the left rail framed and numbered: 1 Inbox (bell), 2 Explorer, 3 Alex and Cloud AI, 4 Configuration, 5 Settings, 6 the signed-in user" width="2160" height="1350" loading="lazy"><figcaption>The left rail: 1 Inbox, 2 Explorer, 3 Alex and Cloud AI, 4 Configuration, 5 Settings, 6 your account.</figcaption></figure>
+  <p class="g-related">Related: <a href="#gs-places">The places</a> · <a href="#gs-hide-panels">Hide and show panels</a></p>
 </section>
 
 <section class="g-feature" id="gs-places">
@@ -285,7 +287,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-places</span></div>
   <p class="g-summary">A place is a page that is not part of one project. Each opens as its own tab from the left rail. The Inbox collects what is addressed to you, Configuration holds the settings you share with your organization, Settings holds your own preferences, and Account shows who you are and what you may do.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Left rail; or the command palette → <span class="ui">Open place</span></dd>
+    <dt>Where</dt><dd>Left rail</dd>
     <dt>Who</dt><dd>Everyone. The Inbox and the Account details need a server with sign-in.</dd>
     <dt>Before you start</dt><dd>E1 is open.</dd>
   </dl>
@@ -295,7 +297,7 @@
     <li><strong>Configuration</strong>: object classes, attributes, shapes, relationships, the company library, catalogs and the project settings. See the library guide.</li>
     <li><strong>Settings</strong> (gear): your own preferences. See <a href="#gs-settings">Your settings</a>.</li>
     <li><strong>Account</strong> (your initial): with sign-in, the heading <span class="ui">Account</span>, your profile, <span class="ui">Your access</span> (license, organization role, projects), <span class="ui">Passkeys</span> and <span class="ui">Session</span> with <span class="ui">Sign out</span>. Without sign-in it is a placeholder.</li>
-    <li><strong>History</strong> and <strong>Messages</strong> are not on the rail. Open them from the command palette: <span class="ui">Open place</span> with the place <span class="ui">history</span> or <span class="ui">messages</span>.</li>
+    <li><strong>History</strong> (every change in the project) and <strong>Messages</strong> have no button on the screen yet. The changes of one object are on its <a href="guide-collaboration.html#col-history">History tab</a>.</li>
   </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -325,7 +327,8 @@
   <ul>
     <li>Each tab has an icon, a name, <span class="ui">Detach</span> (to a floating window) and <span class="ui">Close</span>. Hover a tab to see its full path, for example <em>Demo Company / Demo Plant / Model Space / Assets</em>.</li>
     <li>Middle-click a tab to close it. Turn the mouse wheel over the strip to scroll it sideways.</li>
-    <li>With many tabs, a button <span class="ui">All open tabs (N)</span> appears at the end of the strip. It lists every tab, with a search box <span class="ui">Search tabs</span>.</li>
+    <li>With many tabs, a button <span class="ui">All open tabs (N)</span> appears at the end of the strip. It lists every tab, with a search box <span class="ui">Search tabs</span>; <kbd>↑</kbd> and <kbd>↓</kbd> move through the list.</li>
+    <li>Dragging a tab floats it only once the pointer leaves the tab strip; a short drag inside the strip does nothing. Tabs cannot be dragged to a new order.</li>
     <li>The path bar shows crumbs separated by <span class="ui">/</span>. The first one is the organization. Click a crumb to select that item. Places and Under construction have no path bar.</li>
   </ul>
   <h3>Steps</h3>
@@ -347,10 +350,10 @@
 
 <section class="g-feature" id="gs-floating-windows">
   <h2>Floating windows</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-floating-windows</span><span>Roadmap M0</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">GS-floating-windows</span><span>Roadmap M0</span></div>
   <p class="g-summary">Take a tab out of the main window to see two things side by side, for example a drawing on a second screen. Changes you make in a floating window are saved like any other.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A tab's <span class="ui">Detach</span> button, or drag a tab out of the tab strip</dd>
+    <dt>Where</dt><dd>A tab's <span class="ui">Detach</span> button, or drag a tab out of the tab strip; the same for a chat tab in the <span class="ui">Cloud AI</span> panel</dd>
     <dt>Who</dt><dd>Everyone</dd>
     <dt>Before you start</dt><dd>In the browser, allow pop-ups for E1.</dd>
   </dl>
@@ -365,7 +368,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/shell-tour.webp" alt="The E1 window; the Assets tab in frame 4 shows the Detach button next to its Close button" width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Detach</span> button is the box with an arrow on the Assets tab (frame 4).</figcaption></figure>
-  <p class="g-note">In the desktop app a floating window is a real window of its own, and E1 opens it again where it was at the next start. When the item in a floating window is deleted, it shows "This tab is closed" and "The item is no longer in the project."</p>
+  <p class="g-note">Chat tabs in the <span class="ui">Cloud AI</span> panel float the same way: click their <span class="ui">Detach</span>, or drag them out of the chat tab bar. In the desktop app a floating window is a real window of its own, and E1 opens it again where it was at the next start. When the item in a floating window is deleted, it shows "This tab is closed" and "The item is no longer in the project."</p>
   <p class="g-related">Related: <a href="#gs-tabs">Tabs and the path bar</a> · <a href="guide-access.html#acc-desktop-app">The desktop app</a></p>
 </section>
 
@@ -423,7 +426,7 @@
       <tr><td>3</td><td>As a Reviewer on a project, try to move a symbol.</td><td>The save state reads <span class="ui">Change refused</span> in red, with the reason, for example "You may not do this here: it needs drawing.edit on …".</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/statusbar.webp" alt="The status bar: Saved, Assets, the units chip m, Dark, and the store data/db.json" width="2160" height="39" loading="lazy"><figcaption>The status bar of the demo: <span class="ui">Saved</span>, the open item <span class="ui">Assets</span>, the units chip, <span class="ui">Dark</span> and the store.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/statusbar.webp" alt="The status bar in two parts: at the left Saved and the open item Assets; at the right the units chip m, the appearance chip Dark and the store data/db.json" width="1200" height="120" loading="lazy"><figcaption>The status bar of the demo: <span class="ui">Saved</span>, the open item <span class="ui">Assets</span>, the units chip, <span class="ui">Dark</span> and the store.</figcaption></figure>
   <p class="g-related">Related: <a href="#gs-appearance">Light and dark appearance</a> · <a href="guide-access.html#acc-store">Which store E1 runs on</a> · <a href="#gs-units">Units of measurement</a></p>
 </section>
 
@@ -445,48 +448,14 @@
       <tr><td>3</td><td>Choose <span class="ui">Light</span> in <span class="ui">Settings</span> → <span class="ui">Theme</span>, then reload.</td><td>E1 stays light after the reload.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/statusbar.webp" alt="The status bar with the appearance chip reading Dark" width="2160" height="39" loading="lazy"><figcaption>The appearance chip reads <span class="ui">Dark</span>, second from the right.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/statusbar.webp" alt="The status bar in two parts: at the left Saved and the open item Assets; at the right the units chip m, the appearance chip Dark and the store data/db.json" width="1200" height="120" loading="lazy"><figcaption>The appearance chip reads <span class="ui">Dark</span> (lower strip, middle).</figcaption></figure>
   <p class="g-note">The appearance is kept per browser, not per account: on another computer you start in dark again.</p>
   <p class="g-related">Related: <a href="#gs-settings">Your settings</a> · <a href="#gs-menu-view">The View menu</a> · <a href="#gs-status-bar">The status bar</a></p>
 </section>
 
-<section class="g-feature" id="gs-command-palette">
-  <h2>The command palette</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-05</span><span class="g-id">GS-command-palette</span><span>Roadmap 6A-6H, 07.1</span><span>Review check A6</span></div>
-  <p class="g-summary">The command palette runs any E1 command by name and jumps to any object by its tag or name. It is the fastest way to do something when you do not know where its button is.</p>
-  <dl class="g-facts">
-    <dt>Where</dt><dd><kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>) anywhere, or <span class="ui">View → Command palette…</span></dd>
-    <dt>Who</dt><dd>Everyone; a command that changes the project needs the right to edit</dd>
-    <dt>Before you start</dt><dd>E1 is open.</dd>
-  </dl>
-  <h3>What you see</h3>
-  <ul>
-    <li>A dialog <span class="ui">Command palette</span> with a search box "Run a command…" and a list of commands, each with a short description (up to 40). With no match: <span class="ui">No command matches.</span></li>
-    <li>From two typed characters, a second list <span class="ui">Go to object</span> with entries "Go to <em>tag or name</em>" and the project.</li>
-    <li>Choosing a command that needs input opens its form: a <span class="ui">‹</span> button (back to commands), the command's title, its fields (required ones marked <span class="ui">*</span>), and the buttons <span class="ui">Close</span> and <span class="ui">Run</span>. After running: "Done." or an error in red.</li>
-    <li>Keys: <kbd>↑</kbd>/<kbd>↓</kbd> move, <kbd>Enter</kbd> chooses, <kbd>Esc</kbd> goes back from a form or closes the palette. <kbd>Ctrl+K</kbd> again also closes it.</li>
-  </ul>
-  <h3>Steps</h3>
-  <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
-    <tbody>
-      <tr><td>1</td><td>Press <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>).</td><td>The <span class="ui">Command palette</span> dialog opens with the cursor in the search box.</td></tr>
-      <tr><td>2</td><td>Type <kbd>new folder</kbd> and press <kbd>Enter</kbd>.</td><td>The form opens with the heading <span class="ui">New folder</span>.</td></tr>
-      <tr><td>3</td><td>Type <kbd>Unit 300</kbd> in Name and click <span class="ui">Run</span>.</td><td>The palette says "Done."; the status bar shows <span class="ui">Saved</span>.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Close</span>.</td><td>The explorer shows a row "Unit 300".</td></tr>
-      <tr><td>5</td><td>Press <kbd>Ctrl+K</kbd> and type the tag of an object, for example <kbd>V3</kbd>.</td><td>The list <span class="ui">Go to object</span> shows "Go to V3"; choosing it opens V3.</td></tr>
-      <tr><td>6</td><td>Type text that matches nothing.</td><td>The palette shows <span class="ui">No command matches.</span></td></tr>
-    </tbody>
-  </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/palette-open.webp" alt="The command palette open over the E1 window, with the search box Run a command… and the list of commands with descriptions" width="2160" height="1350" loading="lazy"><figcaption>The command palette, opened with <kbd>Ctrl+K</kbd>.</figcaption></figure>
-  <figure class="g-shot"><img src="assets/img/guides/palette-search.webp" alt="The command palette after typing P-0, showing No command matches" width="2160" height="1350" loading="lazy"><figcaption>After typing "P-0" in the demo: <span class="ui">No command matches.</span></figcaption></figure>
-  <p class="g-note">Useful commands: <span class="ui">Open place</span> (with history, notifications, messages, configuration, settings, account or backlog) opens a place, including History and Messages; <span class="ui">Project activity</span> shows one project's changes; <span class="ui">New project</span>.</p>
-  <p class="g-related">Related: <a href="#gs-shortcuts">Keyboard shortcuts</a> · <a href="#gs-places">The places</a> · <a href="guide-collaboration.html#col-history">History</a></p>
-</section>
-
 <section class="g-feature" id="gs-shortcuts">
   <h2>Keyboard shortcuts</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-shortcuts</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">GS-shortcuts</span></div>
   <p class="g-summary">The Keyboard shortcuts dialog lists the keys and mouse moves of E1. This section lists them too, with a few that the dialog does not show.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Help → Keyboard shortcuts</span></dd>
@@ -498,7 +467,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Choose <span class="ui">Help → Keyboard shortcuts</span>.</td><td>The dialog <span class="ui">Keyboard shortcuts</span> opens with one row per key and what it does.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Close</span>.</td><td>The dialog closes.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Close</span> (or click outside the card).</td><td>The dialog closes. <kbd>Esc</kbd> does not close it.</td></tr>
     </tbody>
   </table></div>
   <h3>The list in the dialog</h3>
@@ -514,7 +483,6 @@
       <tr><td><kbd>F2</kbd></td><td>Rename the selected project</td></tr>
       <tr><td><kbd>Enter</kbd></td><td>Send the chat message</td></tr>
       <tr><td><kbd>Shift+Enter</kbd></td><td>New line in chat</td></tr>
-      <tr><td><kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>)</td><td>Command palette: run any command</td></tr>
       <tr><td><kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>)</td><td>Undo your last change</td></tr>
       <tr><td><kbd>Ctrl+Shift+Z</kbd>, <kbd>Ctrl+Y</kbd> (<kbd>⇧⌘Z</kbd>)</td><td>Redo</td></tr>
       <tr><td><kbd>Ctrl+S</kbd> (<kbd>⌘S</kbd>)</td><td>Save now</td></tr>
@@ -530,9 +498,9 @@
     <li><kbd>Ctrl+P</kbd> (<kbd>⌘P</kbd>): print the PDF of the open sheet.</li>
     <li>In the explorer: <kbd>F2</kbd> also renames an object row; <kbd>Delete</kbd> or <kbd>Backspace</kbd> deletes the selected row; <kbd>Esc</kbd> clears several picked projects or closes the search; <kbd>Enter</kbd> on a drawing shortcut under an object opens that drawing.</li>
   </ul>
-  <figure class="g-shot g-small"><img src="assets/img/guides/help-shortcuts.webp" alt="The Keyboard shortcuts dialog with each key and its action, and a Close button" width="1024" height="1188" loading="lazy"><figcaption>Help → Keyboard shortcuts.</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/help-shortcuts.webp" alt="The Keyboard shortcuts dialog with each key and its action, and a Close button" width="968" height="1084" loading="lazy"><figcaption>Help → Keyboard shortcuts.</figcaption></figure>
   <p class="g-warn">The shortcuts do nothing while you are typing in a text field, except <kbd>Ctrl+S</kbd>. <kbd>Ctrl+N</kbd> is shown in the File menu but does nothing.</p>
-  <p class="g-related">Related: <a href="#gs-command-palette">The command palette</a> · <a href="#gs-menu-edit">The Edit menu</a> · <a href="guide-drawing.html#draw-sheet-view">The sheet view</a></p>
+  <p class="g-related">Related: <a href="#gs-menu-edit">The Edit menu</a> · <a href="guide-drawing.html#draw-sheet-view">The sheet view</a></p>
 </section>
 
 <section class="g-feature" id="gs-settings">
@@ -625,7 +593,7 @@
     <tbody>
       <tr><td>1</td><td>Choose <span class="ui">Help → Under construction</span>.</td><td>A tab <span class="ui">Under construction</span> opens with the heading <span class="ui">Where E1 is being built</span>.</td></tr>
       <tr><td>2</td><td>Look at the milestones.</td><td>The current milestone (on 2026-11-07: M2 Platform) is unfolded; stage M2.1 is visible, and M2.8 shows <span class="ui">When done, try</span>.</td></tr>
-      <tr><td>3</td><td>Unfold M0 Foundation with <span class="ui">Stages and what you can test</span>.</td><td>Stage 6A-6H shows <span class="ui">Try it</span> and mentions <kbd>Ctrl+K</kbd>; stage 6I shows <span class="ui">Nothing to test on screen</span>.</td></tr>
+      <tr><td>3</td><td>Unfold M0 Foundation with <span class="ui">Stages and what you can test</span>.</td><td>Stage 6A-6H shows <span class="ui">Try it</span>; stage 6I shows <span class="ui">Nothing to test on screen</span>.</td></tr>
       <tr><td>4</td><td>Click the green dot titled "Open branch" on the <span class="ui">Branches</span> section in the explorer.</td><td>Under construction opens with "Opened from TREE-05 …" and a <span class="ui">Show it</span> button.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Show it</span>.</td><td>The page scrolls to the entry, which is highlighted.</td></tr>
     </tbody>
@@ -672,20 +640,8 @@
 
 <section class="g-feature" id="gs-messages">
   <h2>Messages</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span class="g-id">GS-messages</span></div>
-  <p class="g-summary">Messages is a place for direct messages between people. It is not connected yet: it shows an example conversation.</p>
-  <dl class="g-facts">
-    <dt>Where</dt><dd>Command palette → <span class="ui">Open place</span> → messages (not on the rail)</dd>
-    <dt>Who</dt><dd>Everyone</dd>
-    <dt>Before you start</dt><dd>E1 is open.</dd>
-  </dl>
-  <h3>Steps</h3>
-  <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
-    <tbody>
-      <tr><td>1</td><td>Press <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>), choose <span class="ui">Open place</span>, pick messages and click <span class="ui">Run</span>.</td><td>A <span class="ui">Messages</span> tab opens with "Example conversation", "Direct messages are not connected yet." and a composer you cannot use.</td></tr>
-    </tbody>
-  </table></div>
-  <p class="g-note">To talk about an object today, use its comments with @mentions.</p>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">GS-messages</span></div>
+  <p class="g-summary">Messages will be a place for direct messages between people in your organization. It is not connected yet and has no button on the screen.</p>
+  <p class="g-dev">Direct messages between the people of an organization. Until then, talk about an object in its comments with @mentions.</p>
   <p class="g-related">Related: <a href="guide-collaboration.html#col-comments">Comments</a> · <a href="#gs-places">The places</a></p>
 </section>
