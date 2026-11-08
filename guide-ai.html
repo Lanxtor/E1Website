@@ -41,7 +41,7 @@
           <li><a href="#ai-side-panel">The Alex and Cloud AI panel</a></li>
           <li><a href="#ai-alex">Alex: turn on the built-in engineering co-worker</a></li>
           <li><a href="#ai-alex-why">Why “Alex”? What stays local</a></li>
-          <li><a href="#ai-alex-trainer">E1 Trainer: Alex shows you how, where you are</a></li>
+          <li><a href="#ai-alex-trainer">E1 Guide: Alex shows you how, where you are</a></li>
           <li><a href="#ai-alex-skill-level">Choose Alex&#x27;s skill and level</a></li>
           <li><a href="#ai-alex-cards">Read and act on Alex&#x27;s cards</a></li>
           <li><a href="#ai-alex-simulation">Read Alex&#x27;s simulation results</a></li>
@@ -174,11 +174,11 @@
 </section>
 
 <section class="g-feature" id="ai-alex-trainer">
-  <h2>E1 Trainer: Alex shows you how, where you are</h2>
+  <h2>E1 Guide: Alex shows you how, where you are</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">AI-alex-trainer</span></div>
-  <p class="g-summary">Alex has a second mode, E1 Trainer. Instead of reviewing your drawing, Alex offers short lessons for the place you are in, for example in Configuration → Object classes: look up a class, add a new class, give a class more attributes. A lesson shows a bubble on the real button, tells you what it is for and what to click, and goes on one bubble at a time. Above all, the bubbles teach what you cannot see on screen: double-clicks, right-click menus, dragging, keys and the order of the steps, each shown as a badge. Every bubble links to the matching section of this guide.</p>
+  <p class="g-summary">Alex has a second mode, E1 Guide. Instead of reviewing your drawing, Alex offers short lessons for the place you are in, for example in Configuration → Object classes: look up a class, add a new class, give a class more attributes. A lesson shows a bubble on the real button, tells you what it is for and what to click, and goes on one bubble at a time. Above all, the bubbles teach what you cannot see on screen: double-clicks, right-click menus, dragging, keys and the order of the steps, each shown as a badge. Every bubble links to the matching section of this guide.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Alex</span> tab → <span class="ui">E1 Trainer</span>, or <span class="ui">Help</span> → <span class="ui">E1 Trainer</span></dd>
+    <dt>Where</dt><dd><span class="ui">Alex</span> tab → <span class="ui">E1 Guide</span>, or <span class="ui">Help</span> → <span class="ui">E1 Guide</span></dd>
     <dt>Who</dt><dd>Everyone; a lesson can be taken as often as you like</dd>
     <dt>Before you start</dt><dd>The Alex and Cloud AI panel is shown.</dd>
   </dl>
@@ -186,7 +186,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <span class="ui">Configuration</span> on the left rail, then click <span class="ui">E1 Trainer</span> at the top of the Alex tab.</td><td>The header reads "E1 Trainer · learn E1 where you are". Under <span class="ui">Here: Configuration → Object classes</span> the lessons of this section are listed as boxes, then the lessons under <span class="ui">Anywhere in E1</span>.</td></tr>
+      <tr><td>1</td><td>Open <span class="ui">Configuration</span> on the left rail, then click <span class="ui">E1 Guide</span> at the top of the Alex tab.</td><td>The header reads "E1 Guide · learn E1 where you are". Under <span class="ui">Here: Configuration → Object classes</span> the lessons of this section are listed as boxes, then the lessons under <span class="ui">Anywhere in E1</span>.</td></tr>
       <tr><td>2</td><td>Click the box <span class="ui">Add a new class</span>.</td><td><span class="ui">Company library</span> in the section bar is ringed. A bubble says "1 / 8", explains that new classes are made in the company library, and reads "Click the highlighted control to go on."</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Company library</span>.</td><td>The Company library opens and the bubble moves to <span class="ui">Library</span> ("2 / 8"). The Alex tab now reads <span class="ui">Here: Configuration → Company library</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Learn more in the user guide ↗</span> in the bubble.</td><td>The user guide opens on its section about the project library, in a new tab (in the desktop app, in your browser).</td></tr>
@@ -294,6 +294,10 @@
     <li><b>Load flow and short circuit</b> (Electrical engineer, on a single line diagram): bus voltages, branch loading and losses, and the IEC 60909 short-circuit current and peak at every board, compared with the ratings you entered.</li>
     <li><b>Motor starting</b>: the voltage at the motor and at every board while each motor starts with its starting method.</li>
     <li><b>Arc flash</b> (IEEE 1584-2018): the incident energy and arc flash boundary at each board, only where the protective device's clearing time is entered; without it Alex asks for it.</li>
+    <li><b>Earth faults</b> (IEC 60909): single line-to-earth, line-to-line and double line-to-earth fault currents at every board, from the transformers' vector groups and neutral earthing and the zero-sequence data; what is not entered is asked, never assumed.</li>
+    <li><b>Harmonics</b> (IEEE 519-2014): THDv at every board, TDD and harmonic currents at the point of common coupling compared with the limits, and a resonance scan where a capacitor bank is entered; drives need the manufacturer's harmonic spectrum, which Alex asks for.</li>
+    <li><b>Protection coordination</b> (IEC 60255-151, IEEE C37.112, IEC 60947-2): from the relay, trip unit and fuse settings you entered, the operating time of each device at the calculated fault currents, the margin between devices in series, and a time–current table; where a breaker's settings and opening time are entered, the arc flash uses the clearing time they give.</li>
+    <li><b>Battery sizing and UPS autonomy</b> (IEEE 485, IEEE 1115): the cell size from the duty cycle and the manufacturer's discharge data you entered, the number of cells, and a UPS's backup duty and loading; without the data Alex asks.</li>
   </ul>
   <p class="g-note">Every assumption a simulation makes (a typical value, a parameter taken as zero) is listed on its card. Not applicable hides a card on this sheet only.</p>
   <p class="g-related">Related: <a href="#ai-alex-cards">Alex's cards</a> · <a href="#ai-alex-skill-level">Skill and Level</a></p>
