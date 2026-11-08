@@ -55,11 +55,11 @@
 
 <section class="g-feature" id="col-history">
   <h2>See an object's changes and undo one</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-06</span><span class="g-id">COL-history</span><span>Roadmap 07.1</span><span>Review check H1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-08</span><span class="g-id">COL-history</span><span>Roadmap 07.1</span><span>Review check H1</span></div>
   <p class="g-summary">Every object has a History tab that lists its changes as a person reads them: when, who, and what changed, with the value before and after. <span class="ui">Undo this change</span> takes back one change, even an older one, as long as nobody has changed the object since.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Double-click an object in the explorer → tab <span class="ui">History</span>. The badge on the tab is the number of changes.</dd>
-    <dt>Who</dt><dd>Anyone who may view the object reads it. Undo works only when you may make the restored edit now.</dd>
+    <dt>Who</dt><dd>Anyone who may view the project reads it. Undo works only when you may make the restored edit now: edit rights in the project, in an organization whose trial has not ended.</dd>
     <dt>Before you start</dt><dd>A project with objects is open, for example V3 under Assets.</dd>
   </dl>
   <h3>Steps</h3>
@@ -78,6 +78,7 @@
   <figure class="g-shot"><img src="assets/img/guides/object-history.webp" alt="The History tab of Feed pump: one row by Signed-in user: Edited Feed pump, name Pump1 struck through then Feed pump, with the link Undo this change" width="2160" height="1350" loading="lazy"><figcaption>Pump1 renamed to Feed pump: the History tab shows the name before and after, and <span class="ui">Undo this change</span>.</figcaption></figure>
   <p class="g-note">An object without changes shows <span class="ui">No changes recorded yet.</span></p>
   <p class="g-warn">If someone has changed the object since, the undo is refused with <span class="ui">Changed since, so the change cannot be undone: …</span> and nothing changes.</p>
+  <p class="g-note">Undo is checked before anything is written. A Viewer or Reviewer, someone without edit rights in the project, or an organization whose trial ended is refused with the reason (<a href="guide-organization.html#org-refusals">Why a change is refused</a>), and nothing changes. A project's activity and its object search need view rights on that project: otherwise <span class="ui">You have no access to project &lt;project&gt;.</span></p>
   <p class="g-warn">Projects, folders and sheets also have a History tab, but it lists only the changes the app has loaded, and it has no <span class="ui">Undo this change</span>.</p>
   <p class="g-related">Related: <a href="#col-undo-redo">Undo and redo</a> · <a href="#col-history-place">The History place</a> · <a href="guide-objects.html#obj-object-window">The object window</a></p>
 </section>

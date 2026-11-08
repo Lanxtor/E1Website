@@ -153,7 +153,7 @@
 
 <section class="g-feature" id="acc-microsoft">
   <h2>Sign in with your company's Microsoft account</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">ACC-microsoft</span><span>Roadmap 09.4 (first part)</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-08</span><span class="g-id">ACC-microsoft</span><span>Roadmap 09.4 (first part)</span></div>
   <p class="g-summary">Where your company has connected its Microsoft accounts (Microsoft Entra ID) to E1, you sign in with your work account and land straight in your company's organization.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Sign-in screen → <span class="ui">Sign in with your company's Microsoft account</span> (with the Microsoft logo)</dd>
@@ -166,7 +166,7 @@
     <tbody>
       <tr><td>1</td><td>Open E1.</td><td>The sign-in screen shows <span class="ui">Sign in with your company's Microsoft account</span> under <span class="ui">Sign in</span>. If the button is missing, the server has no Microsoft connection.</td></tr>
       <tr><td>2</td><td>Click it.</td><td>Microsoft's page asks you to pick an account.</td></tr>
-      <tr><td>3</td><td>Pick your work account.</td><td>You are back in E1, a member of your company's organization. An E1 account you already had with the same address is linked to it.</td></tr>
+      <tr><td>3</td><td>Pick your work account.</td><td>You are back in E1, a member of your company's organization. An E1 account you already had with the same address is linked to it, but only when Microsoft confirms that your company's directory has verified it owns the address's domain; otherwise the sign-in is refused (see below).</td></tr>
       <tr><td>4</td><td>Open <span class="ui">Account</span> from the left rail.</td><td><span class="ui">Your access</span> shows the license, if a seat was free; otherwise "None assigned · Without a license you can only view. An administrator assigns one."</td></tr>
     </tbody>
   </table></div>
@@ -178,36 +178,39 @@
     <li>"Your company's Microsoft administrator has to allow E1 once before people can sign in with it."</li>
     <li>"Microsoft did not say which company account this is. Try again."</li>
     <li>"Signing in with a Microsoft company account is not set up here."</li>
+    <li>"An E1 account with the address <em>email</em> already exists, and your company's Microsoft directory has not verified that it owns that domain, so E1 cannot connect the two. Sign in the way you used before, or ask your E1 administrator."</li>
   </ul>
+  <p class="g-note">For your company's Microsoft administrator: add the optional claim <code>xms_edov</code> to the ID token of E1's app registration. Without it Microsoft does not say whether the domain is verified, so an existing E1 account is never linked by its email address, and such sign-ins are refused.</p>
   <p class="g-warn">Owners and Administrators still need a passkey before their role takes effect. Sign-in with SAML and automatic directory sync (SCIM) come later; see <a href="#acc-company-sso">Company single sign-on</a>. There is no review check for Microsoft sign-in yet.</p>
   <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-passkeys">Passkeys</a> · <a href="#acc-company-sso">Company single sign-on</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a></p>
 </section>
 
 <section class="g-feature" id="acc-claim-installation">
   <h2>Claim a new installation</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ACC-claim-installation</span><span>Roadmap M2.2</span></div>
-  <p class="g-summary">A new E1 server with sign-in has no owner. The first person who signs in claims it: its projects, chat and settings become theirs, and they become its owner.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-08</span><span class="g-id">ACC-claim-installation</span><span>Roadmap M2.2</span></div>
+  <p class="g-summary">A new E1 server with sign-in has no owner. The first installation operator who signs in claims it: its projects, chat and settings become theirs, and they become its owner. Nobody else can claim it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Sign-in screen → <span class="ui">Sign in and claim this installation</span></dd>
-    <dt>Who</dt><dd>The first person to sign in, normally whoever set up the server</dd>
-    <dt>Before you start</dt><dd>Nobody has signed in on this installation yet.</dd>
+    <dt>Where</dt><dd>Sign-in screen → <span class="ui">Sign in</span></dd>
+    <dt>Who</dt><dd>Only a person whose email address is in the server's list of installation operators (the setting <code>E1_OPERATORS</code>), normally whoever set up the server</dd>
+    <dt>Before you start</dt><dd>Nobody has claimed this installation yet. Whoever set up the server has put your email address in <code>E1_OPERATORS</code> and restarted it.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open E1 on the new installation.</td><td>The sign-in screen reads "This installation has no owner yet. The first person who signs in claims it: its projects, chat, and settings become theirs." and has one button, <span class="ui">Sign in and claim this installation</span>. The Microsoft and passkey buttons are not shown.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Sign in and claim this installation</span> and sign in.</td><td>E1 opens with the installation's projects, which are now yours.</td></tr>
-      <tr><td>3</td><td>Sign out and open E1 again.</td><td>The normal sign-in screen appears, with <span class="ui">Sign in</span>.</td></tr>
+      <tr><td>1</td><td>Open E1 on the new installation.</td><td>The normal sign-in screen with <span class="ui">Sign in</span>. It does not say whether the installation has an owner.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Sign in</span> and sign in with an address listed in <code>E1_OPERATORS</code>.</td><td>E1 opens with the installation's projects, which are now yours.</td></tr>
+      <tr><td>3</td><td>On another installation that nobody has claimed, sign in with an address that is not in the list.</td><td>The installation is not claimed: you sign in as anyone else would (for example with an invitation), and its projects are not yours.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">As the owner, add a passkey straight away: without one you act as a Member, not as the Owner.</p>
+  <p class="g-warn">With <code>E1_OPERATORS</code> empty, a production server lets nobody claim the installation and writes in its log how to set it. Only a development or test server still lets the first person who signs in claim it.</p>
   <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-passkeys">Passkeys</a></p>
 </section>
 
 <section class="g-feature" id="acc-sign-in-problems">
   <h2>When sign-in is refused</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ACC-sign-in-problems</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-08</span><span class="g-id">ACC-sign-in-problems</span></div>
   <p class="g-summary">If E1 cannot let you in, you are back on the sign-in screen with the reason in red. This section lists the messages and what to do.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The sign-in screen, above the buttons</dd>
@@ -226,6 +229,8 @@
       <tr><td>"The sign-in was cancelled."</td><td>Start again.</td></tr>
       <tr><td>"The sign-in expired or was started elsewhere. Try again."</td><td>Start again and finish within 10 minutes, in the same browser.</td></tr>
       <tr><td>"The sign-in could not be completed. Try again."</td><td>Try again; if it repeats, tell your E1 administrator.</td></tr>
+      <tr><td>"An E1 account with the address <em>email</em> already exists, and your company's Microsoft directory has not verified that it owns that domain, so E1 cannot connect the two. Sign in the way you used before, or ask your E1 administrator."</td><td>Sign in the way you did before. Your company's Microsoft administrator can add the optional claim <code>xms_edov</code> to E1's app registration (see <a href="#acc-microsoft">Sign in with Microsoft</a>).</td></tr>
+      <tr><td>"All <em>N</em> <em>License</em> seats are taken. Ask the person who invited you to free a seat or add seats, then open the invitation again."</td><td>Your invitation stays open. Ask whoever invited you to free or add a seat, then open the link again (see <a href="guide-organization.html#org-invitations">Invite a colleague</a>).</td></tr>
     </tbody>
   </table></div>
   <h3>Steps</h3>
@@ -242,12 +247,12 @@
 
 <section class="g-feature" id="acc-passkeys">
   <h2>Passkeys</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">ACC-passkeys</span><span>Review check J7</span></div>
-  <p class="g-summary">A passkey signs you in with this device's screen lock or a security key, confirms important actions, and is needed before an Owner, Administrator or Project administrator role takes effect.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-08</span><span class="g-id">ACC-passkeys</span><span>Review check J7</span></div>
+  <p class="g-summary">A passkey signs you in with this device's screen lock or a security key, confirms important actions, and is needed before an Owner, Administrator or Project administrator role takes effect. Every use of a passkey asks for your screen lock, PIN or fingerprint or face: touching a key alone is not enough.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Left rail → your initial → <span class="ui">Account</span> → <span class="ui">Passkeys</span>; sign-in screen → <span class="ui">Sign in with a passkey</span></dd>
     <dt>Who</dt><dd>Everyone signed in on a server with sign-in</dd>
-    <dt>Before you start</dt><dd>You are signed in; your device has a screen lock or you have a security key.</dd>
+    <dt>Before you start</dt><dd>You signed in less than 15 minutes ago (otherwise E1 asks you to confirm it is you first); your device has a screen lock or you have a security key with a PIN or fingerprint.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -255,18 +260,20 @@
     <tbody>
       <tr><td>1</td><td>Open <span class="ui">Account</span> and find <span class="ui">Passkeys</span>.</td><td>The card explains what a passkey does. With none yet: "You have no passkey yet."</td></tr>
       <tr><td>2</td><td>Type a name in <span class="ui">Passkey name</span> (placeholder "Name, for example Work laptop", up to 60 characters).</td><td>The name is in the field.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Add a passkey</span> and complete the browser's or system's prompt.</td><td>"Passkey added." The list shows the name with "Added <em>date</em> · last used <em>date</em>". If you cancel the prompt: "No passkey was added."</td></tr>
-      <tr><td>4</td><td>Sign out, then on the sign-in screen click <span class="ui">Sign in with a passkey</span> and confirm with your screen lock.</td><td>E1 opens, signed in. Cancelled: "The sign-in was cancelled." Failed: "The passkey could not be used: …".</td></tr>
-      <tr><td>5</td><td>In <span class="ui">Passkeys</span>, click <span class="ui">Remove</span> next to a passkey and confirm "Remove the passkey <em>name</em>?".</td><td>"Passkey removed." If your sign-in is older than 15 minutes, E1 first asks you to confirm it is you; if you cancel, "The passkey was kept."</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Add a passkey</span> and complete the browser's or system's prompt with your screen lock.</td><td>"Passkey added." The list shows the name with "Added <em>date</em> · last used <em>date</em>". If you cancel the prompt: "No passkey was added."</td></tr>
+      <tr><td>4</td><td>More than 15 minutes after signing in, click <span class="ui">Add a passkey</span>.</td><td>The dialog <span class="ui">Confirm it is you</span> opens first: "Confirm it is you to add a passkey: use your passkey or sign in again." Confirm with a passkey you already have, or <span class="ui">Sign in again</span> (for your first passkey), then click <span class="ui">Add a passkey</span> once more. If you cancel: "No passkey was added."</td></tr>
+      <tr><td>5</td><td>Sign out, then on the sign-in screen click <span class="ui">Sign in with a passkey</span> and confirm with your screen lock.</td><td>E1 opens, signed in. Cancelled: "The sign-in was cancelled." Failed: "The passkey could not be used: …".</td></tr>
+      <tr><td>6</td><td>In <span class="ui">Passkeys</span>, click <span class="ui">Remove</span> next to a passkey and confirm "Remove the passkey <em>name</em>?".</td><td>"Passkey removed." If your sign-in is older than 15 minutes, E1 first asks you to confirm it is you; if you cancel, "The passkey was kept."</td></tr>
     </tbody>
   </table></div>
+  <p class="g-note">Adding a passkey does not count as confirming it is you: an action that asks for it still asks after you added one.</p>
   <p class="g-warn">Without a passkey, an Owner or Administrator acts as a Member, and a Project administrator acts as a Lead engineer. <span class="ui">Your access</span> then shows "acts as <em>role</em> until you add a passkey". Refusals add: "Your Owner role needs a passkey: add one under Account → Passkeys (your initial at the bottom of the left rail)."</p>
   <p class="g-related">Related: <a href="#acc-step-up">Confirm it is you</a> · <a href="#acc-sign-in">Sign in to E1</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a> · <a href="guide-organization.html#org-project-members">Project members and roles</a></p>
 </section>
 
 <section class="g-feature" id="acc-step-up">
   <h2>Confirm it is you</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">ACC-step-up</span><span>Roadmap PR1</span><span>Review check J7</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-08</span><span class="g-id">ACC-step-up</span><span>Roadmap PR1</span><span>Review check J7</span></div>
   <p class="g-summary">For important actions E1 wants a recent sign-in. If you signed in or last confirmed more than 15 minutes ago, it asks you to confirm it is you with your passkey or by signing in again.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The dialog <span class="ui">Confirm it is you</span>, opened by the action</dd>
@@ -277,9 +284,10 @@
   <ul>
     <li>Exporting the whole organization (<span class="ui">File → Organization… → Export → Export everything…</span>)</li>
     <li>Giving or removing Owner, Administrator or Library administrator</li>
+    <li>Removing a member who is Owner, Administrator or Library administrator</li>
     <li>Changing an organization policy</li>
     <li>Deleting a project</li>
-    <li>Removing a passkey</li>
+    <li>Adding or removing a passkey</li>
     <li>Exporting a restricted project</li>
   </ul>
   <h3>Steps</h3>
@@ -291,13 +299,13 @@
       <tr><td>3</td><td>Start the export again within 15 minutes.</td><td>No dialog: the export starts at once.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note"><span class="ui">Use passkey</span> is shown only if you have a passkey. If the passkey does not match: "That passkey did not confirm it is you. Try again, or sign in again."</p>
+  <p class="g-note"><span class="ui">Use passkey</span> is shown only if you have a passkey. If the passkey does not match: "That passkey did not confirm it is you. Try again, or sign in again." Adding a passkey does not count as confirming.</p>
   <p class="g-related">Related: <a href="#acc-passkeys">Passkeys</a> · <a href="#acc-session">Session length and sign out</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a></p>
 </section>
 
 <section class="g-feature" id="acc-session">
   <h2>Session length, sign out and switching organization</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">ACC-session</span><span>Roadmap M2.9</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-08</span><span class="g-id">ACC-session</span><span>Roadmap M2.9</span></div>
   <p class="g-summary">A sign-in lasts 12 hours, unless your installation sets another length. Then E1 shows the sign-in screen again. You can sign out yourself, and switch between the organizations you belong to.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Account</span> → <span class="ui">Session</span> → <span class="ui">Sign out</span>; explorer header → organization name → <span class="ui">Switch organization</span> ▸</dd>
@@ -316,13 +324,15 @@
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/place-account.webp" alt="The Account place on an installation without sign-in, where Sign out reads Not available" width="2160" height="1350" loading="lazy"><figcaption>Without sign-in (desktop app with its own store, or a file store), Account is a placeholder and <span class="ui">Sign out</span> reads "Not available".</figcaption></figure>
+  <p class="g-note">On an installation served over https, the sign-in cookies got new names on 2026-11-08: everyone is signed out once after that release and simply signs in again.</p>
+  <p class="g-note"><span class="ui">Sign out</span> is protected against other sites: a page outside E1 cannot sign you out. If signing out is refused with "The request did not come from E1. Reload the page.", reload E1 and sign out again.</p>
   <p class="g-warn">E1 does not yet sign you out after a time without activity; only the 12-hour limit applies. An idle timeout set by the organization is planned.</p>
   <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-step-up">Confirm it is you</a> · <a href="guide-getting-started.html#gs-places">The places</a></p>
 </section>
 
 <section class="g-feature" id="acc-trial">
   <h2>The 30-day trial</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">ACC-trial</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-08</span><span class="g-id">ACC-trial</span></div>
   <p class="g-summary">A trial gives you an organization of your own, with you as its owner, for 30 days. When it ends, the organization becomes read-only: everything stays visible and can be exported.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Website → <span class="ui">Request a trial</span>; LANXTOR then sends you an invitation</dd>
@@ -333,7 +343,7 @@
   <ul>
     <li>5 Editor licenses (one is yours), 5 Reviewer and 5 Viewer licenses.</li>
     <li>18 000 AI credits, with a daily limit per person (Editor 600, Reviewer 150).</li>
-    <li>5 GB of files.</li>
+    <li>5 GB of files. Kept export results (for 7 days) and the PDFs of issued revisions count toward it too.</li>
     <li>Premium AI models are "Not included in a trial."</li>
   </ul>
   <h3>Steps</h3>

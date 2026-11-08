@@ -22,7 +22,7 @@
 
 <section class="g-feature" id="org-organization-dialog">
   <h2>The Organization dialog</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1</span><span>Review checks J4, J7, J8</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-08</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1</span><span>Review checks J4, J7, J8</span></div>
   <p class="g-summary">One dialog holds your organization: its members with their licenses and roles, open invitations, groups, the audit log and the export. Its first lines tell you how much of the trial, the AI credits, the file storage and the seats is used.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span></dd>
@@ -40,7 +40,7 @@
       <tr><td>5</td><td>Press <kbd>Esc</kbd>, click <span class="ui">Close</span>, or click outside the dialog.</td><td>The dialog closes.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-warn"><span class="ui">Remove</span> on a member acts at once, without asking first.</p>
+  <p class="g-warn"><span class="ui">Remove</span> on a member acts at once, without asking first. Only an Owner can remove an Owner. Removing an Owner, Administrator or Library administrator may first ask you to <a href="guide-access.html#acc-step-up">confirm it is you</a>.</p>
   <p class="g-note">When the AI credits are used up the line reads <span class="ui">Cloud AI's AI credits are used up (X of Y). Everything else goes on.</span></p>
   <p class="g-note"><span class="ui">Access</span> holds the roles (<a href="#org-custom-roles">Permission categories and custom roles</a>), the <a href="#org-groups">groups</a>, and <span class="ui">Assignments</span>: every role given in the organization, who has it, where, and until when.</p>
   <p class="g-warn">The Role list gives Owner, Administrator or Member only. The dialog has no place yet to give Library administrator, Catalog maintainer or Engineering standards owner; how these are given today is not yet documented. An invitation always makes the person a Member.</p>
@@ -49,12 +49,12 @@
 
 <section class="g-feature" id="org-invitations">
   <h2>Invite a colleague</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span class="g-id">ORG-invitations</span><span>Roadmap M2.4</span><span>Review check J4</span></div>
-  <p class="g-summary">Invite a person by email with the license they will get. They receive a link, sign in with that same address, and appear in your members list.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-08</span><span class="g-id">ORG-invitations</span><span>Roadmap M2.4</span><span>Review check J4</span></div>
+  <p class="g-summary">Invite a person by email with the license they will get. They receive a link, sign in with that same address, confirm on the page <span class="ui">Accept the invitation?</span>, and appear in your members list. Opening the link alone joins nothing.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span></dd>
     <dt>Who</dt><dd>Owner or Administrator with a passkey</dd>
-    <dt>Before you start</dt><dd>A free seat of the license you want to give.</dd>
+    <dt>Before you start</dt><dd>A free seat of the license you want to give, both when you invite and when the colleague accepts.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -62,19 +62,22 @@
     <tbody>
       <tr><td>1</td><td>Type the colleague's address in the email field (placeholder <span class="ui">name@company.com</span>).</td><td>The field shows the address.</td></tr>
       <tr><td>2</td><td>Choose the license in <span class="ui">License for the invitation</span> (default <span class="ui">Editor</span>) and click <span class="ui">Invite</span>.</td><td><span class="ui">Invitation sent. Link: &lt;url&gt;</span>. The invitation is listed under <span class="ui">Open invitations</span>.</td></tr>
-      <tr><td>3</td><td>Open the link in another browser and sign in as the colleague with that same address.</td><td>The colleague is in the organization, listed under Members with the license.</td></tr>
-      <tr><td>4</td><td>Invite another address and then click <span class="ui">Cancel</span> beside it under <span class="ui">Open invitations</span>.</td><td>The invitation disappears from <span class="ui">Open invitations</span>.</td></tr>
-      <tr><td>5</td><td>Type <code>not-an-address</code> and click <span class="ui">Invite</span>.</td><td>Refused: <span class="ui">not-an-address is not an email address</span>.</td></tr>
+      <tr><td>3</td><td>Open the link in another browser and sign in as the colleague with that same address.</td><td>A page <span class="ui">Accept the invitation?</span>: "You are invited to join <em>organization</em> in E1." and "Signed in as <em>email</em>. When you accept, E1 opens in that organization." with the button <span class="ui">Accept and open E1</span> and the link <span class="ui">Not now</span>. The colleague is not a member yet.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Accept and open E1</span>.</td><td>E1 opens in your organization. The colleague is listed under Members with the license, and the invitation is no longer under <span class="ui">Open invitations</span>.</td></tr>
+      <tr><td>5</td><td>Invite another address and then click <span class="ui">Cancel</span> beside it under <span class="ui">Open invitations</span>.</td><td>The invitation disappears from <span class="ui">Open invitations</span>.</td></tr>
+      <tr><td>6</td><td>Type <code>not-an-address</code> and click <span class="ui">Invite</span>.</td><td>Refused: <span class="ui">not-an-address is not an email address</span>.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">An invitation is valid for 14 days.</p>
-  <p class="g-note">When all seats of the chosen license are taken: <span class="ui">All N Editor seats are taken.</span> For a blocked address: <span class="ui">E1 cannot be offered to this email address.</span> (see <a href="#org-blocked-domains">Blocked email domains</a>).</p>
+  <p class="g-note">A free seat is checked when you invite and again when the colleague accepts. When all seats of the chosen license are taken: <span class="ui">All N Editor seats are taken.</span> If the last seat went in between, accepting is refused with <span class="ui">All N Editor seats are taken. Ask the person who invited you to free a seat or add seats, then open the invitation again.</span>; the invitation stays open and the colleague opens the link again once a seat is free. For a blocked address: <span class="ui">E1 cannot be offered to this email address.</span> (see <a href="#org-blocked-domains">Blocked email domains</a>).</p>
+  <p class="g-note">An invitation that gives an organization role can only give a role whose permissions you hold yourself; Administrator or Library administrator also asks you to <a href="guide-access.html#acc-step-up">confirm it is you</a>. The dialog's invitations make the person a Member.</p>
+  <p class="g-warn">The seat message is shown on the sign-in screen. Someone who is already signed in to E1 lands in E1 without seeing it; the invitation is then still under <span class="ui">Open invitations</span>.</p>
   <p class="g-related">Related: <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-trials">Trials</a></p>
 </section>
 
 <section class="g-feature" id="org-licenses-seats">
   <h2>Licenses and seats</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-05</span><span class="g-id">ORG-licenses-seats</span><span>Roadmap M2.4, PR1</span><span>Review check J8</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-08</span><span class="g-id">ORG-licenses-seats</span><span>Roadmap M2.4, PR1</span><span>Review check J8</span></div>
   <p class="g-summary">Each member has one license, which caps what any of their roles allow. Your organization has a number of seats per license. Owners and Administrators are told in the Inbox when a license is 80 % and 100 % used.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span> → the <span class="ui">License</span> list of a person</dd>
@@ -101,12 +104,13 @@
     </tbody>
   </table></div>
   <p class="g-note">Seat notices come in the app only, never by email. A license also counts when it is given through an accepted invitation.</p>
+  <p class="g-note">Seats are checked three times: when you invite, when the invitation is accepted, and when you give a license in the <span class="ui">License</span> list. Accepting and giving are checked one at a time per license, so two people can never take the same last seat. When none is left: <span class="ui">All N Editor seats are taken.</span></p>
   <p class="g-related">Related: <a href="#org-organization-dialog">The Organization dialog</a> · <a href="guide-collaboration.html#col-inbox">The Inbox</a> · <a href="guide-account.html#web-account-page">Your account page</a></p>
 </section>
 
 <section class="g-feature" id="org-roles-passkey">
   <h2>Organization roles and the passkey rule</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">ORG-roles-passkey</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-08</span><span class="g-id">ORG-roles-passkey</span></div>
   <p class="g-summary">Organization roles say what someone may do for the whole organization, such as managing members or the company library. The powerful roles take effect only once the person has added a passkey: until then an Owner or Administrator acts as a Member, and a Project administrator acts as a Lead engineer.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Your roles: the initial at the bottom of the left rail → <span class="ui">Account</span> → card <span class="ui">Your access</span>. Passkeys: the same page, card <span class="ui">Passkeys</span>.</dd>
@@ -132,7 +136,7 @@
     </tbody>
   </table></div>
   <h3>Confirm it is you</h3>
-  <p>For important actions E1 asks you to confirm it is you when your sign-in or last confirmation is older than 15 minutes: exporting the organization, giving or removing Owner, Administrator or Library administrator, changing an organization policy, deleting a project, removing a passkey, and exporting a restricted project. The dialog <span class="ui">Confirm it is you</span> offers <span class="ui">Cancel</span>, <span class="ui">Sign in again</span> and <span class="ui">Use passkey</span> (when you have one).</p>
+  <p>For important actions E1 asks you to confirm it is you when your sign-in or last confirmation is older than 15 minutes: exporting the organization, giving or removing Owner, Administrator or Library administrator, removing a member who is Owner, Administrator or Library administrator, changing an organization policy, deleting a project, adding or removing a passkey, and exporting a restricted project. The dialog <span class="ui">Confirm it is you</span> offers <span class="ui">Cancel</span>, <span class="ui">Sign in again</span> and <span class="ui">Use passkey</span> (when you have one).</p>
   <p class="g-note">Your installation's administrator can turn the passkey rule off for an installation.</p>
   <p class="g-warn">The Account page shows <span class="ui">Your access</span> and <span class="ui">Passkeys</span> only with sign-in; without sign-in it is a placeholder.</p>
   <p class="g-related">Related: <a href="guide-access.html#acc-sign-in">Sign in</a> · <a href="#org-project-members">Project members and roles</a> · <a href="#org-export">Export everything…</a></p>
@@ -140,11 +144,11 @@
 
 <section class="g-feature" id="org-administrators">
   <h2>Who administers the organization</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span class="g-id">ORG-administrators</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-08</span><span class="g-id">ORG-administrators</span></div>
   <p class="g-summary">Every organization has at least one Owner. The person who starts it (for a trial: the person who accepted LANXTOR's trial invitation) is its first Owner. That is a starting point, not a decision: the Owner makes the right people Owner or Administrator and can then step back to Member. When the person who started the trial cannot do it, LANXTOR sets the administrators the company names.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>, the <span class="ui">Role</span> list of each person</dd>
-    <dt>Who</dt><dd>An Owner gives and takes the Owner role. An Owner or an Administrator makes someone Administrator or Member. You confirm it is you (<a href="#org-roles-passkey">passkey rule</a>).</dd>
+    <dt>Who</dt><dd>An Owner gives and takes the Owner role. An Owner or an Administrator makes someone Administrator or Member. You give only a role whose permissions you all hold yourself, and nobody raises their own role. You confirm it is you (<a href="#org-roles-passkey">passkey rule</a>).</dd>
     <dt>Before you start</dt><dd>The person is already a member (<a href="#org-invitations">invite them</a> first). You have added a passkey.</dd>
   </dl>
   <h3>The three choices</h3>
@@ -161,10 +165,12 @@
       <tr><td>2</td><td>In the row of the person who should run the organization, choose <span class="ui">Owner</span> in the Role list.</td><td>When your sign-in is older than 15 minutes, <span class="ui">Confirm it is you</span> opens first. The list then shows <span class="ui">Owner</span>.</td></tr>
       <tr><td>3</td><td>In your own row, choose <span class="ui">Member</span>.</td><td>You are a Member now and the Organization dialog is no longer yours to manage. When you were the only Owner, this is refused: <span class="ui">An organization always keeps at least one Owner: make someone else Owner first.</span></td></tr>
       <tr><td>4</td><td>As an Administrator, choose <span class="ui">Owner</span> for someone.</td><td>Refused: only an Owner gives the Owner role.</td></tr>
-      <tr><td>5</td><td>Open the <span class="ui">Audit</span> tab.</td><td>Each change is listed as <span class="ui">access.org-role-set</span>, with who made it.</td></tr>
+      <tr><td>5</td><td>As an Administrator, click <span class="ui">Remove</span> in the row of an Owner.</td><td>Refused: only an Owner removes an Owner. An Owner who removes an Owner may first be asked to <a href="guide-access.html#acc-step-up">confirm it is you</a>.</td></tr>
+      <tr><td>6</td><td>Open the <span class="ui">Audit</span> tab.</td><td>Each change is listed as <span class="ui">access.org-role-set</span>, with who made it.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">A new Owner or Administrator acts as a Member until they add a passkey (<a href="#org-roles-passkey">passkey rule</a>).</p>
+  <p class="g-note">An organization role can be given only by someone who holds all of its permissions. An Administrator therefore cannot give Library administrator: <span class="ui">You may not give Library administrator: it includes …, which you do not hold yourself.</span> Nobody gives themselves an organization role, also not through a group, and nobody raises their own: <span class="ui">You may not give yourself an organization role: another Owner or Administrator does that.</span> or <span class="ui">You may not raise your own organization role: another Owner does that.</span></p>
   <p class="g-note">When the person who started the trial is not the right administrator and is not available, the company writes to LANXTOR (sales@lanxtor.com) naming who it should be. LANXTOR sets it; the change shows in your <span class="ui">Audit</span> tab as done by <em>LANXTOR support</em>.</p>
   <p class="g-note">Colleagues with your company's email address can also ask to join by themselves, once LANXTOR has verified your domain: see <a href="#org-join-requests">Requests to join</a>.</p>
   <p class="g-related">Related: <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-roles-passkey">Organization roles and the passkey rule</a> · <a href="#org-invitations">Invite a colleague</a> · <a href="#org-join-requests">Requests to join</a> · <a href="#org-trials">Trials</a> · <a href="#org-audit">Audit</a></p>
@@ -258,7 +264,7 @@
 
 <section class="g-feature" id="org-refusals">
   <h2>Why a change is refused</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-07</span><span class="g-id">ORG-refusals</span><span>Roadmap M2.5, M2.9, M4.31</span><span>Review check J3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-08</span><span class="g-id">ORG-refusals</span><span>Roadmap M2.5, M2.9, M4.31</span><span>Review check J3</span></div>
   <p class="g-summary">When you may not do something, E1 says so and names the permission that is missing, where it was needed, and whether your role or your license is the reason. Nothing is changed.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The status bar (<span class="ui">Change refused</span> and the reason), a red line in a dialog, a read-only cell in a list (it shows the same reason), and the Comments tab</dd>
@@ -270,7 +276,9 @@
     <li>License too small: <span class="ui">… Your &lt;License&gt; license does not include &lt;permission&gt;.</span> Ask an administrator for another license.</li>
     <li>Role waiting for a passkey: the text adds <span class="ui">Your Owner role needs a passkey: add one under Account → Passkeys (your initial at the bottom of the left rail).</span></li>
     <li>Trial ended: see <a href="#org-trials">Trials and the read-only lock</a>.</li>
-    <li>Giving a role with more than you hold: <span class="ui">You may not give &lt;role&gt; here: it includes &lt;permissions&gt;, which you do not hold here yourself.</span> Ask someone who holds them.</li>
+    <li>Giving a role with more than you hold: <span class="ui">You may not give &lt;role&gt; here: it includes &lt;permissions&gt;, which you do not hold here yourself.</span> For an organization role: <span class="ui">You may not give &lt;role&gt;: it includes &lt;permissions&gt;, which you do not hold yourself.</span> Ask someone who holds them.</li>
+    <li>Your own role: <span class="ui">You may not raise your own organization role: another Owner does that.</span> or <span class="ui">You may not give yourself an organization role: another Owner or Administrator does that.</span></li>
+    <li>A project you have no role in: <span class="ui">You have no access to project &lt;project&gt;.</span></li>
     <li>The last one: <span class="ui">An organization always keeps at least one Owner.</span> or <span class="ui">A project always keeps at least one Project administrator.</span> Give the role to someone else first.</li>
     <li>Not a member: <span class="ui">Roles are given to members of the organization; invite the person first.</span></li>
   </ul>
@@ -282,6 +290,7 @@
       <tr><td>2</td><td>As a person with a Viewer license and Engineer role, open an object's Comments tab.</td><td>The box is hidden: <span class="ui">You can read this discussion; your role on the project does not include commenting.</span></td></tr>
     </tbody>
   </table></div>
+  <p class="g-note">An error that is not a refusal shows a short reference instead of technical details: <span class="ui">Something went wrong in E1 (reference &lt;ref&gt;). Try again; if it keeps happening, tell your administrator or LANXTOR the reference.</span> The reference lets them find what happened.</p>
   <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="guide-collaboration.html#col-conflicts">When two people change the same thing</a></p>
 </section>
 
@@ -328,7 +337,7 @@
 
 <section class="g-feature" id="org-export">
   <h2>Export everything of the organization</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">ORG-export</span><span>Roadmap PR1</span><span>Review check J7</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-08</span><span class="g-id">ORG-export</span><span>Roadmap PR1</span><span>Review check J7</span></div>
   <p class="g-summary">An Owner can download the whole organization in one archive: every project, record and file, and nothing from any other organization. You confirm it is you first.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Export</span> → <span class="ui">Export everything…</span></dd>
@@ -347,12 +356,13 @@
     </tbody>
   </table></div>
   <p class="g-note">A long export reads <span class="ui">The export is taking long; it goes on in the background.</span> A failure reads <span class="ui">The export failed.</span></p>
+  <p class="g-note">The archive is built in the background on the server and kept for 7 days; after that it says <span class="ui">The result of this job is no longer kept: results are kept for a week. Start the job again.</span> One export holds at most 4 GB of data (before compression; the server's setting <code>E1_ORG_EXPORT_MAX_BYTES</code>). A larger organization is refused with <span class="ui">The organization's data is larger than N MB, the most one export holds; contact LANXTOR for an export of it.</span> The export is never refused for lack of file space.</p>
   <p class="g-related">Related: <a href="#org-roles-passkey">The passkey rule</a> · <a href="#org-audit">Audit</a> · <a href="#org-trials">Trials</a></p>
 </section>
 
 <section class="g-feature" id="org-trials">
   <h2>Trials and the read-only lock</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">ORG-trials</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-08</span><span class="g-id">ORG-trials</span></div>
   <p class="g-summary">A trial gives a person a new organization of their own for 30 days. When it ends, the organization becomes read-only: everything can still be viewed and exported, but nothing can be changed until a contract is in place.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The trial line at the top of <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>; the Account page</dd>
@@ -362,7 +372,7 @@
   <ul>
     <li>30 days; 5 Editor seats (the owner takes one), 5 Reviewer and 5 Viewer seats.</li>
     <li>18 000 AI credits, with a daily limit per person (Editor 600, Reviewer 150). Premium models are <span class="ui">Not included in a trial.</span></li>
-    <li>5 GB of files.</li>
+    <li>5 GB of files. Kept export results (for 7 days) and the PDFs of issued revisions count toward it too.</li>
   </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">

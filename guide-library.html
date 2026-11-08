@@ -557,7 +557,7 @@
 
 <section class="g-feature" id="lib-cloud-ai-model">
   <h2>The Cloud AI model of the installation</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">LIB-cloud-ai-model</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-08</span><span class="g-id">LIB-cloud-ai-model</span></div>
   <p class="g-summary">This section shows which model Cloud AI uses in your installation, whether it is off, or whether it runs on a model server in your network. People see the model in the chat but do not choose it. The full guide is in <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a>.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Cloud AI model</span></dd>
@@ -572,6 +572,7 @@
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/config-cloud-ai-model.webp" alt="Configuration, Cloud AI model: the model used by the installation" width="2160" height="1350" loading="lazy"><figcaption>Cloud AI model.</figcaption></figure>
   <p class="g-note">GPT-4.1 is the default. Premium models (such as Claude Opus 5.5) are only for Editor licenses outside trials.</p>
+  <p class="g-note">With sign-in, only the installation's operators can choose the model; for everyone else the note reads <span class="ui">Only the installation’s operators can change the model.</span> and the models are greyed out (<a href="guide-ai.html#ai-model-admin">Choose the installation's model</a>).</p>
   <p class="g-related">Related: <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a></p>
 </section>
 
@@ -648,7 +649,7 @@
 
 <section class="g-feature" id="lib-catalog-import">
   <h2>Catalog import</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-07</span><span class="g-id">LIB-catalog-import</span><span>Roadmap 20.5</span><span>Review check L19</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-08</span><span class="g-id">LIB-catalog-import</span><span>Roadmap 20.5</span><span>Review check L19</span></div>
   <p class="g-summary">Import a vendor list from Excel or CSV into a catalog instead of entering each item by hand. A dry run shows first what each row would become; the import makes drafts only, which you then publish.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Catalogs</span> → a catalog → <span class="ui">Import…</span></dd>
@@ -671,6 +672,7 @@
   </table></div>
   <p class="g-note">A row whose manufacturer and ordering code match an item of this catalog becomes a new version of it, or stays unchanged when nothing differs. A refused row says why in <span class="ui">Why</span>, for example a value in a unit that does not fit the attribute. Choosing another file clears the result and the column choices.</p>
   <p class="g-warn">A long import may say "The import is taking long; look again in a moment."; the items appear in the catalog once it is done.</p>
+  <p class="g-note">This runs as a job on the server, which may wait its turn first when the server is busy. At most 20 jobs a minute per person, else <span class="ui">You started more than 20 jobs in a minute; wait a minute and try again.</span></p>
   <p class="g-related">Related: <a href="#lib-catalogs">Catalogs</a> · <a href="#lib-from-catalog">From catalog</a> · <a href="guide-lists.html#list-import-excel">Import Excel… into a section</a></p>
 </section>
 
