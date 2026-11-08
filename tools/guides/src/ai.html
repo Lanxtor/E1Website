@@ -205,6 +205,14 @@
       <tr><td>5</td><td>Click <span class="ui">Show</span>.</td><td>The equipment the result is about is selected on the drawing. Simulation results put no mark on the drawing.</td></tr>
     </tbody>
   </table></div>
+  <h3>What Alex simulates</h3>
+  <ul>
+    <li><b>Flash of a line</b> (Process engineer): a line whose line list has a composition (for example "C1 85, C2 7, C3 3, CO2 2, N2 3 mol%"), a pressure and a temperature gets its phases, their amounts and compositions, density, Z, enthalpy, Cp and viscosity (Peng-Robinson).</li>
+    <li><b>Heat and material balance</b> (Process engineer): when lines carry a composition, Alex solves the sheet along the drawing (valves, pumps, compressors, heaters and coolers, exchangers, mixers and tees, splitters, separators; columns are boundaries). Each unit needs its specification on its attributes (outlet pressure or pressure drop, outlet temperature or duty, efficiency); Alex asks for what is missing and never assumes it. The card has the Streams, Compositions (mol %), Units and Balance tables; a partial or not converged status says what stopped it. Under <span class="ui">Data suggestions</span>, <span class="ui">Write to the line list</span> writes a line's calculated temperature, pressure, flow and phase into its row when you press it.</li>
+    <li><b>Load flow and short circuit</b> (Electrical engineer, on a single line diagram): bus voltages, branch loading and losses, and the IEC 60909 short-circuit current and peak at every board, compared with the ratings you entered.</li>
+    <li><b>Motor starting</b>: the voltage at the motor and at every board while each motor starts with its starting method.</li>
+    <li><b>Arc flash</b> (IEEE 1584-2018): the incident energy and arc flash boundary at each board, only where the protective device's clearing time is entered; without it Alex asks for it.</li>
+  </ul>
   <p class="g-note">Every assumption a simulation makes (a typical value, a parameter taken as zero) is listed on its card. Not applicable hides a card on this sheet only.</p>
   <p class="g-related">Related: <a href="#ai-alex-cards">Alex's cards</a> · <a href="#ai-alex-skill-level">Skill and Level</a></p>
 </section>
