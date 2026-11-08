@@ -4,7 +4,7 @@
   <h3>The usual order</h3>
   <ol>
     <li>Find the side panel and its two tabs: <a href="#ai-side-panel">The Alex and Cloud AI panel</a>.</li>
-    <li>Turn Alex on and read what it finds: <a href="#ai-alex">Alex</a>, <a href="#ai-alex-skill-level">Skill and Level</a>, <a href="#ai-alex-cards">Alex's cards</a>, <a href="#ai-alex-markers">Marks on the drawing</a>, <a href="#ai-alex-filters">Filters</a>, <a href="#ai-alex-not-applicable">Not applicable</a> and <a href="#ai-alex-suggestions">Suggestions while you draw</a>.</li>
+    <li>Turn Alex on and read what it finds: <a href="#ai-alex">Alex</a>, <a href="#ai-alex-skill-level">Skill and Level</a>, <a href="#ai-alex-cards">Alex's cards</a>, <a href="#ai-alex-simulation">Simulation results</a>, <a href="#ai-alex-markers">Marks on the drawing</a>, <a href="#ai-alex-filters">Filters</a>, <a href="#ai-alex-not-applicable">Not applicable</a> and <a href="#ai-alex-suggestions">Suggestions while you draw</a>.</li>
     <li>Teach Alex your company's rules: <a href="#ai-alex-knowledge">Alex knowledge</a>, <a href="#ai-alex-team-memory">Team memory</a> and <a href="#ai-alex-pipe-class">Pipe class checks</a>. Use Alex's lists: <a href="#ai-alex-instrument-index">Instrument index</a> and <a href="#ai-alex-hmb">Heat and material balance import</a>.</li>
     <li>Chat with Cloud AI: <a href="#ai-cloud-ai">Cloud AI</a>, <a href="#ai-chat-modes">Agent, Ask and Plan</a>, <a href="#ai-review-first">Review changes first</a>, <a href="#ai-protect-arrangement">Protect the arrangement</a>, <a href="#ai-undo">Undo on a reply</a> and <a href="#ai-held-for-review">What is always held</a>.</li>
     <li>Give Cloud AI more to work with: <a href="#ai-attachments">Attachments</a>, <a href="#ai-voice">Voice input</a>, <a href="#ai-model-menu">The model menu</a>, <a href="#ai-patterns">Engineering patterns</a> and <a href="#ai-calls-alex">Cloud AI asks Alex</a>.</li>
@@ -183,6 +183,38 @@
   <p class="g-note">Cards other than design suggestions have <span class="ui">Show</span> (when they point at something on the drawing), <span class="ui">Not applicable</span> (not on tips) and <span class="ui">Ask Cloud AI</span>. Some fill in a value with one click; the button names the value, for example <span class="ui">Use B1</span>.</p>
   <p class="g-note">What Alex checks: line velocity by service, pressure drop, erosional velocity and design margin; sour service and CO₂; instrument loops, tags, fail positions, interlocks with cause and effect, and anti-surge; questions about motor starting and signal types. The line checks need the line list attributes of the Plant library 1.3.0 or newer.</p>
   <p class="g-related">Related: <a href="#ai-alex-markers">Marks on the drawing</a> · <a href="#ai-alex-not-applicable">Not applicable</a> · <a href="#ai-alex-ask-cloud">Ask Cloud AI from a card</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
+</section>
+
+<section class="g-feature" id="ai-alex-simulation">
+  <h2>Read Alex's simulation results</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-08</span><span class="g-id">AI-alex-simulation</span></div>
+  <p class="g-summary">When a simulator in Alex has run on the open sheet (a process flash or flowsheet, an electrical load flow, short circuit, motor start or arc flash), its results appear in the Alex panel under <span class="ui">Simulation results</span>, as cards with a violet <span class="ui">Simulation</span> badge.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Alex</span> tab → group <span class="ui">Simulation results</span></dd>
+    <dt>Who</dt><dd>Everyone</dd>
+    <dt>Before you start</dt><dd>Alex is on, at the level <span class="ui">Normal</span> or <span class="ui">Mentor</span> (simulation results are not shown at <span class="ui">Quiet</span>), and the sheet has the data the simulation needs.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Look at the counts at the top of the Alex tab.</td><td>A count such as "1 simulation result" is shown with the other counts.</td></tr>
+      <tr><td>2</td><td>Open a card under <span class="ui">Simulation results</span>.</td><td>The card shows the method, the status, the inputs, the assumptions, any warnings and the result tables. A red <span class="ui">Not converged</span> means the numbers are not reliable.</td></tr>
+      <tr><td>3</td><td>Scroll a wide table sideways.</td><td>The table scrolls inside the card; the panel stays in place.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Export results (Excel)</span>.</td><td>A workbook downloads with a Summary sheet and one sheet per table.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Show</span>.</td><td>The equipment the result is about is selected on the drawing. Simulation results put no mark on the drawing.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What Alex simulates</h3>
+  <ul>
+    <li><b>Flash of a line</b> (Process engineer): a line whose line list has a composition (for example "C1 85, C2 7, C3 3, CO2 2, N2 3 mol%"), a pressure and a temperature gets its phases, their amounts and compositions, density, Z, enthalpy, Cp and viscosity (Peng-Robinson).</li>
+    <li><b>Heat and material balance</b> (Process engineer): when lines carry a composition, Alex solves the sheet along the drawing (valves, pumps, compressors, heaters and coolers, exchangers, mixers and tees, splitters, separators; columns are boundaries). Each unit needs its specification on its attributes (outlet pressure or pressure drop, outlet temperature or duty, efficiency); Alex asks for what is missing and never assumes it. The card has the Streams, Compositions (mol %), Units and Balance tables; a partial or not converged status says what stopped it. Under <span class="ui">Data suggestions</span>, <span class="ui">Write to the line list</span> writes a line's calculated temperature, pressure, flow and phase into its row when you press it.</li>
+    <li><b>Load flow and short circuit</b> (Electrical engineer, on a single line diagram): bus voltages, branch loading and losses, and the IEC 60909 short-circuit current and peak at every board, compared with the ratings you entered.</li>
+    <li><b>Motor starting</b>: the voltage at the motor and at every board while each motor starts with its starting method.</li>
+    <li><b>Arc flash</b> (IEEE 1584-2018): the incident energy and arc flash boundary at each board, only where the protective device's clearing time is entered; without it Alex asks for it.</li>
+  </ul>
+  <p class="g-note">Every assumption a simulation makes (a typical value, a parameter taken as zero) is listed on its card. Not applicable hides a card on this sheet only.</p>
+  <p class="g-related">Related: <a href="#ai-alex-cards">Alex's cards</a> · <a href="#ai-alex-skill-level">Skill and Level</a></p>
 </section>
 
 <section class="g-feature" id="ai-alex-markers">
