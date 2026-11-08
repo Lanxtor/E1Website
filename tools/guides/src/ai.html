@@ -212,6 +212,10 @@
     <li><b>Load flow and short circuit</b> (Electrical engineer, on a single line diagram): bus voltages, branch loading and losses, and the IEC 60909 short-circuit current and peak at every board, compared with the ratings you entered.</li>
     <li><b>Motor starting</b>: the voltage at the motor and at every board while each motor starts with its starting method.</li>
     <li><b>Arc flash</b> (IEEE 1584-2018): the incident energy and arc flash boundary at each board, only where the protective device's clearing time is entered; without it Alex asks for it.</li>
+    <li><b>Earth faults</b> (IEC 60909): single line-to-earth, line-to-line and double line-to-earth fault currents at every board, from the transformers' vector groups and neutral earthing and the zero-sequence data; what is not entered is asked, never assumed.</li>
+    <li><b>Harmonics</b> (IEEE 519-2014): THDv at every board, TDD and harmonic currents at the point of common coupling compared with the limits, and a resonance scan where a capacitor bank is entered; drives need the manufacturer's harmonic spectrum, which Alex asks for.</li>
+    <li><b>Protection coordination</b> (IEC 60255-151, IEEE C37.112, IEC 60947-2): from the relay, trip unit and fuse settings you entered, the operating time of each device at the calculated fault currents, the margin between devices in series, and a time–current table; where a breaker's settings and opening time are entered, the arc flash uses the clearing time they give.</li>
+    <li><b>Battery sizing and UPS autonomy</b> (IEEE 485, IEEE 1115): the cell size from the duty cycle and the manufacturer's discharge data you entered, the number of cells, and a UPS's backup duty and loading; without the data Alex asks.</li>
   </ul>
   <p class="g-note">Every assumption a simulation makes (a typical value, a parameter taken as zero) is listed on its card. Not applicable hides a card on this sheet only.</p>
   <p class="g-related">Related: <a href="#ai-alex-cards">Alex's cards</a> · <a href="#ai-alex-skill-level">Skill and Level</a></p>
