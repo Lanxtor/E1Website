@@ -770,13 +770,24 @@
 
 <section class="g-feature" id="draw-svg-import">
   <h2>SVG import into the symbol designer</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-svg-import</span><span>Roadmap 21.4</span></div>
-  <p class="g-summary">Bring existing symbol drawings into E1 as SVG files instead of drawing them again.</p>
-  <p class="g-dev">Planned in the Library lifecycle milestone, stage 21.4 "SVG import into the symbol designer". Not started; it follows the symbol designer.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Import an SVG file into the symbol designer and add its nozzles.</li>
-  </ul>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-08</span><span class="g-id">DRAW-svg-import</span><span>Roadmap 21.4</span><span>Review check L24</span></div>
+  <p class="g-summary">Bring a symbol you already have as an SVG drawing into E1 instead of drawing it again. E1 reads it safely, fits it into a shape, suggests its connection points and opens it in the symbol designer as a draft.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Shapes</span> → <span class="ui">Import SVG…</span></dd>
+    <dt>Who</dt><dd>Library administrator (the shape goes into the company library as a draft)</dd>
+    <dt>Before you start</dt><dd>An SVG file of at most 512 KB, and a project is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Import SVG…</span> and choose the file.</td><td>The designer opens, titled "Imported: …" after the file name, with a report: how many shapes and texts were imported, what was left out (for example "Left out: script."), and where the connection points were put.</td></tr>
+      <tr><td>2</td><td>Look at the blue connection points <em>inlet</em> and <em>outlet</em>.</td><td>They sit where open lines end on the left and right edge of the drawing ("at a line end"), or at the middle of those edges ("at the edge: move it").</td></tr>
+      <tr><td>3</td><td>Drag a connection point if needed, and choose what the shape draws under <span class="ui">Draws</span>.</td><td>Problems reads "No problems."</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Publish</span>.</td><td>The shape is published as version 1 and listed in Shapes. <span class="ui">Allow for a class…</span> then lets a class be drawn with it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Scripts, links, images, styles and references to other elements are never imported, and a file with a DOCTYPE is refused: an SVG from anywhere cannot run anything in E1. Strokes take E1's line weights; fills and dashes are kept.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a></p>
 </section>
 
