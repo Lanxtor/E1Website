@@ -731,7 +731,7 @@
    "anchor": "acc-sign-in",
    "status": "available",
    "since": "2026-11-03",
-   "updated": "2026-11-07",
+   "updated": "2026-11-08",
    "roadmap": [
     "M2.2"
    ],
@@ -743,7 +743,8 @@
     "ACC-claim-installation",
     "ACC-sign-in-problems",
     "ACC-passkeys",
-    "ACC-session"
+    "ACC-session",
+    "ORG-blocked-domains"
    ],
    "roles": "Anyone with an account at the installation's sign-in provider",
    "training": {
@@ -2489,7 +2490,7 @@
    "anchor": "draw-symbol-menu",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-06",
+   "updated": "2026-11-07",
    "roadmap": [
     "M3.11"
    ],
@@ -2503,7 +2504,8 @@
     "DRAW-highlight-flow",
     "DRAW-arrange",
     "OBJ-object-window",
-    "DOC-datasheet"
+    "DOC-datasheet",
+    "DRAW-symbol-designer"
    ],
    "roles": "Everyone; editing items need edit rights",
    "training": {
@@ -2696,40 +2698,50 @@
   {
    "id": "DRAW-symbol-designer",
    "title": "Symbol designer and Modify shape…",
-   "summary": "Draw and publish your own symbols, and adapt a placed symbol for one project with Modify shape….",
+   "summary": "Draw your own symbols with their connection points and publish them, or adapt a placed symbol for one project with Modify shape….",
    "anchor": "draw-symbol-designer",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "21.2"
    ],
-   "checks": [],
+   "checks": [
+    "L20",
+    "L21"
+   ],
    "related": [
+    "DRAW-attribute-labels",
+    "DRAW-symbol-menu",
     "DRAW-standards",
     "DRAW-svg-import",
     "DRAW-symbol-versions",
     "LIB-company-library"
    ],
-   "roles": "Library editors",
+   "roles": "Project administrator (Modify shape…); Library administrator (company shapes)",
    "training": {
     "topic": "The symbol designer",
     "level": "Advanced",
     "minutes": 4
    },
    "screenshots": [],
+   "since": "2026-11-07",
    "category": "drawing",
    "page": "guide-drawing.html#draw-symbol-designer"
   },
   {
    "id": "DRAW-attribute-labels",
    "title": "Attribute labels on symbols",
-   "summary": "Show attribute values as labels beside a symbol that update with the model.",
+   "summary": "Labels on a symbol that show an attribute value with its unit, always current, on the sheet and in the PDF.",
    "anchor": "draw-attribute-labels",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "21.3"
    ],
-   "checks": [],
+   "checks": [
+    "L22",
+    "L23"
+   ],
    "related": [
+    "DRAW-symbol-designer",
     "DRAW-tags-labels",
     "OBJ-attributes"
    ],
@@ -2740,29 +2752,33 @@
     "minutes": 2
    },
    "screenshots": [],
+   "since": "2026-11-07",
    "category": "drawing",
    "page": "guide-drawing.html#draw-attribute-labels"
   },
   {
    "id": "DRAW-svg-import",
    "title": "SVG import into the symbol designer",
-   "summary": "Import existing symbol drawings as SVG files into the symbol designer.",
+   "summary": "Import an SVG drawing as a shape draft: read safely, fitted into the shape, connection points suggested.",
    "anchor": "draw-svg-import",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "21.4"
    ],
-   "checks": [],
+   "checks": [
+    "L24"
+   ],
    "related": [
     "DRAW-symbol-designer"
    ],
-   "roles": "Library editors",
+   "roles": "Library administrator",
    "training": {
     "topic": "Importing SVG symbols",
     "level": "Advanced",
     "minutes": 2
    },
    "screenshots": [],
+   "since": "2026-11-08",
    "category": "drawing",
    "page": "guide-drawing.html#draw-svg-import"
   },
@@ -3943,7 +3959,7 @@
    "anchor": "doc-sheet-pdf",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-06",
+   "updated": "2026-11-08",
    "roadmap": [
     "07.6"
    ],
@@ -3956,7 +3972,8 @@
    "related": [
     "DOC-print",
     "DOC-plot",
-    "DRAW-sheet-view"
+    "DRAW-sheet-view",
+    "DRAW-attribute-labels"
    ],
    "roles": "A project role that may export",
    "training": {
@@ -5008,7 +5025,7 @@
   {
    "id": "ORG-blocked-domains",
    "title": "Blocked email domains",
-   "summary": "Some email domains get no account, trial, invitation or license.",
+   "summary": "Personal email providers (Gmail, Outlook.com, Yahoo …) and some company domains cannot be given E1; LANXTOR keeps the list and can allow one person as an exception.",
    "anchor": "org-blocked-domains",
    "status": "available",
    "since": "2026-11-06",
@@ -5025,6 +5042,7 @@
     "minutes": 2
    },
    "screenshots": [],
+   "updated": "2026-11-08",
    "category": "organization",
    "page": "guide-organization.html#org-blocked-domains"
   },
@@ -5266,15 +5284,21 @@
    "status": "available",
    "since": "2026-11-04",
    "roadmap": [
-    "M3.12"
+    "M3.12",
+    "21.2",
+    "21.4"
    ],
    "checks": [
-    "B7"
+    "B7",
+    "L21",
+    "L24"
    ],
    "related": [
     "DRAW-place-symbol",
     "LIB-object-classes",
-    "LIB-content-packages"
+    "LIB-content-packages",
+    "DRAW-symbol-designer",
+    "DRAW-svg-import"
    ],
    "roles": "Everyone",
    "training": {
@@ -5285,6 +5309,7 @@
    "screenshots": [
     "config-shapes.webp"
    ],
+   "updated": "2026-11-08",
    "category": "library",
    "page": "guide-library.html#lib-shapes"
   },
@@ -5319,7 +5344,7 @@
    "anchor": "lib-company-library",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-06",
+   "updated": "2026-11-08",
    "roadmap": [
     "11.1"
    ],
@@ -5432,6 +5457,7 @@
     "minutes": 3
    },
    "screenshots": [],
+   "updated": "2026-11-08",
    "category": "library",
    "page": "guide-library.html#lib-project-library"
   },
@@ -5520,6 +5546,7 @@
    "screenshots": [
     "config-catalogs.webp"
    ],
+   "updated": "2026-11-08",
    "category": "library",
    "page": "guide-library.html#lib-catalogs"
   },
@@ -5881,7 +5908,9 @@
    "roadmap": [
     "20.5"
    ],
-   "checks": [],
+   "checks": [
+    "L19"
+   ],
    "related": [
     "LIB-catalogs",
     "LIB-from-catalog",
@@ -5974,7 +6003,7 @@
   },
   {
    "id": "AI-alex-trainer",
-   "title": "E1 Trainer: Alex shows you how, where you are",
+   "title": "E1 Guide: Alex shows you how, where you are",
    "summary": "Alex's trainer mode offers lessons for the place you are in and guides you through them with bubbles on the real buttons, each linked to this guide.",
    "anchor": "ai-alex-trainer",
    "status": "available",
@@ -5988,7 +6017,7 @@
    ],
    "roles": "Everyone; finished lessons are kept in your own browser",
    "training": {
-    "topic": "Learning E1 with the E1 Trainer",
+    "topic": "Learning E1 with the E1 Guide",
     "level": "Beginner",
     "minutes": 3
    },
@@ -6035,7 +6064,8 @@
     "AI-alex-markers",
     "AI-alex-not-applicable",
     "AI-alex-ask-cloud",
-    "OBJ-attributes"
+    "OBJ-attributes",
+    "AI-alex-simulation"
    ],
    "roles": "Reading: everyone; Apply and Save need edit rights",
    "training": {
@@ -6046,6 +6076,30 @@
    "screenshots": [],
    "category": "ai",
    "page": "guide-ai.html#ai-alex-cards"
+  },
+  {
+   "id": "AI-alex-simulation",
+   "title": "Read Alex's simulation results",
+   "summary": "When Alex has simulated the open sheet, its results appear as Simulation results cards with the method, the inputs, the assumptions and the result tables.",
+   "anchor": "ai-alex-simulation",
+   "status": "available",
+   "since": "2026-11-08",
+   "updated": "2026-11-08",
+   "roadmap": [],
+   "checks": [],
+   "related": [
+    "AI-alex-cards",
+    "AI-alex-skill-level"
+   ],
+   "roles": "Everyone",
+   "training": {
+    "topic": "Alex's simulation results",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "ai",
+   "page": "guide-ai.html#ai-alex-simulation"
   },
   {
    "id": "AI-alex-markers",
@@ -6986,7 +7040,7 @@
   {
    "id": "WEB-billing",
    "title": "Billing: plan, payment and invoices",
-   "summary": "Your organization's plan, payment and invoices; the online billing portal is not connected yet.",
+   "summary": "Your organization's plan, payment and invoices: invoices come by email, payable by bank transfer or card; the online billing portal is not connected yet.",
    "anchor": "web-billing",
    "status": "under-development",
    "roadmap": [
@@ -7006,6 +7060,7 @@
    "screenshots": [
     "web-account-billing.webp"
    ],
+   "updated": "2026-11-08",
    "category": "account",
    "page": "guide-account.html#web-billing"
   },

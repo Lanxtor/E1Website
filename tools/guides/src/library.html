@@ -97,11 +97,11 @@
 
 <section class="g-feature" id="lib-shapes">
   <h2>Shapes and the Standard filter</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIB-shapes</span><span>Roadmap M3.12</span><span>Review check B7</span></div>
-  <p class="g-summary">Shapes lists every symbol E1 can draw, with the standard it follows, its ports and size, and the classes that use it. It is read only.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-08</span><span class="g-id">LIB-shapes</span><span>Roadmap M3.12, 21.2, 21.4</span><span>Review checks B7, L21, L24</span></div>
+  <p class="g-summary">Shapes lists every symbol E1 can draw, with the standard it follows, its ports and size, and the classes that use it. From here you also make your own: draw a new shape, import one from SVG, derive one from an existing shape, and allow a shape for a class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Shapes</span></dd>
-    <dt>Who</dt><dd>Everyone</dd>
+    <dt>Who</dt><dd>Everyone may read. New shape, Import SVG…, Derive and Publish in the company library: Library administrator; a project's own shapes: Project administrator.</dd>
     <dt>Before you start</dt><dd>The Configuration place is open.</dd>
   </dl>
   <h3>Steps</h3>
@@ -142,7 +142,7 @@
 
 <section class="g-feature" id="lib-company-library">
   <h2>The company library: drafts, publishing and versions</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-06</span><span class="g-id">LIB-company-library</span><span>Roadmap 11.1</span><span>Review checks L1, L2, L3, L4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-08</span><span class="g-id">LIB-company-library</span><span>Roadmap 11.1</span><span>Review checks L1, L2, L3, L4</span></div>
   <p class="g-summary">The company library holds your organization's own attributes, classes and relationship types. A draft changes nothing; once you publish it, every project of the organization has it and E1 checks it like its own. A published version never changes: a new draft becomes the next version.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span></dd>
@@ -220,7 +220,7 @@
 
 <section class="g-feature" id="lib-project-library">
   <h2>This project only: the project library</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span class="g-id">LIB-project-library</span><span>Roadmap 11.4</span><span>Review check L9</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-08</span><span class="g-id">LIB-project-library</span><span>Roadmap 11.4</span><span>Review check L9</span></div>
   <p class="g-summary">A project can have classes and attributes only it uses, without touching the company library. A project library only adds: it cannot change how a company class behaves.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span> → <span class="ui">Library</span>: This project only</dd>
@@ -287,7 +287,7 @@
 
 <section class="g-feature" id="lib-catalogs">
   <h2>Catalogs of approved products</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span class="g-id">LIB-catalogs</span><span>Roadmap 20.1, 20.4</span><span>Review checks L12, L13, L18</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-08</span><span class="g-id">LIB-catalogs</span><span>Roadmap 20.1, 20.4</span><span>Review checks L12, L13, L18</span></div>
   <p class="g-summary">A catalog holds the products your organization approves: a pump of a given make and model, with its data and vendor documents. An item is a draft until it is published; a published version never changes, and a new draft becomes the next version. Projects offer published items for new objects.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Catalogs</span></dd>
@@ -305,7 +305,7 @@
       <tr><td>5</td><td>Click <span class="ui">Publish</span> and confirm with OK.</td><td>The confirmation reads "Publish KSB Etanorm 050? This version never changes; projects offer it once their library pin includes it." The item is Published; its view shows version 1 and 50 m³/h.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">New version</span>, change the flow rate to 55, click <span class="ui">Save draft</span>.</td><td>The Status reads "Published · draft open".</td></tr>
       <tr><td>7</td><td>Click <span class="ui">Publish</span> and OK.</td><td>The view shows version 2 and "Versions: 1 (<em>date</em>), 2 (<em>date</em>)". Both versions stay.</td></tr>
-      <tr><td>8</td><td>Make a second item with the same manufacturer and ordering code; then try a flow rate in kg.</td><td>Both are refused: "… has the same manufacturer and ordering code; withdraw it first.", and the unit is refused because it is not a flow rate.</td></tr>
+      <tr><td>8</td><td>Make a second item with the same manufacturer and ordering code; then try a flow rate in kg.</td><td>Both are refused: "KSB ETN050 is already in the catalog as …", and the unit, because it is not a flow rate ("… \"kg\" is not one of them."). Reinstating a withdrawn item while another has the same manufacturer and ordering code is refused too: "… has the same manufacturer and ordering code; withdraw it first."</td></tr>
       <tr><td>9</td><td>Click <span class="ui">Withdraw</span> on an item and OK.</td><td>The confirmation reads "Withdraw … ? It is no longer offered for new objects; objects made from it keep their values." The item shows Withdrawn; <span class="ui">Reinstate</span> brings it back.</td></tr>
       <tr><td>10</td><td>Untick <span class="ui">Show drafts and withdrawn</span>.</td><td>Only published items remain in the table.</td></tr>
       <tr><td>11</td><td>Create a catalog with <span class="ui">For</span> This project only, add and publish an item. Open another project's Catalogs.</td><td>The catalog is listed with "· This project" in its project; the other project does not list it.</td></tr>
@@ -575,7 +575,7 @@
 
 <section class="g-feature" id="lib-catalog-import">
   <h2>Catalog import</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-07</span><span class="g-id">LIB-catalog-import</span><span>Roadmap 20.5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-07</span><span class="g-id">LIB-catalog-import</span><span>Roadmap 20.5</span><span>Review check L19</span></div>
   <p class="g-summary">Import a vendor list from Excel or CSV into a catalog instead of entering each item by hand. A dry run shows first what each row would become; the import makes drafts only, which you then publish.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Catalogs</span> → a catalog → <span class="ui">Import…</span></dd>
