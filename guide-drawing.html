@@ -80,7 +80,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>36 features</span><span>29 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>36 features</span><span>30 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the sheet view, where you draw P&amp;IDs. Every symbol on a sheet is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -876,14 +876,24 @@
 
 <section class="g-feature" id="draw-symbol-versions">
   <h2>Symbol versions on placements</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-symbol-versions</span><span>Roadmap 21.5</span></div>
-  <p class="g-summary">Each placed symbol will remember the version of its shape, so a new version in the library does not change your sheets until you upgrade them.</p>
-  <p class="g-dev">Planned in the Library lifecycle milestone, stage 21.5 "Symbol versions on placements and upgrade". Not started.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>See which shape version a placement uses.</li>
-    <li>Upgrade placements to a new shape version with a preview.</li>
-  </ul>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-08</span><span class="g-id">DRAW-symbol-versions</span><span>Roadmap 21.5</span><span>Review check L25</span></div>
+  <p class="g-summary">Each placed symbol remembers the version of its shape it was placed with. Publishing a new version of a company or project shape changes nothing on your sheets: the placements keep drawing the old version until you upgrade them, with a preview first.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Company library</span> → <span class="ui">Updates available in this project</span></dd>
+    <dt>Who</dt><dd>Anyone who may edit drawings upgrades placements; a library administrator publishes the new shape version</dd>
+    <dt>Before you start</dt><dd>A company or project shape has a newer published version than some of its placements in this project.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Company library</span>.</td><td><span class="ui">Updates available in this project</span> lists the shape: "shape version 2 · 3 of 3 placements on version 1", with what changed ("The drawing changed.", "Label q removed.", "Connection point suction removed.").</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Preview placement upgrade</span>.</td><td>Every placement is listed with its sheet and "version 1 → 2": <em>upgraded</em>, <em>flagged</em> with the reason, or <em>already current</em>. Label overrides of labels the new version no longer has are listed as dropped. Nothing has changed yet.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Upgrade N</span>.</td><td>The placements draw the new version. Each keeps its place, rotation, flips and size; the lines attached to it stay connected. Objects and relationships do not change.</td></tr>
+      <tr><td>4</td><td>If needed, press Undo.</td><td>One undo puts all the upgraded placements back on the old version.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A placement is <em>flagged</em> and left on its version when the new version removes a connection point that a line is attached to (remove or move the line first), or when the new version may no longer draw its object's class. The assistant does the same with the <code>upgrade_occurrences</code> tool, for all placements, those on one sheet, or those of some objects.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
 </section>
 
