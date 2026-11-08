@@ -30,6 +30,15 @@
   function $(sel) { return root.querySelector(sel); }
   function $all(sel) { return root.querySelectorAll(sel); }
 
+  /* A link or media address from the server: http(s) or a relative path only,
+     never javascript: or data:. Anything else becomes "#". */
+  function safeUrl(u) {
+    var s = String(u == null ? "" : u).trim();
+    if (!s) return "";
+    var scheme = s.match(/^([a-z][a-z0-9+.-]*):/i);
+    return !scheme || /^https?$/i.test(scheme[1]) ? s : "#";
+  }
+
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -393,7 +402,7 @@
         var left = Math.max(0, (c.minutes || 0) - (c.minutesWatched || 0));
         var label = c.status === "completed" ? "Watch again" : c.status === "in_progress" ? "Continue" : "Start";
         var action = c.url
-          ? '<a class="btn btn-ghost btn-sm" href="' + esc(c.url) + '">' + label + "</a>"
+          ? '<a class="btn btn-ghost btn-sm" href="' + esc(safeUrl(c.url)) + '">' + label + "</a>"
           : '<span class="badge">Coming soon</span>';
         return '<article class="card course">' +
           '<div class="course-body">' +
@@ -416,7 +425,7 @@
           "<strong>" + esc(c.title) + "</strong>",
           esc(fmt.date(c.issuedAt)),
           "<code>" + esc(c.credentialId || "–") + "</code>",
-          c.url ? '<a class="link-btn" href="' + esc(c.url) + '">Download PDF</a>' : ""
+          c.url ? '<a class="link-btn" href="' + esc(safeUrl(c.url)) + '">Download PDF</a>' : ""
         ];
       }),
       "No certificates yet. Complete a course to earn your first one.");

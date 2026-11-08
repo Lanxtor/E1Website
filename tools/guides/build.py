@@ -122,7 +122,7 @@ def page(title, description, body, toc, crumbs):
   <script src="assets/js/config.js?v=3"></script>
   <script src="assets/js/e1-api.js?v=6"></script>
   <script src="assets/js/main.js?v=30"></script>
-  <script src="assets/js/chat.js?v=5"></script>
+  <script src="assets/js/chat.js?v=6"></script>
   <script src="assets/js/guides.js?v=1"></script>
 </body>
 </html>

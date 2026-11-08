@@ -21,6 +21,15 @@
   function $(sel) { return root.querySelector(sel); }
   function $all(sel) { return root.querySelectorAll(sel); }
 
+  /* A link or media address from the server: http(s) or a relative path only,
+     never javascript: or data:. Anything else becomes "#". */
+  function safeUrl(u) {
+    var s = String(u == null ? "" : u).trim();
+    if (!s) return "";
+    var scheme = s.match(/^([a-z][a-z0-9+.-]*):/i);
+    return !scheme || /^https?$/i.test(scheme[1]) ? s : "#";
+  }
+
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -182,12 +191,12 @@
     var main = $("[data-lesson]");
     var media = lesson.media || {};
     var tracks = (media.captions || []).map(function (c, i) {
-      return '<track kind="subtitles" src="' + esc(c.url) + '" srclang="' + esc(c.lang) + '" label="' + esc(c.label || c.lang) + '"' + (i === 0 ? " default" : "") + ">";
+      return '<track kind="subtitles" src="' + esc(safeUrl(c.url)) + '" srclang="' + esc(c.lang) + '" label="' + esc(c.label || c.lang) + '"' + (i === 0 ? " default" : "") + ">";
     }).join("");
     var canMark = !locked();
     main.innerHTML = lessonHead(l) +
       '<div class="player"><video controls playsinline preload="metadata" data-video>' +
-      '<source src="' + esc(media.url) + '" type="' + esc(media.type || "video/mp4") + '">' + tracks +
+      '<source src="' + esc(safeUrl(media.url)) + '" type="' + esc(media.type || "video/mp4") + '">' + tracks +
       "Your browser cannot play this video.</video></div>" +
       navButtons(l, canMark
         ? '<button class="btn ' + (lesson.completed ? "btn-ghost" : "btn-primary") + ' btn-sm" type="button" data-complete' + (lesson.completed ? " disabled" : "") + ">" +
@@ -196,7 +205,7 @@
       ((lesson.notes || []).length ? '<div class="lesson-notes">' + lesson.notes.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" : "") +
       ((lesson.resources || []).length
         ? '<h3 class="sub-head">Exercise files</h3><ul class="mini-list">' + lesson.resources.map(function (r) {
-          return '<li><span>' + esc(r.name) + '</span><a class="link-btn" href="' + esc(r.url) + '" download>Download</a></li>';
+          return '<li><span>' + esc(r.name) + '</span><a class="link-btn" href="' + esc(safeUrl(r.url)) + '" download>Download</a></li>';
         }).join("") + "</ul>"
         : "");
 

@@ -42,7 +42,7 @@ jobs:
       PREVIEW_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_PREVIEW_TOKEN }}
       SITE_MODE: ${{ vars.SITE_MODE }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Version stamp (/version.json names the commit that is live)
         run: printf '{"commit":"%s","builtAt":"%s"}\n' "${GITHUB_SHA::7}" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > version.json
@@ -74,7 +74,7 @@ jobs:
 
       - name: Full site to e1-website-preview (preview.lanxtor.com)
         if: env.PREVIEW_TOKEN != '' && github.event_name != 'pull_request'
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_PREVIEW_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -91,7 +91,7 @@ jobs:
 
       - name: Public site (production), or the pull request's preview
         if: env.TOKEN != ''
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -107,7 +107,7 @@ jobs:
     steps:
       - name: Remove the preview address
         if: env.TOKEN != ''
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: close
