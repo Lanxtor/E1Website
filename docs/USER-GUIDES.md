@@ -20,7 +20,7 @@ E1's in-app guide (Alex → **E1 Guide**, `Lanxtor/E1`, `docs/2-design/26-e1-tra
 
 | File | What |
 | --- | --- |
-| `tools/guides/categories.json` | The 12 categories, their order, summary and icon. Their order is the order of the training series. |
+| `tools/guides/categories.json` | The 13 categories (the 13th is E1 Reviewer for iPad, `Lanxtor/E1iPad`), their order, summary and icon. Their order is the order of the training series. |
 | `tools/guides/features/<category>.json` | The catalog: one entry per feature (schema below). |
 | `tools/guides/src/<category>.html` | The guide text: one `<section class="g-feature">` per feature. |
 | `tools/guides/roadmap.json` | The app's and the website's roadmaps, exported from `Lanxtor/E1` (below). |
