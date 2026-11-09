@@ -16,10 +16,10 @@
 
 <section class="g-feature" id="obj-new-object">
   <h2>Create an object</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-new-object</span><span>Roadmap M1.5</span><span>Review checks C1, C5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-new-object</span><span>Roadmap M1.5</span><span>Review checks C1, C5</span></div>
   <p class="g-summary">Right-click a section and choose its <span class="ui">New …</span> item: a window shows the tree of classes that may live there and, on the right, what the chosen class is. You pick one, and E1 makes the object, tags it from the project's rules and opens it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click a section or a folder in it → <span class="ui">New asset…</span> (Assets), <span class="ui">New unit operation…</span>, <span class="ui">New system…</span>, <span class="ui">New process…</span>, <span class="ui">New area…</span>, <span class="ui">New document…</span> (Revisions) or <span class="ui">New task…</span> (Tasks); the same buttons are on the section's page</dd>
+    <dt>Where</dt><dd>Right-click a section or a folder in it → <span class="ui">New asset…</span> (Assets), <span class="ui">New unit operation…</span>, <span class="ui">New system…</span>, <span class="ui">New process…</span>, <span class="ui">New area…</span>, <span class="ui">New document…</span> (Documents) or <span class="ui">New task…</span> (Tasks); the same buttons are on the section's page</dd>
     <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
     <dt>Before you start</dt><dd>A project is expanded in the explorer.</dd>
   </dl>
@@ -69,10 +69,10 @@
 
 <section class="g-feature" id="obj-object-window">
   <h2>The object window and its tabs</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-06</span><span class="g-id">OBJ-object-window</span><span>Roadmap M1.5</span><span>Review checks C1, F1, H1, H3</span></div>
-  <p class="g-summary">Every object opens in a window of its own, as a tab: a header with its class, tag, name and actions, and seven tabs for its attributes, relationships, datasheet, files, comments and history.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-object-window</span><span>Roadmap M1.5</span><span>Review checks C1, F1, H1, H3</span></div>
+  <p class="g-summary">Every object opens in a window of its own, as a tab: a header with its class, tag, name and actions, and seven tabs for its attributes, relationships, deep view, datasheet, chat, history and files.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Double-click an object in the explorer; right-click it → <span class="ui">Open</span>; right-click its symbol on a sheet → <span class="ui">Object properties</span>; it also opens by itself after <span class="ui">Create</span></dd>
+    <dt>Where</dt><dd>Double-click an object in the explorer; right-click it → <span class="ui">Open</span>; right-click its symbol on a 2D space → <span class="ui">Object properties</span>; it also opens by itself after <span class="ui">Create</span></dd>
     <dt>Who</dt><dd>Anyone who can open the project; editing needs a role that may edit objects</dd>
     <dt>Before you start</dt><dd>The project has an object, for example Pump1.</dd>
   </dl>
@@ -90,16 +90,16 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Double-click <span class="ui">Pump1</span> in the explorer.</td><td>A tab "Pump1" opens with the heading "Pump1" and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Attachments</span>, <span class="ui">Comments</span>, <span class="ui">History</span>. Because Centrifugal pump has a datasheet design, the <span class="ui">Data sheet</span> tab is shown ("Datasheet of Pump1"); for a class without one, <span class="ui">Attributes</span> is shown.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Attributes</span>, then press the <kbd>→</kbd> key.</td><td><span class="ui">Relationships</span> is selected. <kbd>←</kbd>, <kbd>Home</kbd> and <kbd>End</kbd> also move between tabs.</td></tr>
+      <tr><td>1</td><td>Double-click <span class="ui">Pump1</span> in the explorer.</td><td>A tab "Pump1" opens with the heading "Pump1" and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Chat</span>, <span class="ui">History</span>, <span class="ui">Attachments</span>, in this order. Because Centrifugal pump has a datasheet design, the <span class="ui">Data sheet</span> tab is shown ("Datasheet of Pump1"); for a class without one, <span class="ui">Attributes</span> is shown.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Attributes</span>, then press the <kbd>→</kbd> key.</td><td><span class="ui">Relationships</span> is selected. <kbd>←</kbd>, <kbd>Home</kbd> and <kbd>End</kbd> also move between tabs: <kbd>Home</kbd> goes to <span class="ui">Attributes</span>, <kbd>End</kbd> to <span class="ui">Attachments</span>, the last tab.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Attachments</span>, then double-click <span class="ui">Pump2</span> in the explorer.</td><td>Pump2 opens on <span class="ui">Attachments</span> too: the window opens on the tab you chose last.</td></tr>
       <tr><td>4</td><td>Click in <span class="ui">Name</span>, type a new name and press <kbd>Esc</kbd>.</td><td>The old name is back; nothing is saved.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Export</span>.</td><td>An Excel file with the object's attributes is downloaded.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/object-page.webp" alt="The object window of Pump1 opened by a double-click in the explorer: the header with class, Tag and Name, the buttons, and the tab row with the Data sheet tab selected showing the pump's datasheet." width="2160" height="1350" loading="lazy"><figcaption>Pump1 in its object window, on the <span class="ui">Data sheet</span> tab.</figcaption></figure>
-  <p class="g-note">The tabs are described in their own guides: <a href="#obj-attributes">Attributes</a>, <a href="#obj-relationships">Relationships</a>, <a href="#obj-deep-view">Deep view</a>, <a href="guide-documents.html#doc-datasheet">Data sheet</a>, <a href="guide-collaboration.html#col-comments">Comments</a> and <a href="guide-collaboration.html#col-history">History</a>. On <span class="ui">Attachments</span> you add files with <span class="ui">Add files…</span> or by dropping them on the tab; each file has <span class="ui">Open</span> and <span class="ui">Remove</span>, and a PDF is previewed in the tab.</p>
-  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="guide-documents.html#doc-datasheet">Datasheet</a> · <a href="guide-collaboration.html#col-history">History</a> · <a href="guide-collaboration.html#col-comments">Comments</a> · <a href="guide-collaboration.html#col-tasks">Tasks</a></p>
+  <p class="g-note">The tabs are described in their own guides: <a href="#obj-attributes">Attributes</a>, <a href="#obj-relationships">Relationships</a>, <a href="#obj-deep-view">Deep view</a>, <a href="guide-documents.html#doc-datasheet">Data sheet</a>, <a href="guide-collaboration.html#col-comments">Chat</a> and <a href="guide-collaboration.html#col-history">History</a>. On <span class="ui">Attachments</span> you add files with <span class="ui">Add files…</span> or by dropping them on the tab; each file has <span class="ui">Open</span> and <span class="ui">Remove</span>, and a PDF is previewed in the tab.</p>
+  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="guide-documents.html#doc-datasheet">Datasheet</a> · <a href="guide-collaboration.html#col-history">History</a> · <a href="guide-collaboration.html#col-comments">Chat</a> · <a href="guide-collaboration.html#col-tasks">Tasks</a></p>
 </section>
 
 <section class="g-feature" id="obj-attributes">
@@ -219,7 +219,7 @@
 
 <section class="g-feature" id="obj-tag-dialog">
   <h2>Set a manual tag with Tag…</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-tag-dialog</span><span>Roadmap M1.7</span><span>Review check C4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-tag-dialog</span><span>Roadmap M1.7</span><span>Review check C4</span></div>
   <p class="g-summary">The <span class="ui">Tag…</span> dialog shows where an object's tag comes from and what the rule would give, and lets you set a tag of your own or go back to the rule's tag.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click an object in the explorer → <span class="ui">Tag…</span>; the <span class="ui">Tag…</span> button in the object window; the <span class="ui">Tag</span> tool of the drawing toolbar (then click a symbol)</dd>
@@ -234,7 +234,7 @@
       <tr><td>2</td><td>Type <code>P-002</code> and click <span class="ui">Set tag</span>.</td><td>Refused with the message "P-002 is already the tag of …". The tag is unchanged.</td></tr>
       <tr><td>3</td><td>Type <code>P-500</code> and click <span class="ui">Set tag</span>.</td><td>The dialog closes. The pump is P-500 in the explorer and the window header shows "Manual tag".</td></tr>
       <tr><td>4</td><td>Open <span class="ui">Tag…</span> again.</td><td>State "Manual". Because the rule now gives another tag, the button <span class="ui">Use the rule's tag</span> is shown; clicking it gives the pump the rule's tag again.</td></tr>
-      <tr><td>5</td><td>On a sheet, select one pump symbol and click <span class="ui">Tag</span> in the drawing toolbar.</td><td>The Tag dialog of that pump opens. With nothing selected the hint reads "Click the symbol to tag." and the next symbol you click opens.</td></tr>
+      <tr><td>5</td><td>On a 2D space, select one pump symbol and click <span class="ui">Tag</span> in the drawing toolbar.</td><td>The Tag dialog of that pump opens. With nothing selected the hint reads "Click the symbol to tag." and the next symbol you click opens.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/tree-menu-object.webp" alt="The right-click menu of Pump1 in the explorer with Open, Data sheet, Rename, Tag…, Place on drawing…, New case, Query with a submenu arrow, Void and Delete." width="346" height="528" loading="lazy"><figcaption>Right-click an object: <span class="ui">Tag…</span> is the fourth item.</figcaption></figure>
@@ -309,7 +309,7 @@
 
 <section class="g-feature" id="obj-relationships">
   <h2>Relate objects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
   <p class="g-summary">Relationships connect objects across sections, for example a function under Systems that "is implemented by" a pump under Assets. You pick the other object in a tree that shows only what fits the relationship, or you drag one object onto the other in the explorer with the right mouse button. A relationship shows from both sides, and removing it leaves both objects in place.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Object window → <span class="ui">Relationships</span>; or the explorer, dragging with the right mouse button</dd>
@@ -336,7 +336,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>In the explorer, press and hold the right mouse button on <span class="ui">Pump1</span> under Assets and move the mouse.</td><td>Pump1 fades: it is being dragged to relate it, not to move it.</td></tr>
-      <tr><td>2</td><td>Move it over <span class="ui">TIC-101</span> under Systems.</td><td>TIC-101 is outlined. A row that cannot be related (a section, a folder, a sheet, what is in a bin) is not outlined.</td></tr>
+      <tr><td>2</td><td>Move it over <span class="ui">TIC-101</span> under Systems.</td><td>TIC-101 is outlined. A row that cannot be related (a section, a folder, a 2D space, what is in a bin) is not outlined.</td></tr>
       <tr><td>3</td><td>Release the right mouse button.</td><td>The window <span class="ui">Make a relationship?</span> says "Pump1 implements TIC-101." and "Both objects stay where they are." When several types fit, it lists them to choose from. When none fits, it says <span class="ui">No relationship fits</span> and why.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Make relationship</span>.</td><td>The window closes. Pump1 shows under TIC-101 as a reference row, and Pump1 is still under Assets.</td></tr>
     </tbody>
@@ -392,7 +392,7 @@
 
 <section class="g-feature" id="obj-move">
   <h2>Move an object</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-move</span><span>Roadmap M1.4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-move</span><span>Roadmap M1.4</span></div>
   <p class="g-summary">Drag an object to another folder or section. E1 only offers a drop where its class may live, and checks it again when you drop.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer, by drag and drop</dd>
@@ -408,16 +408,16 @@
       <tr><td>3</td><td>Drag Pump1 onto a folder under <span class="ui">Model Space</span>.</td><td>The drop is refused; nothing changes. If the server refuses a move, an alert gives the reason.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Dropping an object on an open drawing places it on that sheet instead of moving it.</p>
+  <p class="g-note">Dropping an object on an open drawing places it on that 2D space instead of moving it.</p>
   <p class="g-related">Related: <a href="guide-projects.html#prj-drag-drop">Drag and drop in the explorer</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
 </section>
 
 <section class="g-feature" id="obj-void">
   <h2>Void an object</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">OBJ-void</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-void</span></div>
   <p class="g-summary">Voiding takes an object out of use without deleting it, so that its record is kept. Voided objects go to the project's <span class="ui">Voided bin</span>, where the only action is <span class="ui">Unvoid</span>.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click an object (or a sheet or folder) → <span class="ui">Void</span></dd>
+    <dt>Where</dt><dd>Right-click an object (or a 2D space or folder) → <span class="ui">Void</span></dd>
     <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
     <dt>Before you start</dt><dd>An object you can void, for example a valve.</dd>
   </dl>
@@ -435,7 +435,7 @@
 
 <section class="g-feature" id="obj-delete">
   <h2>Delete an object, restore it, or delete it permanently</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-delete</span><span>Roadmap M1.4</span><span>Review checks C7, A3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-delete</span><span>Roadmap M1.4</span><span>Review checks C7, A3</span></div>
   <p class="g-summary">Delete moves an object to the project's Deleted bin at once, from where <span class="ui">Restore</span> brings it back and draws it again where it was. <span class="ui">Delete permanently…</span> in the bin first shows everything that goes with it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click the object → <span class="ui">Delete</span>, or select it and press <kbd>Delete</kbd>; in the bin, right-click → <span class="ui">Restore</span> or <span class="ui">Delete permanently…</span></dd>
@@ -447,8 +447,8 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click V3 → <span class="ui">Delete</span>.</td><td>No question is asked. V3 is gone from Assets and shows under <span class="ui">Bin</span> → <span class="ui">Deleted bin</span> → <span class="ui">Assets</span>, styled as binned. The Bin row stays collapsed.</td></tr>
-      <tr><td>2</td><td>Right-click V3 in the bin → <span class="ui">Restore</span>.</td><td>V3 is back under Assets, and on its sheets where it was drawn.</td></tr>
-      <tr><td>3</td><td>Delete V3 again, then right-click it in the bin → <span class="ui">Delete permanently…</span>.</td><td>A dialog "Delete V3 permanently?" with "It leaves the deleted bin and cannot be restored.", the class (Check valve), "Objects that go with it", "Relationships" and "Placements on sheets" ("On <i>sheet</i>; the lines through it heal", or "It is on no sheet.").</td></tr>
+      <tr><td>2</td><td>Right-click V3 in the bin → <span class="ui">Restore</span>.</td><td>V3 is back under Assets, and on its 2D spaces where it was drawn.</td></tr>
+      <tr><td>3</td><td>Delete V3 again, then right-click it in the bin → <span class="ui">Delete permanently…</span>.</td><td>A dialog "Delete V3 permanently?" with "It leaves the deleted bin and cannot be restored.", the class (Check valve), "Objects that go with it", "Relationships" and "Placements on 2D spaces" ("On <i>2D space</i>; the lines through it heal", or "It is on no 2D space.").</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Delete permanently</span>.</td><td>V3 is gone for good. The Bin row disappears when it is empty.</td></tr>
     </tbody>
   </table></div>
@@ -460,10 +460,10 @@
 
 <section class="g-feature" id="obj-deep-view">
   <h2>Deep view</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span>Updated 2026-11-06</span><span class="g-id">OBJ-deep-view</span><span>Roadmap M4</span></div>
+  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-deep-view</span><span>Roadmap M4</span></div>
   <p class="g-summary">Deep view will be a graphical view of one object and what it is connected to. The tab and the menu item are there today, but they only show a placeholder.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Object window → <span class="ui">Deep view</span>; right-click a symbol on a sheet → <span class="ui">Deep view</span></dd>
+    <dt>Where</dt><dd>Object window → <span class="ui">Deep view</span>; right-click a symbol on a 2D space → <span class="ui">Deep view</span></dd>
     <dt>Who</dt><dd>Everyone</dd>
   </dl>
   <h3>Steps</h3>
@@ -471,7 +471,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Open Pump1 and click the <span class="ui">Deep view</span> tab.</td><td>The heading "Deep view" and the text "A graphical view of Pump1 will be shown here. It is being designed."</td></tr>
-      <tr><td>2</td><td>On a sheet, right-click the pump's symbol → <span class="ui">Deep view</span>.</td><td>The object window opens on the same placeholder tab.</td></tr>
+      <tr><td>2</td><td>On a 2D space, right-click the pump's symbol → <span class="ui">Deep view</span>.</td><td>The object window opens on the same placeholder tab.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/object-tab-deep-view.webp" alt="Pump1 with the Deep view tab selected, showing the placeholder text that the graphical view is being designed." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Deep view</span> tab is a placeholder.</figcaption></figure>
