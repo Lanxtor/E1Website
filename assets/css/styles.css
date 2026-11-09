@@ -3026,3 +3026,47 @@ code {
   .getE1-page .choice-grid { margin-top: 18px; gap: 12px; }
   .getE1-page .page-hero { padding-bottom: 8px; }
 }
+
+/* ==========================================================================
+   Sign up: the free 30-day trial next to the form (login.html#signup)
+   ========================================================================== */
+.auth.has-promo { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 560px); justify-content: center; align-items: center; gap: 72px; }
+.trial-promo[hidden] { display: none; }
+.trial-promo { position: relative; padding: 36px; border-radius: 24px; color: #fff; background: radial-gradient(90% 120% at 0% 0%, rgba(31, 92, 255, 0.38), transparent 55%), radial-gradient(120% 140% at 100% 100%, #121a27, #0b0e13 70%); box-shadow: 0 40px 80px -40px rgba(14, 17, 22, 0.6); }
+.tp-kicker { display: inline-block; padding: 5px 12px; border-radius: 99px; background: rgba(255, 255, 255, 0.1); color: #c9d6ff; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.trial-promo h2 { margin-top: 16px; color: #fff; font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.1; letter-spacing: -0.025em; text-wrap: balance; }
+.tp-lead { margin-top: 12px; color: rgba(255, 255, 255, 0.72); font-size: 1rem; }
+.tp-team { display: grid; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
+.tp-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "role faces" "devices devices"; gap: 10px 16px; align-items: center; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; background: rgba(255, 255, 255, 0.05); }
+.tp-role { grid-area: role; display: grid; min-width: 0; line-height: 1.3; }
+.tp-role b { font-size: 1.02rem; font-weight: 600; }
+.tp-count { display: inline-grid; place-items: center; min-width: 26px; height: 26px; margin-right: 4px; padding: 0 6px; border-radius: 8px; background: #fff; color: var(--text); font-size: 0.9rem; font-weight: 700; }
+.tp-role > span { margin-top: 4px; color: rgba(255, 255, 255, 0.65); font-size: 0.84rem; }
+.tp-faces { grid-area: faces; display: flex; }
+.tp-faces .dot { width: 32px; height: 32px; margin-left: -8px; box-shadow: 0 0 0 2px #0f141c; }
+.tp-faces .dot:first-child { margin-left: 0; }
+.trial-promo .d-editor { border-color: #fff; }
+.trial-promo .d-reviewer { border-color: #9db5ff; }
+.trial-promo .d-viewer { border-color: rgba(255, 255, 255, 0.45); }
+.trial-promo .d-viewer img { opacity: 0.75; }
+.tp-devices { grid-area: devices; display: flex; flex-wrap: wrap; gap: 6px; }
+.tp-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 0.78rem; font-weight: 600; }
+.tp-chip svg { width: 14px; height: 14px; }
+.tp-chip-ipad { background: #fff; color: var(--text); }
+.tp-points { display: grid; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+.tp-points li { display: flex; align-items: flex-start; gap: 10px; color: rgba(255, 255, 255, 0.9); font-size: 0.92rem; line-height: 1.45; }
+.tp-points svg { flex: none; width: 20px; height: 20px; margin-top: 1px; padding: 4px; border-radius: 50%; background: rgba(31, 92, 255, 0.45); color: #fff; }
+.tp-note { margin-top: 18px; color: rgba(255, 255, 255, 0.55); font-size: 0.78rem; }
+@media (max-width: 960px) {
+  .auth.has-promo { grid-template-columns: minmax(0, 520px); gap: 40px; }
+}
+@media (max-width: 640px) {
+  .auth.has-promo { gap: 32px; }
+  .trial-promo { padding: 24px 18px; border-radius: 20px; }
+  .tp-row { padding: 12px; gap: 10px 12px; }
+  .tp-faces .dot { width: 28px; height: 28px; margin-left: -9px; }
+  .tp-role > span { font-size: 0.8rem; }
+}
+@media (max-width: 380px) {
+  .tp-row { grid-template-columns: 1fr; grid-template-areas: "role" "faces" "devices"; }
+}

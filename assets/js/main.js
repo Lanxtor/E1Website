@@ -366,9 +366,15 @@
       tabs.forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.mode === mode)); });
       title.textContent = signup ? "Create your account" : "Welcome back";
       lead.textContent = signup
-        ? "Create a free account to start your E1 cloud workspace."
+        ? "Create your account and start your free 30-day trial, for you and your team."
         : "Sign in to see your licenses, usage, projects and downloads.";
-      submit.textContent = signup ? "Continue to sign up" : "Continue to sign in";
+      submit.textContent = signup ? "Start your free 30-day trial" : "Continue to sign in";
+      // Sign up: the trial panel next to the form (15 people, 30 days).
+      var promo = document.querySelector("[data-trial-promo]");
+      if (promo) {
+        promo.hidden = !signup;
+        box.parentElement.classList.toggle("has-promo", signup);
+      }
       var url = api && api.isDemo() ? "" : api && api.loginUrl(mode, returnTo && new URL(returnTo, location.href).href);
       submit.setAttribute("href", url || "account.html?demo=1");
     }
