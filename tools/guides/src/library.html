@@ -593,14 +593,24 @@
 
 <section class="g-feature" id="lib-package-licensing">
   <h2>Content package licensing and updates</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-package-licensing</span><span>Roadmap 04.3, 04.5</span></div>
-  <p class="g-summary">You will see which content packages your license covers, and install a package's update into a project.</p>
-  <p class="g-dev">Planned in milestone M5 Library lifecycle (stages 04.3 Content package licensing and 04.5 Content package updates), not started. <span class="ui">Add a content package</span> stays greyed out until then.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>See which content packages your license covers; a package you are not licensed for is marked.</li>
-    <li>See that a content package has an update and install it into a project.</li>
-  </ul>
+  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">LIB-package-licensing</span><span>Roadmap 04.3, 04.5</span><span>Review check L28</span></div>
+  <p class="g-summary">Your subscription says which content packages your organization may use. Today every subscription includes all of E1's packages. When a package is not licensed (or, for a package licensed per person, not assigned to you), its objects stay visible on drawings, in lists and on their pages, and can be exported in every format, but they cannot be changed, created, deleted, related or imported into. Your data is never held hostage.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Content packages</span>; an object's page; <span class="ui">Project settings → Content packages</span> ("not licensed")</dd>
+    <dt>Who</dt><dd>Everyone sees what is licensed; an organization administrator assigns per-person packages; LANXTOR sets the packages of the subscription</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud). The desktop app and a local trial copy license every package.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">File → Organization…</span> and the tab <span class="ui">Content packages</span>.</td><td>Each package with its license: <em>No license needed</em> (Core), <em>Included in your subscription</em>, <em>Licensed</em> or <em>Not licensed</em>; whether it is licensed per organization or per person; and, for a per-person package, who it is assigned to.</td></tr>
+      <tr><td>2</td><td>For a per-person package, choose a member in <span class="ui">Assign … to</span> and click <span class="ui">Assign</span>.</td><td>The member is listed; <span class="ui">Take back</span> removes the assignment again.</td></tr>
+      <tr><td>3</td><td>Open an object of a package that is not licensed for you.</td><td>A note reads "Content package Plant engineering is not licensed for your organization: its objects can be viewed and exported, not changed." The values are read only.</td></tr>
+      <tr><td>4</td><td>Try to change it anyway, from a list, a drawing or Cloud AI.</td><td>Refused with the same reason. Exporting it (Excel, PDF) works.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Content package updates (installing a new version of a package into a project) come next; <span class="ui">Add a content package</span> stays greyed out until then. Trials of a single package and packages in license files are not built yet.</p>
   <p class="g-related">Related: <a href="#lib-content-packages">Content packages</a> · <a href="#lib-package-switching">Switching packages on and off</a></p>
 </section>
 
