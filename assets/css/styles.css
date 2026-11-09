@@ -26,7 +26,7 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 body {
   margin: 0;
@@ -2933,6 +2933,15 @@ code {
   .saas-text > p, .uni-text > p { margin-top: 14px; font-size: 1rem; }
   .saas-list { margin-top: 18px; }
   .saas .hero-actions, .selfhost .hero-actions, .uni .hero-actions { margin-top: 22px; }
+  /* Action buttons on phones: centred, sharing the width evenly; a single
+     button spans the full width. Never left-aligned under a panel. */
+  .saas .hero-actions, .selfhost .hero-actions, .uni .hero-actions,
+  .download-cloud-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .saas .hero-actions .btn, .selfhost .hero-actions .btn, .uni .hero-actions .btn,
+  .download-cloud-actions .btn { flex: 1 1 0; min-width: 136px; justify-content: center; text-align: center; }
+  .section-cta { display: flex; justify-content: center; }
+  .section-cta .btn { width: 100%; max-width: 360px; height: 44px; justify-content: center; }
+  .contact-btn { width: 100%; justify-content: center; }
   .classroom { padding: 20px; }
   .download-card { padding: 20px; }
   .download-cloud { padding: 22px 20px; }
