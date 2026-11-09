@@ -41,6 +41,7 @@
           <li><a href="#access-overview">About this guide</a></li>
           <li><a href="#acc-browser">Open E1 in the browser</a></li>
           <li><a href="#acc-desktop-app">The desktop app for Windows and macOS</a></li>
+          <li><a href="#acc-desktop-updates">Keep the desktop app up to date</a></li>
           <li><a href="#acc-sign-in">Sign in to E1</a></li>
           <li><a href="#acc-microsoft">Sign in with your company&#x27;s Microsoft account</a></li>
           <li><a href="#acc-claim-installation">Claim a new installation</a></li>
@@ -58,7 +59,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Installation and sign-in</p>
         <h1>2. Installation and sign-in</h1>
         <p class="lead">Open E1 in the browser or the desktop app, sign in with your company account or Microsoft, passkeys, sessions and the store E1 runs on.</p>
-        <div class="g-meta"><span>13 features</span><span>10 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>14 features</span><span>11 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="access-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers how you get into E1: opening it in the browser or the desktop app, signing in with your company account or with Microsoft, passkeys and the "Confirm it is you" check, how long a sign-in lasts, trials, and how to see which store and cloud E1 runs on.</p>
@@ -100,7 +101,7 @@
 <section class="g-feature" id="acc-desktop-app">
   <h2>The desktop app for Windows and macOS</h2>
   <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">ACC-desktop-app</span><span>Roadmap PR</span></div>
-  <p class="g-summary">E1 will come as a desktop app for Windows 10 or 11 (64-bit, also Arm) and macOS 12 or newer. The macOS installer for Apple silicon is released (version 0.1.0, signed and notarized by Apple); the Windows and Intel Mac installers are not released yet, so use E1 in the browser on those until then.</p>
+  <p class="g-summary">E1 will come as a desktop app for Windows 10 or 11 (64-bit, also Arm) and macOS 12 or newer. The macOS installer for Apple silicon is released (signed and notarized by Apple) and keeps itself <a href="#acc-desktop-updates">up to date</a>; the Windows and Intel Mac installers are not released yet, so use E1 in the browser on those until then.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Website → <span class="ui">Get E1</span> → <span class="ui">Download E1</span></dd>
     <dt>Who</dt><dd>Anyone with an E1 account</dd>
@@ -117,7 +118,30 @@
   <p>Wrong addresses are refused with "That is not an address. Enter one like https://e1.example.com.", "The address starts with https://." or "Use https:// for a server that is not on this computer."</p>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/web-account-downloads.webp" alt="Downloads on the account page: Windows (Windows 10 or 11, 64-bit) and macOS (macOS 12 or newer), each with installer buttons that say Coming soon" width="2160" height="1350" loading="lazy"><figcaption>Downloads on the account page: the installer buttons say <span class="ui">Coming soon</span>.</figcaption></figure>
   <p class="g-warn">The app's window title is "Lanxtor E1". On Windows the system menu bar hides itself; use E1's own menu bar inside the window. The plan is to sign in through your system browser; today the app shows the server's sign-in inside its own window.</p>
-  <p class="g-related">Related: <a href="#acc-browser">Open E1 in the browser</a> · <a href="#acc-sign-in">Sign in to E1</a> · <a href="guide-getting-started.html#gs-floating-windows">Floating windows</a></p>
+  <p class="g-related">Related: <a href="#acc-browser">Open E1 in the browser</a> · <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-desktop-updates">Keep the desktop app up to date</a> · <a href="guide-getting-started.html#gs-floating-windows">Floating windows</a></p>
+</section>
+
+<section class="g-feature" id="acc-desktop-updates">
+  <h2>Keep the desktop app up to date</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ACC-desktop-updates</span></div>
+  <p class="g-summary">The desktop app looks for a new version when it starts and every four hours, downloads it in the background and asks you to restart. You do not download installers again.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A message from the app; the app menu → <span class="ui">Check for Updates…</span> (on a Mac: the <span class="ui">E1</span> menu)</dd>
+    <dt>Who</dt><dd>Anyone using the desktop app, from version 0.1.2</dd>
+    <dt>Before you start</dt><dd>The desktop app installed (version 0.1.2 or newer; an older one is replaced once from the download page) and an internet connection</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Use E1 as usual. When a new version exists, wait until it is downloaded.</td><td>A message: "E1 ‹version› is ready", "Restart to update. Your projects are kept on the server. Later: E1 updates the next time you quit it.", with <span class="ui">Restart Now</span> and <span class="ui">Later</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Restart Now</span>.</td><td>E1 closes, updates and opens again on the same server; you may need to sign in again.</td></tr>
+      <tr><td>3</td><td>Or click <span class="ui">Later</span> and go on working.</td><td>Nothing changes now. E1 updates when you quit it, and the next start is the new version.</td></tr>
+      <tr><td>4</td><td>To look at once: open the app menu (on a Mac the <span class="ui">E1</span> menu) and click <span class="ui">Check for Updates…</span>.</td><td>"E1 is up to date" with your version, or "Downloading E1 ‹version›" and later the message of step 1. Without a connection: "E1 could not check for updates".</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Test builds and releases are separate: an app installed from a test build gets the next test build, an app installed from the download page gets the next release.</p>
+  <p class="g-related">Related: <a href="#acc-desktop-app">The desktop app</a></p>
 </section>
 
 <section class="g-feature" id="acc-sign-in">
