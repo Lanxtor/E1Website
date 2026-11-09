@@ -55,16 +55,23 @@ module.exports = {
   async cloudAi(h) {
     const p = h.page; await h.open();
     await p.getByRole('tablist', { name: 'Open tabs' }).getByRole('tab', { name: /Assets/ }).click();
-    await p.getByRole('tab', { name: 'Cloud AI' }).click();
+    await p.locator('[data-tour="alex-mode-ask"]').click();
     await p.waitForTimeout(1000);
     await h.shot('cloud-ai');
   },
   async rail(h) {
     const p = h.page; await h.open();
     const rail = p.getByRole('navigation', { name: 'Application' });
-    const btns = [rail.getByRole('button', { name: /^Inbox/ }), rail.getByRole('button', { name: 'Explorer' }), rail.getByRole('button', { name: 'Alex and Cloud AI' }), rail.getByRole('button', { name: 'Configuration' }), rail.getByRole('button', { name: 'Settings' }), rail.getByRole('button', { name: 'Signed-in user' })];
+    const btns = [rail.getByRole('button', { name: /^Inbox/ }), rail.getByRole('button', { name: 'Explorer' }), rail.getByRole('button', { name: 'Alex' }), rail.getByRole('button', { name: 'Configuration' }), rail.getByRole('button', { name: 'Settings' }), rail.getByRole('button', { name: 'Signed-in user' })];
     await h.mark(btns, { pad: 2, label: ['1', '2', '3', '4', '5', '6'] });
     await h.shot('rail');
+  },
+  async configModel(h) {
+    const p = h.page; await h.open();
+    await p.getByRole('navigation', { name: 'Application' }).getByRole('button', { name: /^Configuration/ }).first().click();
+    await p.getByRole('navigation', { name: 'Configuration sections' }).getByRole('button', { name: /AI help/ }).click();
+    await p.waitForTimeout(1200);
+    await h.shot('config-cloud-ai-model');
   },
   async places(h) {
     const p = h.page; await h.open();
