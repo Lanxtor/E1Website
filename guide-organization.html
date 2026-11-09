@@ -30,7 +30,7 @@
           <li><a href="guide-collaboration.html">8. Working together</a></li>
           <li><a href="guide-organization.html" aria-current="page">9. Organization, members and access</a></li>
           <li><a href="guide-library.html">10. Configuration, library and catalogs</a></li>
-          <li><a href="guide-ai.html">11. AI: Alex and Cloud AI</a></li>
+          <li><a href="guide-ai.html">11. AI: Alex</a></li>
           <li><a href="guide-account.html">12. Your account, Academy and website</a></li>
           <li><a href="guide-reviewer.html">13. E1 Reviewer for iPad</a></li>
           <li><a href="guide-features.html">All features</a></li>
@@ -49,7 +49,7 @@
           <li><a href="#org-drawing-roles">Roles on a single drawing: Share and Mark as read-only</a></li>
           <li><a href="#org-refusals">Why a change is refused</a></li>
           <li><a href="#org-groups">Groups</a></li>
-          <li><a href="#org-audit">Audit: what administrators and Cloud AI did</a></li>
+          <li><a href="#org-audit">Audit: what administrators and Alex did</a></li>
           <li><a href="#org-export">Export everything of the organization</a></li>
           <li><a href="#org-trials">Trials and the read-only lock</a></li>
           <li><a href="#org-blocked-domains">Blocked email domains</a></li>
@@ -109,7 +109,7 @@
     </tbody>
   </table></div>
   <p class="g-warn"><span class="ui">Remove</span> on a member acts at once, without asking first. Only an Owner can remove an Owner. Removing an Owner, Administrator or Library administrator may first ask you to <a href="guide-access.html#acc-step-up">confirm it is you</a>.</p>
-  <p class="g-note">When the AI credits are used up the line reads <span class="ui">Cloud AI's AI credits are used up (X of Y). Everything else goes on.</span></p>
+  <p class="g-note">When the AI credits are used up the line reads <span class="ui">The AI credits for Alex’s AI help are used up (X of Y). Alex on its own and everything else go on.</span></p>
   <p class="g-note"><span class="ui">Access</span> holds the roles (<a href="#org-custom-roles">Permission categories and custom roles</a>), the <a href="#org-groups">groups</a>, and <span class="ui">Assignments</span>: every role given in the organization, who has it, where, and until when.</p>
   <p class="g-warn">The Role list gives Owner, Administrator or Member only. The dialog has no place yet to give Library administrator, Catalog maintainer or Engineering standards owner; how these are given today is not yet documented. An invitation always makes the person a Member.</p>
   <p class="g-related">Related: <a href="#org-invitations">Invitations</a> · <a href="#org-administrators">Who administers the organization</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-groups">Groups</a> · <a href="#org-audit">Audit</a> · <a href="#org-export">Export everything…</a></p>
@@ -155,9 +155,9 @@
   <h3>The licenses</h3>
   <ul>
     <li><strong>Editor</strong>: no cap; everything your roles allow.</li>
-    <li><strong>Reviewer</strong>: view, comment, approve branches, export, and use Cloud AI.</li>
+    <li><strong>Reviewer</strong>: view, comment, approve branches, export, and use Alex’s AI help.</li>
     <li><strong>Viewer</strong>: view and export.</li>
-    <li><strong>Student</strong>: like Editor, without Cloud AI and assistants.</li>
+    <li><strong>Student</strong>: like Editor, without Alex’s AI help and assistants.</li>
     <li><strong>Administrator</strong>: organization administration only.</li>
     <li><span class="ui">No license</span>: the person can only view.</li>
   </ul>
@@ -384,7 +384,7 @@
 </section>
 
 <section class="g-feature" id="org-audit">
-  <h2>Audit: what administrators and Cloud AI did</h2>
+  <h2>Audit: what administrators and Alex did</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span class="g-id">ORG-audit</span><span>Roadmap M2.4</span></div>
   <p class="g-summary">The Audit tab lists the organization's important events, such as exports and moderated comments, and a log of what was sent to an AI model.</p>
   <dl class="g-facts">
@@ -595,7 +595,7 @@
     <li><strong>One undo:</strong> <code>"options": {"group": "…"}</code> joins calls into one entry in History.</li>
     <li><strong>Errors:</strong> 401 no valid token; 403 not allowed (the missing permission, or the token is read only or for other projects); 400 invalid input; 404 unknown; 409 changed meanwhile, or a key reused for another request; 422 a rule of the model; 429 too many calls (600 a minute per token).</li>
   </ul>
-  <p class="g-note">A token never carries an Owner or Administrator role: administration is done signed in. Tokens and service accounts are never made with a token, and Cloud AI never makes them. Every creation, revocation and first use from a new address is in the audit; every API call is in the API access log.</p>
+  <p class="g-note">A token never carries an Owner or Administrator role: administration is done signed in. Tokens and service accounts are never made with a token, and Alex never makes them. Every creation, revocation and first use from a new address is in the audit; every API call is in the API access log.</p>
   <h3>Records and other systems' ids</h3>
   <ul>
     <li><strong>Read:</strong> <code>GET /projects</code>, <code>/projects/{id}/objects?class=…</code>, <code>/objects/{id}?include=occurrences,relationships</code> (the object with its <code>rev</code>, its values with units and comments, its catalog source and its ids in other systems), <code>/objects/{id}/relationships</code>, and the rows of a saved query: <code>/projects/{id}/queries/{key}</code>.</li>

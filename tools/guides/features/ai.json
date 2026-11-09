@@ -1,13 +1,15 @@
 [
  {
   "id": "AI-side-panel",
-  "title": "The Alex and Cloud AI panel",
-  "summary": "The right-hand panel holds Alex and Cloud AI, one tab each, and can be hidden and shown from the left rail.",
+  "title": "The Alex panel",
+  "summary": "The right-hand panel is Alex, the one assistant: its badge says Built-in on its own or names the model helping it, and the panel can be hidden and shown from the left rail.",
   "anchor": "ai-side-panel",
   "status": "available",
-  "updated": "2026-11-06",
+  "updated": "2026-11-09",
   "roadmap": [],
-  "checks": [],
+  "checks": [
+   "I9"
+  ],
   "related": [
    "GS-layout",
    "AI-alex",
@@ -15,11 +17,12 @@
   ],
   "roles": "Everyone",
   "training": {
-   "topic": "The Alex and Cloud AI panel",
+   "topic": "The Alex panel",
    "level": "Beginner",
    "minutes": 2
   },
   "screenshots": [
+   "alex-help-off.webp",
    "rail.webp"
   ]
  },
@@ -255,8 +258,8 @@
  },
  {
   "id": "AI-alex-ask-cloud",
-  "title": "Ask Cloud AI about an Alex card",
-  "summary": "Hands an Alex finding to Cloud AI as a ready-written question that you can edit before sending.",
+  "title": "Ask Alex about a card in your own words",
+  "summary": "Puts an Alex finding in your message to Alex as a ready-written question that you can edit before sending; with the help off, it points at “Let Alex get help from” and turns nothing on.",
   "anchor": "ai-alex-ask-cloud",
   "status": "available",
   "since": "2026-11-06",
@@ -268,9 +271,9 @@
    "AI-cloud-ai",
    "AI-calls-alex"
   ],
-  "roles": "Everyone who may use Cloud AI",
+  "roles": "Everyone who may use Alex's AI help",
   "training": {
-   "topic": "A second opinion from Cloud AI",
+   "topic": "Asking Alex about a finding",
    "level": "Beginner",
    "minutes": 2
   },
@@ -393,35 +396,37 @@
  },
  {
   "id": "AI-cloud-ai",
-  "title": "Cloud AI: chat with the project",
-  "summary": "A chat with a language model that answers questions about the project and, in Agent mode, changes it with review and undo.",
+  "title": "Let Alex get help from a model: ask in your own words",
+  "summary": "Ticked, Alex answers questions in your own words with a language model and, in Agent mode, changes the project with review and undo; unticked, the default, Alex works on its own and nothing leaves E1.",
   "anchor": "ai-cloud-ai",
   "status": "available",
   "updated": "2026-11-09",
   "roadmap": [
    "6A-6H"
   ],
-  "checks": [],
+  "checks": [
+   "I9"
+  ],
   "related": [
    "AI-chat-modes",
    "AI-review-first",
    "AI-undo",
    "AI-off"
   ],
-  "roles": "Everyone where Cloud AI is on; changes need an Editor license and a project role that may edit",
+  "roles": "Everyone in an installation with an AI model; changes need an Editor license and a project role that may edit",
   "training": {
-   "topic": "Chatting with Cloud AI",
+   "topic": "Asking Alex in your own words",
    "level": "Beginner",
    "minutes": 5
   },
   "screenshots": [
-   "cloud-ai.webp"
+   "alex-help-on.webp"
   ]
  },
  {
   "id": "AI-chat-modes",
-  "title": "Agent, Ask and Plan: the chat mode",
-  "summary": "Agent edits the project, Ask only answers, and Plan proposes a change that waits for Apply.",
+  "title": "Ask, Agent and Plan: the chat mode",
+  "summary": "At the top of Alex: Ask only answers, Agent edits the project, and Plan proposes a change that waits for Apply.",
   "anchor": "ai-chat-modes",
   "status": "available",
   "since": "2026-11-03",
@@ -437,20 +442,20 @@
    "AI-review-first",
    "AI-undo"
   ],
-  "roles": "Everyone who may use Cloud AI",
+  "roles": "Everyone who may use Alex's AI help",
   "training": {
-   "topic": "Agent, Ask and Plan",
+   "topic": "Ask, Agent and Plan",
    "level": "Beginner",
    "minutes": 4
   },
   "screenshots": [
-   "cloud-ai.webp"
+   "alex-help-on.webp"
   ]
  },
  {
   "id": "AI-review-first",
   "title": "Review changes first: Apply or Discard",
-  "summary": "Cloud AI works on a draft and nothing is stored until you click Apply.",
+  "summary": "Alex works on a draft and nothing is stored until you click Apply.",
   "anchor": "ai-review-first",
   "status": "available",
   "since": "2026-11-02",
@@ -467,9 +472,9 @@
    "AI-held-for-review",
    "AI-undo"
   ],
-  "roles": "Anyone who may let Cloud AI edit",
+  "roles": "Anyone who may let Alex edit with its AI help",
   "training": {
-   "topic": "Reviewing Cloud AI's changes",
+   "topic": "Reviewing Alex's changes",
    "level": "Beginner",
    "minutes": 3
   },
@@ -480,7 +485,7 @@
  {
   "id": "AI-protect-arrangement",
   "title": "Protect the arrangement",
-  "summary": "Cloud AI may add to the drawing but does not move, resize or reroute what is already drawn.",
+  "summary": "Alex may add to the drawing but does not move, resize or reroute what is already drawn.",
   "anchor": "ai-protect-arrangement",
   "status": "available",
   "updated": "2026-11-09",
@@ -490,7 +495,7 @@
    "AI-review-first",
    "AI-chat-modes"
   ],
-  "roles": "Anyone who may let Cloud AI edit",
+  "roles": "Anyone who may let Alex edit with its AI help",
   "training": {
    "topic": "Keeping your layout safe",
    "level": "Beginner",
@@ -520,7 +525,7 @@
   ],
   "roles": "Editor license and a project role that may edit, in every project the change touched",
   "training": {
-   "topic": "Undoing a Cloud AI change",
+   "topic": "Undoing a change Alex made",
    "level": "Beginner",
    "minutes": 2
   },
@@ -541,9 +546,9 @@
    "AI-review-first",
    "AI-undo"
   ],
-  "roles": "Everyone who lets Cloud AI edit",
+  "roles": "Everyone who lets Alex edit with its AI help",
   "training": {
-   "topic": "Safety limits on Cloud AI",
+   "topic": "Safety limits on Alex's AI help",
    "level": "Intermediate",
    "minutes": 2
   },
@@ -552,7 +557,7 @@
  {
   "id": "AI-attachments",
   "title": "Attach files to a message",
-  "summary": "Give Cloud AI a list, a specification or a screenshot; E1 reads the text and sends it with your message.",
+  "summary": "Give Alex a list, a specification or a screenshot; E1 reads the text and sends it with your message.",
   "anchor": "ai-attachments",
   "status": "available",
   "since": "2026-11-03",
@@ -564,13 +569,14 @@
    "AI-cloud-ai",
    "AI-injection-safety"
   ],
-  "roles": "Everyone who may use Cloud AI",
+  "roles": "Everyone who may use Alex's AI help",
   "training": {
-   "topic": "Attaching files to Cloud AI",
+   "topic": "Attaching files for Alex",
    "level": "Beginner",
    "minutes": 3
   },
-  "screenshots": []
+  "screenshots": [],
+  "updated": "2026-11-09"
  },
  {
   "id": "AI-voice",
@@ -587,21 +593,22 @@
    "AI-cloud-ai",
    "WEB-assistant"
   ],
-  "roles": "Everyone who may use Cloud AI",
+  "roles": "Everyone who may use Alex's AI help",
   "training": {
-   "topic": "Talking to Cloud AI",
+   "topic": "Talking to Alex",
    "level": "Beginner",
    "minutes": 2
   },
-  "screenshots": []
+  "screenshots": [],
+  "updated": "2026-11-09"
  },
  {
   "id": "AI-model-menu",
-  "title": "The model chip: which model answers",
-  "summary": "Shows which model answers and where it runs; Editors outside a trial may pick a premium model.",
+  "title": "Which model helps Alex",
+  "summary": "The model beside “Let Alex get help from” and where it runs; Editors outside a trial may pick a premium model.",
   "anchor": "ai-model-menu",
   "status": "available",
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "roadmap": [],
   "checks": [],
   "related": [
@@ -610,7 +617,7 @@
   ],
   "roles": "Everyone sees it; premium models need an Editor license outside a trial",
   "training": {
-   "topic": "Which model answers",
+   "topic": "Which model helps Alex",
    "level": "Intermediate",
    "minutes": 3
   },
@@ -621,10 +628,10 @@
  {
   "id": "AI-model-admin",
   "title": "Choose the installation's model (operators)",
-  "summary": "The installation's operators choose the model everyone uses by default.",
+  "summary": "The installation's operators choose the model Alex gets help from for everyone, in Configuration → Alex’s AI help.",
   "anchor": "ai-model-admin",
   "status": "available",
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "roadmap": [],
   "checks": [],
   "related": [
@@ -633,7 +640,7 @@
   ],
   "roles": "Installation operators (E1_OPERATORS)",
   "training": {
-   "topic": "Choosing the Cloud AI model",
+   "topic": "Choosing the model for Alex's AI help",
    "level": "Advanced",
    "minutes": 2
   },
@@ -644,7 +651,7 @@
  {
   "id": "AI-patterns",
   "title": "Engineering patterns: pump trains, instrument taps, motor feeders",
-  "summary": "Cloud AI draws three common designs correctly and checks and repairs what it drew.",
+  "summary": "Alex, with its AI help, draws three common designs correctly and checks and repairs what it drew.",
   "anchor": "ai-patterns",
   "status": "available",
   "since": "2026-11-05",
@@ -662,7 +669,7 @@
   ],
   "roles": "Anyone who may edit the 2D space",
   "training": {
-   "topic": "Engineering patterns with Cloud AI",
+   "topic": "Engineering patterns with Alex",
    "level": "Intermediate",
    "minutes": 4
   },
@@ -670,8 +677,8 @@
  },
  {
   "id": "AI-calls-alex",
-  "title": "Cloud AI asks Alex",
-  "summary": "Before judging a design, Cloud AI asks Alex to review the 2D space with your company's conventions.",
+  "title": "Alex's review behind the answer",
+  "summary": "Before judging a design, Alex's own review of the sheet runs with your company's conventions, and the model's answer rests on it.",
   "anchor": "ai-calls-alex",
   "status": "available",
   "since": "2026-11-07",
@@ -683,9 +690,9 @@
    "AI-alex-ask-cloud",
    "AI-alex-knowledge"
   ],
-  "roles": "Everyone who may use Cloud AI",
+  "roles": "Everyone who may use Alex's AI help",
   "training": {
-   "topic": "Cloud AI and Alex together",
+   "topic": "Alex's review and the model together",
    "level": "Intermediate",
    "minutes": 2
   },
@@ -694,7 +701,7 @@
  {
   "id": "AI-injection-safety",
   "title": "Text in the project is data, not instructions",
-  "summary": "Cloud AI never follows instructions written in names, notes, attributes or attached files.",
+  "summary": "Alex and its model never follow instructions written in names, notes, attributes or attached files.",
   "anchor": "ai-injection-safety",
   "status": "available",
   "updated": "2026-11-09",
@@ -716,8 +723,8 @@
  },
  {
   "id": "AI-off",
-  "title": "When Cloud AI is off: everything by hand",
-  "summary": "With Cloud AI off or out of credits, you work by hand with the menus, toolbars and right-click menus, and Alex keeps working.",
+  "title": "Without a language model: Alex on its own, everything by hand",
+  "summary": "With no AI model, Alex's AI help switched off or the credits used up, Alex works on its own and you do the rest by hand with the menus, toolbars and right-click menus.",
   "anchor": "ai-off",
   "status": "available",
   "roadmap": [],
@@ -728,11 +735,12 @@
   ],
   "roles": "Everyone",
   "training": {
-   "topic": "Working without Cloud AI",
+   "topic": "Working without a language model",
    "level": "Beginner",
    "minutes": 3
   },
-  "screenshots": []
+  "screenshots": [],
+  "updated": "2026-11-09"
  },
  {
   "id": "AI-mcp",
@@ -784,8 +792,8 @@
  },
  {
   "id": "AI-branch",
-  "title": "Cloud AI in your branch",
-  "summary": "Cloud AI will make its changes in your own branch, and held changes will be temporary branches.",
+  "title": "Alex in your branch",
+  "summary": "Alex, with its AI help, will make its changes in your own branch, and held changes will be temporary branches.",
   "anchor": "ai-branch",
   "status": "planned",
   "roadmap": [
@@ -799,7 +807,7 @@
   ],
   "roles": "To be decided",
   "training": {
-   "topic": "Cloud AI in branches",
+   "topic": "Alex in branches",
    "level": "Advanced",
    "minutes": 3
   },

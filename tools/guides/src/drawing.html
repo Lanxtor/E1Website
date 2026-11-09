@@ -503,7 +503,7 @@
 <section class="g-feature" id="draw-off-page">
   <h2>Off-page connectors and Continue on 2D space</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-off-page</span><span>Roadmap M3.11</span><span>Review check B9</span></div>
-  <p class="g-summary">An off-page connector carries a line on to another 2D space. You link connectors end to end, and one connector may continue on several 2D spaces. Each connector shows where it goes and takes you there with a double-click; Highlight flow and Cloud AI follow the links.</p>
+  <p class="g-summary">An off-page connector carries a line on to another 2D space. You link connectors end to end, and one connector may continue on several 2D spaces. Each connector shows where it goes and takes you there with a double-click; Highlight flow and Alex follow the links.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The symbol <span class="ui">Off-page connector</span> in the Add asset window; right-click a connector → <span class="ui">Connect to off-page connector…</span>, <span class="ui">Continue on 2D space</span> ▸, <span class="ui">Go to …</span> and <span class="ui">Disconnect from …</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings (<span class="ui">Go to …</span> and the double-click work for everyone who can open the 2D space)</dd>
@@ -526,9 +526,9 @@
       <tr><td>11</td><td>Go back to <em>Assets</em>, right-click OPC-999 → <span class="ui">Disconnect from …</span> for each link.</td><td>After the last one, OPC-999 reads "· no partner" again (or pairs by name, if another connector of that name linked to nothing is on another 2D space).</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Two connectors that are linked to nothing still pair by name, as before. A linked connector never pairs by name: it goes only where its links go. <span class="ui">Highlight flow</span> (<a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a>) follows the links onto the other 2D spaces, and so does Cloud AI. The link is the relationship "continues on" between the two connectors; Cloud AI makes and removes it with the <code>relate</code> and <code>unrelate</code> tools and draws a linked connector on another 2D space with <code>continue_on_sheet</code>.</p>
+  <p class="g-note">Two connectors that are linked to nothing still pair by name, as before. A linked connector never pairs by name: it goes only where its links go. <span class="ui">Highlight flow</span> (<a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a>) follows the links onto the other 2D spaces, and so does Alex. The link is the relationship "continues on" between the two connectors; Alex, with its AI help, makes and removes it with the <code>relate</code> and <code>unrelate</code> tools and draws a linked connector on another 2D space with <code>continue_on_sheet</code>.</p>
   <p class="g-warn">The links need project library version 8 or later. With an older project library, <span class="ui">Connect to off-page connector…</span> and <span class="ui">Continue on 2D space</span> are greyed out; the first reads "Connect to off-page connector… (update the project library to version 8)". Update the library first (<a href="guide-library.html#lib-company-library">Company library</a>). <span class="ui">Continue on 2D space</span> is also greyed out when the connector is already on every 2D space of the project.</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-objects.html#obj-relationships">Relationships</a> · <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a> · <a href="guide-drawing.html#draw-pipelines">Pipelines (planned)</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-objects.html#obj-relationships">Relationships</a> · <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a> · <a href="guide-drawing.html#draw-pipelines">Pipelines (planned)</a></p>
 </section>
 
 <section class="g-feature" id="draw-symbol-menu">
@@ -651,7 +651,7 @@
       <tr><td>1</td><td>Point at <span class="ui">Let Alex help</span>.</td><td>The tooltip reads "Let Alex (…) review the drawing as you work and suggest what comes next: local AI, no cloud." with Alex's current skill.</td></tr>
       <tr><td>2</td><td>Click it.</td><td>The button is pressed and reads <span class="ui">Alex is live</span>.</td></tr>
       <tr><td>3</td><td>Place a centrifugal pump.</td><td>Ghost symbols of what usually comes next appear on the 2D space. There is no bar on the 2D space for the offer.</td></tr>
-      <tr><td>4</td><td>In the side panel, open the <span class="ui">Alex</span> tab with <span class="ui">Co-worker</span> pressed.</td><td>Under <span class="ui">Design suggestions</span>, the first card has the badge <span class="ui">After your change</span>, a title such as "P-001: add …", and <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Reject</span> (and <span class="ui">Ask Cloud AI</span> when Cloud AI is set up).</td></tr>
+      <tr><td>4</td><td>In the side panel, open the <span class="ui">Alex</span> tab with <span class="ui">Co-worker</span> pressed.</td><td>Under <span class="ui">Design suggestions</span>, the first card has the badge <span class="ui">After your change</span>, a title such as "P-001: add …", and <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Reject</span> (and <span class="ui">Ask Alex</span> when an AI model is set up).</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Show</span> on the card.</td><td>The suggestion is drawn on the 2D space and the button reads <span class="ui">Hide</span>; clicking it again takes it off.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Apply</span>.</td><td>The ghost symbols are placed as real objects.</td></tr>
       <tr><td>7</td><td>Place another pump, then click <span class="ui">Reject</span> on the new card.</td><td>The offer is dropped and nothing is placed.</td></tr>
@@ -670,20 +670,20 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-patterns</span><span>Roadmap 02.2</span><span>Review checks I7, I8</span></div>
   <p class="g-summary">Engineering patterns draw a whole typical arrangement at once: a redundant pump train, an instrument tap, or a motor feeder. E1 places, routes and checks the pattern, and says what it repaired.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Cloud AI (chat)</dd>
-    <dt>Who</dt><dd>Editor license and a project role that may edit drawings; Cloud AI must be turned on for the chat</dd>
+    <dt>Where</dt><dd>Alex, with <span class="ui">Let Alex get help from</span> ticked (the conversation under its findings)</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings; an AI model must be set up, and <span class="ui">Let Alex get help from</span> ticked</dd>
     <dt>Before you start</dt><dd>A 2D space with a feed line and pumps is open.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>In Cloud AI, ask for "a redundant pump train on the feed line".</td><td>Two pumps side by side, each with an isolation valve before it and a check valve and an isolation valve after it, joined by a header at each end, all pipes. The reply names the pattern and says the check passed, or what it repaired.</td></tr>
+      <tr><td>1</td><td>Ask Alex for "a redundant pump train on the feed line".</td><td>Two pumps side by side, each with an isolation valve before it and a check valve and an isolation valve after it, joined by a header at each end, all pipes. The reply names the pattern and says the check passed, or what it repaired.</td></tr>
       <tr><td>2</td><td>Ask for "a pressure transmitter on Pump1".</td><td>The transmitter is joined to Pump1 by a signal line; no pipe touches it.</td></tr>
       <tr><td>3</td><td>Ask for "a motor for Pump2 fed from the MCC".</td><td>The motor is joined by a cable; no pipe touches it.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="guide-ai.html#ai-cloud-ai">Cloud AI</a> · <a href="guide-drawing.html#draw-predictive">Predictive mode</a></p>
+  <p class="g-related">Related: <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a> · <a href="guide-drawing.html#draw-predictive">Predictive mode</a></p>
 </section>
 
 <section class="g-feature" id="draw-loop-diagram">
@@ -751,7 +751,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-attribute-labels</span><span>Roadmap 21.3</span><span>Review checks L22, L23</span></div>
   <p class="g-summary">A shape can carry labels that show an attribute of the object it draws, for example the design pressure, with its unit. The label always shows the current value: change the value anywhere and every 2D space shows the new one, and so does the PDF. No label text is stored.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>In the symbol designer: the <span class="ui">Label</span> tool and <span class="ui">Label shows</span>. On a placement: ask Cloud AI to hide, show or move a label (set_symbol_label).</dd>
+    <dt>Where</dt><dd>In the symbol designer: the <span class="ui">Label</span> tool and <span class="ui">Label shows</span>. On a placement: ask Alex to hide, show or move a label (set_symbol_label).</dd>
     <dt>Who</dt><dd>Adding labels: whoever may edit the shape (see the symbol designer). Hiding or moving one on a placement: a project role that may edit drawings.</dd>
     <dt>Before you start</dt><dd>Pump1 has a design pressure in (for example 16 bar(g)).</dd>
   </dl>
@@ -764,7 +764,7 @@
       <tr><td>3</td><td>Type P as the prefix and click <span class="ui">Save and use here</span>.</td><td>Under Pump1 the 2D space reads "P 16 bar(g)".</td></tr>
       <tr><td>4</td><td>Change Pump1's design pressure in to 18 bar(g) (its page, a list or the datasheet).</td><td>The label reads "P 18 bar(g)" on every open 2D space, without reloading.</td></tr>
       <tr><td>5</td><td>File → <span class="ui">Export PDF</span>.</td><td>The PDF shows "P 18 bar(g)" as text.</td></tr>
-      <tr><td>6</td><td>Ask Cloud AI: "hide the design pressure label on Pump1".</td><td>The label goes from this placement only; the shape, the object and other placements keep it.</td></tr>
+      <tr><td>6</td><td>Ask Alex: "hide the design pressure label on Pump1".</td><td>The label goes from this placement only; the shape, the object and other placements keep it.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">A value of a restricted attribute is never shown in a label. A label with no value shows nothing.</p>
