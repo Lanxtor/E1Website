@@ -2992,3 +2992,33 @@ code {
   .catalog-filters { margin-right: -16px; padding-right: 16px; }
   .header-cta { padding: 0 12px; }
 }
+
+/* ==========================================================================
+   Get E1: one column. Everything on the page (the four buttons, the Alex
+   bar, the two ways to run E1 and every panel below) shares the same left
+   and right edges, so the page reads as one structure.
+   ========================================================================== */
+.getE1-page { --getE1-col: 1100px; }
+.getE1-page .container { max-width: calc(var(--getE1-col) + 48px); }
+.getE1-page .get-now,
+.getE1-page .ask-box,
+.getE1-page .choice-grid { max-width: none; }
+.getE1-page .page-hero { padding-bottom: 24px; }
+.getE1-page .get-now { margin-top: 36px; }
+.getE1-page .get-btn { padding: 12px 16px; gap: 12px; }
+.getE1-page .get-text small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* The Alex bar: as wide as the buttons, the same height and corners */
+.getE1-page .ask-box { min-height: 68px; margin-top: 12px; padding: 8px 10px 8px 12px; border-radius: 18px; box-shadow: 0 18px 40px -30px rgba(14, 17, 22, 0.45); }
+.getE1-page .ask-send { border-radius: 12px; }
+/* "Two ways to run E1" introduces the two cards right under it */
+.getE1-hero p.getE1-ways { max-width: 760px; margin-top: 64px; font-size: 1.1rem; }
+.getE1-page .choice-grid { margin-top: 24px; gap: 16px; }
+.getE1-page .choice { border-radius: 18px; }
+.getE1-page .saas, .getE1-page .selfhost, .getE1-page .uni { border-radius: 24px; }
+@media (max-width: 640px) {
+  .getE1-page .get-now { margin-top: 22px; }
+  .getE1-page .ask-box { min-height: 60px; padding: 6px 6px 6px 10px; border-radius: 16px; }
+  .getE1-hero p.getE1-ways { margin-top: 40px; font-size: 1.02rem; }
+  .getE1-page .choice-grid { margin-top: 18px; gap: 12px; }
+  .getE1-page .page-hero { padding-bottom: 8px; }
+}
