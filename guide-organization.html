@@ -561,8 +561,8 @@
 
 <section class="g-feature" id="org-tokens">
   <h2>Tokens, service accounts and agents</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">ORG-tokens</span><span>Roadmap 09.5, 19.1</span><span>Review check N1</span></div>
-  <p class="g-summary">Scripts and other systems (an ERP, a procurement tool, an AI agent) use E1 through the API at <code>/api/v1</code>, with an access token. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">ORG-tokens</span><span>Roadmap 09.5, 19.1, 19.2</span><span>Review checks N1, N2</span></div>
+  <p class="g-summary">Scripts and other systems (an ERP, a procurement tool, an AI agent) use E1 through the API at <code>/api/v1</code>, with an access token: every command, and objects as records, found by E1's id or by the other system's. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Account → <span class="ui">Access tokens</span>; <span class="ui">File → Organization… → Service accounts</span></dd>
     <dt>Who</dt><dd>Everyone makes their own tokens; Owners and Administrators manage service accounts. Creating either needs a recent sign-in (your passkey).</dd>
@@ -596,7 +596,13 @@
     <li><strong>Errors:</strong> 401 no valid token; 403 not allowed (the missing permission, or the token is read only or for other projects); 400 invalid input; 404 unknown; 409 changed meanwhile, or a key reused for another request; 422 a rule of the model; 429 too many calls (600 a minute per token).</li>
   </ul>
   <p class="g-note">A token never carries an Owner or Administrator role: administration is done signed in. Tokens and service accounts are never made with a token, and Cloud AI never makes them. Every creation, revocation and first use from a new address is in the audit; every API call is in the API access log.</p>
-  <p class="g-warn">Not built yet: reading resources by URL and external ids, the change feed and webhooks, connections to other systems, sign-in of remote MCP agents with OAuth, and address ranges in the token form (the API takes them).</p>
+  <h3>Records and other systems' ids</h3>
+  <ul>
+    <li><strong>Read:</strong> <code>GET /projects</code>, <code>/projects/{id}/objects?class=…</code>, <code>/objects/{id}?include=occurrences,relationships</code> (the object with its <code>rev</code>, its values with units and comments, its catalog source and its ids in other systems), <code>/objects/{id}/relationships</code>, and the rows of a saved query: <code>/projects/{id}/queries/{key}</code>.</li>
+    <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes); <code>POST /relationships</code>, <code>DELETE /relationships/{id}</code>.</li>
+    <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them under "In other systems".</li>
+  </ul>
+  <p class="g-warn">Not built yet: the change feed and webhooks, connections to other systems, sign-in of remote MCP agents with OAuth, and address ranges in the token form (the API takes them).</p>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-sso">Company single sign-on</a></p>
 </section>
 
