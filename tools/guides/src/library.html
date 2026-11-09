@@ -593,7 +593,7 @@
 
 <section class="g-feature" id="lib-package-licensing">
   <h2>Content package licensing and updates</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">LIB-package-licensing</span><span>Roadmap 04.3, 04.5</span><span>Review check L28</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">LIB-package-licensing</span><span>Roadmap 04.3, 04.5</span><span>Review checks L28, L29</span></div>
   <p class="g-summary">Your subscription says which content packages your organization may use. Today every subscription includes all of E1's packages. When a package is not licensed (or, for a package licensed per person, not assigned to you), its objects stay visible on drawings, in lists and on their pages, and can be exported in every format, but they cannot be changed, created, deleted, related or imported into. Your data is never held hostage.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File → Organization… → Content packages</span>; an object's page; <span class="ui">Project settings → Content packages</span> ("not licensed")</dd>
@@ -610,7 +610,17 @@
       <tr><td>4</td><td>Try to change it anyway, from a list, a drawing or Cloud AI.</td><td>Refused with the same reason. Exporting it (Excel, PDF) works.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Content package updates (installing a new version of a package into a project) come next; <span class="ui">Add a content package</span> stays greyed out until then. Trials of a single package and packages in license files are not built yet.</p>
+  <h3>Take a content package update</h3>
+  <p>A project stays on the E1 library version it reads until you take a newer one: a new version of Core, Electrical foundation, Plant engineering or CFIHOS never changes a project by itself.</p>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Company library</span>.</td><td>When a newer E1 library version exists, <span class="ui">Updates available in this project</span> lists <strong>Content packages</strong>: "E1 library version 8 → 9 (the project keeps version 8 until you take it)", and per package its versions and what changed, for example "Electrical foundation 1.1.0 → 1.2.0 · 13 classes added: Transformer, Switchgear, …".</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Preview package update</span>.</td><td>What moving would do. If the version lacks a class or relationship type the project uses (only when going back to an earlier one), it is refused and the objects are named. Nothing has changed yet.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Update to version 9</span>.</td><td>The project reads the new versions: the new classes, attributes and shapes are offered at once. Existing objects keep their class versions; a class with a new version is then listed above it with <span class="ui">Preview upgrade</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Cloud AI previews and takes the update with <code>update_content_packages</code>, and can keep a project on an earlier version (<code>version</code>). <span class="ui">Add a content package</span> (a package E1 does not ship) stays greyed out. Trials of a single package and packages in license files are not built yet.</p>
   <p class="g-related">Related: <a href="#lib-content-packages">Content packages</a> · <a href="#lib-package-switching">Switching packages on and off</a></p>
 </section>
 
