@@ -249,10 +249,15 @@
 
   /** The release manifest of the download area. */
   E1.releases = function () {
-    return fetch(config.releases || "assets/data/releases.json", { cache: "no-cache" }).then(function (res) {
-      if (!res.ok) throw new Error("No release manifest");
-      return res.json();
-    });
+    var local = "assets/data/releases.json";
+    function get(url) {
+      return fetch(url, { cache: "no-cache" }).then(function (res) {
+        if (!res.ok) throw new Error("No release manifest");
+        return res.json();
+      });
+    }
+    var url = config.releases || local;
+    return url === local ? get(local) : get(url).catch(function () { return get(local); });
   };
 
   /* A hint for the header only ("Account" instead of "Log in"); never trusted. */

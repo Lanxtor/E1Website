@@ -11,7 +11,9 @@
  * appUrl    Where "Open E1 in the browser" goes. Usually the same as apiBase.
  *
  * releases  The release manifest the download area reads (see
- *           docs/AZURE-INTEGRATION.md, "Downloads").
+ *           docs/AZURE-INTEGRATION.md, "Downloads"): releases.json in the
+ *           downloads storage, written by E1's macOS build workflow. When it
+ *           cannot be read, the copy in assets/data/releases.json is shown.
  *
  * siteUrl   The public address of this website, without a trailing slash,
  *           for example "https://www.lanxtor.com". Certificate links that
@@ -31,7 +33,7 @@
 window.E1_CONFIG = {
   apiBase: "https://app.lanxtor.com",
   appUrl: "https://app.lanxtor.com",
-  releases: "assets/data/releases.json",
+  releases: "https://e1downloads.blob.core.windows.net/releases/releases.json",
   siteUrl: "",
   linkedinOrgId: ""
 };
