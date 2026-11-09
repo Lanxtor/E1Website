@@ -200,8 +200,8 @@
 
 <section class="g-feature" id="prj-search">
   <h2>Search the explorer</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">PRJ-search</span><span>Roadmap 07.1</span></div>
-  <p class="g-summary">The explorer search filters the tree to the rows whose name or attribute values match what you type, and also finds tags, names and line numbers in every project you may open, even ones that are not expanded.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">PRJ-search</span><span>Roadmap 07.1</span></div>
+  <p class="g-summary">The explorer search filters the tree to the rows whose name or attribute values match what you type, and also finds objects by tag, name, line number or any attribute value in every project you may open, even ones that are not expanded. A value with a unit is found whatever unit it was entered in: <code>24 volt</code> finds 24 V and 0.024 kV.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer header → <span class="ui">Search</span> (magnifier)</dd>
     <dt>Who</dt><dd>Anyone who can open the project</dd>
@@ -211,15 +211,16 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Search</span> in the explorer header.</td><td>A box "Search tags and names" appears under the header and has the focus.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Search</span> in the explorer header.</td><td>A box "Search tags, names and values" appears under the header and has the focus.</td></tr>
       <tr><td>2</td><td>Type <code>pump2</code>.</td><td>The tree shows Pump2; Pump1 and other rows that do not match are hidden. A row also matches when one of its attribute values contains the text.</td></tr>
       <tr><td>3</td><td>Wait a moment.</td><td>A list "Found in the projects" shows the matches with tag, name and project. With none it says "Nothing found in the projects".</td></tr>
-      <tr><td>4</td><td>Click a match in that list.</td><td>The object opens.</td></tr>
-      <tr><td>5</td><td>Type a word that matches nothing, such as <code>xyzzy</code>.</td><td>The tree says "No matches".</td></tr>
-      <tr><td>6</td><td>Press <kbd>Esc</kbd>.</td><td>The box closes and the whole tree is back. Clicking <span class="ui">Search</span> again does the same.</td></tr>
+      <tr><td>4</td><td>Type a value instead, such as <code>SS316</code> or <code>24 volt</code>.</td><td>"Found in the projects" lists the objects with that value, each with the value that matched, such as "Rated voltage: 24 V". A number with a unit finds the same quantity in any unit of its kind (24 V, 0.024 kV).</td></tr>
+      <tr><td>5</td><td>Click a match in that list.</td><td>The object opens.</td></tr>
+      <tr><td>6</td><td>Type a word that matches nothing, such as <code>xyzzy</code>.</td><td>The tree says "No matches".</td></tr>
+      <tr><td>7</td><td>Press <kbd>Esc</kbd>.</td><td>The box closes and the whole tree is back. Clicking <span class="ui">Search</span> again does the same.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The project-wide list starts from two typed characters.</p>
+  <p class="g-note">The project-wide list starts from two typed characters and shows the 20 best matches of all projects: tags and names first, then values. The tree itself filters only the rows the explorer has loaded; "Found in the projects" searches every object.</p>
   <p class="g-related">Related: <a href="#prj-explorer-header">Explorer header</a></p>
 </section>
 
