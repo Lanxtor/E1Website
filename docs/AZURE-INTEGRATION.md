@@ -108,7 +108,7 @@ For `/auth/me`, `/auth/switch`, `/auth/logout`, `/api/account/*` and `/api/commu
 
 ## 4. Downloads
 
-`assets/data/releases.json` lists the installers per platform (Windows, macOS, Linux), each with `url`, `size` and `sha256`. A file without a `url` shows *Coming soon*. The download page and the account page's Downloads section both read it and put the visitor's own system first.
+`assets/data/releases.json` lists the installers per platform (Windows, macOS, Linux), each with `url`, `size` and `sha256`. A file without a `url` shows *Coming soon*. The iPad app (E1 Reviewer) is listed as `ipad` with a `store` link instead of files: once it is in the App Store, put its App Store address in `store.url` and the button **E1 Reviewer for iPad** at the top of Get E1 opens it (until then it reads *App Store · Coming soon*). The download page and the account page's Downloads section both read it and put the visitor's own system first.
 
 When the release pipeline exists (`commercial-readiness.md` §5.4), it uploads the signed installers to a public Blob Storage container behind Azure Front Door or the CDN (for example `https://downloads.<domain>/e1/<version>/…`) and writes this file in the same step. The website needs no change for a new release.
 

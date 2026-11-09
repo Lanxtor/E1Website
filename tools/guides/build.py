@@ -34,7 +34,7 @@ STATUS = {
     "preview": "Preview data only",
     "parked": "Parked",
 }
-CSS_V = "2"
+CSS_V = "3"
 
 
 def read(path):
@@ -97,7 +97,7 @@ def page(title, description, body, toc, crumbs):
   <meta name="description" content="{desc}">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=76">
+  <link rel="stylesheet" href="assets/css/styles.css?v=78">
   <link rel="stylesheet" href="assets/css/guides.css?v={css}">
 </head>
 <body>

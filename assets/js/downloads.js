@@ -75,14 +75,26 @@
       mount.innerHTML = keys.map(function (k) { return card(k, manifest.platforms[k], manifest.version, k === mine); }).join("");
     });
 
-    // The quick buttons at the top of Get E1: the first published file of each
-    // system downloads straight away; a system with none reads "Coming soon".
+    // The quick buttons at the top of Get E1. A desktop system downloads its
+    // first published file straight away; an app-store app ("store") opens
+    // its store page. Anything not published yet reads "Coming soon".
     document.querySelectorAll("[data-get-os]").forEach(function (btn) {
       var platform = manifest.platforms && manifest.platforms[btn.getAttribute("data-get-os")];
       if (!platform) return;
-      var file = (platform.files || []).filter(function (f) { return f.url; })[0];
+      var store = platform.store && platform.store.url ? platform.store : null;
+      var file = store ? null : (platform.files || []).filter(function (f) { return f.url; })[0];
       var meta = btn.querySelector("[data-get-meta]");
-      if (file) {
+      btn.removeAttribute("download");
+      btn.removeAttribute("target");
+      btn.removeAttribute("rel");
+      if (store) {
+        btn.href = store.url;
+        btn.target = "_blank";
+        btn.rel = "noopener";
+        btn.removeAttribute("aria-disabled");
+        btn.classList.remove("is-soon");
+        if (meta) meta.textContent = T("Download on the App Store");
+      } else if (file) {
         btn.href = file.url;
         btn.setAttribute("download", "");
         btn.removeAttribute("aria-disabled");
@@ -90,11 +102,10 @@
         if (file.sha256) btn.title = "SHA-256 " + file.sha256;
         if (meta) meta.textContent = file.label + (file.size ? " · " + size(file.size) : "");
       } else {
-        btn.href = "#download";
-        btn.removeAttribute("download");
+        btn.href = btn.getAttribute("data-soon-href") || "#download";
         btn.setAttribute("aria-disabled", "true");
         btn.classList.add("is-soon");
-        if (meta) meta.textContent = T("Coming soon");
+        if (meta) meta.textContent = platform.store ? platform.store.label + " · " + T("Coming soon") : T("Coming soon");
       }
     });
     if (mine) {

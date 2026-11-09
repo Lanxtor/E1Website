@@ -8,7 +8,8 @@
   gap: 48px;
   align-items: start;
 }
-@media (max-width: 960px) { .guide-layout { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 960px) { .guide-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+.guide-main, .guide-toc { min-width: 0; overflow-wrap: break-word; }
 
 .guide-toc {
   position: sticky;

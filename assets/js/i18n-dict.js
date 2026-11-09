@@ -97,7 +97,8 @@ window.E1_I18N_DICT = {
   "How can a university use E1 in a course?": "Wie kann eine Hochschule E1 in einem Kurs nutzen?",
   "How do I get started?": "Wie fange ich an?",
   "How can I talk to sales?": "Wie erreiche ich den Vertrieb?",
-  "How do I get support?": "Wie bekomme ich Support?"
+  "How do I get support?": "Wie bekomme ich Support?",
+  "Download on the App Store": "Laden im App Store"
  },
  "fr": {
   "Home": "Accueil",
@@ -195,7 +196,8 @@ window.E1_I18N_DICT = {
   "How can a university use E1 in a course?": "Comment une université peut-elle utiliser E1 dans un cours ?",
   "How do I get started?": "Comment démarrer ?",
   "How can I talk to sales?": "Comment contacter l'équipe commerciale ?",
-  "How do I get support?": "Comment obtenir de l'aide ?"
+  "How do I get support?": "Comment obtenir de l'aide ?",
+  "Download on the App Store": "Télécharger dans l’App Store"
  },
  "es": {
   "Home": "Inicio",
@@ -293,7 +295,8 @@ window.E1_I18N_DICT = {
   "How can a university use E1 in a course?": "¿Cómo puede una universidad usar E1 en un curso?",
   "How do I get started?": "¿Cómo empiezo?",
   "How can I talk to sales?": "¿Cómo hablo con ventas?",
-  "How do I get support?": "¿Cómo obtengo soporte?"
+  "How do I get support?": "¿Cómo obtengo soporte?",
+  "Download on the App Store": "Descargar en el App Store"
  },
  "no": {
   "Home": "Hjem",
@@ -391,6 +394,7 @@ window.E1_I18N_DICT = {
   "How can a university use E1 in a course?": "Hvordan kan et universitet bruke E1 i et kurs?",
   "How do I get started?": "Hvordan kommer jeg i gang?",
   "How can I talk to sales?": "Hvordan kan jeg snakke med salg?",
-  "How do I get support?": "Hvordan får jeg brukerstøtte?"
+  "How do I get support?": "Hvordan får jeg brukerstøtte?",
+  "Download on the App Store": "Last ned fra App Store"
  }
 };
