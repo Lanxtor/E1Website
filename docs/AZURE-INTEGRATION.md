@@ -133,3 +133,29 @@ Courses, progress, assessments and public certificates are served by the E1 serv
 3. Moderation of the board: who the moderators are, and whether the example requests in `board.js` should be posted on the live board at launch.
 4. Storage quota per plan, and whether AI is shown as credits or tokens until credits exist.
 5. Training: which courses are included in which plans, prices, and video hosting (`docs/TRAINING.md` §7).
+
+## 7. Go-live, environments and renewals (downloads)
+
+Notes kept for the day the site goes live and for when E1 gets separate dev and production environments (the owner's request, 2026-11-09).
+
+**Going live (preview.lanxtor.com → lanxtor.com).**
+
+- CORS on the storage account `e1downloads` (Settings → Resource sharing (CORS) → Blob service) lists `https://www.lanxtor.com`, `https://lanxtor.com` and `https://preview.lanxtor.com`. Going live on lanxtor.com needs no change. **Any other address the site is served from** (a new domain, a dev site, Azure's own `*.azurestaticapps.net` address) must be added there, or its download page falls back to the copy in `assets/data/releases.json`.
+- `connect-src` in `staticwebapp.config.json` allows `https://e1downloads.blob.core.windows.net`. A custom download domain (for example `downloads.lanxtor.com` through Front Door) must be added there and in `config.js` (`releases`), and its URLs end up in new releases only.
+- Remove `https://preview.lanxtor.com` from CORS only once the preview site is retired.
+
+**Two environments (dev and production).**
+
+- Today there is one downloads storage: stable releases (`e1/<version>/`, `releases.json`, shown on the site) and test builds (`e1/dev/<version>/`, `dev.json`, not shown) side by side. When production and dev are separated, decide whether dev builds move to their own storage account; then the dev site's `config.js` and that account's CORS must name each other.
+- A dev build and a stable build are the same app (`com.e1.app`): installing one replaces the other on a Mac. Separate side-by-side apps need their own app id and name for dev builds.
+- Which server an installed app connects to is chosen in the app (*Connect E1 to its server*), not by the download.
+
+**Renewals: put these in the calendar.**
+
+| What | Expires | Where it is used | Renew |
+|---|---|---|---|
+| SAS token `E1_DOWNLOADS_SAS` (write to `e1downloads/releases`) | 2027-11-09 | GitHub secret in `Lanxtor/E1`, used by the macOS build | Container `releases` → Shared access tokens (Read, Add, Create, Write), then update the secret |
+| Developer ID Application certificate, Lanxtor, LLC (6M7JTM78L2) | 2027-12-09 | Login keychain of the build Mac | developer.apple.com → Certificates, new CSR; already installed apps keep working |
+| App Store Connect API key *E1 Notarization* (44LS7N994S) | does not expire | notarytool profile `E1-notary` on the build Mac | Revoke and recreate only if it leaks |
+
+**Clean-up.** `e1/0.1.0/E1-0.1.0-arm64.dmg` does not start (missing files, fixed in 0.1.1) and can be deleted. Test builds under `e1/dev/` pile up daily; a lifecycle rule (storage account → Data management → Lifecycle management: delete blobs with prefix `releases/e1/dev/` older than 14 days) keeps them in check.
