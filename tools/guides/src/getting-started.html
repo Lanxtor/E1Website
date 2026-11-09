@@ -413,7 +413,7 @@
     <li><strong>Save state:</strong> <span class="ui">Loading</span>, <span class="ui">Saving…</span>, <span class="ui">Saved</span>, <span class="ui">Save failed</span>, <span class="ui">Changed elsewhere — reloaded</span> or <span class="ui">Change refused</span>. A failure is red, and its reason is shown next to it and on hover.</li>
     <li><strong>Name</strong> of the selected item.</li>
     <li><strong>Impact</strong> after an edit on the drawing, for example "Connected: P1, T1 and 3 lines". Hover it to see each symbol and line. It stays until your next edit.</li>
-    <li><strong>Units chip</strong> (<span class="ui">m</span>). See <a href="#gs-units">Units of measurement</a>.</li>
+    <li><strong>Unit system</strong> of the project (<span class="ui">MET</span>, <span class="ui">Imperial</span>, <span class="ui">SI</span>, a company system, or <span class="ui">Units</span> when none is chosen); a click opens Project settings. See <a href="#gs-units">Units of measurement</a>.</li>
     <li><strong>Appearance chip</strong> <span class="ui">Dark</span> or <span class="ui">Light</span>.</li>
     <li><strong>Store:</strong> where your projects are kept. See <a href="guide-access.html#acc-store">Which store E1 runs on</a>.</li>
   </ol>
@@ -607,7 +607,6 @@
       <tr><td><span class="ui">New branch</span> in the Branches section's toolbar, and right-click <span class="ui">Branches</span> → <span class="ui">New branch</span></td><td>SECT-06 New branch</td><td>M8</td></tr>
       <tr><td>The Revisions section's filter <span class="ui">All</span> / <span class="ui">Drawings</span> / <span class="ui">Lists</span> / <span class="ui">Datasheets</span> (only the button label changes)</td><td>SECT-12 Section filters</td><td>M4</td></tr>
       <tr><td>The Branches section's filter <span class="ui">All</span> / <span class="ui">Procurement</span> / <span class="ui">Construction</span></td><td>SECT-12 Section filters</td><td>M4</td></tr>
-      <tr><td>The status bar's units chip → <span class="ui">Meters</span> / <span class="ui">Millimeters</span> / <span class="ui">Inches</span> / <span class="ui">Feet</span></td><td>UNIT-01 Units of measurement</td><td>M5</td></tr>
       <tr><td>The green dot titled "Open branch" on the Branches section in the explorer</td><td>TREE-05 Open branch</td><td>M8</td></tr>
       <tr><td>An object's <span class="ui">Deep view</span> tab</td><td>ATTR-04</td><td>M4</td></tr>
     </tbody>
@@ -619,23 +618,22 @@
 
 <section class="g-feature" id="gs-units">
   <h2>Units of measurement</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span class="g-id">GS-units</span><span>Roadmap 01.2b</span></div>
-  <p class="g-summary">The units chip in the status bar is meant to choose the units E1 shows lengths in. Today it only changes the chip and opens Under construction; no value is converted.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">GS-units</span><span>Roadmap 01.2b</span><span>Review check L26</span></div>
+  <p class="g-summary">The status bar shows the unit system of the project you are working in: MET, Imperial, SI, or a company system. A click opens Project settings, where it is chosen.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Status bar → the units chip <span class="ui">m</span></dd>
-    <dt>Who</dt><dd>Everyone</dd>
-    <dt>Before you start</dt><dd>E1 is open.</dd>
+    <dt>Where</dt><dd>Status bar → the unit system chip</dd>
+    <dt>Who</dt><dd>Everyone; choosing the system needs the Project administrator role</dd>
+    <dt>Before you start</dt><dd>Something in a project is selected.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click the chip <span class="ui">m</span>.</td><td>A menu <span class="ui">Units</span> offers <span class="ui">Meters</span>, <span class="ui">Millimeters</span>, <span class="ui">Inches</span> and <span class="ui">Feet</span>.</td></tr>
-      <tr><td>2</td><td>Choose <span class="ui">Millimeters</span>.</td><td>The chip reads <span class="ui">mm</span> and Under construction opens at UNIT-01 Units of measurement, planned in M5. No value in the project changes.</td></tr>
+      <tr><td>1</td><td>Select something in a project.</td><td>The chip reads the project's unit system, or <span class="ui">Units</span> when none is chosen yet.</td></tr>
+      <tr><td>2</td><td>Click the chip.</td><td>Project settings opens; its <span class="ui">Units</span> card sets the system.</td></tr>
     </tbody>
   </table></div>
-  <div class="g-dev"><p><strong>Planned (roadmap 01.2b, milestone M5).</strong> Units of measurement: values are shown and entered in the units you choose. Until then, attribute values keep the units of the project.</p></div>
-  <p class="g-related">Related: <a href="#gs-status-bar">The status bar</a> · <a href="#gs-under-construction">Under construction</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
+  <p class="g-related">Related: <a href="#gs-status-bar">The status bar</a> · <a href="guide-library.html#lib-units">Unit systems</a> · <a href="guide-objects.html#obj-units">Entering values and units</a></p>
 </section>
 
 <section class="g-feature" id="gs-messages">

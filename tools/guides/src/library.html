@@ -536,15 +536,34 @@
 
 <section class="g-feature" id="lib-units">
   <h2>Units of measurement</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-units</span><span>Roadmap 01.2b</span></div>
-  <p class="g-summary">E1 will work in real units of measurement throughout, and let you change the units shown.</p>
-  <p class="g-dev">Planned in milestone M5 Library lifecycle (stage 01.2b), not started.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Enter and see values in real units of measurement.</li>
-    <li>Change the units shown.</li>
-  </ul>
-  <p class="g-related">Related: <a href="guide-objects.html#obj-attributes">Fill in attributes</a> · <a href="#lib-attributes">Attributes</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">LIB-units</span><span>Roadmap 01.2b</span><span>Review check L26</span></div>
+  <p class="g-summary">Every unit group, unit and conversion factor comes from one table, the owner's unit table checked against the standards: 101 unit groups and 1059 units, each group with its default unit in MET (metric), Imperial and SI. A project chooses one unit system; a company can make its own system from one of the three.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Project settings… → Units</span> (also Configuration → Project settings); Configuration → <span class="ui">Company library</span> → New: <span class="ui">Unit system</span></dd>
+    <dt>Who</dt><dd>Project administrator (the project's unit system); Library administrator (company unit systems)</dd>
+    <dt>Before you start</dt><dd>A project is open.</dd>
+  </dl>
+  <h3>Choose the project's unit system</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">File → Project settings…</span>.</td><td>The <span class="ui">Units</span> card shows <span class="ui">Unit system</span>: "Not chosen (each attribute's own unit)" in a new project.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Imperial</span>.</td><td>It is saved at once; the status bar reads <span class="ui">Imperial</span>. A new value now takes the Imperial unit of its group (ft, psi, °F, ft³/h, …), and that unit is first in every drop-down.</td></tr>
+      <tr><td>3</td><td>Look at a value entered earlier.</td><td>It keeps its unit and number: choosing a system converts nothing.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Make a company unit system</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In Configuration → <span class="ui">Company library</span>, set <span class="ui">New</span> to <span class="ui">Unit system</span>, name it "SI for ACME" and set <span class="ui">Based on</span> to <span class="ui">SI</span>.</td><td><span class="ui">Library</span> is fixed to Company: a unit system is for every project, never one project only.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Change a unit group</span>; choose <span class="ui">Pressure</span>, <span class="ui">Default</span> <code>bar</code>, and <span class="ui">Hidden</span> <code>psi</code>.</td><td>The row lists the change. Other groups follow SI.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Save draft</span>, then <span class="ui">Publish</span> on its row.</td><td>The row reads Unit system, Version 1. Project settings → Units now offers "SI for ACME (based on SI)".</td></tr>
+      <tr><td>4</td><td>Choose it for a project and enter a new pressure.</td><td>The pressure takes <code>bar</code>; <code>psi</code> is not in the drop-down. A value that already had psi keeps it, marked "(hidden)", until it is changed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A company system only changes default units and hides units: it never adds a unit or a factor. A default may not be hidden, and every group keeps at least one unit shown; Save draft says what is wrong. A new quantity attribute in the company library takes a <span class="ui">Unit group</span> and a <span class="ui">Unit</span> of that group, both chosen from lists.</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-units">Entering values and units</a> · <a href="guide-objects.html#obj-attributes">Fill in attributes</a> · <a href="#lib-attributes">Attributes</a> · <a href="#lib-company-library">Company library</a></p>
 </section>
 
 <section class="g-feature" id="lib-package-switching">
