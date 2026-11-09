@@ -393,7 +393,7 @@
     <li><strong>Plant engineering</strong> (needs Core and Electrical foundation): equipment, valves, nozzles, instrumentation and control with ISO 10628-2 symbols; from 1.2.0 the ISA 5.1 symbols, the ISA tag rule and the line list attributes.</li>
     <li><strong>CFIHOS</strong> (needs Core, Electrical foundation and Plant engineering 1.1): 847 tag classes, 759 equipment classes, 1388 properties as attributes and 367 pick lists.</li>
   </ul>
-  <p class="g-warn">The package switches already work, but the check of what still uses a package is not built yet: switching a package off does not warn you about objects of its classes (see <a href="#lib-package-switching">Switching packages on and off</a>). <span class="ui">Add a content package</span> is greyed out; it comes with content package updates. Without the workspace server, a switch answers "Switching packages needs the workspace server."</p>
+  <p class="g-warn">A package still in use is not switched off: E1 lists what uses it (see <a href="#lib-package-switching">Switching packages on and off</a>). <span class="ui">Add a content package</span> is greyed out; it comes with content package updates. Without the workspace server, a switch answers "Switching packages needs the workspace server."</p>
   <p class="g-related">Related: <a href="#lib-project-settings">Project settings</a> · <a href="#lib-object-classes">Object classes</a> · <a href="#lib-shapes">Shapes</a> · <a href="#lib-package-licensing">Package licensing and updates</a></p>
 </section>
 
@@ -568,15 +568,26 @@
 
 <section class="g-feature" id="lib-package-switching">
   <h2>Switching content packages on and off</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-package-switching</span><span>Roadmap 04.2</span></div>
-  <p class="g-summary">Switching a content package on or off in project settings will make its classes and symbols appear or disappear in the project, with a check of what still uses the package before it is switched off.</p>
-  <p class="g-dev">Planned in milestone M5 Library lifecycle (stage 04.2). The switches in <a href="#lib-content-packages">Project settings → Content packages</a> already exist, but the stage is not finished.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Switch a content package on or off in project settings and see its classes and symbols appear or disappear.</li>
-    <li>Be told what in the project still uses a package before you switch it off.</li>
-  </ul>
-  <p class="g-warn">Until this stage is done, do not expect an "in use" check when you switch a package off.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">LIB-package-switching</span><span>Roadmap 04.2</span><span>Review check L27</span></div>
+  <p class="g-summary">Switch on only the content packages a project works with. A package that something in the project still uses is never switched off: E1 lists what uses it and changes nothing. Once a package is off, its classes and shapes are no longer offered, and nothing of it can be created or placed. Switching off never deletes anything.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Project settings… → Content packages</span> (also Configuration → Project settings)</dd>
+    <dt>Who</dt><dd>Project administrator</dd>
+    <dt>Before you start</dt><dd>A project is selected.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In a project with pumps on a sheet, switch off <span class="ui">Plant engineering</span>.</td><td>A card reads "Plant engineering is still used (with CFIHOS, which needs it): nothing was switched off or deleted." and lists the objects (for example "Pump1 (Centrifugal pump)"), the placements on sheets, and any company or project class that is a kind of one of its classes.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Keep the package</span>.</td><td>The card closes; the switch stays on.</td></tr>
+      <tr><td>3</td><td>In a new, empty project, switch off <span class="ui">Plant engineering</span> and confirm that CFIHOS goes with it.</td><td>Both switches are off: "Plant engineering is switched off."</td></tr>
+      <tr><td>4</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span>.</td><td>Only classes of the packages that are on are offered: no pumps or valves, but the Electrical foundation classes.</td></tr>
+      <tr><td>5</td><td>Open a sheet and the symbol picker.</td><td>Plant's shapes are not in it. Placing one by another way (Cloud AI, the API) is refused: "Content package Plant engineering is switched off in this project (Project settings → Content packages)."</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Switching a package on brings what it needs (it asks first); switching one off takes what needs it. Core ("All content") is always on. Your company's and your project's own libraries are never switched. Cloud AI checks with <code>package_usage</code> what still uses a package, and switches with <code>set_packages</code>.</p>
+  <p class="g-warn">Template projects and project types that preselect packages for a new project are not built yet (which ones should exist is still an open question); a new project starts with every package on. Hiding a package in your own palettes is not built yet either.</p>
   <p class="g-related">Related: <a href="#lib-content-packages">Content packages</a> · <a href="#lib-project-settings">Project settings</a></p>
 </section>
 
