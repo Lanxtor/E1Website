@@ -98,7 +98,7 @@ It fails on a duplicate feature id, an unknown status, a feature whose section i
 - **Honest status.** Describe what E1 does today. What is not built yet is marked *Under development* or *Planned*, and a limitation of today's version goes in a `g-warn` box. Never describe a planned feature as available (manual-review check W3).
 - **Links between features:** every feature links the features it depends on and the ones that follow from it (`related`, and a *Related* line). Use the feature ids.
 - **Plain English**, short sentences, no internal terms (no file names, milestone codes only in the metadata line).
-- **No command palette.** The command palette (Ctrl+K) is being removed from E1 (owner's decision, 2026-11-07): E1 must be simple to use, and the guides describe only the menus, toolbars, right-click menus and panels. Never mention the palette or Ctrl+K, never use it in a step, and never show it in a picture. A feature that can only be reached through the palette is described as having no button on the screen yet.
+- **No command palette, three menus.** E1 has no command palette (Ctrl+K) and only the menus File, Edit and Help (owner's decision, 2026-11-07): E1 must be simple to use, and everything else is where the work is, on the toolbars, the right-click menus, the rail and the buttons of each page. Never mention the palette or Ctrl+K, and never send the reader to a View, Insert or Data menu: say where the control is on the screen. A feature with no control on the screen is described as having no button on the screen yet.
 
 ## Screenshots
 
@@ -118,16 +118,15 @@ Each scenario file (`fix`, `shell`, `objects`, `more`, `web`) is a list of named
 
 ### Rules for every screenshot
 
-`run.cjs` applies the first three to every picture by itself.
+`run.cjs` applies the first two to every picture by itself.
 
-1. **The palette is taken off the screen** before the picture: its menu item, its keyboard shortcut row, its button in Cloud AI and its mention in texts.
-2. **The pointer is moved out of the way**, so no menu item or button shows a hover highlight. A submenu that only stays open under the pointer is taken with `keepPointer`.
-3. **Crops are tight:** a menu or dialog is cut 1–4 px around its own border, so no half rows of the window behind it show.
-4. **Shown at its real size.** The pictures are taken at device scale 2; `build.py` sets each figure's width to half the picture's width (a full window to 1080 px) and never taller than 720 px, so a narrow crop such as a menu or the left rail is never blown up across the page. Very narrow or very thin parts of the window (the left rail, the status bar) are not cropped on their own: show the rail as the whole window with its buttons framed and numbered, and the status bar as its two ends stacked (`make-statusbar.py`).
-5. **One clean state:** no highlight, banner or dialog left over from an earlier step, no error message from the local preview (for example "could not be reached"), no cookie banner, and on the website no floating *Ask Alex* button over the content.
-6. **Lists show meaningful rows:** sort or scroll so the first rows have names.
-7. **The picture matches its caption and alt text**, including counts and names. Leave times out of alt texts.
-8. **Look at every picture before it is published**, and check the published pages: every image loads, its `width` and `height` match the file, it is not enlarged, and it is not taller than 720 px.
+1. **The pointer is moved out of the way**, so no menu item or button shows a hover highlight. A submenu that only stays open under the pointer is taken with `keepPointer`.
+2. **Crops are tight:** a menu or dialog is cut 1–4 px around its own border, so no half rows of the window behind it show.
+3. **Shown at its real size.** The pictures are taken at device scale 2; `build.py` sets each figure's width to half the picture's width (a full window to 1080 px) and never taller than 720 px, so a narrow crop such as a menu or the left rail is never blown up across the page. Very narrow or very thin parts of the window (the left rail, the status bar) are not cropped on their own: show the rail as the whole window with its buttons framed and numbered, and the status bar as its two ends stacked (`make-statusbar.py`).
+4. **One clean state:** no highlight, banner or dialog left over from an earlier step, no error message from the local preview (for example "could not be reached"), no cookie banner, and on the website no floating *Ask Alex* button over the content.
+5. **Lists show meaningful rows:** sort or scroll so the first rows have names.
+6. **The picture matches its caption and alt text**, including counts and names. Leave times out of alt texts.
+7. **Look at every picture before it is published**, and check the published pages: every image loads, its `width` and `height` match the file, it is not enlarged, and it is not taller than 720 px.
 
 ## Keeping the guides current
 

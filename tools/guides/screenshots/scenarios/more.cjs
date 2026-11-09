@@ -72,9 +72,7 @@ module.exports = {
   },
   async datasheet(h) {
     const p = h.page; await h.open();
-    await p.waitForTimeout(1500); await tree(p).getByRole('treeitem', { name: /^Pump1/ }).first().click();
-    await p.locator('.menubar').getByRole('button', { name: 'Data', exact: true }).click();
-    await p.getByRole('menuitem', { name: 'Datasheet…' }).click();
+    await p.waitForTimeout(1500); await tree(p).getByRole('treeitem', { name: /^Pump1/ }).first().dblclick();
     await p.waitForTimeout(1500);
     await h.shot('datasheet');
   },

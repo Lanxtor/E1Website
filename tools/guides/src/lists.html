@@ -488,7 +488,7 @@
 
 <section class="g-feature" id="list-excel-export">
   <h2>Export a query to Excel or CSV</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-08</span><span class="g-id">LIST-excel-export</span><span>Roadmap M3.8</span><span>Review check D5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">LIST-excel-export</span><span>Roadmap M3.8</span><span>Review check D5</span></div>
   <p class="g-summary">Download every row of the query as an Excel workbook or a CSV file, with an E1 id column.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → <span class="ui">Export</span> → <span class="ui">Excel (.xlsx)</span> or <span class="ui">CSV (.csv)</span></dd>
@@ -507,12 +507,12 @@
   <figure class="g-shot"><img src="assets/img/guides/query-view.webp" alt="The query bar with the Export button among Filter, Find and replace…, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Export</span> is in the query bar.</figcaption></figure>
   <p class="g-note">Keep the <span class="ui">E1 id</span> column: <span class="ui">Update from Excel…</span> uses it to match the rows. A CSV file opens in Excel with the right characters.</p>
   <p class="g-note">The file is made by a job on the server, which may wait its turn first when the server is busy. At most 20 jobs a minute per person, else <span class="ui">You started more than 20 jobs in a minute; wait a minute and try again.</span> The file is kept for 7 days, then <span class="ui">The result of this job is no longer kept: results are kept for a week. Start the job again.</span></p>
-  <p class="g-related">Related: <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a>, <a href="guide-lists.html#list-project-excel">File → Export Excel…: every saved query in one workbook</a>, <a href="guide-lists.html#list-new-query">Open a query with New query…</a></p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a>, <a href="guide-lists.html#list-project-excel">Export the project: every saved query in one workbook</a>, <a href="guide-lists.html#list-new-query">Open a query with New query…</a></p>
 </section>
 
 <section class="g-feature" id="list-update-from-excel">
   <h2>Update from Excel… with Check and Apply</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-08</span><span class="g-id">LIST-update-from-excel</span><span>Roadmap M3.8, 05.5a</span><span>Review check D5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">LIST-update-from-excel</span><span>Roadmap M3.8, 05.5a</span><span>Review check D5</span></div>
   <p class="g-summary">Read an exported file back: Check lists every change row by row, Apply makes them in one undoable step.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → <span class="ui">Update from Excel…</span></dd>
@@ -532,7 +532,7 @@
     </tbody>
   </table></div>
   <p class="g-note">Changing only a read-only column such as Class gives “Class: read only.” and the note “Nothing to apply: no change in the file can be made here. Each row above says why.”. Other messages: “Columns not in this view, not read: …”, “The file changes nothing in this view.”, and “The file is larger than 10 MB.”.</p>
-  <p class="g-warn">Update from Excel… changes existing rows only: it does not add or delete objects. Review check D5 asks to “add a row” here; new rows come in with <a href="#list-import-excel">Data → Import Excel…</a>.</p>
+  <p class="g-warn">Update from Excel… changes existing rows only: it does not add or delete objects. Review check D5 asks to “add a row” here; new rows come in with <a href="#list-import-excel">Import Excel…</a>.</p>
   <p class="g-warn">Columns are matched by their header only. To map columns by hand, use Import Excel….</p>
   <p class="g-note">This runs as a job on the server, which may wait its turn first when the server is busy. At most 20 jobs a minute per person, else <span class="ui">You started more than 20 jobs in a minute; wait a minute and try again.</span></p>
   <p class="g-related">Related: <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a>, <a href="guide-lists.html#list-import-excel">Import Excel…: bring a tag list into a section</a>, <a href="guide-collaboration.html#col-history">History and undo</a></p>
@@ -540,18 +540,18 @@
 
 <section class="g-feature" id="list-import-excel">
   <h2>Import Excel…: bring a tag list into a section</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-08</span><span class="g-id">LIST-import-excel</span><span>Roadmap 05.5a, 07.3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">LIST-import-excel</span><span>Roadmap 05.5a, 07.3</span></div>
   <p class="g-summary">Import an Excel or CSV tag list into a section: matching rows are updated, the others become new objects.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Data → <span class="ui">Import Excel…</span>, or a section's toolbar → <span class="ui">Import</span></dd>
+    <dt>Where</dt><dd>A section's toolbar → <span class="ui">Import</span></dd>
     <dt>Who</dt><dd>A project role that may edit objects</dd>
-    <dt>Before you start</dt><dd>An Excel file with the columns Equipment, Design pressure and Remarks, and the rows Pump1 / 12 / checked and P-900 / 7.5 / new. A node of the project is selected.</dd>
+    <dt>Before you start</dt><dd>An Excel file with the columns Equipment, Design pressure and Remarks, and the rows Pump1 / 12 / checked and P-900 / 7.5 / new. </dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Data</span> → <span class="ui">Import Excel…</span>.</td><td>The Import Excel dialog opens with the note “A tag list into a section: rows are matched by the E1 id, the tag, or a name only one object has; the others become new objects of the class you choose.”, <span class="ui">File</span>, <span class="ui">Into</span>, <span class="ui">New rows are</span>, <span class="ui">Make rows that match nothing new objects</span> (ticked) and <span class="ui">When a row has a problem</span>.</td></tr>
+      <tr><td>1</td><td>Click the section <span class="ui">Assets</span> in the explorer (one click), then <span class="ui">Import</span> on its page.</td><td>The Import Excel dialog opens with the note “A tag list into a section: rows are matched by the E1 id, the tag, or a name only one object has; the others become new objects of the class you choose.”, <span class="ui">File</span>, <span class="ui">Into</span>, <span class="ui">New rows are</span>, <span class="ui">Make rows that match nothing new objects</span> (ticked) and <span class="ui">When a row has a problem</span>.</td></tr>
       <tr><td>2</td><td>Pick the file and set <span class="ui">Into</span> to <span class="ui">Assets</span>.</td><td>Assets is the section; by default a section whose name contains “Assets” is chosen.</td></tr>
       <tr><td>3</td><td>In <span class="ui">New rows are</span>, type <code>Centrifugal pump</code> in <span class="ui">Search classes</span>.</td><td>The first class that matches is chosen at once, letter by letter, so check that it reads <span class="ui">Centrifugal pump</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Check</span>.</td><td>“Checking…”, then the Column mapping table (“Column in the file” → “Fills”): <span class="ui">Design pressure</span> is guessed from its header, <span class="ui">Remarks</span> is at <span class="ui">Leave out</span>.</td></tr>
@@ -560,7 +560,6 @@
       <tr><td>7</td><td>Click <span class="ui">Close</span>, then <span class="ui">Edit</span> → <span class="ui">Undo</span>.</td><td>Both the change and the new pump are gone.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-data.webp" alt="The Data menu open: Datasheet…, Revisions, Import Excel…." width="380" height="252" loading="lazy"><figcaption><span class="ui">Data</span> → <span class="ui">Import Excel…</span>.</figcaption></figure>
   <p class="g-note">A header such as Tag, Tag No., Tag number or Item maps to the tag automatically. Changing a mapping or the class turns <span class="ui">Apply</span> off until you <span class="ui">Check</span> again.</p>
   <p class="g-warn">A click outside the dialog closes it, and the file, the class and the mapping you set are lost.</p>
   <p class="g-note">This runs as a job on the server, which may wait its turn first when the server is busy. At most 20 jobs a minute per person, else <span class="ui">You started more than 20 jobs in a minute; wait a minute and try again.</span></p>
@@ -568,11 +567,11 @@
 </section>
 
 <section class="g-feature" id="list-project-excel">
-  <h2>File → Export Excel…: every saved query in one workbook</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">LIST-project-excel</span></div>
+  <h2>Export the project: every saved query in one workbook</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">LIST-project-excel</span></div>
   <p class="g-summary">Download one workbook for the project with a sheet per saved query.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Export Excel…</span>, or the project page's toolbar → <span class="ui">Export</span></dd>
+    <dt>Where</dt><dd>The project page's toolbar → <span class="ui">Export</span></dd>
     <dt>Who</dt><dd>A project role that may export</dd>
     <dt>Before you start</dt><dd>The project has saved queries (see <a href="#list-templates">templates</a>).</dd>
   </dl>
@@ -580,11 +579,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">File</span> → <span class="ui">Export Excel…</span>.</td><td>An .xlsx file named after the project downloads.</td></tr>
+      <tr><td>1</td><td>Click the project in the explorer (one click), then <span class="ui">Export</span> on its page.</td><td>An .xlsx file named after the project downloads.</td></tr>
       <tr><td>2</td><td>Open it.</td><td>It has one sheet per saved query you can see, each headed with the project, the query and the date.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-file.webp" alt="The File menu open: New project, Save, Export PDF…, Export Excel…, Print…, Project settings…, Organization…." width="380" height="512" loading="lazy"><figcaption><span class="ui">File</span> → <span class="ui">Export Excel…</span>.</figcaption></figure>
   <p class="g-note">A long export says “The export is taking long; it goes on in the background.”. A section's own toolbar <span class="ui">Export</span> downloads the objects under it, for example “Assets.xlsx”.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a></p>
 </section>

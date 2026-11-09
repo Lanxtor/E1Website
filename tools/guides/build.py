@@ -56,7 +56,7 @@ PALETTE = re.compile(r"palette|Ctrl\+K|⌘K", re.I)
 
 
 def no_palette(text):
-    """The command palette is being removed (owner, 2026-11-07): the guides never mention it,
+    """E1 has no command palette (removed, owner 2026-11-07): the guides never mention it,
     not even where they quote the roadmap."""
     if not text or not PALETTE.search(text):
         return text
