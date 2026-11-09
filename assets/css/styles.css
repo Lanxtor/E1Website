@@ -1790,8 +1790,22 @@ body.alex-open .alex-launcher { display: none; }
 .alex-send { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--text); color: #fff; cursor: pointer; }
 .alex-send svg { width: 20px; height: 20px; }
 @media (max-width: 560px) {
-  .alex-panel { inset: 0; width: 100%; max-width: none; height: 100%; border-radius: 0; border: 0; }
-  .alex-launcher { right: 14px; bottom: 14px; }
+  /* Full screen on a phone. chat.js sets top and height from the visual
+     viewport, so the typing area stays right above the on-screen keyboard. */
+  .alex-panel { top: 0; right: 0; bottom: auto; left: 0; width: 100%; max-width: none; height: 100vh; height: 100dvh; border-radius: 0; border: 0; box-shadow: none; overscroll-behavior: contain; }
+  .alex-head { flex: none; padding: 10px 8px 10px 14px; padding-top: max(10px, env(safe-area-inset-top)); }
+  .alex-head span { font-size: 0.74rem; }
+  .alex-face { width: 38px; height: 38px; }
+  .alex-icon { width: 44px; height: 44px; }
+  .alex-list { padding: 14px; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+  .alex-msg { max-width: 92%; font-size: 0.97rem; }
+  .alex-suggest button { padding: 9px 14px; font-size: 0.9rem; }
+  .alex-form { flex: none; padding: 8px 10px; padding-bottom: max(8px, env(safe-area-inset-bottom)); background: #fff; }
+  /* 16px or more: iOS zooms into smaller text fields */
+  .alex-form textarea { font-size: 16px; max-height: 120px; }
+  body.alex-open { overflow: hidden; }
+  .alex-launcher { right: 14px; bottom: max(14px, env(safe-area-inset-bottom)); height: 48px; padding-right: 16px; font-size: 0.9rem; }
+  .alex-launcher-face { width: 36px; height: 36px; }
 }
 @media print { .alex-launcher, .alex-panel { display: none !important; } }
 
@@ -2806,3 +2820,151 @@ code {
 .shape-intro { padding-bottom: 0; }
 .shape-intro h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
 .shape-intro p.lead { max-width: 600px; margin-top: 16px; font-size: 1.15rem; color: var(--text-muted); }
+
+/* ==========================================================================
+   Get E1: the three quick buttons at the top of the page
+   (Download for Mac, Download for Windows, Create account; downloads.js
+   fills in the files from the release manifest)
+   ========================================================================== */
+.get-now { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 900px; margin: 32px auto 0; text-align: left; }
+.get-btn { display: flex; align-items: center; gap: 14px; min-height: 68px; padding: 12px 20px; border: 1.5px solid var(--text); border-radius: 18px; background: #fff; color: var(--text); transition: background 0.2s, border-color 0.2s, transform 0.2s var(--ease), box-shadow 0.2s var(--ease); }
+.get-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -22px rgba(14, 17, 22, 0.55); }
+.get-btn:active { transform: scale(0.99); }
+.get-btn-primary { background: var(--text); color: #fff; }
+.get-btn-primary:hover { background: #000; }
+.get-btn-account { border-color: var(--accent); background: var(--accent); color: #fff; }
+.get-btn-account:hover { filter: brightness(1.08); }
+.get-icon { flex: none; width: 26px; height: 26px; }
+.get-text { display: grid; min-width: 0; line-height: 1.25; }
+.get-text b { font-size: 1rem; font-weight: 600; }
+.get-text small { margin-top: 2px; font-size: 0.78rem; opacity: 0.75; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.get-btn.is-soon { border: 1.5px dashed #b9bfc8; background: rgba(255, 255, 255, 0.9); color: var(--text-muted); box-shadow: none; transform: none; }
+.get-btn.is-soon b { color: var(--text); font-weight: 500; }
+.get-btn.is-soon .get-icon { opacity: 0.6; }
+
+/* Download cards: framed like the other cards on the page */
+.download-card { padding: 24px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255, 255, 255, 0.92); }
+.download-card.is-mine { border-color: var(--text); }
+.download-files { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+
+/* The "Get E1" button next to the menu button, on phones and tablets only */
+.header-cta { display: none; }
+@media (max-width: 860px) {
+  .header-cta { display: inline-flex; margin-left: auto; height: 36px; }
+  .site-header .container { gap: 12px; }
+  .nav { max-height: calc(100vh - var(--header-h)); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; overscroll-behavior: contain; }
+}
+
+/* ==========================================================================
+   Phones
+   Most visitors from social media arrive on a phone: tighter vertical rhythm,
+   no oversized gaps between sections, readable text, full-width actions.
+   ========================================================================== */
+@media (max-width: 640px) {
+  :root { --header-h: 60px; }
+  body { font-size: 16px; }
+  .container { padding: 0 20px; }
+  .brand { font-size: 1.15rem; gap: 10px; }
+  .brand-mark { width: 32px; height: 32px; }
+
+  h1 { font-size: clamp(2.1rem, 9vw, 2.6rem); line-height: 1.1; }
+  h1, h2, h3, .hero-tagline, .section-kicker { text-wrap: balance; }
+  h2 { font-size: clamp(1.6rem, 7vw, 1.95rem); }
+
+  /* Sections */
+  .section { padding: 56px 0; }
+  .section-tight { padding: 36px 0; }
+  .section-head { margin-bottom: 28px; }
+  .section-head p { margin-top: 12px; font-size: 1.02rem; }
+  .section-cta { margin-top: 28px; }
+  .cta { padding: 56px 0 64px; }
+  .cta p { font-size: 1.02rem; }
+  .cta .hero-actions { margin-top: 24px; }
+
+  /* Heroes */
+  .hero { padding: 40px 0 24px; }
+  .hero p.lead { margin-top: 16px; font-size: 1.08rem; }
+  .hero-tagline { margin-top: 14px; font-size: 1.12rem; }
+  .hero-actions { margin-top: 22px; gap: 10px; }
+  .hero-media { margin-top: 32px; }
+  .page-hero { padding: 36px 0 12px; }
+  .page-hero p.lead { margin-top: 14px; font-size: 1.04rem; }
+  .catalog-hero { padding-bottom: 8px; }
+
+  /* Ask box */
+  .ask-box { margin-top: 22px; }
+  .ask-box input { font-size: 16px; }
+
+  /* Home */
+  #see-it-work .section-head h2 { font-size: 2.3rem; }
+  #see-it-work .section-head .section-kicker { margin-bottom: 10px; font-size: 1.5rem; }
+  #see-it-work .section-head p { margin-top: 14px; font-size: 1.08rem; }
+  .feature-list { gap: 56px; }
+  .feature, .feature:nth-child(even) { gap: 18px; }
+  .feature-text h3 { font-size: 1.7rem; }
+  .feature-text p { margin-top: 12px; font-size: 1.02rem; line-height: 1.6; }
+  .industry-tiles { gap: 4px; }
+  .industry-tile { gap: 10px; padding: 14px 6px; font-size: 0.94rem; }
+  .people-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 8px; }
+  .face-xl { width: 76px; height: 76px; }
+  .person { gap: 10px; font-size: 0.86rem; }
+  .person > span:last-child { hyphens: manual; overflow-wrap: normal; word-break: normal; }
+
+  /* Cards and grids */
+  .grid { gap: 20px; }
+  .vis-body { padding: 22px 22px 24px; }
+  .catalog-list { gap: 44px; }
+  .catalog-section { padding-top: 28px; }
+  .catalog-filters { margin-right: -20px; padding-right: 20px; }
+
+  /* Get E1 */
+  .get-now { grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
+  .get-btn { min-height: 60px; padding: 10px 18px; border-radius: 16px; }
+  .choice-grid { margin-top: 24px; gap: 12px; }
+  .choice { padding: 22px 20px 20px; border-radius: 18px; }
+  .choice-title { font-size: 1.35rem; }
+  .choice-arrow { right: 18px; top: 22px; }
+  .hero-links { margin-top: 18px; gap: 8px; }
+  .hero-links a { padding: 7px 14px; font-size: 0.88rem; }
+  .saas, .selfhost, .uni { gap: 28px; padding: 28px 20px; border-radius: 22px; }
+  .saas h2, .uni h2 { margin-top: 14px; font-size: 2rem; }
+  .saas-text > p, .uni-text > p { margin-top: 14px; font-size: 1rem; }
+  .saas-list { margin-top: 18px; }
+  .saas .hero-actions, .selfhost .hero-actions, .uni .hero-actions { margin-top: 22px; }
+  .classroom { padding: 20px; }
+  .download-card { padding: 20px; }
+  .download-cloud { padding: 22px 20px; }
+  .steps li { margin-bottom: 20px; }
+  .section-soft .grid-2 { gap: 40px !important; }
+  .section-soft h2 { margin-bottom: 24px !important; }
+
+  /* Pricing: swipe sideways, the feature names stay in view */
+  .pricing-scroll { margin: 0 -20px; padding: 0 20px; scroll-padding-left: 150px; }
+  .pricing-licenses { min-width: 720px; }
+  .pricing-licenses tbody th { min-width: 0; }
+  .pricing { font-size: 0.88rem; }
+  .pricing th, .pricing td { padding: 12px 8px; }
+  .pricing tbody th, .pricing thead th:first-child { position: sticky; left: 0; z-index: 1; width: 150px; min-width: 150px; max-width: 150px; padding-right: 12px; background: #fff; box-shadow: 8px 0 12px -10px rgba(14, 17, 22, 0.25); }
+  .pricing thead th { padding-bottom: 20px; }
+  .pricing .price { font-size: 1.7rem; }
+
+  /* Forms: 16px or more, so iOS does not zoom in */
+  .field input, .field select, .field textarea, .catalog-search input { font-size: 16px; }
+  .auth { padding: 40px 20px; min-height: 0; }
+
+  /* Footer */
+  .site-footer { padding: 40px 0 96px; }
+  .footer-bottom { margin-top: 32px; }
+
+  /* Cookie notice: a slim bar, not a third of the screen */
+  .cookie-notice { left: 10px; right: 10px; bottom: 10px; flex-direction: row; align-items: center; gap: 12px; padding: 10px 10px 10px 14px; border-radius: 14px; }
+  .cookie-notice p { font-size: 0.78rem; line-height: 1.4; }
+  .cookie-notice .btn { height: 36px; padding: 0 16px; }
+}
+
+@media (max-width: 380px) {
+  .container { padding: 0 16px; }
+  .pricing-scroll { margin: 0 -16px; padding: 0 16px; }
+  .catalog-filters { margin-right: -16px; padding-right: 16px; }
+  .header-cta { padding: 0 12px; }
+}

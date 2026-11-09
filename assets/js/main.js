@@ -185,6 +185,7 @@
       '<a class="btn btn-primary btn-sm" href="' + H("download.html") + '">' + T("Get E1") + "</a>" +
       "</div>" +
       "</nav>" +
+      (page === "download.html" ? "" : '<a class="btn btn-primary btn-sm header-cta" href="' + H("download.html") + '">' + T("Get E1") + "</a>") +
       '<button class="nav-toggle" aria-label="' + T("Toggle menu") + '" aria-expanded="false"><span></span><span></span><span></span></button>' +
       "</div>" +
       "</header>";

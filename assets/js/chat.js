@@ -170,7 +170,7 @@
       "</header>" +
       '<div class="alex-list" aria-live="polite"></div>' +
       '<form class="alex-form">' +
-      '<textarea rows="1" maxlength="2000" placeholder="' + T("Ask Alex anything about E1…") + '" aria-label="' + T("Your question") + '"></textarea>' +
+      '<textarea rows="1" maxlength="2000" enterkeyhint="send" placeholder="' + T("Ask Alex anything about E1…") + '" aria-label="' + T("Your question") + '"></textarea>' +
       '<button type="submit" class="alex-send" aria-label="' + T("Send") + '">' + ICON.send + "</button>" +
       "</form>";
     document.body.appendChild(panel);
@@ -182,10 +182,11 @@
     panel.querySelector("[data-reset]").addEventListener("click", reset);
     panel.querySelector("form").addEventListener("submit", function (e) { e.preventDefault(); ask(input.value); });
     input.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(input.value); }
+      if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); ask(input.value); }
     });
     input.addEventListener("input", grow);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) close(); });
+    watchViewport();
     draw();
   }
 
@@ -278,16 +279,54 @@
     if (input) { input.value = ""; grow(); }
   }
 
+  /* ---------- phones: keep the panel above the on-screen keyboard ---------- */
+  var PHONE = window.matchMedia ? window.matchMedia("(max-width: 560px)") : { matches: false };
+  var TOUCH = window.matchMedia ? window.matchMedia("(hover: none) and (pointer: coarse)") : { matches: false };
+
+  /* On a phone the panel fills the visible part of the screen: when the
+     keyboard opens, the browser shrinks the visual viewport but not the
+     layout, so the panel follows window.visualViewport and the typing area
+     stays right above the keyboard. */
+  function fit() {
+    if (!panel || panel.hidden) return;
+    var vv = window.visualViewport;
+    if (!PHONE.matches || !vv) {
+      panel.style.top = "";
+      panel.style.height = "";
+      return;
+    }
+    panel.style.top = Math.max(0, vv.offsetTop) + "px";
+    panel.style.height = vv.height + "px";
+    if (document.activeElement === input) list.scrollTop = list.scrollHeight;
+  }
+
+  function watchViewport() {
+    var vv = window.visualViewport;
+    if (vv) {
+      vv.addEventListener("resize", fit);
+      vv.addEventListener("scroll", fit);
+    }
+    window.addEventListener("orientationchange", function () { setTimeout(fit, 250); });
+    input.addEventListener("focus", function () { setTimeout(fit, 60); setTimeout(fit, 350); });
+    input.addEventListener("blur", function () { setTimeout(fit, 60); });
+  }
+
   function open(question) {
     if (!panel) build();
     panel.hidden = false;
     document.body.classList.add("alex-open");
+    fit();
     if (question) ask(question);
-    else setTimeout(function () { input.focus(); }, 50);
+    // On a touch screen the keyboard would cover the suggestions: the visitor
+    // taps the typing area when they want to type.
+    else if (!TOUCH.matches) setTimeout(function () { input.focus(); }, 50);
   }
 
   function close() {
+    if (document.activeElement === input) input.blur();
     panel.hidden = true;
+    panel.style.top = "";
+    panel.style.height = "";
     document.body.classList.remove("alex-open");
   }
 
@@ -298,6 +337,8 @@
     if (!panel) build();
     input.value = "";
     grow();
+    // On a phone, put the keyboard away so the answer and the suggestions have the screen.
+    if (TOUCH.matches && document.activeElement === input) input.blur();
     id = (id && QUESTIONS[id]) ? id : questionId(text);
     if (!Array.isArray(state.asked)) state.asked = [];
     if (id) {
@@ -355,6 +396,18 @@
         var q = field.value.trim();
         field.value = "";
         open(q || null);
+      });
+      // On a phone, typing happens in the full-screen panel: there the typing
+      // area stays above the keyboard, while the page scrolls under it.
+      field.addEventListener("focus", function () {
+        if (!PHONE.matches || !TOUCH.matches) return;
+        var q = field.value;
+        field.blur();
+        open();
+        if (q) input.value = q;
+        field.value = "";
+        input.focus();
+        grow();
       });
       var again = form.querySelector("[data-ask-reset]");
       if (again) again.addEventListener("click", function () { reset(); field.focus(); });

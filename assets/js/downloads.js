@@ -75,6 +75,35 @@
       mount.innerHTML = keys.map(function (k) { return card(k, manifest.platforms[k], manifest.version, k === mine); }).join("");
     });
 
+    // The quick buttons at the top of Get E1: the first published file of each
+    // system downloads straight away; a system with none reads "Coming soon".
+    document.querySelectorAll("[data-get-os]").forEach(function (btn) {
+      var platform = manifest.platforms && manifest.platforms[btn.getAttribute("data-get-os")];
+      if (!platform) return;
+      var file = (platform.files || []).filter(function (f) { return f.url; })[0];
+      var meta = btn.querySelector("[data-get-meta]");
+      if (file) {
+        btn.href = file.url;
+        btn.setAttribute("download", "");
+        btn.removeAttribute("aria-disabled");
+        btn.classList.remove("is-soon");
+        if (file.sha256) btn.title = "SHA-256 " + file.sha256;
+        if (meta) meta.textContent = file.label + (file.size ? " · " + size(file.size) : "");
+      } else {
+        btn.href = "#download";
+        btn.removeAttribute("download");
+        btn.setAttribute("aria-disabled", "true");
+        btn.classList.add("is-soon");
+        if (meta) meta.textContent = T("Coming soon");
+      }
+    });
+    if (mine) {
+      document.querySelectorAll("[data-get-now]").forEach(function (row) {
+        var own = row.querySelector('[data-get-os="' + mine + '"]');
+        if (own && own !== row.firstElementChild) row.insertBefore(own, row.firstElementChild);
+      });
+    }
+
     document.querySelectorAll("[data-release-line]").forEach(function (el) {
       el.textContent = T("Current version") + " " + manifest.version + (manifest.date ? " · " + T("released") + " " + (window.E1 ? E1.format.date(manifest.date) : manifest.date) : "") +
         (manifest.channel ? " · " + T("{channel} channel").replace("{channel}", manifest.channel) : "");
@@ -88,7 +117,7 @@
   }
 
   function load() {
-    if (!document.querySelector("[data-downloads]")) return;
+    if (!document.querySelector("[data-downloads], [data-get-os]")) return;
     var get = window.E1 ? E1.releases() : fetch("assets/data/releases.json").then(function (r) { return r.json(); });
     get.then(render, function () {
       document.querySelectorAll("[data-downloads]").forEach(function (mount) {
