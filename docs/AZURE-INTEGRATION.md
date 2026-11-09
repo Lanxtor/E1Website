@@ -112,6 +112,8 @@ For `/auth/me`, `/auth/switch`, `/auth/logout`, `/api/account/*` and `/api/commu
 
 When the release pipeline exists (`commercial-readiness.md` §5.4), it uploads the signed installers to a public Blob Storage container behind Azure Front Door or the CDN (for example `https://downloads.<domain>/e1/<version>/…`) and writes this file in the same step. The website needs no change for a new release.
 
+Until that pipeline exists, installers are uploaded by hand to the storage account **`e1downloads`** (resource group `e1-prod`, North Europe, LRS), container **`releases`** with anonymous read access for blobs only (no listing), one folder per version: `https://e1downloads.blob.core.windows.net/releases/e1/<version>/<file>`. It is separate from the private `e1files…` account, which holds customer files and must never be public. After an upload, add the file's `url`, `size` (bytes) and `sha256` to `releases.json`.
+
 ## 5. The Shape E1 board (the user forum)
 
 `shape-e1.html` lets people post feature requests, vote and comment. It is built into E1, not a separate forum product:
