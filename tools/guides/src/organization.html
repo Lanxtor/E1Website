@@ -33,7 +33,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
       <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u of t · Student u of t · Administrator u of t</span>.</td></tr>
       <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
@@ -493,17 +493,43 @@
 
 <section class="g-feature" id="org-tokens">
   <h2>Tokens, service accounts and agents</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">ORG-tokens</span><span>Roadmap 09.5, 19.1</span></div>
-  <p class="g-summary">Other systems and agents will reach E1 through their own accounts and tokens, each with its own access, instead of a person's sign-in.</p>
-  <div class="g-dev">
-    <p>Planned (in parallel to the main milestones), not started.</p>
-  </div>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">ORG-tokens</span><span>Roadmap 09.5, 19.1</span><span>Review check N1</span></div>
+  <p class="g-summary">Scripts and other systems (an ERP, a procurement tool, an AI agent) use E1 through the API at <code>/api/v1</code>, with an access token. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Account → <span class="ui">Access tokens</span>; <span class="ui">File → Organization… → Service accounts</span></dd>
+    <dt>Who</dt><dd>Everyone makes their own tokens; Owners and Administrators manage service accounts. Creating either needs a recent sign-in (your passkey).</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud).</dd>
+  </dl>
+  <h3>Make a personal access token</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open your Account and go to <span class="ui">Access tokens</span>.</td><td>Your tokens: name, the first characters, what each may do (everything you may do, or read only), expiry and last use.</td></tr>
+      <tr><td>2</td><td>Type a name, for example "My scripts", choose how long it lasts (30 days to a year), tick <span class="ui">Read only</span> if it only reads, and click <span class="ui">Create token</span>.</td><td>The token is shown once, with <span class="ui">Copy</span>: "Copy the token now. E1 does not show it again." E1 keeps only a fingerprint of it.</td></tr>
+      <tr><td>3</td><td>Use it: <code>Authorization: Bearer e1_pat_…</code> on <code>https://app.lanxtor.com/api/v1/commands/&lt;command&gt;</code>.</td><td>The command runs as you, through the same checks as in E1. <code>/api/v1/openapi.json</code> describes every command.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Revoke</span> on a token you no longer use.</td><td>Calls with it are refused at once.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Set up a service account</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><span class="ui">File → Organization… → Service accounts</span>: type a name (for example <code>svc-erp</code>), what it does, its license (Editor, Reviewer or Viewer), and click <span class="ui">Create service account</span>.</td><td>It is listed. It takes no seat.</td></tr>
+      <tr><td>2</td><td>Give it a role where it works: the project's <span class="ui">Members</span> lists it as "svc-erp (service account)".</td><td>It may do what that role allows there, and nothing elsewhere.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Tokens…</span> on its row and <span class="ui">Create token for it</span>.</td><td>Its token (<code>e1_svc_…</code>) is shown once. Changes made with it read "Service account svc-erp" in History.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Disable</span> when the system is retired.</td><td>Its tokens stop working at once; its history stays.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Calling the API</h3>
   <ul>
-    <li>Create a service account or an agent token in settings and see it listed with its access.</li>
-    <li>Create an access token and run a command through the integration API.</li>
+    <li><strong>Dry run:</strong> <code>{"input": {…}, "options": {"dryRun": true}}</code> returns what would change, and changes nothing.</li>
+    <li><strong>Idempotency:</strong> send <code>Idempotency-Key</code>: a repeated call returns the first answer and changes nothing again (kept 24 hours).</li>
+    <li><strong>One undo:</strong> <code>"options": {"group": "…"}</code> joins calls into one entry in History.</li>
+    <li><strong>Errors:</strong> 401 no valid token; 403 not allowed (the missing permission, or the token is read only or for other projects); 400 invalid input; 404 unknown; 409 changed meanwhile, or a key reused for another request; 422 a rule of the model; 429 too many calls (600 a minute per token).</li>
   </ul>
-  <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a></p>
+  <p class="g-note">A token never carries an Owner or Administrator role: administration is done signed in. Tokens and service accounts are never made with a token, and Cloud AI never makes them. Every creation, revocation and first use from a new address is in the audit; every API call is in the API access log.</p>
+  <p class="g-warn">Not built yet: reading resources by URL and external ids, the change feed and webhooks, connections to other systems, sign-in of remote MCP agents with OAuth, and address ranges in the token form (the API takes them).</p>
+  <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-sso">Company single sign-on</a></p>
 </section>
 
 <section class="g-feature" id="org-four-eyes">
