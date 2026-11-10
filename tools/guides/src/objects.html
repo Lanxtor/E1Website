@@ -7,6 +7,7 @@
     <li>Open it in <a href="#obj-object-window">the object window</a> and fill in <a href="#obj-attributes">its attributes</a>, with <a href="#obj-sub-attributes">sub-attributes</a> and <a href="#obj-add-attribute">attributes of your own</a>.</li>
     <li>Read and adjust its tag: <a href="#obj-tags">automatic tags</a>, <a href="#obj-tag-dialog">a manual tag with Tag…</a>, <a href="#obj-retag">Retag… with preview</a>, and <a href="#obj-tag-rules">the project's tag rules</a>.</li>
     <li><a href="#obj-relationships">Relate it to other objects</a>, for example a function that is implemented by a pump.</li>
+    <li>For instruments, keep the project's <a href="#obj-hookups">hookups</a> in Assets ▸ Hookups and choose on each instrument which one it uses.</li>
     <li><a href="#obj-rename">Rename</a>, <a href="#obj-cases">add cases</a>, <a href="#obj-move">move</a>, <a href="#obj-void">void</a> or <a href="#obj-delete">delete</a> it.</li>
     <li>See what is coming: <a href="#obj-deep-view">Deep view</a>, <a href="#obj-units">units of measurement</a> and <a href="#obj-calculations">calculations on attributes</a>.</li>
   </ol>
@@ -344,6 +345,36 @@
   <figure class="g-shot"><img src="assets/img/guides/object-tab-relationships.webp" alt="Pump1 on its Relationships tab before a relationship is added: the text No relationships yet. and the drop-down Add a relationship…." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Relationships</span> tab before a relationship is added.</figcaption></figure>
   <p class="g-note">A right-click without dragging still opens the row's menu, and <kbd>Esc</kbd> during the drag cancels it. A drag with the left mouse button moves an object, as before (see <a href="#obj-move">Move an object</a>); only the right button relates. Both objects must be in the same project. Instead of step 8 you can click <span class="ui">Remove</span> on the tab. A reference row's right-click menu has <span class="ui">Open</span> and <span class="ui">Remove reference</span>; selecting it and pressing <kbd>Delete</kbd> asks the same question. A case shows its object's relationships read-only: "A case has its object's relationships; change them on the object." Framing symbols on a drawing also relates them to a system or area (see <a href="guide-drawing.html#draw-sheet-view">the drawing guide</a>), and functions can generate a <a href="guide-drawing.html#draw-loop-diagram">loop diagram</a>.</p>
   <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-new-object">Create an object</a> · <a href="#obj-move">Move an object</a> · <a href="guide-drawing.html#draw-loop-diagram">Loop diagrams</a> · <a href="guide-projects.html#prj-tree-rows">Rows in the explorer</a></p>
+</section>
+
+<section class="g-feature" id="obj-hookups">
+  <h2>Hookups: how instruments are fixed and connected</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">OBJ-hookups</span></div>
+  <p class="g-summary">A hookup shows how an instrument is fixed and connected: its process connection, its pneumatic or electrical connection, or its mounting on a pipe stand, wall or panel. You draw a hookup once and every instrument installed the same way uses it. E1 keeps a project's hookups in a folder of their own, <span class="ui">Assets ▸ Hookups</span>, lets you choose on every instrument which hookup it uses, and shows on every hookup the instruments that use it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Hookups</span> (also <em>File → Project settings…</em>); the explorer: right-click <span class="ui">Assets ▸ Hookups</span>; an instrument's window: <span class="ui">Hookup</span>; a hookup's window: <span class="ui">Used by</span></dd>
+    <dt>Who</dt><dd>Turning hookups on needs a project role that may configure the project. Making hookups and choosing an instrument's hookup need a license and a project role that may edit objects.</dd>
+    <dt>Before you start</dt><dd>A project is open and has an instrument in <span class="ui">Assets</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration</span> → <span class="ui">Project settings</span> and go to the <span class="ui">Hookups</span> card.</td><td>The card says how hookups work; <span class="ui">Use hookups</span> is not ticked.</td></tr>
+      <tr><td>2</td><td>Tick <span class="ui">Use hookups</span>.</td><td>The card says "Assets ▸ Hookups is shown." In the explorer, <span class="ui">Assets</span> now has a folder <span class="ui">Hookups</span> after its folders and equipment.</td></tr>
+      <tr><td>3</td><td>Right-click <span class="ui">Hookups</span> → <span class="ui">New hookup…</span>, type <code>HU-01 Pressure on pipe stand</code> and press <kbd>Enter</kbd>.</td><td>The hookup opens in its window and is listed in <span class="ui">Hookups</span>. Its window says "Used by 0 instruments". A name already used by another hookup is refused: "There is already a hookup …".</td></tr>
+      <tr><td>4</td><td>On its <span class="ui">Attributes</span> tab, choose <span class="ui">Hookup type</span> <code>Process</code> and <span class="ui">Mounting</span> <code>Pipe stand</code>, type the <span class="ui">Hookup drawing</span> number, and fill the <span class="ui">Bill of material</span> table (Item, Description, Size, Material, Quantity).</td><td>Each value is saved at once. The bill of material is the material of one installation; the hookup schedule totals it for the instruments that use the hookup.</td></tr>
+      <tr><td>5</td><td>Double-click an instrument in <span class="ui">Assets</span>.</td><td>Its window shows <span class="ui">Hookup</span> under the header, set to <span class="ui">None</span>.</td></tr>
+      <tr><td>6</td><td>Choose <code>HU-01 Pressure on pipe stand</code> in <span class="ui">Hookup</span>.</td><td>It is saved at once and <span class="ui">Open HU-01 Pressure on pipe stand</span> appears beside it. An instrument uses one hookup: choosing another replaces it, <span class="ui">None</span> takes it off.</td></tr>
+      <tr><td>7</td><td>In the explorer, expand <span class="ui">Hookups</span> and then the hookup.</td><td>The instrument is listed under the hookup with a link mark (<em>is used by</em>). A double-click opens it.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Open HU-01 Pressure on pipe stand</span>.</td><td>The hookup's window says "Used by 1 instrument:" and names the instrument; a click on its tag opens it. The <span class="ui">Relationships</span> tab lists it under <em>is used by</em>.</td></tr>
+      <tr><td>9</td><td>Untick <span class="ui">Use hookups</span> in <span class="ui">Project settings</span>.</td><td><span class="ui">Assets ▸ Hookups</span> and the <span class="ui">Hookup</span> line of the instruments are hidden. The hookups and which instrument uses which are kept and come back when you tick it again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A hookup has a name, not a tag, and is not drawn on a 2D space, so its right-click menu has no <span class="ui">Tag…</span> or <span class="ui">Place on drawing…</span>. Add its hookup drawing as a file on its <span class="ui">Attachments</span> tab. <span class="ui">New object…</span> on Assets does not offer the Hookup class: hookups are made in <span class="ui">Hookups</span>.</p>
+  <p class="g-note">Alex and the API use <code>set_hookups</code>, <code>create_hookup</code>, <code>assign_hookup</code> (several instruments at once) and <code>describe_hookups</code>.</p>
+  <p class="g-warn">Hookups come with the newest E1 content (Plant 1.5.0). A project that stays on an earlier content version cannot tick <span class="ui">Use hookups</span>; the card says so. Choose the newest version in <span class="ui">Content packages</span> first.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-hookup-schedule">The hookup schedule</a> · <a href="#obj-relationships">Relate objects</a> · <a href="#obj-attributes">Attributes</a> · <a href="#obj-object-window">The object window</a></p>
 </section>
 
 <section class="g-feature" id="obj-rename">
