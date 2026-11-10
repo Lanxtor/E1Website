@@ -3,7 +3,7 @@
   <p class="g-summary">This guide covers how you get into E1: opening it in the browser or the desktop app, signing in with your company account or with Microsoft, passkeys and the "Confirm it is you" check, how long a sign-in lasts, trials, and how to see which store and cloud E1 runs on.</p>
   <h3>The usual order</h3>
   <ol>
-    <li>Open E1 <a href="#acc-browser">in the browser</a> (or, once it is released, <a href="#acc-desktop-app">the desktop app</a>).</li>
+    <li>Open E1 <a href="#acc-browser">in the browser</a> or in <a href="#acc-desktop-app">the desktop app</a> for Windows and macOS.</li>
     <li><a href="#acc-sign-in">Sign in</a>, or <a href="#acc-microsoft">sign in with your company's Microsoft account</a>. On a new installation, the first sign-in <a href="#acc-claim-installation">claims it</a>. If sign-in is refused, see <a href="#acc-sign-in-problems">When sign-in is refused</a>.</li>
     <li><a href="#acc-passkeys">Add a passkey</a>: it signs you in faster and is needed for administrator roles. Learn when E1 asks you to <a href="#acc-step-up">confirm it is you</a>.</li>
     <li>Know <a href="#acc-session">how long a sign-in lasts and how to sign out</a>, and what happens when <a href="#acc-trial">a trial</a> ends.</li>
@@ -38,24 +38,27 @@
 
 <section class="g-feature" id="acc-desktop-app">
   <h2>The desktop app for Windows and macOS</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">ACC-desktop-app</span><span>Roadmap M4.19</span></div>
-  <p class="g-summary">E1 will come as a desktop app for Windows 10 or 11 (64-bit, also Arm) and macOS 12 or newer. The macOS installer for Apple silicon is released (signed and notarized by Apple) and keeps itself <a href="#acc-desktop-updates">up to date</a>; the Windows and Intel Mac installers are not released yet, so use E1 in the browser on those until then.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ACC-desktop-app</span><span>Roadmap M4.19</span></div>
+  <p class="g-summary">E1 is a desktop app for Windows 10 or 11 (64-bit) and for Macs with Apple silicon (macOS 12 or newer). Both are signed (Windows by Lanxtor LLC, macOS by Lanxtor, LLC and notarized by Apple) and keep themselves <a href="#acc-desktop-updates">up to date</a>. Installers for Intel Macs and Windows on Arm follow; use E1 in the browser on those until then.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Website → <span class="ui">Get E1</span> → the download buttons at the top (<span class="ui">Download for Mac</span>, <span class="ui">Download for Windows</span>); account page → <span class="ui">Downloads</span></dd>
     <dt>Who</dt><dd>Anyone with an E1 account</dd>
-    <dt>Before you start</dt><dd>Windows or macOS. Linux and tablets use the browser.</dd>
+    <dt>Before you start</dt><dd>Windows 10 or 11 (64-bit), or a Mac with Apple silicon. Linux, Intel Macs and tablets use the browser.</dd>
   </dl>
-  <div class="g-dev"><p><strong>Under development (roadmap stage PR, pilot readiness: "signed desktop app").</strong> On Get E1, <span class="ui">Download for Mac</span> downloads <span class="ui">Apple silicon (.dmg)</span>; <span class="ui">Download for Windows</span> reads <span class="ui">Coming soon</span>. Below: "Current version 0.1.0 · released Nov 9, 2026 · stable channel". Development builds of the app already work as described below.</p></div>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Download <span class="ui">Installer (.exe)</span> or <span class="ui">Installer for Arm (.exe)</span> for Windows, or <span class="ui">Apple silicon (.dmg)</span> or <span class="ui">Intel (.dmg)</span> for macOS. Your own system is shown first (on the account page marked <span class="ui">Your system</span>).</li>
-    <li>At the first start, connect the app to its server on the page <span class="ui">Connect E1 to its server</span>: "E1 keeps projects on a server: E1 Cloud, run by LANXTOR, or your organization's own. You sign in next." Click <span class="ui">Use E1 Cloud</span> (app.lanxtor.com) for E1 Cloud. For your organization's own server, type its address under "or your organization's server" in <span class="ui">Server address</span> (for example https://e1.example.com) and click <span class="ui">Connect</span>. The app restarts on that server and remembers it.</li>
-    <li>Sign in with the same sign-in screen and the same account as in the browser.</li>
-    <li>Use floating windows as real windows; the app opens them again where they were at the next start.</li>
-  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On the website, click <span class="ui">Get E1</span>.</td><td>Under "Get E1.", the buttons <span class="ui">Download for Mac</span> ("Apple silicon (.dmg) · 114 MB") and <span class="ui">Download for Windows</span> ("Installer (.exe) · 92 MB"); your own system first, in blue. Under them: "Current version 0.1.2 · released Nov 10, 2026 · stable channel".</td></tr>
+      <tr><td>2</td><td>Mac: click <span class="ui">Download for Mac</span>, open the .dmg and drag <span class="ui">Lanxtor E1</span> into <span class="ui">Applications</span>; open it from there.</td><td>macOS may ask once whether to open an app downloaded from the internet; click <span class="ui">Open</span>. No warning about an unidentified developer.</td></tr>
+      <tr><td>3</td><td>Windows: click <span class="ui">Download for Windows</span> and run <span class="ui">E1-Setup-0.1.2.exe</span>.</td><td>It installs and starts <span class="ui">Lanxtor E1</span>. While the installer is new, Windows may show "Windows protected your PC": click <span class="ui">More info</span>; the publisher is Lanxtor LLC; click <span class="ui">Run anyway</span>.</td></tr>
+      <tr><td>4</td><td>At the first start, on <span class="ui">Connect E1 to its server</span>, click <span class="ui">Use E1 Cloud</span>. For your organization's own server, type its address under "or your organization's server" in <span class="ui">Server address</span> (for example https://e1.example.com) and click <span class="ui">Connect</span>.</td><td>"E1 keeps projects on a server: E1 Cloud, run by LANXTOR, or your organization's own. You sign in next." The app restarts on that server, remembers it, and shows the sign-in.</td></tr>
+      <tr><td>5</td><td>Sign in.</td><td>The same sign-in screen and the same account as in the browser; your projects are there. Floating windows are real windows and open again where they were at the next start.</td></tr>
+    </tbody>
+  </table></div>
   <p>Wrong addresses are refused with "That is not an address. Enter one like https://e1.example.com.", "The address starts with https://." or "Use https:// for a server that is not on this computer."</p>
-  <figure class="g-shot"><img src="assets/img/guides/web-account-downloads.webp" alt="Downloads on the account page: Windows (Windows 10 or 11, 64-bit) and macOS (macOS 12 or newer), each with installer buttons that say Coming soon" width="2160" height="1350" loading="lazy"><figcaption>Downloads on the account page: the installer buttons say <span class="ui">Coming soon</span>.</figcaption></figure>
-  <p class="g-warn">The app's window title is "Lanxtor E1". On Windows the system menu bar hides itself; use E1's own menu bar inside the window. The plan is to sign in through your system browser; today the app shows the server's sign-in inside its own window.</p>
+  <figure class="g-shot"><img src="assets/img/guides/web-download.webp" alt="The Get E1 page: Download for Mac (Apple silicon, 114 MB), Download for Windows (Installer, 92 MB) and E1 Reviewer for iPad (App Store, coming soon), with the current version 0.1.2 below" width="2160" height="1350" loading="lazy"><figcaption>Get E1: the download buttons, your own system first.</figcaption></figure>
+  <p class="g-warn">The app's window title is "Lanxtor E1". On Windows the system menu bar hides itself; use E1's own menu bar inside the window. The plan is to sign in through your system browser; today the app shows the server's sign-in inside its own window. The app has no way yet to switch to another server after the first start.</p>
   <p class="g-related">Related: <a href="#acc-browser">Open E1 in the browser</a> · <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-desktop-updates">Keep the desktop app up to date</a> · <a href="guide-getting-started.html#gs-floating-windows">Floating windows</a></p>
 </section>
 
