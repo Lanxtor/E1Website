@@ -2,17 +2,18 @@
 <!--
   Security and data protection, for customers' IT teams. Every sentence must be
   true on the day it is published: it describes what is deployed in the E1 Cloud,
-  as written in Lanxtor/E1 docs/operator/backups-and-recovery.md. Publish (merge to
-  main) only after that runbook's "Setting it up" is done in production and the
-  first restore rehearsal is in docs/operator/restore-log.md. Change this page
-  in the same week as the runbook.
+  as written in Lanxtor/E1 docs/operator/backups-and-recovery.md, and the own-Azure
+  installation of deploy/azure/customer/README.md. Publish (merge to main) only
+  after that runbook's "Setting it up" is done in production (the standby
+  database, E1_DATABASE_TIER=production, included) and the first restore rehearsal
+  is in docs/operator/restore-log.md. Change this page in the same week as either.
 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Security and data protection — LANXTOR</title>
-  <meta name="description" content="How the E1 Cloud protects your engineering data: where it is stored, encryption, isolation between customers, backups that cannot be changed or deleted, recovery targets and tested restores.">
+  <meta name="description" content="How the E1 Cloud protects your engineering data: where it is stored, encryption, isolation between customers, backups, recovery targets and tested restores; or E1 in your own Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css?v=83">
 </head>
@@ -36,8 +37,8 @@
           <div class="stat"><span class="stat-label">Lost work, at most</span><span class="stat-value">1 hour</span><span class="stat-sub">Recovery point objective (RPO)</span></div>
           <div class="stat"><span class="stat-label">Back in service, at most</span><span class="stat-value">8 hours</span><span class="stat-sub">Recovery time objective (RTO)</span></div>
           <div class="stat"><span class="stat-label">Restore to any moment of the last</span><span class="stat-value">35 days</span><span class="stat-sub">Point-in-time recovery</span></div>
-          <div class="stat"><span class="stat-label">Independent copy, every</span><span class="stat-value">night</span><span class="stat-sub">Encrypted, in a separate account, unchangeable</span></div>
-          <div class="stat"><span class="stat-label">Copies kept up to</span><span class="stat-value">7 years</span><span class="stat-sub">Daily 35 days, monthly 12 months, yearly 7 years</span></div>
+          <div class="stat"><span class="stat-label">Standby database</span><span class="stat-value">Automatic</span><span class="stat-sub">Takes over within minutes if a data centre fails</span></div>
+          <div class="stat"><span class="stat-label">Or in your own Azure</span><span class="stat-value">Yours</span><span class="stat-sub">Your subscription, your data, your backups</span></div>
           <div class="stat"><span class="stat-label">Where</span><span class="stat-value">EU only</span><span class="stat-sub">Microsoft Azure, West Europe and North Europe</span></div>
         </div>
       </div>
@@ -50,9 +51,9 @@
         <ul class="legal-list">
           <li><b>Database</b>: Azure Database for PostgreSQL, on a private network with no public address. Only E1's own server can connect to it.</li>
           <li><b>Files</b> (documents, drawings, photos): Azure Blob Storage, reached only with E1's managed identity. Shared keys are switched off.</li>
-          <li><b>Secrets</b> (database passwords, the backup key): Azure Key Vault, never in code or configuration files.</li>
+          <li><b>Secrets</b> (database passwords, keys): Azure Key Vault, never in code or configuration files.</li>
         </ul>
-        <p>If your company must keep its data in its own environment, E1 can run in your own cloud or data centre from the same software. Your IT team then decides where data and backups are kept. Ask <a href="contact-sales.html">sales</a>.</p>
+        <p>If your company must keep its data in its own environment, E1 can run in your own Microsoft Azure subscription instead (<a href="#own-azure">below</a>).</p>
 
         <h2 id="isolation">Separated from other customers</h2>
         <p>Every organization's records carry its organization, and the database itself enforces the separation with row-level security: E1's server connects with a role that cannot read past it. Every request from your people runs inside your organization, so a mistake in one part of the software cannot show them another customer's data. The separation is tested automatically on every change to E1.</p>
@@ -61,8 +62,7 @@
         <ul class="legal-list">
           <li><b>In transit</b>: HTTPS (TLS 1.2 or newer) between your browser or the E1 app and the E1 Cloud, and TLS with certificate verification between E1's server and its database.</li>
           <li><b>At rest</b>: the database, its backups, the files and the logs are encrypted by Azure with AES-256.</li>
-          <li><b>The independent backups</b> are also encrypted by E1 itself before they leave, with AES-256-GCM and a key that only E1's backup jobs and E1's security owner hold. A copy of a backup is unreadable without that key, and any change to it is detected.</li>
-          <li><b>Your own key</b>: a customer that must hold its own encryption key gets its own E1 installation, encrypted with its key in Azure Key Vault.</li>
+          <li><b>Your own key</b>: if your company must hold its own encryption keys, run E1 in your own Azure, where your IT can use customer-managed keys from your own Key Vault.</li>
         </ul>
       </div>
     </section>
@@ -71,7 +71,7 @@
       <div class="container legal">
         <div class="section-head reveal">
           <h2>Backups</h2>
-          <p>Several layers, each against a different kind of loss. Each one would bring your data back on its own.</p>
+          <p>Azure's own backups, set up for engineering data, checked and rehearsed.</p>
         </div>
         <div class="table-wrap reveal">
           <table class="data-table data-table-wrap">
@@ -82,25 +82,16 @@
               <tr><td>Standby database</td><td>A server or a whole data centre failing. A copy in another data centre of the region takes over by itself, usually within minutes, without losing saved work.</td><td>Live</td><td>West Europe, another availability zone</td></tr>
               <tr><td>Point-in-time recovery</td><td>Mistakes and corruption. The database can be restored to any second of the last 35 days.</td><td>35 days</td><td>West Europe and North Europe</td></tr>
               <tr><td>File versions and restore</td><td>A file overwritten or deleted. Earlier versions are kept, and all files can be put back as they were at a given moment.</td><td>30 days</td><td>Three data centres in West Europe, and North Europe</td></tr>
-              <tr><td>Independent copy</td><td>Losing all of the above at once: an operator's mistake, a compromised account, ransomware. See below.</td><td>Daily 35 days, monthly 12 months, yearly 7 years, files 7 years</td><td>North Europe, a separate Azure subscription</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <section class="section section-tight" id="independent-copy">
+    <section class="section section-tight" id="recovery">
       <div class="container legal">
-        <h2>The independent copy</h2>
-        <p>Every night E1 makes a full backup of the database, checks that it can be read back, encrypts it, and writes it together with every new file to a storage account that is kept apart from the E1 Cloud itself:</p>
-        <ul class="legal-list">
-          <li><b>Separate subscription, separate people</b>: the account is in its own Azure subscription. The people and the automated deployment that run the E1 Cloud cannot manage it.</li>
-          <li><b>Unchangeable (WORM)</b>: every backup is locked for its whole retention period with Azure's immutable storage. No one can change or delete it before that period ends, E1 included, even with administrator rights. A deleted or compromised E1 Cloud cannot take its backups with it.</li>
-          <li><b>Checked every week</b>: an automatic job downloads the newest copy, decrypts it and reads it back. If a backup is missing or fails, E1's operators are alerted.</li>
-        </ul>
-
         <h2 id="protection">Protection against deletion</h2>
-        <p>The database server, the file storage and the key vault carry Azure delete locks, so they cannot be deleted by mistake. E1's operators are alerted at once if any of them, or a lock, is deleted, and when a night passes without a backup.</p>
+        <p>The database server, the file storage and the key vault carry Azure delete locks, so they cannot be deleted by mistake. E1's operators are alerted at once if any of them, or a lock, is deleted. Only two people at LANXTOR are owners of the E1 Cloud's Azure subscription, both with multi-factor sign-in.</p>
 
         <h2 id="restores">Restores are tested</h2>
         <p>A backup only counts if it can be restored. Every change to E1 is tested by restoring a backup into an empty database and comparing it with the original. At least every quarter, E1's operators restore the whole E1 Cloud database onto a separate server, check it, and record how long it took against the 8-hour target. The results are available to customers on request.</p>
@@ -113,7 +104,38 @@
         <p>Your organization's administrators can export all of its data whenever they like (Organization… → Export → Export everything…). The archive holds every project's records, history, comments, documents and files in a documented format, so your company can keep its own backups in its own systems too.</p>
 
         <h2 id="deletion">Deleted data and backups</h2>
-        <p>When you delete data, or your organization leaves E1 and asks for its data to be erased, it is removed from the live service at once. Backups are not changed: they cannot be, by design. Deleted data therefore remains in backups until they expire: 35 days for the daily and point-in-time backups, 12 months for monthly ones, and up to 7 years for yearly ones and the copies of files. If a restore ever brings deleted data back, it is deleted again.</p>
+        <p>When you delete data, or your organization leaves E1 and asks for its data to be erased, it is removed from the live service at once. Backups are not edited. Deleted data therefore remains in backups until they expire: 35 days for the database and 30 days for files. If a restore ever brings deleted data back, it is deleted again.</p>
+
+      </div>
+    </section>
+
+    <section class="section section-soft" id="own-azure">
+      <div class="container legal">
+        <div class="section-head reveal">
+          <h2>In your own Microsoft Azure</h2>
+          <p>E1 can be installed in your company's own Azure subscription instead of the E1 Cloud: the database, the files, the sign-in and the server are all in your account, in the region you choose, on your Azure bill. Your people sign in with their company accounts (Microsoft Entra ID). Nothing of yours is stored at LANXTOR.</p>
+        </div>
+        <div class="table-wrap reveal">
+          <table class="data-table data-table-wrap">
+            <thead>
+              <tr><th></th><th>You run it</th><th>LANXTOR runs it in your Azure</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Subscription, data, Azure bill</td><td>Yours</td><td>Yours</td></tr>
+              <tr><td>Installing</td><td>Your IT, with our guide and our help</td><td>LANXTOR, with your IT for the steps that need your rights</td></tr>
+              <tr><td>Updates</td><td>Your IT, when you choose: one command for most releases</td><td>LANXTOR, in a window you agree</td></tr>
+              <tr><td>Backups and restores</td><td>Azure's, set up by the installation (35 days, a second region); checking and restoring are yours</td><td>Set up and watched by LANXTOR; restores agreed with you</td></tr>
+              <tr><td>LANXTOR's access</td><td>None, unless you give it for a support case</td><td>Delegated rights on E1's resource group only, which you can end at any time; no access to your secrets, and to your data only if your administrators invite someone</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="own-azure-details">
+      <div class="container legal">
+        <h2>How updates reach your installation</h2>
+        <p>LANXTOR publishes E1 as numbered releases with release notes. An update copies the new release into your own container registry and switches your server to it; E1 brings its database up to date as it starts, and your data stays where it is. If the new release does not start, the update switches back to the one before by itself. Each release's notes say whether it changes the database, so you know before you update whether going back would also need a restore of the database to the moment before the update.</p>
 
         <h2 id="questions">Security questionnaires</h2>
         <p>We are happy to complete your security questionnaire and to discuss your requirements, including audit rights and a dedicated installation. Write to <a href="mailto:sales@lanxtor.com">sales@lanxtor.com</a>.</p>
