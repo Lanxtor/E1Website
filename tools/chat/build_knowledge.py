@@ -29,6 +29,7 @@ PAGES = [
     ("shape-e1.html", "Contact us: sales and support emails, feature requests and open roles"),
     ("about.html", "About us"),
     ("legal.html", "Legal notice"),
+    ("security.html", "Security and data protection: where data is, encryption, isolation, backups, recovery targets, restores"),
     ("privacy.html", "Privacy policy"),
     ("terms.html", "Terms of use"),
 ]

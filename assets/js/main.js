@@ -217,6 +217,7 @@
       '<li><a href="' + H("contact-sales.html") + '">' + T("Contact sales") + "</a></li>" +
       '<li><a href="account.html">' + T("Your account") + "</a></li>" +
       '<li><a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a></li>" +
+      '<li><a href="security.html">' + T("Security") + "</a></li>" +
       "</ul></div>" +
       "</div>" +
       '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". " + T("All rights reserved.") + "</span>" +
@@ -225,6 +226,7 @@
       '<a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a>" +
       '<a href="' + H("privacy.html#cookies") + '" data-cookie-settings>' + T("Cookies") + "</a>" +
       '<a href="' + H("terms.html") + '">' + T("Terms of use") + "</a>" +
+      '<a href="security.html">' + T("Security") + "</a>" +
       "</nav></div>" +
       "</div>" +
       "</footer>";
