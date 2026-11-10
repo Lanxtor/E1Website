@@ -17,3 +17,10 @@ Rules for translations
   Spanish "tú", Norwegian bokmål "du".
 - Use the established engineering terms of each language (for example German "Rohrleitungs- und
   Instrumentenfließschema" is shortened to "R&I-Fließschema", keep "P&ID" where it is used as a name).
+
+Search engines and link previews
+- The same build also writes, for every page and language, its canonical address and its Open Graph
+  and Twitter tags (`<!-- seo -->` block: the page's own title and description, the preview image
+  `assets/img/og-image.png`), `sitemap.xml` with every public page and its languages, and
+  `<meta name="robots" content="noindex">` on personal or hidden pages (account, login, certificate,
+  industries, 404 …). Do not edit those blocks by hand; run the build.
