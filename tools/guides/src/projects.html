@@ -448,6 +448,31 @@
   <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a> · <a href="#prj-sample-project">The sample project: Demo Plant</a></p>
 </section>
 
+<section class="g-feature" id="prj-import-dxf">
+  <h2>Import a P&amp;ID from CAD (DXF)</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-dxf</span><span>Roadmap 31.3</span></div>
+  <p class="g-summary">Many P&amp;IDs were drawn in AutoCAD or a similar CAD program. <span class="ui">Import DXF…</span> reads one or more drawings saved as DXF and makes them E1 drawings with real objects: each block (a pump, a valve, a tank) becomes an object of the class it is named for or looks like, placed where it is drawn, and the lines on each layer become pipes, signals or cables connected to the symbols they end on. As with every import, a second import of a revised drawing updates what is there, and you decide every difference.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import DXF…</span> (for the project selected in the explorer)</dd>
+    <dt>Who</dt><dd>The <span class="ui">Import data</span> permission in the project (Project administrator and Lead engineer have it), and the permissions of the changes the import makes</dd>
+    <dt>Before you start</dt><dd>The drawing saved as DXF (ASCII) from your CAD program. A DWG file: open it in your CAD program and use <em>Save As → DXF</em>; E1 recognizes a DWG file and says so.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the project in the explorer, then <span class="ui">File</span> → <span class="ui">Import DXF…</span>.</td><td>The <span class="ui">Import DXF</span> dialog opens on <span class="ui">Files</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add files…</span>, pick one or more DXF files (up to 50 MB each), then <span class="ui">Next</span>.</td><td>The <span class="ui">Mapping</span> step: for each drawing its units and its block references and lines; one row per block and one per layer with lines.</td></tr>
+      <tr><td>3</td><td>Check each block's <span class="ui">Class</span> and <span class="ui">Why?</span>.</td><td>A block is proposed by its name (VALVE_GATE is a <span class="ui">Gate valve</span>) and by its look, compared with E1's symbols: "PUMP is Pump; it looks like E1's Centrifugal pump symbol (100 % alike)". A block E1 cannot tell apart surely is <span class="ui">Medium</span>, with the other likely classes in the list.</td></tr>
+      <tr><td>4</td><td>Click a block's name.</td><td>Its attributes: <em>TAG</em> fills <span class="ui">Tag</span>, an attribute whose prompt names an E1 attribute (<em>Flow rate</em>) fills it. A block without a tag attribute takes a tag-like text beside it (<em>XV-101</em>).</td></tr>
+      <tr><td>5</td><td>Check each layer with lines: PROCESS or PIPE layers are proposed as <span class="ui">Pipe run</span>, SIGNAL or INSTR layers as <span class="ui">Signal</span>. <span class="ui">Ignore</span> the border and title block layer.</td><td>The rows say <span class="ui">Accepted</span> or <span class="ui">Ignored</span>.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Next</span>, <span class="ui">Check</span>, then <span class="ui">Apply</span>.</td><td>A 2D space named after the file opens: the symbols where the blocks are, turned as they are drawn, joined by the runs. A line that ends on a symbol's side gets a nozzle there (N1, N2…). One <kbd>Ctrl+Z</kbd> takes the whole import back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Texts that are not a block's tag, hatches, dimensions and images are not imported; the dialog lists them under "What … has that is not imported". A block referenced again in a revised drawing is found by its tag and updated; one moved on the drawing is a <span class="ui">Placement on the drawing</span> for you to decide.</p>
+  <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-import-excel">Import Excel workbooks</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
+</section>
+
 <section class="g-feature" id="prj-branches">
   <h2>Branches</h2>
   <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span class="g-id">PRJ-branches</span><span>Roadmap M8</span></div>
