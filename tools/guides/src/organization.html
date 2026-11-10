@@ -33,7 +33,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span>, <span class="ui">Assignments</span>, <span class="ui">History</span>, <span class="ui">Reviews</span> and <span class="ui">Emergency</span>, see <a href="#org-access-history">Access history</a>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
       <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u of t · Student u of t · Administrator u of t</span>.</td></tr>
       <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
@@ -495,19 +495,37 @@
 
 <section class="g-feature" id="org-access-history">
   <h2>Access history and audit export</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">ORG-access-history</span><span>Roadmap 09.6h</span></div>
-  <p class="g-summary">You will be able to see every change to groups, roles and assignments with before and after, see who had access on a given date, and export it for an audit.</p>
-  <div class="g-dev">
-    <p>Being built now (work order of 2026-11-07). Labels are the planned ones.</p>
-  </div>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-access-history</span><span>Roadmap 09.6h</span><span>Review checks N6</span></div>
+  <p class="g-summary">See every change to who may do what, with before and after; see who had access on any earlier date; export it for an audit; let someone review a project's access; and give an emergency way in when the usual administrators cannot be reached.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Access → History</span>, <span class="ui">Reviews</span>, <span class="ui">Emergency</span></dd>
+    <dt>Who</dt><dd>Owners and Administrators (View the audit). A reviewer answers their own review; the people named for emergency access take and review it.</dd>
+  </dl>
+  <h3>The history and access on a date</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">History</span>.</td><td>Every access change, newest first: when, the change (for example <em>group.members-set</em>, <em>access.granted</em>, <em>responsibility.assigned</em>), who did it, what it was about, and its before and after.</td></tr>
+      <tr><td>2</td><td>Choose a <span class="ui">Kind of change</span>, a <span class="ui">Person</span>, <span class="ui">From</span> and <span class="ui">To</span>.</td><td>Only those changes.</td></tr>
+      <tr><td>3</td><td>Pick a date in <span class="ui">Show access on</span> and click <span class="ui">Show access then</span>.</td><td>Who held which role where at the end of that day, rebuilt from today's access and the changes since. It says from when the history is complete.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Export history (Excel)</span>, <span class="ui">CSV</span>, <span class="ui">Export access report (Excel)</span> or <span class="ui">Export audit log (CSV)</span>.</td><td>The file downloads; the export itself is noted in the audit.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Access reviews</h3>
   <ul>
-    <li>Open <em>Organization… → Access → Access history</em>, filter it, and use <em>Show access on a date</em>.</li>
-    <li><em>Export</em> the history and the current access report to Excel or CSV.</li>
-    <li>Filter and export the Audit tab.</li>
-    <li>See a project's access history under Project settings → Access → History.</li>
+    <li><span class="ui">Reviews</span>: choose a project (or every project), a reviewer and a deadline, then <span class="ui">Start review</span>. The reviewer finds it in their Inbox.</li>
+    <li>The reviewer clicks <span class="ui">Keep</span> or <span class="ui">Remove</span> on each line. A line they gave themselves is not theirs to review.</li>
+    <li><span class="ui">Close review</span> revokes what was removed; after the deadline it also revokes the lines left open.</li>
   </ul>
-  <p class="g-related">Related: <a href="#org-audit">Audit</a> · <a href="#org-custom-roles">Custom roles</a></p>
+  <h3>Emergency access</h3>
+  <ul>
+    <li>Tick the people <span class="ui">Named for emergency access</span> (usually two or three).</li>
+    <li>One of them chooses a project, writes the reason and the length (1 to 24 hours) and clicks <span class="ui">Take emergency access</span>: they are Project administrator there until then, and every owner is told in their Inbox at once.</li>
+    <li><span class="ui">End</span> stops it early. Another named person clicks <span class="ui">Review</span> and notes what they checked.</li>
+  </ul>
+  <p class="g-note">The audit log cannot be changed or deleted by anyone, E1 included. Every privileged grant, every change of a project member's maximum role or of a ceiling, and every emergency access is told to the owners.</p>
+  <p class="g-warn">Not built yet: a project's own history under Project settings → Access, reviews on a schedule, the alerts by email (they are in the Inbox), and E1 support access requested and approved by you.</p>
+  <p class="g-related">Related: <a href="#org-audit">Audit</a> · <a href="#org-custom-roles">Custom roles</a> · <a href="#org-responsibility">Assign to…</a></p>
 </section>
 
 <section class="g-feature" id="org-sso">
