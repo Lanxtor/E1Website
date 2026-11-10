@@ -24,6 +24,7 @@ PAGES = [
     ("index.html", "Home"),
     ("solutions.html", "Solutions (feature catalog)"),
     ("download.html", "Get E1: E1 Cloud, enterprise installation, universities, licenses and prices, trial, download"),
+    ("cloud-specifications.html", "E1 Cloud specifications: data location, performance, security, who can see what, backups and recovery, standards, apps and limits"),
     ("academy.html", "E1 Academy"),
     ("contact-sales.html", "Contact sales"),
     ("shape-e1.html", "Contact us: sales and support emails, feature requests and open roles"),
