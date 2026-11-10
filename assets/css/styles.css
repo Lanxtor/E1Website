@@ -3403,6 +3403,21 @@ code {
   .map-pin.pin-left > span { right: 8px; }
 }
 @media (max-width: 640px) { .map-pin.pin-left-sm > span { left: auto; right: 8px; } }
-.card.founder { padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 255, 255, 0.95); }
-.card.founder .avatar { width: 72px; height: 72px; margin-bottom: 18px; }
-.card.founder h3 { font-size: 1.1rem; }
+/* The founder and the team side by side: no frame, a large photo, the map beside it. */
+.about-people { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 72px; align-items: start; }
+.about-people h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); letter-spacing: -0.02em; }
+.founder-profile { margin-top: 28px; }
+.founder-photo { display: block; width: 200px; height: 200px; object-fit: cover; border-radius: 28px; box-shadow: 0 24px 48px -28px rgba(11, 42, 74, 0.55); }
+.founder-profile h3 { margin-top: 22px; font-size: 1.3rem; letter-spacing: -0.01em; }
+.founder-profile .founder-lines { margin-top: 16px; gap: 12px; font-size: 0.95rem; }
+.founder-profile .founder-lines li { grid-template-columns: 72px minmax(0, 1fr); }
+.founder-linkedin { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding: 9px 16px 9px 12px; border-radius: 999px; background: var(--bg-soft); color: var(--text-title); font-size: 0.92rem; font-weight: 600; transition: background 0.2s, color 0.2s; }
+.founder-linkedin svg { color: #0a66c2; }
+.founder-linkedin:hover { background: #0a66c2; color: #fff; }
+.founder-linkedin:hover svg { color: #fff; }
+.about-team > p { margin-top: 12px; max-width: 560px; color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+.about-team .team-map { max-width: none; margin: 40px 0 0; }
+@media (max-width: 960px) {
+  .about-people { grid-template-columns: 1fr; gap: 56px; }
+  .founder-photo { width: 168px; height: 168px; border-radius: 24px; }
+}
