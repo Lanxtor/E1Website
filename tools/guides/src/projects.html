@@ -391,9 +391,9 @@
 <section class="g-feature" id="prj-import-dexpi">
   <h2>Import a DEXPI P&amp;ID</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-dexpi</span><span>Roadmap 31.1</span></div>
-  <p class="g-summary">DEXPI is the exchange format P&amp;ID tools use. <span class="ui">Import DEXPI…</span> reads one or more DEXPI 2.0 files, proposes how their equipment, piping and instruments map onto E1's classes and attributes, and shows every change before anything is stored. An import always imports and updates: import a revised file again and the objects already there are updated, never duplicated. A value someone changed in E1 is never overwritten without your decision.</p>
+  <p class="g-summary">DEXPI is the exchange format P&amp;ID tools use. <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> reads one or more DEXPI 2.0 files, proposes how their equipment, piping and instruments map onto E1's classes and attributes, and shows every change before anything is stored. An import always imports and updates: import a revised file again and the objects already there are updated, never duplicated. A value someone changed in E1 is never overwritten without your decision.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import DEXPI…</span> (for the project selected in the explorer)</dd>
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> (for the project selected in the explorer)</dd>
     <dt>Who</dt><dd>The <span class="ui">Import data</span> permission in the project (Project administrator and Lead engineer have it), and the permissions of the changes the import makes</dd>
     <dt>Before you start</dt><dd>A project selected in the explorer, and a DEXPI 2.0 file, for example the DEXPI reference P&amp;ID (DEXPI Specification 2.0, dexpi.org).</dd>
   </dl>
@@ -401,7 +401,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click the project in the explorer, then <span class="ui">File</span> → <span class="ui">Import DEXPI…</span>.</td><td>The <span class="ui">Import DEXPI</span> dialog opens on its first step, <span class="ui">Files</span>.</td></tr>
+      <tr><td>1</td><td>Click the project in the explorer, then <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span>.</td><td>The <span class="ui">Import DEXPI</span> dialog opens on its first step, <span class="ui">Files</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Add files…</span> and pick one or more DEXPI files (up to 50 MB each).</td><td>Each file is listed with its size; <span class="ui">Remove</span> takes one off the list.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Next</span>.</td><td>The <span class="ui">Mapping</span> step: the drawing (for the reference P&amp;ID "123/A93 DEXPI example PID, revision R2.2 · 212 records · made with P&amp;ID Toolbox 1.1.0") and one row per kind of thing in the file, with the E1 <span class="ui">Class</span> proposed, its <span class="ui">Confidence</span> and <span class="ui">Why?</span>: for CentrifugalPump "DEXPI standard: CentrifugalPump is Centrifugal pump (shape ISO10628:2012-2322-A)".</td></tr>
       <tr><td>4</td><td>Click a source type's name.</td><td>Its fields open below it: each with samples from the file and the <span class="ui">Attribute</span> it fills (TagName fills <span class="ui">Tag</span>, DesignVolumeFlowRate <span class="ui">Flow rate</span>), or <span class="ui">Leave out</span>.</td></tr>
@@ -424,9 +424,9 @@
 <section class="g-feature" id="prj-import-excel">
   <h2>Import Excel workbooks</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-excel</span><span>Roadmap 31.2</span></div>
-  <p class="g-summary">Equipment lists, instrument indexes and data sheets often live in Excel. <span class="ui">Import Excel workbooks…</span> reads one or more workbooks (.xlsx) or CSV files: each sheet becomes a kind of object (Pumps, Valves…), each column an attribute, each row an object found by its tag. It works like <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a>: objects already in the project are updated, the others are created, nothing is deleted, and a value E1 already holds from elsewhere is never overwritten without your decision.</p>
+  <p class="g-summary">Equipment lists, instrument indexes and data sheets often live in Excel. <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">Excel workbooks…</span> reads one or more workbooks (.xlsx) or CSV files: each sheet becomes a kind of object (Pumps, Valves…), each column an attribute, each row an object found by its tag. It works like <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a>: objects already in the project are updated, the others are created, nothing is deleted, and a value E1 already holds from elsewhere is never overwritten without your decision.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import Excel workbooks…</span> (for the project selected in the explorer)</dd>
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">Excel workbooks…</span> (for the project selected in the explorer)</dd>
     <dt>Who</dt><dd>The <span class="ui">Import data</span> permission in the project (Project administrator and Lead engineer have it), and the permissions of the changes the import makes</dd>
     <dt>Before you start</dt><dd>A workbook with one sheet per kind of object and a header row: a <em>Tag</em> column, and one column per attribute. Put a unit in brackets after the header, such as <em>Flow rate [m³/h]</em> or <em>Rated power (kW)</em>. Title rows above the header are fine.</dd>
   </dl>
@@ -434,7 +434,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click the project in the explorer, for example <span class="ui">Demo Plant (sample)</span>, then <span class="ui">File</span> → <span class="ui">Import Excel workbooks…</span>.</td><td>The <span class="ui">Import Excel workbooks</span> dialog opens on <span class="ui">Files</span>.</td></tr>
+      <tr><td>1</td><td>Click the project in the explorer, for example <span class="ui">Demo Plant (sample)</span>, then <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">Excel workbooks…</span>.</td><td>The <span class="ui">Import Excel workbooks</span> dialog opens on <span class="ui">Files</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Add files…</span> and pick one or more .xlsx or CSV files (up to 20 MB each), then <span class="ui">Next</span>.</td><td>The <span class="ui">Mapping</span> step: for each file its sheets and rows, and one row per sheet with the <span class="ui">Class</span> proposed by the sheet's name, its <span class="ui">Confidence</span> and <span class="ui">Why?</span>. A sheet without a table (a notes sheet) is left out and said so.</td></tr>
       <tr><td>3</td><td>Check the class of each sheet. For a sheet named <em>Pumps</em>, E1 proposes the first kind of pump, <span class="ui">Centrifugal pump</span>, with <span class="ui">Medium</span> confidence: choose the kind you mean.</td><td>"Pumps is Pump, which E1 has in kinds: choose the kind…".</td></tr>
       <tr><td>4</td><td>Click the sheet's name.</td><td>Its columns open below it, each with samples and the <span class="ui">Attribute</span> it fills: <em>Tag</em> fills <span class="ui">Tag</span>, <em>Flow rate [m³/h]</em> fills <span class="ui">Flow rate</span>. Choose another attribute, or <span class="ui">Leave out</span>.</td></tr>
@@ -444,8 +444,57 @@
     </tbody>
   </table></div>
   <p class="g-note">A cell that is not a valid value (text in a number column, a unit the attribute does not have) is left out and listed under "What … has that is not imported", with the row. A row with no tag and no name is left out too. Numbers may be written 1234.5, 1 234,5 or 12,5. An older .xls workbook: save it as .xlsx first.</p>
-  <p class="g-note">The <span class="ui">Import</span> button of a section (<a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a>) brings one tag list into that section; <span class="ui">Import Excel workbooks…</span> reads whole workbooks for the project, one class per sheet, with the differences to decide.</p>
+  <p class="g-note">The <span class="ui">Import</span> button of a section (<a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a>) brings one tag list into that section; <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">Excel workbooks…</span> reads whole workbooks for the project, one class per sheet, with the differences to decide.</p>
   <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a> · <a href="#prj-sample-project">The sample project: Demo Plant</a></p>
+</section>
+
+<section class="g-feature" id="prj-import-dxf">
+  <h2>Import a P&amp;ID from CAD (DXF)</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-dxf</span><span>Roadmap 31.3</span></div>
+  <p class="g-summary">Many P&amp;IDs were drawn in AutoCAD or a similar CAD program. <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DXF drawing…</span> reads one or more drawings saved as DXF and makes them E1 drawings with real objects: each block (a pump, a valve, a tank) becomes an object of the class it is named for or looks like, placed where it is drawn, and the lines on each layer become pipes, signals or cables connected to the symbols they end on. As with every import, a second import of a revised drawing updates what is there, and you decide every difference.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DXF drawing…</span> (for the project selected in the explorer)</dd>
+    <dt>Who</dt><dd>The <span class="ui">Import data</span> permission in the project (Project administrator and Lead engineer have it), and the permissions of the changes the import makes</dd>
+    <dt>Before you start</dt><dd>The drawing saved as DXF (ASCII) from your CAD program. A DWG file: open it in your CAD program and use <em>Save As → DXF</em>; E1 recognizes a DWG file and says so.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the project in the explorer, then <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DXF drawing…</span>.</td><td>The <span class="ui">Import DXF</span> dialog opens on <span class="ui">Files</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add files…</span>, pick one or more DXF files (up to 50 MB each), then <span class="ui">Next</span>.</td><td>The <span class="ui">Mapping</span> step: for each drawing its units and its block references and lines; one row per block and one per layer with lines.</td></tr>
+      <tr><td>3</td><td>Check each block's <span class="ui">Class</span> and <span class="ui">Why?</span>.</td><td>A block is proposed by its name (VALVE_GATE is a <span class="ui">Gate valve</span>) and by its look, compared with E1's symbols: "PUMP is Pump; it looks like E1's Centrifugal pump symbol (100 % alike)". A block E1 cannot tell apart surely is <span class="ui">Medium</span>, with the other likely classes in the list.</td></tr>
+      <tr><td>4</td><td>Click a block's name.</td><td>Its attributes: <em>TAG</em> fills <span class="ui">Tag</span>, an attribute whose prompt names an E1 attribute (<em>Flow rate</em>) fills it. A block without a tag attribute takes a tag-like text beside it (<em>XV-101</em>).</td></tr>
+      <tr><td>5</td><td>Check each layer with lines: PROCESS or PIPE layers are proposed as <span class="ui">Pipe run</span>, SIGNAL or INSTR layers as <span class="ui">Signal</span>. <span class="ui">Ignore</span> the border and title block layer.</td><td>The rows say <span class="ui">Accepted</span> or <span class="ui">Ignored</span>.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Next</span>, <span class="ui">Check</span>, then <span class="ui">Apply</span>.</td><td>A 2D space named after the file opens: the symbols where the blocks are, turned as they are drawn, joined by the runs. A line that ends on a symbol's side gets a nozzle there (N1, N2…). One <kbd>Ctrl+Z</kbd> takes the whole import back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Texts that are not a block's tag, hatches, dimensions and images are not imported; the dialog lists them under "What … has that is not imported". A block referenced again in a revised drawing is found by its tag and updated; one moved on the drawing is a <span class="ui">Placement on the drawing</span> for you to decide.</p>
+  <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-import-excel">Import Excel workbooks</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
+</section>
+
+<section class="g-feature" id="prj-import-pdf">
+  <h2>Import a P&amp;ID from a PDF</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-pdf</span><span>Roadmap 31.4</span></div>
+  <p class="g-summary">Often the only copy of a P&amp;ID you get is a PDF. When it was exported from CAD (a vector PDF), <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">PDF drawing…</span> makes it an E1 drawing with real objects: E1 finds the symbols among the drawing's lines, recognizes each by its look against E1's symbols, takes the text beside it as its tag, and reads solid lines as pipes and dashed lines as signals. Each page is a drawing. As with every import, you check the result and decide before anything is stored.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">PDF drawing…</span> (for the project selected in the explorer)</dd>
+    <dt>Who</dt><dd>The <span class="ui">Import data</span> permission in the project (Project administrator and Lead engineer have it), and the permissions of the changes the import makes</dd>
+    <dt>Before you start</dt><dd>A PDF exported from a CAD program. A scanned drawing (an image) cannot be read; E1 says so. Up to 50 MB and 50 pages per file.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the project in the explorer, then <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">PDF drawing…</span>.</td><td>The <span class="ui">Import PDF</span> dialog opens on <span class="ui">Files</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add files…</span>, pick one or more PDFs, then <span class="ui">Next</span>.</td><td>The <span class="ui">Mapping</span> step. A PDF has no blocks: each row is the shapes that look like one E1 symbol, for example <em>Looks like Centrifugal pump</em> with 2 shapes, with the <span class="ui">Class</span> proposed and how sure E1 is.</td></tr>
+      <tr><td>3</td><td>Where E1 is unsure (<span class="ui">Medium</span>), choose the class you mean, for example <span class="ui">Vertical vessel</span> for a shape that looks like a gas cylinder too.</td><td>The row says <span class="ui">Accepted</span>.</td></tr>
+      <tr><td>4</td><td>Check the line rows: <em>Solid lines</em> as <span class="ui">Pipe run</span>, <em>Dashed lines (signals)</em> as <span class="ui">Signal</span>. Then <span class="ui">Accept all high</span>, <span class="ui">Next</span>, <span class="ui">Check</span>.</td><td>The <span class="ui">Differences</span> step: each shape with the tag found beside it (P-201, XV-201).</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Apply</span>, then <span class="ui">Close</span>.</td><td>A 2D space named after the file opens: the symbols where they are, turned as drawn, connected by the lines. The border and title block are not imported. One <kbd>Ctrl+Z</kbd> takes the whole import back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A PDF names nothing, so E1 knows a symbol only by its look: symbols that look alike are proposed with <span class="ui">Medium</span> confidence and the other likely classes in the list. A shape that looks like no E1 symbol, texts that are not tags, and fills are listed under "What … has that is not imported". A DXF or DEXPI file of the same drawing, where you have one, holds more: see <a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a>.</p>
+  <p class="g-related">Related: <a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a> · <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-import-excel">Import Excel workbooks</a></p>
 </section>
 
 <section class="g-feature" id="prj-branches">

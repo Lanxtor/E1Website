@@ -51,21 +51,20 @@
 
 <section class="g-feature" id="draw-toolbar">
   <h2>The drawing toolbar and the formatting bar</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-toolbar</span><span>Roadmap M3.3, M3.11</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-10</span><span class="g-id">DRAW-toolbar</span><span>Roadmap M3.3, M3.11</span></div>
   <p class="g-summary">The toolbar above the 2D space has three rows: what to add, the editing tools, and the formatting of text and lines. Every button shows its name when you point at it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Above an open 2D space</dd>
     <dt>Who</dt><dd>Everyone sees it; the editing buttons need edit rights on the drawing</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
-  <figure class="g-shot g-small"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar: Object and Asset, Connector and Flow lines, Let Alex help and the space name Assets; below the tools Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align and Layers; below that Font, text color, B I U S, A− A+, Rotate, Line thickness, line color, Style, minus and plus" width="1596" height="246" loading="lazy"><figcaption>The three rows of the drawing toolbar.</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar: Object and Asset, Connector and Flow lines, Let Alex help and the space name Assets; below the tools Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align and Layers; below that Font, text color, B I U S, A− A+, Rotate, Line thickness, line color, Style, minus and plus" width="1596" height="246" loading="lazy"><figcaption>The three rows of the drawing toolbar. Taken before the Let Alex help button moved to the Alex tab.</figcaption></figure>
   <h3>What is on it</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Row</th><th>Control</th><th>What it does</th></tr></thead>
     <tbody>
       <tr><td>1</td><td><span class="ui">Object</span> with <span class="ui">Object type</span> (shows <span class="ui">Asset</span>)</td><td>Adds an object of the chosen type; Asset opens the <span class="ui">Add asset</span> window. See <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> and <a href="guide-drawing.html#draw-object-types">Object types</a>.</td></tr>
       <tr><td>1</td><td><span class="ui">Connector</span> with <span class="ui">Connector type</span> (shows <span class="ui">Flow lines</span>)</td><td>Draws lines of the chosen kind. See <a href="guide-drawing.html#draw-connector">Connector</a>.</td></tr>
-      <tr><td>1</td><td><span class="ui">Let Alex help</span> / <span class="ui">Alex is live</span></td><td>Turns predictive mode on and off. See <a href="guide-drawing.html#draw-predictive">Predictive mode</a>.</td></tr>
       <tr><td>2</td><td><span class="ui">Select</span> (<kbd>V</kbd>), <span class="ui">Pan</span> (<kbd>H</kbd>)</td><td>The pointer tools.</td></tr>
       <tr><td>2</td><td><span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>, <span class="ui">Delete</span></td><td>Editing. Delete is greyed out with nothing selected. See <a href="guide-drawing.html#draw-clipboard">Copy, paste and undo</a>.</td></tr>
       <tr><td>2</td><td><span class="ui">Text</span>, <span class="ui">Tag</span></td><td>Place a text note; tag a symbol. See <a href="guide-drawing.html#draw-text">Text notes</a> and <a href="guide-drawing.html#draw-tags-labels">Tags on the 2D space</a>.</td></tr>
@@ -637,10 +636,10 @@
 
 <section class="g-feature" id="draw-predictive">
   <h2>Predictive mode: Let Alex help</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-predictive</span><span>Roadmap M3.11</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-10</span><span class="g-id">DRAW-predictive</span><span>Roadmap M3.11</span></div>
   <p class="g-summary">With predictive mode on, Alex reviews the drawing as you work and offers what usually comes next, for example the valves around a new pump. The offer is drawn as ghost symbols on the 2D space and listed as the first card, <span class="ui">After your change</span>, under <span class="ui">Design suggestions</span> in Alex (Co-engineer), where you apply or reject it. It runs locally, without the cloud.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Let Alex help</span> (reads <span class="ui">Alex is live</span> while on); Alex's skill and level in the side panel, under <span class="ui">Co-engineer</span></dd>
+    <dt>Where</dt><dd><span class="ui">Alex</span> → <span class="ui">Co-engineer</span> → <span class="ui">Let Alex help</span> (<span class="ui">Stop Alex</span> while on); Alex's skill and level in the same place</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
@@ -648,8 +647,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Point at <span class="ui">Let Alex help</span>.</td><td>The tooltip reads "Let Alex (…) review the drawing as you work and suggest what comes next: local AI, no cloud." with Alex's current skill.</td></tr>
-      <tr><td>2</td><td>Click it.</td><td>The button is pressed and reads <span class="ui">Alex is live</span>.</td></tr>
+      <tr><td>1</td><td>In the side panel, click <span class="ui">Co-engineer</span> in Alex.</td><td>With Alex off, the panel shows <span class="ui">Let Alex help</span>, with Alex's sparkle icon.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Let Alex help</span>.</td><td>Alex is on: the panel shows <span class="ui">Stop Alex</span>.</td></tr>
       <tr><td>3</td><td>Place a centrifugal pump.</td><td>Ghost symbols of what usually comes next appear on the 2D space. There is no bar on the 2D space for the offer.</td></tr>
       <tr><td>4</td><td>In the side panel, click <span class="ui">Co-engineer</span> in Alex.</td><td>Under <span class="ui">Design suggestions</span>, the first card has the badge <span class="ui">After your change</span>, a title such as "P-001: add …", and <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Reject</span> (and <span class="ui">Ask Alex</span> when an AI model is set up).</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Show</span> on the card.</td><td>The suggestion is drawn on the 2D space and the button reads <span class="ui">Hide</span>; clicking it again takes it off.</td></tr>
@@ -657,11 +656,11 @@
       <tr><td>7</td><td>Place another pump, then click <span class="ui">Reject</span> on the new card.</td><td>The offer is dropped and nothing is placed.</td></tr>
       <tr><td>8</td><td>Place another pump, click the 2D space and press <kbd>Esc</kbd>.</td><td>If you had clicked <span class="ui">Show</span>, the first <kbd>Esc</kbd> takes the shown suggestion off the 2D space. The next <kbd>Esc</kbd> drops the offer.</td></tr>
       <tr><td>9</td><td>Set the skill to Process engineer.</td><td>The skill choices are Plant engineer, Process engineer, Automation engineer, Electrical engineer and HAZOP leader; the level choices are Quiet, Normal and Mentor. The choice is kept.</td></tr>
-      <tr><td>10</td><td>Click <span class="ui">Alex is live</span>.</td><td>Predictive mode stops; the button reads <span class="ui">Let Alex help</span>.</td></tr>
+      <tr><td>10</td><td>Click <span class="ui">Stop Alex</span>.</td><td>Predictive mode stops; the panel shows <span class="ui">Let Alex help</span> again.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: markers on the 2D space, cards with warnings, questions and suggestions, and the toolbar showing Alex is live" width="2160" height="1350" loading="lazy"><figcaption>Alex is live: the toolbar switch is pressed and Alex's cards are in the side panel.</figcaption></figure>
-  <p class="g-note">There is no separate Skills button on the toolbar any more; the skill is chosen in Alex (Co-engineer).</p>
+  <figure class="g-shot"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: markers on the 2D space, cards with warnings, questions and suggestions, " width="2160" height="1350" loading="lazy"><figcaption>Alex on: Alex's cards are in the side panel. Taken before the toolbar's Alex button was removed.</figcaption></figure>
+  <p class="g-note">The drawing toolbar has no Alex or Skills button: Alex is switched on and off, and its skill chosen, in Alex (Co-engineer).</p>
   <p class="g-related">Related: <a href="guide-ai.html#ai-alex">Alex</a> · <a href="guide-drawing.html#draw-patterns">Engineering patterns</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
 </section>
 
