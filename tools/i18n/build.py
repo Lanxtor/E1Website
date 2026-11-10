@@ -247,64 +247,48 @@ def alternates(name):
     return "  <!-- i18n:alternates -->\n  " + "\n  ".join(links) + "\n  <!-- /i18n:alternates -->\n"
 
 
-# Search engines and link previews (run after the pages are written):
-# each public page gets its own canonical address and Open Graph / Twitter
-# tags in its language, and sitemap.xml lists every public page with its
-# languages. Pages that are personal or not public get "noindex" instead.
-OG_IMAGE = SITE + "/assets/img/og-image.png"
-OG_LOCALE = {"en": "en_US", "de": "de_DE", "fr": "fr_FR", "es": "es_ES", "nb": "nb_NO"}
+# Search engines and link previews (run after the pages are written): each
+# public page gets its <!-- seo --> block (tools/seo/seo.py) in its language,
+# sitemap.xml lists every public page with its languages and the date it last
+# changed, and personal or hidden pages get "noindex" instead.
+sys.path.insert(0, os.path.join(ROOT, "tools", "seo"))
+import seo as SEO  # noqa: E402
+
 NOINDEX = ["account.html", "login.html", "training.html", "user-guides.html", "certificate.html",
-           "pricing.html", "industries.html", "coming-soon.html", "404.html"]
-GUIDES_GLOB = "guide*.html"
+           "pricing.html", "industries.html", "404.html"]
 
 
-def _attr(v):
-    return v.replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;")
-
-
-def _unescape(v):
-    import html
-    return html.unescape(v)
-
-
-def seo_block(src, url, lang):
-    t = re.search(r"<title>(.*?)</title>", src, re.S)
-    d = re.search(r'<meta name="description" content="([^"]*)"', src)
-    title = _attr(_unescape(t.group(1).strip())) if t else "LANXTOR"
-    desc = _attr(_unescape(d.group(1))) if d else ""
-    tags = ['<link rel="canonical" href="%s">' % url,
-            '<meta property="og:type" content="website">',
-            '<meta property="og:site_name" content="LANXTOR">',
-            '<meta property="og:title" content="%s">' % title,
-            '<meta property="og:description" content="%s">' % desc,
-            '<meta property="og:url" content="%s">' % url,
-            '<meta property="og:image" content="%s">' % OG_IMAGE,
-            '<meta property="og:image:width" content="1200">',
-            '<meta property="og:image:height" content="630">',
-            '<meta property="og:locale" content="%s">' % OG_LOCALE[lang],
-            '<meta name="twitter:card" content="summary_large_image">']
-    return "  <!-- seo -->\n  " + "\n  ".join(tags) + "\n  <!-- /seo -->\n"
-
-
-def put_block(src, block):
-    src = re.sub(r"  <!-- seo -->.*?<!-- /seo -->\n", "", src, flags=re.S)
-    return src.replace("</head>", block + "</head>", 1)
+def last_changed(path):
+    """The date of the file's last commit (today if it is not committed yet)."""
+    import subprocess, datetime
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", path], cwd=ROOT,
+                             capture_output=True, text=True, timeout=10).stdout.strip()
+    except Exception:
+        out = ""
+    return out or datetime.date.today().isoformat()
 
 
 def seo():
-    import glob
     urls = []
     for name in PAGES:
         variants = [("", "en")] + [(f + "/", l) for f, l in LANGS.items()]
-        alts = [(l, "%s/%s%s" % (SITE, f, name)) for f, l in variants]
+        alts = [(l, "%s/%s%s" % (SITE, f, name)) for f, l in variants] + [("x-default", "%s/%s" % (SITE, name))]
+        when = last_changed(name)
         for folder, lang in variants:
             path = os.path.join(ROOT, folder, name)
             src = open(path, encoding="utf-8").read()
             url = "%s/%s%s" % (SITE, folder, name)
-            open(path, "w", encoding="utf-8").write(put_block(src, seo_block(src, url, lang)))
-            urls.append((url, alts))
-    for path in sorted(glob.glob(os.path.join(ROOT, GUIDES_GLOB))):
-        urls.append((SITE + "/" + os.path.basename(path), []))
+            block = SEO.head_block(src, url, lang, home=(name == "index.html"))
+            open(path, "w", encoding="utf-8").write(SEO.put_block(src, block))
+            urls.append((url, alts, when))
+    # The user guide pages (guide*.html) are noindex by design (tools/guides/build.py), so they are
+    # not in the sitemap: a sitemap lists only pages search engines may show.
+    # The coming-soon page is what www.lanxtor.com shows before launch (SITE_MODE is not "live"):
+    # indexable, with the home page's address and the company data, so a search for LANXTOR finds it.
+    path = os.path.join(ROOT, "coming-soon.html")
+    src = open(path, encoding="utf-8").read()
+    open(path, "w", encoding="utf-8").write(SEO.put_block(src, SEO.head_block(src, SITE + "/", "en", home=True)))
     for name in NOINDEX:
         path = os.path.join(ROOT, name)
         if not os.path.exists(path):
@@ -315,14 +299,13 @@ def seo():
             open(path, "w", encoding="utf-8").write(src)
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-    for url, alts in urls:
-        lines.append("  <url><loc>%s</loc>" % url)
+    for url, alts, when in urls:
+        lines.append("  <url><loc>%s</loc><lastmod>%s</lastmod>" % (url, when))
         for l, href in alts:
             lines.append('    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (l, href))
         lines.append("  </url>")
     lines.append("</urlset>")
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
-
 
 def main():
     check = "--check" in sys.argv
