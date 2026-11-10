@@ -219,7 +219,7 @@
       '<li><a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a></li>" +
       "</ul></div>" +
       "</div>" +
-      '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". " + T("All rights reserved.") + "</span>" +
+      '<div class="footer-bottom"><span>&copy; ' + year + " Lanxtor Inc. " + T("All rights reserved.") + "</span>" +
       '<nav class="footer-legal" aria-label="' + T("Legal") + '">' +
       '<a href="' + H("legal.html") + '">' + T("Legal notice") + "</a>" +
       '<a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a>" +
