@@ -20,9 +20,9 @@
 
   var LOGO_SVG =
     '<svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">' +
-    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0e1116"/>' +
+    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/>' +
     '<path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<circle cx="21" cy="11" r="2.6" fill="#1f5cff"/>' +
+    '<circle cx="21" cy="11" r="2.6" fill="#f08c2e"/>' +
     "</svg>";
 
   var PLAY_SVG =
@@ -204,22 +204,23 @@
       '<a class="brand" href="' + H("index.html") + '">' + LOGO_SVG + "<span>" + BRAND + "</span></a>" +
       "<p>" + T("Engineering software for production plants and energy.") + "</p>" +
       "</div>" +
-      "<div><h4>" + T("Product") + "</h4><ul>" +
+      "<div><h2 class=\"footer-h\">" + T("Product") + "</h2><ul>" +
       '<li><a href="' + H("index.html") + '">' + T("Overview") + "</a></li>" +
       '<li><a href="' + H("solutions.html") + '">' + T("Solutions") + "</a></li>" +
       '<li><a href="' + H("academy.html") + '">' + T("Academy") + "</a></li>" +
       '<li><a href="' + H("download.html") + '">' + T("Get E1") + "</a></li>" +
       '<li><a href="' + H("download.html#pricing") + '">' + T("Pricing") + "</a></li>" +
       "</ul></div>" +
-      "<div><h4>" + T("Company") + "</h4><ul>" +
+      "<div><h2 class=\"footer-h\">" + T("Company") + "</h2><ul>" +
       '<li><a href="' + H("about.html") + '">' + T("About us") + "</a></li>" +
       '<li><a href="' + H("shape-e1.html") + '">' + T("Contact us") + "</a></li>" +
       '<li><a href="' + H("contact-sales.html") + '">' + T("Contact sales") + "</a></li>" +
       '<li><a href="account.html">' + T("Your account") + "</a></li>" +
       '<li><a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a></li>" +
+      '<li><a href="https://www.linkedin.com/company/lanxtor/" target="_blank" rel="noopener">LinkedIn</a></li>' +
       "</ul></div>" +
       "</div>" +
-      '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". " + T("All rights reserved.") + "</span>" +
+      '<div class="footer-bottom"><span>&copy; ' + year + " Lanxtor Inc. " + T("All rights reserved.") + "</span>" +
       '<nav class="footer-legal" aria-label="' + T("Legal") + '">' +
       '<a href="' + H("legal.html") + '">' + T("Legal notice") + "</a>" +
       '<a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a>" +

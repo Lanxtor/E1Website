@@ -561,17 +561,18 @@
   {
    "id": "GS-settings",
    "title": "Your settings",
-   "summary": "Your own preferences: appearance, how Alex changes drawings with its AI help, and email notifications.",
+   "summary": "Your own preferences: appearance, how Alex changes drawings with its AI help, email notifications, and whether you share usage statistics.",
    "anchor": "gs-settings",
    "status": "available",
-   "updated": "2026-11-06",
+   "updated": "2026-11-09",
    "roadmap": [],
    "checks": [],
    "related": [
     "GS-appearance",
     "AI-cloud-ai",
     "COL-inbox",
-    "LIB-configuration"
+    "LIB-configuration",
+    "GS-usage-statistics"
    ],
    "roles": "Everyone who can open E1",
    "training": {
@@ -584,6 +585,29 @@
    ],
    "category": "getting-started",
    "page": "guide-getting-started.html#gs-settings"
+  },
+  {
+   "id": "GS-usage-statistics",
+   "title": "Usage statistics: your choice",
+   "summary": "Whether E1 may share with LANXTOR how you use it: active time, clicks and the functions you use, never your content. Off unless you agree.",
+   "anchor": "gs-usage-statistics",
+   "status": "available",
+   "since": "2026-11-09",
+   "roadmap": [],
+   "checks": [],
+   "related": [
+    "GS-settings",
+    "ACC-sign-in"
+   ],
+   "roles": "Everyone, for themselves",
+   "training": {
+    "topic": "Usage statistics",
+    "level": "Beginner",
+    "minutes": 1
+   },
+   "screenshots": [],
+   "category": "getting-started",
+   "page": "guide-getting-started.html#gs-usage-statistics"
   },
   {
    "id": "GS-view-kept",
@@ -5074,7 +5098,8 @@
    "checks": [],
    "related": [
     "ORG-project-members",
-    "ORG-custom-roles"
+    "ORG-custom-roles",
+    "ORG-visibility"
    ],
    "roles": "Owner or Administrator with a passkey",
    "training": {
@@ -5085,6 +5110,31 @@
    "screenshots": [],
    "category": "organization",
    "page": "guide-organization.html#org-groups"
+  },
+  {
+   "id": "ORG-visibility",
+   "title": "Who sees what: reviewers and viewers",
+   "summary": "Hide a project from viewers or reviewers, and an attribute on its class or on one object; the built-in groups Reviewers and Viewers decide who is who.",
+   "anchor": "org-visibility",
+   "status": "available",
+   "since": "2026-11-10",
+   "roadmap": [],
+   "checks": [
+    "N4"
+   ],
+   "related": [
+    "ORG-groups",
+    "ORG-project-members"
+   ],
+   "roles": "Owners and Administrators (groups, Project settings, Configuration); editors with Edit attributes (one object)",
+   "training": {
+    "topic": "Who sees what",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-visibility"
   },
   {
    "id": "ORG-audit",
@@ -5223,14 +5273,17 @@
   {
    "id": "ORG-responsibility",
    "title": "Assign to…: objects a person or group is responsible for",
-   "summary": "Under development: make a person or group responsible for objects, which others then see read-only with the reason.",
+   "summary": "Make a person or group responsible for an object, folder, sheet or section: only they change it and everything in it; everyone else still views and comments.",
    "anchor": "org-responsibility",
-   "status": "under-development",
-   "updated": "2026-11-09",
+   "status": "available",
+   "since": "2026-11-10",
+   "updated": "2026-11-10",
    "roadmap": [
     "09.6r"
    ],
-   "checks": [],
+   "checks": [
+    "N5"
+   ],
    "related": [
     "ORG-custom-roles",
     "ORG-drawing-roles",
@@ -5238,7 +5291,7 @@
    ],
    "roles": "Engineer and above; Project administrator to reassign",
    "training": {
-    "topic": "Responsibility (preview)",
+    "topic": "Responsibility",
     "level": "Advanced",
     "minutes": 3
    },
@@ -7283,11 +7336,11 @@
   {
    "id": "WEB-download",
    "title": "Get E1: browser and desktop",
-   "summary": "Download E1 for Mac or Windows, or create your account, with the three buttons at the top of Get E1; or use E1 in the browser with nothing to install.",
+   "summary": "Download E1 for Mac or Windows, or find E1 Reviewer for iPad, with the three buttons at the top of Get E1; or use E1 in the browser with nothing to install.",
    "anchor": "web-download",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-10",
    "roadmap": [
     "W1.3"
    ],
@@ -7341,7 +7394,7 @@
    "anchor": "web-pricing",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-10",
    "roadmap": [
     "W1.2"
    ],
@@ -7499,7 +7552,7 @@
    "summary": "The public page with the courses on offer and what the Academy costs.",
    "anchor": "web-academy-public",
    "status": "available",
-   "updated": "2026-11-07",
+   "updated": "2026-11-10",
    "roadmap": [],
    "checks": [],
    "related": [
@@ -7555,7 +7608,7 @@
    "anchor": "web-board",
    "status": "preview",
    "since": "2026-11-04",
-   "updated": "2026-11-07",
+   "updated": "2026-11-10",
    "roadmap": [
     "W1.2",
     "W3.3"

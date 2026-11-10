@@ -49,6 +49,7 @@
           <li><a href="#org-drawing-roles">Roles on a single drawing: Share and Mark as read-only</a></li>
           <li><a href="#org-refusals">Why a change is refused</a></li>
           <li><a href="#org-groups">Groups</a></li>
+          <li><a href="#org-visibility">Who sees what: reviewers and viewers</a></li>
           <li><a href="#org-audit">Audit: what administrators and Alex did</a></li>
           <li><a href="#org-export">Export everything of the organization</a></li>
           <li><a href="#org-trials">Trials and the read-only lock</a></li>
@@ -66,7 +67,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>21 features</span><span>17 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>22 features</span><span>19 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -380,8 +381,37 @@
       <tr><td>3</td><td>In a project's <span class="ui">Members</span> dialog, open <span class="ui">Person or group</span>.</td><td><em>Process team (group)</em> can be chosen and given a role.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Groups inside groups exist in E1, but the dialog only ticks people.</p>
-  <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-custom-roles">Custom roles</a></p>
+  <p class="g-note">Groups inside groups exist in E1, but the dialog only ticks people. The built-in groups <span class="ui">Reviewers</span> and <span class="ui">Viewers</span> are always listed first; see <a href="#org-visibility">Who sees what</a>.</p>
+  <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-custom-roles">Custom roles</a> · <a href="#org-visibility">Who sees what</a></p>
+</section>
+
+<section class="g-feature" id="org-visibility">
+  <h2>Who sees what: reviewers and viewers</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-visibility</span><span>Review checks N4</span></div>
+  <p class="g-summary">Editors see everything. Reviewers and viewers (often people outside your company: the client, a contractor, an inspector) see what you leave open to them. Everything is open until you hide it: a whole project, or one attribute on a class or on one object.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Access → Groups</span>; <span class="ui">Project settings → Access → Visible to</span>; <span class="ui">Configuration → Object classes</span> → a class → <span class="ui">Attributes</span>; right-click an attribute row on an object's page</dd>
+    <dt>Who</dt><dd>Owners and Administrators set the groups, a project's <span class="ui">Visible to</span> and a class's attributes; an editor who may edit an object's attributes hides one on that object.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud).</dd>
+  </dl>
+  <h3>Who counts as a reviewer or a viewer</h3>
+  <ul>
+    <li>A person with a <strong>Reviewer license</strong> is in the built-in group <span class="ui">Reviewers</span>, one with a <strong>Viewer license</strong> in <span class="ui">Viewers</span>. They are ticked there and cannot be unticked; a license change moves them at once.</li>
+    <li>Tick anyone else in <span class="ui">Reviewers</span> or <span class="ui">Viewers</span> (for example a contractor with an Editor license): they then see only what that group sees. It never works the other way: a viewer put in Reviewers still sees what viewers see.</li>
+    <li>What someone may <em>do</em> still comes from their license and roles; this decides only what they <em>see</em>.</li>
+  </ul>
+  <h3>Hide a project or an attribute</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open the project's settings, <span class="ui">Access</span>, and set <span class="ui">Visible to</span> to <span class="ui">Editors and reviewers</span>.</td><td>Viewers no longer see the project at all, whatever role they hold in it. <span class="ui">Everyone</span> (the default) shows it again.</td></tr>
+      <tr><td>2</td><td><span class="ui">Configuration → Object classes</span> → <em>Centrifugal pump</em> → <span class="ui">Attributes</span>: right-click <em>Flow rate</em> and choose <span class="ui">Editors only</span>.</td><td>Its <span class="ui">Visible to</span> reads <em>Editors only</em>. Reviewers and viewers no longer see the flow rate of any pump in this project (subclasses included).</td></tr>
+      <tr><td>3</td><td>On one pump's page, right-click the <em>Material</em> row and choose <span class="ui">Hide from viewers</span>.</td><td>The row shows <em>Hidden from viewers</em> to editors; viewers no longer see that pump's material, other pumps are unchanged. <span class="ui">Show as on the class</span> undoes it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">An object can only hide more than its class, never show what the class hides. Hidden values are left out on the server, so they are missing everywhere for that circle: the object page, lists and their Excel exports, datasheets and their PDFs, history, Alex's context and the API. A change a reviewer makes never removes a value they could not see.</p>
+  <p class="g-warn">Not built yet: the same setting in the company library (it is per project now), Note: a list that filters, sorts or totals by an attribute hidden from them ignores that filter, sort or total for them, so it reveals nothing.</p>
+  <p class="g-related">Related: <a href="#org-groups">Groups</a> · <a href="#org-project-members">Project members and roles</a></p>
 </section>
 
 <section class="g-feature" id="org-audit">
@@ -511,19 +541,25 @@
 
 <section class="g-feature" id="org-responsibility">
   <h2>Assign to…: objects a person or group is responsible for</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span>Updated 2026-11-09</span><span class="g-id">ORG-responsibility</span><span>Roadmap 09.6r</span></div>
-  <p class="g-summary">You will be able to make a person or group responsible for objects, folders, 2D spaces or sections. Others then see those objects as read-only, with the reason and a way to ask the responsible person.</p>
-  <div class="g-dev">
-    <p>Being built now (work order of 2026-11-07). Labels are the planned ones.</p>
-  </div>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Right-click an object, folder, 2D space or section: <em>Assign to…</em>, <em>Take responsibility</em>, <em>Release</em>.</li>
-    <li>See a badge with the person's initials or a group icon in the explorer, and "Responsible: …" in the object window.</li>
-    <li>As someone else, find those objects read-only with the reason "X is responsible for this object" and an <em>Ask X</em> button. Moving or connecting a line to a protected object is refused.</li>
-    <li>Add a <em>Responsible</em> column to a list and filter it by <em>Assigned to me</em>.</li>
-    <li>As an Engineer, take an object nobody is responsible for. A Project administrator reassigns an object before editing it.</li>
-  </ul>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-responsibility</span><span>Roadmap 09.6r</span><span>Review checks N5</span></div>
+  <p class="g-summary">Make one person or one group responsible for an object, a folder, a sheet or a whole section. Only they then change it and everything in it: its values, name and tag, moving it, deleting it, placing it on a sheet, and relationships to it. Everyone else still sees it and comments on it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An object's page: <span class="ui">Responsible</span> with <span class="ui">Take it</span>, <span class="ui">Assign to…</span> and <span class="ui">Release</span>; <span class="ui">Project settings → Access → Responsibilities</span></dd>
+    <dt>Who</dt><dd>Anyone who may edit an object takes one nobody is responsible for. Assigning to someone else, reassigning and releasing someone else's need Assign responsibility (Lead engineer, Project administrator). The responsible person or group always releases their own.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a pump's page and click <span class="ui">Take it</span> beside <span class="ui">Responsible</span>.</td><td><em>Responsible: &lt;you&gt;</em>. A colleague who changes its flow rate, renames it, moves it or relates something to it is refused: "&lt;you&gt; is responsible for P-101: ask them to change it, or to release it."</td></tr>
+      <tr><td>2</td><td>As a Lead engineer, open an object of the section <em>Assets</em>, choose <span class="ui">Assign to…</span> and pick a group, for example <em>Mechanical (group)</em>.</td><td>Everyone in the group may change that object; others are refused with the group's name.</td></tr>
+      <tr><td>3</td><td>Open <span class="ui">Project settings → Access</span>.</td><td><span class="ui">Responsibilities</span> lists each assigned object with the person or group and the date, with <span class="ui">Release</span>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Release</span>.</td><td>Others may change it again (or the folder's or section's responsible, if one above has one).</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The nearest assignment wins: an object assigned to Anna inside a section assigned to a group is Anna's. A responsibility never gives anyone a permission they do not have, and a Project administrator is not exempt: they reassign or release first. The same rule holds for Alex, imports and the API.</p>
+  <p class="g-warn">Not built yet: Assign to… in the explorer's right-click menu, the badge in the explorer, a Responsible column in lists, and an Ask button on the refusal.</p>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-drawing-roles">Roles on a drawing</a> · <a href="guide-lists.html#list-new-query">Lists</a></p>
 </section>
 
@@ -563,7 +599,7 @@
 <section class="g-feature" id="org-tokens">
   <h2>Tokens, service accounts and agents</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">ORG-tokens</span><span>Roadmap 09.5, 19.1, 19.2</span><span>Review checks N1, N2</span></div>
-  <p class="g-summary">Scripts and other systems (an ERP, a procurement tool, an AI agent) use E1 through the API at <code>/api/v1</code>, with an access token: every command, and objects as records, found by E1's id or by the other system's. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
+  <p class="g-summary">Other systems (SAP or another ERP, a simulation tool, your own scripts) read objects with their attributes out of E1 and write attributes back, through the API at <code>/api/v1</code> with an access token, by E1's id or by their own. The API does only that: drawing, deleting, the library and administration stay in E1. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Account → <span class="ui">Access tokens</span>; <span class="ui">File → Organization… → Service accounts</span></dd>
     <dt>Who</dt><dd>Everyone makes their own tokens; Owners and Administrators manage service accounts. Creating either needs a recent sign-in (your passkey).</dd>
@@ -575,7 +611,7 @@
     <tbody>
       <tr><td>1</td><td>Open your Account and go to <span class="ui">Access tokens</span>.</td><td>Your tokens: name, the first characters, what each may do (everything you may do, or read only), expiry and last use.</td></tr>
       <tr><td>2</td><td>Type a name, for example "My scripts", choose how long it lasts (30 days to a year), tick <span class="ui">Read only</span> if it only reads, and click <span class="ui">Create token</span>.</td><td>The token is shown once, with <span class="ui">Copy</span>: "Copy the token now. E1 does not show it again." E1 keeps only a fingerprint of it.</td></tr>
-      <tr><td>3</td><td>Use it: <code>Authorization: Bearer e1_pat_…</code> on <code>https://app.lanxtor.com/api/v1/commands/&lt;command&gt;</code>.</td><td>The command runs as you, through the same checks as in E1. <code>/api/v1/openapi.json</code> describes every command.</td></tr>
+      <tr><td>3</td><td>Use it: <code>Authorization: Bearer e1_pat_…</code> on <code>https://app.lanxtor.com/api/v1/projects/&lt;project&gt;/objects</code>.</td><td>The objects you may see, through the same checks as in E1. <code>/api/v1/openapi.json</code> describes every route.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Revoke</span> on a token you no longer use.</td><td>Calls with it are refused at once.</td></tr>
     </tbody>
   </table></div>
@@ -591,19 +627,17 @@
   </table></div>
   <h3>Calling the API</h3>
   <ul>
-    <li><strong>Dry run:</strong> <code>{"input": {…}, "options": {"dryRun": true}}</code> returns what would change, and changes nothing.</li>
     <li><strong>Idempotency:</strong> send <code>Idempotency-Key</code>: a repeated call returns the first answer and changes nothing again (kept 24 hours).</li>
-    <li><strong>One undo:</strong> <code>"options": {"group": "…"}</code> joins calls into one entry in History.</li>
     <li><strong>Errors:</strong> 401 no valid token; 403 not allowed (the missing permission, or the token is read only or for other projects); 400 invalid input; 404 unknown; 409 changed meanwhile, or a key reused for another request; 422 a rule of the model; 429 too many calls (600 a minute per token).</li>
   </ul>
   <p class="g-note">A token never carries an Owner or Administrator role: administration is done signed in. Tokens and service accounts are never made with a token, and Alex never makes them. Every creation, revocation and first use from a new address is in the audit; every API call is in the API access log.</p>
   <h3>Records and other systems' ids</h3>
   <ul>
     <li><strong>Read:</strong> <code>GET /projects</code>, <code>/projects/{id}/objects?class=…</code>, <code>/objects/{id}?include=occurrences,relationships</code> (the object with its <code>rev</code>, its values with units and comments, its catalog source and its ids in other systems), <code>/objects/{id}/relationships</code>, and the rows of a saved query: <code>/projects/{id}/queries/{key}</code>.</li>
-    <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes); <code>POST /relationships</code>, <code>DELETE /relationships/{id}</code>.</li>
+    <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes). Relationships are read, not written.</li>
     <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them under "In other systems".</li>
   </ul>
-  <p class="g-warn">Not built yet: connections to other systems, sign-in of remote MCP agents with OAuth, and address ranges in the token form (the API takes them).</p>
+  <p class="g-warn">Not in the API on purpose: drawing, deleting, relationships, the library and administration (use E1 itself), and mapping or scheduling (your script or middleware does that). Not built yet: address ranges in the token form (the API takes them).</p>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-webhooks">Webhooks and the change feed</a> · <a href="#org-sso">Company single sign-on</a></p>
 </section>
 
