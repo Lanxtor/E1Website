@@ -104,6 +104,28 @@ It fails on a duplicate feature id, an unknown status, a feature whose section i
 
 Screenshots are taken from the running app with Playwright, 1440 × 900 at device scale 2, in the default dark appearance, on the demo project *Demo Plant* of the organization *Demo Company* (the test fixture `tests/fixtures/workspace-drawn-sheet.json` of `Lanxtor/E1` with its project renamed). They are stored as WebP (quality 82; full screens scaled to 2160 × 1350). A red frame marks what the step is about; numbered frames are explained in the caption. A screenshot that no longer matches the screen is retaken in the same change that updates the text.
 
+### The demo plant: the DEXPI reference P&ID
+
+By the owner's decision of 2026-11-10 (`Lanxtor/E1`, concept 28-D22), E1's official sample P&ID is the **DEXPI reference P&ID** of the DEXPI Specification 2.0: drawing 123/A93 *DEXPI example PID*. It is the plant of the demo project in the guides and their screenshots, the training videos, presentations, the website, and the E1 Reviewer demo. Wherever it is shown, credit it as **"DEXPI reference P&ID, DEXPI Specification 2.0 (dexpi.org)"**. The file is in `Lanxtor/E1` at `tests/fixtures/dexpi/reference_pid.xml`, with DEXPI's own drawing of it, `reference_pid.svg`.
+
+The demo workspace is made by E1's DEXPI import from that file (`tests/fixtures/workspace-dexpi-reference.json`, design 28 *The demo project*), so it exists once the DEXPI import is built. On that day the guides move over **in one change**: `make-demo-store.py` reads the new workspace, every screenshot is retaken, and every example, caption and alt text uses the tags below. Until then the current demo (from `workspace-drawn-sheet.json`) and its tags stay, so text and pictures keep matching.
+
+Examples by kind of object (use these, not invented tags):
+
+| Kind | Use | Today's demo |
+| --- | --- | --- |
+| Pump | **P4711** (centrifugal pump), P4712 (reciprocating pump) | P-001, P-002, P-101 |
+| Tank | **T4750** | — |
+| Heat exchanger | **H1007** (plate), H1008 (shell and tube) | — |
+| Line | **47121** (inlet, from the off-page connector), 47124, 47126 | L-001 |
+| Hand valve | **47124-C4** (ball valve on line 47124) | — |
+| Control valve | **PV4712.02** (pressure), TV4750.03 (temperature) | — |
+| On/off valve | **HV4750.01**, with hand switch HS 4750.01 | XV-200, XV-303 |
+| Safety valve | **SV 104.01** (line 47125) | — |
+| Instrument | **TICSA 4750.03** (temperature control), PI 4712.01 (local pressure indicator), PICSA 4712.02 | TIC-101, TT-101 |
+| Off-page connector | the inlet of line **47121** and the outlet of line 47126 | OPC-999, OPC-901 |
+| Sheet | **123/A93** *DEXPI example PID* | the demo 2D space |
+
 To retake them (`tools/guides/screenshots/`):
 
 ```
