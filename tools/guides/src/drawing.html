@@ -819,15 +819,29 @@
 
 <section class="g-feature" id="draw-pipelines">
   <h2>Pipelines and completeness checks</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
-  <p class="g-summary">Pipelines group pipe runs from one end point to another, also across 2D spaces, so you can select, check and list a whole line.</p>
-  <p class="g-dev">Planned in the Piping milestone, stages 13.1 "Pipelines and selection" and 13.2 "Completeness and detection". Not started. Today each drawn run is its own object with a line number.</p>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
+  <p class="g-summary">A pipeline is a line of the line list: the pipe runs, valves and fittings from one end (an equipment nozzle, or an open end of pipe) to the other. It holds them in piping segments, carries the line number, and names where it comes from and where it goes.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space: right-click equipment → <span class="ui">Define pipeline from here</span>; in the explorer: <span class="ui">Assets → Piping</span></dd>
+    <dt>Who</dt><dd>Editor license; a project role that may edit objects</dd>
+  </dl>
+  <h3>Define a pipeline</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click the tank and choose <span class="ui">Define pipeline from here</span> ▸ <span class="ui">Outlet</span>.</td><td>A bar says "Click the equipment the pipeline goes to, from T-100 (outlet). Esc cancels."</td></tr>
+      <tr><td>2</td><td>Click the pump.</td><td>E1 follows the drawn pipe through the valves and fittings (never through other equipment) and makes the pipeline; its page opens. If a bypass gives two ways, E1 asks which.</td></tr>
+      <tr><td>3</td><td>Look in the explorer under <span class="ui">Assets → Piping</span>.</td><td>The pipeline with <em>Segment 1</em> and, after a reducer, <em>Segment 2</em>; each holds its pipe runs, valves and fittings in flow order.</td></tr>
+      <tr><td>4</td><td>Double-click a line of the pipeline on the 2D space.</td><td>The whole pipeline is selected. Double-click again: only the segment that line is in.</td></tr>
+    </tbody>
+  </table></div>
   <ul>
-    <li>Create a pipeline, redefine its boundaries, and swap runs between pipelines.</li>
-    <li>Select a whole pipeline, across off-page connectors.</li>
-    <li>Find runs that belong to no pipeline, and pipelines that are not complete.</li>
+    <li><strong>Line number:</strong> the pipeline takes the line number its runs had; a run in a pipeline has none of its own.</li>
+    <li><strong>From and To</strong> name the ends, for example <em>T-100 / outlet</em> and <em>P-101 / suction</em>. After renaming the equipment, Alex's <em>refresh_pipeline</em> updates them.</li>
+    <li>A pipe run, valve or fitting belongs to at most one pipeline: defining a second one over it is refused with the pipeline's line number.</li>
+    <li>Deleting a pipeline keeps the drawn pipe: its runs, valves and fittings go back to the <em>Piping</em> folder and the first run takes the line number back.</li>
   </ul>
+  <p class="g-warn">Not built yet (stage 13.2): pipelines across 2D spaces at off-page connectors, Create pipeline from a selection, Detect pipelines, pipe drawn onto a pipeline joining it, marking incomplete pipelines and runs outside a pipeline, and the flow direction check.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
 </section>
 
