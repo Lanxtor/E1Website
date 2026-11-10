@@ -51,6 +51,7 @@
           <li><a href="#prj-organization-menu">The organization menu and switching organization</a></li>
           <li><a href="#prj-delete">Delete a project and restore it from the Bin</a></li>
           <li><a href="#prj-project-bin">The project Bin: Deleted bin and Voided bin</a></li>
+          <li><a href="#prj-sample-project">The sample project: Demo Plant</a></li>
           <li><a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a></li>
           <li><a href="#prj-branches">Branches</a></li>
         </ol>
@@ -59,7 +60,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Projects and the explorer</p>
         <h1>3. Projects and the explorer</h1>
         <p class="lead">Create, rename, arrange and delete projects and folders, the sections of a project, the Bin, searching and dragging in the explorer.</p>
-        <div class="g-meta"><span>14 features</span><span>13 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>15 features</span><span>14 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="projects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the explorer, the tree on the left of the E1 window: your projects, how you arrange them in folders, the nine sections every project has, the folders and 2D spaces inside the sections, the Bin, searching the tree and dragging rows around.</p>
@@ -419,6 +420,32 @@
   </table></div>
   <p class="g-note">Selecting an item in the Deleted bin and pressing <kbd>Delete</kbd> (or <kbd>Backspace</kbd>) does the same as <span class="ui">Delete permanently…</span>. For a 2D space or folder in the Deleted bin, <span class="ui">Delete permanently…</span> asks <span class="ui">Delete 2D space "<i>name</i>" permanently? It cannot be restored.</span> or <span class="ui">Delete folder "<i>name</i>" permanently with everything inside it? It cannot be restored.</span> For an object it opens a preview of what goes with it: see <a href="guide-objects.html#obj-delete">Delete an object</a>.</p>
   <p class="g-related">Related: <a href="guide-objects.html#obj-delete">Delete an object</a> · <a href="guide-objects.html#obj-void">Void an object</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a> · <a href="#prj-delete">Delete a project</a></p>
+</section>
+
+<section class="g-feature" id="prj-sample-project">
+  <h2>The sample project: Demo Plant</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-sample-project</span><span>Roadmap 28.1</span></div>
+  <p class="g-summary">E1 comes with a sample project, <span class="ui">Demo Plant (sample)</span>: the DEXPI reference P&amp;ID (DEXPI Specification 2.0, dexpi.org), imported by E1's own DEXPI import, with its pumps, heat exchangers, tank, pipelines, valves, instruments and loops and their values. Every new organization starts with it, and so does a new desktop install. It is yours to try anything on: change values, move symbols, delete objects. Delete the project when you no longer need it, and add a fresh copy whenever you like. The user guides, the E1 Guide and the training videos use it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → <span class="ui">Demo Plant (sample)</span>; a new copy from <span class="ui">File</span> → <span class="ui">New project from the sample</span></dd>
+    <dt>Who</dt><dd>The owner of a new organization has it as its Project administrator; adding a copy needs the permissions to create a project and to import data</dd>
+    <dt>Before you start</dt><dd>Nothing: it is there when you first sign in.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Expand <span class="ui">Demo Plant (sample)</span> in the explorer, then <span class="ui">Model Space</span>.</td><td>The 2D space <span class="ui">123/A93 DEXPI example PID</span>. Its <span class="ui">Description</span> says it is a sample and where it comes from.</td></tr>
+      <tr><td>2</td><td>Double-click <span class="ui">123/A93 DEXPI example PID</span>.</td><td>The P&amp;ID opens: pumps P4711 and P4712, heat exchangers H1007 and H1008, tank T4750, their pipe runs, valves, instruments and signal lines.</td></tr>
+      <tr><td>3</td><td>Expand <span class="ui">Assets</span> and double-click <span class="ui">P4711</span>.</td><td>The pump's page: <span class="ui">Centrifugal pump</span>, with <span class="ui">Flow rate</span> 200 m³/h, <span class="ui">Head</span> 10 m and <span class="ui">Rated power</span> 60 kW on <span class="ui">Attributes</span>.</td></tr>
+      <tr><td>4</td><td>Change a value, then press <kbd>Ctrl+Z</kbd>.</td><td>The value is saved, then back as it was.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">File</span> → <span class="ui">New project from the sample</span>.</td><td>"Making the sample project (the DEXPI reference P&amp;ID)…" for a few seconds, then a new project <span class="ui">Demo Plant (sample) 2</span> is selected, as the first one was made. The other copies are left as they are.</td></tr>
+      <tr><td>6</td><td>To remove a copy, delete its project as any other.</td><td>The project and everything in it go; File → New project from the sample brings a fresh one back.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/dexpi-sheet.webp" alt="The sample project's 2D space 123/A93 DEXPI example PID: the pumps P4711 and P4712, the heat exchangers H1007 and H1008, the tank T4750, their pipe runs, valves, instruments and signal lines." width="2160" height="1350" loading="lazy"><figcaption>Demo Plant (sample): the DEXPI reference P&amp;ID, DEXPI Specification 2.0 (dexpi.org).</figcaption></figure>
+  <p class="g-note">Instrumentation, electrical and the other parts of the plant will be added to the sample over time; a copy you already have keeps what it had. An E1 server's operator can leave the sample out of new organizations (setting <code>E1_SAMPLE_PROJECT=off</code>).</p>
+  <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
 </section>
 
 <section class="g-feature" id="prj-import-dexpi">
