@@ -5220,14 +5220,17 @@
   {
    "id": "ORG-responsibility",
    "title": "Assign to…: objects a person or group is responsible for",
-   "summary": "Under development: make a person or group responsible for objects, which others then see read-only with the reason.",
+   "summary": "Make a person or group responsible for an object, folder, sheet or section: only they change it and everything in it; everyone else still views and comments.",
    "anchor": "org-responsibility",
-   "status": "under-development",
-   "updated": "2026-11-09",
+   "status": "available",
+   "since": "2026-11-10",
+   "updated": "2026-11-10",
    "roadmap": [
     "09.6r"
    ],
-   "checks": [],
+   "checks": [
+    "N5"
+   ],
    "related": [
     "ORG-custom-roles",
     "ORG-drawing-roles",
@@ -5235,7 +5238,7 @@
    ],
    "roles": "Engineer and above; Project administrator to reassign",
    "training": {
-    "topic": "Responsibility (preview)",
+    "topic": "Responsibility",
     "level": "Advanced",
     "minutes": 3
    },
@@ -5246,26 +5249,55 @@
   {
    "id": "ORG-access-history",
    "title": "Access history and audit export",
-   "summary": "Under development: every change to groups, roles and assignments, access on a date, and export to Excel or CSV.",
+   "summary": "Every change to members, licenses, groups, roles and responsibilities with before and after, access on any earlier date, exports to Excel and CSV, access reviews and emergency access.",
    "anchor": "org-access-history",
-   "status": "under-development",
+   "status": "available",
+   "since": "2026-11-10",
    "roadmap": [
     "09.6h"
    ],
-   "checks": [],
+   "checks": [
+    "N6"
+   ],
    "related": [
     "ORG-audit",
     "ORG-custom-roles"
    ],
    "roles": "Owner or Administrator",
    "training": {
-    "topic": "Access history (preview)",
+    "topic": "Access history, reviews and emergency access",
     "level": "Advanced",
     "minutes": 2
    },
    "screenshots": [],
    "category": "organization",
    "page": "guide-organization.html#org-access-history"
+  },
+  {
+   "id": "ORG-history-names",
+   "title": "Show groups instead of names in history",
+   "summary": "Configuration → Privacy chooses whether history shows the names of the people who made each change or only the groups they are in, for companies whose privacy rules do not allow names.",
+   "anchor": "org-history-names",
+   "status": "available",
+   "since": "2026-11-10",
+   "updated": "2026-11-10",
+   "roadmap": [],
+   "checks": [],
+   "related": [
+    "ORG-groups",
+    "COL-history",
+    "COL-history-place",
+    "ORG-audit"
+   ],
+   "roles": "Reading: everyone. Changing: Owner or Administrator with a passkey (manage the organization's policies)",
+   "training": {
+    "topic": "Privacy in history",
+    "level": "Intermediate",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-history-names"
   },
   {
    "id": "ORG-sso",
@@ -7294,7 +7326,8 @@
    "related": [
     "WEB-installers",
     "WEB-pricing",
-    "ACC-sign-in"
+    "ACC-sign-in",
+    "WEB-cloud-specs"
    ],
    "roles": "Anyone",
    "training": {
@@ -7307,6 +7340,31 @@
    ],
    "category": "account",
    "page": "guide-account.html#web-download"
+  },
+  {
+   "id": "WEB-cloud-specs",
+   "title": "E1 Cloud specifications",
+   "summary": "What is behind the E1 Cloud on one page: where your data is kept, measured performance, security, who can see what, backups and restores, standards, apps and limits.",
+   "anchor": "web-cloud-specs",
+   "status": "available",
+   "since": "2026-11-10",
+   "updated": "2026-11-10",
+   "roadmap": [],
+   "checks": [],
+   "related": [
+    "WEB-download",
+    "WEB-permissions",
+    "WEB-pricing"
+   ],
+   "roles": "Anyone",
+   "training": {
+    "topic": "Getting E1",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "account",
+   "page": "guide-account.html#web-cloud-specs"
   },
   {
    "id": "WEB-installers",

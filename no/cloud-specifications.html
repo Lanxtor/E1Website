@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="nb" data-lang="no">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spesifikasjoner for E1 Cloud – LANXTOR</title>
+  <meta name="description" content="Hvor dataene dine i E1 Cloud er, hvor rask E1 er, hvordan den er sikret, hvem som ser hva, og hvordan sikkerhetskopiering og gjenoppretting fungerer: fakta om E1 Cloud på Microsoft Azure.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=112">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/cloud-specifications.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/cloud-specifications.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/cloud-specifications.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/cloud-specifications.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/no/cloud-specifications.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="Spesifikasjoner for E1 Cloud – LANXTOR">
+  <meta property="og:description" content="Hvor dataene dine i E1 Cloud er, hvor rask E1 er, hvordan den er sikret, hvem som ser hva, og hvordan sikkerhetskopiering og gjenoppretting fungerer: fakta om E1 Cloud på Microsoft Azure.">
+  <meta property="og:url" content="https://www.lanxtor.com/no/cloud-specifications.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <div id="site-header"></div>
+
+  <main class="cs-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="no/download.html#saas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>E1 Cloud</span></a>
+        <h1 class="reveal">Spesifikasjoner for E1 Cloud.</h1>
+        <p class="lead reveal">Alt prosjekterings-, IT- og sikkerhetsteamene dine trenger å vite før de legger et prosjekt i E1 Cloud: hvor dataene er, hvor raskt E1 svarer, hvordan de er beskyttet, hvem som ser hva, og hvordan sikkerhetskopiering og gjenoppretting fungerer.</p>
+        <p class="cs-asof reveal">Per november 2026. Vi oppdaterer denne siden når E1 Cloud endres.</p>
+
+        <div class="cs-glance reveal" aria-label="E1 Cloud i korte trekk">
+          <div class="cs-stat"><b>EU</b><span>Microsoft Azure North Europe, Irland</span></div>
+          <div class="cs-stat"><b>140 ms</b><span>For å åpne et prosjekt med 498 000 objekter</span></div>
+          <div class="cs-stat"><b>7 dager</b><span>Gjenopprett databasen til et hvilket som helst tidspunkt</span></div>
+          <div class="cs-stat"><b>1 time</b><span>Mest arbeid som kan gå tapt (mål for gjenopprettingspunkt)</span></div>
+          <div class="cs-stat"><b>TLS 1.2+</b><span>Kryptert under overføring, og AES-256 ved lagring</span></div>
+          <div class="cs-stat"><b>0</b><span>Passord lagret av E1: innloggingen skjer via Microsoft Entra</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="På denne siden">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="no/cloud-specifications.html#location">Datalagring</a> <a href="no/cloud-specifications.html#performance">Ytelse</a> <a href="no/cloud-specifications.html#security">Sikkerhet</a> <a href="no/cloud-specifications.html#access">Hvem ser hva</a> <a href="no/cloud-specifications.html#backups">Sikkerhetskopier og gjenoppretting</a> <a href="no/cloud-specifications.html#compliance">Standarder</a> <a href="no/cloud-specifications.html#limits">Apper og grenser</a> <a href="no/cloud-specifications.html#faq">Spørsmål</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Data location -->
+    <section class="section section-tight cs-section" id="location">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Datalagring</span>
+          <h2>Dataene dine blir i EU.</h2>
+          <p>E1 Cloud kjører i én Microsoft Azure-region i EU: North Europe, i Irland. Prosjektene, tegningene og dokumentene dine og sikkerhetskopiene av dem blir værende i Azure-datasentre i EU.</p>
+        </div>
+
+        <div class="cs-arch reveal" aria-label="Slik er E1 Cloud bygget: nettleseren eller skrivebordsappen din kobler seg via HTTPS til E1-serveren på Azure Container Apps, som når databasen, fillagringen og Key Vault over et privat nettverk i Azure North Europe">
+          <div class="cs-arch-col">
+            <span class="cs-arch-label">Du</span>
+            <div class="cs-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span><b>Skrivebordsapp eller nettleser</b>Windows, macOS, hvilken som helst datamaskin</span></div>
+            <div class="cs-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg><span><b>E1 Reviewer</b>På iPad</span></div>
+          </div>
+          <div class="cs-arch-link" aria-hidden="true"><span>HTTPS</span></div>
+          <div class="cs-arch-region">
+            <span class="cs-arch-label cs-arch-label-light">Microsoft Azure · North Europe (Irland)</span>
+            <div class="cs-node cs-node-core"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg><span><b>E1-server</b>app.lanxtor.com · Azure Container Apps</span></div>
+            <div class="cs-private"><span>Privat nettverk</span></div>
+            <div class="cs-arch-row">
+              <div class="cs-node cs-node-sm"><img src="assets/img/logos/postgresql.svg" alt=""><span><b>PostgreSQL 16</b>Prosjekter, objekter, tegninger</span></div>
+              <div class="cs-node cs-node-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/></svg><span><b>Blob Storage</b>Filer og dokumenter</span></div>
+              <div class="cs-node cs-node-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg><span><b>Key Vault</b>Nøkler og hemmeligheter</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-table-wrap reveal">
+          <table class="cs-table">
+            <thead><tr><th scope="col">Hva</th><th scope="col">Hvor det lagres</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Prosjekter, objekter, tegninger, lister, historikk og kommentarer</th><td>Azure Database for PostgreSQL, North Europe (Irland)</td></tr>
+              <tr><th scope="row">Filer, dokumenter og utgitte revisjoner</th><td>Azure Blob Storage, North Europe, kopiert på tvers av tre tilgjengelighetssoner</td></tr>
+              <tr><th scope="row">Sikkerhetskopier av databasen</th><td>North Europe, med en ekstra kopi i Azures sammenkoblede EU-region, West Europe (Nederland)</td></tr>
+              <tr><th scope="row">Nøkler, passord for tjenestene, sertifikater</th><td>Azure Key Vault, North Europe</td></tr>
+              <tr><th scope="row">Innloggingskontoen din</th><td>Microsoft Entra External ID, i europeisk lokasjon</td></tr>
+              <tr><th scope="row">Spørsmål til Alex, AI-medingeniøren</th><td>Azure OpenAI i Sweden Central (EU): behandles bare i den regionen</td></tr>
+              <tr><th scope="row">Claude Opus 5.5, hvis en Editor velger den</th><td>Microsoft Foundry: disse forespørslene kan behandles utenfor EU. GPT-4.1 i Sweden Central forblir standard</td></tr>
+              <tr><th scope="row">Kortbetalinger</th><td>Stripe. E1 lagrer ingen kortnumre</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cs-note reveal">En region i USA samt Amazon Web Services og Google Cloud kommer. Trenger du E1 i din egen sky eller ditt eget datasenter? Se <a href="no/download.html#own-servers">bedriftsinstallasjonen</a>.</p>
+      </div>
+    </section>
+
+    <!-- Performance -->
+    <section class="section section-tight cs-section" id="performance">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Ytelse</span>
+          <h2>Rask i raffineristørrelse.</h2>
+          <p>Vi måler E1 hver natt og hver uke på et prosjekt på størrelse med et raffineri: 498 000 objekter, 1 300 tette ark med 236 000 plasserte symboler og 210 000 relasjoner. Dette er resultatene fra disse lasttestene.</p>
+        </div>
+
+        <h3 class="cs-h3 reveal">Én ingeniør, 498 000 objekter</h3>
+        <div class="cs-metrics reveal">
+          <div class="cs-metric"><b>140–180 <small>ms</small></b><span>Åpne prosjektet</span></div>
+          <div class="cs-metric"><b>3 <small>ms</small></b><span>Åpne et objekt</span></div>
+          <div class="cs-metric"><b>110–130 <small>ms</small></b><span>Endre en verdi</span></div>
+          <div class="cs-metric"><b>15 <small>ms</small></b><span>Gi nytt navn</span></div>
+          <div class="cs-metric"><b>290–380 <small>ms</small></b><span>Flytte et symbol på en tett P&amp;ID</span></div>
+          <div class="cs-metric"><b>50 <small>ms</small></b><span>Første side av en filtrert liste</span></div>
+          <div class="cs-metric"><b>10 <small>ms</small></b><span>Søk etter tag, navn eller verdi, på tvers av alle prosjekter</span></div>
+          <div class="cs-metric"><b>0</b><span>Feil i noen kjøring</span></div>
+        </div>
+
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>50 ingeniører samtidig</h3>
+            <p class="cs-card-sub">De tregeste 5 % (p95), på det samme prosjektet. Sen fase: 45 ingeniører ser, 5 redigerer.</p>
+            <div class="cs-table-wrap">
+              <table class="cs-table cs-table-num">
+                <thead><tr><th scope="col">Handling</th><th scope="col">Alle 50 redigerer</th><th scope="col">Sen fase</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Åpne prosjektet</th><td>1,0–1,9 s</td><td>470 ms</td></tr>
+                  <tr><th scope="row">Åpne en tegning</th><td>0,9–1,8 s</td><td>380 ms</td></tr>
+                  <tr><th scope="row">Endre en verdi</th><td>0,7–1,5 s</td><td>550 ms</td></tr>
+                  <tr><th scope="row">Flytte et symbol</th><td>1,0–1,3 s</td><td>700 ms</td></tr>
+                  <tr><th scope="row">Åpne et objekt</th><td>300–500 ms</td><td>70 ms</td></tr>
+                  <tr><th scope="row">Første side av en liste</th><td>0,7–1,0 s</td><td>370 ms</td></tr>
+                  <tr><th scope="row">Se endringen til en annen ingeniør</th><td>omtrent 1 s</td><td>omtrent 1 s</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Tegning i nettleseren</h3>
+            <p class="cs-card-sub">Målt i Chromium.</p>
+            <div class="cs-bars">
+              <div class="cs-bar"><span class="cs-bar-label">Åpne en P&amp;ID med 1 000 symboler</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:55%"></span></span><b>260–320 ms</b></div>
+              <div class="cs-bar"><span class="cs-bar-label">Velge et symbol på den</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:6%"></span></span><b>30 ms</b></div>
+              <div class="cs-bar"><span class="cs-bar-label">Åpne en P&amp;ID med 3 000 symboler</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:100%"></span></span><b>530 ms</b></div>
+              <div class="cs-bar"><span class="cs-bar-label">Velge et symbol på den</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:28%"></span></span><b>140–150 ms</b></div>
+            </div>
+            <h3 class="cs-mt">Våre mål</h3>
+            <p class="cs-card-sub">For 50 ingeniører på 500 000 objekter, p95. Med 100 ingeniører er E1 fortsatt brukbart.</p>
+            <ul class="spec-list cs-spec">
+              <li><span>Åpne prosjektet</span><span>4 s eller mindre</span></li>
+              <li><span>Lagre en endring</span><span>500 ms eller mindre</span></li>
+              <li><span>Åpne et objekt</span><span>200 ms eller mindre</span></li>
+              <li><span>Første rader i en liste</span><span>1 s eller mindre</span></li>
+              <li><span>Se endringen til en annen ingeniør</span><span>3 s eller mindre</span></li>
+              <li><span>Feil</span><span>1 % eller mindre, ingen serverfeil</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid grid-3 cs-cards">
+          <article class="cs-card cs-card-sm reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
+            <h3>Testet hver natt</h3>
+            <p>Hver endring i E1 tidsmåles mot faste budsjetter, og et tregere bygg feiler. Hver uke kjøres en stresstest med 100 ingeniører samtidig og en utholdenhetstest på én time.</p>
+          </article>
+          <article class="cs-card cs-card-sm reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+            <h3>Direkte for alle</h3>
+            <p>En endring fra én ingeniør når alle som har prosjektet åpent, på omtrent ett sekund, sendt ut av serveren, uten å laste inn på nytt.</p>
+          </article>
+          <article class="cs-card cs-card-sm reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/></svg>
+            <h3>Skalerer med belastningen</h3>
+            <p>E1-serveren legger til kapasitet når den har mye å gjøre, og kjører alltid, så det er ingen kaldstart. Helsesjekker hvert par sekunder erstatter en server som slutter å svare.</p>
+          </article>
+        </div>
+        <p class="cs-note reveal">Målt i lasttestene våre på 4 prosessorkjerner og 16 GB minne. Tidene i E1 Cloud avhenger av størrelsen på prosjektet ditt, hvor mange som jobber samtidig og tilkoblingen din. To mål er ennå ikke nådd ved full belastning: å lagre en endring når alle 50 ingeniørene redigerer samtidig (mål 500 ms), og en liste over alle objekter uten filter (3,1–4,3 s, mål 3 s). Vi jobber med begge.</p>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="section section-tight cs-section" id="security">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Sikkerhet</span>
+          <h2>Sikker fra grunnen av, lag for lag.</h2>
+          <p>Noen beskyttelser kommer fra Microsoft Azure, andre har vi bygget inn i selve E1. Sammen beskytter de dataene dine fra innlogging til lagring.</p>
+        </div>
+        <div class="grid grid-3 cs-cards">
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></svg>
+            <h3>Innlogging</h3>
+            <ul class="cs-list">
+              <li>Innlogging via Microsoft Entra External ID, eller med Microsoft-kontoen til bedriften din. E1 lagrer ingen passord.</li>
+              <li>Eiere og administratorer bekrefter med en passnøkkel før de kan bruke rettighetene sine.</li>
+              <li>Ved sensitive handlinger, som å gi administratorrettigheter eller eksportere alt, blir du bedt om å logge inn på nytt hvis siste innlogging er eldre enn 15 minutter.</li>
+              <li>Økter avsluttes etter 12 timer.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            <h3>Kryptering</h3>
+            <ul class="cs-list">
+              <li>Bare HTTPS, med HSTS: nettleseren din kommuniserer aldri ukryptert med E1.</li>
+              <li>E1-serveren når databasen over TLS med full sertifikatkontroll, og lagringen bare over TLS 1.2 eller nyere.</li>
+              <li>Databasen, filene, sikkerhetskopiene og Key Vault krypteres ved lagring med AES-256 av Microsoft Azure, med nøkler som administreres av Microsoft.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <h3>Hver organisasjon for seg</h3>
+            <ul class="cs-list">
+              <li>Hver post i databasen tilhører én organisasjon, og sikkerhet på radnivå i PostgreSQL lar E1 lese bare radene til organisasjonen du jobber i.</li>
+              <li>Databasekontoen til E1-serveren kan ikke slå dette av.</li>
+              <li>Automatiske tester kontrollerer isolasjonen av hver tabell i hvert bygg.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <h3>Privat nettverk</h3>
+            <ul class="cs-list">
+              <li>Databasen har ingen offentlig adresse: bare E1-serveren når den, inne i et privat Azure-nettverk.</li>
+              <li>Filer kan ikke åpnes fra internett, og lagringsnøkler er slått av: tilgang skjer bare med identitet.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg>
+            <h3>Hemmeligheter og nøkler</h3>
+            <ul class="cs-list">
+              <li>Alle hemmeligheter ligger i Azure Key Vault, beskyttet mot sletting. E1-serveren leser dem med sin egen Azure-identitet.</li>
+              <li>AI-tjenesten trenger ingen API-nøkkel: E1 logger inn på den med sin egen identitet, så ingen nøkkel kan lekke.</li>
+              <li>Logger inneholder aldri passord, tokener eller nøkler.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            <h3>Beskyttet app</h3>
+            <ul class="cs-list">
+              <li>En streng Content Security Policy og beskyttelse mot forespørsler på tvers av nettsteder og innramming.</li>
+              <li>Grenser for hvor ofte innlogging og andre handlinger kan forsøkes.</li>
+              <li>E1-serveren kontrollerer tillatelsen for hver endring, uansett hvem eller hva som ber om den.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 2 2 4-4"/><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg>
+            <h3>Trygge utgivelser</h3>
+            <ul class="cs-list">
+              <li>macOS-appen er signert og notarisert av Apple, Windows-appen signert med Azure Artifact Signing. Oppdateringer går aldri tilbake til en eldre versjon.</li>
+              <li>Hvert bygg skannes for lekkede hemmeligheter og kjente sårbarheter, med en programvarestykkliste (SBOM).</li>
+              <li>En ny versjon når E1 Cloud først etter at en person har godkjent den.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+            <h3>Revisjonslogg</h3>
+            <ul class="cs-list">
+              <li>Innlogginger, mislykkede innlogginger, medlemmer, invitasjoner, lisenser, roller, eksporter og passnøkler registreres. Administratorer ser dem under Organization → Audit.</li>
+              <li>Hvert kall til AI-en logges med modell og størrelse, uten teksten i meldingene dine.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/></svg>
+            <h3>AI under din kontroll</h3>
+            <ul class="cs-list">
+              <li>Organisasjonen din setter Alex til på, bare svar eller av.</li>
+              <li>Alex jobber med dine tillatelser, aldri mer. Begrensede verdier fjernes før noe sendes til en modell.</li>
+              <li>Alex spør før den sletter mer enn 10 objekter på én gang.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who can see what -->
+    <section class="section section-tight cs-section" id="access">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Hvem ser hva</span>
+          <h2>Du bestemmer hvem som ser prosjektene dine.</h2>
+          <p>Tilgang i E1 gis med roller, på organisasjonen, et prosjekt, en seksjon eller ett enkelt objekt. Lisensen til hver person bestemmer hva personen maksimalt kan gjøre.</p>
+        </div>
+        <div class="cs-table-wrap reveal">
+          <table class="cs-table cs-access">
+            <thead><tr><th scope="col">Hvem</th><th scope="col">Kan se</th><th scope="col">Kan ikke se</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Personer i organisasjonen din</th><td>Prosjektene, seksjonene og objektene rollene deres gir dem, og det lisensen deres tillater: se, kommentere og godkjenne, eller redigere</td><td>Prosjekter de ikke er medlem av</td></tr>
+              <tr><th scope="row">Eiere og administratorer i organisasjonen din</th><td>Medlemmer, lisenser, roller, bruk og revisjonsloggen; de kan eksportere alt</td><td>Ingenting: eksporten inneholder alt</td></tr>
+              <tr><th scope="row">Alex, AI-medingeniøren</th><td>Bare det personen som spør, har lov til å se</td><td>Begrensede verdier, og alt utenfor tillatelsene til den personen</td></tr>
+              <tr><th scope="row">LANXTOR-brukerstøtte</th><td>Konto- og faktureringsdataene dine: organisasjon, medlemmer, lisenser, plasser, AI-kreditter og filstørrelser, og bruksstatistikk bare fra personer som har samtykket til å dele den</td><td>Prosjektene, objektene, tegningene, listene og dokumentene dine. Hver endring brukerstøtte gjør, skrives til revisjonsloggen din som «LANXTOR support»</td></tr>
+              <tr><th scope="row">Andre kunder</th><td>Ingenting</td><td>Ingenting av ditt: skilt fra hverandre med sikkerhet på radnivå i databasen</td></tr>
+              <tr><th scope="row">Microsoft</th><td>Driver datasentrene og tjenestene for LANXTOR, som databehandler under en databehandleravtale</td><td>Microsoft kan bare bruke dataene til å levere disse tjenestene</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cs-roles reveal">
+          <div class="cs-role-group"><span class="cs-role-label">Organisasjonsroller</span><span class="cs-chip">Owner</span><span class="cs-chip">Administrator</span><span class="cs-chip">Library administrator</span><span class="cs-chip">Engineering standards owner</span><span class="cs-chip">Catalog maintainer</span><span class="cs-chip">Member</span><span class="cs-chip">Guest</span></div>
+          <div class="cs-role-group"><span class="cs-role-label">Prosjektroller</span><span class="cs-chip">Project administrator</span><span class="cs-chip">Lead engineer</span><span class="cs-chip">Engineer</span><span class="cs-chip">Reviewer</span><span class="cs-chip">Viewer</span></div>
+          <div class="cs-role-group"><span class="cs-role-label">Lisenser</span><span class="cs-chip">Editor</span><span class="cs-chip">Reviewer</span><span class="cs-chip">Viewer</span><span class="cs-chip">Student</span></div>
+        </div>
+        <p class="cs-note reveal">Organisasjonen din kan også lage egne roller, begrense hva medlemmene i et prosjekt kan få, og gi roller en sluttdato.</p>
+      </div>
+    </section>
+
+    <!-- Backups -->
+    <section class="section section-tight cs-section" id="backups">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Sikkerhetskopier og gjenoppretting</span>
+          <h2>Ingenting går tapt.</h2>
+          <p>Dataene dine sikkerhetskopieres hele tiden, lagres på mer enn ett sted, og du kan ta ut alt sammen når du vil.</p>
+        </div>
+
+        <div class="cs-timeline reveal" aria-label="Gjenopprettingsvinduer: databasen til et hvilket som helst tidspunkt de siste 7 dagene, filer innen 14 dager, nøkler innen 90 dager">
+          <div class="cs-tl-row"><span class="cs-tl-name">Databasen, til et hvilket som helst tidspunkt</span><span class="cs-tl-track"><span class="cs-tl-fill" style="width:24%"></span></span><b>7 dager</b></div>
+          <div class="cs-tl-row"><span class="cs-tl-name">Slettede eller overskrevne filer</span><span class="cs-tl-track"><span class="cs-tl-fill" style="width:40%"></span></span><b>14 dager</b></div>
+          <div class="cs-tl-row"><span class="cs-tl-name">Nøkler og hemmeligheter i Key Vault</span><span class="cs-tl-track"><span class="cs-tl-fill" style="width:100%"></span></span><b>90 dager</b></div>
+        </div>
+
+        <div class="grid grid-3 cs-cards">
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+            <h3>Database</h3>
+            <ul class="cs-list">
+              <li>Kontinuerlige sikkerhetskopier med Azure Database for PostgreSQL: databasen kan gjenopprettes til et hvilket som helst minutt de siste 7 dagene.</li>
+              <li>Sikkerhetskopiene kopieres også til Azures sammenkoblede region i EU, så de overlever bortfall av en hel region.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M12 18v-6M9 15l3 3 3-3"/></svg>
+            <h3>Filer og dokumenter</h3>
+            <ul class="cs-list">
+              <li>Hver fil lagres tre ganger, i tre separate datasentre i regionen (sone-redundant lagring).</li>
+              <li>Tidligere versjoner av hver fil beholdes, og slettede filer kan hentes tilbake i 14 dager.</li>
+              <li>Utgitte revisjoner fjernes aldri.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c5.5-2 8-6 8-10V5l-8-3-8 3v7c0 4 2.5 8 8 10z"/><path d="M12 8v4l2.5 1.5"/></svg>
+            <h3>Gjenopprettingsmål</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Mest arbeid som kan gå tapt</span><span>1 time (RPO)</span></li>
+              <li><span>Tid til tjenesten er gjenopprettet</span><span>8 timer (RTO)</span></li>
+            </ul>
+            <p class="cs-small">Gjenoppretting fra en sikkerhetskopi testes automatisk i hvert bygg av E1.</p>
+          </article>
+        </div>
+
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>Be om gjenoppretting</h3>
+            <p>Slettet du noe ved en feil? De fleste endringer kan angres i selve E1, fra historikken til objektet eller arket. For alt annet skriver eieren eller en administrator i organisasjonen din til <a href="mailto:support@lanxtor.com">support@lanxtor.com</a> med tidspunktet det skal gjenopprettes til. Vi kan gjenopprette databasen til et hvilket som helst tidspunkt de siste 7 dagene, og slettede filer fra de siste 14 dagene.</p>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Ta med deg alle dataene dine</h3>
+            <p>Eiere og administratorer eksporterer hele organisasjonen når som helst under Organization → Export everything: ett arkiv med hver tabell som åpne JSON-linjer og hver fil, opptil 4 GB. Eksporten avvises aldri på grunn av manglende lagringsplass, og den registreres i revisjonsloggen.</p>
+            <p class="cs-small">Når prøveperioden er over, blir organisasjonen skrivebeskyttet: alt forblir synlig og kan fortsatt eksporteres.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance -->
+    <section class="section section-tight cs-section" id="compliance">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Standarder og sertifikater</span>
+          <h2>Bygget på sertifisert infrastruktur.</h2>
+          <p>E1 Cloud kjører på Microsoft Azure, en av de mest sertifiserte skyplattformene. LANXTORs egne sertifiseringer er på vei.</p>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <div class="cs-card-head"><img src="assets/img/logos/azure.svg" alt="" width="28" height="28"><h3>Microsoft Azure, plattformen</h3></div>
+            <p class="cs-card-sub">Sertifiseringer som Microsoft har for Azure, datasentrene og tjenestene E1 Cloud kjører på.</p>
+            <div class="cs-badges">
+              <span class="cs-badge">ISO/IEC 27001</span> <span class="cs-badge">ISO/IEC 27017</span> <span class="cs-badge">ISO/IEC 27018</span> <span class="cs-badge">ISO/IEC 27701</span> <span class="cs-badge">ISO 22301</span> <span class="cs-badge">SOC 1, SOC 2, SOC 3</span> <span class="cs-badge">CSA STAR</span> <span class="cs-badge">BSI C5</span>
+            </div>
+            <p class="cs-small">Microsoft publiserer revisjonsrapportene sine i <a href="https://servicetrust.microsoft.com/" target="_blank" rel="noopener">Microsoft Service Trust Portal</a>.</p>
+          </article>
+          <article class="cs-card reveal">
+            <div class="cs-card-head"><svg viewBox="0 0 32 32" fill="none" width="28" height="28" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg><h3>LANXTOR og E1</h3></div>
+            <ul class="cs-status">
+              <li><span>Personvernforordningen (GDPR): drift i EU; organisasjonen din er behandlingsansvarlig for sine data, LANXTOR er databehandler</span><em class="st-now">På plass</em></li>
+              <li><span>Databehandleravtale og liste over underleverandører</span><em class="st-prep">Under utarbeidelse</em></li>
+              <li><span>EUs cyberrobusthetsforordning (Cyber Resilience Act)</span><em class="st-prep">Under utarbeidelse</em></li>
+              <li><span>SOC 2 Type II</span><em class="st-soon">Planlagt</em></li>
+              <li><span>ISO/IEC 27001</span><em class="st-soon">Planlagt</em></li>
+              <li><span>IEC 62443-4-1, sikker utvikling av industriell programvare</span><em class="st-soon">Planlagt</em></li>
+              <li><span>Uavhengig penetrasjonstest</span><em class="st-soon">Planlagt</em></li>
+            </ul>
+            <p class="cs-small">Har du funnet et sikkerhetsproblem? Skriv til <a href="mailto:support@lanxtor.com">support@lanxtor.com</a>. Vi svarer innen 2 virkedager. Se også <a href="no/privacy.html">personvernerklæringen</a> vår.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apps and limits -->
+    <section class="section section-tight cs-section" id="limits">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Apper og grenser</span>
+          <h2>Hvor du jobber, og hvor mye som får plass.</h2>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>Apper</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Nettleser</span><span>Gjeldende Google Chrome og Microsoft Edge, uten noe å installere</span></li>
+              <li><span>Skrivebord</span><span>macOS 12 eller nyere på Apple silicon; Windows 10 eller 11, 64-bit</span></li>
+              <li><span>iPad</span><span>E1 Reviewer, for gjennomgang og godkjenning</span></li>
+              <li><span>Oppdateringer</span><span>E1 Cloud har alltid nyeste versjon; skrivebordsappen ser etter oppdateringer ved oppstart og hver 4. time</span></li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Grenser</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Én fil</span><span>Opptil 50 MB</span></li>
+              <li><span>Vedlegg til Alex</span><span>8 filer på opptil 20 MB hver</span></li>
+              <li><span>Lagring i prøveperioden</span><span>5 GB for organisasjonen</span></li>
+              <li><span>Eksporter alt</span><span>Opptil 4 GB</span></li>
+              <li><span>Økt</span><span>12 timer, deretter logger du inn på nytt</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Spørsmål</span>
+          <h2>Spørsmål sikkerhetsteam stiller.</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>Kan ansatte i LANXTOR åpne tegningene mine?</summary>
+            <p>Nei. LANXTOR-brukerstøtte ser konto- og faktureringsdataene dine, slik at vi kan hjelpe med lisenser og plasser. Databasen gir ikke brukerstøtte tilgang til prosjektene, objektene, tegningene eller dokumentene dine, og hver endring brukerstøtte gjør, vises i revisjonsloggen din.</p>
+          </details>
+          <details>
+            <summary>Forlater dataene mine EU?</summary>
+            <p>Prosjektene, filene og sikkerhetskopiene dine blir værende i Azure-datasentre i EU. Standardmodellen til Alex, GPT-4.1, kjører i Sweden Central i EU. Bare hvis en Editor velger Claude Opus 5.5 i chatten, kan disse forespørslene behandles utenfor EU. Organisasjonen din kan slå av Alex.</p>
+          </details>
+          <details>
+            <summary>Hva skjer hvis et Azure-datasenter faller ut?</summary>
+            <p>Filene lagres i tre separate datasentre i regionen, så bortfall av ett av dem påvirker dem ikke. Sikkerhetskopiene av databasen kopieres også til Azures sammenkoblede region i EU. Målet vårt er å gjenopprette tjenesten innen 8 timer, med høyst 1 time tapt arbeid.</p>
+          </details>
+          <details>
+            <summary>Hvordan får jeg ut dataene mine hvis vi slutter?</summary>
+            <p>En eier eller administrator eksporterer hele organisasjonen når som helst under Organization → Export everything, i åpne formater: JSON-linjer for dataene og de originale filene. Be oss på <a href="mailto:support@lanxtor.com">support@lanxtor.com</a> om å slette organisasjonen etterpå.</p>
+          </details>
+          <details>
+            <summary>Kan vi velge en annen region eller vår egen sky?</summary>
+            <p>En region i USA kommer til E1 Cloud. Hvis dataene dine må ligge på et bestemt sted eller under dine egne regler, kan du kjøre E1 som en <a href="no/download.html#own-servers">bedriftsinstallasjon</a> på Microsoft Azure, Amazon Web Services, Google Cloud eller dine egne servere, med din egen PostgreSQL-database.</p>
+          </details>
+          <details>
+            <summary>Kan vi bruke enkel pålogging (SSO)?</summary>
+            <p>Personer med en Microsoft-konto fra jobben kan allerede logge inn med den. Enkel pålogging med SAML og brukerklargjøring med SCIM er planlagt for bedriftskunder; <a href="no/contact-sales.html">kontakt salg</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <article class="saas saas-dark cs-cta reveal">
+          <div class="saas-text">
+            <span class="saas-kicker">E1 Cloud</span>
+            <h2>Flere spørsmål fra IT-teamet ditt?</h2>
+            <p>Vi svarer på sikkerhetsspørreskjemaer og går gjennom E1 Cloud med teamet ditt. Eller kom i gang med en gang.</p>
+            <div class="hero-actions"><a class="btn btn-light" href="no/contact-sales.html">Kontakt salg</a><a class="btn btn-ghost-light" href="login.html#signup">Opprett konto</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=7"></script>
+  <script src="assets/js/main.js?v=36"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>

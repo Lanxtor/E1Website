@@ -325,7 +325,7 @@
    {
     "id": "M4",
     "title": "Documents",
-    "summary": "Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex's engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), and specification attributes for instruments. M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.",
+    "summary": "Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex's engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), specification attributes for instruments, and document control (versions and revisions on the sheet, changes since a date, clouds in outputs). M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.",
     "mvp": true,
     "stages": [
      {
@@ -417,6 +417,30 @@
       "tryIt": "Ask Alex for \"a redundant pump train on the feed line\", \"a pressure transmitter on Pump1\", or \"a motor for Pump2 fed from the MCC\": it draws the pattern, checks it, and says what it repaired."
      },
      {
+      "id": "29.1",
+      "title": "Document control: versions and revisions on the sheet",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open a 2D space's properties: its version and revision, the state (draft, in sign-off, issued), and who may change or delete it."
+     },
+     {
+      "id": "29.2",
+      "title": "Document control: changes since a date on the drawing",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Pick a date on a 2D space: every change since then shows as a cloud with before → after, who and when, and in the Changes list."
+     },
+     {
+      "id": "29.3",
+      "title": "Document control: clouds in generated outputs",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Issue a new revision of a 2D space or a loop diagram: the PDF clouds what changed since the last one, with a changes table and the purpose watermark."
+     },
+     {
       "id": "23.1",
       "title": "Redlining: the markup layer and its tools",
       "done": false,
@@ -483,18 +507,18 @@
      {
       "id": "09.6r",
       "title": "Access control: objects assigned to a person or group",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-10",
       "visible": true,
-      "tryIt": "Right-click a folder → Assign to… a colleague: signed in as someone else, its objects are read-only with the reason, and moving or connecting a line to one is refused."
+      "tryIt": "On a pump's page, Responsible → Assign to… a colleague (or Take it): signed in as someone else, its values are read-only with the reason, and moving it or connecting a line to it is refused."
      },
      {
       "id": "09.6h",
       "title": "Access control: access history, audit export, reviews, and emergency access",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-10",
       "visible": true,
-      "tryIt": "Change a group, a role, and an assignment, then open Access → Access history: the three changes show with before and after, and Export gives the history and the current access report in Excel."
+      "tryIt": "Change a group and a role, then File → Organization… → Access → History: both show with before and after. Pick a date under Access on a date, Show access then, and Export access report (Excel)."
      },
      {
       "id": "M4.16",
@@ -541,7 +565,7 @@
    {
     "id": "M5",
     "title": "Library lifecycle",
-    "summary": "Companies edit and publish their own library: classes, attributes, relationship types, and how they behave. Projects see which updates are available and upgrade with a preview. Equipment catalogs with manufacturer data, a symbol designer with SVG import and live attribute labels, units of measurement, switching, licensing, and updates of content packages, and specification datasheets (components, cases, templates inspired by ISA 20 and API).",
+    "summary": "Companies edit and publish their own library: classes, attributes, relationship types, and how they behave. Projects see which updates are available and upgrade with a preview. Equipment catalogs with manufacturer data, a symbol designer with SVG import and live attribute labels, units of measurement, switching, licensing, and updates of content packages, specification datasheets (components, cases, templates inspired by ISA 20 and API), and document control's sheet templates, sign-off routes, reports and filing.",
     "mvp": true,
     "stages": [
      {
@@ -679,6 +703,30 @@
       "doneOn": "2026-11-09",
       "visible": true,
       "tryIt": "Configuration → Company library: when E1 ships newer content packages, Updates available lists them per package with what changed. Preview package update, then Update: the project reads the new versions; nothing changes until you take it."
+     },
+     {
+      "id": "29.4",
+      "title": "Sheet templates",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Configuration → Documents: make a sheet template from the ISO or ANSI one with its frame, zones and revision block, and use it on a new 2D space."
+     },
+     {
+      "id": "29.5",
+      "title": "Configurable sign-off routes and audit",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set a sign-off route for a purpose with four-eyes and due days, send a revision through it, and reassign a signer who is away."
+     },
+     {
+      "id": "29.6",
+      "title": "Reports, PDF packages, and filing rules",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Add a list and a few 2D spaces to a report with sections, print it as one PDF package, and see it filed by the project's filing rule."
      },
      {
       "id": "24.2",
