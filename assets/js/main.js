@@ -204,19 +204,20 @@
       '<a class="brand" href="' + H("index.html") + '">' + LOGO_SVG + "<span>" + BRAND + "</span></a>" +
       "<p>" + T("Engineering software for production plants and energy.") + "</p>" +
       "</div>" +
-      "<div><h4>" + T("Product") + "</h4><ul>" +
+      "<div><h2 class=\"footer-h\">" + T("Product") + "</h2><ul>" +
       '<li><a href="' + H("index.html") + '">' + T("Overview") + "</a></li>" +
       '<li><a href="' + H("solutions.html") + '">' + T("Solutions") + "</a></li>" +
       '<li><a href="' + H("academy.html") + '">' + T("Academy") + "</a></li>" +
       '<li><a href="' + H("download.html") + '">' + T("Get E1") + "</a></li>" +
       '<li><a href="' + H("download.html#pricing") + '">' + T("Pricing") + "</a></li>" +
       "</ul></div>" +
-      "<div><h4>" + T("Company") + "</h4><ul>" +
+      "<div><h2 class=\"footer-h\">" + T("Company") + "</h2><ul>" +
       '<li><a href="' + H("about.html") + '">' + T("About us") + "</a></li>" +
       '<li><a href="' + H("shape-e1.html") + '">' + T("Contact us") + "</a></li>" +
       '<li><a href="' + H("contact-sales.html") + '">' + T("Contact sales") + "</a></li>" +
       '<li><a href="account.html">' + T("Your account") + "</a></li>" +
       '<li><a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a></li>" +
+      '<li><a href="https://www.linkedin.com/company/lanxtor/" target="_blank" rel="noopener">LinkedIn</a></li>' +
       "</ul></div>" +
       "</div>" +
       '<div class="footer-bottom"><span>&copy; ' + year + " Lanxtor Inc. " + T("All rights reserved.") + "</span>" +

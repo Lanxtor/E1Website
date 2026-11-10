@@ -102,7 +102,9 @@
         if (file.sha256) btn.title = "SHA-256 " + file.sha256;
         if (meta) meta.textContent = file.label + (file.size ? " · " + size(file.size) : "");
       } else {
-        btn.href = btn.getAttribute("data-soon-href") || "#release-notes";
+        // Not published yet: the button stays on its row, unless it names a page (the iPad guide).
+        var soon = btn.getAttribute("data-soon-href");
+        btn.href = soon || "#get-now";
         btn.setAttribute("aria-disabled", "true");
         btn.classList.add("is-soon");
         if (meta) meta.textContent = platform.store ? platform.store.label + " · " + T("Coming soon") : T("Coming soon");

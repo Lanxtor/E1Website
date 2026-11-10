@@ -223,7 +223,12 @@
   measure();
   place(0);
   orbit.classList.add("is-on");
-  window.addEventListener("resize", function () { measure(); place((performance.now() - t0) / 1000); });
+  // Measure again whenever the orbit's box changes (window size, fonts or
+  // styles arriving late), so the rings never stay drawn at a wrong size.
+  function remeasure() { measure(); place((performance.now() - t0) / 1000); }
+  if ("ResizeObserver" in window) new ResizeObserver(remeasure).observe(orbit);
+  else window.addEventListener("resize", remeasure);
+  window.addEventListener("load", remeasure);
 
   if (still) return;
   var visible = true;
