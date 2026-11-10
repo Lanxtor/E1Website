@@ -3355,3 +3355,23 @@ code {
 .hero[data-hero="orbit"] .ask-box { margin-top: 20px; }
 .hero[data-hero="orbit"] .hero-orbit { height: clamp(420px, min(52vw, calc(100vh - 380px)), 700px); margin-top: 44px; }
 @media (max-width: 640px) { .hero[data-hero="orbit"] .hero-orbit { height: 640px; margin-top: 56px; } }
+
+/* Orbit, inner ring: the disciplines are people and teams, so they are
+   round, light badges with a ring in their colour. The outer ring keeps the
+   square app tiles for the features. */
+.orbit-node[data-ring="1"] .orbit-icon { width: 66px; height: 66px; border-radius: 50%; color: var(--c);
+  background: radial-gradient(100% 100% at 30% 20%, #fff 0%, color-mix(in srgb, var(--c) 9%, #fff) 100%);
+  border: 2.5px solid var(--c);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--c) 12%, transparent), 0 14px 26px -16px color-mix(in srgb, var(--c) 70%, #000); }
+.orbit-node[data-ring="1"] .orbit-icon svg { width: 30px; height: 30px; stroke-width: 1.8; }
+.orbit-node[data-ring="1"] .orbit-label { background: transparent; color: color-mix(in srgb, var(--c) 82%, #000); font-weight: 700; }
+.orbit-node[data-ring="1"].is-updated .orbit-icon { box-shadow: 0 0 0 3px #fff, 0 0 0 6px #3faa69, 0 14px 26px -16px color-mix(in srgb, var(--c) 70%, #000); }
+.orbit-node[data-ring="1"].is-saying .orbit-icon { box-shadow: 0 0 0 3px #fff, 0 0 0 7px #f08c2e, 0 18px 30px -14px color-mix(in srgb, var(--c) 70%, #000); }
+@media (max-width: 900px) {
+  .orbit-node[data-ring="1"] .orbit-icon { width: 52px; height: 52px; border-width: 2px; }
+  .orbit-node[data-ring="1"] .orbit-icon svg { width: 24px; height: 24px; }
+}
+@media (max-width: 640px) {
+  .orbit-node[data-ring="1"] .orbit-icon { width: 40px; height: 40px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 12%, transparent); }
+  .orbit-node[data-ring="1"] .orbit-icon svg { width: 20px; height: 20px; }
+}
