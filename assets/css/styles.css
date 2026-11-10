@@ -3546,3 +3546,21 @@ code {
 .alex-or span { padding: 6px 18px; border: 1.5px solid var(--brand); border-radius: 99px; background: #fff; color: var(--brand); box-shadow: 0 6px 14px -10px rgba(21, 101, 192, 0.6); }
 .alex-or::before, .alex-or::after { height: 2px; background: linear-gradient(90deg, transparent, var(--brand-edge) 30%, var(--brand) 100%); }
 .alex-or::after { background: linear-gradient(90deg, var(--brand) 0%, var(--brand-edge) 70%, transparent); }
+
+/* Meet Alex: a smaller aeolipile and story, the four modes in one row */
+.alex-block { grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr); gap: 44px; }
+.alex-side .alex-drawing { max-width: 240px; }
+.alex-side .alex-tag { font-size: 0.7rem; }
+.alex-story { margin-top: 14px; padding-top: 14px; font-size: 0.78rem; line-height: 1.5; }
+.alex-modes { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.alex-mode { padding: 12px 12px 14px; }
+.alex-mode h4 { font-size: 0.95rem; }
+.alex-mode p { font-size: 0.82rem; }
+.am-vis { height: 122px; padding: 10px; font-size: 0.68rem; }
+.am-a, .am-q { max-width: 92%; }
+.am-dots { left: 10px; }
+.am-tip { max-width: 80%; font-size: 0.66rem; }
+.am-tip1 { left: 18px; } .am-tip2 { left: 44px; }
+@media (max-width: 1280px) { .alex-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1100px) { .alex-block { grid-template-columns: 1fr; } .alex-side { grid-template-columns: 180px 1fr; } }
+@media (max-width: 760px) { .alex-modes { grid-template-columns: 1fr; } .alex-side { grid-template-columns: 1fr; } .alex-side .alex-drawing { max-width: 180px; } }
