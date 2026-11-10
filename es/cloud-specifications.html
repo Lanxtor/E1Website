@@ -7,7 +7,7 @@
   <title>Especificaciones de E1 Cloud — LANXTOR</title>
   <meta name="description" content="Dónde están tus datos de E1 Cloud, lo rápido que es E1, cómo se protege, quién ve qué y cómo funcionan las copias de seguridad y las restauraciones: los datos de E1 Cloud en Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=112">
+  <link rel="stylesheet" href="assets/css/styles.css?v=114">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
@@ -75,7 +75,7 @@
           <p>E1 Cloud funciona en una región de Microsoft Azure en la Unión Europea: North Europe, en Irlanda. Tus proyectos, planos, documentos y sus copias de seguridad se quedan en centros de datos de Azure en la UE.</p>
         </div>
 
-        <div class="cs-arch reveal" aria-label="Cómo está construido E1 Cloud: tu navegador o tu aplicación de escritorio se conecta por HTTPS al servidor de E1 en Azure Container Apps, que accede a la base de datos, al almacenamiento de archivos y a Key Vault a través de una red privada en Azure North Europe">
+        <div class="cs-arch reveal" aria-label="Cómo está construido E1 Cloud: tu navegador o tu aplicación de escritorio se conecta por HTTPS al servidor de E1, que accede a la base de datos, al almacenamiento de archivos y a Key Vault a través de una red privada en Azure North Europe">
           <div class="cs-arch-col">
             <span class="cs-arch-label">Tú</span>
             <div class="cs-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span><b>Aplicación de escritorio o navegador</b>Windows, macOS, cualquier ordenador</span></div>
@@ -84,7 +84,7 @@
           <div class="cs-arch-link" aria-hidden="true"><span>HTTPS</span></div>
           <div class="cs-arch-region">
             <span class="cs-arch-label cs-arch-label-light">Microsoft Azure · North Europe (Irlanda)</span>
-            <div class="cs-node cs-node-core"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg><span><b>Servidor de E1</b>app.lanxtor.com · Azure Container Apps</span></div>
+            <div class="cs-node cs-node-core"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg><span><b>Servidor de E1</b>app.lanxtor.com</span></div>
             <div class="cs-private"><span>Red privada</span></div>
             <div class="cs-arch-row">
               <div class="cs-node cs-node-sm"><img src="assets/img/logos/postgresql.svg" alt=""><span><b>PostgreSQL 16</b>Proyectos, objetos, planos</span></div>
@@ -119,7 +119,7 @@
         <div class="section-head reveal">
           <span class="saas-kicker">Rendimiento</span>
           <h2>Rápido a escala de refinería.</h2>
-          <p>Medimos E1 cada noche y cada semana en un proyecto del tamaño de una refinería: 498.000 objetos, 1300 hojas densas con 236.000 símbolos colocados y 210.000 relaciones. Estos son los resultados de esas pruebas de carga.</p>
+          <p>Medimos E1 cada noche y cada semana en un proyecto del tamaño de una refinería, con muchos ingenieros trabajando a la vez. Estos son los resultados de esas pruebas de carga.</p>
         </div>
 
         <h3 class="cs-h3 reveal">Un ingeniero, 498.000 objetos</h3>
@@ -162,15 +162,12 @@
               <div class="cs-bar"><span class="cs-bar-label">Abrir un P&amp;ID con 3000 símbolos</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:100%"></span></span><b>530 ms</b></div>
               <div class="cs-bar"><span class="cs-bar-label">Seleccionar un símbolo en él</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:28%"></span></span><b>140–150 ms</b></div>
             </div>
-            <h3 class="cs-mt">Nuestros objetivos</h3>
-            <p class="cs-card-sub">Para 50 ingenieros con 500.000 objetos, p95. Con 100 ingenieros sigue siendo utilizable.</p>
+            <h3 class="cs-mt">El proyecto de prueba</h3>
             <ul class="spec-list cs-spec">
-              <li><span>Abrir el proyecto</span><span>4 s o menos</span></li>
-              <li><span>Guardar un cambio</span><span>500 ms o menos</span></li>
-              <li><span>Abrir un objeto</span><span>200 ms o menos</span></li>
-              <li><span>Primeras filas de una lista</span><span>1 s o menos</span></li>
-              <li><span>Ver el cambio de otro ingeniero</span><span>3 s o menos</span></li>
-              <li><span>Errores</span><span>1 % o menos, sin errores del servidor</span></li>
+              <li><span>Objetos</span><span>498.000</span></li>
+              <li><span>Hojas densas</span><span>1300</span></li>
+              <li><span>Ingenieros a la vez</span><span>50, y 100 en el pico</span></li>
+              <li><span>Con qué frecuencia</span><span>Cada noche, y una prueba de carga completa cada semana</span></li>
             </ul>
           </article>
         </div>
@@ -192,7 +189,7 @@
             <p>El servidor de E1 añade capacidad cuando hay mucha carga y está siempre en marcha, así que no hay arranque en frío. Las comprobaciones de estado cada pocos segundos sustituyen un servidor que deja de responder.</p>
           </article>
         </div>
-        <p class="cs-note reveal">Medido en nuestras pruebas de carga con 4 núcleos de procesador y 16 GB de memoria. Los tiempos en E1 Cloud dependen del tamaño de tu proyecto, de cuántas personas trabajan a la vez y de tu conexión. Dos objetivos aún no se cumplen a plena carga: guardar un cambio cuando los 50 ingenieros editan a la vez (objetivo 500 ms), y una lista de todos los objetos sin filtro (3,1–4,3 s, objetivo 3 s). Estamos trabajando en ambos.</p>
+        <p class="cs-note reveal">Medido en nuestras pruebas de carga. Los tiempos en E1 Cloud dependen del tamaño de tu proyecto, de cuántas personas trabajan a la vez y de tu conexión.</p>
       </div>
     </section>
 
@@ -229,7 +226,6 @@
             <h3>Cada organización por separado</h3>
             <ul class="cs-list">
               <li>Cada registro de la base de datos pertenece a una organización, y la seguridad a nivel de fila de PostgreSQL solo permite a E1 leer las filas de la organización en la que trabajas.</li>
-              <li>La cuenta de base de datos del servidor de E1 no puede desactivarlo.</li>
               <li>Las pruebas automatizadas comprueban el aislamiento de cada tabla en cada compilación.</li>
             </ul>
           </article>
@@ -405,7 +401,7 @@
               <li><span>IEC 62443-4-1, desarrollo seguro de software industrial</span><em class="st-soon">Previsto</em></li>
               <li><span>Prueba de penetración independiente</span><em class="st-soon">Prevista</em></li>
             </ul>
-            <p class="cs-small">¿Has encontrado un problema de seguridad? Escribe a <a href="mailto:support@lanxtor.com">support@lanxtor.com</a>. Respondemos en un plazo de 2 días laborables. Consulta también nuestra <a href="es/privacy.html">política de privacidad</a>.</p>
+            <p class="cs-small">¿Has encontrado un problema de seguridad? Escribe a <a href="mailto:support@lanxtor.com?subject=Security%20vulnerability">support@lanxtor.com</a>. Respondemos en 2 días laborables. Consulta <a href="es/security.html">cómo informar de una vulnerabilidad</a> y nuestra <a href="es/privacy.html">política de privacidad</a>.</p>
           </article>
         </div>
       </div>
@@ -484,7 +480,7 @@
           <div class="saas-text">
             <span class="saas-kicker">E1 Cloud</span>
             <h2>¿Tu equipo de TI tiene más preguntas?</h2>
-            <p>Respondemos cuestionarios de seguridad y le mostramos E1 Cloud a tu equipo. O empieza ahora mismo.</p>
+            <p>Respondemos cuestionarios de seguridad y le mostramos E1 Cloud a tu equipo. Hay más detalles disponibles bajo un acuerdo de confidencialidad. O empieza ahora mismo.</p>
             <div class="hero-actions"><a class="btn btn-light" href="es/contact-sales.html">Contactar con ventas</a><a class="btn btn-ghost-light" href="login.html#signup">Crear cuenta</a></div>
           </div>
         </article>
@@ -497,7 +493,7 @@
   <script src="assets/js/i18n.js?v=1"></script>
   <script src="assets/js/config.js?v=4"></script>
   <script src="assets/js/e1-api.js?v=7"></script>
-  <script src="assets/js/main.js?v=36"></script>
+  <script src="assets/js/main.js?v=37"></script>
   <script src="assets/js/chat.js?v=7"></script>
 </body>
 </html>

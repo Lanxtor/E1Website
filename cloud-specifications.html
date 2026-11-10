@@ -6,7 +6,7 @@
   <title>E1 Cloud specifications — LANXTOR</title>
   <meta name="description" content="Where your E1 Cloud data is, how fast E1 is, how it is secured, who can see what, and how backups and restores work: the facts behind the E1 Cloud on Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=112">
+  <link rel="stylesheet" href="assets/css/styles.css?v=114">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
@@ -81,7 +81,7 @@
           <p>The E1 Cloud runs in one Microsoft Azure region in the European Union: North Europe, in Ireland. Your projects, drawings, documents and their backups stay in Azure data centres in the EU.</p>
         </div>
 
-        <div class="cs-arch reveal" aria-label="How the E1 Cloud is built: your browser or desktop app connects over HTTPS to the E1 server on Azure Container Apps, which reaches the database, file storage and Key Vault over a private network in Azure North Europe">
+        <div class="cs-arch reveal" aria-label="How the E1 Cloud is built: your browser or desktop app connects over HTTPS to the E1 server, which reaches the database, file storage and Key Vault over a private network in Azure North Europe">
           <div class="cs-arch-col">
             <span class="cs-arch-label">You</span>
             <div class="cs-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span><b>Desktop app or browser</b>Windows, macOS, any computer</span></div>
@@ -90,7 +90,7 @@
           <div class="cs-arch-link" aria-hidden="true"><span>HTTPS</span></div>
           <div class="cs-arch-region">
             <span class="cs-arch-label cs-arch-label-light">Microsoft Azure · North Europe (Ireland)</span>
-            <div class="cs-node cs-node-core"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg><span><b>E1 server</b>app.lanxtor.com · Azure Container Apps</span></div>
+            <div class="cs-node cs-node-core"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg><span><b>E1 server</b>app.lanxtor.com</span></div>
             <div class="cs-private"><span>Private network</span></div>
             <div class="cs-arch-row">
               <div class="cs-node cs-node-sm"><img src="assets/img/logos/postgresql.svg" alt=""><span><b>PostgreSQL 16</b>Projects, objects, drawings</span></div>
@@ -125,7 +125,7 @@
         <div class="section-head reveal">
           <span class="saas-kicker">Performance</span>
           <h2>Fast at refinery size.</h2>
-          <p>We measure E1 every night and every week on a project the size of a refinery: 498,000 objects, 1,300 dense sheets with 236,000 placed symbols and 210,000 relationships. These are the results of those load tests.</p>
+          <p>We measure E1 every night and every week on a project the size of a refinery, with many engineers working at once. These are the results of those load tests.</p>
         </div>
 
         <h3 class="cs-h3 reveal">One engineer, 498,000 objects</h3>
@@ -168,15 +168,12 @@
               <div class="cs-bar"><span class="cs-bar-label">Open a P&amp;ID with 3,000 symbols</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:100%"></span></span><b>530 ms</b></div>
               <div class="cs-bar"><span class="cs-bar-label">Select a symbol on it</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:28%"></span></span><b>140–150 ms</b></div>
             </div>
-            <h3 class="cs-mt">Our targets</h3>
-            <p class="cs-card-sub">For 50 engineers on 500,000 objects, p95. 100 engineers stay usable.</p>
+            <h3 class="cs-mt">The test project</h3>
             <ul class="spec-list cs-spec">
-              <li><span>Open the project</span><span>4 s or less</span></li>
-              <li><span>Save an edit</span><span>500 ms or less</span></li>
-              <li><span>Open an object</span><span>200 ms or less</span></li>
-              <li><span>First rows of a list</span><span>1 s or less</span></li>
-              <li><span>See another engineer's change</span><span>3 s or less</span></li>
-              <li><span>Errors</span><span>1 % or less, no server errors</span></li>
+              <li><span>Objects</span><span>498,000</span></li>
+              <li><span>Dense sheets</span><span>1,300</span></li>
+              <li><span>Engineers at once</span><span>50, and 100 at peak</span></li>
+              <li><span>How often</span><span>Every night, and a full load test every week</span></li>
             </ul>
           </article>
         </div>
@@ -198,7 +195,7 @@
             <p>The E1 server adds capacity when it is busy and is always running, so there is no cold start. Health checks every few seconds replace a server that stops answering.</p>
           </article>
         </div>
-        <p class="cs-note reveal">Measured in our load tests on 4 processor cores and 16 GB of memory. Times in the E1 Cloud depend on the size of your project, how many people work at once and your connection. Two targets are not met yet at full load: saving an edit when all 50 engineers edit at the same time (target 500 ms), and a list of every object with no filter (3.1–4.3 s, target 3 s). We are working on both.</p>
+        <p class="cs-note reveal">Measured in our load tests. Times in the E1 Cloud depend on the size of your project, how many people work at once and your connection.</p>
       </div>
     </section>
 
@@ -235,7 +232,6 @@
             <h3>Every organization on its own</h3>
             <ul class="cs-list">
               <li>Every record in the database belongs to one organization, and PostgreSQL row-level security lets E1 read only the rows of the organization you work in.</li>
-              <li>The E1 server's database account cannot switch this off.</li>
               <li>Automated tests check the isolation of every table in every build.</li>
             </ul>
           </article>
@@ -418,7 +414,7 @@
               <li><span>IEC 62443-4-1, secure development of industrial software</span><em class="st-soon">Planned</em></li>
               <li><span>Independent penetration test</span><em class="st-soon">Planned</em></li>
             </ul>
-            <p class="cs-small">Found a security issue? Write to <a href="mailto:support@lanxtor.com">support@lanxtor.com</a>. We reply within 2 working days. See also our <a href="privacy.html">privacy policy</a>.</p>
+            <p class="cs-small">Found a security issue? Write to <a href="mailto:support@lanxtor.com?subject=Security%20vulnerability">support@lanxtor.com</a>. We reply within 2 working days. See <a href="security.html">how to report a vulnerability</a> and our <a href="privacy.html">privacy policy</a>.</p>
           </article>
         </div>
       </div>
@@ -497,7 +493,7 @@
           <div class="saas-text">
             <span class="saas-kicker">E1 Cloud</span>
             <h2>More questions from your IT team?</h2>
-            <p>We answer security questionnaires and walk your team through the E1 Cloud. Or start right away.</p>
+            <p>We answer security questionnaires and walk your team through the E1 Cloud. More detail is available under a non-disclosure agreement. Or start right away.</p>
             <div class="hero-actions"><a class="btn btn-light" href="contact-sales.html">Contact sales</a><a class="btn btn-ghost-light" href="login.html#signup">Create account</a></div>
           </div>
         </article>
@@ -510,7 +506,7 @@
   <script src="assets/js/i18n.js?v=1"></script>
   <script src="assets/js/config.js?v=4"></script>
   <script src="assets/js/e1-api.js?v=7"></script>
-  <script src="assets/js/main.js?v=36"></script>
+  <script src="assets/js/main.js?v=37"></script>
   <script src="assets/js/chat.js?v=7"></script>
 </body>
 </html>
