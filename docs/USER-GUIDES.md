@@ -110,6 +110,8 @@ By the owner's decision of 2026-11-10 (`Lanxtor/E1`, concept 28-D22), E1's offic
 
 The demo workspace is made by E1's DEXPI import from that file (`tests/fixtures/workspace-dexpi-reference.json`, design 28 *The demo project*), so it exists once the DEXPI import is built. On that day the guides move over **in one change**: `make-demo-store.py` reads the new workspace, every screenshot is retaken, and every example, caption and alt text uses the tags below. Until then the current demo (from `workspace-drawn-sheet.json`) and its tags stay, so text and pictures keep matching.
 
+**Where it stands (2026-11-10):** the DEXPI import is built and the demo workspace exists (`npm run demo:build` in `Lanxtor/E1`). The feature *Import a DEXPI P&ID* (`PRJ-import-dexpi`) already uses it. The other guides have not moved yet: that is the next change of the guides (make-demo-store.py on the new workspace, every scenario's names and every screenshot).
+
 Examples by kind of object (use these, not invented tags):
 
 | Kind | Use | Today's demo |
