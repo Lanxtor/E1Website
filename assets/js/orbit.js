@@ -63,9 +63,10 @@
   function build() {
     rings.innerHTML = "";
     ringEls = [];
-    // Decorative rings: the two orbits, plus fainter ones in between and outside.
-    [0.16, 0.5, 1, 1.32, 2, 2.5].forEach(function (f, i) {
-      ringEls.push({ f: f, el: el("ellipse", { "class": "ring" + (f === 1 || f === 2 ? " ring-main" : "") + (i % 2 ? " ring-dash" : "") }, rings) });
+    // Rings like a gauge dial: the two orbits, a scale of ticks on each,
+    // and fainter guide rings in between.
+    [[0.5, ""], [1, " ring-main"], [1, " ring-ticks"], [1.45, " ring-dash"], [2, " ring-main"], [2, " ring-ticks ring-ticks-major"], [2.12, ""]].forEach(function (r) {
+      ringEls.push({ f: r[0], el: el("ellipse", { "class": "ring" + r[1] }, rings) });
     });
     lineLayer = el("g", { "class": "orbit-lines" }, rings);
     packetLayer = el("g", { "class": "orbit-packets" }, rings);
@@ -78,17 +79,18 @@
     rings.setAttribute("viewBox", "0 0 " + W + " " + H);
     narrow = W < 640;
     // Ellipses, wider than tall, so the picture reads as a plan seen at an angle.
-    // On a phone everyone shares one ring, evenly spaced, so nobody overlaps.
+    // On a phone both rings turn together, so their nodes stay interleaved.
     if (narrow) {
-      R[1] = { x: W * 0.17, y: H * 0.17 };
-      R[2] = { x: W * 0.39, y: H * 0.40 };
+      R[1] = { x: W * 0.27, y: H * 0.22 };
+      R[2] = { x: W * 0.43, y: H * 0.45 };
     } else {
-      R[1] = { x: W * 0.255, y: H * 0.265 };
-      R[2] = { x: W * 0.46, y: H * 0.46 };
+      R[1] = { x: W * 0.25, y: H * 0.24 };
+      R[2] = { x: W * 0.465, y: H * 0.47 };
     }
     ringEls.forEach(function (r) {
       var base = r.f <= 1 ? R[1] : R[2];
       var k = r.f <= 1 ? r.f : r.f / 2;
+      if (r.f > 1 && r.f < 2) { base = { x: (R[1].x + R[2].x) / 2, y: (R[1].y + R[2].y) / 2 }; k = 1; }
       r.el.setAttribute("cx", W / 2);
       r.el.setAttribute("cy", H / 2);
       r.el.setAttribute("rx", base.x * k);
@@ -98,14 +100,12 @@
 
   function place(t) {
     var cx = W / 2, cy = H / 2;
-    nodes.forEach(function (n, i) {
-      var ring = narrow ? 2 : n.ring;
-      var a0 = narrow ? -Math.PI / 2 + i * 2 * Math.PI / nodes.length : n.a0;
-      var a = a0 + (still ? 0 : t * (narrow ? 0.03 : SPEED[n.ring]));
-      n.x = cx + Math.cos(a) * R[ring].x;
-      n.y = cy + Math.sin(a) * R[ring].y;
+    nodes.forEach(function (n) {
+      var a = n.a0 + (still ? 0 : t * (narrow ? 0.03 : SPEED[n.ring]));
+      n.x = cx + Math.cos(a) * R[n.ring].x;
+      n.y = cy + Math.sin(a) * R[n.ring].y;
       // Nodes at the back (top) are a little smaller: depth without 3D.
-      var depth = 0.86 + 0.14 * ((Math.sin(a) + 1) / 2);
+      var depth = 0.9 + 0.1 * ((Math.sin(a) + 1) / 2);
       n.el.style.transform = "translate(" + n.x.toFixed(1) + "px," + n.y.toFixed(1) + "px) translate(-50%,-50%) scale(" + depth.toFixed(3) + ")";
       n.el.style.zIndex = String(Math.round(depth * 100));
       n.line.setAttribute("x1", cx);
@@ -117,21 +117,40 @@
 
   /* Packets: small dots travelling along a node's line, in or out. */
   var packets = [];
-  function send(node, inward, delay, done) {
-    packets.push({ node: node, inward: inward, start: performance.now() + (delay || 0), dur: 900, done: done,
+  function send(node, inward, delay, done, dur) {
+    packets.push({ node: node, inward: inward, start: performance.now() + (delay || 0), dur: dur || 900, done: done,
       dot: el("circle", { r: 4.5, "class": "packet" + (inward ? " packet-in" : ""), opacity: 0 }, packetLayer) });
   }
   function movePackets(now) {
+    // Callbacks run after the list is updated: they may send new packets.
+    var finished = [];
     packets = packets.filter(function (p) {
       var k = (now - p.start) / p.dur;
       if (k < 0) return true;
-      if (k >= 1) { p.dot.remove(); if (p.done) p.done(); return false; }
+      if (k >= 1) { p.dot.remove(); if (p.done) finished.push(p.done); return false; }
       var e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
       var f = p.inward ? 1 - e : e;
       p.dot.setAttribute("cx", (W / 2 + (p.node.x - W / 2) * f).toFixed(1));
       p.dot.setAttribute("cy", (H / 2 + (p.node.y - H / 2) * f).toFixed(1));
       p.dot.setAttribute("opacity", Math.min(1, Math.min(k, 1 - k) * 6).toFixed(2));
       return true;
+    });
+    finished.forEach(function (f) { f(); });
+  }
+
+  /* A ring of light that spreads from the model out past the outer ring. */
+  function ripple() {
+    [0, 180].forEach(function (d) {
+      var e = el("ellipse", { "class": "orbit-ripple", cx: W / 2, cy: H / 2, rx: 1, ry: 1 }, packetLayer);
+      var t0r = performance.now() + d;
+      (function grow(now) {
+        var k = Math.min(1, Math.max(0, (now - t0r) / 1100));
+        var f = 1 - Math.pow(1 - k, 2);
+        e.setAttribute("rx", (R[2].x * 1.06 * f).toFixed(1));
+        e.setAttribute("ry", (R[2].y * 1.06 * f).toFixed(1));
+        e.setAttribute("opacity", (k <= 0 ? 0 : 0.75 * (1 - k)).toFixed(2));
+        if (k < 1) requestAnimationFrame(grow); else e.remove();
+      })(performance.now());
     });
   }
 
@@ -157,11 +176,19 @@
       core.classList.remove("is-taking");
       void core.offsetWidth;
       core.classList.add("is-taking");
-      nodes.forEach(function (m, i) {
+      ripple();
+      // The update goes out to everyone at once: the inner ring gets it a
+      // moment before the outer one, as the ripple passes them.
+      nodes.forEach(function (m) {
         if (m === n) return;
-        send(m, false, i * 25, function () { flash(m, "is-updated", 900); });
+        var dur = m.ring === 1 && !narrow ? 650 : 1000;
+        m.line.classList.add("is-sync");
+        send(m, false, 0, function () {
+          m.line.classList.remove("is-sync");
+          flash(m, "is-updated", 1500);
+        }, dur);
       });
-    });
+    }, 800);
     setTimeout(function () { n.el.classList.remove("is-saying"); }, 2900);
   }
 
@@ -183,6 +210,15 @@
     cancelAnimationFrame(raf);
     clearInterval(timer);
   }
+
+  var updatedText = (orbit.querySelector("[data-updated-text]") || {}).textContent || "Updated";
+  nodes.forEach(function (n) {
+    var b = document.createElement("span");
+    b.className = "orbit-updated";
+    b.setAttribute("aria-hidden", "true");
+    b.textContent = updatedText;
+    n.el.appendChild(b);
+  });
 
   build();
   measure();

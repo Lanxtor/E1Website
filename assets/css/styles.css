@@ -3284,3 +3284,103 @@ code {
   .orbit-caption b { color: var(--c, var(--brand)); }
 }
 @media (min-width: 641px) { .orbit-say { max-width: none; white-space: nowrap; hyphens: none; } }
+
+/* Orbit, industrial look: graphite tiles like control-room hardware, the
+   discipline colour only on the icon and a small status light, labels as
+   equipment tags, rings with gauge ticks. */
+.orbit-rings .ring { stroke: rgba(28, 35, 45, 0.10); }
+.orbit-rings .ring-main { stroke: rgba(28, 35, 45, 0.30); stroke-width: 1.2; }
+.orbit-rings .ring-ticks { stroke: rgba(28, 35, 45, 0.38); stroke-width: 7; stroke-dasharray: 1 13; }
+.orbit-rings .ring-ticks-major { stroke-width: 10; stroke-dasharray: 1.4 21; stroke: rgba(28, 35, 45, 0.30); }
+.orbit-rings .ring-dash { stroke-dasharray: 2 6; }
+.orbit-lines line { stroke: rgba(28, 35, 45, 0.14); }
+.orbit-lines line.is-live { stroke: rgba(224, 132, 48, 0.7); }
+.orbit-packets .packet { fill: #4f8fd6; filter: drop-shadow(0 0 5px rgba(79, 143, 214, 0.9)); }
+
+.orbit-node { --c: #7fa8d6; width: 140px; }
+.orbit-node[data-node="feed"] { --c: #c98c9c; }
+.orbit-node[data-node="process"] { --c: #6fb3a6; }
+.orbit-node[data-node="instrumentation"] { --c: #7fa8d6; }
+.orbit-node[data-node="electrical"] { --c: #d8ac58; }
+.orbit-node[data-node="automation"] { --c: #a894c8; }
+.orbit-node[data-node="maintenance"] { --c: #d4925a; }
+.orbit-node[data-node="reviewers"] { --c: #7fb7c4; }
+.orbit-node[data-node="viewers"] { --c: #a9b3bf; }
+.orbit-node[data-node="alex"] { --c: #d8ac58; }
+.orbit-node[data-node="cause"] { --c: #d48a7a; }
+.orbit-node[data-node="modprojects"] { --c: #8fbf8a; }
+.orbit-node[data-node="commissioning"] { --c: #c7b36a; }
+.orbit-node[data-node="epc"] { --c: #9fb0c8; }
+.orbit-node[data-node="ipad"] { --c: #7fb7c4; }
+.orbit-node[data-node="api"] { --c: #b3a1d6; }
+
+.orbit-icon { position: relative; width: 70px; height: 70px; border-radius: 16px; color: var(--c);
+  background: linear-gradient(160deg, #3b4553 0%, #252d38 55%, #1a2029 100%);
+  border: 1px solid #12171e;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -2px 0 rgba(0, 0, 0, 0.25), 0 14px 26px -14px rgba(13, 18, 24, 0.75);
+  animation-name: node-bob-calm; }
+@keyframes node-bob-calm { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.orbit-icon svg { width: 34px; height: 34px; stroke-width: 1.6; }
+/* status light, top right */
+.orbit-icon::after { content: ""; position: absolute; top: 7px; right: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--c); opacity: 0.55; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25); transition: opacity 0.2s, box-shadow 0.2s, background 0.2s; }
+.orbit-node.is-saying .orbit-icon::after { background: #ff9a3c; opacity: 1; box-shadow: 0 0 8px 2px rgba(255, 154, 60, 0.8); }
+.orbit-node.is-updated .orbit-icon::after { background: #6fd18f; opacity: 1; box-shadow: 0 0 8px 2px rgba(111, 209, 143, 0.75); }
+.orbit-node[data-node="alex"] .orbit-icon { padding: 7px; background: linear-gradient(160deg, #3b4553, #1a2029); }
+.orbit-node[data-node="alex"] .orbit-icon img { border-radius: 10px; background: #f8f3e9; }
+.orbit-node.is-updated .orbit-icon { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 0 2px #fff, 0 0 0 4px rgba(111, 209, 143, 0.55), 0 14px 26px -14px rgba(13, 18, 24, 0.75); }
+.orbit-node.is-saying .orbit-icon { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 0 2px #fff, 0 0 0 5px #e08430, 0 18px 32px -14px rgba(13, 18, 24, 0.8); }
+
+/* equipment-tag labels */
+.orbit-label { padding: 3px 8px; border-radius: 4px; background: #fff; border: 1px solid #cfd4db; box-shadow: 0 1px 0 rgba(13, 18, 24, 0.05); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-title); }
+.orbit-say { border-radius: 6px; border-color: #cfd4db; font-size: 0.78rem; }
+.orbit-say::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: #e08430; vertical-align: 1px; }
+
+/* the core: brushed navy steel */
+.orbit-core { border-radius: 22px; border: 1px solid #06172a;
+  background: linear-gradient(165deg, #173a5e 0%, var(--navy) 45%, var(--navy-deep) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 30px 60px -24px rgba(11, 42, 74, 0.7), 0 0 0 8px rgba(28, 35, 45, 0.05), 0 0 0 18px rgba(28, 35, 45, 0.03); }
+.orbit-core-say { border-radius: 4px; color: #ffc48a; }
+
+@media (max-width: 900px) {
+  .orbit-node { width: 110px; }
+  .orbit-icon { width: 54px; height: 54px; border-radius: 13px; }
+  .orbit-icon svg { width: 26px; height: 26px; }
+  .orbit-label { font-size: 0.6rem; }
+}
+@media (max-width: 640px) {
+  .hero-orbit { height: 660px; }
+  .orbit-node { width: 78px; gap: 4px; }
+  .orbit-icon { width: 40px; height: 40px; border-radius: 10px; }
+  .orbit-icon svg { width: 21px; height: 21px; }
+  .orbit-icon::after { top: 4px; right: 4px; width: 4px; height: 4px; }
+  .orbit-label { padding: 2px 4px; font-size: 0.5rem; letter-spacing: 0.04em; white-space: normal; text-align: center; line-height: 1.2; }
+  .orbit-node[data-node="alex"] .orbit-icon { padding: 4px; }
+  .orbit-core { padding: 10px 10px 9px; border-radius: 14px; }
+  .orbit-core-mark svg { width: 28px; height: 28px; }
+  .orbit-core-name { font-size: 0.72rem; }
+  .orbit-core-sub { font-size: 0.62rem; }
+  .orbit-rings .ring-ticks { stroke-width: 5; }
+}
+
+/* Orbit: the update reaching everyone, and a smaller model in the middle */
+.orbit-lines line.is-sync { stroke: rgba(63, 170, 105, 0.55); stroke-width: 1.4; stroke-dasharray: none; }
+.orbit-packets .packet:not(.packet-in) { fill: #3faa69; filter: drop-shadow(0 0 5px rgba(63, 170, 105, 0.9)); }
+.orbit-packets .orbit-ripple { fill: none; stroke: #3faa69; stroke-width: 2; }
+.orbit-updated { position: absolute; top: -10px; left: 50%; z-index: 2; display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px 2px 5px; border-radius: 4px; background: #1f7a45; color: #fff; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; opacity: 0; transform: translate(-50%, 4px) scale(0.9); transition: opacity 0.2s, transform 0.3s var(--ease); pointer-events: none; }
+.orbit-updated::before { content: ""; width: 9px; height: 9px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.orbit-node.is-updated .orbit-updated { opacity: 1; transform: translate(-50%, 0) scale(1); }
+.orbit-node.is-updated .orbit-icon { animation-play-state: paused; }
+
+.orbit-core { min-width: 0; width: auto; gap: 4px; padding: 14px 18px 12px; border-radius: 16px; }
+.orbit-core-mark svg { width: 38px; height: 38px; margin-bottom: 4px; }
+.orbit-core-name { font-size: 0.9rem; letter-spacing: 0.1em; }
+.orbit-core-say { margin-top: 4px; padding: 3px 8px; font-size: 0.58rem; }
+.orbit-core.is-taking::after { animation-duration: 1.1s; }
+@media (max-width: 640px) {
+  .orbit-core { padding: 8px 10px 7px; border-radius: 12px; }
+  .orbit-core-mark svg { width: 26px; height: 26px; margin-bottom: 2px; }
+  .orbit-core-name { font-size: 0.66rem; }
+  .orbit-updated { top: -8px; font-size: 0.46rem; padding: 1px 4px 1px 3px; }
+  .orbit-updated::before { width: 7px; height: 7px; }
+}
+@media (max-width: 640px) { .hero-orbit { margin-bottom: 44px; } .orbit-caption { bottom: -46px; } }
