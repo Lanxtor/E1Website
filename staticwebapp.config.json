@@ -9,6 +9,18 @@
   },
   "routes": [
     {
+      "route": "/.well-known/security.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "route": "/security.txt",
+      "redirect": "/.well-known/security.txt",
+      "statusCode": 301
+    },
+    {
       "route": "/account",
       "redirect": "/account.html",
       "statusCode": 301
