@@ -102,7 +102,7 @@
         if (file.sha256) btn.title = "SHA-256 " + file.sha256;
         if (meta) meta.textContent = file.label + (file.size ? " · " + size(file.size) : "");
       } else {
-        btn.href = btn.getAttribute("data-soon-href") || "#download";
+        btn.href = btn.getAttribute("data-soon-href") || "#release-notes";
         btn.setAttribute("aria-disabled", "true");
         btn.classList.add("is-soon");
         if (meta) meta.textContent = platform.store ? platform.store.label + " · " + T("Coming soon") : T("Coming soon");

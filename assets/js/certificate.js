@@ -54,32 +54,32 @@
 
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' +
       esc("Certificate of completion: " + c.holderName + ", " + c.courseTitle + ", issued " + longDate(c.issuedAt)) + '" font-family="' + font + '">' +
-      '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5cff"/><stop offset="1" stop-color="#0e1116"/></linearGradient></defs>' +
+      '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1565c0"/><stop offset="1" stop-color="#0b2a4a"/></linearGradient></defs>' +
       '<rect width="' + W + '" height="' + H + '" fill="#ffffff"/>' +
-      '<rect x="36" y="36" width="' + (W - 72) + '" height="' + (H - 72) + '" fill="none" stroke="#0e1116" stroke-width="3"/>' +
+      '<rect x="36" y="36" width="' + (W - 72) + '" height="' + (H - 72) + '" fill="none" stroke="#0b2a4a" stroke-width="3"/>' +
       '<rect x="52" y="52" width="' + (W - 104) + '" height="' + (H - 104) + '" fill="none" stroke="#e6e8eb" stroke-width="2"/>' +
       '<path d="M36 36h220L36 256z" fill="url(#g)"/>' +
       '<path d="M' + (W - 36) + " " + (H - 36) + "h-220l220-220z" + '" fill="url(#g)"/>' +
 
       // brand
       '<g transform="translate(' + (W / 2 - 118) + ',128)">' +
-      '<rect x="0" y="0" width="56" height="56" rx="14" fill="#0e1116"/>' +
+      '<rect x="0" y="0" width="56" height="56" rx="14" fill="#0b2a4a"/>' +
       '<path d="M16 16v24h24" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
-      '<circle cx="37" cy="19" r="4.6" fill="#1f5cff"/>' +
-      '<text x="76" y="40" font-size="34" font-weight="700" letter-spacing="3" fill="#0e1116">LANXTOR</text></g>' +
+      '<circle cx="37" cy="19" r="4.6" fill="#f08c2e"/>' +
+      '<text x="76" y="40" font-size="34" font-weight="700" letter-spacing="3" fill="#0b2a4a">LANXTOR</text></g>' +
 
       '<text x="' + W / 2 + '" y="290" text-anchor="middle" font-size="26" font-weight="600" letter-spacing="9" fill="#5b6470">CERTIFICATE OF COMPLETION</text>' +
       '<text x="' + W / 2 + '" y="380" text-anchor="middle" font-size="28" fill="#5b6470">This certifies that</text>' +
-      '<text x="' + W / 2 + '" y="' + (470 + nameSize * 0.12) + '" text-anchor="middle" font-size="' + nameSize + '" font-weight="700" letter-spacing="-1" fill="#0e1116">' + esc(c.holderName) + "</text>" +
+      '<text x="' + W / 2 + '" y="' + (470 + nameSize * 0.12) + '" text-anchor="middle" font-size="' + nameSize + '" font-weight="700" letter-spacing="-1" fill="#0b2a4a">' + esc(c.holderName) + "</text>" +
       '<line x1="' + (W / 2 - 360) + '" y1="530" x2="' + (W / 2 + 360) + '" y2="530" stroke="#e6e8eb" stroke-width="2"/>' +
       '<text x="' + W / 2 + '" y="596" text-anchor="middle" font-size="28" fill="#5b6470">has successfully completed the course</text>' +
-      '<text x="' + W / 2 + '" y="' + (684 + courseSize * 0.1) + '" text-anchor="middle" font-size="' + courseSize + '" font-weight="600" fill="#1f5cff">' + esc(c.courseTitle) + "</text>" +
+      '<text x="' + W / 2 + '" y="' + (684 + courseSize * 0.1) + '" text-anchor="middle" font-size="' + courseSize + '" font-weight="600" fill="#1565c0">' + esc(c.courseTitle) + "</text>" +
       '<text x="' + W / 2 + '" y="760" text-anchor="middle" font-size="24" fill="#5b6470">' + esc(details) + "</text>" +
 
       // footer: date, seal, ID
       '<text x="200" y="905" font-size="20" font-weight="600" letter-spacing="3" fill="#5b6470">ISSUED</text>' +
-      '<text x="200" y="948" font-size="30" font-weight="600" fill="#0e1116">' + esc(longDate(c.issuedAt)) + "</text>" +
-      '<line x1="200" y1="972" x2="560" y2="972" stroke="#0e1116" stroke-width="2"/>' +
+      '<text x="200" y="948" font-size="30" font-weight="600" fill="#0b2a4a">' + esc(longDate(c.issuedAt)) + "</text>" +
+      '<line x1="200" y1="972" x2="560" y2="972" stroke="#0b2a4a" stroke-width="2"/>' +
       '<text x="200" y="1006" font-size="20" fill="#5b6470">' + esc(c.issuer || "LANXTOR") + "</text>" +
 
       '<g transform="translate(' + W / 2 + ',935)">' +
@@ -89,8 +89,8 @@
       '<path d="M-14 34l9 9 19-19" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>' +
 
       '<text x="' + (W - 200) + '" y="905" text-anchor="end" font-size="20" font-weight="600" letter-spacing="3" fill="#5b6470">CERTIFICATE ID</text>' +
-      '<text x="' + (W - 200) + '" y="948" text-anchor="end" font-size="30" font-weight="600" fill="#0e1116" font-family="ui-monospace, Menlo, Consolas, monospace">' + esc(c.id) + "</text>" +
-      '<line x1="' + (W - 560) + '" y1="972" x2="' + (W - 200) + '" y2="972" stroke="#0e1116" stroke-width="2"/>' +
+      '<text x="' + (W - 200) + '" y="948" text-anchor="end" font-size="30" font-weight="600" fill="#0b2a4a" font-family="ui-monospace, Menlo, Consolas, monospace">' + esc(c.id) + "</text>" +
+      '<line x1="' + (W - 560) + '" y1="972" x2="' + (W - 200) + '" y2="972" stroke="#0b2a4a" stroke-width="2"/>' +
       '<text x="' + (W - 200) + '" y="1006" text-anchor="end" font-size="20" fill="#5b6470">Verify this certificate at</text>' +
       '<text x="' + (W - 200) + '" y="1034" text-anchor="end" font-size="' + fit(url, 20, 420, 0.52) + '" fill="#5b6470">' + esc(url) + "</text>" +
 
