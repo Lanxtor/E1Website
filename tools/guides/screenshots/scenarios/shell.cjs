@@ -20,9 +20,9 @@ module.exports = {
     await p.getByRole('button', { name: 'Hide explorer' }).click();
     await p.waitForTimeout(300);
     const rail = p.getByRole('navigation', { name: 'Application' });
-    await rail.getByRole('button', { name: 'Alex and Cloud AI' }).click();
+    await rail.getByRole('button', { name: 'Alex' }).click();
     await p.waitForTimeout(500);
-    await h.mark([rail.getByRole('button', { name: 'Explorer' }), rail.getByRole('button', { name: 'Alex and Cloud AI' })]);
+    await h.mark([rail.getByRole('button', { name: 'Explorer' }), rail.getByRole('button', { name: 'Alex' })]);
     await h.shot('panels-hidden');
   },
 };

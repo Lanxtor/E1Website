@@ -122,10 +122,10 @@
   },
   {
    "id": "ai",
-   "title": "AI: Alex and Cloud AI",
-   "summary": "Alex, the built-in engineering co-worker that reviews your drawing, and Cloud AI, the chat that answers and changes the project with review and undo.",
+   "title": "AI: Alex",
+   "summary": "Alex, the built-in engineering co-worker that reviews your drawing and, with help from a language model when you tick it, answers in your own words and changes the project with review and undo.",
    "training": {
-    "series": "AI: Alex and Cloud AI",
+    "series": "AI: Alex",
     "order": 11
    },
    "page": "guide-ai.html",
@@ -561,7 +561,7 @@
   {
    "id": "GS-settings",
    "title": "Your settings",
-   "summary": "Your own preferences: appearance, how Cloud AI changes drawings, email notifications, and whether you share usage statistics.",
+   "summary": "Your own preferences: appearance, how Alex changes drawings with its AI help, email notifications, and whether you share usage statistics.",
    "anchor": "gs-settings",
    "status": "available",
    "updated": "2026-11-09",
@@ -2535,7 +2535,7 @@
   {
    "id": "DRAW-off-page",
    "title": "Off-page connectors and Continue on 2D space",
-   "summary": "Carry a line to other 2D spaces with off-page connectors: link them end to end or let one continue on several, jump between them, and disconnect; Highlight flow and Cloud AI follow the links.",
+   "summary": "Carry a line to other 2D spaces with off-page connectors: link them end to end or let one continue on several, jump between them, and disconnect; Highlight flow and Alex follow the links.",
    "anchor": "draw-off-page",
    "status": "available",
    "since": "2026-11-06",
@@ -2695,7 +2695,7 @@
   {
    "id": "DRAW-predictive",
    "title": "Predictive mode: Let Alex help",
-   "summary": "Alex reviews the drawing as you work and offers the next symbols as ghosts, with an After your change card in the Alex tab to apply or reject, locally without the cloud.",
+   "summary": "Alex reviews the drawing as you work and offers the next symbols as ghosts, with an After your change card in Alex (Co-engineer) to apply or reject, locally without the cloud.",
    "anchor": "draw-predictive",
    "status": "available",
    "since": "2026-11-04",
@@ -2740,7 +2740,7 @@
     "AI-cloud-ai",
     "DRAW-predictive"
    ],
-   "roles": "Editor license; Cloud AI turned on for the chat",
+   "roles": "Editor license; an AI model set up (Alex's Agent tab)",
    "training": {
     "topic": "Engineering patterns",
     "level": "Advanced",
@@ -5054,7 +5054,7 @@
   },
   {
    "id": "ORG-audit",
-   "title": "Audit: what administrators and Cloud AI did",
+   "title": "Audit: what administrators and Alex did",
    "summary": "The Audit tab lists the organization's important events and what was sent to an AI model.",
    "anchor": "org-audit",
    "status": "available",
@@ -5277,7 +5277,8 @@
    ],
    "related": [
     "ORG-custom-roles",
-    "ORG-audit"
+    "ORG-audit",
+    "ORG-webhooks"
    ],
    "roles": "Everyone with an Editor license makes their own tokens; Owners and Administrators manage service accounts",
    "training": {
@@ -5289,6 +5290,33 @@
    "since": "2026-11-09",
    "category": "organization",
    "page": "guide-organization.html#org-tokens"
+  },
+  {
+   "id": "ORG-webhooks",
+   "title": "Webhooks and the change feed",
+   "summary": "Tell another system at once when something changes in E1 (webhooks, signed and retried), or let it ask what changed since it last looked (the change feed of the API).",
+   "anchor": "org-webhooks",
+   "status": "available",
+   "roadmap": [
+    "19.3"
+   ],
+   "checks": [
+    "N3"
+   ],
+   "related": [
+    "ORG-tokens",
+    "ORG-audit"
+   ],
+   "roles": "Owners and Administrators (Manage connections) set up webhooks; anyone who sees a project may read its change feed with a token",
+   "training": {
+    "topic": "Webhooks and the change feed",
+    "level": "Advanced",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "since": "2026-11-10",
+   "category": "organization",
+   "page": "guide-organization.html#org-webhooks"
   },
   {
    "id": "ORG-four-eyes",
@@ -5608,7 +5636,7 @@
   {
    "id": "LIB-pin-version",
    "title": "Pin a project to a library version",
-   "summary": "Keep a project on an earlier company library version, with a preview, through Cloud AI.",
+   "summary": "Keep a project on an earlier company library version, with a preview, by asking Alex (with its AI help).",
    "anchor": "lib-pin-version",
    "status": "available",
    "since": "2026-11-06",
@@ -5866,11 +5894,11 @@
   },
   {
    "id": "LIB-cloud-ai-model",
-   "title": "The Cloud AI model of the installation",
-   "summary": "See which model Cloud AI uses in your installation, or whether it is off or runs locally.",
+   "title": "The model for Alex’s AI help",
+   "summary": "See which model Alex gets help from in your installation, or whether none is set up or it runs locally.",
    "anchor": "lib-cloud-ai-model",
    "status": "available",
-   "updated": "2026-11-08",
+   "updated": "2026-11-09",
    "roadmap": [],
    "checks": [],
    "related": [
@@ -5878,7 +5906,7 @@
    ],
    "roles": "Everyone may look",
    "training": {
-    "topic": "The installation's Cloud AI model",
+    "topic": "The model for Alex’s AI help",
     "level": "Beginner",
     "minutes": 2
    },
@@ -6057,13 +6085,15 @@
   },
   {
    "id": "AI-side-panel",
-   "title": "The Alex and Cloud AI panel",
-   "summary": "The right-hand panel holds Alex and Cloud AI, one tab each, and can be hidden and shown from the left rail.",
+   "title": "The Alex panel",
+   "summary": "The right-hand panel is Alex, the one assistant, with one row of tabs: Co-engineer, Ask, Agent, Plan and E1 Guide; its badge says Built-in or names the model, and the panel can be hidden and shown from the left rail.",
    "anchor": "ai-side-panel",
    "status": "available",
-   "updated": "2026-11-06",
+   "updated": "2026-11-09",
    "roadmap": [],
-   "checks": [],
+   "checks": [
+    "I9"
+   ],
    "related": [
     "GS-layout",
     "AI-alex",
@@ -6071,11 +6101,12 @@
    ],
    "roles": "Everyone",
    "training": {
-    "topic": "The Alex and Cloud AI panel",
+    "topic": "The Alex panel",
     "level": "Beginner",
     "minutes": 2
    },
    "screenshots": [
+    "alex-co-engineer.webp",
     "rail.webp"
    ],
    "category": "ai",
@@ -6111,9 +6142,10 @@
   {
    "id": "AI-alex-why",
    "title": "Why “Alex”? What stays local",
-   "summary": "A note in the Alex tab explains the name and that Alex sends nothing outside.",
+   "summary": "A note in Alex (Co-engineer) explains the name and that Alex sends nothing outside.",
    "anchor": "ai-alex-why",
    "status": "available",
+   "updated": "2026-11-09",
    "since": "2026-11-06",
    "roadmap": [],
    "checks": [],
@@ -6333,8 +6365,8 @@
   },
   {
    "id": "AI-alex-ask-cloud",
-   "title": "Ask Cloud AI about an Alex card",
-   "summary": "Hands an Alex finding to Cloud AI as a ready-written question that you can edit before sending.",
+   "title": "Ask Alex about a card in your own words",
+   "summary": "Opens Alex's Ask tab with an Alex finding as a ready-written question that you can edit before sending.",
    "anchor": "ai-alex-ask-cloud",
    "status": "available",
    "since": "2026-11-06",
@@ -6346,9 +6378,9 @@
     "AI-cloud-ai",
     "AI-calls-alex"
    ],
-   "roles": "Everyone who may use Cloud AI",
+   "roles": "Everyone who may use Alex's AI help",
    "training": {
-    "topic": "A second opinion from Cloud AI",
+    "topic": "Asking Alex about a finding",
     "level": "Beginner",
     "minutes": 2
    },
@@ -6464,6 +6496,7 @@
    "summary": "Brings a simulator's stream table into the line list, matched to lines and checked by you.",
    "anchor": "ai-alex-hmb",
    "status": "available",
+   "updated": "2026-11-09",
    "since": "2026-11-07",
    "roadmap": [],
    "checks": [],
@@ -6483,37 +6516,39 @@
   },
   {
    "id": "AI-cloud-ai",
-   "title": "Cloud AI: chat with the project",
-   "summary": "A chat with a language model that answers questions about the project and, in Agent mode, changes it with review and undo.",
+   "title": "Ask, Agent and Plan: talk with Alex",
+   "summary": "In Alex's tabs Ask, Agent and Plan, Alex answers in your own words with a language model and, in Agent, changes the project with review and undo; Co-engineer and E1 Guide send nothing.",
    "anchor": "ai-cloud-ai",
    "status": "available",
    "updated": "2026-11-09",
    "roadmap": [
     "6A-6H"
    ],
-   "checks": [],
+   "checks": [
+    "I9"
+   ],
    "related": [
     "AI-chat-modes",
     "AI-review-first",
     "AI-undo",
     "AI-off"
    ],
-   "roles": "Everyone where Cloud AI is on; changes need an Editor license and a project role that may edit",
+   "roles": "Everyone in an installation with an AI model; changes need an Editor license and a project role that may edit",
    "training": {
-    "topic": "Chatting with Cloud AI",
+    "topic": "Asking Alex in your own words",
     "level": "Beginner",
     "minutes": 5
    },
    "screenshots": [
-    "cloud-ai.webp"
+    "alex-agent.webp"
    ],
    "category": "ai",
    "page": "guide-ai.html#ai-cloud-ai"
   },
   {
    "id": "AI-chat-modes",
-   "title": "Agent, Ask and Plan: the chat mode",
-   "summary": "Agent edits the project, Ask only answers, and Plan proposes a change that waits for Apply.",
+   "title": "Ask, Agent and Plan: what each may do",
+   "summary": "Alex's tabs: Ask only answers, Agent edits the project, and Plan proposes a change that waits for Apply.",
    "anchor": "ai-chat-modes",
    "status": "available",
    "since": "2026-11-03",
@@ -6529,14 +6564,14 @@
     "AI-review-first",
     "AI-undo"
    ],
-   "roles": "Everyone who may use Cloud AI",
+   "roles": "Everyone who may use Alex's AI help",
    "training": {
-    "topic": "Agent, Ask and Plan",
+    "topic": "Ask, Agent and Plan",
     "level": "Beginner",
     "minutes": 4
    },
    "screenshots": [
-    "cloud-ai.webp"
+    "alex-agent.webp"
    ],
    "category": "ai",
    "page": "guide-ai.html#ai-chat-modes"
@@ -6544,7 +6579,7 @@
   {
    "id": "AI-review-first",
    "title": "Review changes first: Apply or Discard",
-   "summary": "Cloud AI works on a draft and nothing is stored until you click Apply.",
+   "summary": "Alex works on a draft and nothing is stored until you click Apply.",
    "anchor": "ai-review-first",
    "status": "available",
    "since": "2026-11-02",
@@ -6561,9 +6596,9 @@
     "AI-held-for-review",
     "AI-undo"
    ],
-   "roles": "Anyone who may let Cloud AI edit",
+   "roles": "Anyone who may let Alex edit with its AI help",
    "training": {
-    "topic": "Reviewing Cloud AI's changes",
+    "topic": "Reviewing Alex's changes",
     "level": "Beginner",
     "minutes": 3
    },
@@ -6576,7 +6611,7 @@
   {
    "id": "AI-protect-arrangement",
    "title": "Protect the arrangement",
-   "summary": "Cloud AI may add to the drawing but does not move, resize or reroute what is already drawn.",
+   "summary": "Alex may add to the drawing but does not move, resize or reroute what is already drawn.",
    "anchor": "ai-protect-arrangement",
    "status": "available",
    "updated": "2026-11-09",
@@ -6586,7 +6621,7 @@
     "AI-review-first",
     "AI-chat-modes"
    ],
-   "roles": "Anyone who may let Cloud AI edit",
+   "roles": "Anyone who may let Alex edit with its AI help",
    "training": {
     "topic": "Keeping your layout safe",
     "level": "Beginner",
@@ -6618,7 +6653,7 @@
    ],
    "roles": "Editor license and a project role that may edit, in every project the change touched",
    "training": {
-    "topic": "Undoing a Cloud AI change",
+    "topic": "Undoing a change Alex made",
     "level": "Beginner",
     "minutes": 2
    },
@@ -6641,9 +6676,9 @@
     "AI-review-first",
     "AI-undo"
    ],
-   "roles": "Everyone who lets Cloud AI edit",
+   "roles": "Everyone who lets Alex edit with its AI help",
    "training": {
-    "topic": "Safety limits on Cloud AI",
+    "topic": "Safety limits on Alex's AI help",
     "level": "Intermediate",
     "minutes": 2
    },
@@ -6654,7 +6689,7 @@
   {
    "id": "AI-attachments",
    "title": "Attach files to a message",
-   "summary": "Give Cloud AI a list, a specification or a screenshot; E1 reads the text and sends it with your message.",
+   "summary": "Give Alex a list, a specification or a screenshot; E1 reads the text and sends it with your message.",
    "anchor": "ai-attachments",
    "status": "available",
    "since": "2026-11-03",
@@ -6666,13 +6701,14 @@
     "AI-cloud-ai",
     "AI-injection-safety"
    ],
-   "roles": "Everyone who may use Cloud AI",
+   "roles": "Everyone who may use Alex's AI help",
    "training": {
-    "topic": "Attaching files to Cloud AI",
+    "topic": "Attaching files for Alex",
     "level": "Beginner",
     "minutes": 3
    },
    "screenshots": [],
+   "updated": "2026-11-09",
    "category": "ai",
    "page": "guide-ai.html#ai-attachments"
   },
@@ -6691,23 +6727,24 @@
     "AI-cloud-ai",
     "WEB-assistant"
    ],
-   "roles": "Everyone who may use Cloud AI",
+   "roles": "Everyone who may use Alex's AI help",
    "training": {
-    "topic": "Talking to Cloud AI",
+    "topic": "Talking to Alex",
     "level": "Beginner",
     "minutes": 2
    },
    "screenshots": [],
+   "updated": "2026-11-09",
    "category": "ai",
    "page": "guide-ai.html#ai-voice"
   },
   {
    "id": "AI-model-menu",
-   "title": "The model chip: which model answers",
-   "summary": "Shows which model answers and where it runs; Editors outside a trial may pick a premium model.",
+   "title": "Which model: the model under Ask, Agent and Plan",
+   "summary": "The model under Alex's Ask, Agent and Plan, and where messages go; Editors outside a trial may pick a premium model.",
    "anchor": "ai-model-menu",
    "status": "available",
-   "updated": "2026-11-08",
+   "updated": "2026-11-09",
    "roadmap": [],
    "checks": [],
    "related": [
@@ -6716,7 +6753,7 @@
    ],
    "roles": "Everyone sees it; premium models need an Editor license outside a trial",
    "training": {
-    "topic": "Which model answers",
+    "topic": "Which model helps Alex",
     "level": "Intermediate",
     "minutes": 3
    },
@@ -6729,10 +6766,10 @@
   {
    "id": "AI-model-admin",
    "title": "Choose the installation's model (operators)",
-   "summary": "The installation's operators choose the model everyone uses by default.",
+   "summary": "The installation's operators choose the model Alex gets help from for everyone, in Configuration → Alex’s AI help.",
    "anchor": "ai-model-admin",
    "status": "available",
-   "updated": "2026-11-08",
+   "updated": "2026-11-09",
    "roadmap": [],
    "checks": [],
    "related": [
@@ -6741,7 +6778,7 @@
    ],
    "roles": "Installation operators (E1_OPERATORS)",
    "training": {
-    "topic": "Choosing the Cloud AI model",
+    "topic": "Choosing the model for Alex's AI help",
     "level": "Advanced",
     "minutes": 2
    },
@@ -6754,7 +6791,7 @@
   {
    "id": "AI-patterns",
    "title": "Engineering patterns: pump trains, instrument taps, motor feeders",
-   "summary": "Cloud AI draws three common designs correctly and checks and repairs what it drew.",
+   "summary": "Alex, with its AI help, draws three common designs correctly and checks and repairs what it drew.",
    "anchor": "ai-patterns",
    "status": "available",
    "since": "2026-11-05",
@@ -6772,7 +6809,7 @@
    ],
    "roles": "Anyone who may edit the 2D space",
    "training": {
-    "topic": "Engineering patterns with Cloud AI",
+    "topic": "Engineering patterns with Alex",
     "level": "Intermediate",
     "minutes": 4
    },
@@ -6782,8 +6819,8 @@
   },
   {
    "id": "AI-calls-alex",
-   "title": "Cloud AI asks Alex",
-   "summary": "Before judging a design, Cloud AI asks Alex to review the 2D space with your company's conventions.",
+   "title": "Alex's review behind the answer",
+   "summary": "Before judging a design, Alex's own review of the sheet runs with your company's conventions, and the model's answer rests on it.",
    "anchor": "ai-calls-alex",
    "status": "available",
    "since": "2026-11-07",
@@ -6795,9 +6832,9 @@
     "AI-alex-ask-cloud",
     "AI-alex-knowledge"
    ],
-   "roles": "Everyone who may use Cloud AI",
+   "roles": "Everyone who may use Alex's AI help",
    "training": {
-    "topic": "Cloud AI and Alex together",
+    "topic": "Alex's review and the model together",
     "level": "Intermediate",
     "minutes": 2
    },
@@ -6808,7 +6845,7 @@
   {
    "id": "AI-injection-safety",
    "title": "Text in the project is data, not instructions",
-   "summary": "Cloud AI never follows instructions written in names, notes, attributes or attached files.",
+   "summary": "Alex and its model never follow instructions written in names, notes, attributes or attached files.",
    "anchor": "ai-injection-safety",
    "status": "available",
    "updated": "2026-11-09",
@@ -6832,8 +6869,8 @@
   },
   {
    "id": "AI-off",
-   "title": "When Cloud AI is off: everything by hand",
-   "summary": "With Cloud AI off or out of credits, you work by hand with the menus, toolbars and right-click menus, and Alex keeps working.",
+   "title": "Without a language model: Co-engineer, everything by hand",
+   "summary": "With no AI model, Alex's AI help switched off or the credits used up, Alex works on its own and you do the rest by hand with the menus, toolbars and right-click menus.",
    "anchor": "ai-off",
    "status": "available",
    "roadmap": [],
@@ -6844,11 +6881,12 @@
    ],
    "roles": "Everyone",
    "training": {
-    "topic": "Working without Cloud AI",
+    "topic": "Working without a language model",
     "level": "Beginner",
     "minutes": 3
    },
    "screenshots": [],
+   "updated": "2026-11-09",
    "category": "ai",
    "page": "guide-ai.html#ai-off"
   },
@@ -6906,8 +6944,8 @@
   },
   {
    "id": "AI-branch",
-   "title": "Cloud AI in your branch",
-   "summary": "Cloud AI will make its changes in your own branch, and held changes will be temporary branches.",
+   "title": "Alex in your branch",
+   "summary": "Alex, with its AI help, will make its changes in your own branch, and held changes will be temporary branches.",
    "anchor": "ai-branch",
    "status": "planned",
    "roadmap": [
@@ -6921,7 +6959,7 @@
    ],
    "roles": "To be decided",
    "training": {
-    "topic": "Cloud AI in branches",
+    "topic": "Alex in branches",
     "level": "Advanced",
     "minutes": 3
    },
@@ -6959,7 +6997,7 @@
    "summary": "Log in or create your account on the secure LANXTOR E1 sign-in page; the same account works in E1.",
    "anchor": "web-login",
    "status": "under-development",
-   "updated": "2026-11-07",
+   "updated": "2026-11-09",
    "roadmap": [
     "W3.2"
    ],
@@ -7211,11 +7249,11 @@
   {
    "id": "WEB-download",
    "title": "Get E1: browser and desktop",
-   "summary": "Download E1 for Mac or Windows, or create your account, with the three buttons at the top of Get E1; or use E1 in the browser with nothing to install.",
+   "summary": "Download E1 for Mac or Windows, or find E1 Reviewer for iPad, with the three buttons at the top of Get E1; or use E1 in the browser with nothing to install.",
    "anchor": "web-download",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-10",
    "roadmap": [
     "W1.3"
    ],
@@ -7577,7 +7615,7 @@
   {
    "id": "IPAD-dashboard",
    "title": "The dashboard",
-   "summary": "Home and each project's Overview show a dashboard of cards: your tasks, task status, checklists, projects, recent changes, redlines, Alex and pinned sheets.",
+   "summary": "Home and each project's Overview show a dashboard of cards; in a project, every 2D space (with pins), the documents, pinned 2D spaces, redlines and recent changes.",
    "anchor": "ipad-dashboard",
    "status": "under-development",
    "updated": "2026-11-09",
@@ -7789,7 +7827,7 @@
   {
    "id": "IPAD-alex",
    "title": "Alex on the iPad",
-   "summary": "Alex reviews the open sheet like an engineer beside you and shows its warnings and questions; Ask sends a question to Cloud AI when your organization uses one.",
+   "summary": "Alex on the iPad is Ask: questions typed or spoken with the microphone, answered without changing anything.",
    "anchor": "ipad-alex",
    "status": "under-development",
    "updated": "2026-11-09",

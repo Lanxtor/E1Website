@@ -112,7 +112,7 @@ For `/auth/me`, `/auth/switch`, `/auth/logout`, `/api/account/*` and `/api/commu
 
 When the release pipeline exists (`commercial-readiness.md` §5.4), it uploads the signed installers to a public Blob Storage container behind Azure Front Door or the CDN (for example `https://downloads.<domain>/e1/<version>/…`) and writes this file in the same step. The website needs no change for a new release.
 
-Until that pipeline exists, installers are uploaded by hand to the storage account **`e1downloads`** (resource group `e1-prod`, North Europe, LRS), container **`releases`** with anonymous read access for blobs only (no listing), one folder per version: `https://e1downloads.blob.core.windows.net/releases/e1/<version>/<file>`. It is separate from the private `e1files…` account, which holds customer files and must never be public. E1's workflow `macOS build` (`Lanxtor/E1`, `.github/workflows/mac-build.yml`) now does the upload and writes `releases.json` into the same container; `assets/js/config.js` (`releases`) points the site at it, with CORS on the storage account for www.lanxtor.com, lanxtor.com and preview.lanxtor.com and the host in `connect-src`. When it cannot be read, the site shows the copy in `assets/data/releases.json`. Test builds go to `e1/dev/` and `dev.json` and are not shown on the site.
+Until that pipeline exists, installers are uploaded by hand to the storage account **`e1downloads`** (resource group `e1-prod`, North Europe, LRS), container **`releases`** with anonymous read access for blobs only (no listing), one folder per version: `https://e1downloads.blob.core.windows.net/releases/e1/<version>/<file>`. It is separate from the private `e1files…` account, which holds customer files and must never be public. E1's workflow `Desktop build` (`Lanxtor/E1`, `.github/workflows/mac-build.yml`) now does the upload and writes `releases.json` into the same container; `assets/js/config.js` (`releases`) points the site at it, with CORS on the storage account for www.lanxtor.com, lanxtor.com and preview.lanxtor.com and the host in `connect-src`. When it cannot be read, the site shows the copy in `assets/data/releases.json`. Test builds go to `e1/dev/` and `dev.json` and are not shown on the site.
 
 ## 5. The Shape E1 board (the user forum)
 
@@ -154,8 +154,9 @@ Notes kept for the day the site goes live and for when E1 gets separate dev and 
 
 | What | Expires | Where it is used | Renew |
 |---|---|---|---|
-| SAS token `E1_DOWNLOADS_SAS` (write to `e1downloads/releases`) | 2027-11-09 | GitHub secret in `Lanxtor/E1`, used by the macOS build | Container `releases` → Shared access tokens (Read, Add, Create, Write), then update the secret |
+| SAS token `E1_DOWNLOADS_SAS` (write to `e1downloads/releases`) | 2027-11-09 | GitHub secret in `Lanxtor/E1`, used by the desktop build (macOS and Windows) | Container `releases` → Shared access tokens (Read, Add, Create, Write), then update the secret |
 | Developer ID Application certificate, Lanxtor, LLC (6M7JTM78L2) | 2027-12-09 | Login keychain of the build Mac | developer.apple.com → Certificates, new CSR; already installed apps keep working |
+| Azure Artifact Signing identity validation, Lanxtor LLC (account `lanxtor-signing`) | yearly; the portal shows the date once approved | Signing the Windows installer (job `windows` of the desktop build) | `lanxtor-signing` → Identity validation → Renew, before it expires |
 | App Store Connect API key *E1 Notarization* (44LS7N994S) | does not expire | notarytool profile `E1-notary` on the build Mac | Revoke and recreate only if it leaks |
 
 **Clean-up.** `e1/0.1.0/E1-0.1.0-arm64.dmg` does not start (missing files, fixed in 0.1.1) and can be deleted. Test builds under `e1/dev/` pile up daily; a lifecycle rule (storage account → Data management → Lifecycle management: delete blobs with prefix `releases/e1/dev/` older than 14 days) keeps them in check.

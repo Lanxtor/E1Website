@@ -282,7 +282,7 @@
  },
  {
   "id": "ORG-audit",
-  "title": "Audit: what administrators and Cloud AI did",
+  "title": "Audit: what administrators and Alex did",
   "summary": "The Audit tab lists the organization's important events and what was sent to an AI model.",
   "anchor": "org-audit",
   "status": "available",
@@ -489,7 +489,8 @@
   ],
   "related": [
    "ORG-custom-roles",
-   "ORG-audit"
+   "ORG-audit",
+   "ORG-webhooks"
   ],
   "roles": "Everyone with an Editor license makes their own tokens; Owners and Administrators manage service accounts",
   "training": {
@@ -499,6 +500,31 @@
   },
   "screenshots": [],
   "since": "2026-11-09"
+ },
+ {
+  "id": "ORG-webhooks",
+  "title": "Webhooks and the change feed",
+  "summary": "Tell another system at once when something changes in E1 (webhooks, signed and retried), or let it ask what changed since it last looked (the change feed of the API).",
+  "anchor": "org-webhooks",
+  "status": "available",
+  "roadmap": [
+   "19.3"
+  ],
+  "checks": [
+   "N3"
+  ],
+  "related": [
+   "ORG-tokens",
+   "ORG-audit"
+  ],
+  "roles": "Owners and Administrators (Manage connections) set up webhooks; anyone who sees a project may read its change feed with a token",
+  "training": {
+   "topic": "Webhooks and the change feed",
+   "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": [],
+  "since": "2026-11-10"
  },
  {
   "id": "ORG-four-eyes",

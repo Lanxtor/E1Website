@@ -15,12 +15,12 @@
     <li>Until the launch, the full website runs on a password-protected preview site; www.lanxtor.com shows a coming-soon page.</li>
     <li>Several parts still show <strong>preview data</strong>: example data, not your own. They are marked <span class="g-status preview">Preview data only</span> here, and the page itself says so in a banner. To look at the account page with preview data, open it with <code>?demo=1</code> at the end of its address; the preview person is "Alex Morgan" of "Acme Process Engineering".</li>
   </ul>
-  <p class="g-note">The website says "Alex, the AI co-engineer" for E1's AI as a whole. Inside E1 the chat is called Cloud AI and Alex is the built-in reviewer; see <a href="guide-ai.html#ai-overview">AI: Alex and Cloud AI</a>. The website's own chat assistant is also called Alex, and is different again: see <a href="#web-assistant">Alex on the website</a>.</p>
+  <p class="g-note">The website says "Alex, the AI co-engineer" for E1's AI as a whole. Inside E1, Alex is the one assistant: the built-in reviewer, which can also get help from a language model when you tick it; see <a href="guide-ai.html#ai-overview">AI: Alex</a>. The website's own chat assistant is also called Alex, and is different again: see <a href="#web-assistant">Alex on the website</a>.</p>
 </section>
 
 <section class="g-feature" id="web-login">
   <h2>Log in and sign up</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span>Updated 2026-11-07</span><span class="g-id">WEB-login</span><span>Roadmap W3.2</span><span>Review check W6</span></div>
+  <div class="g-meta"><span class="g-status under-development">Under development</span><span>Updated 2026-11-09</span><span class="g-id">WEB-login</span><span>Roadmap W3.2</span><span>Review check W6</span></div>
   <p class="g-summary">The login page sends you to the secure LANXTOR E1 sign-in page (Microsoft Entra) and brings you back to your account page. The same account works in the E1 app on Windows and macOS and in the browser.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Website header → <span class="ui">Log in</span> (it reads <span class="ui">Account</span> once you have signed in on this browser)</dd>
@@ -31,7 +31,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Log in</span> in the header.</td><td>The page shows the tabs <span class="ui">Log in</span> and <span class="ui">Sign up</span>, the title "Welcome back", "Sign in to see your licenses, usage, projects and downloads." and the button <span class="ui">Continue to sign in</span>.</td></tr>
-      <tr><td>2</td><td>Click the <span class="ui">Sign up</span> tab.</td><td>The title is "Create your account", the lead "Create a free account to start your E1 cloud workspace." and the button <span class="ui">Continue to sign up</span>.</td></tr>
+      <tr><td>2</td><td>Click the <span class="ui">Sign up</span> tab.</td><td>The title is "Create your account", the lead "Create your account and start your free 30-day trial, for you and your team." and the button <span class="ui">Start your free 30-day trial</span>. Beside the form (below it on a phone), the panel "Your whole team. Free for 30 days.": 5 Editors (Mac, Windows), 5 Reviewers and 5 Viewers (Mac, Windows, iPad), Alex included, the browser for everyone, and nothing lost after 30 days. The <span class="ui">Log in</span> tab hides the panel.</td></tr>
       <tr><td>3</td><td>Read the fine print under the button.</td><td>It says you sign in on the secure LANXTOR E1 sign-in page (Microsoft Entra), and that the same account works in the app and in the browser.</td></tr>
     </tbody>
   </table></div>
@@ -137,7 +137,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/web-account-usage.webp" alt="The Usage section with the Alex, AI co-engineer credits card and the Cloud storage card" width="2160" height="1350" loading="lazy"><figcaption>Usage.</figcaption></figure>
-  <p class="g-related">Related: <a href="guide-ai.html#ai-off">When Cloud AI is off or credits run out</a> · <a href="#web-billing">Billing</a></p>
+  <p class="g-related">Related: <a href="guide-ai.html#ai-off">Without a language model, or when credits run out</a> · <a href="#web-billing">Billing</a></p>
 </section>
 
 <section class="g-feature" id="web-organizations">
@@ -236,7 +236,7 @@
 
 <section class="g-feature" id="web-download">
   <h2>Get E1: browser and desktop</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">WEB-download</span><span>Roadmap W1.3</span><span>Review check W5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-10</span><span class="g-id">WEB-download</span><span>Roadmap W1.3</span><span>Review check W5</span></div>
   <p class="g-summary">Use E1 in the browser on any computer or tablet, with nothing to install, or install the desktop app for Windows or macOS. The same page sits under <span class="ui">Downloads</span> on your account page.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Website menu → <span class="ui">Get E1</span>; account page → <span class="ui">Downloads</span></dd>
@@ -246,15 +246,15 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Get E1</span> (on a phone, the <span class="ui">Get E1</span> button next to the menu button).</td><td>At the top, under "Get E1.", four buttons: <span class="ui">Download for Mac</span> ("Apple silicon (.dmg) · 113 MB"), <span class="ui">Download for Windows</span> ("Coming soon", dashed until the Windows installer is published), <span class="ui">E1 Reviewer for iPad</span> ("App Store · Coming soon" until the app is in the App Store; until then it opens the E1 Reviewer guide) and <span class="ui">Create account</span> ("Start your free 30-day trial today"). Your own system comes first. <span class="ui">Download for Mac</span> downloads the installer straight away; <span class="ui">Create account</span> opens the sign-up.</td></tr>
-      <tr><td>2</td><td>Scroll to <span class="ui">Download E1</span>.</td><td>"Free to download. Sign in or create your account when you open it." Cards for Windows ("Windows 10 or 11, 64-bit") and macOS ("macOS 12 or newer"); your own system first, with the badge <span class="ui">Your system</span>.</td></tr>
-      <tr><td>3</td><td>Look at the file buttons.</td><td><span class="ui">Apple silicon (.dmg)</span> downloads the macOS installer, with its size and SHA-256 beside it. Every other file reads "‹file› · Coming soon" and is disabled; none leads to a broken link. Below: "Current version 0.1.0 · released Nov 9, 2026 · stable channel".</td></tr>
-      <tr><td>4</td><td>Find the browser option.</td><td>"On any other computer or a tablet, use E1 in the browser." The card <span class="ui">E1 Cloud account</span> has <span class="ui">Create account</span> and <span class="ui">Your account</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Get E1</span> (on a phone, the <span class="ui">Get E1</span> button next to the menu button).</td><td>At the top, under "Get E1.", three buttons in a row: <span class="ui">Download for Mac</span> ("Apple silicon (.dmg) · 113 MB"), <span class="ui">Download for Windows</span> ("Coming soon", dashed until the Windows installer is published) and <span class="ui">E1 Reviewer for iPad</span> ("App Store · Coming soon" until the app is in the App Store; until then it opens the E1 Reviewer guide). Your own system comes first, in blue. Under the buttons: "Current version 0.1.0 · released Nov 9, 2026 · stable channel".</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Download for Mac</span>.</td><td>The macOS installer downloads straight away. Hold the pointer over the button to see its SHA-256. A button that reads "Coming soon" downloads nothing; none leads to a broken link.</td></tr>
+      <tr><td>3</td><td>To create your account, click <span class="ui">Log in</span> at the top of the page, then <span class="ui">Sign up</span>.</td><td>The sign-up opens. You can also choose <span class="ui">Create account</span> on the sign-in screen when you open E1, or in the <span class="ui">E1 Cloud</span> panel further down.</td></tr>
+      <tr><td>4</td><td>Find the browser option.</td><td>Under "Getting started": "On any other computer or a tablet, use E1 in the browser."</td></tr>
       <tr><td>5</td><td>On your account page, click <span class="ui">Open E1 in the browser</span>.</td><td>E1 opens at app.lanxtor.com.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/web-download.webp" alt="The Get E1 page with the E1 Cloud and Your cloud cards and the Ask Alex bar" width="2160" height="1350" loading="lazy"><figcaption>The Get E1 page.</figcaption></figure>
-  <p class="g-warn">The system requirements (processor, memory, graphics, disk) still read "Placeholder". This page has no direct link to open E1 in the browser; that link is on the account page.</p>
+  <p class="g-warn">This page has no direct link to open E1 in the browser; that link is on the account page.</p>
   <p class="g-related">Related: <a href="#web-installers">Desktop installers</a> · <a href="#web-pricing">Licenses and prices</a> · <a href="guide-access.html#acc-sign-in">Sign in to E1</a></p>
 </section>
 
@@ -266,7 +266,7 @@
   <h3>What you will be able to do</h3>
   <ul>
     <li>Open Get E1 and download the installer for your system, with its size and SHA-256 checksum.</li>
-    <li>Install E1 and sign in with your website account.</li>
+    <li>Install E1 and sign in with your website account. The app is named <span class="ui">Lanxtor E1</span> in Applications, the Dock and the Start menu.</li>
   </ul>
   <p class="g-related">Related: <a href="#web-download">Get E1</a></p>
 </section>
@@ -408,7 +408,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">User guides</span> in the account page's navigation.</td><td>The links "Open the user guide", "All features", "What's new" and "Under development", and one card per guide.</td></tr>
-      <tr><td>2</td><td>Click the card <span class="ui">AI: Alex and Cloud AI</span>.</td><td>That guide opens, with its table of contents.</td></tr>
+      <tr><td>2</td><td>Click the card <span class="ui">AI: Alex</span>.</td><td>That guide opens, with its table of contents.</td></tr>
       <tr><td>3</td><td>Click "All features".</td><td>A table of every feature with its status and dates, which you can filter.</td></tr>
     </tbody>
   </table></div>

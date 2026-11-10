@@ -20,9 +20,9 @@
 
   var LOGO_SVG =
     '<svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">' +
-    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0e1116"/>' +
+    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/>' +
     '<path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<circle cx="21" cy="11" r="2.6" fill="#1f5cff"/>' +
+    '<circle cx="21" cy="11" r="2.6" fill="#f08c2e"/>' +
     "</svg>";
 
   var PLAY_SVG =
@@ -219,7 +219,7 @@
       '<li><a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a></li>" +
       "</ul></div>" +
       "</div>" +
-      '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". " + T("All rights reserved.") + "</span>" +
+      '<div class="footer-bottom"><span>&copy; ' + year + " Lanxtor Inc. " + T("All rights reserved.") + "</span>" +
       '<nav class="footer-legal" aria-label="' + T("Legal") + '">' +
       '<a href="' + H("legal.html") + '">' + T("Legal notice") + "</a>" +
       '<a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a>" +
@@ -366,9 +366,15 @@
       tabs.forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.mode === mode)); });
       title.textContent = signup ? "Create your account" : "Welcome back";
       lead.textContent = signup
-        ? "Create a free account to start your E1 cloud workspace."
+        ? "Create your account and start your free 30-day trial, for you and your team."
         : "Sign in to see your licenses, usage, projects and downloads.";
-      submit.textContent = signup ? "Continue to sign up" : "Continue to sign in";
+      submit.textContent = signup ? "Start your free 30-day trial" : "Continue to sign in";
+      // Sign up: the trial panel next to the form (15 people, 30 days).
+      var promo = document.querySelector("[data-trial-promo]");
+      if (promo) {
+        promo.hidden = !signup;
+        box.parentElement.classList.toggle("has-promo", signup);
+      }
       var url = api && api.isDemo() ? "" : api && api.loginUrl(mode, returnTo && new URL(returnTo, location.href).href);
       submit.setAttribute("href", url || "account.html?demo=1");
     }
