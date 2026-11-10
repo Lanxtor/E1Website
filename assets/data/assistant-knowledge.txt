@@ -191,7 +191,9 @@ Updates included: always the latest version of E1
 Hosted by LANXTOR on Microsoft Azure in the EU today, with Amazon Web Services, Google Cloud and a US region coming
 Work in the desktop app or in the browser
 Pay per user, per month
-Create account See prices
+Create account
+See prices
+E1 Cloud specifications
 E1 Cloud Run by LANXTOR, updates included
 Cloud provider
 Microsoft Azure
@@ -281,6 +283,257 @@ Everything visible and exportable
 Nothing is lost
 After 30 days your organization becomes read-only: everything stays visible and can be exported.
 Request a trial
+
+## E1 Cloud specifications: data location, performance, security, who can see what, backups and recovery, standards, apps and limits (cloud-specifications.html)
+E1 Cloud specifications — LANXTOR
+E1 Cloud
+E1 Cloud specifications.
+Everything your engineering, IT and security teams need to know before they put a project in the E1 Cloud: where the data is, how fast E1 answers, how it is protected, who can see what, and how backups and restores work.
+As of November 2026. We update this page when the E1 Cloud changes.
+EU Microsoft Azure North Europe, Ireland
+140 ms To open a project with 498,000 objects
+7 days Restore the database to any point in time
+1 hour Most work that can be lost (recovery point target)
+TLS 1.2+ Encrypted in transit, and AES-256 at rest
+0 Passwords kept by E1: sign-in is by Microsoft Entra
+Data location 
+ Performance 
+ Security 
+ Who can see what 
+ Backups and recovery 
+ Standards 
+ Apps and limits 
+ Questions
+Data location
+Your data stays in the EU.
+The E1 Cloud runs in one Microsoft Azure region in the European Union: North Europe, in Ireland. Your projects, drawings, documents and their backups stay in Azure data centres in the EU.
+You
+Desktop app or browser Windows, macOS, any computer
+E1 Reviewer On the iPad
+HTTPS
+Microsoft Azure · North Europe (Ireland)
+E1 server app.lanxtor.com · Azure Container Apps
+Private network
+PostgreSQL 16 Projects, objects, drawings
+Blob Storage Files and documents
+Key Vault Keys and secrets
+What
+Where it is kept
+Projects, objects, drawings, lists, history and comments
+Azure Database for PostgreSQL, North Europe (Ireland)
+Files, documents and issued revisions
+Azure Blob Storage, North Europe, copied across three availability zones
+Database backups
+North Europe, with a second copy in Azure's paired EU region, West Europe (the Netherlands)
+Keys, passwords of the services, certificates
+Azure Key Vault, North Europe
+Your sign-in account
+Microsoft Entra External ID, in its Europe location
+Questions to Alex, the AI co-engineer
+Azure OpenAI in Sweden Central (EU): processed in that region only
+Claude Opus 5.5, if an Editor chooses it
+Microsoft Foundry: these requests may be processed outside the EU. GPT-4.1 in Sweden Central stays the default
+Card payments
+Stripe. E1 keeps no card numbers
+A US region and Amazon Web Services and Google Cloud are coming. Need E1 in your own cloud or data center? See the enterprise installation .
+Performance
+Fast at refinery size.
+We measure E1 every night and every week on a project the size of a refinery: 498,000 objects, 1,300 dense sheets with 236,000 placed symbols and 210,000 relationships. These are the results of those load tests.
+One engineer, 498,000 objects
+140–180 ms Open the project
+3 ms Open an object
+110–130 ms Edit a value
+15 ms Rename
+290–380 ms Move a symbol on a dense P&ID
+50 ms First page of a filtered list
+10 ms Search by tag, name or value, across all projects
+0 Errors in any run
+50 engineers at once
+The slowest 5 % (p95), on the same project. Late phase: 45 engineers looking, 5 editing.
+Action
+All 50 editing
+Late phase
+Open the project
+1.0–1.9 s
+470 ms
+Open a drawing
+0.9–1.8 s
+380 ms
+Edit a value
+0.7–1.5 s
+550 ms
+Move a symbol
+1.0–1.3 s
+700 ms
+Open an object
+300–500 ms
+70 ms
+First page of a list
+0.7–1.0 s
+370 ms
+See another engineer's change
+about 1 s
+Drawing in the browser
+Measured in Chromium.
+Open a P&ID with 1,000 symbols 260–320 ms
+Select a symbol on it 30 ms
+Open a P&ID with 3,000 symbols 530 ms
+Select a symbol on it 140–150 ms
+Our targets
+For 50 engineers on 500,000 objects, p95. 100 engineers stay usable.
+Open the project 4 s or less
+Save an edit 500 ms or less
+Open an object 200 ms or less
+First rows of a list 1 s or less
+See another engineer's change 3 s or less
+Errors 1 % or less, no server errors
+Tested every night
+Every change to E1 is timed against fixed budgets, and a slower build fails. Every week a stress test runs 100 engineers at once and a one-hour soak test.
+Live for everyone
+A change by one engineer reaches everyone who has the project open in about a second, pushed by the server, with no reload.
+Scales with the load
+The E1 server adds capacity when it is busy and is always running, so there is no cold start. Health checks every few seconds replace a server that stops answering.
+Measured in our load tests on 4 processor cores and 16 GB of memory. Times in the E1 Cloud depend on the size of your project, how many people work at once and your connection. Two targets are not met yet at full load: saving an edit when all 50 engineers edit at the same time (target 500 ms), and a list of every object with no filter (3.1–4.3 s, target 3 s). We are working on both.
+Security
+Secure by design, layer by layer.
+Some protections come from Microsoft Azure, others we built into E1 itself. Together they protect your data from sign-in to storage.
+Sign-in
+Sign-in by Microsoft Entra External ID, or with your company's Microsoft account. E1 keeps no passwords.
+Owners and administrators confirm with a passkey before they can use their rights.
+Sensitive actions, such as giving admin rights or exporting everything, ask you to sign in again if your last sign-in is older than 15 minutes.
+Sessions end after 12 hours.
+Encryption
+HTTPS only, with HSTS: your browser never talks to E1 unencrypted.
+The E1 server reaches the database over TLS with full certificate checks, and storage only over TLS 1.2 or newer.
+The database, files, backups and Key Vault are encrypted at rest with AES-256 by Microsoft Azure, with keys managed by Microsoft.
+Every organization on its own
+Every record in the database belongs to one organization, and PostgreSQL row-level security lets E1 read only the rows of the organization you work in.
+The E1 server's database account cannot switch this off.
+Automated tests check the isolation of every table in every build.
+The database has no public address: only the E1 server reaches it, inside a private Azure network.
+Files cannot be opened from the internet, and storage keys are switched off: access is by identity only.
+Secrets and keys
+Every secret is in Azure Key Vault, protected against deletion. The E1 server reads them with its own Azure identity.
+The AI service needs no API key: E1 signs in to it as itself, so no key can leak.
+Logs never contain passwords, tokens or keys.
+Protected app
+A strict Content Security Policy, and protection against cross-site requests and framing.
+Limits on how often sign-in and other actions can be tried.
+The E1 server checks the permission of every change, whoever or whatever asks for it.
+Safe releases
+The macOS app is signed and notarized by Apple, the Windows app signed with Azure Artifact Signing. Updates never go back to an older version.
+Every build is scanned for leaked secrets and known vulnerabilities, with a software bill of materials.
+A release reaches the E1 Cloud only after a person approves it.
+Audit log
+Sign-ins, failed sign-ins, members, invitations, licenses, roles, exports and passkeys are recorded. Administrators see them under Organization → Audit.
+Every call to the AI is logged with its model and size, without the text of your messages.
+AI under your control
+Your organization sets Alex to on, answer only, or off.
+Alex works with your permissions, never more. Restricted values are removed before anything is sent to a model.
+Alex asks before it deletes more than 10 objects at once.
+Who can see what
+You decide who sees your projects.
+Access in E1 is given by roles, on the organization, a project, a section or a single object. Each person's license sets what they can do at most.
+Who
+Can see
+Cannot see
+People in your organization
+The projects, sections and objects their roles give them, and what their license allows: view, comment and approve, or edit
+Projects they are not a member of
+Owners and administrators of your organization
+Members, licenses, roles, usage and the audit log; they can export everything
+Nothing: the export holds everything
+Alex, the AI co-engineer
+Only what the person who asks may see
+Restricted values, and anything outside that person's permissions
+LANXTOR support
+Your account and billing data: organization, members, licenses, seats, AI credits and file sizes, and usage statistics only from people who agreed to share them
+Your projects, objects, drawings, lists and documents. Every change support makes is written to your audit log as "LANXTOR support"
+Other customers
+Nothing
+Anything of yours: separated by row-level security in the database
+Microsoft
+Runs the data centres and services for LANXTOR, as its processor under a data processing agreement
+Microsoft may use the data only to provide these services
+Organization roles Owner Administrator Library administrator Engineering standards owner Catalog maintainer Member Guest
+Project roles Project administrator Lead engineer Engineer Reviewer Viewer
+Licenses Editor Reviewer Viewer Student
+Your organization can also make its own roles, limit what a project's members may be given, and give roles an end date.
+Backups and recovery
+Nothing is lost.
+Your data is backed up all the time, kept in more than one place, and you can take all of it out whenever you want.
+Database, to any point in time 7 days
+Deleted or overwritten files 14 days
+Keys and secrets in Key Vault 90 days
+Database
+Continuous backups by Azure Database for PostgreSQL: the database can be restored to any minute of the last 7 days.
+The backups are also copied to Azure's paired region in the EU, so they survive the loss of a whole region.
+Files and documents
+Every file is stored three times, in three separate data centres of the region (zone-redundant storage).
+Earlier versions of every file are kept, and deleted files can be brought back for 14 days.
+Issued revisions are never removed.
+Recovery targets
+Most work that can be lost 1 hour (RPO)
+Time to restore the service 8 hours (RTO)
+Restoring from a backup is tested automatically in every build of E1.
+Ask for a restore
+Deleted something by mistake? Most changes can be undone in E1 itself, from the history of the object or the sheet. For anything more, the owner or an administrator of your organization writes to info@lanxtor.com with the time to go back to. We can restore the database to any point in the last 7 days, and deleted files from the last 14 days.
+Take all your data with you
+Owners and administrators export the whole organization at any time under Organization → Export everything: one archive with every table as open JSON lines and every file, up to 4 GB. The export is never refused for lack of storage, and it is recorded in the audit log.
+After a trial ends, the organization becomes read-only: everything stays visible and can still be exported.
+Standards and certificates
+Built on certified infrastructure.
+The E1 Cloud runs on Microsoft Azure, one of the most certified cloud platforms. LANXTOR's own certifications are on their way.
+Microsoft Azure, the platform
+Certifications held by Microsoft for Azure, the data centres and services the E1 Cloud runs on.
+ISO/IEC 27001 
+ ISO/IEC 27017 
+ ISO/IEC 27018 
+ ISO/IEC 27701 
+ ISO 22301 
+ SOC 1, SOC 2, SOC 3 
+ CSA STAR 
+ BSI C5
+Microsoft publishes its audit reports in the Microsoft Service Trust Portal .
+LANXTOR and E1
+GDPR: EU hosting; your organization is the controller of its data, LANXTOR the processor In place
+Data processing agreement and list of sub-processors In preparation
+EU Cyber Resilience Act In preparation
+SOC 2 Type II Planned
+ISO/IEC 27001 Planned
+IEC 62443-4-1, secure development of industrial software Planned
+Independent penetration test Planned
+Found a security issue? Write to info@lanxtor.com . We reply within 2 working days. See also our privacy policy .
+Apps and limits
+Where you work, and how much fits.
+Apps
+Browser Current Google Chrome and Microsoft Edge, with nothing to install
+Desktop macOS 12 or newer on Apple silicon; Windows 10 or 11, 64-bit
+iPad E1 Reviewer, for review and approval
+Updates The E1 Cloud is always on the latest version; the desktop app looks for updates at start and every 4 hours
+Limits
+One file Up to 50 MB
+Attachments to Alex 8 files of up to 20 MB each
+Storage in a trial 5 GB for the organization
+Export everything Up to 4 GB
+Session 12 hours, then you sign in again
+Questions
+Questions security teams ask.
+Can LANXTOR employees open my drawings?
+No. LANXTOR support sees your account and billing data so that we can help with licenses and seats. The database does not give support access to your projects, objects, drawings or documents, and every change support makes is shown in your audit log.
+Does my data leave the EU?
+Your projects, files and backups stay in Azure data centres in the EU. Alex's default model, GPT-4.1, runs in Sweden Central in the EU. Only if an Editor chooses Claude Opus 5.5 in the chat may those requests be processed outside the EU. Your organization can switch Alex off.
+What happens if an Azure data centre fails?
+Files are stored in three separate data centres of the region, so the loss of one does not affect them. The database backups are also copied to Azure's paired region in the EU. Our target is to restore the service within 8 hours, with at most 1 hour of work lost.
+How do I get my data out if we leave?
+An owner or administrator exports the whole organization at any time under Organization → Export everything, in open formats: JSON lines for the data and the original files. Ask us at info@lanxtor.com to delete the organization afterwards.
+Can we choose another region or our own cloud?
+A US region is coming to the E1 Cloud. If your data must be in a specific place or under your own rules, run E1 as an enterprise installation on Microsoft Azure, Amazon Web Services, Google Cloud or your own servers, with your own PostgreSQL database.
+Can we use single sign-on?
+People with a company Microsoft account can sign in with it today. Single sign-on with SAML and user provisioning with SCIM are planned for enterprise customers; contact sales .
+More questions from your IT team?
+We answer security questionnaires and walk your team through the E1 Cloud. Or start right away.
+Contact sales Create account
 
 ## E1 Academy (academy.html)
 Academy — LANXTOR E1
