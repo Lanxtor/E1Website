@@ -58,6 +58,7 @@
           <li><a href="#org-access-history">Access history and audit export</a></li>
           <li><a href="#org-sso">Company single sign-on and directory sync</a></li>
           <li><a href="#org-tokens">Tokens, service accounts and agents</a></li>
+          <li><a href="#org-webhooks">Webhooks and the change feed</a></li>
           <li><a href="#org-four-eyes">Discipline permissions, four-eyes approval and support access</a></li>
         </ol>
       </nav>
@@ -65,7 +66,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>20 features</span><span>16 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>21 features</span><span>17 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -101,7 +102,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
       <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u of t · Student u of t · Administrator u of t</span>.</td></tr>
       <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
@@ -562,7 +563,7 @@
 <section class="g-feature" id="org-tokens">
   <h2>Tokens, service accounts and agents</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">ORG-tokens</span><span>Roadmap 09.5, 19.1, 19.2</span><span>Review checks N1, N2</span></div>
-  <p class="g-summary">Scripts and other systems (an ERP, a procurement tool, an AI agent) use E1 through the API at <code>/api/v1</code>, with an access token: every command, and objects as records, found by E1's id or by the other system's. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
+  <p class="g-summary">Other systems (SAP or another ERP, a simulation tool, your own scripts) read objects with their attributes out of E1 and write attributes back, through the API at <code>/api/v1</code> with an access token, by E1's id or by their own. The API does only that: drawing, deleting, the library and administration stay in E1. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Account → <span class="ui">Access tokens</span>; <span class="ui">File → Organization… → Service accounts</span></dd>
     <dt>Who</dt><dd>Everyone makes their own tokens; Owners and Administrators manage service accounts. Creating either needs a recent sign-in (your passkey).</dd>
@@ -574,7 +575,7 @@
     <tbody>
       <tr><td>1</td><td>Open your Account and go to <span class="ui">Access tokens</span>.</td><td>Your tokens: name, the first characters, what each may do (everything you may do, or read only), expiry and last use.</td></tr>
       <tr><td>2</td><td>Type a name, for example "My scripts", choose how long it lasts (30 days to a year), tick <span class="ui">Read only</span> if it only reads, and click <span class="ui">Create token</span>.</td><td>The token is shown once, with <span class="ui">Copy</span>: "Copy the token now. E1 does not show it again." E1 keeps only a fingerprint of it.</td></tr>
-      <tr><td>3</td><td>Use it: <code>Authorization: Bearer e1_pat_…</code> on <code>https://app.lanxtor.com/api/v1/commands/&lt;command&gt;</code>.</td><td>The command runs as you, through the same checks as in E1. <code>/api/v1/openapi.json</code> describes every command.</td></tr>
+      <tr><td>3</td><td>Use it: <code>Authorization: Bearer e1_pat_…</code> on <code>https://app.lanxtor.com/api/v1/projects/&lt;project&gt;/objects</code>.</td><td>The objects you may see, through the same checks as in E1. <code>/api/v1/openapi.json</code> describes every route.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Revoke</span> on a token you no longer use.</td><td>Calls with it are refused at once.</td></tr>
     </tbody>
   </table></div>
@@ -590,20 +591,54 @@
   </table></div>
   <h3>Calling the API</h3>
   <ul>
-    <li><strong>Dry run:</strong> <code>{"input": {…}, "options": {"dryRun": true}}</code> returns what would change, and changes nothing.</li>
     <li><strong>Idempotency:</strong> send <code>Idempotency-Key</code>: a repeated call returns the first answer and changes nothing again (kept 24 hours).</li>
-    <li><strong>One undo:</strong> <code>"options": {"group": "…"}</code> joins calls into one entry in History.</li>
     <li><strong>Errors:</strong> 401 no valid token; 403 not allowed (the missing permission, or the token is read only or for other projects); 400 invalid input; 404 unknown; 409 changed meanwhile, or a key reused for another request; 422 a rule of the model; 429 too many calls (600 a minute per token).</li>
   </ul>
   <p class="g-note">A token never carries an Owner or Administrator role: administration is done signed in. Tokens and service accounts are never made with a token, and Alex never makes them. Every creation, revocation and first use from a new address is in the audit; every API call is in the API access log.</p>
   <h3>Records and other systems' ids</h3>
   <ul>
     <li><strong>Read:</strong> <code>GET /projects</code>, <code>/projects/{id}/objects?class=…</code>, <code>/objects/{id}?include=occurrences,relationships</code> (the object with its <code>rev</code>, its values with units and comments, its catalog source and its ids in other systems), <code>/objects/{id}/relationships</code>, and the rows of a saved query: <code>/projects/{id}/queries/{key}</code>.</li>
-    <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes); <code>POST /relationships</code>, <code>DELETE /relationships/{id}</code>.</li>
+    <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes). Relationships are read, not written.</li>
     <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them under "In other systems".</li>
   </ul>
-  <p class="g-warn">Not built yet: the change feed and webhooks, connections to other systems, sign-in of remote MCP agents with OAuth, and address ranges in the token form (the API takes them).</p>
-  <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-sso">Company single sign-on</a></p>
+  <p class="g-warn">Not in the API on purpose: drawing, deleting, relationships, the library and administration (use E1 itself), and mapping or scheduling (your script or middleware does that). Not built yet: address ranges in the token form (the API takes them).</p>
+  <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-webhooks">Webhooks and the change feed</a> · <a href="#org-sso">Company single sign-on</a></p>
+</section>
+
+<section class="g-feature" id="org-webhooks">
+  <h2>Webhooks and the change feed</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-webhooks</span><span>Roadmap 19.3</span><span>Review checks N3</span></div>
+  <p class="g-summary">Other systems keep up with E1 in two ways. A <strong>webhook</strong> tells a system at once: E1 sends each change to its address, signed, and tries again when it does not answer. The <strong>change feed</strong> lets a system ask: "what changed since I last looked?", with a cursor that never skips or repeats a change.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Webhooks</span>; the change feed at <code>/api/v1/projects/{id}/changes</code></dd>
+    <dt>Who</dt><dd>Owners and Administrators (the permission Manage connections) set up webhooks. Anyone who sees a project may read its change feed, with an access token.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud). A receiver on the internet with an https:// address.</dd>
+  </dl>
+  <h3>Set up a webhook</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><span class="ui">File → Organization… → Webhooks</span>: type a name (for example "Maintenance system"), the receiver's address (<code>https://…</code>), tick the events it needs (<span class="ui">Object created</span>, <span class="ui">Object updated</span>, <span class="ui">Object moved</span>, <span class="ui">Object deleted</span>, <span class="ui">Relationship created</span>, …) and click <span class="ui">Create webhook</span>.</td><td>The signing secret (<code>whsec_…</code>) is shown once, with <span class="ui">Copy</span>. The webhook is listed as <span class="ui">Active</span>. An address in a private network (10.…, 192.168.…, localhost) is refused.</td></tr>
+      <tr><td>2</td><td>Change an object in a project, for example its flow rate.</td><td>Within seconds the receiver gets a POST: <code>{"subscription": …, "event": {"id", "type": "object.updated", "revision", "at", "project", "actor", "subject": {"id", "class", "name", "tag"}, "changed": {"attributes": ["plant.attr.flow-rate"]}}}</code>. Events say what changed, never the values: the receiver reads the object with its own token.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Deliveries…</span> on its row.</td><td>Each event with <span class="ui">Delivered</span>, <span class="ui">Waiting</span> (and the next try) or <span class="ui">Failed</span>, and every attempt with the answer and the time.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Resend</span> on a delivered or failed event.</td><td>The event is sent again, with the same event id.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Pause</span>, change something, then <span class="ui">Resume</span>.</td><td>Nothing is sent while paused; on resume the changes of the pause are sent.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>For the receiver</h3>
+  <ul>
+    <li><strong>Check the signature:</strong> the header <code>E1-Signature: t=&lt;unix seconds&gt;,v1=&lt;hex&gt;</code> is the HMAC-SHA256 of <code>&lt;t&gt;.&lt;body&gt;</code> with the signing secret. Refuse a request whose signature does not match or whose time is more than 5 minutes off.</li>
+    <li><strong>Answer quickly</strong> with any 2xx. Anything else, or no answer within 10 seconds, is tried again after 1, 5 and 30 minutes, then 2, 5 and 10 hours; after 24 hours the delivery is marked failed (and noted in the audit).</li>
+    <li><strong>At least once:</strong> an event may come twice (a retry, a resend). Ignore an <code>E1-Event-Id</code> you have already handled.</li>
+  </ul>
+  <h3>The change feed</h3>
+  <ul>
+    <li><code>GET /api/v1/projects/{id}/changes</code> returns the oldest changes first, and a <code>cursor</code>. Keep the cursor and ask with <code>?since=&lt;cursor&gt;</code> next time: you get only what changed after it, nothing twice, even after a restart. <code>more: true</code> means ask again at once.</li>
+    <li>Narrow it with <code>types=object.created,object.updated</code> and <code>class=…</code>; the cursor still moves past what is left out.</li>
+    <li>The feed keeps 90 days. An older cursor is refused (410 <code>feed_expired</code>) with the current revision: read the project in full, then follow the feed from there.</li>
+  </ul>
+  <p class="g-warn">Not built yet: webhooks as part of a connection with its status page and failure notices, filters by attribute, and events of documents, branches and class upgrades.</p>
+  <p class="g-related">Related: <a href="#org-tokens">Tokens, service accounts and agents</a> · <a href="#org-audit">Audit</a></p>
 </section>
 
 <section class="g-feature" id="org-four-eyes">

@@ -20,9 +20,9 @@
 
   var LOGO_SVG =
     '<svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">' +
-    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0e1116"/>' +
+    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/>' +
     '<path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<circle cx="21" cy="11" r="2.6" fill="#1f5cff"/>' +
+    '<circle cx="21" cy="11" r="2.6" fill="#f08c2e"/>' +
     "</svg>";
 
   var PLAY_SVG =
@@ -220,7 +220,7 @@
       '<li><a href="security.html">' + T("Security") + "</a></li>" +
       "</ul></div>" +
       "</div>" +
-      '<div class="footer-bottom"><span>&copy; ' + year + " " + BRAND + ". " + T("All rights reserved.") + "</span>" +
+      '<div class="footer-bottom"><span>&copy; ' + year + " Lanxtor Inc. " + T("All rights reserved.") + "</span>" +
       '<nav class="footer-legal" aria-label="' + T("Legal") + '">' +
       '<a href="' + H("legal.html") + '">' + T("Legal notice") + "</a>" +
       '<a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a>" +
