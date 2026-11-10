@@ -1,6 +1,6 @@
 /*
  * Alex, the website assistant: the chat panel, the "Ask Alex" button on every
- * page, the ask box on the home page ([data-ask]) and the suggested questions.
+ * page, any ask box on a page ([data-ask], none at the moment) and the suggested questions.
  *
  * Answers come from the E1 server: POST <apiBase>/api/site/assistant
  * (Lanxtor/E1, server/site/assistant.mjs), which asks the installation's own
