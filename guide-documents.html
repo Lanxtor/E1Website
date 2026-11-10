@@ -55,6 +55,7 @@
           <li><a href="#doc-datasheet-edit">Edit values on the datasheet</a></li>
           <li><a href="#doc-datasheet-pdf">Datasheet PDF</a></li>
           <li><a href="#doc-datasheet-document">Datasheet documents</a></li>
+          <li><a href="#doc-hookup-schedule">The hookup schedule (PDF and Excel)</a></li>
           <li><a href="#doc-datasheet-designer">The datasheet designer</a></li>
           <li><a href="#doc-revisions-filter">Filter documents by kind</a></li>
           <li><a href="#doc-spec-datasheets">Standard specification datasheets (ISA 20, API)</a></li>
@@ -64,7 +65,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Documents, revisions and datasheets</p>
         <h1>7. Documents, revisions and datasheets</h1>
         <p class="lead">Documents and their revisions, issuing, changed since, PDF and Excel output, sheet PDF and printing, datasheets and the datasheet designer.</p>
-        <div class="g-meta"><span>19 features</span><span>17 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>20 features</span><span>18 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="documents-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Documents are the deliverables of a project: lists, drawings plotted to PDF, datasheets and uploaded files. Each document has revisions A, B, …; issuing a revision freezes it and its PDF, and E1 then shows what changed since. Datasheets are also the everyday screen of an object, with a designer to lay them out.</p>
@@ -455,6 +456,29 @@
   <p class="g-note">When a datasheet document's revision is issued, E1 records the object with its children and the layout version; its PDF is named “…-datasheet-Rev-&lt;label&gt;.pdf”.</p>
   <p class="g-warn">The window has no picker for the object yet: the object can only be chosen by asking Alex (with its AI help) or through the API. Until then a datasheet document cannot be completed from the screen alone.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a></p>
+</section>
+
+<section class="g-feature" id="doc-hookup-schedule">
+  <h2>The hookup schedule (PDF and Excel)</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">DOC-hookup-schedule</span></div>
+  <p class="g-summary">The hookup schedule is the deliverable of a project's hookups: every hookup with its type, mounting and drawing, the instruments that use it, and its bill of material totalled for them. It is one document in <span class="ui">Revisions</span>, made again from the model each time you export it, and revised and issued like any other document.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The explorer: right-click <span class="ui">Assets ▸ Hookups</span> → <span class="ui">Hookup schedule</span>; a hookup's window: <span class="ui">Hookup schedule</span>; then the document's window: <span class="ui">Export PDF</span>, <span class="ui">Export Excel</span></dd>
+    <dt>Who</dt><dd>A project role that may create documents; exporting needs the permission to export the project, issuing the permission to issue revisions.</dd>
+    <dt>Before you start</dt><dd>The project uses hookups and has at least one (<a href="guide-objects.html#obj-hookups">Hookups</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Assets ▸ Hookups</span> → <span class="ui">Hookup schedule</span>.</td><td>The document <span class="ui">Hookup schedule</span> opens; it is listed in <span class="ui">Revisions</span>. Its window has the revisions panel and a table of the hookups (Hookup, Type, Hookup drawing, Instruments). Doing it again opens the same document: a project has one.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">New revision</span> and then <span class="ui">Export PDF</span>.</td><td>A PDF downloads. Page 1 lists every hookup and how many instruments use it; then each hookup has a page of its own with its data, <em>Instruments that use it</em> (tag, class, description) and <em>Bill of material</em> with a column <em>Total for n instruments</em>. Every page shows the project, the revision and the date.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Export Excel</span>.</td><td>A workbook downloads with the project, document, revision and date on top and a row per instrument: Hookup, Hookup type, Mounting, Hookup drawing, Instrument, Instrument class, Instrument description. A hookup no instrument uses has one row of its own.</td></tr>
+      <tr><td>4</td><td>Issue the revision (<a href="#doc-issue">Issue a revision</a>).</td><td>The PDF is kept with the revision as it was. The hookups and the instruments that used them are frozen with it, so <a href="#doc-changed-since">Changed since</a> shows what changed afterwards.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The schedule is always made from the model: a new hookup or an instrument given another hookup shows in the next export without anything to update.</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-hookups">Hookups</a> · <a href="#doc-revisions">Revisions</a> · <a href="#doc-issue">Issue a revision</a> · <a href="#doc-changed-since">Changed since</a></p>
 </section>
 
 <section class="g-feature" id="doc-datasheet-designer">
