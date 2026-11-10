@@ -6,7 +6,7 @@
   <title>LANXTOR — NextGen of Plant Engineering</title>
   <meta name="description" content="E1 is engineering software for production and power plants.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=101">
+  <link rel="stylesheet" href="assets/css/styles.css?v=103">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/index.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/index.html">
@@ -141,13 +141,57 @@
             <figure class="clip" data-src="assets/clips/01-design.mp4" data-label="Clip 01 — Design, Unbound"></figure>
           </article>
 
-          <article class="feature feature-alex reveal" id="alex">
-            <div class="feature-text">
-              <h3>Meet Alex.</h3>
-              <p>Your AI co-engineer, built into E1. Ask Alex about any part of your plant, have a design checked, or let Alex make the changes on a branch for you to approve.<br><br>Alex is named after Hero of Alexandria, the first-century engineer often called the father of automation. His aeolipile was spun by steam 1,600 years before the steam engine, his temple doors opened by themselves, and his coin-operated dispenser was the first vending machine.<br><br>Alex carries his idea on: machines take on the work, so engineers can think.</p>
+          <article class="alex-block reveal" id="alex">
+            <div class="alex-main">
+              <p class="alex-named"><img src="assets/img/hero-of-alexandria.png?v=2" alt="" width="44" height="44"><span><b>Meet Alex.</b> Named after Hero of Alexandria, father of automation.</span></p>
+              <h3 class="alex-title" data-alex-title><span class="alex-title-lead">Alex, your co-</span><span class="alex-role-line" aria-hidden="true"><span class="alex-typed" data-alex-typed></span><span class="alex-caret"></span></span><span class="alex-title-sr">Plant engineer, process engineer, automation engineer, electrical engineer and HAZOP leader.</span></h3>
+              <ul class="alex-skills" data-alex-skills>
+                <li data-skill="plant">plant engineer</li>
+                <li data-skill="process">process engineer</li>
+                <li data-skill="automation">automation engineer</li>
+                <li data-skill="electrical">electrical engineer</li>
+                <li data-skill="hazop">HAZOP leader</li>
+              </ul>
+              <p class="alex-lead">Alex reads your drawing and says what an engineer beside you would. Local AI: nothing leaves E1.</p>
+
+              <p class="alex-or"><span>or</span></p>
+
+              <div class="alex-modes">
+                <div class="alex-mode alex-mode-ask">
+                  <div class="am-vis" aria-hidden="true">
+                    <span class="am-q">What feeds V-101?</span>
+                    <span class="am-dots"><i></i><i></i><i></i></span>
+                    <span class="am-a">P-101 and P-102, through line 100-PW-001.</span>
+                  </div>
+                  <span class="am-tag">Ask</span>
+                  <h4>Ask Alex your questions</h4>
+                  <p>Answers only, never changes anything.</p>
+                </div>
+                <div class="alex-mode alex-mode-agent">
+                  <div class="am-vis" aria-hidden="true">
+                    <span class="am-step"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Add LT-101 to V-101</span>
+                    <span class="am-step"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Connect it to the control system</span>
+                    <span class="am-step"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Update the instrument index</span>
+                    <span class="am-ready">Ready for your approval</span>
+                  </div>
+                  <span class="am-tag">Agent</span>
+                  <h4>Let Alex be your agent</h4>
+                  <p>Alex makes the changes on a branch for you to approve.</p>
+                </div>
+                <div class="alex-mode alex-mode-plan">
+                  <div class="am-vis" aria-hidden="true">
+                    <span class="am-plan"><b>1</b>Add a level transmitter</span>
+                    <span class="am-plan"><b>2</b>Add a high-level trip</span>
+                    <span class="am-plan"><b>3</b>Size the relief valve</span>
+                    <span class="am-apply">Apply</span>
+                  </div>
+                  <span class="am-tag">Plan</span>
+                  <h4>Let Alex plan for you</h4>
+                  <p>Alex proposes the change; nothing changes until you Apply.</p>
+                </div>
+              </div>
             </div>
-            <figure class="alex-scene">
-              <img class="alex-hero" src="assets/img/hero-of-alexandria.png?v=2" alt="Hero of Alexandria">
+            <figure class="alex-side">
               <div class="alex-drawing" aria-hidden="true">
                 <svg class="aeolipile" viewBox="0 0 320 320" fill="none" stroke="#0b2a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <g class="ae-spin" stroke="#1565c0" stroke-width="1.6" stroke-dasharray="4 6">
@@ -184,7 +228,10 @@
             </svg>
                 <span class="alex-tag">Aeolipile · 1st century CE</span>
               </div>
-              <figcaption><b>Hero of Alexandria</b><span>Engineer, mathematician, father of automation</span></figcaption>
+              <figcaption class="alex-story">
+                <p>Alex is named after Hero of Alexandria, the first-century engineer often called the father of automation. His aeolipile was spun by steam 1,600 years before the steam engine, his temple doors opened by themselves, and his coin-operated dispenser was the first vending machine.</p>
+                <p>Alex carries his idea on: machines take on the work, so engineers can think.</p>
+              </figcaption>
             </figure>
           </article>
 
@@ -300,5 +347,6 @@
   <script src="assets/js/main.js?v=34"></script>
   <script src="assets/js/chat.js?v=7"></script>
   <script src="assets/js/orbit.js?v=7"></script>
+  <script src="assets/js/alex-meet.js?v=2"></script>
 </body>
 </html>

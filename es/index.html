@@ -7,7 +7,7 @@
   <title>LANXTOR — La nueva generación de la ingeniería de plantas</title>
   <meta name="description" content="E1 es un software de ingeniería para plantas de producción y centrales eléctricas.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=101">
+  <link rel="stylesheet" href="assets/css/styles.css?v=103">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/index.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/index.html">
@@ -142,13 +142,52 @@
             <figure class="clip" data-src="assets/clips/01-design.mp4" data-label="Clip 01 — Diseño sin límites"></figure>
           </article>
 
-          <article class="feature feature-alex reveal" id="alex">
-            <div class="feature-text">
-              <h3>Te presentamos a Alex.</h3>
-              <p>Tu coingeniero de IA, integrado en E1. Pregúntale a Alex por cualquier parte de tu planta, pide que revise un diseño o deja que Alex haga los cambios en una rama para que tú los apruebes.<br><br>Alex debe su nombre a Herón de Alejandría, el ingeniero del siglo I al que a menudo se llama el padre de la automatización. Su eolípila giraba con vapor 1600 años antes de la máquina de vapor, las puertas de sus templos se abrían solas y su dispensador de monedas fue la primera máquina expendedora.<br><br>Alex continúa su idea: las máquinas se encargan del trabajo para que los ingenieros puedan pensar.</p>
+          <article class="alex-block reveal" id="alex">
+            <div class="alex-main">
+              <p class="alex-named"><img src="assets/img/hero-of-alexandria.png?v=2" alt="" width="44" height="44"><span><b>Te presentamos a Alex.</b> Lleva el nombre de Herón de Alejandría, padre de la automatización.</span></p>
+              <h3 class="alex-title" data-alex-title><span class="alex-title-lead">Alex, tu co-</span><span class="alex-role-line" aria-hidden="true"><span class="alex-typed" data-alex-typed></span><span class="alex-caret"></span></span><span class="alex-title-sr">Ingeniero de planta, ingeniero de procesos, ingeniero de automatización, ingeniero eléctrico y líder HAZOP.</span></h3>
+              <ul class="alex-skills" data-alex-skills>
+                <li data-skill="plant">ingeniero de planta</li>
+                <li data-skill="process">ingeniero de procesos</li>
+                <li data-skill="automation">ingeniero de automatización</li>
+                <li data-skill="electrical">ingeniero eléctrico</li>
+                <li data-skill="hazop">líder HAZOP</li>
+              </ul>
+              <p class="alex-lead">Alex lee tu plano y te dice lo que diría un ingeniero a tu lado. IA local: nada sale de E1.</p>
+
+              <p class="alex-or"><span>o</span></p>
+
+              <div class="alex-modes">
+                <div class="alex-mode alex-mode-ask">
+                  <div class="am-vis" aria-hidden="true">
+                    <span class="am-q">¿Qué alimenta V-101?</span> <span class="am-dots"><i></i><i></i><i></i></span> <span class="am-a">P-101 y P-102, por la línea 100-PW-001.</span>
+                  </div>
+                  <span class="am-tag">Preguntar</span>
+                  <h4>Pregúntale a Alex</h4>
+                  <p>Solo responde, nunca cambia nada.</p>
+                </div>
+                <div class="alex-mode alex-mode-agent">
+                  <div class="am-vis" aria-hidden="true">
+                    <span class="am-step"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Añadir LT-101 a V-101</span>
+                    <span class="am-step"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Conectarlo al sistema de control</span>
+                    <span class="am-step"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Actualizar la lista de instrumentos</span>
+                    <span class="am-ready">Listo para tu aprobación</span>
+                  </div>
+                  <span class="am-tag">Agente</span>
+                  <h4>Deja que Alex sea tu agente</h4>
+                  <p>Alex hace los cambios en una rama para que tú los apruebes.</p>
+                </div>
+                <div class="alex-mode alex-mode-plan">
+                  <div class="am-vis" aria-hidden="true">
+                    <span class="am-plan"><b>1</b>Añadir un transmisor de nivel</span> <span class="am-plan"><b>2</b>Añadir un disparo por nivel alto</span> <span class="am-plan"><b>3</b>Dimensionar la válvula de alivio</span> <span class="am-apply">Apply</span>
+                  </div>
+                  <span class="am-tag">Plan</span>
+                  <h4>Deja que Alex planifique por ti</h4>
+                  <p>Alex propone el cambio; nada cambia hasta que pulses Apply.</p>
+                </div>
+              </div>
             </div>
-            <figure class="alex-scene">
-              <img class="alex-hero" src="assets/img/hero-of-alexandria.png?v=2" alt="Herón de Alejandría">
+            <figure class="alex-side">
               <div class="alex-drawing" aria-hidden="true">
                 <svg class="aeolipile" viewBox="0 0 320 320" fill="none" stroke="#0b2a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <g class="ae-spin" stroke="#1565c0" stroke-width="1.6" stroke-dasharray="4 6">
@@ -185,7 +224,10 @@
             </svg>
                 <span class="alex-tag">Eolípila · siglo I d. C.</span>
               </div>
-              <figcaption><b>Herón de Alejandría</b><span>Ingeniero, matemático, padre de la automatización</span></figcaption>
+              <figcaption class="alex-story">
+                <p>Alex lleva el nombre de Herón de Alejandría, el ingeniero del siglo I al que a menudo se llama padre de la automatización. Su eolípila giraba con vapor 1600 años antes de la máquina de vapor, las puertas de su templo se abrían solas y su dispensador de monedas fue la primera máquina expendedora.</p>
+                <p>Alex continúa su idea: las máquinas hacen el trabajo para que los ingenieros puedan pensar.</p>
+              </figcaption>
             </figure>
           </article>
 
@@ -301,5 +343,6 @@
   <script src="assets/js/main.js?v=34"></script>
   <script src="assets/js/chat.js?v=7"></script>
   <script src="assets/js/orbit.js?v=7"></script>
+  <script src="assets/js/alex-meet.js?v=2"></script>
 </body>
 </html>
