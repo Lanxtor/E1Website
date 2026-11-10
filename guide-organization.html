@@ -57,6 +57,7 @@
           <li><a href="#org-custom-roles">Permission categories and custom roles</a></li>
           <li><a href="#org-responsibility">Assign to…: objects a person or group is responsible for</a></li>
           <li><a href="#org-access-history">Access history and audit export</a></li>
+          <li><a href="#org-history-names">Show groups instead of names in history</a></li>
           <li><a href="#org-sso">Company single sign-on and directory sync</a></li>
           <li><a href="#org-tokens">Tokens, service accounts and agents</a></li>
           <li><a href="#org-webhooks">Webhooks and the change feed</a></li>
@@ -67,7 +68,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>22 features</span><span>19 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>23 features</span><span>21 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -103,7 +104,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span>, <span class="ui">Assignments</span>, <span class="ui">History</span>, <span class="ui">Reviews</span> and <span class="ui">Emergency</span>, see <a href="#org-access-history">Access history</a>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
       <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u of t · Student u of t · Administrator u of t</span>.</td></tr>
       <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
@@ -565,19 +566,61 @@
 
 <section class="g-feature" id="org-access-history">
   <h2>Access history and audit export</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">ORG-access-history</span><span>Roadmap 09.6h</span></div>
-  <p class="g-summary">You will be able to see every change to groups, roles and assignments with before and after, see who had access on a given date, and export it for an audit.</p>
-  <div class="g-dev">
-    <p>Being built now (work order of 2026-11-07). Labels are the planned ones.</p>
-  </div>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-access-history</span><span>Roadmap 09.6h</span><span>Review checks N6</span></div>
+  <p class="g-summary">See every change to who may do what, with before and after; see who had access on any earlier date; export it for an audit; let someone review a project's access; and give an emergency way in when the usual administrators cannot be reached.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Access → History</span>, <span class="ui">Reviews</span>, <span class="ui">Emergency</span></dd>
+    <dt>Who</dt><dd>Owners and Administrators (View the audit). A reviewer answers their own review; the people named for emergency access take and review it.</dd>
+  </dl>
+  <h3>The history and access on a date</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">History</span>.</td><td>Every access change, newest first: when, the change (for example <em>group.members-set</em>, <em>access.granted</em>, <em>responsibility.assigned</em>), who did it, what it was about, and its before and after.</td></tr>
+      <tr><td>2</td><td>Choose a <span class="ui">Kind of change</span>, a <span class="ui">Person</span>, <span class="ui">From</span> and <span class="ui">To</span>.</td><td>Only those changes.</td></tr>
+      <tr><td>3</td><td>Pick a date in <span class="ui">Show access on</span> and click <span class="ui">Show access then</span>.</td><td>Who held which role where at the end of that day, rebuilt from today's access and the changes since. It says from when the history is complete.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Export history (Excel)</span>, <span class="ui">CSV</span>, <span class="ui">Export access report (Excel)</span> or <span class="ui">Export audit log (CSV)</span>.</td><td>The file downloads; the export itself is noted in the audit.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Access reviews</h3>
   <ul>
-    <li>Open <em>Organization… → Access → Access history</em>, filter it, and use <em>Show access on a date</em>.</li>
-    <li><em>Export</em> the history and the current access report to Excel or CSV.</li>
-    <li>Filter and export the Audit tab.</li>
-    <li>See a project's access history under Project settings → Access → History.</li>
+    <li><span class="ui">Reviews</span>: choose a project (or every project), a reviewer and a deadline, then <span class="ui">Start review</span>. The reviewer finds it in their Inbox.</li>
+    <li>The reviewer clicks <span class="ui">Keep</span> or <span class="ui">Remove</span> on each line. A line they gave themselves is not theirs to review.</li>
+    <li><span class="ui">Close review</span> revokes what was removed; after the deadline it also revokes the lines left open.</li>
   </ul>
-  <p class="g-related">Related: <a href="#org-audit">Audit</a> · <a href="#org-custom-roles">Custom roles</a></p>
+  <h3>Emergency access</h3>
+  <ul>
+    <li>Tick the people <span class="ui">Named for emergency access</span> (usually two or three).</li>
+    <li>One of them chooses a project, writes the reason and the length (1 to 24 hours) and clicks <span class="ui">Take emergency access</span>: they are Project administrator there until then, and every owner is told in their Inbox at once.</li>
+    <li><span class="ui">End</span> stops it early. Another named person clicks <span class="ui">Review</span> and notes what they checked.</li>
+  </ul>
+  <p class="g-note">The audit log cannot be changed or deleted by anyone, E1 included. Every privileged grant, every change of a project member's maximum role or of a ceiling, and every emergency access is told to the owners.</p>
+  <p class="g-warn">Not built yet: a project's own history under Project settings → Access, reviews on a schedule, the alerts by email (they are in the Inbox), and E1 support access requested and approved by you.</p>
+  <p class="g-related">Related: <a href="#org-audit">Audit</a> · <a href="#org-custom-roles">Custom roles</a> · <a href="#org-responsibility">Assign to…</a></p>
+</section>
+
+<section class="g-feature" id="org-history-names">
+  <h2>Show groups instead of names in history</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">ORG-history-names</span></div>
+  <p class="g-summary">Under privacy rules in Europe, and above all in Germany (often agreed with the works council), some companies may not show who did what by name. Choose <span class="ui">Groups only</span> and the history of every project, sheet and object shows the groups the person is in instead of their name.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration (the sliders on the left rail) → <span class="ui">Organization</span> → <span class="ui">Privacy</span></dd>
+    <dt>Who</dt><dd>Everyone sees the setting. Changing it needs the permission to manage the organization's policies (Owner or Administrator with a passkey); E1 may ask you to confirm it is you.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in. Put people into <a href="#org-groups">groups</a> first: someone in no group is shown as <span class="ui">Organization member</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration and click <span class="ui">Privacy</span> under <span class="ui">Organization</span>.</td><td>The section <span class="ui">Privacy</span> with the card <span class="ui">Who made a change</span> and two choices: <span class="ui">Names of people</span> (chosen at first) and <span class="ui">Groups only</span>.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Groups only</span>.</td><td><span class="ui">Saved. History now shows groups instead of names.</span> Without the permission, the choice is refused with the reason and nothing changes.</td></tr>
+      <tr><td>3</td><td>Open the History of a project, or an object's <span class="ui">History</span> tab.</td><td>Where a name was shown, the groups of that person are shown, for example <span class="ui">Piping team</span>; a person in several groups shows them all, separated by commas. <span class="ui">Co-engineer, for Ana Schmidt</span> becomes <span class="ui">Co-engineer, for Piping team</span>. The <span class="ui">Who</span> filter lists the groups.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">Names of people</span> again.</td><td><span class="ui">Saved. History now shows the names of people.</span> The names are back: nothing recorded was changed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">It applies to everyone in the organization, and to everything that reads history: the app, Alex, MCP, the integration API's change feed and webhooks (there the person's id is left out too). Changes by <span class="ui">Alex (AI help)</span>, MCP and service accounts are shown as before.</p>
+  <p class="g-warn">The <a href="#org-audit">Audit</a> tab of the Organization dialog, the members list, comments and tasks still show names: they are for administrators and for working together.</p>
+  <p class="g-related">Related: <a href="#org-groups">Groups</a> · <a href="guide-collaboration.html#col-history">History</a> · <a href="#org-audit">Audit</a></p>
 </section>
 
 <section class="g-feature" id="org-sso">

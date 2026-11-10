@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spécifications d'E1 Cloud — LANXTOR</title>
+  <meta name="description" content="Où se trouvent vos données E1 Cloud, à quelle vitesse E1 répond, comment il est sécurisé, qui voit quoi, et comment fonctionnent les sauvegardes et les restaurations : les faits derrière E1 Cloud sur Microsoft Azure.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=112">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/cloud-specifications.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/cloud-specifications.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/cloud-specifications.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/cloud-specifications.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/fr/cloud-specifications.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="Spécifications d&#x27;E1 Cloud — LANXTOR">
+  <meta property="og:description" content="Où se trouvent vos données E1 Cloud, à quelle vitesse E1 répond, comment il est sécurisé, qui voit quoi, et comment fonctionnent les sauvegardes et les restaurations : les faits derrière E1 Cloud sur Microsoft Azure.">
+  <meta property="og:url" content="https://www.lanxtor.com/fr/cloud-specifications.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <div id="site-header"></div>
+
+  <main class="cs-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="fr/download.html#saas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>E1 Cloud</span></a>
+        <h1 class="reveal">Spécifications d'E1 Cloud.</h1>
+        <p class="lead reveal">Tout ce que vos équipes d'ingénierie, d'informatique et de sécurité doivent savoir avant de placer un projet dans E1 Cloud : où se trouvent les données, à quelle vitesse E1 répond, comment elles sont protégées, qui voit quoi, et comment fonctionnent les sauvegardes et les restaurations.</p>
+        <p class="cs-asof reveal">Situation en novembre 2026. Nous mettons cette page à jour quand E1 Cloud évolue.</p>
+
+        <div class="cs-glance reveal" aria-label="E1 Cloud en un coup d'œil">
+          <div class="cs-stat"><b>UE</b><span>Microsoft Azure North Europe, Irlande</span></div>
+          <div class="cs-stat"><b>140 ms</b><span>Pour ouvrir un projet de 498 000 objets</span></div>
+          <div class="cs-stat"><b>7 jours</b><span>Restauration de la base de données à n'importe quel instant</span></div>
+          <div class="cs-stat"><b>1 heure</b><span>Travail perdu au maximum (objectif de point de reprise)</span></div>
+          <div class="cs-stat"><b>TLS 1.2+</b><span>Chiffré en transit, et en AES-256 au repos</span></div>
+          <div class="cs-stat"><b>0</b><span>Mot de passe conservé par E1 : la connexion passe par Microsoft Entra</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="Sur cette page">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="fr/cloud-specifications.html#location">Localisation des données</a> <a href="fr/cloud-specifications.html#performance">Performances</a> <a href="fr/cloud-specifications.html#security">Sécurité</a> <a href="fr/cloud-specifications.html#access">Qui voit quoi</a> <a href="fr/cloud-specifications.html#backups">Sauvegardes et restauration</a> <a href="fr/cloud-specifications.html#compliance">Normes</a> <a href="fr/cloud-specifications.html#limits">Applications et limites</a> <a href="fr/cloud-specifications.html#faq">Questions</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Data location -->
+    <section class="section section-tight cs-section" id="location">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Localisation des données</span>
+          <h2>Vos données restent dans l'UE.</h2>
+          <p>E1 Cloud fonctionne dans une seule région Microsoft Azure de l'Union européenne : North Europe, en Irlande. Vos projets, dessins, documents et leurs sauvegardes restent dans des centres de données Azure situés dans l'UE.</p>
+        </div>
+
+        <div class="cs-arch reveal" aria-label="Architecture d'E1 Cloud : votre navigateur ou votre application de bureau se connecte en HTTPS au serveur E1 sur Azure Container Apps, qui accède à la base de données, au stockage des fichiers et à Key Vault via un réseau privé dans Azure North Europe">
+          <div class="cs-arch-col">
+            <span class="cs-arch-label">Vous</span>
+            <div class="cs-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span><b>Application de bureau ou navigateur</b>Windows, macOS, tout ordinateur</span></div>
+            <div class="cs-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg><span><b>E1 Reviewer</b>Sur l'iPad</span></div>
+          </div>
+          <div class="cs-arch-link" aria-hidden="true"><span>HTTPS</span></div>
+          <div class="cs-arch-region">
+            <span class="cs-arch-label cs-arch-label-light">Microsoft Azure · North Europe (Irlande)</span>
+            <div class="cs-node cs-node-core"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg><span><b>Serveur E1</b>app.lanxtor.com · Azure Container Apps</span></div>
+            <div class="cs-private"><span>Réseau privé</span></div>
+            <div class="cs-arch-row">
+              <div class="cs-node cs-node-sm"><img src="assets/img/logos/postgresql.svg" alt=""><span><b>PostgreSQL 16</b>Projets, objets, dessins</span></div>
+              <div class="cs-node cs-node-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/></svg><span><b>Blob Storage</b>Fichiers et documents</span></div>
+              <div class="cs-node cs-node-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg><span><b>Key Vault</b>Clés et secrets</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-table-wrap reveal">
+          <table class="cs-table">
+            <thead><tr><th scope="col">Quoi</th><th scope="col">Où c'est conservé</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Projets, objets, dessins, listes, historique et commentaires</th><td>Azure Database for PostgreSQL, North Europe (Irlande)</td></tr>
+              <tr><th scope="row">Fichiers, documents et révisions émises</th><td>Azure Blob Storage, North Europe, copié sur trois zones de disponibilité</td></tr>
+              <tr><th scope="row">Sauvegardes de la base de données</th><td>North Europe, avec une seconde copie dans la région jumelée d'Azure au sein de l'UE, West Europe (Pays-Bas)</td></tr>
+              <tr><th scope="row">Clés, mots de passe des services, certificats</th><td>Azure Key Vault, North Europe</td></tr>
+              <tr><th scope="row">Votre compte de connexion</th><td>Microsoft Entra External ID, dans sa localisation Europe</td></tr>
+              <tr><th scope="row">Questions à Alex, le co-ingénieur IA</th><td>Azure OpenAI dans Sweden Central (UE) : traité dans cette région uniquement</td></tr>
+              <tr><th scope="row">Claude Opus 5.5, si un Editor le choisit</th><td>Microsoft Foundry : ces requêtes peuvent être traitées hors de l'UE. GPT-4.1 dans Sweden Central reste le modèle par défaut</td></tr>
+              <tr><th scope="row">Paiements par carte</th><td>Stripe. E1 ne conserve aucun numéro de carte</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cs-note reveal">Une région aux États-Unis, ainsi qu'Amazon Web Services et Google Cloud, arrivent bientôt. Besoin d'E1 dans votre propre cloud ou centre de données ? Voir l'<a href="fr/download.html#own-servers">installation d'entreprise</a>.</p>
+      </div>
+    </section>
+
+    <!-- Performance -->
+    <section class="section section-tight cs-section" id="performance">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Performances</span>
+          <h2>Rapide à l'échelle d'une raffinerie.</h2>
+          <p>Nous mesurons E1 chaque nuit et chaque semaine sur un projet de la taille d'une raffinerie : 498 000 objets, 1 300 feuilles denses avec 236 000 symboles placés et 210 000 relations. Voici les résultats de ces tests de charge.</p>
+        </div>
+
+        <h3 class="cs-h3 reveal">Un ingénieur, 498 000 objets</h3>
+        <div class="cs-metrics reveal">
+          <div class="cs-metric"><b>140–180 <small>ms</small></b><span>Ouvrir le projet</span></div>
+          <div class="cs-metric"><b>3 <small>ms</small></b><span>Ouvrir un objet</span></div>
+          <div class="cs-metric"><b>110–130 <small>ms</small></b><span>Modifier une valeur</span></div>
+          <div class="cs-metric"><b>15 <small>ms</small></b><span>Renommer</span></div>
+          <div class="cs-metric"><b>290–380 <small>ms</small></b><span>Déplacer un symbole sur un P&amp;ID dense</span></div>
+          <div class="cs-metric"><b>50 <small>ms</small></b><span>Première page d'une liste filtrée</span></div>
+          <div class="cs-metric"><b>10 <small>ms</small></b><span>Recherche par repère, nom ou valeur, dans tous les projets</span></div>
+          <div class="cs-metric"><b>0</b><span>Erreur, sur l'ensemble des tests</span></div>
+        </div>
+
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>50 ingénieurs en même temps</h3>
+            <p class="cs-card-sub">Les 5 % les plus lents (p95), sur le même projet. Phase avancée : 45 ingénieurs consultent, 5 modifient.</p>
+            <div class="cs-table-wrap">
+              <table class="cs-table cs-table-num">
+                <thead><tr><th scope="col">Action</th><th scope="col">Les 50 en modification</th><th scope="col">Phase avancée</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Ouvrir le projet</th><td>1,0–1,9 s</td><td>470 ms</td></tr>
+                  <tr><th scope="row">Ouvrir un dessin</th><td>0,9–1,8 s</td><td>380 ms</td></tr>
+                  <tr><th scope="row">Modifier une valeur</th><td>0,7–1,5 s</td><td>550 ms</td></tr>
+                  <tr><th scope="row">Déplacer un symbole</th><td>1,0–1,3 s</td><td>700 ms</td></tr>
+                  <tr><th scope="row">Ouvrir un objet</th><td>300–500 ms</td><td>70 ms</td></tr>
+                  <tr><th scope="row">Première page d'une liste</th><td>0,7–1,0 s</td><td>370 ms</td></tr>
+                  <tr><th scope="row">Voir la modification d'un autre ingénieur</th><td>environ 1 s</td><td>environ 1 s</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Le dessin dans le navigateur</h3>
+            <p class="cs-card-sub">Mesuré dans Chromium.</p>
+            <div class="cs-bars">
+              <div class="cs-bar"><span class="cs-bar-label">Ouvrir un P&amp;ID de 1 000 symboles</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:55%"></span></span><b>260–320 ms</b></div>
+              <div class="cs-bar"><span class="cs-bar-label">Y sélectionner un symbole</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:6%"></span></span><b>30 ms</b></div>
+              <div class="cs-bar"><span class="cs-bar-label">Ouvrir un P&amp;ID de 3 000 symboles</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:100%"></span></span><b>530 ms</b></div>
+              <div class="cs-bar"><span class="cs-bar-label">Y sélectionner un symbole</span><span class="cs-bar-track"><span class="cs-bar-fill" style="width:28%"></span></span><b>140–150 ms</b></div>
+            </div>
+            <h3 class="cs-mt">Nos objectifs</h3>
+            <p class="cs-card-sub">Pour 50 ingénieurs sur 500 000 objets, p95. Avec 100 ingénieurs, E1 reste utilisable.</p>
+            <ul class="spec-list cs-spec">
+              <li><span>Ouvrir le projet</span><span>4 s maximum</span></li>
+              <li><span>Enregistrer une modification</span><span>500 ms maximum</span></li>
+              <li><span>Ouvrir un objet</span><span>200 ms maximum</span></li>
+              <li><span>Premières lignes d'une liste</span><span>1 s maximum</span></li>
+              <li><span>Voir la modification d'un autre ingénieur</span><span>3 s maximum</span></li>
+              <li><span>Erreurs</span><span>1 % maximum, aucune erreur serveur</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid grid-3 cs-cards">
+          <article class="cs-card cs-card-sm reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
+            <h3>Testé chaque nuit</h3>
+            <p>Chaque modification d'E1 est chronométrée par rapport à des budgets fixes, et un build plus lent échoue. Chaque semaine, un test de charge simule 100 ingénieurs en même temps, ainsi qu'un test d'endurance d'une heure.</p>
+          </article>
+          <article class="cs-card cs-card-sm reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+            <h3>En direct pour tous</h3>
+            <p>La modification d'un ingénieur parvient en une seconde environ à tous ceux qui ont le projet ouvert, poussée par le serveur, sans rechargement.</p>
+          </article>
+          <article class="cs-card cs-card-sm reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/></svg>
+            <h3>S'adapte à la charge</h3>
+            <p>Le serveur E1 ajoute de la capacité quand il est sollicité et tourne en permanence : pas de démarrage à froid. Des contrôles d'état toutes les quelques secondes remplacent un serveur qui ne répond plus.</p>
+          </article>
+        </div>
+        <p class="cs-note reveal">Mesuré lors de nos tests de charge sur 4 cœurs de processeur et 16 Go de mémoire. Dans E1 Cloud, les temps dépendent de la taille de votre projet, du nombre de personnes travaillant en même temps et de votre connexion. Deux objectifs ne sont pas encore atteints à pleine charge : l'enregistrement d'une modification quand les 50 ingénieurs modifient en même temps (objectif 500 ms), et une liste de tous les objets sans filtre (3,1–4,3 s, objectif 3 s). Nous travaillons sur les deux.</p>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="section section-tight cs-section" id="security">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Sécurité</span>
+          <h2>Sécurisé dès la conception, couche par couche.</h2>
+          <p>Certaines protections viennent de Microsoft Azure, d'autres sont intégrées à E1 même. Ensemble, elles protègent vos données de la connexion jusqu'au stockage.</p>
+        </div>
+        <div class="grid grid-3 cs-cards">
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></svg>
+            <h3>Connexion</h3>
+            <ul class="cs-list">
+              <li>Connexion par Microsoft Entra External ID, ou avec le compte Microsoft de votre entreprise. E1 ne conserve aucun mot de passe.</li>
+              <li>Les propriétaires et administrateurs confirment avec une clé d'accès avant de pouvoir utiliser leurs droits.</li>
+              <li>Les actions sensibles, comme accorder des droits d'administration ou tout exporter, vous demandent de vous reconnecter si votre dernière connexion date de plus de 15 minutes.</li>
+              <li>Les sessions se terminent au bout de 12 heures.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            <h3>Chiffrement</h3>
+            <ul class="cs-list">
+              <li>HTTPS uniquement, avec HSTS : votre navigateur ne communique jamais avec E1 sans chiffrement.</li>
+              <li>Le serveur E1 accède à la base de données en TLS avec vérification complète des certificats, et au stockage uniquement en TLS 1.2 ou plus récent.</li>
+              <li>La base de données, les fichiers, les sauvegardes et Key Vault sont chiffrés au repos en AES-256 par Microsoft Azure, avec des clés gérées par Microsoft.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <h3>Chaque organisation à part</h3>
+            <ul class="cs-list">
+              <li>Chaque enregistrement de la base de données appartient à une seule organisation, et la sécurité au niveau des lignes de PostgreSQL ne permet à E1 de lire que les lignes de l'organisation dans laquelle vous travaillez.</li>
+              <li>Le compte de base de données du serveur E1 ne peut pas la désactiver.</li>
+              <li>Des tests automatisés vérifient l'isolation de chaque table à chaque build.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <h3>Réseau privé</h3>
+            <ul class="cs-list">
+              <li>La base de données n'a pas d'adresse publique : seul le serveur E1 y accède, au sein d'un réseau Azure privé.</li>
+              <li>Les fichiers ne peuvent pas être ouverts depuis Internet, et les clés de stockage sont désactivées : l'accès se fait uniquement par identité.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg>
+            <h3>Secrets et clés</h3>
+            <ul class="cs-list">
+              <li>Chaque secret se trouve dans Azure Key Vault, protégé contre la suppression. Le serveur E1 les lit avec sa propre identité Azure.</li>
+              <li>Le service d'IA ne nécessite aucune clé d'API : E1 s'y connecte avec sa propre identité, aucune clé ne peut donc fuiter.</li>
+              <li>Les journaux ne contiennent jamais de mots de passe, de jetons ni de clés.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            <h3>Application protégée</h3>
+            <ul class="cs-list">
+              <li>Une Content Security Policy stricte, et une protection contre les requêtes intersites et l'intégration dans des cadres.</li>
+              <li>Limitation de la fréquence des tentatives de connexion et d'autres actions.</li>
+              <li>Le serveur E1 vérifie l'autorisation de chaque modification, quel qu'en soit le demandeur, personne ou programme.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 2 2 4-4"/><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg>
+            <h3>Des versions sûres</h3>
+            <ul class="cs-list">
+              <li>L'application macOS est signée et notariée par Apple, l'application Windows signée avec Azure Artifact Signing. Les mises à jour ne reviennent jamais à une version antérieure.</li>
+              <li>Chaque build est analysé à la recherche de secrets divulgués et de vulnérabilités connues, avec une nomenclature logicielle (SBOM).</li>
+              <li>Une version n'arrive dans E1 Cloud qu'après avoir été approuvée par une personne.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+            <h3>Journal d'audit</h3>
+            <ul class="cs-list">
+              <li>Les connexions, échecs de connexion, membres, invitations, licences, rôles, exports et clés d'accès sont consignés. Les administrateurs les consultent sous Organization → Audit.</li>
+              <li>Chaque appel à l'IA est journalisé avec son modèle et sa taille, sans le texte de vos messages.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/></svg>
+            <h3>L'IA sous votre contrôle</h3>
+            <ul class="cs-list">
+              <li>Votre organisation règle Alex sur activé, réponses uniquement, ou désactivé.</li>
+              <li>Alex travaille avec vos autorisations, jamais plus. Les valeurs restreintes sont retirées avant tout envoi à un modèle.</li>
+              <li>Alex demande confirmation avant de supprimer plus de 10 objets à la fois.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who can see what -->
+    <section class="section section-tight cs-section" id="access">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Qui voit quoi</span>
+          <h2>Vous décidez qui voit vos projets.</h2>
+          <p>Dans E1, l'accès est accordé par des rôles, au niveau de l'organisation, d'un projet, d'une section ou d'un seul objet. La licence de chaque personne fixe le maximum de ce qu'elle peut faire.</p>
+        </div>
+        <div class="cs-table-wrap reveal">
+          <table class="cs-table cs-access">
+            <thead><tr><th scope="col">Qui</th><th scope="col">Peut voir</th><th scope="col">Ne peut pas voir</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Personnes de votre organisation</th><td>Les projets, sections et objets que leur donnent leurs rôles, et ce que permet leur licence : consulter, commenter et approuver, ou modifier</td><td>Les projets dont elles ne sont pas membres</td></tr>
+              <tr><th scope="row">Propriétaires et administrateurs de votre organisation</th><td>Membres, licences, rôles, utilisation et journal d'audit ; ils peuvent tout exporter</td><td>Rien : l'export contient tout</td></tr>
+              <tr><th scope="row">Alex, le co-ingénieur IA</th><td>Uniquement ce que la personne qui demande peut voir</td><td>Les valeurs restreintes, et tout ce qui dépasse les autorisations de cette personne</td></tr>
+              <tr><th scope="row">Support LANXTOR</th><td>Les données de votre compte et de facturation : organisation, membres, licences, sièges, crédits d'IA et tailles de fichiers, et statistiques d'utilisation uniquement pour les personnes qui ont accepté de les partager</td><td>Vos projets, objets, dessins, listes et documents. Chaque modification faite par le support est inscrite dans votre journal d'audit sous le nom « LANXTOR support »</td></tr>
+              <tr><th scope="row">Autres clients</th><td>Rien</td><td>Rien de ce qui vous appartient : séparation par sécurité au niveau des lignes dans la base de données</td></tr>
+              <tr><th scope="row">Microsoft</th><td>Exploite les centres de données et les services pour LANXTOR, en tant que sous-traitant dans le cadre d'un accord de traitement des données</td><td>Microsoft ne peut utiliser les données que pour fournir ces services</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cs-roles reveal">
+          <div class="cs-role-group"><span class="cs-role-label">Rôles de l'organisation</span><span class="cs-chip">Owner</span><span class="cs-chip">Administrator</span><span class="cs-chip">Library administrator</span><span class="cs-chip">Engineering standards owner</span><span class="cs-chip">Catalog maintainer</span><span class="cs-chip">Member</span><span class="cs-chip">Guest</span></div>
+          <div class="cs-role-group"><span class="cs-role-label">Rôles du projet</span><span class="cs-chip">Project administrator</span><span class="cs-chip">Lead engineer</span><span class="cs-chip">Engineer</span><span class="cs-chip">Reviewer</span><span class="cs-chip">Viewer</span></div>
+          <div class="cs-role-group"><span class="cs-role-label">Licences</span><span class="cs-chip">Editor</span><span class="cs-chip">Reviewer</span><span class="cs-chip">Viewer</span><span class="cs-chip">Student</span></div>
+        </div>
+        <p class="cs-note reveal">Votre organisation peut aussi créer ses propres rôles, limiter ce qui peut être accordé aux membres d'un projet et donner une date de fin aux rôles.</p>
+      </div>
+    </section>
+
+    <!-- Backups -->
+    <section class="section section-tight cs-section" id="backups">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Sauvegardes et restauration</span>
+          <h2>Rien n'est perdu.</h2>
+          <p>Vos données sont sauvegardées en continu, conservées à plusieurs endroits, et vous pouvez toutes les récupérer quand vous le voulez.</p>
+        </div>
+
+        <div class="cs-timeline reveal" aria-label="Fenêtres de restauration : la base de données à n'importe quel instant des 7 derniers jours, les fichiers sous 14 jours, les clés sous 90 jours">
+          <div class="cs-tl-row"><span class="cs-tl-name">Base de données, à n'importe quel instant</span><span class="cs-tl-track"><span class="cs-tl-fill" style="width:24%"></span></span><b>7 jours</b></div>
+          <div class="cs-tl-row"><span class="cs-tl-name">Fichiers supprimés ou écrasés</span><span class="cs-tl-track"><span class="cs-tl-fill" style="width:40%"></span></span><b>14 jours</b></div>
+          <div class="cs-tl-row"><span class="cs-tl-name">Clés et secrets dans Key Vault</span><span class="cs-tl-track"><span class="cs-tl-fill" style="width:100%"></span></span><b>90 jours</b></div>
+        </div>
+
+        <div class="grid grid-3 cs-cards">
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+            <h3>Base de données</h3>
+            <ul class="cs-list">
+              <li>Sauvegardes continues par Azure Database for PostgreSQL : la base de données peut être restaurée à n'importe quelle minute des 7 derniers jours.</li>
+              <li>Les sauvegardes sont aussi copiées dans la région jumelée d'Azure au sein de l'UE : elles survivent ainsi à la perte d'une région entière.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M12 18v-6M9 15l3 3 3-3"/></svg>
+            <h3>Fichiers et documents</h3>
+            <ul class="cs-list">
+              <li>Chaque fichier est stocké trois fois, dans trois centres de données distincts de la région (stockage redondant interzone).</li>
+              <li>Les versions antérieures de chaque fichier sont conservées, et les fichiers supprimés peuvent être récupérés pendant 14 jours.</li>
+              <li>Les révisions émises ne sont jamais supprimées.</li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <svg class="icon-tile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c5.5-2 8-6 8-10V5l-8-3-8 3v7c0 4 2.5 8 8 10z"/><path d="M12 8v4l2.5 1.5"/></svg>
+            <h3>Objectifs de reprise</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Travail perdu au maximum</span><span>1 heure (RPO)</span></li>
+              <li><span>Délai de rétablissement du service</span><span>8 heures (RTO)</span></li>
+            </ul>
+            <p class="cs-small">La restauration à partir d'une sauvegarde est testée automatiquement à chaque build d'E1.</p>
+          </article>
+        </div>
+
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>Demander une restauration</h3>
+            <p>Supprimé quelque chose par erreur ? La plupart des modifications peuvent être annulées dans E1 même, depuis l'historique de l'objet ou de la feuille. Pour le reste, le propriétaire ou un administrateur de votre organisation écrit à <a href="mailto:support@lanxtor.com">support@lanxtor.com</a> en indiquant le moment auquel revenir. Nous pouvons restaurer la base de données à n'importe quel instant des 7 derniers jours, et les fichiers supprimés des 14 derniers jours.</p>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Emportez toutes vos données</h3>
+            <p>Les propriétaires et administrateurs exportent toute l'organisation à tout moment sous Organization → Export everything : une archive avec chaque table en lignes JSON ouvertes et chaque fichier, jusqu'à 4 Go. L'export n'est jamais refusé faute de stockage, et il est consigné dans le journal d'audit.</p>
+            <p class="cs-small">À la fin d'un essai, l'organisation passe en lecture seule : tout reste visible et peut encore être exporté.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance -->
+    <section class="section section-tight cs-section" id="compliance">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Normes et certifications</span>
+          <h2>Bâti sur une infrastructure certifiée.</h2>
+          <p>E1 Cloud fonctionne sur Microsoft Azure, l'une des plateformes cloud les plus certifiées. Les certifications propres à LANXTOR sont en cours.</p>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <div class="cs-card-head"><img src="assets/img/logos/azure.svg" alt="" width="28" height="28"><h3>Microsoft Azure, la plateforme</h3></div>
+            <p class="cs-card-sub">Certifications détenues par Microsoft pour Azure, les centres de données et les services sur lesquels tourne E1 Cloud.</p>
+            <div class="cs-badges">
+              <span class="cs-badge">ISO/IEC 27001</span> <span class="cs-badge">ISO/IEC 27017</span> <span class="cs-badge">ISO/IEC 27018</span> <span class="cs-badge">ISO/IEC 27701</span> <span class="cs-badge">ISO 22301</span> <span class="cs-badge">SOC 1, SOC 2, SOC 3</span> <span class="cs-badge">CSA STAR</span> <span class="cs-badge">BSI C5</span>
+            </div>
+            <p class="cs-small">Microsoft publie ses rapports d'audit sur le <a href="https://servicetrust.microsoft.com/" target="_blank" rel="noopener">Microsoft Service Trust Portal</a>.</p>
+          </article>
+          <article class="cs-card reveal">
+            <div class="cs-card-head"><svg viewBox="0 0 32 32" fill="none" width="28" height="28" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg><h3>LANXTOR et E1</h3></div>
+            <ul class="cs-status">
+              <li><span>RGPD : hébergement dans l'UE ; votre organisation est responsable du traitement de ses données, LANXTOR est sous-traitant</span><em class="st-now">En place</em></li>
+              <li><span>Accord de traitement des données et liste des sous-traitants ultérieurs</span><em class="st-prep">En préparation</em></li>
+              <li><span>Cyber Resilience Act de l'UE</span><em class="st-prep">En préparation</em></li>
+              <li><span>SOC 2 Type II</span><em class="st-soon">Prévu</em></li>
+              <li><span>ISO/IEC 27001</span><em class="st-soon">Prévu</em></li>
+              <li><span>IEC 62443-4-1, développement sécurisé de logiciels industriels</span><em class="st-soon">Prévu</em></li>
+              <li><span>Test d'intrusion indépendant</span><em class="st-soon">Prévu</em></li>
+            </ul>
+            <p class="cs-small">Vous avez trouvé un problème de sécurité ? Écrivez à <a href="mailto:support@lanxtor.com">support@lanxtor.com</a>. Nous répondons sous 2 jours ouvrés. Voir aussi notre <a href="fr/privacy.html">politique de confidentialité</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apps and limits -->
+    <section class="section section-tight cs-section" id="limits">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Applications et limites</span>
+          <h2>Où vous travaillez, et ce que vous pouvez y mettre.</h2>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>Applications</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Navigateur</span><span>Versions actuelles de Google Chrome et Microsoft Edge, sans rien à installer</span></li>
+              <li><span>Bureau</span><span>macOS 12 ou plus récent sur Apple silicon ; Windows 10 ou 11, 64 bits</span></li>
+              <li><span>iPad</span><span>E1 Reviewer, pour la vérification et l'approbation</span></li>
+              <li><span>Mises à jour</span><span>E1 Cloud est toujours à la dernière version ; l'application de bureau recherche les mises à jour au démarrage et toutes les 4 heures</span></li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Limites</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Un fichier</span><span>Jusqu'à 50 Mo</span></li>
+              <li><span>Pièces jointes pour Alex</span><span>8 fichiers de 20 Mo maximum chacun</span></li>
+              <li><span>Stockage pendant un essai</span><span>5 Go pour l'organisation</span></li>
+              <li><span>Tout exporter</span><span>Jusqu'à 4 Go</span></li>
+              <li><span>Session</span><span>12 heures, puis vous vous reconnectez</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Questions</span>
+          <h2>Les questions que posent les équipes de sécurité.</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>Les employés de LANXTOR peuvent-ils ouvrir mes dessins ?</summary>
+            <p>Non. Le support LANXTOR voit les données de votre compte et de facturation, afin de pouvoir vous aider pour les licences et les sièges. La base de données ne donne au support aucun accès à vos projets, objets, dessins ou documents, et chaque modification faite par le support apparaît dans votre journal d'audit.</p>
+          </details>
+          <details>
+            <summary>Mes données quittent-elles l'UE ?</summary>
+            <p>Vos projets, fichiers et sauvegardes restent dans des centres de données Azure situés dans l'UE. Le modèle par défaut d'Alex, GPT-4.1, tourne dans Sweden Central, dans l'UE. Ce n'est que si un Editor choisit Claude Opus 5.5 dans le chat que ces requêtes peuvent être traitées hors de l'UE. Votre organisation peut désactiver Alex.</p>
+          </details>
+          <details>
+            <summary>Que se passe-t-il si un centre de données Azure tombe en panne ?</summary>
+            <p>Les fichiers sont stockés dans trois centres de données distincts de la région : la perte de l'un d'eux ne les affecte pas. Les sauvegardes de la base de données sont aussi copiées dans la région jumelée d'Azure au sein de l'UE. Notre objectif est de rétablir le service en 8 heures, avec au plus 1 heure de travail perdue.</p>
+          </details>
+          <details>
+            <summary>Comment récupérer nos données si nous partons ?</summary>
+            <p>Un propriétaire ou un administrateur exporte toute l'organisation à tout moment sous Organization → Export everything, dans des formats ouverts : des lignes JSON pour les données et les fichiers d'origine. Écrivez-nous ensuite à <a href="mailto:support@lanxtor.com">support@lanxtor.com</a> pour supprimer l'organisation.</p>
+          </details>
+          <details>
+            <summary>Pouvons-nous choisir une autre région ou notre propre cloud ?</summary>
+            <p>Une région aux États-Unis arrive bientôt dans E1 Cloud. Si vos données doivent se trouver à un endroit précis ou être soumises à vos propres règles, exploitez E1 en <a href="fr/download.html#own-servers">installation d'entreprise</a> sur Microsoft Azure, Amazon Web Services, Google Cloud ou vos propres serveurs, avec votre propre base de données PostgreSQL.</p>
+          </details>
+          <details>
+            <summary>Pouvons-nous utiliser l'authentification unique ?</summary>
+            <p>Les personnes disposant d'un compte Microsoft d'entreprise peuvent déjà s'en servir pour se connecter. L'authentification unique avec SAML et le provisionnement des utilisateurs avec SCIM sont prévus pour les clients entreprise ; <a href="fr/contact-sales.html">contactez les ventes</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <article class="saas saas-dark cs-cta reveal">
+          <div class="saas-text">
+            <span class="saas-kicker">E1 Cloud</span>
+            <h2>D'autres questions de votre équipe informatique ?</h2>
+            <p>Nous répondons aux questionnaires de sécurité et présentons E1 Cloud à votre équipe. Ou commencez tout de suite.</p>
+            <div class="hero-actions"><a class="btn btn-light" href="fr/contact-sales.html">Contacter les ventes</a><a class="btn btn-ghost-light" href="login.html#signup">Créer un compte</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=7"></script>
+  <script src="assets/js/main.js?v=36"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>
