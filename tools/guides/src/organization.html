@@ -33,7 +33,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
       <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u of t · Student u of t · Administrator u of t</span>.</td></tr>
       <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
@@ -534,8 +534,44 @@
     <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes); <code>POST /relationships</code>, <code>DELETE /relationships/{id}</code>.</li>
     <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them under "In other systems".</li>
   </ul>
-  <p class="g-warn">Not built yet: the change feed and webhooks, connections to other systems, sign-in of remote MCP agents with OAuth, and address ranges in the token form (the API takes them).</p>
-  <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-sso">Company single sign-on</a></p>
+  <p class="g-warn">Not built yet: connections to other systems, sign-in of remote MCP agents with OAuth, and address ranges in the token form (the API takes them).</p>
+  <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-webhooks">Webhooks and the change feed</a> · <a href="#org-sso">Company single sign-on</a></p>
+</section>
+
+<section class="g-feature" id="org-webhooks">
+  <h2>Webhooks and the change feed</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-webhooks</span><span>Roadmap 19.3</span><span>Review checks N3</span></div>
+  <p class="g-summary">Other systems keep up with E1 in two ways. A <strong>webhook</strong> tells a system at once: E1 sends each change to its address, signed, and tries again when it does not answer. The <strong>change feed</strong> lets a system ask: "what changed since I last looked?", with a cursor that never skips or repeats a change.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Webhooks</span>; the change feed at <code>/api/v1/projects/{id}/changes</code></dd>
+    <dt>Who</dt><dd>Owners and Administrators (the permission Manage connections) set up webhooks. Anyone who sees a project may read its change feed, with an access token.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud). A receiver on the internet with an https:// address.</dd>
+  </dl>
+  <h3>Set up a webhook</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><span class="ui">File → Organization… → Webhooks</span>: type a name (for example "Maintenance system"), the receiver's address (<code>https://…</code>), tick the events it needs (<span class="ui">Object created</span>, <span class="ui">Object updated</span>, <span class="ui">Object moved</span>, <span class="ui">Object deleted</span>, <span class="ui">Relationship created</span>, …) and click <span class="ui">Create webhook</span>.</td><td>The signing secret (<code>whsec_…</code>) is shown once, with <span class="ui">Copy</span>. The webhook is listed as <span class="ui">Active</span>. An address in a private network (10.…, 192.168.…, localhost) is refused.</td></tr>
+      <tr><td>2</td><td>Change an object in a project, for example its flow rate.</td><td>Within seconds the receiver gets a POST: <code>{"subscription": …, "event": {"id", "type": "object.updated", "revision", "at", "project", "actor", "subject": {"id", "class", "name", "tag"}, "changed": {"attributes": ["plant.attr.flow-rate"]}}}</code>. Events say what changed, never the values: the receiver reads the object with its own token.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Deliveries…</span> on its row.</td><td>Each event with <span class="ui">Delivered</span>, <span class="ui">Waiting</span> (and the next try) or <span class="ui">Failed</span>, and every attempt with the answer and the time.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Resend</span> on a delivered or failed event.</td><td>The event is sent again, with the same event id.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Pause</span>, change something, then <span class="ui">Resume</span>.</td><td>Nothing is sent while paused; on resume the changes of the pause are sent.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>For the receiver</h3>
+  <ul>
+    <li><strong>Check the signature:</strong> the header <code>E1-Signature: t=&lt;unix seconds&gt;,v1=&lt;hex&gt;</code> is the HMAC-SHA256 of <code>&lt;t&gt;.&lt;body&gt;</code> with the signing secret. Refuse a request whose signature does not match or whose time is more than 5 minutes off.</li>
+    <li><strong>Answer quickly</strong> with any 2xx. Anything else, or no answer within 10 seconds, is tried again after 1, 5 and 30 minutes, then 2, 5 and 10 hours; after 24 hours the delivery is marked failed (and noted in the audit).</li>
+    <li><strong>At least once:</strong> an event may come twice (a retry, a resend). Ignore an <code>E1-Event-Id</code> you have already handled.</li>
+  </ul>
+  <h3>The change feed</h3>
+  <ul>
+    <li><code>GET /api/v1/projects/{id}/changes</code> returns the oldest changes first, and a <code>cursor</code>. Keep the cursor and ask with <code>?since=&lt;cursor&gt;</code> next time: you get only what changed after it, nothing twice, even after a restart. <code>more: true</code> means ask again at once.</li>
+    <li>Narrow it with <code>types=object.created,object.updated</code> and <code>class=…</code>; the cursor still moves past what is left out.</li>
+    <li>The feed keeps 90 days. An older cursor is refused (410 <code>feed_expired</code>) with the current revision: read the project in full, then follow the feed from there.</li>
+  </ul>
+  <p class="g-warn">Not built yet: webhooks as part of a connection with its status page and failure notices, filters by attribute, and events of documents, branches and class upgrades.</p>
+  <p class="g-related">Related: <a href="#org-tokens">Tokens, service accounts and agents</a> · <a href="#org-audit">Audit</a></p>
 </section>
 
 <section class="g-feature" id="org-four-eyes">
