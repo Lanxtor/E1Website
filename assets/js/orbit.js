@@ -63,9 +63,8 @@
   function build() {
     rings.innerHTML = "";
     ringEls = [];
-    // Rings like a gauge dial: the two orbits, a scale of ticks on each,
-    // and fainter guide rings in between.
-    [[0.5, ""], [1, " ring-main"], [1, " ring-ticks"], [1.45, " ring-dash"], [2, " ring-main"], [2, " ring-ticks ring-ticks-major"], [2.12, ""]].forEach(function (r) {
+    // The two orbits, and fainter guide rings in between and outside.
+    [[0.5, ""], [1, " ring-main"], [1.45, " ring-dash"], [2, " ring-main"], [2.12, " ring-dash"]].forEach(function (r) {
       ringEls.push({ f: r[0], el: el("ellipse", { "class": "ring" + r[1] }, rings) });
     });
     lineLayer = el("g", { "class": "orbit-lines" }, rings);
@@ -84,8 +83,8 @@
       R[1] = { x: W * 0.27, y: H * 0.22 };
       R[2] = { x: W * 0.43, y: H * 0.45 };
     } else {
-      R[1] = { x: W * 0.25, y: H * 0.24 };
-      R[2] = { x: W * 0.465, y: H * 0.47 };
+      R[1] = { x: W * 0.25, y: H * 0.27 };
+      R[2] = { x: W * 0.465, y: H * 0.44 };
     }
     ringEls.forEach(function (r) {
       var base = r.f <= 1 ? R[1] : R[2];
@@ -185,11 +184,11 @@
         m.line.classList.add("is-sync");
         send(m, false, 0, function () {
           m.line.classList.remove("is-sync");
-          flash(m, "is-updated", 1500);
+          flash(m, "is-updated", 3200);
         }, dur);
       });
     }, 800);
-    setTimeout(function () { n.el.classList.remove("is-saying"); }, 2900);
+    setTimeout(function () { n.el.classList.remove("is-saying"); }, 4000);
   }
 
   var running = false, raf = 0, t0 = performance.now();
@@ -203,7 +202,7 @@
     running = true;
     raf = requestAnimationFrame(frame);
     change();
-    timer = setInterval(change, 3200);
+    timer = setInterval(change, 4500);
   }
   function stop() {
     running = false;
