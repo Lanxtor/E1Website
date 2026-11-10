@@ -3518,3 +3518,7 @@ code {
 .am-a { position: static; }
 .am-dots { position: absolute; left: 12px; top: 50px; }
 @media (max-width: 760px) { .alex-title { font-size: clamp(1.7rem, 8vw, 2.2rem); } .alex-role-line { white-space: normal; } }
+
+/* The menu bar is added by main.js after the page is drawn: keep its room
+   from the start, so the page does not jump down when it appears. */
+#site-header { display: block; height: var(--header-h); }
