@@ -44,10 +44,13 @@
           <li><a href="#app-m3">E1 app · M3 Lists and connectivity</a></li>
           <li><a href="#app-m4">E1 app · M4 Documents</a></li>
           <li><a href="#app-m5">E1 app · M5 Library lifecycle</a></li>
-          <li><a href="#app-m6">E1 app · M6 Rules</a></li>
           <li><a href="#app-m7">E1 app · M7 Piping</a></li>
+          <li><a href="#app-m6">E1 app · M6 Rules and stored assistants</a></li>
+          <li><a href="#app-m9">E1 app · M9 EI&amp;C: wiring and loop diagrams</a></li>
+          <li><a href="#app-d13">E1 app · D13 Modular P&amp;ID design, cause and effect, alarms</a></li>
           <li><a href="#app-m8">E1 app · M8 Branches</a></li>
-          <li><a href="#app-p">E1 app · P In parallel: integration API, stored assistants, company sign-on, chat modes</a></li>
+          <li><a href="#app-p">E1 app · P In parallel: integration API, company sign-on, access, chat modes</a></li>
+          <li><a href="#app-ipad">E1 app · iPad E1 Reviewer for iPad</a></li>
           <li><a href="#app-after">E1 app · after After the MVP</a></li>
           <li><a href="#app-parked">E1 app · parked Parked: Power (IEC 61850)</a></li>
           <li><a href="#website-w1">Website · W1 Pages and content</a></li>
@@ -59,7 +62,7 @@
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Roadmap</p>
         <h1>Under development and roadmap</h1>
-        <p class="lead">What is built, what is being built, and what comes next, stage by stage. Taken from the build roadmap of the app (updated 2026-11-04) and of the website (updated 2026-11-05).</p>
+        <p class="lead">What is built, what is being built, and what comes next, stage by stage. Taken from the build roadmap of the app (updated 2026-11-10) and of the website (updated 2026-11-05).</p>
         <section class="g-feature" id="app-m0">
           <h2>M0 Foundation — E1 app</h2>
           <div class="g-meta"><span>4 of 4 stages done</span></div>
@@ -91,7 +94,7 @@
         </section>
         <section class="g-feature" id="app-m2">
           <h2>M2 Platform — E1 app</h2>
-          <div class="g-meta"><span>8 of 9 stages done</span><span>MVP</span></div>
+          <div class="g-meta"><span>9 of 9 stages done</span><span>MVP</span></div>
           <p class="g-summary">E1 moves onto PostgreSQL and into the vendor&#x27;s cloud. People sign in, belong to organizations, and are invited to projects with roles down to a single section or drawing. Two engineers can work in the same project at the same time without overwriting each other, Alex&#x27;s proposals are kept safely on the server, and the technical security baseline is in place.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>M2.1</td><td>PostgreSQL store with the object and history tables</td><td><span class="g-status available">Done 2026-11-03</span></td><td>Behind the scenes: with npm run db:up, db:migrate, and db:seed, then E1_STORE=postgres, projects open and edit as before, stored in PostgreSQL tables that keep each organization apart.</td></tr>
@@ -101,7 +104,7 @@
             <tr><td>M2.5</td><td>Project permissions</td><td><span class="g-status available">Done 2026-11-03</span></td><td>Open a project and choose Members: give a colleague Reviewer; signed in as them, the project opens but moving a symbol is refused with the permission it needs.</td></tr>
             <tr><td>M2.6</td><td>Live refresh, safe saves per object, and stored proposals</td><td><span class="g-status available">Done 2026-11-03</span></td><td>Sign in as two people on one project in two browsers: a rename in one appears in the other without reloading; a reply held for review is still there to apply after the server restarts.</td></tr>
             <tr><td>M2.7</td><td>File storage</td><td><span class="g-status available">Done 2026-11-03</span></td><td>On the server, attach a file to a chat message or upload one to a project, reload the page, and open it again; signed in as someone without a role in the project, it is not found.</td></tr>
-            <tr><td>M2.8</td><td>Reference cloud deployment</td><td><span class="g-status planned">Planned</span></td><td>Open E1 from its public cloud address in a normal browser, without installing anything, and sign in.</td></tr>
+            <tr><td>M2.8</td><td>Reference cloud deployment</td><td><span class="g-status available">Done 2026-11-06</span></td><td>Open https://app.lanxtor.com in a normal browser, without installing anything, and sign in: the status bar (bottom right) says Microsoft Azure.</td></tr>
             <tr><td>M2.9</td><td>Technical security baseline and the M2 gate</td><td><span class="g-status available">Done 2026-11-04</span></td><td>Mostly under the hood: security settings and checks. You may notice session timeouts and stricter sign-in rules.</td></tr>
           </tbody></table></div>
         </section>
@@ -126,8 +129,8 @@
         </section>
         <section class="g-feature" id="app-m4">
           <h2>M4 Documents — E1 app</h2>
-          <div class="g-meta"><span>14 of 17 stages done</span><span>MVP</span></div>
-          <p class="g-summary">Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Revisions and issued documents, PDF of sheets, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, and Alex&#x27;s engineering patterns. M4 ends with pilot readiness: access control first (permissions by category, custom roles, objects assigned to a person or group, an exportable access history), then a second cloud, billing, passkeys, and the security and legal reviews a pilot partner needs.</p>
+          <div class="g-meta"><span>20 of 30 stages done</span><span>MVP</span></div>
+          <p class="g-summary">Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex&#x27;s engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), specification attributes for instruments, and document control (versions and revisions on the sheet, changes since a date, clouds in outputs). M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>07.1</td><td>Object history and search</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Rename a pump, open it, and see the change on its History tab with the name before and after; Undo this change takes it back. Search the explorer for a tag, a name, or a line number.</td></tr>
             <tr><td>07.2</td><td>Documents and revisions</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Right-click Documents → New document…, make a list, and add revisions A and B on its page; set B in review. The Documents section shows Updated for someone who has not looked yet.</td></tr>
@@ -136,22 +139,35 @@
             <tr><td>07.5</td><td>Datasheet designer</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Open the datasheet designer, change a datasheet layout, and see objects of that class use it.</td></tr>
             <tr><td>07.6</td><td>P&amp;ID sheet PDF</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Open a sheet and choose File → Export PDF or press Ctrl+P: the sheet prints on its page format with its title block.</td></tr>
             <tr><td>07.7</td><td>Issue and &quot;changed since&quot;</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Issue Rev A of a pump list, change a pump&#x27;s design pressure, and see &quot;Changed since Rev A&quot; on the list and Modified on the pump in the explorer.</td></tr>
-            <tr><td>07.8</td><td>Comments, tasks, mentions, and notifications</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Comment on a pump&#x27;s Comments tab with an @mention, reply, and like; New task… assigns it, and the Inbox marks it done. Right-click the pump on its sheet → Comment here: it shows Needs review in the explorer until you Resolve the pin.</td></tr>
+            <tr><td>07.8</td><td>Comments, tasks, mentions, and notifications</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Write in a pump&#x27;s Chat tab with an @mention, reply, and like; New task… assigns it, and the Inbox marks it done. Right-click the pump on its 2D space → Chat here: it shows Needs review in the explorer until you Resolve the pin.</td></tr>
             <tr><td>05.5a</td><td>List PDF and update from Excel</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Print a list to PDF, and update a list from a changed Excel file with a preview.</td></tr>
             <tr><td>06.4</td><td>Generated loop diagrams</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Relate a transmitter and a controller to a loop function (implements) and let it control a valve; right-click the function → Generate loop diagram. Move the transmitter, add a device to the loop, press Regenerate: the move stays. A line drawn between two devices becomes a signal in the model.</td></tr>
             <tr><td>02.2</td><td>Engineering patterns for Alex</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Ask Alex for &quot;a redundant pump train on the feed line&quot;, &quot;a pressure transmitter on Pump1&quot;, or &quot;a motor for Pump2 fed from the MCC&quot;: it draws the pattern, checks it, and says what it repaired.</td></tr>
+            <tr><td>29.1</td><td>Document control: versions and revisions on the sheet</td><td><span class="g-status planned">Planned</span></td><td>Open a 2D space&#x27;s properties: its version and revision, the state (draft, in sign-off, issued), and who may change or delete it.</td></tr>
+            <tr><td>29.2</td><td>Document control: changes since a date on the drawing</td><td><span class="g-status planned">Planned</span></td><td>Pick a date on a 2D space: every change since then shows as a cloud with before → after, who and when, and in the Changes list.</td></tr>
+            <tr><td>29.3</td><td>Document control: clouds in generated outputs</td><td><span class="g-status planned">Planned</span></td><td>Issue a new revision of a 2D space or a loop diagram: the PDF clouds what changed since the last one, with a changes table and the purpose watermark.</td></tr>
+            <tr><td>23.1</td><td>Redlining: the markup layer and its tools</td><td><span class="g-status planned">Planned</span></td><td>Turn on Markup on a 2D space, draw a cloud, an arrow, and a text note on top of the drawing: the engineering data does not change, and the markups show on their own layer.</td></tr>
+            <tr><td>23.2</td><td>Redlining: review rounds, status, and the markups list</td><td><span class="g-status planned">Planned</span></td><td>Submit my markups in a review round; the engineer answers each one and sets its status, and the Markups list filters them and zooms to each.</td></tr>
+            <tr><td>23.3</td><td>Redlining: markups on revisions, and marked-up prints</td><td><span class="g-status planned">Planned</span></td><td>Mark up an issued revision, see which markups the later changes moved past, and print the 2D space with its markups and their legend.</td></tr>
+            <tr><td>24.1</td><td>Specification attributes and classes for instruments</td><td><span class="g-status planned">Planned</span></td><td>Create a pressure transmitter: its page has the specification attributes of an instrument datasheet (process data, body, connections), ready for the datasheet templates.</td></tr>
             <tr><td>PR1</td><td>Pilot readiness: organization export, seat notices, customer-cloud path</td><td><span class="g-status available">Done 2026-11-05</span></td><td>As an owner, Organization… → Export → Export everything…, confirm with your passkey: the archive of the whole organization downloads. Assigning the license that fills 80 % or 100 % of the seats puts a notice in the Inbox of every owner and administrator.</td></tr>
             <tr><td>09.6s</td><td>Access control: hardening of the permission checks</td><td><span class="g-status available">Done 2026-11-07</span></td><td>A sheet&#x27;s Share no longer offers Project administrator, and a role there needs a role on the project to open it. Behind it: no grant reaches another project, and nobody grants more than they hold.</td></tr>
             <tr><td>09.6a</td><td>Access control: permissions by category, ceilings, and custom roles</td><td><span class="g-status available">Done 2026-11-07</span></td><td>Organization… → Access → Roles: copy Engineer, untick Delete diagrams, save, and give it to a group in Members: a member is refused deleting a sheet. Admit a colleague with at most Engineer: higher roles are greyed out.</td></tr>
-            <tr><td>09.6r</td><td>Access control: objects assigned to a person or group</td><td><span class="g-status planned">Planned</span></td><td>Right-click a folder → Assign to… a colleague: signed in as someone else, its objects are read-only with the reason, and moving or connecting a line to one is refused.</td></tr>
-            <tr><td>09.6h</td><td>Access control: access history, audit export, reviews, and emergency access</td><td><span class="g-status planned">Planned</span></td><td>Change a group, a role, and an assignment, then open Access → Access history: the three changes show with before and after, and Export gives the history and the current access report in Excel.</td></tr>
-            <tr><td>PR</td><td>Pilot readiness: second cloud, subscription and billing, pen test, DPA, signed desktop app, standards rights and legal review</td><td><span class="g-status planned">Planned</span></td><td>Mostly behind the scenes (second cloud, billing, legal and security reviews). You may see a subscription page, passkey sign-in, and a signed desktop app.</td></tr>
+            <tr><td>09.6v</td><td>Access control: who sees what (reviewers and viewers)</td><td><span class="g-status available">Done 2026-11-10</span></td><td>Project settings → Access → Visible to: Editors only hides the project from reviewers and viewers. Right-click an attribute row on an object → Hide from viewers: signed in as a viewer, the row is not there.</td></tr>
+            <tr><td>09.6r</td><td>Access control: objects assigned to a person or group</td><td><span class="g-status available">Done 2026-11-10</span></td><td>On a pump&#x27;s page, Responsible → Assign to… a colleague (or Take it): signed in as someone else, its values are read-only with the reason, and moving it or connecting a line to it is refused.</td></tr>
+            <tr><td>09.6h</td><td>Access control: access history, audit export, reviews, and emergency access</td><td><span class="g-status available">Done 2026-11-10</span></td><td>Change a group and a role, then File → Organization… → Access → History: both show with before and after. Pick a date under Access on a date, Show access then, and Export access report (Excel).</td></tr>
+            <tr><td>10.1n</td><td>Privacy: history shows groups instead of names</td><td><span class="g-status available">Done 2026-11-10</span></td><td>Configuration → Privacy → Groups only: the history of every project, sheet and object shows the groups of the person who made each change, not their name. Names of people shows the names again.</td></tr>
+            <tr><td>M4.16</td><td>Pilot readiness: the second cloud</td><td><span class="g-status planned">Planned</span></td><td>Behind the scenes: E1 runs from a second cloud account (Google Cloud, EU) from the same images as Azure.</td></tr>
+            <tr><td>M4.17</td><td>Pilot readiness: invoices, payment, and billing</td><td><span class="g-status available">Done 2026-11-08</span></td><td>Behind the scenes for customers: invoices with gapless numbers and a PDF are made and sent each period, paid by bank transfer or by card through the pay link (Stripe). See the operator console&#x27;s Billing.</td></tr>
+            <tr><td>M4.18</td><td>Pilot readiness: penetration test, DPA, and sub-processors</td><td><span class="g-status planned">Planned</span></td><td>Behind the scenes: an outside penetration test with its findings fixed, and the data processing agreement and sub-processor list on the website.</td></tr>
+            <tr><td>M4.19</td><td>Pilot readiness: signed desktop app that updates itself</td><td><span class="g-status available">Done 2026-11-10</span></td><td>Install the Mac app from Get E1: macOS opens it without a warning (signed and notarized), and a newer version installs itself. The Windows installer is signed in the build too.</td></tr>
+            <tr><td>M4.20</td><td>Pilot readiness: standards rights and legal review</td><td><span class="g-status planned">Planned</span></td><td>Behind the scenes: the rights to the standards behind the content packages and the legal review are recorded.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m5">
           <h2>M5 Library lifecycle — E1 app</h2>
-          <div class="g-meta"><span>17 of 17 stages done</span><span>MVP</span></div>
-          <p class="g-summary">Companies edit and publish their own library: classes, attributes, relationship types, and how they behave. Projects see which updates are available and upgrade with a preview. Equipment catalogs with manufacturer data, a symbol designer with SVG import and live attribute labels, and switching and licensing of content packages.</p>
+          <div class="g-meta"><span>17 of 25 stages done</span><span>MVP</span></div>
+          <p class="g-summary">Companies edit and publish their own library: classes, attributes, relationship types, and how they behave. Projects see which updates are available and upgrade with a preview. Equipment catalogs with manufacturer data, a symbol designer with SVG import and live attribute labels, units of measurement, switching, licensing, and updates of content packages, specification datasheets (components, cases, templates inspired by ISA 20 and API), and document control&#x27;s sheet templates, sign-off routes, reports and filing.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>11.1</td><td>Library editor: draft, review, publish</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Configuration → Company library: make an attribute (a choice of values) and a class that is a kind of Centrifugal pump with that attribute, save them as drafts, publish. The class is then in Object classes, New object offers it, and E1 checks its owners like its own classes.</td></tr>
             <tr><td>11.2</td><td>Updates available, checked against projects</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Configuration → Company library: publish a second version of a company class; Updates available in this project lists its objects still on version 1 and what changed. Save a draft that removes a choice or narrows where a class may be owned, and Check against projects lists every object it would break.</td></tr>
@@ -170,19 +186,14 @@
             <tr><td>04.2</td><td>Switching content packages on and off</td><td><span class="g-status available">Done 2026-11-09</span></td><td>File → Project settings… → Content packages: switch Plant engineering off in a project with pumps: E1 lists what still uses it and keeps it. In an empty project switch it off: New asset… and the symbol picker no longer offer pumps.</td></tr>
             <tr><td>04.3</td><td>Content package licensing</td><td><span class="g-status available">Done 2026-11-09</span></td><td>File → Organization… → Content packages: which packages your subscription includes and who a per-person package is assigned to. An object of a package that is not licensed is read only, with the reason, and can still be exported.</td></tr>
             <tr><td>04.5</td><td>Content package updates</td><td><span class="g-status available">Done 2026-11-09</span></td><td>Configuration → Company library: when E1 ships newer content packages, Updates available lists them per package with what changed. Preview package update, then Update: the project reads the new versions; nothing changes until you take it.</td></tr>
-          </tbody></table></div>
-        </section>
-        <section class="g-feature" id="app-m6">
-          <h2>M6 Rules — E1 app</h2>
-          <div class="g-meta"><span>0 of 6 stages done</span><span>MVP</span></div>
-          <p class="g-summary">Rule-based engineering without programming: values calculated from other values and from related objects, copy rules that fill values from their source, and check rules that find problems and can block issuing a revision.</p>
-          <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
-            <tr><td>12.1</td><td>Rule engine and calculations on the object</td><td><span class="g-status planned">Planned</span></td><td>Set a calculation on an attribute (for example power from voltage and current) and see the value update when an input changes.</td></tr>
-            <tr><td>12.2</td><td>Calculations through relationships</td><td><span class="g-status planned">Planned</span></td><td>Set a calculation that reads a related object (for example a motor&#x27;s value from its pump) and see it update.</td></tr>
-            <tr><td>12.3</td><td>Check rules and findings</td><td><span class="g-status planned">Planned</span></td><td>Add a check rule, see the findings it reports, and see a revision blocked until they are fixed.</td></tr>
-            <tr><td>12.4</td><td>Copy rules</td><td><span class="g-status planned">Planned</span></td><td>Add a copy rule and see a value copied from its source object, and updated when the source changes.</td></tr>
-            <tr><td>12.5</td><td>Rules everywhere, tag configurator on the engine</td><td><span class="g-status planned">Planned</span></td><td>Use rules in the tag configurator and in lists; tags follow the same rule engine.</td></tr>
-            <tr><td>12.6</td><td>Organization and content package rules</td><td><span class="g-status planned">Planned</span></td><td>See rules that come from your organization or a content package applied in a project.</td></tr>
+            <tr><td>29.4</td><td>Sheet templates</td><td><span class="g-status planned">Planned</span></td><td>Configuration → Documents: make a sheet template from the ISO or ANSI one with its frame, zones and revision block, and use it on a new 2D space.</td></tr>
+            <tr><td>29.5</td><td>Configurable sign-off routes and audit</td><td><span class="g-status planned">Planned</span></td><td>Set a sign-off route for a purpose with four-eyes and due days, send a revision through it, and reassign a signer who is away.</td></tr>
+            <tr><td>29.6</td><td>Reports, PDF packages, and filing rules</td><td><span class="g-status planned">Planned</span></td><td>Add a list and a few 2D spaces to a report with sections, print it as one PDF package, and see it filed by the project&#x27;s filing rule.</td></tr>
+            <tr><td>24.2</td><td>Datasheet components: field tables, row lists, column repeaters</td><td><span class="g-status planned">Planned</span></td><td>In the datasheet designer, add a field table, a list of nozzles, and a column per stage of a compressor; edit a value in the datasheet and see it on the object.</td></tr>
+            <tr><td>24.3</td><td>Operating cases on the datasheet</td><td><span class="g-status planned">Planned</span></td><td>Add a case on a pump&#x27;s datasheet: the cells it inherits are marked, typing overrides one, and Reset inherits again.</td></tr>
+            <tr><td>24.4</td><td>Instrument datasheet templates inspired by ISA 20</td><td><span class="g-status planned">Planned</span></td><td>Open a pressure transmitter&#x27;s datasheet from the instrument template set and print it with its title block.</td></tr>
+            <tr><td>24.5</td><td>Equipment datasheet templates inspired by API</td><td><span class="g-status planned">Planned</span></td><td>Open a centrifugal pump&#x27;s datasheet from the equipment templates, fill it in, and print it.</td></tr>
+            <tr><td>24.6</td><td>The datasheet designer for people</td><td><span class="g-status planned">Planned</span></td><td>Copy a standard datasheet template, change it, and later compare it with a newer version of its source and take over the differences.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m7">
@@ -195,6 +206,47 @@
             <tr><td>13.3</td><td>Pipe classes</td><td><span class="g-status planned">Planned</span></td><td>Give a line a pipe class and see schedule, material, and rating filled in.</td></tr>
             <tr><td>13.4</td><td>Pipe schedule (line list)</td><td><span class="g-status planned">Planned</span></td><td>Open the pipe schedule (line list) of the project as a live table.</td></tr>
             <tr><td>13.5</td><td>DEXPI exchange and handover</td><td><span class="g-status planned">Planned</span></td><td>Export the model as a DEXPI file and import it in a 3D design tool (or import one back).</td></tr>
+          </tbody></table></div>
+        </section>
+        <section class="g-feature" id="app-m6">
+          <h2>M6 Rules and stored assistants — E1 app</h2>
+          <div class="g-meta"><span>0 of 10 stages done</span><span>MVP</span></div>
+          <p class="g-summary">Rule-based engineering without programming: values calculated from other values and from related objects, copy rules that fill values from their source, and check rules that find problems and can block issuing a revision. Built together with stored assistants (owner, 2026-11-09, 00-D13): repeatable procedures saved from Alex&#x27;s turn or recorded by hand, shared, and run with one click.</p>
+          <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
+            <tr><td>12.1</td><td>Rule engine and calculations on the object</td><td><span class="g-status planned">Planned</span></td><td>Set a calculation on an attribute (for example power from voltage and current) and see the value update when an input changes.</td></tr>
+            <tr><td>12.2</td><td>Calculations through relationships</td><td><span class="g-status planned">Planned</span></td><td>Set a calculation that reads a related object (for example a motor&#x27;s value from its pump) and see it update.</td></tr>
+            <tr><td>12.3</td><td>Check rules and findings</td><td><span class="g-status planned">Planned</span></td><td>Add a check rule, see the findings it reports, and see a revision blocked until they are fixed.</td></tr>
+            <tr><td>12.4</td><td>Copy rules</td><td><span class="g-status planned">Planned</span></td><td>Add a copy rule and see a value copied from its source object, and updated when the source changes.</td></tr>
+            <tr><td>12.5</td><td>Rules everywhere, tag configurator on the engine</td><td><span class="g-status planned">Planned</span></td><td>Use rules in the tag configurator and in lists; tags follow the same rule engine.</td></tr>
+            <tr><td>12.6</td><td>Organization and content package rules</td><td><span class="g-status planned">Planned</span></td><td>See rules that come from your organization or a content package applied in a project.</td></tr>
+            <tr><td>18.1</td><td>Stored assistants: save and run</td><td><span class="g-status planned">Planned</span></td><td>Save an assistant turn as a stored assistant and run it again with one click.</td></tr>
+            <tr><td>18.2</td><td>Stored assistants: record by hand and repeat</td><td><span class="g-status planned">Planned</span></td><td>Record a few manual steps as an assistant and repeat them on other objects.</td></tr>
+            <tr><td>18.3</td><td>Stored assistants: sharing</td><td><span class="g-status planned">Planned</span></td><td>Share a stored assistant with colleagues and see them run it.</td></tr>
+            <tr><td>18.4</td><td>Instruction assistants</td><td><span class="g-status planned">Planned</span></td><td>Create an assistant from written instructions and run it.</td></tr>
+          </tbody></table></div>
+        </section>
+        <section class="g-feature" id="app-m9">
+          <h2>M9 EI&amp;C: wiring and loop diagrams — E1 app</h2>
+          <div class="g-meta"><span>0 of 6 stages done</span><span>MVP</span></div>
+          <p class="g-summary">Wiring design without drawing: cabinets, junction boxes, and marshalling panels with rails, cards, channels, and terminals; cables and cores; signals with segregation; wiring typicals; automatic allocation of signals to terminals and channels as a proposal, worked in Panorama EI&amp;C; wire lists and marker export; loop diagrams generated from the real wiring; fieldbus segments. Added by the owner on 2026-11-10 (00-D14): 28.1 and 28.2 run alongside piping, the rest after the rules, all before branches.</p>
+          <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
+            <tr><td>28.1</td><td>Physical layer: cabinets, cards, terminals, cables, and cores</td><td><span class="g-status planned">Planned</span></td><td>Create a junction box with a terminal strip and a multicore cable, connect a transmitter&#x27;s cores to its terminals, and see the wire list.</td></tr>
+            <tr><td>28.2</td><td>Loop diagrams with terminals</td><td><span class="g-status planned">Planned</span></td><td>Generate a loop diagram for a loop: it follows the circuit through the field, the junction box, the cable and the cabinet terminals to the control system channel.</td></tr>
+            <tr><td>28.3</td><td>Signals and wiring typicals</td><td><span class="g-status planned">Planned</span></td><td>Give a transmitter its signal and choose a wiring typical with its options: the terminals, cores and channel it needs are created with names from the tag rules.</td></tr>
+            <tr><td>28.4</td><td>Allocation and Panorama EI&amp;C</td><td><span class="g-status planned">Planned</span></td><td>Run the allocation: E1 proposes terminals and channels for every open signal by the segregation rules and the spares; review it in Panorama EI&amp;C and Apply.</td></tr>
+            <tr><td>28.5</td><td>Capacity, cabinet heat, and exchange with the control system</td><td><span class="g-status planned">Planned</span></td><td>See each cabinet&#x27;s capacity and heat balance, export the I/O list for the control-system vendor and import it back, and export markers and ferrules.</td></tr>
+            <tr><td>28.6</td><td>Fieldbus segments</td><td><span class="g-status planned">Planned</span></td><td>Place fieldbus devices on a segment from a segment typical: the segment rules are checked, and the segment shows in Panorama EI&amp;C and on the loop diagram.</td></tr>
+          </tbody></table></div>
+        </section>
+        <section class="g-feature" id="app-d13">
+          <h2>D13 Modular P&amp;ID design, cause and effect, alarms — E1 app</h2>
+          <div class="g-meta"><span>0 of 4 stages done</span><span>MVP</span></div>
+          <p class="g-summary">Ordered by the owner on 2026-11-09 (00-D13) and still to be designed: modules placed on P&amp;IDs and kept in step with their source; cause-and-effect design with interlock and shutdown logic; safety instrumented functions; and alarm management, which alarms each plant context shows or hides. Each gets its concept, design, and stages before it is built.</p>
+          <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
+            <tr><td>MOD</td><td>Modular P&amp;ID design: modules placed and kept in step</td><td><span class="g-status planned">Planned</span></td><td>Place a module (for example a pump skid) on a P&amp;ID, change the module once, and see every placement offered the update.</td></tr>
+            <tr><td>CE</td><td>Cause and effect: interlocks and shutdown logic</td><td><span class="g-status planned">Planned</span></td><td>Open the cause-and-effect matrix of a unit: each trip lists its causes and effects, and the interlock narrative and shutdown logic come from the same data.</td></tr>
+            <tr><td>SIF</td><td>Safety instrumented functions</td><td><span class="g-status planned">Planned</span></td><td>Define a safety instrumented function with its sensors, logic, and final elements and its required SIL, and see it on the cause-and-effect matrix.</td></tr>
+            <tr><td>ALM</td><td>Alarm management</td><td><span class="g-status planned">Planned</span></td><td>Set an alarm&#x27;s priority and limits, and see which alarms each plant context (start-up, normal, shutdown) shows or hides.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m8">
@@ -218,30 +270,41 @@
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-p">
-          <h2>P In parallel: integration API, stored assistants, company sign-on, chat modes — E1 app</h2>
-          <div class="g-meta"><span>4 of 14 stages done</span><span>MVP</span></div>
-          <p class="g-summary">Built alongside the milestones once the platform exists. An open, versioned integration API with access tokens, change feed, webhooks, and bulk import and export jobs. Stored assistants: repeatable procedures saved from an assistant turn or from manual work, run with one click. Company single sign-on, directory sync, and the remaining access features.</p>
+          <h2>P In parallel: integration API, company sign-on, access, chat modes — E1 app</h2>
+          <div class="g-meta"><span>5 of 9 stages done</span><span>MVP</span></div>
+          <p class="g-summary">Built alongside the milestones once the platform exists. An open, versioned integration API kept small by the owner (2026-11-10): access tokens and service accounts, reading objects with their attributes and writing attributes back, external ids, the change feed and webhooks. Company single sign-on and directory sync, discipline permissions and four-eyes approval, and stored assistants in content packages and from the API.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>19.1</td><td>Command API, OpenAPI, and access tokens</td><td><span class="g-status available">Done 2026-11-09</span></td><td>Account → Access tokens: create a token (shown once). Call https://app.lanxtor.com/api/v1/projects/&lt;project&gt;/objects with Authorization: Bearer &lt;token&gt; to read objects with their attributes. File → Organization… → Service accounts for other systems.</td></tr>
             <tr><td>19.2</td><td>Resource API, queries, and external ids</td><td><span class="g-status available">Done 2026-11-09</span></td><td>With an access token: GET /api/v1/projects/&lt;project&gt;/objects, GET /api/v1/objects/&lt;id&gt; (with its rev), and PUT /api/v1/projects/&lt;project&gt;/objects/by-external/erp/&lt;id&gt; to create or update an object by the ERP id; the object page shows it under In other systems.</td></tr>
             <tr><td>19.3</td><td>Change feed and webhooks</td><td><span class="g-status available">Done 2026-11-10</span></td><td>File → Organization… → Webhooks: create one for your receiver (https://…), change an object, and see the signed delivery under Deliveries…. With a token: GET /api/v1/projects/&lt;project&gt;/changes?since=&lt;cursor&gt; returns what changed since you last read.</td></tr>
-            <tr><td>19.4</td><td>Connections and mappings to other systems</td><td><span class="g-status planned">Planned</span></td><td>Set up a connection to another system with a field mapping and run it.</td></tr>
-            <tr><td>18.1</td><td>Stored assistants: save and run</td><td><span class="g-status planned">Planned</span></td><td>Save an assistant turn as a stored assistant and run it again with one click.</td></tr>
-            <tr><td>18.2</td><td>Stored assistants: record by hand and repeat</td><td><span class="g-status planned">Planned</span></td><td>Record a few manual steps as an assistant and repeat them on other objects.</td></tr>
-            <tr><td>18.3</td><td>Stored assistants: sharing</td><td><span class="g-status planned">Planned</span></td><td>Share a stored assistant with colleagues and see them run it.</td></tr>
-            <tr><td>18.4</td><td>Instruction assistants</td><td><span class="g-status planned">Planned</span></td><td>Create an assistant from written instructions and run it.</td></tr>
             <tr><td>18.5</td><td>Assistants in content packages and from the API</td><td><span class="g-status planned">Planned</span></td><td>Use an assistant that comes with a content package, or start one through the API.</td></tr>
             <tr><td>09.4</td><td>Company single sign-on and directory sync</td><td><span class="g-status planned">Planned</span></td><td>Sign in with your company account (single sign-on); new colleagues appear from the company directory.</td></tr>
-            <tr><td>09.5</td><td>Tokens, service accounts, and agents</td><td><span class="g-status planned">Planned</span></td><td>Create a service account or agent token in settings and see it listed with its access.</td></tr>
+            <tr><td>09.5</td><td>Access tokens and service accounts</td><td><span class="g-status available">Done 2026-11-09</span></td><td>Account → Access tokens: create a token, see it shown once and then listed with its access and last use. File → Organization… → Service accounts: create one for another system and give it a token.</td></tr>
             <tr><td>09.6</td><td>Discipline permissions, four-eyes approval, support access</td><td><span class="g-status planned">Planned</span></td><td>Limit a role to one discipline&#x27;s attributes, require a second approver on merge requests, and approve a time-limited support access request.</td></tr>
             <tr><td>02.3</td><td>Chat modes and attachments</td><td><span class="g-status available">Done 2026-11-03</span></td><td>Ask in Ask mode and see nothing change; ask for a change in Plan mode and Apply it; attach a file and ask about it.</td></tr>
             <tr><td>05.5b</td><td>Queries from a sentence and templates through the API</td><td><span class="g-status planned">Planned</span></td><td>Type a sentence like &quot;all pumps without a motor&quot; and get the matching table.</td></tr>
           </tbody></table></div>
         </section>
+        <section class="g-feature" id="app-ipad">
+          <h2>iPad E1 Reviewer for iPad — E1 app</h2>
+          <div class="g-meta"><span>4 of 9 stages done</span></div>
+          <p class="g-summary">E1&#x27;s iPad app for reviewing away from the desk (Lanxtor/E1iPad, design 27), served by E1 at /reviewer/: search, a dashboard of cards, projects and their 2D spaces, an object&#x27;s attributes, history, chat and files, photos and voice notes, redlines, tasks and checklists, and Alex in Ask mode. It obeys the same roles and edits no drawings. Not counted in the MVP progress.</p>
+          <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
+            <tr><td>27.1</td><td>Sign-in, dashboard, projects, and search</td><td><span class="g-status available">Done 2026-11-09</span></td><td>On an iPad open https://app.lanxtor.com/reviewer/ in Safari, sign in, and Share → Add to Home Screen; arrange the dashboard cards and project tiles, and search for a tag.</td></tr>
+            <tr><td>27.2</td><td>2D spaces and the object page</td><td><span class="g-status available">Done 2026-11-09</span></td><td>Open a project&#x27;s 2D space, pinch to zoom, tap a pump: its page shows attributes, history, chat and attachments, with previews of the 2D spaces it is on.</td></tr>
+            <tr><td>27.3</td><td>Redlines, photos, voice notes, tasks, and checklists</td><td><span class="g-status available">Done 2026-11-09</span></td><td>Choose Redline and draw a cloud on a 2D space; add a photo and a voice note to an object; under For me, tick a checklist item of a task assigned to you.</td></tr>
+            <tr><td>27.4</td><td>Alex in the reviewer</td><td><span class="g-status available">Done 2026-11-09</span></td><td>Open Alex in the reviewer: it starts in Ask mode; ask about the open project by typing or with the microphone, and nothing changes in the project.</td></tr>
+            <tr><td>27.5</td><td>Live refresh</td><td><span class="g-status planned">Planned</span></td><td>Keep a 2D space open on the iPad while a colleague changes it in E1: the change appears without opening it again.</td></tr>
+            <tr><td>27.6</td><td>Mentions, links, and checklists in E1</td><td><span class="g-status planned">Planned</span></td><td>Mention a colleague and link a tag in a chat message on the iPad; see the checklists of a task in E1&#x27;s own task view, and rename or remove an item.</td></tr>
+            <tr><td>27.7</td><td>Review rounds, replies, and stamps with E1&#x27;s redlining</td><td><span class="g-status planned">Planned</span></td><td>Submit the iPad&#x27;s redlines in a review round: they show on E1&#x27;s 2D space, the engineer replies and sets their status, and the iPad shows it.</td></tr>
+            <tr><td>27.8</td><td>Native sign-in and use on a real iPad</td><td><span class="g-status planned">Planned</span></td><td>Sign in on an iPad without the extra question before returning to the app, and use the camera and the microphone on the device.</td></tr>
+            <tr><td>27.9</td><td>Offline use</td><td><span class="g-status planned">Planned</span></td><td>Open a project, go offline in a walk-down, add redlines and notes: they are kept and sent when the connection is back.</td></tr>
+          </tbody></table></div>
+        </section>
         <section class="g-feature" id="app-after">
           <h2>after After the MVP — E1 app</h2>
-          <div class="g-meta"><span>1 of 6 stages done</span></div>
-          <p class="g-summary">Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat.</p>
+          <div class="g-meta"><span>1 of 9 stages done</span></div>
+          <p class="g-summary">Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat; markups as PDF annotations and field walkdowns; hook-up drawings (not designed yet).</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>22</td><td>CAD import (DXF, later DWG)</td><td><span class="g-status planned">Planned</span></td><td>Import a DXF drawing and see it converted into E1 symbols and lines.</td></tr>
             <tr><td>04.6</td><td>Wire harness and marine content packages</td><td><span class="g-status planned">Planned</span></td><td>Switch on the wire harness or marine content package and see its classes and symbols.</td></tr>
@@ -249,6 +312,9 @@
             <tr><td>19.5</td><td>Message queues and more formats</td><td><span class="g-status planned">Planned</span></td><td>Mostly under the hood: connections to message queues and more file formats.</td></tr>
             <tr><td>18.6</td><td>Script step for stored assistants</td><td><span class="g-status planned">Planned</span></td><td>Add a script step to a stored assistant and run it.</td></tr>
             <tr><td>02.4</td><td>Voice input</td><td><span class="g-status available">Done 2026-11-02</span></td><td>Press the microphone in the chat, speak, press it again: the text appears in the composer to edit before you send it.</td></tr>
+            <tr><td>19.4</td><td>Connections and mappings to other systems (dropped from the MVP, I-D16)</td><td><span class="g-status planned">Planned</span></td><td>Not planned for now: a customer&#x27;s own script or middleware maps and schedules through the API. Set up a connection with a field mapping and run it.</td></tr>
+            <tr><td>23.5</td><td>Markups as PDF annotations, and field walkdowns</td><td><span class="g-status planned">Planned</span></td><td>Export a marked-up print with real PDF annotations, import a client&#x27;s annotated PDF back as markups, and mark up in the field.</td></tr>
+            <tr><td>HU</td><td>Hook-up drawings, impulse lines, and installation details (not designed yet)</td><td><span class="g-status planned">Planned</span></td><td>Not designed yet: generate an instrument&#x27;s hook-up drawing with its impulse lines and installation material from the model.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-parked">

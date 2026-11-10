@@ -177,13 +177,7 @@ Get E1.
 Download for Mac macOS 12 or newer
 Download for Windows Windows 10 or 11, 64-bit
 E1 Reviewer for iPad App Store · Coming soon
-Two ways to run E1: as a service in the E1 Cloud, ready the moment you sign up, or as an enterprise installation on the cloud or servers you choose.
 Software as a service
-E1 Cloud
-Hosted and run by LANXTOR. Sign up and start, nothing to set up or maintain.
-Enterprise installation
-Your cloud. Your choice.
-E1 in your own environment, with your own database.
 E1 Cloud.
 The fastest way to E1. LANXTOR hosts and runs everything for you, on the cloud provider and in the region that suit you: create your account, invite your team and start engineering the same day.
 Nothing to install on servers or maintain
@@ -191,9 +185,8 @@ Updates included: always the latest version of E1
 Hosted by LANXTOR on Microsoft Azure in the EU today, with Amazon Web Services, Google Cloud and a US region coming
 Work in the desktop app or in the browser
 Pay per user, per month
-Create account
-See prices
-E1 Cloud specifications
+Create account See prices
+E1 Cloud specifications Where your data is, performance, security and backups
 E1 Cloud Run by LANXTOR, updates included
 Cloud provider
 Microsoft Azure
@@ -204,6 +197,8 @@ Google Cloud
 Region
 EU European Union
 US United States
+Enterprise installation
+Your cloud. Your choice.
 Run E1 in your own environment. Tell us where it should run and we give you the installation: the same E1, with your projects, drawings and documents under your own rules.
 Microsoft Azure, Amazon Web Services or Google Cloud: the provider is your choice
 Or on-premises, on your own servers
@@ -312,7 +307,7 @@ Desktop app or browser Windows, macOS, any computer
 E1 Reviewer On the iPad
 HTTPS
 Microsoft Azure · North Europe (Ireland)
-E1 server app.lanxtor.com · Azure Container Apps
+E1 server app.lanxtor.com
 Private network
 PostgreSQL 16 Projects, objects, drawings
 Blob Storage Files and documents
@@ -338,7 +333,7 @@ Stripe. E1 keeps no card numbers
 A US region and Amazon Web Services and Google Cloud are coming. Need E1 in your own cloud or data center? See the enterprise installation .
 Performance
 Fast at refinery size.
-We measure E1 every night and every week on a project the size of a refinery: 498,000 objects, 1,300 dense sheets with 236,000 placed symbols and 210,000 relationships. These are the results of those load tests.
+We measure E1 every night and every week on a project the size of a refinery, with many engineers working at once. These are the results of those load tests.
 One engineer, 498,000 objects
 140–180 ms Open the project
 3 ms Open an object
@@ -379,21 +374,18 @@ Open a P&ID with 1,000 symbols 260–320 ms
 Select a symbol on it 30 ms
 Open a P&ID with 3,000 symbols 530 ms
 Select a symbol on it 140–150 ms
-Our targets
-For 50 engineers on 500,000 objects, p95. 100 engineers stay usable.
-Open the project 4 s or less
-Save an edit 500 ms or less
-Open an object 200 ms or less
-First rows of a list 1 s or less
-See another engineer's change 3 s or less
-Errors 1 % or less, no server errors
+The test project
+Objects 498,000
+Dense sheets 1,300
+Engineers at once 50, and 100 at peak
+How often Every night, and a full load test every week
 Tested every night
 Every change to E1 is timed against fixed budgets, and a slower build fails. Every week a stress test runs 100 engineers at once and a one-hour soak test.
 Live for everyone
 A change by one engineer reaches everyone who has the project open in about a second, pushed by the server, with no reload.
 Scales with the load
 The E1 server adds capacity when it is busy and is always running, so there is no cold start. Health checks every few seconds replace a server that stops answering.
-Measured in our load tests on 4 processor cores and 16 GB of memory. Times in the E1 Cloud depend on the size of your project, how many people work at once and your connection. Two targets are not met yet at full load: saving an edit when all 50 engineers edit at the same time (target 500 ms), and a list of every object with no filter (3.1–4.3 s, target 3 s). We are working on both.
+Measured in our load tests. Times in the E1 Cloud depend on the size of your project, how many people work at once and your connection.
 Security
 Secure by design, layer by layer.
 Some protections come from Microsoft Azure, others we built into E1 itself. Together they protect your data from sign-in to storage.
@@ -408,7 +400,6 @@ The E1 server reaches the database over TLS with full certificate checks, and st
 The database, files, backups and Key Vault are encrypted at rest with AES-256 by Microsoft Azure, with keys managed by Microsoft.
 Every organization on its own
 Every record in the database belongs to one organization, and PostgreSQL row-level security lets E1 read only the rows of the organization you work in.
-The E1 server's database account cannot switch this off.
 Automated tests check the isolation of every table in every build.
 The database has no public address: only the E1 server reaches it, inside a private Azure network.
 Files cannot be opened from the internet, and storage keys are switched off: access is by identity only.
@@ -532,7 +523,7 @@ A US region is coming to the E1 Cloud. If your data must be in a specific place 
 Can we use single sign-on?
 People with a company Microsoft account can sign in with it today. Single sign-on with SAML and user provisioning with SCIM are planned for enterprise customers; contact sales .
 More questions from your IT team?
-We answer security questionnaires and walk your team through the E1 Cloud. Or start right away.
+We answer security questionnaires and walk your team through the E1 Cloud. More detail is available under a non-disclosure agreement. Or start right away.
 Contact sales Create account
 
 ## E1 Academy (academy.html)

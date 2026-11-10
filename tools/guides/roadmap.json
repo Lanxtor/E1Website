@@ -1,6 +1,6 @@
 {
  "app": {
-  "updated": "2026-11-04",
+  "updated": "2026-11-10",
   "milestones": [
    {
     "id": "M0",
@@ -203,10 +203,10 @@
      {
       "id": "M2.8",
       "title": "Reference cloud deployment",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-06",
       "visible": true,
-      "tryIt": "Open E1 from its public cloud address in a normal browser, without installing anything, and sign in."
+      "tryIt": "Open https://app.lanxtor.com in a normal browser, without installing anything, and sign in: the status bar (bottom right) says Microsoft Azure."
      },
      {
       "id": "M2.9",
@@ -325,7 +325,7 @@
    {
     "id": "M4",
     "title": "Documents",
-    "summary": "Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Revisions and issued documents, PDF of sheets, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, and Alex's engineering patterns. M4 ends with pilot readiness: access control first (permissions by category, custom roles, objects assigned to a person or group, an exportable access history), then a second cloud, billing, passkeys, and the security and legal reviews a pilot partner needs.",
+    "summary": "Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex's engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), specification attributes for instruments, and document control (versions and revisions on the sheet, changes since a date, clouds in outputs). M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.",
     "mvp": true,
     "stages": [
      {
@@ -390,7 +390,7 @@
       "done": true,
       "doneOn": "2026-11-05",
       "visible": true,
-      "tryIt": "Comment on a pump's Comments tab with an @mention, reply, and like; New task… assigns it, and the Inbox marks it done. Right-click the pump on its sheet → Comment here: it shows Needs review in the explorer until you Resolve the pin."
+      "tryIt": "Write in a pump's Chat tab with an @mention, reply, and like; New task… assigns it, and the Inbox marks it done. Right-click the pump on its 2D space → Chat here: it shows Needs review in the explorer until you Resolve the pin."
      },
      {
       "id": "05.5a",
@@ -417,6 +417,62 @@
       "tryIt": "Ask Alex for \"a redundant pump train on the feed line\", \"a pressure transmitter on Pump1\", or \"a motor for Pump2 fed from the MCC\": it draws the pattern, checks it, and says what it repaired."
      },
      {
+      "id": "29.1",
+      "title": "Document control: versions and revisions on the sheet",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open a 2D space's properties: its version and revision, the state (draft, in sign-off, issued), and who may change or delete it."
+     },
+     {
+      "id": "29.2",
+      "title": "Document control: changes since a date on the drawing",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Pick a date on a 2D space: every change since then shows as a cloud with before → after, who and when, and in the Changes list."
+     },
+     {
+      "id": "29.3",
+      "title": "Document control: clouds in generated outputs",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Issue a new revision of a 2D space or a loop diagram: the PDF clouds what changed since the last one, with a changes table and the purpose watermark."
+     },
+     {
+      "id": "23.1",
+      "title": "Redlining: the markup layer and its tools",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Turn on Markup on a 2D space, draw a cloud, an arrow, and a text note on top of the drawing: the engineering data does not change, and the markups show on their own layer."
+     },
+     {
+      "id": "23.2",
+      "title": "Redlining: review rounds, status, and the markups list",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Submit my markups in a review round; the engineer answers each one and sets its status, and the Markups list filters them and zooms to each."
+     },
+     {
+      "id": "23.3",
+      "title": "Redlining: markups on revisions, and marked-up prints",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Mark up an issued revision, see which markups the later changes moved past, and print the 2D space with its markups and their legend."
+     },
+     {
+      "id": "24.1",
+      "title": "Specification attributes and classes for instruments",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Create a pressure transmitter: its page has the specification attributes of an instrument datasheet (process data, body, connections), ready for the datasheet templates."
+     },
+     {
       "id": "PR1",
       "title": "Pilot readiness: organization export, seat notices, customer-cloud path",
       "done": true,
@@ -441,35 +497,83 @@
       "tryIt": "Organization… → Access → Roles: copy Engineer, untick Delete diagrams, save, and give it to a group in Members: a member is refused deleting a sheet. Admit a colleague with at most Engineer: higher roles are greyed out."
      },
      {
+      "id": "09.6v",
+      "title": "Access control: who sees what (reviewers and viewers)",
+      "done": true,
+      "doneOn": "2026-11-10",
+      "visible": true,
+      "tryIt": "Project settings → Access → Visible to: Editors only hides the project from reviewers and viewers. Right-click an attribute row on an object → Hide from viewers: signed in as a viewer, the row is not there."
+     },
+     {
       "id": "09.6r",
       "title": "Access control: objects assigned to a person or group",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-10",
       "visible": true,
-      "tryIt": "Right-click a folder → Assign to… a colleague: signed in as someone else, its objects are read-only with the reason, and moving or connecting a line to one is refused."
+      "tryIt": "On a pump's page, Responsible → Assign to… a colleague (or Take it): signed in as someone else, its values are read-only with the reason, and moving it or connecting a line to it is refused."
      },
      {
       "id": "09.6h",
       "title": "Access control: access history, audit export, reviews, and emergency access",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-10",
       "visible": true,
-      "tryIt": "Change a group, a role, and an assignment, then open Access → Access history: the three changes show with before and after, and Export gives the history and the current access report in Excel."
+      "tryIt": "Change a group and a role, then File → Organization… → Access → History: both show with before and after. Pick a date under Access on a date, Show access then, and Export access report (Excel)."
      },
      {
-      "id": "PR",
-      "title": "Pilot readiness: second cloud, subscription and billing, pen test, DPA, signed desktop app, standards rights and legal review",
+      "id": "10.1n",
+      "title": "Privacy: history shows groups instead of names",
+      "done": true,
+      "doneOn": "2026-11-10",
+      "visible": true,
+      "tryIt": "Configuration → Privacy → Groups only: the history of every project, sheet and object shows the groups of the person who made each change, not their name. Names of people shows the names again."
+     },
+     {
+      "id": "M4.16",
+      "title": "Pilot readiness: the second cloud",
       "done": false,
       "doneOn": null,
       "visible": false,
-      "tryIt": "Mostly behind the scenes (second cloud, billing, legal and security reviews). You may see a subscription page, passkey sign-in, and a signed desktop app."
+      "tryIt": "Behind the scenes: E1 runs from a second cloud account (Google Cloud, EU) from the same images as Azure."
+     },
+     {
+      "id": "M4.17",
+      "title": "Pilot readiness: invoices, payment, and billing",
+      "done": true,
+      "doneOn": "2026-11-08",
+      "visible": false,
+      "tryIt": "Behind the scenes for customers: invoices with gapless numbers and a PDF are made and sent each period, paid by bank transfer or by card through the pay link (Stripe). See the operator console's Billing."
+     },
+     {
+      "id": "M4.18",
+      "title": "Pilot readiness: penetration test, DPA, and sub-processors",
+      "done": false,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "Behind the scenes: an outside penetration test with its findings fixed, and the data processing agreement and sub-processor list on the website."
+     },
+     {
+      "id": "M4.19",
+      "title": "Pilot readiness: signed desktop app that updates itself",
+      "done": true,
+      "doneOn": "2026-11-10",
+      "visible": true,
+      "tryIt": "Install the Mac app from Get E1: macOS opens it without a warning (signed and notarized), and a newer version installs itself. The Windows installer is signed in the build too."
+     },
+     {
+      "id": "M4.20",
+      "title": "Pilot readiness: standards rights and legal review",
+      "done": false,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "Behind the scenes: the rights to the standards behind the content packages and the legal review are recorded."
      }
     ]
    },
    {
     "id": "M5",
     "title": "Library lifecycle",
-    "summary": "Companies edit and publish their own library: classes, attributes, relationship types, and how they behave. Projects see which updates are available and upgrade with a preview. Equipment catalogs with manufacturer data, a symbol designer with SVG import and live attribute labels, and switching and licensing of content packages.",
+    "summary": "Companies edit and publish their own library: classes, attributes, relationship types, and how they behave. Projects see which updates are available and upgrade with a preview. Equipment catalogs with manufacturer data, a symbol designer with SVG import and live attribute labels, units of measurement, switching, licensing, and updates of content packages, specification datasheets (components, cases, templates inspired by ISA 20 and API), and document control's sheet templates, sign-off routes, reports and filing.",
     "mvp": true,
     "stages": [
      {
@@ -607,13 +711,125 @@
       "doneOn": "2026-11-09",
       "visible": true,
       "tryIt": "Configuration → Company library: when E1 ships newer content packages, Updates available lists them per package with what changed. Preview package update, then Update: the project reads the new versions; nothing changes until you take it."
+     },
+     {
+      "id": "29.4",
+      "title": "Sheet templates",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Configuration → Documents: make a sheet template from the ISO or ANSI one with its frame, zones and revision block, and use it on a new 2D space."
+     },
+     {
+      "id": "29.5",
+      "title": "Configurable sign-off routes and audit",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set a sign-off route for a purpose with four-eyes and due days, send a revision through it, and reassign a signer who is away."
+     },
+     {
+      "id": "29.6",
+      "title": "Reports, PDF packages, and filing rules",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Add a list and a few 2D spaces to a report with sections, print it as one PDF package, and see it filed by the project's filing rule."
+     },
+     {
+      "id": "24.2",
+      "title": "Datasheet components: field tables, row lists, column repeaters",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "In the datasheet designer, add a field table, a list of nozzles, and a column per stage of a compressor; edit a value in the datasheet and see it on the object."
+     },
+     {
+      "id": "24.3",
+      "title": "Operating cases on the datasheet",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Add a case on a pump's datasheet: the cells it inherits are marked, typing overrides one, and Reset inherits again."
+     },
+     {
+      "id": "24.4",
+      "title": "Instrument datasheet templates inspired by ISA 20",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open a pressure transmitter's datasheet from the instrument template set and print it with its title block."
+     },
+     {
+      "id": "24.5",
+      "title": "Equipment datasheet templates inspired by API",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open a centrifugal pump's datasheet from the equipment templates, fill it in, and print it."
+     },
+     {
+      "id": "24.6",
+      "title": "The datasheet designer for people",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Copy a standard datasheet template, change it, and later compare it with a newer version of its source and take over the differences."
+     }
+    ]
+   },
+   {
+    "id": "M7",
+    "title": "Piping",
+    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, the pipe schedule (line list), and DEXPI exchange for 3D design tools.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "13.1",
+      "title": "Pipelines and selection",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Draw a pipeline between two boundaries and double-click it: the whole pipeline is selected."
+     },
+     {
+      "id": "13.2",
+      "title": "Completeness and detection",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "See an incomplete pipeline marked, and see pipelines detected from lines that are already drawn. Already live: an off-page connector shows its partner's sheet, and a double-click opens it; here a stored link replaces pairing by name."
+     },
+     {
+      "id": "13.3",
+      "title": "Pipe classes",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Give a line a pipe class and see schedule, material, and rating filled in."
+     },
+     {
+      "id": "13.4",
+      "title": "Pipe schedule (line list)",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open the pipe schedule (line list) of the project as a live table."
+     },
+     {
+      "id": "13.5",
+      "title": "DEXPI exchange and handover",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Export the model as a DEXPI file and import it in a 3D design tool (or import one back)."
      }
     ]
    },
    {
     "id": "M6",
-    "title": "Rules",
-    "summary": "Rule-based engineering without programming: values calculated from other values and from related objects, copy rules that fill values from their source, and check rules that find problems and can block issuing a revision.",
+    "title": "Rules and stored assistants",
+    "summary": "Rule-based engineering without programming: values calculated from other values and from related objects, copy rules that fill values from their source, and check rules that find problems and can block issuing a revision. Built together with stored assistants (owner, 2026-11-09, 00-D13): repeatable procedures saved from Alex's turn or recorded by hand, shared, and run with one click.",
     "mvp": true,
     "stages": [
      {
@@ -663,54 +879,134 @@
       "doneOn": null,
       "visible": true,
       "tryIt": "See rules that come from your organization or a content package applied in a project."
+     },
+     {
+      "id": "18.1",
+      "title": "Stored assistants: save and run",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Save an assistant turn as a stored assistant and run it again with one click."
+     },
+     {
+      "id": "18.2",
+      "title": "Stored assistants: record by hand and repeat",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Record a few manual steps as an assistant and repeat them on other objects."
+     },
+     {
+      "id": "18.3",
+      "title": "Stored assistants: sharing",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Share a stored assistant with colleagues and see them run it."
+     },
+     {
+      "id": "18.4",
+      "title": "Instruction assistants",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Create an assistant from written instructions and run it."
      }
     ]
    },
    {
-    "id": "M7",
-    "title": "Piping",
-    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, the pipe schedule (line list), and DEXPI exchange for 3D design tools.",
+    "id": "M9",
+    "title": "EI&C: wiring and loop diagrams",
+    "summary": "Wiring design without drawing: cabinets, junction boxes, and marshalling panels with rails, cards, channels, and terminals; cables and cores; signals with segregation; wiring typicals; automatic allocation of signals to terminals and channels as a proposal, worked in Panorama EI&C; wire lists and marker export; loop diagrams generated from the real wiring; fieldbus segments. Added by the owner on 2026-11-10 (00-D14): 28.1 and 28.2 run alongside piping, the rest after the rules, all before branches.",
     "mvp": true,
     "stages": [
      {
-      "id": "13.1",
-      "title": "Pipelines and selection",
+      "id": "28.1",
+      "title": "Physical layer: cabinets, cards, terminals, cables, and cores",
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "Draw a pipeline between two boundaries and double-click it: the whole pipeline is selected."
+      "tryIt": "Create a junction box with a terminal strip and a multicore cable, connect a transmitter's cores to its terminals, and see the wire list."
      },
      {
-      "id": "13.2",
-      "title": "Completeness and detection",
+      "id": "28.2",
+      "title": "Loop diagrams with terminals",
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "See an incomplete pipeline marked, and see pipelines detected from lines that are already drawn. Already live: an off-page connector shows its partner's sheet, and a double-click opens it; here a stored link replaces pairing by name."
+      "tryIt": "Generate a loop diagram for a loop: it follows the circuit through the field, the junction box, the cable and the cabinet terminals to the control system channel."
      },
      {
-      "id": "13.3",
-      "title": "Pipe classes",
+      "id": "28.3",
+      "title": "Signals and wiring typicals",
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "Give a line a pipe class and see schedule, material, and rating filled in."
+      "tryIt": "Give a transmitter its signal and choose a wiring typical with its options: the terminals, cores and channel it needs are created with names from the tag rules."
      },
      {
-      "id": "13.4",
-      "title": "Pipe schedule (line list)",
+      "id": "28.4",
+      "title": "Allocation and Panorama EI&C",
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "Open the pipe schedule (line list) of the project as a live table."
+      "tryIt": "Run the allocation: E1 proposes terminals and channels for every open signal by the segregation rules and the spares; review it in Panorama EI&C and Apply."
      },
      {
-      "id": "13.5",
-      "title": "DEXPI exchange and handover",
+      "id": "28.5",
+      "title": "Capacity, cabinet heat, and exchange with the control system",
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "Export the model as a DEXPI file and import it in a 3D design tool (or import one back)."
+      "tryIt": "See each cabinet's capacity and heat balance, export the I/O list for the control-system vendor and import it back, and export markers and ferrules."
+     },
+     {
+      "id": "28.6",
+      "title": "Fieldbus segments",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Place fieldbus devices on a segment from a segment typical: the segment rules are checked, and the segment shows in Panorama EI&C and on the loop diagram."
+     }
+    ]
+   },
+   {
+    "id": "D13",
+    "title": "Modular P&ID design, cause and effect, alarms",
+    "summary": "Ordered by the owner on 2026-11-09 (00-D13) and still to be designed: modules placed on P&IDs and kept in step with their source; cause-and-effect design with interlock and shutdown logic; safety instrumented functions; and alarm management, which alarms each plant context shows or hides. Each gets its concept, design, and stages before it is built.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "MOD",
+      "title": "Modular P&ID design: modules placed and kept in step",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Place a module (for example a pump skid) on a P&ID, change the module once, and see every placement offered the update."
+     },
+     {
+      "id": "CE",
+      "title": "Cause and effect: interlocks and shutdown logic",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open the cause-and-effect matrix of a unit: each trip lists its causes and effects, and the interlock narrative and shutdown logic come from the same data."
+     },
+     {
+      "id": "SIF",
+      "title": "Safety instrumented functions",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Define a safety instrumented function with its sensors, logic, and final elements and its required SIL, and see it on the cause-and-effect matrix."
+     },
+     {
+      "id": "ALM",
+      "title": "Alarm management",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set an alarm's priority and limits, and see which alarms each plant context (start-up, normal, shutdown) shows or hides."
      }
     ]
    },
@@ -828,8 +1124,8 @@
    },
    {
     "id": "P",
-    "title": "In parallel: integration API, stored assistants, company sign-on, chat modes",
-    "summary": "Built alongside the milestones once the platform exists. An open, versioned integration API with access tokens, change feed, webhooks, and bulk import and export jobs. Stored assistants: repeatable procedures saved from an assistant turn or from manual work, run with one click. Company single sign-on, directory sync, and the remaining access features.",
+    "title": "In parallel: integration API, company sign-on, access, chat modes",
+    "summary": "Built alongside the milestones once the platform exists. An open, versioned integration API kept small by the owner (2026-11-10): access tokens and service accounts, reading objects with their attributes and writing attributes back, external ids, the change feed and webhooks. Company single sign-on and directory sync, discipline permissions and four-eyes approval, and stored assistants in content packages and from the API.",
     "mvp": true,
     "stages": [
      {
@@ -857,46 +1153,6 @@
       "tryIt": "File → Organization… → Webhooks: create one for your receiver (https://…), change an object, and see the signed delivery under Deliveries…. With a token: GET /api/v1/projects/<project>/changes?since=<cursor> returns what changed since you last read."
      },
      {
-      "id": "19.4",
-      "title": "Connections and mappings to other systems",
-      "done": false,
-      "doneOn": null,
-      "visible": false,
-      "tryIt": "Set up a connection to another system with a field mapping and run it."
-     },
-     {
-      "id": "18.1",
-      "title": "Stored assistants: save and run",
-      "done": false,
-      "doneOn": null,
-      "visible": true,
-      "tryIt": "Save an assistant turn as a stored assistant and run it again with one click."
-     },
-     {
-      "id": "18.2",
-      "title": "Stored assistants: record by hand and repeat",
-      "done": false,
-      "doneOn": null,
-      "visible": true,
-      "tryIt": "Record a few manual steps as an assistant and repeat them on other objects."
-     },
-     {
-      "id": "18.3",
-      "title": "Stored assistants: sharing",
-      "done": false,
-      "doneOn": null,
-      "visible": true,
-      "tryIt": "Share a stored assistant with colleagues and see them run it."
-     },
-     {
-      "id": "18.4",
-      "title": "Instruction assistants",
-      "done": false,
-      "doneOn": null,
-      "visible": true,
-      "tryIt": "Create an assistant from written instructions and run it."
-     },
-     {
       "id": "18.5",
       "title": "Assistants in content packages and from the API",
       "done": false,
@@ -914,11 +1170,11 @@
      },
      {
       "id": "09.5",
-      "title": "Tokens, service accounts, and agents",
-      "done": false,
-      "doneOn": null,
+      "title": "Access tokens and service accounts",
+      "done": true,
+      "doneOn": "2026-11-09",
       "visible": true,
-      "tryIt": "Create a service account or agent token in settings and see it listed with its access."
+      "tryIt": "Account → Access tokens: create a token, see it shown once and then listed with its access and last use. File → Organization… → Service accounts: create one for another system and give it a token."
      },
      {
       "id": "09.6",
@@ -947,9 +1203,89 @@
     ]
    },
    {
+    "id": "iPad",
+    "title": "E1 Reviewer for iPad",
+    "summary": "E1's iPad app for reviewing away from the desk (Lanxtor/E1iPad, design 27), served by E1 at /reviewer/: search, a dashboard of cards, projects and their 2D spaces, an object's attributes, history, chat and files, photos and voice notes, redlines, tasks and checklists, and Alex in Ask mode. It obeys the same roles and edits no drawings. Not counted in the MVP progress.",
+    "mvp": false,
+    "stages": [
+     {
+      "id": "27.1",
+      "title": "Sign-in, dashboard, projects, and search",
+      "done": true,
+      "doneOn": "2026-11-09",
+      "visible": true,
+      "tryIt": "On an iPad open https://app.lanxtor.com/reviewer/ in Safari, sign in, and Share → Add to Home Screen; arrange the dashboard cards and project tiles, and search for a tag."
+     },
+     {
+      "id": "27.2",
+      "title": "2D spaces and the object page",
+      "done": true,
+      "doneOn": "2026-11-09",
+      "visible": true,
+      "tryIt": "Open a project's 2D space, pinch to zoom, tap a pump: its page shows attributes, history, chat and attachments, with previews of the 2D spaces it is on."
+     },
+     {
+      "id": "27.3",
+      "title": "Redlines, photos, voice notes, tasks, and checklists",
+      "done": true,
+      "doneOn": "2026-11-09",
+      "visible": true,
+      "tryIt": "Choose Redline and draw a cloud on a 2D space; add a photo and a voice note to an object; under For me, tick a checklist item of a task assigned to you."
+     },
+     {
+      "id": "27.4",
+      "title": "Alex in the reviewer",
+      "done": true,
+      "doneOn": "2026-11-09",
+      "visible": true,
+      "tryIt": "Open Alex in the reviewer: it starts in Ask mode; ask about the open project by typing or with the microphone, and nothing changes in the project."
+     },
+     {
+      "id": "27.5",
+      "title": "Live refresh",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Keep a 2D space open on the iPad while a colleague changes it in E1: the change appears without opening it again."
+     },
+     {
+      "id": "27.6",
+      "title": "Mentions, links, and checklists in E1",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Mention a colleague and link a tag in a chat message on the iPad; see the checklists of a task in E1's own task view, and rename or remove an item."
+     },
+     {
+      "id": "27.7",
+      "title": "Review rounds, replies, and stamps with E1's redlining",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Submit the iPad's redlines in a review round: they show on E1's 2D space, the engineer replies and sets their status, and the iPad shows it."
+     },
+     {
+      "id": "27.8",
+      "title": "Native sign-in and use on a real iPad",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Sign in on an iPad without the extra question before returning to the app, and use the camera and the microphone on the device."
+     },
+     {
+      "id": "27.9",
+      "title": "Offline use",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open a project, go offline in a walk-down, add redlines and notes: they are kept and sent when the connection is back."
+     }
+    ]
+   },
+   {
     "id": "after",
     "title": "After the MVP",
-    "summary": "Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat.",
+    "summary": "Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat; markups as PDF annotations and field walkdowns; hook-up drawings (not designed yet).",
     "mvp": false,
     "stages": [
      {
@@ -999,6 +1335,30 @@
       "doneOn": "2026-11-02",
       "visible": true,
       "tryIt": "Press the microphone in the chat, speak, press it again: the text appears in the composer to edit before you send it."
+     },
+     {
+      "id": "19.4",
+      "title": "Connections and mappings to other systems (dropped from the MVP, I-D16)",
+      "done": false,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "Not planned for now: a customer's own script or middleware maps and schedules through the API. Set up a connection with a field mapping and run it."
+     },
+     {
+      "id": "23.5",
+      "title": "Markups as PDF annotations, and field walkdowns",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Export a marked-up print with real PDF annotations, import a client's annotated PDF back as markups, and mark up in the field."
+     },
+     {
+      "id": "HU",
+      "title": "Hook-up drawings, impulse lines, and installation details (not designed yet)",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Not designed yet: generate an instrument's hook-up drawing with its impulse lines and installation material from the model."
      }
     ]
    },
