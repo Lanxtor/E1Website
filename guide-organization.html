@@ -67,7 +67,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>22 features</span><span>18 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>22 features</span><span>19 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -541,19 +541,25 @@
 
 <section class="g-feature" id="org-responsibility">
   <h2>Assign to…: objects a person or group is responsible for</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span>Updated 2026-11-09</span><span class="g-id">ORG-responsibility</span><span>Roadmap 09.6r</span></div>
-  <p class="g-summary">You will be able to make a person or group responsible for objects, folders, 2D spaces or sections. Others then see those objects as read-only, with the reason and a way to ask the responsible person.</p>
-  <div class="g-dev">
-    <p>Being built now (work order of 2026-11-07). Labels are the planned ones.</p>
-  </div>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Right-click an object, folder, 2D space or section: <em>Assign to…</em>, <em>Take responsibility</em>, <em>Release</em>.</li>
-    <li>See a badge with the person's initials or a group icon in the explorer, and "Responsible: …" in the object window.</li>
-    <li>As someone else, find those objects read-only with the reason "X is responsible for this object" and an <em>Ask X</em> button. Moving or connecting a line to a protected object is refused.</li>
-    <li>Add a <em>Responsible</em> column to a list and filter it by <em>Assigned to me</em>.</li>
-    <li>As an Engineer, take an object nobody is responsible for. A Project administrator reassigns an object before editing it.</li>
-  </ul>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-responsibility</span><span>Roadmap 09.6r</span><span>Review checks N5</span></div>
+  <p class="g-summary">Make one person or one group responsible for an object, a folder, a sheet or a whole section. Only they then change it and everything in it: its values, name and tag, moving it, deleting it, placing it on a sheet, and relationships to it. Everyone else still sees it and comments on it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An object's page: <span class="ui">Responsible</span> with <span class="ui">Take it</span>, <span class="ui">Assign to…</span> and <span class="ui">Release</span>; <span class="ui">Project settings → Access → Responsibilities</span></dd>
+    <dt>Who</dt><dd>Anyone who may edit an object takes one nobody is responsible for. Assigning to someone else, reassigning and releasing someone else's need Assign responsibility (Lead engineer, Project administrator). The responsible person or group always releases their own.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a pump's page and click <span class="ui">Take it</span> beside <span class="ui">Responsible</span>.</td><td><em>Responsible: &lt;you&gt;</em>. A colleague who changes its flow rate, renames it, moves it or relates something to it is refused: "&lt;you&gt; is responsible for P-101: ask them to change it, or to release it."</td></tr>
+      <tr><td>2</td><td>As a Lead engineer, open an object of the section <em>Assets</em>, choose <span class="ui">Assign to…</span> and pick a group, for example <em>Mechanical (group)</em>.</td><td>Everyone in the group may change that object; others are refused with the group's name.</td></tr>
+      <tr><td>3</td><td>Open <span class="ui">Project settings → Access</span>.</td><td><span class="ui">Responsibilities</span> lists each assigned object with the person or group and the date, with <span class="ui">Release</span>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Release</span>.</td><td>Others may change it again (or the folder's or section's responsible, if one above has one).</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The nearest assignment wins: an object assigned to Anna inside a section assigned to a group is Anna's. A responsibility never gives anyone a permission they do not have, and a Project administrator is not exempt: they reassign or release first. The same rule holds for Alex, imports and the API.</p>
+  <p class="g-warn">Not built yet: Assign to… in the explorer's right-click menu, the badge in the explorer, a Responsible column in lists, and an Ask button on the refusal.</p>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-drawing-roles">Roles on a drawing</a> · <a href="guide-lists.html#list-new-query">Lists</a></p>
 </section>
 
