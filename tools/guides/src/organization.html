@@ -311,8 +311,37 @@
       <tr><td>3</td><td>In a project's <span class="ui">Members</span> dialog, open <span class="ui">Person or group</span>.</td><td><em>Process team (group)</em> can be chosen and given a role.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Groups inside groups exist in E1, but the dialog only ticks people.</p>
-  <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-custom-roles">Custom roles</a></p>
+  <p class="g-note">Groups inside groups exist in E1, but the dialog only ticks people. The built-in groups <span class="ui">Reviewers</span> and <span class="ui">Viewers</span> are always listed first; see <a href="#org-visibility">Who sees what</a>.</p>
+  <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-custom-roles">Custom roles</a> · <a href="#org-visibility">Who sees what</a></p>
+</section>
+
+<section class="g-feature" id="org-visibility">
+  <h2>Who sees what: reviewers and viewers</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-visibility</span><span>Review checks N4</span></div>
+  <p class="g-summary">Editors see everything. Reviewers and viewers (often people outside your company: the client, a contractor, an inspector) see what you leave open to them. Everything is open until you hide it: a whole project, or one attribute on a class or on one object.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Access → Groups</span>; <span class="ui">Project settings → Access → Visible to</span>; <span class="ui">Configuration → Object classes</span> → a class → <span class="ui">Attributes</span>; right-click an attribute row on an object's page</dd>
+    <dt>Who</dt><dd>Owners and Administrators set the groups, a project's <span class="ui">Visible to</span> and a class's attributes; an editor who may edit an object's attributes hides one on that object.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud).</dd>
+  </dl>
+  <h3>Who counts as a reviewer or a viewer</h3>
+  <ul>
+    <li>A person with a <strong>Reviewer license</strong> is in the built-in group <span class="ui">Reviewers</span>, one with a <strong>Viewer license</strong> in <span class="ui">Viewers</span>. They are ticked there and cannot be unticked; a license change moves them at once.</li>
+    <li>Tick anyone else in <span class="ui">Reviewers</span> or <span class="ui">Viewers</span> (for example a contractor with an Editor license): they then see only what that group sees. It never works the other way: a viewer put in Reviewers still sees what viewers see.</li>
+    <li>What someone may <em>do</em> still comes from their license and roles; this decides only what they <em>see</em>.</li>
+  </ul>
+  <h3>Hide a project or an attribute</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open the project's settings, <span class="ui">Access</span>, and set <span class="ui">Visible to</span> to <span class="ui">Editors and reviewers</span>.</td><td>Viewers no longer see the project at all, whatever role they hold in it. <span class="ui">Everyone</span> (the default) shows it again.</td></tr>
+      <tr><td>2</td><td><span class="ui">Configuration → Object classes</span> → <em>Centrifugal pump</em> → <span class="ui">Attributes</span>: right-click <em>Flow rate</em> and choose <span class="ui">Editors only</span>.</td><td>Its <span class="ui">Visible to</span> reads <em>Editors only</em>. Reviewers and viewers no longer see the flow rate of any pump in this project (subclasses included).</td></tr>
+      <tr><td>3</td><td>On one pump's page, right-click the <em>Material</em> row and choose <span class="ui">Hide from viewers</span>.</td><td>The row shows <em>Hidden from viewers</em> to editors; viewers no longer see that pump's material, other pumps are unchanged. <span class="ui">Show as on the class</span> undoes it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">An object can only hide more than its class, never show what the class hides. Hidden values are left out on the server, so they are missing everywhere for that circle: the object page, lists and their Excel exports, datasheets and their PDFs, history, Alex's context and the API. A change a reviewer makes never removes a value they could not see.</p>
+  <p class="g-warn">Not built yet: the same setting in the company library (it is per project now), Note: a list that filters, sorts or totals by an attribute hidden from them ignores that filter, sort or total for them, so it reveals nothing.</p>
+  <p class="g-related">Related: <a href="#org-groups">Groups</a> · <a href="#org-project-members">Project members and roles</a></p>
 </section>
 
 <section class="g-feature" id="org-audit">
