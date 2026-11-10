@@ -494,7 +494,7 @@
 <section class="g-feature" id="org-tokens">
   <h2>Tokens, service accounts and agents</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-09</span><span class="g-id">ORG-tokens</span><span>Roadmap 09.5, 19.1, 19.2</span><span>Review checks N1, N2</span></div>
-  <p class="g-summary">Scripts and other systems (an ERP, a procurement tool, an AI agent) use E1 through the API at <code>/api/v1</code>, with an access token: every command, and objects as records, found by E1's id or by the other system's. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
+  <p class="g-summary">Other systems (SAP or another ERP, a simulation tool, your own scripts) read objects with their attributes out of E1 and write attributes back, through the API at <code>/api/v1</code> with an access token, by E1's id or by their own. The API does only that: drawing, deleting, the library and administration stay in E1. A personal token acts as you, never with more than you may do. A service account is an account for another system: it gets roles like a person and its own tokens, and its changes carry its name in History.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Account → <span class="ui">Access tokens</span>; <span class="ui">File → Organization… → Service accounts</span></dd>
     <dt>Who</dt><dd>Everyone makes their own tokens; Owners and Administrators manage service accounts. Creating either needs a recent sign-in (your passkey).</dd>
@@ -506,7 +506,7 @@
     <tbody>
       <tr><td>1</td><td>Open your Account and go to <span class="ui">Access tokens</span>.</td><td>Your tokens: name, the first characters, what each may do (everything you may do, or read only), expiry and last use.</td></tr>
       <tr><td>2</td><td>Type a name, for example "My scripts", choose how long it lasts (30 days to a year), tick <span class="ui">Read only</span> if it only reads, and click <span class="ui">Create token</span>.</td><td>The token is shown once, with <span class="ui">Copy</span>: "Copy the token now. E1 does not show it again." E1 keeps only a fingerprint of it.</td></tr>
-      <tr><td>3</td><td>Use it: <code>Authorization: Bearer e1_pat_…</code> on <code>https://app.lanxtor.com/api/v1/commands/&lt;command&gt;</code>.</td><td>The command runs as you, through the same checks as in E1. <code>/api/v1/openapi.json</code> describes every command.</td></tr>
+      <tr><td>3</td><td>Use it: <code>Authorization: Bearer e1_pat_…</code> on <code>https://app.lanxtor.com/api/v1/projects/&lt;project&gt;/objects</code>.</td><td>The objects you may see, through the same checks as in E1. <code>/api/v1/openapi.json</code> describes every route.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Revoke</span> on a token you no longer use.</td><td>Calls with it are refused at once.</td></tr>
     </tbody>
   </table></div>
@@ -522,19 +522,17 @@
   </table></div>
   <h3>Calling the API</h3>
   <ul>
-    <li><strong>Dry run:</strong> <code>{"input": {…}, "options": {"dryRun": true}}</code> returns what would change, and changes nothing.</li>
     <li><strong>Idempotency:</strong> send <code>Idempotency-Key</code>: a repeated call returns the first answer and changes nothing again (kept 24 hours).</li>
-    <li><strong>One undo:</strong> <code>"options": {"group": "…"}</code> joins calls into one entry in History.</li>
     <li><strong>Errors:</strong> 401 no valid token; 403 not allowed (the missing permission, or the token is read only or for other projects); 400 invalid input; 404 unknown; 409 changed meanwhile, or a key reused for another request; 422 a rule of the model; 429 too many calls (600 a minute per token).</li>
   </ul>
   <p class="g-note">A token never carries an Owner or Administrator role: administration is done signed in. Tokens and service accounts are never made with a token, and Alex never makes them. Every creation, revocation and first use from a new address is in the audit; every API call is in the API access log.</p>
   <h3>Records and other systems' ids</h3>
   <ul>
     <li><strong>Read:</strong> <code>GET /projects</code>, <code>/projects/{id}/objects?class=…</code>, <code>/objects/{id}?include=occurrences,relationships</code> (the object with its <code>rev</code>, its values with units and comments, its catalog source and its ids in other systems), <code>/objects/{id}/relationships</code>, and the rows of a saved query: <code>/projects/{id}/queries/{key}</code>.</li>
-    <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes); <code>POST /relationships</code>, <code>DELETE /relationships/{id}</code>.</li>
+    <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes). Relationships are read, not written.</li>
     <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them under "In other systems".</li>
   </ul>
-  <p class="g-warn">Not built yet: connections to other systems, sign-in of remote MCP agents with OAuth, and address ranges in the token form (the API takes them).</p>
+  <p class="g-warn">Not in the API on purpose: drawing, deleting, relationships, the library and administration (use E1 itself), and mapping or scheduling (your script or middleware does that). Not built yet: address ranges in the token form (the API takes them).</p>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-webhooks">Webhooks and the change feed</a> · <a href="#org-sso">Company single sign-on</a></p>
 </section>
 
