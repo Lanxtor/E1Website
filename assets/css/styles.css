@@ -3522,3 +3522,27 @@ code {
 /* The menu bar is added by main.js after the page is drawn: keep its room
    from the start, so the page does not jump down when it appears. */
 #site-header { display: block; height: var(--header-h); }
+
+/* Meet Alex: four modes in two rows; the E1 Guide card; a clearer "or" */
+.alex-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.alex-mode-guide { --c: var(--c-orange); }
+.am-bar { display: flex; gap: 6px; align-self: flex-start; padding: 5px; border-radius: 8px; background: #fff; box-shadow: 0 2px 6px -3px rgba(11, 42, 74, 0.35); opacity: 1 !important; animation: none !important; }
+.am-bar i { width: 18px; height: 18px; border-radius: 5px; background: #e8ebef; }
+.am-bar .am-hot1 { animation: am-hot1 9s var(--ease) infinite; }
+.am-bar .am-hot2 { animation: am-hot2 9s var(--ease) infinite; }
+@keyframes am-hot1 { 0%, 6% { box-shadow: none; background: #e8ebef; } 10%, 44% { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--c-orange); background: color-mix(in srgb, var(--c-orange) 25%, #fff); } 48%, 100% { box-shadow: none; background: #e8ebef; } }
+@keyframes am-hot2 { 0%, 50% { box-shadow: none; background: #e8ebef; } 54%, 88% { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--c-orange); background: color-mix(in srgb, var(--c-orange) 25%, #fff); } 92%, 100% { box-shadow: none; background: #e8ebef; } }
+.am-tip { position: absolute; top: 46px; max-width: 72%; padding: 7px 10px; border-radius: 9px; background: var(--navy); color: #fff; box-shadow: 0 8px 18px -10px rgba(11, 42, 74, 0.7); }
+.am-tip::before { content: ""; position: absolute; top: -5px; width: 10px; height: 10px; background: var(--navy); transform: rotate(45deg); }
+.am-tip1 { left: 30px; animation-name: am-tip1; } .am-tip1::before { left: 12px; }
+.am-tip2 { left: 74px; animation-name: am-tip2; } .am-tip2::before { left: 12px; }
+@keyframes am-tip1 { 0%, 8% { opacity: 0; transform: translateY(4px); } 12%, 44% { opacity: 1; transform: none; } 48%, 100% { opacity: 0; } }
+@keyframes am-tip2 { 0%, 52% { opacity: 0; transform: translateY(4px); } 56%, 88% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; } }
+.am-next { position: absolute; right: 12px; bottom: 12px; padding: 3px 12px; border-radius: 99px; background: var(--c-orange); color: #fff; font-weight: 600; animation-name: am-next; }
+@keyframes am-next { 0%, 14% { opacity: 0; } 18%, 88% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .am-tip2, .am-bar i { animation: none; } .am-tip2 { display: none; } }
+
+.alex-or { margin: 38px 0 24px; gap: 18px; color: var(--heading); font-size: 0.95rem; letter-spacing: 0.16em; }
+.alex-or span { padding: 6px 18px; border: 1.5px solid var(--brand); border-radius: 99px; background: #fff; color: var(--brand); box-shadow: 0 6px 14px -10px rgba(21, 101, 192, 0.6); }
+.alex-or::before, .alex-or::after { height: 2px; background: linear-gradient(90deg, transparent, var(--brand-edge) 30%, var(--brand) 100%); }
+.alex-or::after { background: linear-gradient(90deg, var(--brand) 0%, var(--brand-edge) 70%, transparent); }
