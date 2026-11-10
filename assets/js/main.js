@@ -226,6 +226,7 @@
       '<a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a>" +
       '<a href="' + H("privacy.html#cookies") + '" data-cookie-settings>' + T("Cookies") + "</a>" +
       '<a href="' + H("terms.html") + '">' + T("Terms of use") + "</a>" +
+      '<a href="' + H("security.html") + '">' + T("Security") + "</a>" +
       "</nav></div>" +
       "</div>" +
       "</footer>";
