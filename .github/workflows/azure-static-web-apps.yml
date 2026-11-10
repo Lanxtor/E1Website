@@ -85,7 +85,7 @@ jobs:
       - name: Public site shows the coming-soon page (SITE_MODE is not "live")
         if: env.TOKEN != '' && github.event_name != 'pull_request' && env.SITE_MODE != 'live'
         run: |
-          jq '.routes = [{"route": "/assets/*", "allowedRoles": ["anonymous"]}, {"route": "/version.json", "allowedRoles": ["anonymous"], "headers": {"Cache-Control": "no-store"}}, {"route": "/*", "rewrite": "/coming-soon.html"}] | del(.responseOverrides)' staticwebapp.config.json > config.tmp
+          jq '.routes = [{"route": "/assets/*", "allowedRoles": ["anonymous"]}, {"route": "/.well-known/*", "allowedRoles": ["anonymous"], "headers": {"Content-Type": "text/plain; charset=utf-8"}}, {"route": "/version.json", "allowedRoles": ["anonymous"], "headers": {"Cache-Control": "no-store"}}, {"route": "/*", "rewrite": "/coming-soon.html"}] | del(.responseOverrides)' staticwebapp.config.json > config.tmp
           mv config.tmp staticwebapp.config.json
           echo "::notice::lanxtor.com shows the coming-soon page. Set the repository variable SITE_MODE to live to publish the full site."
 

@@ -38,7 +38,7 @@ HERE = os.path.join(ROOT, "tools", "i18n")
 
 PAGES = ["index.html", "solutions.html", "academy.html", "download.html", "cloud-specifications.html",
          "about.html", "contact-sales.html", "shape-e1.html",
-         "legal.html", "privacy.html", "terms.html"]
+         "legal.html", "privacy.html", "terms.html", "security.html"]
 LANGS = {"de": "de", "fr": "fr", "es": "es", "no": "nb"}  # folder: html lang
 SITE = "https://www.lanxtor.com"
 
