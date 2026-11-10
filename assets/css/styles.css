@@ -3170,3 +3170,117 @@ code {
 .contact-support .contact-more { color: #fff; }
 .contact-support .cv-msg .bubble-me { background: var(--c-teal); }
 .contact-support .cv-guide { color: var(--c-teal); border-color: rgba(15, 138, 120, 0.3); }
+
+/* ==========================================================================
+   Home hero experiment: the E1 orbit (assets/js/orbit.js).
+   .hero[data-hero="orbit"] shows the orbit, [data-hero="clip"] the video.
+   ========================================================================== */
+.hero[data-hero="orbit"] .hero-media { display: none; }
+.hero:not([data-hero="orbit"]) .hero-orbit { display: none; }
+.hero[data-hero="orbit"] { padding-bottom: 40px; }
+
+/* Headline: the words rise in one after another, the end in moving ink */
+[data-hero-title].is-split .hw { display: inline-block; opacity: 0; transform: translateY(0.35em); filter: blur(6px); animation: hw-in 0.8s var(--ease) forwards; animation-delay: calc(0.15s + var(--i) * 0.09s); }
+[data-hero-title].is-split .hw-ink { background: linear-gradient(100deg, var(--brand) 0%, var(--c-teal) 35%, var(--brand) 60%, var(--navy-glow) 100%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: hw-in 0.8s var(--ease) forwards, hw-ink 7s ease-in-out 1.2s infinite alternate; animation-delay: calc(0.15s + var(--i) * 0.09s), 1.2s; padding-bottom: 0.08em; }
+@keyframes hw-in { to { opacity: 1; transform: none; filter: none; } }
+@keyframes hw-ink { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+
+.hero-orbit { position: relative; width: 100%; max-width: 1240px; height: clamp(460px, 52vw, 700px); margin: 40px auto 0; }
+.orbit-rings { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.orbit-rings .ring { fill: none; stroke: rgba(11, 42, 74, 0.10); stroke-width: 1; }
+.orbit-rings .ring-main { stroke: rgba(21, 101, 192, 0.28); stroke-width: 1.4; }
+.orbit-rings .ring-dash { stroke-dasharray: 3 7; }
+.orbit-lines line { stroke: rgba(21, 101, 192, 0.12); stroke-width: 1; stroke-dasharray: 2 5; transition: stroke 0.3s; }
+.orbit-lines line.is-live { stroke: rgba(21, 101, 192, 0.55); stroke-width: 1.6; }
+.orbit-packets .packet { fill: var(--brand); filter: drop-shadow(0 0 6px rgba(21, 101, 192, 0.8)); }
+.orbit-packets .packet-in { fill: #f08c2e; filter: drop-shadow(0 0 6px rgba(240, 140, 46, 0.85)); }
+
+/* The model in the middle */
+.orbit-core { position: absolute; left: 50%; top: 50%; z-index: 120; display: grid; justify-items: center; gap: 2px; width: 196px; padding: 22px 16px 18px; border-radius: 30px; transform: translate(-50%, -50%); color: #fff; text-align: center;
+  background: radial-gradient(120% 90% at 50% 0%, var(--navy-glow), transparent 70%), linear-gradient(170deg, var(--navy), var(--navy-deep));
+  box-shadow: 0 30px 60px -24px rgba(11, 42, 74, 0.7), 0 0 0 10px rgba(21, 101, 192, 0.06), 0 0 0 22px rgba(21, 101, 192, 0.04); }
+.orbit-core::after { content: ""; position: absolute; inset: -2px; border-radius: inherit; box-shadow: 0 0 0 0 rgba(240, 140, 46, 0.55); pointer-events: none; }
+.orbit-core.is-taking::after { animation: core-take 1s var(--ease); }
+@keyframes core-take { from { box-shadow: 0 0 0 0 rgba(240, 140, 46, 0.6); } to { box-shadow: 0 0 0 34px rgba(240, 140, 46, 0); } }
+.orbit-core-mark svg { width: 54px; height: 54px; margin-bottom: 10px; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35)); }
+.orbit-core-mark rect { fill: #fff; }
+.orbit-core-mark path { stroke: var(--navy); }
+.orbit-core-name { font-family: "Sora", var(--font); font-size: 1.12rem; letter-spacing: 0.08em; }
+.orbit-core-sub { font-size: 0.86rem; color: var(--on-navy-muted); }
+.orbit-core-say { margin-top: 10px; padding: 4px 10px; border-radius: 99px; background: rgba(255, 255, 255, 0.1); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #ffd4a8; }
+
+/* The disciplines: app-icon tiles in the E1 object colours */
+.orbit-nodes { position: absolute; inset: 0; }
+.orbit-node { position: absolute; left: 0; top: 0; display: grid; justify-items: center; gap: 8px; width: 128px; will-change: transform; }
+.hero-orbit:not(.is-on) .orbit-node { opacity: 0; }
+.orbit-node { --c: var(--brand); }
+.orbit-node[data-node="feed"] { --c: var(--c-rose); }
+.orbit-node[data-node="process"] { --c: var(--c-teal); }
+.orbit-node[data-node="instrumentation"] { --c: var(--brand); }
+.orbit-node[data-node="electrical"] { --c: #c98a06; }
+.orbit-node[data-node="automation"] { --c: var(--c-violet); }
+.orbit-node[data-node="maintenance"] { --c: var(--c-orange); }
+.orbit-node[data-node="modifications"] { --c: var(--c-green); }
+.orbit-node[data-node="reviewers"] { --c: #0f6e8a; }
+.orbit-node[data-node="viewers"] { --c: #5c6673; }
+.orbit-node[data-node="alex"] { --c: #b07a2a; }
+.orbit-icon { display: grid; place-items: center; width: 76px; height: 76px; overflow: hidden; border-radius: 22px; color: #fff;
+  background: radial-gradient(120% 100% at 30% 0%, color-mix(in srgb, var(--c) 55%, #fff), var(--c) 60%, color-mix(in srgb, var(--c) 70%, #000));
+  box-shadow: 0 18px 34px -16px color-mix(in srgb, var(--c) 80%, #000), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  animation: node-bob 6s ease-in-out infinite; transition: box-shadow 0.3s; }
+.orbit-node:nth-child(odd) .orbit-icon { animation-duration: 7.2s; animation-delay: -2s; }
+.orbit-node:nth-child(3n) .orbit-icon { animation-delay: -4s; }
+.orbit-icon svg { width: 38px; height: 38px; }
+.orbit-node[data-node="alex"] .orbit-icon { background: #f8f3e9; }
+.orbit-icon img { width: 100%; height: 100%; object-fit: cover; }
+@keyframes node-bob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
+.orbit-label { padding: 2px 10px; border-radius: 99px; background: rgba(255, 255, 255, 0.85); font-size: 0.86rem; font-weight: 600; color: var(--heading); white-space: nowrap; }
+.orbit-node.is-updated .orbit-icon { box-shadow: 0 0 0 4px #fff, 0 0 0 7px color-mix(in srgb, var(--brand) 45%, transparent), 0 18px 34px -16px color-mix(in srgb, var(--c) 80%, #000); }
+.orbit-node.is-saying .orbit-icon { box-shadow: 0 0 0 4px #fff, 0 0 0 8px #f08c2e, 0 22px 40px -14px color-mix(in srgb, var(--c) 80%, #000); }
+
+/* What the discipline just did, in a speech bubble above it */
+.orbit-say { position: absolute; bottom: calc(100% - 4px); left: 50%; width: max-content; max-width: 210px; padding: 7px 12px; border-radius: 12px 12px 12px 4px; background: #fff; border: 1px solid var(--line); box-shadow: 0 14px 30px -16px rgba(11, 42, 74, 0.5); font-size: 0.8rem; font-weight: 500; line-height: 1.35; color: var(--text); opacity: 0; transform: translate(-20%, 6px) scale(0.96); transform-origin: bottom left; pointer-events: none; transition: opacity 0.3s, transform 0.4s var(--ease); }
+.orbit-node.is-saying .orbit-say { opacity: 1; transform: translate(-20%, 0) scale(1); }
+.orbit-node.is-saying { z-index: 130 !important; }
+
+@media (max-width: 900px) {
+  .orbit-node { width: 96px; gap: 6px; }
+  .orbit-icon { width: 58px; height: 58px; border-radius: 17px; }
+  .orbit-icon svg { width: 30px; height: 30px; }
+  .orbit-label { font-size: 0.76rem; padding: 1px 8px; }
+  .orbit-core { width: 156px; padding: 16px 12px 14px; border-radius: 24px; }
+  .orbit-core-mark svg { width: 42px; height: 42px; margin-bottom: 6px; }
+  .orbit-core-name { font-size: 0.98rem; }
+}
+@media (max-width: 640px) {
+  .hero-orbit { height: 520px; margin-top: 24px; }
+  .orbit-node { width: 76px; }
+  .orbit-icon { width: 46px; height: 46px; border-radius: 14px; }
+  .orbit-icon svg { width: 24px; height: 24px; }
+  .orbit-label { font-size: 0.68rem; }
+  .orbit-core { width: 130px; }
+  .orbit-core-say { font-size: 0.6rem; }
+  .orbit-say { max-width: 160px; font-size: 0.72rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-icon { animation: none; }
+}
+.hero-orbit::before { content: ""; position: absolute; inset: -4% -6%; z-index: 0; pointer-events: none; background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.97) 55%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 0) 100%); }
+.orbit-core-say { white-space: nowrap; }
+.orbit-core { width: auto; min-width: 196px; padding-left: 22px; padding-right: 22px; }
+@media (max-width: 900px) { .orbit-core { min-width: 150px; padding-left: 14px; padding-right: 14px; } }
+@media (max-width: 640px) { .orbit-core { min-width: 0; } .orbit-core-say { white-space: normal; } }
+.orbit-caption { display: none; }
+@media (max-width: 640px) {
+  .hero-orbit { height: 600px; }
+  .orbit-say { display: none; }
+  .orbit-core { padding: 14px 12px 12px; border-radius: 20px; }
+  .orbit-core-mark svg { width: 34px; height: 34px; margin-bottom: 4px; }
+  .orbit-core-name { font-size: 0.82rem; }
+  .orbit-core-sub { font-size: 0.7rem; }
+  .orbit-core-say { display: none; }
+  .orbit-caption { display: block; position: absolute; left: 50%; bottom: -8px; z-index: 140; width: max-content; max-width: calc(100% - 16px); margin: 0; padding: 8px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--line); box-shadow: 0 14px 30px -16px rgba(11, 42, 74, 0.5); font-size: 0.82rem; line-height: 1.35; color: var(--text); transform: translateX(-50%); }
+  .orbit-caption:empty { display: none; }
+  .orbit-caption b { color: var(--c, var(--brand)); }
+}
+@media (min-width: 641px) { .orbit-say { max-width: none; white-space: nowrap; hyphens: none; } }

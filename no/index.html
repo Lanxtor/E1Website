@@ -7,7 +7,7 @@
   <title>LANXTOR – neste generasjons anleggsprosjektering</title>
   <meta name="description" content="E1 er prosjekteringsprogramvare for produksjons- og kraftanlegg.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=83">
+  <link rel="stylesheet" href="assets/css/styles.css?v=87">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/index.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/index.html">
@@ -21,9 +21,10 @@
   <div id="site-header"></div>
 
   <main>
-    <section class="hero">
+    <!-- Home hero experiment: data-hero="orbit" shows the E1 orbit, data-hero="clip" the earlier video. Preview either with ?hero=clip or ?hero=orbit. -->
+    <section class="hero" data-hero="orbit">
       <div class="container">
-        <h1 class="reveal">Anleggsprosjektering i tankens hastighet.</h1>
+        <h1 class="reveal" data-hero-title>Anleggsprosjektering i tankens hastighet.</h1>
         <p class="lead reveal">FEED, prosess, instrumentering, automasjon, elektro og vedlikeholdsmodifikasjoner, alt i én sentral plattform.</p>
         <p class="hero-tagline reveal">Single Source of Truth. Cloud native. AI native.</p>
         <form class="ask-box reveal" data-ask>
@@ -32,6 +33,68 @@
           <button type="button" class="ask-reset" data-ask-reset hidden aria-label="Ny samtale" title="Ny samtale"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
           <button type="submit" class="ask-send" aria-label="Spør"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
+        <div class="hero-orbit reveal" data-orbit>
+          <svg class="orbit-rings" aria-hidden="true"></svg>
+          <div class="orbit-core">
+            <span class="orbit-core-mark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/><path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="2.6" fill="#f08c2e"/></svg></span>
+            <b class="orbit-core-name">LANXTOR E1</b>
+            <span class="orbit-core-sub">Én datamodell</span>
+            <span class="orbit-core-say">Én sannhetskilde</span>
+          </div>
+          <div class="orbit-nodes" role="list" aria-label="Alle fag jobber i den samme E1-datamodellen">
+            <div class="orbit-node" data-ring="1" data-angle="-90" data-node="feed">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3"/><circle cx="12" cy="8" r="2"/><path d="m10.6 9.6-4.6 10.4"/><path d="m13.4 9.6 4.6 10.4"/><path d="M7.5 16.5a10 10 0 0 0 9 0"/></svg></span>
+              <span class="orbit-label">FEED</span>
+              <span class="orbit-say">Fastsetter designgrunnlaget</span>
+            </div>
+            <div class="orbit-node" data-ring="1" data-angle="-38" data-node="process">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="16" rx="5"/><path d="M7 11h10"/><path d="M3 15h4M17 7h4M12 19v2M9 21h6"/></svg></span>
+              <span class="orbit-label">Prosess</span>
+              <span class="orbit-say">Endrer strømningen i P-101</span>
+            </div>
+            <div class="orbit-node" data-ring="1" data-angle="13" data-node="instrumentation">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="11" r="8"/><path d="m12 11 4-3"/><path d="M8 11h.01M12 6h.01M16 11h.01"/><path d="M12 19v3M9 22h6"/></svg></span>
+              <span class="orbit-label">Instrumentering</span>
+              <span class="orbit-say">Legger til nivåtransmitter LT-101</span>
+            </div>
+            <div class="orbit-node" data-ring="1" data-angle="64" data-node="electrical">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+              <span class="orbit-label">Elektro</span>
+              <span class="orbit-say">Dimensjonerer motorkabelen</span>
+            </div>
+            <div class="orbit-node" data-ring="1" data-angle="116" data-node="automation">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+              <span class="orbit-label">Automasjon</span>
+              <span class="orbit-say">Oppdaterer reguleringssløyfen</span>
+            </div>
+            <div class="orbit-node" data-ring="1" data-angle="167" data-node="maintenance">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></span>
+              <span class="orbit-label">Vedlikehold</span>
+              <span class="orbit-say">Registrerer arbeid på pumpe P-101</span>
+            </div>
+            <div class="orbit-node" data-ring="1" data-angle="218" data-node="modifications">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2.5"/><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 7.5v9"/><path d="M18 10.5c0 4-4 4.5-9.5 7"/></svg></span>
+              <span class="orbit-label">Modifikasjoner</span>
+              <span class="orbit-say">Åpner en gren for ombyggingen</span>
+            </div>
+            <div class="orbit-node" data-ring="2" data-angle="-20" data-node="reviewers">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="m8.5 10 2.5 2.5 4.5-5"/></svg></span>
+              <span class="orbit-label">Reviewere</span>
+              <span class="orbit-say">Godkjenner endringen</span>
+            </div>
+            <div class="orbit-node" data-ring="2" data-angle="100" data-node="alex">
+              <span class="orbit-icon"><img src="assets/img/hero-avatar.png?v=2" alt=""></span>
+              <span class="orbit-label">Alex</span>
+              <span class="orbit-say">Kontrollerer designet</span>
+            </div>
+            <div class="orbit-node" data-ring="2" data-angle="220" data-node="viewers">
+              <span class="orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
+              <span class="orbit-label">Viewere</span>
+              <span class="orbit-say">Ser det i det øyeblikket det lagres</span>
+            </div>
+          </div>
+          <p class="orbit-caption" aria-hidden="true"></p>
+        </div>
         <div class="hero-media reveal">
           <figure class="clip" data-src="assets/clips/hero.mp4" data-label="Hovedklipp – oversikt"></figure>
         </div>
@@ -213,5 +276,6 @@
   <script src="assets/js/e1-api.js?v=7"></script>
   <script src="assets/js/main.js?v=33"></script>
   <script src="assets/js/chat.js?v=7"></script>
+  <script src="assets/js/orbit.js?v=2"></script>
 </body>
 </html>
