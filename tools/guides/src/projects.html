@@ -421,6 +421,33 @@
   <p class="g-related">Related: <a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
 </section>
 
+<section class="g-feature" id="prj-import-excel">
+  <h2>Import Excel workbooks</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-excel</span><span>Roadmap 31.2</span></div>
+  <p class="g-summary">Equipment lists, instrument indexes and data sheets often live in Excel. <span class="ui">Import Excel workbooks…</span> reads one or more workbooks (.xlsx) or CSV files: each sheet becomes a kind of object (Pumps, Valves…), each column an attribute, each row an object found by its tag. It works like <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a>: objects already in the project are updated, the others are created, nothing is deleted, and a value E1 already holds from elsewhere is never overwritten without your decision.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import Excel workbooks…</span> (for the project selected in the explorer)</dd>
+    <dt>Who</dt><dd>The <span class="ui">Import data</span> permission in the project (Project administrator and Lead engineer have it), and the permissions of the changes the import makes</dd>
+    <dt>Before you start</dt><dd>A workbook with one sheet per kind of object and a header row: a <em>Tag</em> column, and one column per attribute. Put a unit in brackets after the header, such as <em>Flow rate [m³/h]</em> or <em>Rated power (kW)</em>. Title rows above the header are fine.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the project in the explorer, for example <span class="ui">Demo Plant (sample)</span>, then <span class="ui">File</span> → <span class="ui">Import Excel workbooks…</span>.</td><td>The <span class="ui">Import Excel workbooks</span> dialog opens on <span class="ui">Files</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add files…</span> and pick one or more .xlsx or CSV files (up to 20 MB each), then <span class="ui">Next</span>.</td><td>The <span class="ui">Mapping</span> step: for each file its sheets and rows, and one row per sheet with the <span class="ui">Class</span> proposed by the sheet's name, its <span class="ui">Confidence</span> and <span class="ui">Why?</span>. A sheet without a table (a notes sheet) is left out and said so.</td></tr>
+      <tr><td>3</td><td>Check the class of each sheet. For a sheet named <em>Pumps</em>, E1 proposes the first kind of pump, <span class="ui">Centrifugal pump</span>, with <span class="ui">Medium</span> confidence: choose the kind you mean.</td><td>"Pumps is Pump, which E1 has in kinds: choose the kind…".</td></tr>
+      <tr><td>4</td><td>Click the sheet's name.</td><td>Its columns open below it, each with samples and the <span class="ui">Attribute</span> it fills: <em>Tag</em> fills <span class="ui">Tag</span>, <em>Flow rate [m³/h]</em> fills <span class="ui">Flow rate</span>. Choose another attribute, or <span class="ui">Leave out</span>.</td></tr>
+      <tr><td>5</td><td><span class="ui">Accept</span> each sheet (or <span class="ui">Ignore</span> it), then <span class="ui">Next</span> and <span class="ui">Check</span>.</td><td>The <span class="ui">Differences</span> step. Nothing is stored yet. New objects are under <span class="ui">Created</span>; an object found by its tag lists the values that change.</td></tr>
+      <tr><td>6</td><td>Decide each difference under <span class="ui">To decide</span>: <span class="ui">Use file</span> or <span class="ui">Keep E1</span>.</td><td>A value E1 got from elsewhere (the DEXPI import, a person) is asked; a value the same workbook wrote last time is simply updated. <span class="ui">Apply</span> is off until nothing is left to decide.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Apply</span>, then <span class="ui">Close</span>.</td><td>"demo-tag-list: 1 new object, 1 object updated…". The new objects are under <span class="ui">Assets</span>. One <kbd>Ctrl+Z</kbd> takes the whole import back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A cell that is not a valid value (text in a number column, a unit the attribute does not have) is left out and listed under "What … has that is not imported", with the row. A row with no tag and no name is left out too. Numbers may be written 1234.5, 1 234,5 or 12,5. An older .xls workbook: save it as .xlsx first.</p>
+  <p class="g-note">The <span class="ui">Import</span> button of a section (<a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a>) brings one tag list into that section; <span class="ui">Import Excel workbooks…</span> reads whole workbooks for the project, one class per sheet, with the differences to decide.</p>
+  <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a> · <a href="#prj-sample-project">The sample project: Demo Plant</a></p>
+</section>
+
 <section class="g-feature" id="prj-branches">
   <h2>Branches</h2>
   <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span class="g-id">PRJ-branches</span><span>Roadmap M8</span></div>
