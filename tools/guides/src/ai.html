@@ -827,7 +827,7 @@
 
 <section class="g-feature" id="ai-stored-assistants">
   <h2>Stored assistants</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 18.1–18.6, 17.3</span><span>Review check Q1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 18.1–18.6, 17.3</span><span>Review checks Q1, Q2</span></div>
   <p class="g-summary">Save what Alex did in one reply as an assistant: its steps, in order, with what you had selected and the project as parameters. Run it again on another selection without Alex, as one change that one undo takes back, or as a preview first.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Under a reply that changed something → <span class="ui">Save as assistant</span>; the left rail → <span class="ui">Assistants</span></dd>
@@ -843,6 +843,22 @@
       <tr><td>3</td><td>Check its <span class="ui">Parameters</span>.</td><td>What you had selected became <em>selected</em> (The selection) and the project <em>project</em> (The current project). An object a step made and a later step used is taken from that step's result. Change a parameter's <span class="ui">Comes from</span> to <em>Asked when it runs</em> or <em>Always this value</em>, or its label, and click <span class="ui">Save</span>: a new version.</td></tr>
     </tbody>
   </table></div>
+  <h3>Record by hand</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Assistants</span>, click <span class="ui">Record</span>.</td><td>It reads <em>● Recording: 0 steps</em>, and the Assistants button on the left rail shows ●.</td></tr>
+      <tr><td>2</td><td>Select an object and make your changes, for example its description.</td><td>Each change is kept as a step with what it changed; opening tabs and selecting are not steps.</td></tr>
+      <tr><td>3</td><td>Back in <span class="ui">Assistants</span>, click <span class="ui">Stop</span>.</td><td>A new assistant <em>Recorded …</em> opens with the steps, and what you had selected as the parameter <em>selected</em>.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Repeat and skip</h3>
+  <ul>
+    <li><span class="ui">For each selected object</span> on a selection parameter repeats the steps that use it once per selected object; the steps then read “For each of the selected object (item)”.</li>
+    <li>Open a step and choose <span class="ui">Skip if the object already has a value</span> and the attribute: a step whose condition holds is reported <em>Skipped</em> with the reason.</li>
+    <li>A repeat stops at the first object that fails and keeps nothing; tick <span class="ui">Keep the ones that succeed when one fails</span> to keep the objects that went through, and the failed one is reported.</li>
+    <li><span class="ui">Propose parameters</span> suggests recorded values (an object, a number) to ask for when it runs; <span class="ui">Make parameter</span> takes one.</li>
+  </ul>
   <h3>Run it</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
@@ -854,7 +870,7 @@
     </tbody>
   </table></div>
   <p class="g-note">If a step fails (a value it cannot set, a permission you lack), the run stops and nothing of it is kept; the report names the step and why.</p>
-  <p class="g-warn">Not built yet: recording steps you do by hand, repeating over every selected object and skip conditions (18.2), sharing with the project and the organization (18.3), assistants from written instructions (18.4), assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
+  <p class="g-warn">Not built yet: sharing with the project and the organization (18.3), assistants from written instructions (18.4), assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
   <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
 </section>
 
