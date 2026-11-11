@@ -49,13 +49,18 @@
           <li><a href="#wf-assignments">Assign workflows and start them</a></li>
           <li><a href="#wf-move">Move an item to another step</a></li>
           <li><a href="#wf-board">The workflow board</a></li>
+          <li><a href="#wf-criteria">Exit criteria: what an item needs before it moves on</a></li>
+          <li><a href="#wf-approvals">Approvals: sign or reject a step</a></li>
+          <li><a href="#wf-override">Override failing criteria</a></li>
+          <li><a href="#wf-flow-editor">The flow: paths between steps</a></li>
+          <li><a href="#wf-versions">New workflow versions in a project</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Workflow and dashboards</p>
         <h1>14. Workflow and dashboards</h1>
         <p class="lead">Statuses of objects, sheets, documents and tasks in status sets with your own sub-statuses, the status chip, value statuses (Assumed, Preliminary, Confirmed, Final) and holds; workflows, boards and progress dashboards as they are built.</p>
-        <div class="g-meta"><span>8 features</span><span>8 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>13 features</span><span>13 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="workflow-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Every object, sheet, document and task in E1 has a status. Statuses come in status sets: five fixed categories (New, Active, Resolved, Closed, Removed) with the sub-statuses your company or project adds under them. Values have a status of their own, from Assumed to Final, and anything can be put on hold with a reason.</p>
@@ -66,6 +71,7 @@
     <li>Mark the values you have checked <a href="#wf-value-status">Confirmed</a>; a change makes them Preliminary again.</li>
     <li><a href="#wf-hold">Put on hold</a> what waits for someone else, and find it in the query view.</li>
     <li>Make a <a href="#wf-workflows">workflow</a> from a template, <a href="#wf-assignments">assign it</a> to instruments, and <a href="#wf-move">move them</a> on their chip or on the <a href="#wf-board">board</a>.</li>
+    <li>Give a step <a href="#wf-criteria">exit criteria</a> and an <a href="#wf-approvals">approval</a>; a lead can <a href="#wf-override">override</a> a failing criterion with a reason.</li>
   </ol>
 </section>
 
@@ -241,6 +247,110 @@
   </table></div>
   <p class="g-note">A column shows at most 200 cards, then how many more there are.</p>
   <p class="g-related">Related: <a href="#wf-move">Moving items</a> · <a href="#wf-workflows">Workflows</a></p>
+</section>
+
+<section class="g-feature" id="wf-criteria">
+  <h2>Exit criteria: what an item needs before it moves on</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-criteria</span><span>Roadmap 33.3</span><span>Review checks S4</span></div>
+  <p class="g-summary">A step may say what an item needs before it moves on: required values filled in, values confirmed and not on hold, related items far enough, no open errors, a revision issued, a checklist ticked, a condition. The status chip lists them with ticks and crosses; an item whose criteria all pass shows Ready to move.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The status chip: <span class="ui">To move on</span>; Alex for a workflow's steps</dd>
+    <dt>Who</dt><dd>Everyone who can view the project sees them; ticking a checklist: Move items in their workflow</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex to give the step In design of Instrument data the criterion <em>Description confirmed</em> (value status at least Confirmed, not on hold), and to publish it.</td><td>The workflow's next version has it.</td></tr>
+      <tr><td>2</td><td>Open an instrument in In design whose description is Assumed and click its chip.</td><td><span class="ui">To move on</span> lists ✗ <em>Description confirmed: 1 fails</em> and why (<em>Description is assumed</em>).</td></tr>
+      <tr><td>3</td><td>Ask Alex to move the 40 instruments to Ready for check.</td><td>The ones whose description is confirmed move; Alex lists the others with the values that hold them back.</td></tr>
+      <tr><td>4</td><td>Mark the description Confirmed and open the chip again.</td><td>✓ and <span class="ui">Ready to move</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>A criterion either blocks (✗) or only warns (!): a warning does not stop the move.</li>
+    <li>A checklist criterion shows its items with boxes to tick on the chip.</li>
+    <li>Calculated values are left out of a value status criterion; a held value fails one that says <em>not on hold</em>.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#wf-move">Moving items</a> · <a href="#wf-override">Override</a> · <a href="#wf-value-status">Value statuses</a></p>
+</section>
+
+<section class="g-feature" id="wf-approvals">
+  <h2>Approvals: sign or reject a step</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-approvals</span><span>Roadmap 33.3</span><span>Review checks S4</span></div>
+  <p class="g-summary">A step with an approval moves on only by its signatures: each sign-off step (Checked, Approved) is signed by someone who did not move the item into it, or sign an earlier step it names. A rejection with a reason sends the item back. An item changed after its approval shows Changed since Approved.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The status chip: <span class="ui">Approval</span></dd>
+    <dt>Who</dt><dd>Sign workflow approvals (Engineer and above, Reviewer), with a fresh sign-in. Alex never signs.</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Move an instrument into a step with an approval and click its chip.</td><td><span class="ui">Approval</span> offers <span class="ui">Sign Checked…</span> and <span class="ui">Reject…</span>; <span class="ui">Move to</span> the next step is not there: the signatures move it on.</td></tr>
+      <tr><td>2</td><td>As the person who moved it, click <span class="ui">Sign Checked…</span>.</td><td>Refused: someone else signs it.</td></tr>
+      <tr><td>3</td><td>As a checker, click <span class="ui">Sign Checked…</span> and confirm the sentence (<em>I have checked FT-3 in step Ready for check.</em>).</td><td>Signed; <span class="ui">Sign Approved…</span> is open now, for someone else again.</td></tr>
+      <tr><td>4</td><td>As a lead, sign Approved.</td><td>The item moves to the next step.</td></tr>
+      <tr><td>5</td><td>Change one of its values.</td><td>The chip shows <span class="ui">Changed since Approved</span> until it next moves forward.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Reject…</span> asks why and sends the item to the step the approval names; the signatures given so far stay on record.</p>
+  <p class="g-related">Related: <a href="#wf-criteria">Exit criteria</a> · <a href="#wf-move">Moving items</a></p>
+</section>
+
+<section class="g-feature" id="wf-override">
+  <h2>Override failing criteria</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-override</span><span>Roadmap 33.3</span><span>Review checks S4</span></div>
+  <p class="g-summary">With Override workflow checks, Override… moves an item on although a blocking criterion fails, with a reason that is kept with the item's step and in its history. An approval cannot be overridden.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The status chip: <span class="ui">To move on</span> → <span class="ui">Override…</span></dd>
+    <dt>Who</dt><dd>Override workflow checks (Lead engineer, Project administrator)</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On an item whose criterion fails, click <span class="ui">Override…</span> and type a reason.</td><td>It moves on; the history says it overrode the criteria.</td></tr>
+      <tr><td>2</td><td>As an Engineer, try the same.</td><td>Refused: overriding needs Override workflow checks.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#wf-criteria">Exit criteria</a> · <a href="#wf-move">Moving items</a></p>
+</section>
+
+<section class="g-feature" id="wf-flow-editor">
+  <h2>The flow: paths between steps</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-flow-editor</span><span>Roadmap 33.4</span><span>Review checks S5</span></div>
+  <p class="g-summary">Flow shows a workflow's steps in order with their credit, lock, criteria and approval, and its paths above them: extra moves such as Skip check (small change), each with an optional condition on the item. Add path… adds one and publishes a new version.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflows</span> → <span class="ui">Flow</span></dd>
+    <dt>Who</dt><dd>Manage project workflows (Project administrator)</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Flow</span> on <em>Instrument data</em>.</td><td>The steps as boxes from New to Closed with arrows; each says its credit and whether it is locked or has criteria or an approval.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add path…</span>: From <em>In design</em>, To <em>Vendor data</em>, Label <em>Skip check (small change)</em>, Only when <code>core.attr.description</code> <em>is</em> <em>small change</em>; <span class="ui">Save and publish</span>.</td><td>A dashed arrow from In design to Vendor data with its label and condition; the workflow is at its next version.</td></tr>
+      <tr><td>3</td><td>Open an instrument in In design whose description is <em>small change</em> and click its chip.</td><td><span class="ui">Move to Skip check (small change)</span> is offered; an instrument with another description does not get it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A path to an earlier step is a move back and asks why. <span class="ui">Remove</span> beside a path takes it out in the next version.</p>
+  <p class="g-related">Related: <a href="#wf-workflows">Workflows</a> · <a href="#wf-move">Moving items</a> · <a href="#wf-versions">Workflow versions</a></p>
+</section>
+
+<section class="g-feature" id="wf-versions">
+  <h2>New workflow versions in a project</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-versions</span><span>Roadmap 33.4</span><span>Review checks S5</span></div>
+  <p class="g-summary">A new version of a workflow reaches items from their next move. When it no longer has a status some items are in, Workflow updates lists them: map that status to a step, then Take version n moves them there as one change.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflows</span> → <span class="ui">Workflow updates</span></dd>
+    <dt>Who</dt><dd>Manage project workflows (Project administrator)</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex to publish a version of Instrument data without Ready for check.</td><td><span class="ui">Workflow updates</span> says how many items stay and how many are in Ready for check, a status it no longer has; <span class="ui">Take version 2</span> waits.</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Map ready to</span> choose <em>In design</em>.</td><td>A new version maps them; the list says they move ready → In design.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Take version 3</span>.</td><td>“Version 3 taken: … moved, … stayed.” The moved items are in In design, with the reason <em>Workflow updated</em>; one undo takes the whole update back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#wf-flow-editor">The flow</a> · <a href="#wf-workflows">Workflows</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-wiring.html">Wiring (EI&amp;C)</a> · <a href="guide-reviewer.html">E1 Reviewer for iPad</a> →</p>

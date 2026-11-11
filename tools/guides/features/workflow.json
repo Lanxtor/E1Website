@@ -207,5 +207,132 @@
    "minutes": 3
   },
   "screenshots": []
+ },
+ {
+  "id": "WF-criteria",
+  "title": "Exit criteria: what an item needs before it moves on",
+  "summary": "A step may say what an item needs before it moves on: required values filled in, values confirmed and not on hold, related items far enough, no open errors, a revision issued, a checklist ticked, a condition. The status chip lists them with ticks and crosses; an item whose criteria all pass shows Ready to move.",
+  "anchor": "wf-criteria",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.3"
+  ],
+  "checks": [
+   "S4"
+  ],
+  "related": [
+   "WF-move",
+   "WF-override",
+   "WF-value-status"
+  ],
+  "roles": "Seeing criteria: everyone who can view the project; ticking a checklist: Move items in their workflow",
+  "training": {
+   "topic": "Exit criteria",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-approvals",
+  "title": "Approvals: sign or reject a step",
+  "summary": "A step with an approval moves on only by its signatures: each sign-off step (Checked, Approved) is signed by someone who did not move the item into it, or sign an earlier step it names. A rejection with a reason sends the item back. An item changed after its approval shows Changed since Approved.",
+  "anchor": "wf-approvals",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.3"
+  ],
+  "checks": [
+   "S4"
+  ],
+  "related": [
+   "WF-criteria",
+   "WF-move"
+  ],
+  "roles": "Sign workflow approvals (Engineer and above, Reviewer), with a fresh sign-in",
+  "training": {
+   "topic": "Approvals",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-override",
+  "title": "Override failing criteria",
+  "summary": "With Override workflow checks, Override… moves an item on although a blocking criterion fails, with a reason that is kept with the item's step and in its history. An approval cannot be overridden.",
+  "anchor": "wf-override",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.3"
+  ],
+  "checks": [
+   "S4"
+  ],
+  "related": [
+   "WF-criteria",
+   "WF-move"
+  ],
+  "roles": "Override workflow checks (Lead engineer, Project administrator)",
+  "training": {
+   "topic": "Overrides",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-flow-editor",
+  "title": "The flow: paths between steps",
+  "summary": "Flow shows a workflow's steps in order with their credit, lock, criteria and approval, and its paths above them: extra moves such as Skip check (small change), each with an optional condition on the item. Add path… adds one and publishes a new version.",
+  "anchor": "wf-flow-editor",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.4"
+  ],
+  "checks": [
+   "S5"
+  ],
+  "related": [
+   "WF-workflows",
+   "WF-move",
+   "WF-versions"
+  ],
+  "roles": "Manage project workflows (Project administrator)",
+  "training": {
+   "topic": "The flow",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-versions",
+  "title": "New workflow versions in a project",
+  "summary": "A new version of a workflow reaches items from their next move. When it no longer has a status some items are in, Workflow updates lists them: map that status to a step, then Take version n moves them there as one change.",
+  "anchor": "wf-versions",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.4"
+  ],
+  "checks": [
+   "S5"
+  ],
+  "related": [
+   "WF-flow-editor",
+   "WF-workflows"
+  ],
+  "roles": "Manage project workflows (Project administrator)",
+  "training": {
+   "topic": "Workflow versions",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
  }
 ]
