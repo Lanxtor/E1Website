@@ -599,11 +599,11 @@
 
 <section class="g-feature" id="lib-rules">
   <h2>Rules: calculations, check rules and copy rules</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span></div>
-  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, copy rules and check rules are available.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span><span>Review checks P1, P2, P3, P4, P6</span></div>
+  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, copy rules and check rules are available, in the project, in the organization's company library and in content packages.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Rules</span>; on an object page, a calculated value shows <span class="ui">ƒ</span> and <span class="ui">Why this value?</span></dd>
-    <dt>Who</dt><dd>Making, publishing and withdrawing rules: Manage project rules (the Project administrator has it). Everyone who can view the project sees the values and why.</dd>
+    <dt>Who</dt><dd>Making, publishing and withdrawing a project's rules: Manage project rules (the Project administrator has it). An organization rule: Edit the company library to save it, Publish the company library to publish it. Everyone who can view the project sees the values and why.</dd>
   </dl>
   <h3>Make a rule</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -652,7 +652,21 @@
     <li><span class="ui">Why this value?</span> shows the rule and version, each input with its value and the object it came from, and each step's result. When an input is missing the value is empty and the reason is shown.</li>
     <li><span class="ui">Withdraw</span> pauses a rule: its values stay, as ordinary values people may change. <span class="ui">Publish…</span> again calculates them again.</li>
   </ul>
-  <p class="g-warn">Not built yet: calculated values on drawing labels and in the API marked as calculated (12.5), and organization and content package rules (12.6).</p>
+  <h3>Organization and content package rules</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">New rule</span>, set <span class="ui">Save to</span> to <em>The organization's library</em>, make the rule and click <span class="ui">Save draft</span>.</td><td>The rule is a draft in the company library; its row reads <em>From: Organization</em>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Publish in the company library</span>.</td><td>It is published as a new company library version. No project's values change yet: the row says it reaches the project when its pin moves.</td></tr>
+      <tr><td>3</td><td>Ask Alex to pin the project to that library version, preview first.</td><td>The preview lists the rule as added, with how many values it creates and changes. Pinned, the values are written in the same change, and the row reads <em>active (version 1, at the pin)</em>.</td></tr>
+      <tr><td>4</td><td>Publish a new version of the organization rule.</td><td>The project keeps the version at its pin until the pin moves again; the pin's preview then lists the rule as changed, version 1 → 2.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>A project reading the newest company library, without a pin, uses no organization rules. A pin that takes a rule away leaves its values as ordinary values.</li>
+    <li>A content package's rules come with the E1 library version the project reads: <span class="ui">Preview package update</span> lists each rule the update adds, changes or takes away and the values it writes. They are listed with <em>From: Package</em>, read only.</li>
+    <li>One attribute has one rule: a project rule is refused on an attribute an organization rule calculates for the same objects, and a project's own rule takes the attribute from an organization or package rule that arrives later (that rule's row says so).</li>
+  </ul>
   <p class="g-related">Related: <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-configuration">Configuration</a></p>
 </section>
 
