@@ -1,0 +1,186 @@
+<section class="g-feature" id="workflow-overview">
+  <h2>About this guide</h2>
+  <p class="g-summary">Every object, sheet, document and task in E1 has a status. Statuses come in status sets: five fixed categories (New, Active, Resolved, Closed, Removed) with the sub-statuses your company or project adds under them. Values have a status of their own, from Assumed to Final, and anything can be put on hold with a reason.</p>
+  <h3>Typical workflow</h3>
+  <ol>
+    <li>Make a <a href="#wf-statuses">status set</a> with your sub-statuses, and choose it for objects and sheets.</li>
+    <li>Set an object's status on its <a href="#wf-status-chip">status chip</a>.</li>
+    <li>Mark the values you have checked <a href="#wf-value-status">Confirmed</a>; a change makes them Preliminary again.</li>
+    <li><a href="#wf-hold">Put on hold</a> what waits for someone else, and find it in the query view.</li>
+    <li>Make a <a href="#wf-workflows">workflow</a> from a template, <a href="#wf-assignments">assign it</a> to instruments, and <a href="#wf-move">move them</a> on their chip or on the <a href="#wf-board">board</a>.</li>
+  </ol>
+</section>
+
+<section class="g-feature" id="wf-statuses">
+  <h2>Status sets and the project's statuses</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-statuses</span><span>Roadmap 33.1</span><span>Review checks S1</span></div>
+  <p class="g-summary">Every object, sheet, document and task has a status from a status set: the five categories New, Active, Resolved, Closed and Removed, with sub-statuses a set adds under them. Configuration → Statuses makes a set and chooses the one each level reads.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflow</span> → <span class="ui">Statuses</span></dd>
+    <dt>Who</dt><dd>Everyone who can view the project sees statuses. Making a project's status set and choosing the sets: Manage project workflows (Project administrator); a company set: Edit the company library. With Editor Basic the section is read only.</dd>
+  </dl>
+  <h3>Make a status set</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Statuses</span> and click <span class="ui">New status set…</span>. Type its name, for example <em>Deliverable</em>, and tick what it is for: <em>Objects</em>, <em>Sheets</em>.</td><td>The five categories are listed, each with <span class="ui">Add under …</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add under Active</span> and type <em>Waiting for vendor data</em>.</td><td>—</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Save to</span> <em>This project</em> (or <em>The company library</em>) and click <span class="ui">Save and publish</span>.</td><td>The set is listed under <span class="ui">Status sets</span> with its statuses in order.</td></tr>
+      <tr><td>4</td><td>Under <span class="ui">The project's status set per level</span>, choose <em>Deliverable</em> for <em>Objects</em> and <em>Sheets</em>.</td><td>Objects and sheets read it from now on. An item keeps its status; one the set does not have shows its first status, New.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>The five main statuses cannot be removed or given another category; their names may change. Statuses are kept in category order.</li>
+    <li>Tasks read the task set: Open, In review, Done, Removed. A task is set Open or Done on its row in Tasks.</li>
+    <li>Built-in sets that their topics set are listed too: the revision, markup and construction sets.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-value-status">Value statuses</a> · <a href="#wf-hold">Hold</a></p>
+</section>
+
+<section class="g-feature" id="wf-status-chip">
+  <h2>The status chip: set an item's status</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-status-chip</span><span>Roadmap 33.1</span><span>Review checks S1</span></div>
+  <p class="g-summary">Under an object's name the status chip shows its status (its category before it when they differ), HOLD, and No workflow. Click it to set another status of its set.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An object's window, under its name; a sheet's and a document's too</dd>
+    <dt>Who</dt><dd>Setting a status: Move items in their workflow (Engineer and above)</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a pump's window.</td><td>Under its name the chip reads <em>New</em> and <em>No workflow</em>.</td></tr>
+      <tr><td>2</td><td>Click the chip and choose <em>Waiting for vendor data</em>.</td><td>The chip reads <em>Active ▸ Waiting for vendor data</em> in the status's colour. The history lists the change.</td></tr>
+      <tr><td>3</td><td>Click the chip and choose <em>New</em>.</td><td>The chip reads <em>New</em> again.</td></tr>
+      <tr><td>4</td><td>In the query view add the columns <em>Status</em> and <em>Status category</em>; ask Alex to list the equipment whose status category is Active.</td><td>The pump is listed with its status.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">An item without a status counts as New. Statuses change only through the status chip, the query view and Alex, never as raw edits.</p>
+  <p class="g-related">Related: <a href="#wf-statuses">Status sets</a> · <a href="#wf-hold">Hold</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
+</section>
+
+<section class="g-feature" id="wf-value-status">
+  <h2>Value statuses: Assumed, Preliminary, Confirmed, Final</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-value-status</span><span>Roadmap 33.1</span><span>Review checks S2</span></div>
+  <p class="g-summary">A value carries a status of its own, set from its row's right-click menu and shown by a mark after its name. A Confirmed or Final value that changes becomes Preliminary again. Calculated values have none.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An object's window → <span class="ui">Attributes</span>: right-click a value's row</dd>
+    <dt>Who</dt><dd>Set value statuses (Engineer and above) and edit attributes</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click the row of a pump's <em>Description</em> and choose <span class="ui">Confirmed</span> under <span class="ui">Value status</span>.</td><td>A ✓ after the name; pointing at it reads <em>Value status: Confirmed</em>.</td></tr>
+      <tr><td>2</td><td>Type another description.</td><td>The mark is ◐: the value is <em>Preliminary</em> again.</td></tr>
+      <tr><td>3</td><td>Right-click the row and choose <span class="ui">Not set</span>.</td><td>No mark.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>The marks: ○ Assumed, ◐ Preliminary, ✓ Confirmed, ✔ Final, nothing for Not set.</li>
+    <li>A value calculated by a rule has no status of its own: choosing one is refused.</li>
+    <li>The query view filters by <em>Value status of …</em> through Alex.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#wf-hold">Hold</a> · <a href="guide-objects.html#obj-attributes">Attributes</a> · <a href="guide-objects.html#obj-calculations">Calculations</a></p>
+</section>
+
+<section class="g-feature" id="wf-hold">
+  <h2>Put an item or a value on hold</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-hold</span><span>Roadmap 33.1</span><span>Review checks S2</span></div>
+  <p class="g-summary">Put on hold… with a reason marks an object, a sheet, a document or one value HOLD, with who and why; Release hold takes it off. A hold never blocks editing; it is a filter and a column in the query view.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The status chip; a value's right-click menu</dd>
+    <dt>Who</dt><dd>Put on hold (Lead engineer, Project administrator)</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the pump's status chip and choose <span class="ui">Put on hold…</span>. Type <em>Waiting for vendor data</em>.</td><td><span class="ui">HOLD</span> beside the chip; pointing at it says why and who.</td></tr>
+      <tr><td>2</td><td>Right-click a value's row and choose <span class="ui">Put on hold…</span>.</td><td><span class="ui">HOLD</span> after the value's name. Changing the value keeps the hold.</td></tr>
+      <tr><td>3</td><td>In the query view add the column <em>Hold</em>.</td><td>The held pump shows <em>HOLD: Waiting for vendor data</em>. Ask Alex to list what is on hold: a filter by hold.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">Release hold</span> on the chip and on the value.</td><td>No <span class="ui">HOLD</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-value-status">Value statuses</a> · <a href="guide-lists.html#list-columns">Columns</a></p>
+</section>
+
+<section class="g-feature" id="wf-workflows">
+  <h2>Workflows: steps an item moves through</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-workflows</span><span>Roadmap 33.2</span><span>Review checks S3</span></div>
+  <p class="g-summary">A workflow is the statuses of a status set in order, its steps, with a credit, a time limit and a lock each may have. Make one from a template (Engineering deliverable, ISO 19650 deliverable, Instrument data, Diagram, Engineering object) in Configuration → Workflows.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflow</span> → <span class="ui">Workflows</span></dd>
+    <dt>Who</dt><dd>Making a project's workflow: Manage project workflows (Project administrator); a company workflow: Edit the company library. With Editor Basic the section is read only.</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Workflows</span> and choose <em>Instrument data</em> in <span class="ui">From template</span>.</td><td>It is listed: New → In design → Ready for check → Vendor data → Closed (locked), and its status set is under <a href="#wf-statuses">Statuses</a>.</td></tr>
+      <tr><td>2</td><td>Ask Alex to change a step, for example to give In design a limit of 10 days and two reasons to move back.</td><td>Alex saves a new draft; publishing it makes version 2.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Each step is a status of the set, once; Removed is never a step, it is always reachable. A step's credit never decreases down the list.</li>
+    <li>A locked step keeps its items' values, name, tag and owner as they are until the item moves back; holds, comments and tasks stay possible. Rules leave a locked item's values as they are.</li>
+    <li>A step may make a task about the item, or set a value, when an item enters it.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#wf-assignments">Assignments</a> · <a href="#wf-move">Moving items</a> · <a href="#wf-board">The board</a> · <a href="#wf-statuses">Status sets</a></p>
+</section>
+
+<section class="g-feature" id="wf-assignments">
+  <h2>Assign workflows and start them</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-assignments</span><span>Roadmap 33.2</span><span>Review checks S3</span></div>
+  <p class="g-summary">Assignments say which workflow the project's items follow: objects by class (then their parent classes, then any class), sheets, documents, tasks. Apply starts the workflow on every item that has not started it, as one change.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflows</span> → <span class="ui">Assignments</span></dd>
+    <dt>Who</dt><dd>Manage project workflows (Project administrator)</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Add assignment</span>: <em>Objects</em>, class <code>plant.class.instrument</code>, workflow <em>Instrument data</em>.</td><td>—</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Apply</span>.</td><td>“Saved; 40 items started their workflow.” Every instrument's chip reads <em>New</em> and <em>Instrument data · 0 days</em>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Save</span> keeps the assignments without starting anything: an item then shows <span class="ui">Start workflow</span> on its chip.</p>
+  <p class="g-related">Related: <a href="#wf-workflows">Workflows</a> · <a href="#wf-move">Moving items</a></p>
+</section>
+
+<section class="g-feature" id="wf-move">
+  <h2>Move an item to another step</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-move</span><span>Roadmap 33.2</span><span>Review checks S3</span></div>
+  <p class="g-summary">On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The status chip on an object's window; the <a href="#wf-board">board</a>; Alex for many at once</dd>
+    <dt>Who</dt><dd>Move items in their workflow (Engineer and above)</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click an instrument's chip and choose <span class="ui">Move to In design</span>.</td><td>The chip reads <em>Active ▸ In design</em> and <em>Instrument data · 0 days</em>.</td></tr>
+      <tr><td>2</td><td>Ask Alex to move the 40 instruments to Ready for check.</td><td>They move as one change; Alex lists any that did not move and why (on hold, for example).</td></tr>
+      <tr><td>3</td><td>On the chip choose <span class="ui">Move back to In design…</span> and type a reason.</td><td>It moves back; the reason is kept and the return is counted.</td></tr>
+      <tr><td>4</td><td>Move it on to <em>Closed</em> and type a new description.</td><td>Refused: it is in a locked step of its workflow. Move it back to change it.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Remove…</span>, then <span class="ui">Restore to …</span>, each with a reason.</td><td>Removed, then back in the step it left.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-board">The board</a> · <a href="#wf-hold">Hold</a></p>
+</section>
+
+<section class="g-feature" id="wf-board">
+  <h2>The workflow board</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-board</span><span>Roadmap 33.2</span><span>Review checks S3</span></div>
+  <p class="g-summary">A workflow's items as cards in a column per step and Removed, with their days in the step, returns and HOLD. Drag a card to another column, or use Move to… on it, to move it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflows</span> → <span class="ui">Open board</span></dd>
+    <dt>Who</dt><dd>Seeing the board: everyone who can view the project; moving cards: Move items in their workflow</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Open board</span> on <em>Instrument data</em>.</td><td>A column per step with its count, and Removed at the right; each card shows its days in the step (red when overdue), how often it came back, and HOLD.</td></tr>
+      <tr><td>2</td><td>Drag a card from <em>In design</em> to <em>Ready for check</em>.</td><td>It moves; the counts change.</td></tr>
+      <tr><td>3</td><td>Drag it back, or choose <em>In design</em> in its <span class="ui">Move to…</span>.</td><td>E1 asks why, then moves it back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A column shows at most 200 cards, then how many more there are.</p>
+  <p class="g-related">Related: <a href="#wf-move">Moving items</a> · <a href="#wf-workflows">Workflows</a></p>
+</section>

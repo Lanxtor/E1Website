@@ -154,15 +154,26 @@
    "order": 13
   },
   {
+   "id": "workflow",
+   "title": "Workflow and dashboards",
+   "summary": "Statuses of objects, sheets, documents and tasks in status sets with your own sub-statuses, the status chip, value statuses (Assumed, Preliminary, Confirmed, Final) and holds; workflows, boards and progress dashboards as they are built.",
+   "training": {
+    "series": "Workflow and dashboards",
+    "order": 14
+   },
+   "page": "guide-workflow.html",
+   "order": 14
+  },
+  {
    "id": "safety",
    "title": "Cause and effect, safety functions, alarms",
    "summary": "Interlocks with their causes and effects as the cause and effect matrix and its narratives, safety instrumented functions with their required SIL and PFD, alarms rationalized and suppressed by plant state, and the matrix and alarm list as documents.",
    "training": {
     "series": "Cause and effect, safety functions, alarms",
-    "order": 14
+    "order": 15
    },
    "page": "guide-safety.html",
-   "order": 14
+   "order": 15
   },
   {
    "id": "reviewer",
@@ -170,10 +181,10 @@
    "summary": "Review E1 projects on the iPad: dashboards, projects, sheets, objects, photos and voice notes, redlining, your tasks and checklists, search and Alex.",
    "training": {
     "series": "E1 Reviewer for iPad",
-    "order": 15
+    "order": 16
    },
    "page": "guide-reviewer.html",
-   "order": 15
+   "order": 16
   }
  ],
  "features": [
@@ -8967,6 +8978,231 @@
    "screenshots": [],
    "category": "wiring",
    "page": "guide-wiring.html#wire-fieldbus"
+  },
+  {
+   "id": "WF-statuses",
+   "title": "Status sets and the project's statuses",
+   "summary": "Every object, sheet, document and task has a status from a status set: the five categories New, Active, Resolved, Closed and Removed, with sub-statuses a set adds under them. Configuration → Statuses makes a set and chooses the one each level reads.",
+   "anchor": "wf-statuses",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "33.1"
+   ],
+   "checks": [
+    "S1"
+   ],
+   "related": [
+    "WF-status-chip",
+    "WF-value-status",
+    "WF-hold"
+   ],
+   "roles": "Seeing statuses: everyone who can view the project. Making a project's status set and choosing the sets: Manage project workflows (Project administrator); a company set: Edit the company library",
+   "training": {
+    "topic": "Status sets",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-statuses"
+  },
+  {
+   "id": "WF-status-chip",
+   "title": "The status chip: set an item's status",
+   "summary": "Under an object's name the status chip shows its status (its category before it when they differ), HOLD, and No workflow. Click it to set another status of its set.",
+   "anchor": "wf-status-chip",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "33.1",
+    "33.2"
+   ],
+   "checks": [
+    "S1"
+   ],
+   "related": [
+    "WF-statuses",
+    "WF-hold",
+    "OBJ-attributes",
+    "WF-move"
+   ],
+   "roles": "Setting a status: Move items in their workflow (Engineer and above)",
+   "training": {
+    "topic": "The status chip",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-status-chip"
+  },
+  {
+   "id": "WF-value-status",
+   "title": "Value statuses: Assumed, Preliminary, Confirmed, Final",
+   "summary": "A value carries a status of its own, set from its row's right-click menu and shown by a mark after its name. A Confirmed or Final value that changes becomes Preliminary again. Calculated values have none.",
+   "anchor": "wf-value-status",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "33.1"
+   ],
+   "checks": [
+    "S2"
+   ],
+   "related": [
+    "WF-hold",
+    "OBJ-attributes",
+    "OBJ-calculations"
+   ],
+   "roles": "Set value statuses (Engineer and above) and edit attributes",
+   "training": {
+    "topic": "Value statuses",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-value-status"
+  },
+  {
+   "id": "WF-hold",
+   "title": "Put an item or a value on hold",
+   "summary": "Put on hold… with a reason marks an object, a sheet, a document or one value HOLD, with who and why; Release hold takes it off. A hold never blocks editing; it is a filter and a column in the query view.",
+   "anchor": "wf-hold",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "33.1"
+   ],
+   "checks": [
+    "S2"
+   ],
+   "related": [
+    "WF-status-chip",
+    "WF-value-status",
+    "LIST-columns"
+   ],
+   "roles": "Put on hold (Lead engineer, Project administrator)",
+   "training": {
+    "topic": "Holds",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-hold"
+  },
+  {
+   "id": "WF-workflows",
+   "title": "Workflows: steps an item moves through",
+   "summary": "A workflow is the statuses of a status set in order, its steps, with a credit, a time limit and a lock each may have. Make one from a template (Engineering deliverable, ISO 19650 deliverable, Instrument data, Diagram, Engineering object) in Configuration → Workflows.",
+   "anchor": "wf-workflows",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "33.2"
+   ],
+   "checks": [
+    "S3"
+   ],
+   "related": [
+    "WF-assignments",
+    "WF-move",
+    "WF-board",
+    "WF-statuses"
+   ],
+   "roles": "Making a project's workflow: Manage project workflows (Project administrator); a company workflow: Edit the company library",
+   "training": {
+    "topic": "Workflows",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-workflows"
+  },
+  {
+   "id": "WF-assignments",
+   "title": "Assign workflows and start them",
+   "summary": "Assignments say which workflow the project's items follow: objects by class (then their parent classes, then any class), sheets, documents, tasks. Apply starts the workflow on every item that has not started it, as one change.",
+   "anchor": "wf-assignments",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "33.2"
+   ],
+   "checks": [
+    "S3"
+   ],
+   "related": [
+    "WF-workflows",
+    "WF-move"
+   ],
+   "roles": "Manage project workflows (Project administrator)",
+   "training": {
+    "topic": "Assignments",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-assignments"
+  },
+  {
+   "id": "WF-move",
+   "title": "Move an item to another step",
+   "summary": "On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back.",
+   "anchor": "wf-move",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "33.2"
+   ],
+   "checks": [
+    "S3"
+   ],
+   "related": [
+    "WF-status-chip",
+    "WF-board",
+    "WF-hold"
+   ],
+   "roles": "Move items in their workflow (Engineer and above)",
+   "training": {
+    "topic": "Moving items",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-move"
+  },
+  {
+   "id": "WF-board",
+   "title": "The workflow board",
+   "summary": "A workflow's items as cards in a column per step and Removed, with their days in the step, returns and HOLD. Drag a card to another column, or use Move to… on it, to move it.",
+   "anchor": "wf-board",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "33.2"
+   ],
+   "checks": [
+    "S3"
+   ],
+   "related": [
+    "WF-move",
+    "WF-workflows"
+   ],
+   "roles": "Seeing the board: everyone who can view the project; moving cards: Move items in their workflow",
+   "training": {
+    "topic": "The board",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-board"
   },
   {
    "id": "SAFE-cause-effect",
