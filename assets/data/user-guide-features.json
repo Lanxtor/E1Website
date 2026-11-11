@@ -154,15 +154,26 @@
    "order": 13
   },
   {
+   "id": "safety",
+   "title": "Cause and effect, safety functions, alarms",
+   "summary": "Interlocks with their causes and effects as the cause and effect matrix and its narratives, safety instrumented functions with their required SIL and PFD, alarms rationalized and suppressed by plant state, and the matrix and alarm list as documents.",
+   "training": {
+    "series": "Cause and effect, safety functions, alarms",
+    "order": 14
+   },
+   "page": "guide-safety.html",
+   "order": 14
+  },
+  {
    "id": "reviewer",
    "title": "E1 Reviewer for iPad",
    "summary": "Review E1 projects on the iPad: dashboards, projects, sheets, objects, photos and voice notes, redlining, your tasks and checklists, search and Alex.",
    "training": {
     "series": "E1 Reviewer for iPad",
-    "order": 14
+    "order": 15
    },
    "page": "guide-reviewer.html",
-   "order": 14
+   "order": 15
   }
  ],
  "features": [
@@ -8956,6 +8967,142 @@
    "screenshots": [],
    "category": "wiring",
    "page": "guide-wiring.html#wire-fieldbus"
+  },
+  {
+   "id": "SAFE-cause-effect",
+   "title": "The cause and effect matrix: interlocks, causes and effects",
+   "summary": "On any unit or loop in Systems: add interlocks, the trips that start them and what they act on, see the matrix and the narrative E1 writes from them.",
+   "anchor": "safe-cause-effect",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "34.1"
+   ],
+   "checks": [
+    "S1"
+   ],
+   "related": [
+    "SAFE-sif",
+    "SAFE-documents",
+    "WIRE-allocation"
+   ],
+   "roles": "Editor Pro; a project role that may edit objects",
+   "training": {
+    "topic": "The cause and effect matrix",
+    "level": "Intermediate",
+    "minutes": 6
+   },
+   "screenshots": [],
+   "category": "safety",
+   "page": "guide-safety.html#safe-cause-effect"
+  },
+  {
+   "id": "SAFE-sif",
+   "title": "Safety instrumented functions: required SIL, PFD and achieved SIL",
+   "summary": "Make an interlock a safety instrumented function with its required SIL, give the failure rates and proof test interval, and see its PFD, achieved SIL and hardware fault tolerance.",
+   "anchor": "safe-sif",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "34.2"
+   ],
+   "checks": [
+    "S2"
+   ],
+   "related": [
+    "SAFE-cause-effect"
+   ],
+   "roles": "Editor Pro; a project role that may edit objects",
+   "training": {
+    "topic": "Safety instrumented functions",
+    "level": "Advanced",
+    "minutes": 6
+   },
+   "screenshots": [],
+   "category": "safety",
+   "page": "guide-safety.html#safe-sif"
+  },
+  {
+   "id": "SAFE-alarms",
+   "title": "Alarms: priority, rationalization and plant states",
+   "summary": "Add alarms on instruments, rationalize them so E1 proposes their priority, and see which alarms each plant state shows or suppresses.",
+   "anchor": "safe-alarms",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "34.3"
+   ],
+   "checks": [
+    "S3"
+   ],
+   "related": [
+    "SAFE-plant-states",
+    "SAFE-documents"
+   ],
+   "roles": "Editor Pro; a project role that may edit objects",
+   "training": {
+    "topic": "Alarm management",
+    "level": "Intermediate",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "safety",
+   "page": "guide-safety.html#safe-alarms"
+  },
+  {
+   "id": "SAFE-plant-states",
+   "title": "Plant states",
+   "summary": "Name the states the plant runs in (Start-up, Normal operation, Shutdown, Maintenance): each alarm says in which of them it is suppressed.",
+   "anchor": "safe-plant-states",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "34.3"
+   ],
+   "checks": [
+    "S4"
+   ],
+   "related": [
+    "SAFE-alarms"
+   ],
+   "roles": "Editor Pro; a project role that may change project settings",
+   "training": {
+    "topic": "Plant states",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "safety",
+   "page": "guide-safety.html#safe-plant-states"
+  },
+  {
+   "id": "SAFE-documents",
+   "title": "The cause and effect matrix and the alarm list as documents",
+   "summary": "Make the matrix or the alarm list of a unit a document in Revisions, export it to Excel or PDF, and issue it like any document.",
+   "anchor": "safe-documents",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "34.1",
+    "34.3"
+   ],
+   "checks": [
+    "S4"
+   ],
+   "related": [
+    "SAFE-cause-effect",
+    "SAFE-alarms",
+    "DOC-revisions"
+   ],
+   "roles": "Editor Pro; a project role that may create documents",
+   "training": {
+    "topic": "Safety documents",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "safety",
+   "page": "guide-safety.html#safe-documents"
   },
   {
    "id": "IPAD-sign-in",
