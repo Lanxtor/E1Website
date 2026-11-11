@@ -932,14 +932,28 @@
 
 <section class="g-feature" id="draw-line-list">
   <h2>Pipe schedule (line list)</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-line-list</span><span>Roadmap 13.4</span></div>
-  <p class="g-summary">A line list of all pipelines with their data, kept up to date from the drawing.</p>
-  <p class="g-dev">Planned in the Piping milestone, stage 13.4 "Pipe schedule (line list)". Not started. Today you can list the line objects under Assets → Lines with a query (<a href="guide-lists.html#list-new-query">New query</a>).</p>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-line-list</span><span>Roadmap 13.4</span></div>
+  <p class="g-summary">The pipe schedule is a query you build on the project's pipelines and save. E1 ships no fixed line list: you choose its rows and columns, and it stays live with the drawing.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>In the explorer: right-click <span class="ui">Assets → Piping</span> or the project → <span class="ui">Query ▸ New query…</span></dd>
+    <dt>Who</dt><dd>Anyone who can view the project builds and exports it; saving it for the project needs a role that may configure the project</dd>
+  </dl>
+  <h3>Build and save it</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Assets → Piping</span> → <span class="ui">Query ▸ New query…</span>.</td><td>A query tab lists the pipelines, their segments, runs, valves and fittings.</td></tr>
+      <tr><td>2</td><td><span class="ui">Filter</span>: Class is Pipeline.</td><td>One row per pipeline; its name is the line number. Add Piping segment for a row per segment.</td></tr>
+      <tr><td>3</td><td><span class="ui">Columns</span>: From, To, Nominal size, Fluid, Pipe class, Design pressure, Design temperature, Insulation, Test pressure; under Properties <span class="ui">2D spaces</span>.</td><td>From and To read <em>T-100 / outlet</em> and <em>P-101 / suction</em>; 2D spaces lists the P&amp;IDs the pipeline is drawn on. On segment rows, Schedule, Material and Rating come from the pipe class.</td></tr>
+      <tr><td>4</td><td><span class="ui">Save</span>, name it <em>Pipe schedule</em>, for the project.</td><td>It is in every <span class="ui">Query ▸</span> menu of the project from then on.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Issue it</h3>
   <ul>
-    <li>Open a line list document of the project's pipelines, and issue and export it like other list documents.</li>
+    <li><span class="ui">Export</span> in the query gives Excel or CSV of its rows.</li>
+    <li>For a document with a revision: make a list document under Revisions, give it the saved <em>Pipe schedule</em>, add a revision, and export it to Excel or PDF with the project, document, revision and date in its title (<a href="guide-documents.html">Documents</a>).</li>
   </ul>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-lists.html#list-new-query">New query</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a> · <a href="guide-lists.html#list-new-query">New query</a></p>
 </section>
 
 <section class="g-feature" id="draw-dexpi">
