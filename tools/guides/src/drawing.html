@@ -840,8 +840,57 @@
     <li>A pipe run, valve or fitting belongs to at most one pipeline: defining a second one over it is refused with the pipeline's line number.</li>
     <li>Deleting a pipeline keeps the drawn pipe: its runs, valves and fittings go back to the <em>Piping</em> folder and the first run takes the line number back.</li>
   </ul>
-  <p class="g-warn">Not built yet (stage 13.2): pipelines across 2D spaces at off-page connectors, Create pipeline from a selection, Detect pipelines, pipe drawn onto a pipeline joining it, marking incomplete pipelines and runs outside a pipeline, and the flow direction check.</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
+  <h3>Create a pipeline from a selected pipe</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click a pipe that is in no pipeline and choose <span class="ui">Create pipeline</span>.</td><td>E1 extends it along the drawn pipe, through valves and fittings, to the nearest nozzles or open ends on both sides, makes the pipeline and opens its page.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><strong>Across 2D spaces:</strong> at an off-page connector with the same line number (or linked to it) on another 2D space, the pipeline goes on there. It stays one pipeline; no new segment starts at the connector.</li>
+    <li><strong>New pipe joins:</strong> a valve or fitting dropped into a pipeline's pipe, with the pipe split on both sides of it, joins that segment in the same change. A branch drawn off the pipeline joins nothing until you make a pipeline of it.</li>
+  </ul>
+  <p class="g-warn">Not built yet: Redefine boundaries and Swap from and to on a pipeline, and a nozzle's own flow role. Pipe classes come in stage 13.3.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
+</section>
+
+<section class="g-feature" id="draw-piping-check">
+  <h2>Check piping and flow direction</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-piping-check</span><span>Roadmap 13.2</span></div>
+  <p class="g-summary">E1 checks which way the flow goes through every pipe on a 2D space, in a pipeline or not, and whether each pipeline is still whole. It offers fixes; it never applies one on its own.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space: right-click empty space → <span class="ui">Check piping…</span> or <span class="ui">Detect pipelines…</span>; right-click a pump or check valve → <span class="ui">Turn around</span></dd>
+    <dt>Who</dt><dd>Check piping: anyone who can view the project. The fixes, Turn around and Create: a project role that may edit drawings</dd>
+  </dl>
+  <h3>Find and fix a pump drawn backwards</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click empty 2D space and choose <span class="ui">Check piping…</span>.</td><td>The <em>Findings</em> list. A pump whose pipe flows into its outlet and out of its inlet is one finding: "P-101 is turned the wrong way: flow enters its outlet and leaves its inlet."</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Show</span>.</td><td>The 2D space opens with the pump selected.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Turn P-101 around</span>, or <span class="ui">Flip the flow of the chains</span>.</td><td>The finding is gone. Turn around swaps the pump's inlet and outlet in place; Flip reverses the pipe of the chain. Either is one change: Undo brings the finding back.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Make the proposed pipelines</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the same window click <span class="ui">Proposals</span> (or right-click empty space → <span class="ui">Detect pipelines…</span>).</td><td>One proposal per pipeline E1 sees from nozzle to nozzle, for example "T-100 / outlet → P-101 / inlet · 3 pipe runs, V-101, R-01", with any direction finding on the way.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Create</span> on a proposal, or <span class="ui">Skip</span>.</td><td>Create makes the pipeline under <em>Assets → Piping</em>; it is not proposed again. Nothing is made without Create.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What the check reports</h3>
+  <ul>
+    <li><strong>Flow leaves an inlet / enters an outlet</strong> of a pump, compressor, fan, or a check, control or relief valve. Gate, globe, ball, butterfly and plug valves, reducers and strainers pass flow either way, so the check follows the pipe through them.</li>
+    <li><strong>Flow meets head-on</strong> where two pipes both flow into a point or a valve, or both flow out of it.</li>
+    <li><strong>A branch with only inflow or only outflow.</strong></li>
+    <li><strong>An incomplete pipeline:</strong> its start or end is gone, or the drawn pipe between them is cut.</li>
+    <li><strong>Pipe in no pipeline</strong> (a note, with Detect pipelines), and an <strong>off-page connector without its counterpart</strong>.</li>
+  </ul>
+  <p>One finding per chain of pipe, not per run, so one reversed pump gives one finding. Alex reads the same findings (<em>check_piping</em>) and offers the same fixes.</p>
+  <p class="g-warn">Not built yet: the findings in the Checks panel and as markers on the drawing (with the rule engine, milestone M6), and Ignore with a reason.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a></p>
 </section>
 
 <section class="g-feature" id="draw-pipe-classes">

@@ -3069,22 +3069,24 @@
   {
    "id": "DRAW-pipelines",
    "title": "Pipelines and completeness checks",
-   "summary": "Define a pipeline from one equipment nozzle to another: it holds the pipe runs, valves and fittings between them in piping segments, takes the line number, names From and To, and a double-click selects it whole.",
+   "summary": "Define a pipeline from one equipment nozzle to another, or create one from a selected pipe: it holds the pipe runs, valves and fittings between them in piping segments, goes on across off-page connectors, takes the line number, names From and To, and a double-click selects it whole.",
    "anchor": "draw-pipelines",
    "status": "available",
    "since": "2026-11-10",
-   "updated": "2026-11-10",
+   "updated": "2026-11-11",
    "roadmap": [
     "13.1",
     "13.2"
    ],
    "checks": [
-    "O1"
+    "O1",
+    "O2"
    ],
    "related": [
     "DRAW-connector",
     "DRAW-off-page",
-    "DRAW-pipe-classes"
+    "DRAW-pipe-classes",
+    "DRAW-piping-check"
    ],
    "roles": "Editor license; a project role that may edit drawings",
    "training": {
@@ -3095,6 +3097,35 @@
    "screenshots": [],
    "category": "drawing",
    "page": "guide-drawing.html#draw-pipelines"
+  },
+  {
+   "id": "DRAW-piping-check",
+   "title": "Check piping and flow direction",
+   "summary": "Check every pipe on a 2D space: flow that leaves an inlet or enters an outlet, pipe that meets head-on, a pump turned the wrong way, incomplete pipelines, and pipe in no pipeline; fix with Flip the flow of the chain or Turn around, and make the proposed pipelines with Detect pipelines.",
+   "anchor": "draw-piping-check",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "13.2"
+   ],
+   "checks": [
+    "O2"
+   ],
+   "related": [
+    "DRAW-pipelines",
+    "DRAW-flow-arrows",
+    "DRAW-off-page"
+   ],
+   "roles": "Editor license; a project role that may edit drawings (Check piping: any role that can view the project)",
+   "training": {
+    "topic": "Flow direction and the piping check",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-piping-check"
   },
   {
    "id": "DRAW-pipe-classes",
