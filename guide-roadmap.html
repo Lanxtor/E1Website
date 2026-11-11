@@ -50,7 +50,7 @@
           <li><a href="#app-m6">E1 app · M6 Rules and stored assistants</a></li>
           <li><a href="#app-m9">E1 app · M9 EI&amp;C: wiring and loop diagrams</a></li>
           <li><a href="#app-m10">E1 app · M10 Modules: modular P&amp;ID design</a></li>
-          <li><a href="#app-d13">E1 app · D13 Cause and effect, safety functions, alarms</a></li>
+          <li><a href="#app-m12">E1 app · M12 Cause and effect, safety functions, alarms</a></li>
           <li><a href="#app-m11">E1 app · M11 Workflow and dashboards</a></li>
           <li><a href="#app-m8">E1 app · M8 Branches</a></li>
           <li><a href="#app-p">E1 app · P In parallel: integration API, company sign-on, access, chat modes</a></li>
@@ -134,12 +134,12 @@
         <section class="g-feature" id="app-m4">
           <h2>M4 Documents — E1 app</h2>
           <div class="g-meta"><span>23 of 35 stages done</span><span>MVP</span></div>
-          <p class="g-summary">Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex&#x27;s engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), specification attributes for instruments, and document control (versions and revisions on the sheet, changes since a date, clouds in outputs). Everyone sees who else has the same sheet open (presence; no live pointers). M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.</p>
+          <p class="g-summary">Datasheets designed by the users: each object has its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex&#x27;s engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), specification attributes for instruments, and document control (versions and revisions on the sheet, changes since a date, clouds in outputs). Everyone sees who else has the same sheet open (presence; no live pointers). M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>07.1</td><td>Object history and search</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Rename a pump, open it, and see the change on its History tab with the name before and after; Undo this change takes it back. Search the explorer for a tag, a name, or a line number.</td></tr>
             <tr><td>07.2</td><td>Documents and revisions</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Right-click Documents → New document…, make a list, and add revisions A and B on its page; set B in review. The Documents section shows Updated for someone who has not looked yet.</td></tr>
             <tr><td>07.3</td><td>List documents, PDF, and Excel</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Choose a saved query for a list document, then download its PDF and its Excel workbook: both carry the project, the document, its revision, and the date.</td></tr>
-            <tr><td>07.4</td><td>The datasheet as the object&#x27;s screen</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Double-click an object: its datasheet opens, and you can view and edit its values there.</td></tr>
+            <tr><td>07.4</td><td>The datasheet as the object&#x27;s screen</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Double-click an object and click Data sheet, or right-click its symbol → Open datasheet: view and edit its values there.</td></tr>
             <tr><td>07.5</td><td>Datasheet designer</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Open the datasheet designer, change a datasheet layout, and see objects of that class use it.</td></tr>
             <tr><td>07.6</td><td>P&amp;ID sheet PDF</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Open a sheet and choose File → Export PDF or press Ctrl+P: the sheet prints on its page format with its title block.</td></tr>
             <tr><td>07.7</td><td>Issue and &quot;changed since&quot;</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Issue Rev A of a pump list, change a pump&#x27;s design pressure, and see &quot;Changed since Rev A&quot; on the list and Modified on the pump in the explorer.</td></tr>
@@ -270,14 +270,14 @@
             <tr><td>32.4c</td><td>Rules that choose a module</td><td><span class="g-status available">Done 2026-11-11</span></td><td>Give two block valve modules of one category a 2 in and a 6 in inlet, set a pipe&#x27;s Nominal size to DN 150 and click the 2 in module onto it: the 6 in one is placed, and placing says why (Alex: choose_module).</td></tr>
           </tbody></table></div>
         </section>
-        <section class="g-feature" id="app-d13">
-          <h2>D13 Cause and effect, safety functions, alarms — E1 app</h2>
-          <div class="g-meta"><span>0 of 3 stages done</span><span>MVP</span></div>
-          <p class="g-summary">Ordered by the owner on 2026-11-09 (00-D13) and still to be designed (modular P&amp;ID design is designed: M10): cause-and-effect design with interlock and shutdown logic; safety instrumented functions; and alarm management, which alarms each plant context shows or hides. Each gets its concept, design, and stages before it is built.</p>
+        <section class="g-feature" id="app-m12">
+          <h2>M12 Cause and effect, safety functions, alarms — E1 app</h2>
+          <div class="g-meta"><span>3 of 3 stages done</span><span>MVP</span></div>
+          <p class="g-summary">The last part of the owner&#x27;s order of 2026-11-09 (00-D13, 00-D18): interlocks with their causes and effects in the model, shown as the cause and effect matrix with narratives; safety instrumented functions with their required SIL and a calculated PFD; and alarm management, with rationalized priorities and the plant states in which each alarm is shown or suppressed (concept 34).</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
-            <tr><td>CE</td><td>Cause and effect: interlocks and shutdown logic</td><td><span class="g-status planned">Planned</span></td><td>Open the cause-and-effect matrix of a unit: each trip lists its causes and effects, and the interlock narrative and shutdown logic come from the same data.</td></tr>
-            <tr><td>SIF</td><td>Safety instrumented functions</td><td><span class="g-status planned">Planned</span></td><td>Define a safety instrumented function with its sensors, logic, and final elements and its required SIL, and see it on the cause-and-effect matrix.</td></tr>
-            <tr><td>ALM</td><td>Alarm management</td><td><span class="g-status planned">Planned</span></td><td>Set an alarm&#x27;s priority and limits, and see which alarms each plant context (start-up, normal, shutdown) shows or hides.</td></tr>
+            <tr><td>34.1</td><td>Cause and effect: interlocks and shutdown logic</td><td><span class="g-status available">Done 2026-11-11</span></td><td>Right-click a unit in Systems → Cause and effect: Add interlock, Add cause (PT-101 High-high 12 bar(g)), Add effect (XV-101 Close), change a cell, read the narrative; Make document and export it to Excel.</td></tr>
+            <tr><td>34.2</td><td>Safety instrumented functions</td><td><span class="g-status available">Done 2026-11-11</span></td><td>Add an interlock of type Safety instrumented function with Required SIL 2, give its proof test interval, logic solver PFD and the λDU of its causes and effects: the Safety functions tab shows its PFD, achieved SIL and hardware fault tolerance.</td></tr>
+            <tr><td>34.3</td><td>Alarm management</td><td><span class="g-status available">Done 2026-11-11</span></td><td>On the Alarms tab: Add alarm, Rationalize… (Proposed priority from severity and time to respond), choose Plant state Shutdown and tick Suppressed in Shutdown; rename the states in Project settings → Plant states.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m11">
