@@ -448,8 +448,8 @@
 
 <section class="g-feature" id="lib-content-packages">
   <h2>Content packages and standards</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">LIB-content-packages</span><span>Roadmap M1.3</span></div>
-  <p class="g-summary">Content packages bring the classes, attributes, shapes and relationship types E1 works with, often from a standard. Each project chooses the packages it uses. E1 ships four: Core (always on), Electrical foundation, Plant engineering and CFIHOS.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-11</span><span class="g-id">LIB-content-packages</span><span>Roadmap M1.3, 04.8</span></div>
+  <p class="g-summary">Content packages bring the classes, attributes, shapes and relationship types E1 works with, often from a standard. Each project chooses the packages it uses. E1 ships five: Core (always on), Electrical foundation, Plant engineering, CFIHOS and NORSOK SCD (off until a project switches it on).</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Content and standards</span>; for one project: select it → <span class="ui">File → Project settings…</span> → <span class="ui">Content packages</span></dd>
     <dt>Who</dt><dd>Everyone may look; switching packages needs the right to configure the project (Project administrator)</dd>
@@ -473,6 +473,7 @@
     <li><strong>Electrical foundation</strong> (needs Core): the motor and its symbol, and cables and wires as objects.</li>
     <li><strong>Plant engineering</strong> (needs Core and Electrical foundation): equipment, valves, nozzles, instrumentation and control with ISO 10628-2 symbols; from 1.2.0 the ISA 5.1 symbols, the ISA tag rule and the line list attributes.</li>
     <li><strong>CFIHOS</strong> (needs Core, Electrical foundation and Plant engineering 1.1): 847 tag classes, 759 equipment classes, 1388 properties as attributes and 367 pick lists.</li>
+    <li><strong>NORSOK SCD</strong> (needs Core, Electrical foundation and Plant engineering; off until a project switches it on): NORSOK I-005 system control diagrams: the 16 function templates with every terminal and parameter, elementary functions, references, sequence diagrams, the NORSOK function tag and the SCD check. See <a href="guide-drawing.html#draw-scd">System control diagrams</a>.</li>
   </ul>
   <p class="g-warn">A package still in use is not switched off: E1 lists what uses it (see <a href="#lib-package-switching">Switching packages on and off</a>). <span class="ui">Add a content package</span> is greyed out; it comes with content package updates. Without the workspace server, a switch answers "Switching packages needs the workspace server."</p>
   <p class="g-related">Related: <a href="#lib-project-settings">Project settings</a> · <a href="#lib-object-classes">Object classes</a> · <a href="#lib-shapes">Shapes</a> · <a href="#lib-package-licensing">Package licensing and updates</a></p>

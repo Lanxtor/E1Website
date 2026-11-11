@@ -892,6 +892,45 @@
   <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a></p>
 </section>
 
+<section class="g-feature" id="draw-scd">
+  <h2>System control diagrams (NORSOK SCD)</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-scd</span><span>Roadmap 04.8</span></div>
+  <p class="g-summary">The NORSOK SCD content package brings NORSOK I-005 system control diagrams: the function templates (CA, CS, HA, HB, KB, LB, MA, MAS, MB, OA, QA, SB, SBB, SBC, SBE, SBV) and the non-standard function, each a block with every terminal of the standard named on its edge and every parameter as an attribute; the elementary functions; references; sequence diagrams; and a check of the standard's rules.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Switch it on: select the project → <span class="ui">File → Project settings…</span> → <span class="ui">Content packages</span> → <span class="ui">NORSOK SCD</span>. Draw: a 2D space whose <span class="ui">Diagram type</span> is <span class="ui">System control diagram</span>. Check: right-click empty 2D space → <span class="ui">Check SCD…</span></dd>
+    <dt>Who</dt><dd>Switching the package on: Project administrator. Drawing: Editor license and a project role that may edit drawings. Check SCD: anyone who can view the project</dd>
+    <dt>Before you start</dt><dd>NORSOK SCD is off in a new project; it switches Plant engineering and Electrical foundation on with it.</dd>
+  </dl>
+  <h3>Draw a monitoring function and its shutdown level</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Project settings</span> → <span class="ui">Content packages</span>, switch <span class="ui">NORSOK SCD</span> on.</td><td>It is on, with Plant engineering and Electrical foundation.</td></tr>
+      <tr><td>2</td><td>Open a 2D space, set its <span class="ui">Diagram type</span> to <span class="ui">System control diagram</span>, and open <span class="ui">Add asset</span>. Search for "MA".</td><td><span class="ui">Analogue monitoring (MA)</span> is offered with its NORSOK I-005 clause. Place it, and <span class="ui">Shutdown level (LB)</span> to its right.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Connector</span> with the line kind <span class="ui">Signal</span> and draw from the <span class="ui">AHH</span> label on the right edge of MA to the <span class="ui">X</span> on the left of LB.</td><td>The signal starts exactly at MA's AHH terminal and leaves it straight out; it ends at LB's X. A line never meets a function block between its terminals: E1 takes the nearest terminal.</td></tr>
+      <tr><td>4</td><td>Right-click empty 2D space → <span class="ui">Check SCD…</span>.</td><td>"Nothing to report: every signal goes from an output to an input of its own signal class, at a named terminal."</td></tr>
+      <tr><td>5</td><td>Draw a signal from MA's <span class="ui">Y</span> (analogue) to LB's <span class="ui">XS</span> (binary) and click <span class="ui">Check again</span>.</td><td>An error naming MA's Y as analogue and LB's XS as binary: "Analogue goes to analogue and binary to binary." <span class="ui">Show</span> opens the place on the drawing.</td></tr>
+      <tr><td>6</td><td>Click MA and open its window.</td><td>Its attributes under <em>Identification</em> (System number, Function code), <em>NORSOK SCD</em> (control node, control mode, typical, …) and <em>Parameters</em> (display range, hysteresis, dead band). Its terminals are its ports, each with its own attributes (an alarm terminal's limit, priority and time delay).</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What the package brings</h3>
+  <ul>
+    <li><strong>Function templates</strong> with every terminal named on the block: inputs on the left, outputs on the right, force and safeguarding inputs on top, mode locks and feedback below. Inside the block: the template code, the tag, the control node and the typical.</li>
+    <li><strong>Elementary functions:</strong> addition, subtraction, multiplication, division, optional formula, AND, OR, exclusive OR, comparators, selectors, memories, inverter, pulses, signal split, timers and the input parameter; and the <strong>control node change</strong>.</li>
+    <li><strong>References:</strong> signal, process and sequence off-page and on-page references, signals to and from the shutdown system and a sequence, and references to MCC, thyristor and VSD control.</li>
+    <li><strong>Sequence diagrams:</strong> the diagram type <span class="ui">Sequence diagram</span> with start, step, transition, action, condition, branches and end.</li>
+    <li><strong>Devices:</strong> the block valve and actuated and manual dampers; every valve gets its normal position, failure action at loss of signal and limit switches; a signal its communication type (general signal or data communication link).</li>
+    <li><strong>Function tags</strong> as NORSOK Z-DP-002 writes them: the system number, the function code and a four-digit number (43LIC0001). The tag waits until both are given.</li>
+  </ul>
+  <h3>What Check SCD reports</h3>
+  <ul>
+    <li><strong>Errors:</strong> two outputs, or only inputs, joined; an input with more than one source (combine them in an OR, AND or selector first); analogue joined to binary.</li>
+    <li><strong>Warnings:</strong> a signal at a function's edge instead of a terminal; functions in two control nodes joined without a control node change; a signal reference without its signal; a signal off-page reference without an on-page reference of the same name, or the other way round.</li>
+  </ul>
+  <p>The same findings are in an object's <span class="ui">Checks</span> tab with the other checks. Alex reads them too (<em>check_scd</em>).</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-content-packages">Content packages and standards</a> · <a href="guide-library.html#lib-package-switching">Switching packages on and off</a> · <a href="#draw-connector">Connector</a> · <a href="#draw-piping-check">Check piping</a></p>
+</section>
+
 <section class="g-feature" id="draw-pipe-classes">
   <h2>Pipe classes</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-pipe-classes</span><span>Roadmap 13.3</span></div>
