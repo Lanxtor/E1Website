@@ -9,7 +9,9 @@
     "roadmap": [
       "28.1"
     ],
-    "checks": [],
+    "checks": [
+      "R1"
+    ],
     "related": [
       "WIRE-terminals",
       "WIRE-cables-cores",
@@ -34,7 +36,9 @@
     "roadmap": [
       "28.1"
     ],
-    "checks": [],
+    "checks": [
+      "R1"
+    ],
     "related": [
       "WIRE-enclosures",
       "WIRE-cables-cores"
@@ -57,7 +61,9 @@
     "roadmap": [
       "28.1"
     ],
-    "checks": [],
+    "checks": [
+      "R2"
+    ],
     "related": [
       "WIRE-terminals",
       "WIRE-trace",
@@ -82,7 +88,9 @@
     "roadmap": [
       "28.1"
     ],
-    "checks": [],
+    "checks": [
+      "R2"
+    ],
     "related": [
       "WIRE-cables-cores",
       "WIRE-construction-status"
@@ -105,7 +113,9 @@
     "roadmap": [
       "28.1"
     ],
-    "checks": [],
+    "checks": [
+      "R2"
+    ],
     "related": [
       "WIRE-trace",
       "WIRE-cables-cores"
@@ -128,7 +138,9 @@
     "roadmap": [
       "28.1"
     ],
-    "checks": [],
+    "checks": [
+      "R3"
+    ],
     "related": [
       "WIRE-cables-cores",
       "LIB-project-settings"
@@ -142,22 +154,76 @@
     "screenshots": []
   },
   {
+    "id": "WIRE-import",
+    "title": "Import existing or vendor wiring",
+    "summary": "A termination list of an existing plant or a vendor's panel is imported with a preview: the enclosures, strips, terminals, cables and cores not yet in the project are made, and every core is landed as fixed, with its scope and construction status.",
+    "anchor": "wire-import",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.1"
+    ],
+    "checks": [
+      "R3"
+    ],
+    "related": [
+      "WIRE-cables-cores",
+      "WIRE-construction-status",
+      "AI-side-panel"
+    ],
+    "roles": "A license and a project role that may edit objects",
+    "training": {
+      "topic": "Importing existing wiring",
+      "level": "Intermediate",
+      "minutes": 4
+    },
+    "screenshots": []
+  },
+  {
     "id": "WIRE-loop-diagram",
     "title": "Loop diagrams from the wiring",
-    "summary": "The loop diagram follows each circuit through junction boxes, cables, marshalling and interposing devices to the I/O channel, with its power and screens, and is issued in bulk.",
+    "summary": "The loop diagram follows each circuit of a loop through the junction boxes, cables, marshalling and barriers to the I/O channel, with its power feed and its screen, in columns by zone; the loop diagrams of a unit are generated and issued as one set.",
     "anchor": "wire-loop-diagram",
-    "status": "planned",
+    "status": "available",
+    "roadmap": [
+      "28.2"
+    ],
+    "checks": [
+      "R4"
+    ],
+    "related": [
+      "WIRE-trace",
+      "DRAW-loop-diagram",
+      "WIRE-lists"
+    ],
+    "roles": "A license and a project role that may edit documents",
+    "training": {
+      "topic": "Loop diagrams from the wiring",
+      "level": "Intermediate",
+      "minutes": 5
+    },
+    "screenshots": [],
+    "since": "2026-11-11"
+  },
+  {
+    "id": "WIRE-lists",
+    "title": "Wire list, termination list, cable schedule and I/O list",
+    "summary": "Each of these lists is a query you build and save once: E1 ships none (examples below). They read the same wiring as the loop diagram, so they never go stale.",
+    "anchor": "wire-lists",
+    "status": "available",
+    "since": "2026-11-11",
     "roadmap": [
       "28.2"
     ],
     "checks": [],
     "related": [
-      "WIRE-trace",
-      "DRAW-loop-diagram"
+      "LIST-eng-columns",
+      "LIST-templates",
+      "WIRE-cables-cores"
     ],
-    "roles": "A license and a project role that may edit documents",
+    "roles": "Anyone who may view the project; saving for the project needs a role that may edit it",
     "training": {
-      "topic": "Loop diagrams from the wiring",
+      "topic": "Wiring lists as queries",
       "level": "Intermediate",
       "minutes": 5
     },
@@ -166,15 +232,19 @@
   {
     "id": "WIRE-typicals",
     "title": "Signals and wiring typicals",
-    "summary": "Give devices their signals and a wiring typical with options and variants; E1 names wires, terminals and cables from it.",
+    "summary": "A wiring typical describes one kind of device: its signals, its field cables and the cores each signal takes, options and variants, and naming patterns. Give it to one device or many: each gets its I/O signals, terminals and cables with their cores landed and numbered.",
     "anchor": "wire-typicals",
-    "status": "planned",
+    "status": "available",
     "roadmap": [
       "28.3"
     ],
-    "checks": [],
+    "checks": [
+      "R5"
+    ],
     "related": [
-      "WIRE-allocation"
+      "WIRE-cables-cores",
+      "WIRE-allocation",
+      "AI-side-panel"
     ],
     "roles": "A license and a project role that may edit objects",
     "training": {
@@ -182,27 +252,186 @@
       "level": "Intermediate",
       "minutes": 6
     },
-    "screenshots": []
+    "screenshots": [],
+    "since": "2026-11-11"
   },
   {
     "id": "WIRE-allocation",
     "title": "Allocation and Panorama EI&C",
-    "summary": "E1 proposes where every signal lands by the segregation rules and spares; you walk it hop by hop in Panorama EI&C and accept it.",
+    "summary": "E1 proposes where every signal of a group of devices lands, junction box, multicore pair and I/O channel, keeping the segregation rules, redundancy groups and spares, and says why for each choice; you walk the proposal hop by hop in Panorama EI&C, change a junction box for one device or all, and accept a hop, a device or everything.",
     "anchor": "wire-allocation",
-    "status": "planned",
+    "status": "available",
     "roadmap": [
       "28.4"
     ],
-    "checks": [],
+    "checks": [
+      "R6"
+    ],
     "related": [
       "WIRE-typicals",
-      "WIRE-construction-status"
+      "WIRE-wire-moves",
+      "WIRE-circuit-checks"
     ],
     "roles": "A license and a project role that may edit relationships",
     "training": {
       "topic": "Allocation and Panorama EI&C",
       "level": "Advanced",
       "minutes": 8
+    },
+    "screenshots": [],
+    "since": "2026-11-11"
+  },
+  {
+    "id": "WIRE-wire-moves",
+    "title": "Changes after issue: the wire move list",
+    "summary": "Once wiring is issued for construction, a change is a list for the field: moving a device to another junction box lifts and lands its cores and keeps everything else, and a device to be removed keeps its wiring until the field has lifted it.",
+    "anchor": "wire-wire-moves",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.4"
+    ],
+    "checks": [
+      "R6"
+    ],
+    "related": [
+      "WIRE-allocation",
+      "WIRE-construction-status",
+      "AI-side-panel"
+    ],
+    "roles": "A license and a project role that may edit relationships",
+    "training": {
+      "topic": "Changes after issue",
+      "level": "Advanced",
+      "minutes": 4
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-circuit-checks",
+    "title": "Entity check and voltage budget",
+    "summary": "For an intrinsically safe loop E1 checks the barrier against the device and the cable for its length (the entity check), and for every loop with a supply the voltage left at the device at 20 mA. A value it needs and does not have is reported as missing.",
+    "anchor": "wire-circuit-checks",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.4"
+    ],
+    "checks": [
+      "R6"
+    ],
+    "related": [
+      "WIRE-cable-lengths",
+      "WIRE-allocation",
+      "AI-side-panel"
+    ],
+    "roles": "Anyone who may view the project",
+    "training": {
+      "topic": "Entity check and voltage budget",
+      "level": "Advanced",
+      "minutes": 4
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-fill-heat",
+    "title": "Cabinet fill and heat balance",
+    "summary": "On a cabinet's or junction box's page: each strip and card as a bar of what is used, spare and free, and the cabinet's heat balance from physics: its inside and top temperature, the margin to its limit, the cooling missing, and which devices give the most heat.",
+    "anchor": "wire-fill-heat",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.5"
+    ],
+    "checks": [
+      "R7"
+    ],
+    "related": [
+      "WIRE-enclosures",
+      "WIRE-allocation"
+    ],
+    "roles": "Anyone who may view the project",
+    "training": {
+      "topic": "Cabinet fill and heat",
+      "level": "Intermediate",
+      "minutes": 4
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-io-list",
+    "title": "Exchange the I/O list with the control-system vendor",
+    "summary": "Export the I/O list of a unit or a cabinet for the control-system vendor, and import their list back: a channel they kept comes back fixed, a channel they changed is a finding, and is moved to when you apply it.",
+    "anchor": "wire-io-list",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.5"
+    ],
+    "checks": [
+      "R7"
+    ],
+    "related": [
+      "WIRE-allocation",
+      "WIRE-lists",
+      "AI-side-panel"
+    ],
+    "roles": "Exporting: anyone who may view the project. Importing: a license and a project role that may edit relationships",
+    "training": {
+      "topic": "I/O list exchange",
+      "level": "Advanced",
+      "minutes": 4
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-markers",
+    "title": "Markers and the block diagram",
+    "summary": "Export the wire, terminal and cable markers of a cabinet for the printer's software, and see the block diagram: the locations, the enclosures in them, and the cables between them.",
+    "anchor": "wire-markers",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.5"
+    ],
+    "checks": [
+      "R7"
+    ],
+    "related": [
+      "WIRE-fill-heat",
+      "WIRE-cables-cores"
+    ],
+    "roles": "Anyone who may view the project",
+    "training": {
+      "topic": "Markers and the block diagram",
+      "level": "Beginner",
+      "minutes": 2
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-fieldbus",
+    "title": "Fieldbus segments",
+    "summary": "Make a fieldbus segment from a segment typical, place Foundation Fieldbus H1 and Profibus PA devices on its coupler ports within its limits, and see the segment against its limits on its page.",
+    "anchor": "wire-fieldbus",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.6"
+    ],
+    "checks": [
+      "R8"
+    ],
+    "related": [
+      "WIRE-typicals",
+      "WIRE-allocation",
+      "WIRE-loop-diagram"
+    ],
+    "roles": "A license and a project role that may create objects; anyone who may view the project sees the segment view",
+    "training": {
+      "topic": "Fieldbus segments",
+      "level": "Intermediate",
+      "minutes": 3
     },
     "screenshots": []
   }

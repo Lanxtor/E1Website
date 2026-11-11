@@ -169,7 +169,7 @@
   "anchor": "lib-library-updates",
   "status": "available",
   "since": "2026-11-05",
-  "updated": "2026-11-06",
+  "updated": "2026-11-11",
   "roadmap": [
    "11.2"
   ],
@@ -180,7 +180,8 @@
   "related": [
    "LIB-company-library",
    "LIB-upgrade",
-   "LIB-catalog-reapply"
+   "LIB-catalog-reapply",
+   "LIB-module-updates"
   ],
   "roles": "Check against projects: Owner or Library administrator",
   "training": {
@@ -559,7 +560,7 @@
  {
   "id": "LIB-rules",
   "title": "Rules: calculations, check rules and copy rules",
-  "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. A check rule gives a finding where its condition does not hold. Copy rules come later.",
+  "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. A check rule gives a finding where its condition does not hold. A copy rule copies a value people may still change. Organization rules are made in the company library and reach a project when its library pin moves; content packages bring their own.",
   "anchor": "lib-rules",
   "status": "available",
   "roadmap": [
@@ -573,14 +574,16 @@
   "checks": [
    "P1",
    "P2",
-   "P3"
+   "P3",
+   "P4",
+   "P6"
   ],
   "related": [
    "OBJ-tag-rules",
    "LIB-configuration",
    "OBJ-checks"
   ],
-  "roles": "Manage project rules (rule.manage): Project administrator",
+  "roles": "Manage project rules (rule.manage): Project administrator; organization rules: Edit the company library, and Publish the company library to publish",
   "training": {
    "topic": "Rules in E1",
    "level": "Advanced",
@@ -700,16 +703,18 @@
  {
   "id": "LIB-modules",
   "title": "Modules in the library",
-  "summary": "Parts of P&IDs saved for placing again, kept in the company library or a project's: the list, search, details, and Usually per instance.",
+  "summary": "Parts of P&IDs saved for placing again, kept in the company library, a project's or a content package: the list, search, details, Save as module? for groups drawn three times, and Usually per instance.",
   "anchor": "lib-modules",
   "status": "available",
   "since": "2026-11-11",
   "updated": "2026-11-11",
   "roadmap": [
-   "32.1a"
+   "32.1a",
+   "32.3d"
   ],
   "checks": [
-   "M1"
+   "M1",
+   "M11"
   ],
   "related": [
    "LIB-module-versions",
@@ -753,34 +758,41 @@
  {
   "id": "LIB-module-updates",
   "title": "Updating placed modules to a new version",
-  "summary": "Update placed instances to a new module version, keeping what each changed and deciding each conflict.",
+  "summary": "Update placed instances to a new module version: the module's changes written, each instance's kept, conflicts decided once per group; Update without conflicts.",
   "anchor": "lib-module-updates",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
    "32.2b"
   ],
-  "checks": [],
+  "checks": [
+   "M6"
+  ],
   "related": [
    "LIB-module-versions"
   ],
-  "roles": "Editing the project",
+  "roles": "Changing the objects of the project",
   "training": {
    "topic": "Module updates",
    "level": "Advanced",
    "minutes": 4
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  },
  {
   "id": "LIB-module-edit",
-  "title": "Editing a module on the module sheet",
-  "summary": "Edit a module's draft on its own sheet and publish the next version.",
+  "title": "Editing a module: new versions",
+  "summary": "Open a module's next version, change its details, members, tie-in points and parameters, upgrade its members and publish; duplicate a module or copy it to the company library.",
   "anchor": "lib-module-edit",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
-   "32.3a"
+   "32.3a",
+   "32.4b"
   ],
-  "checks": [],
+  "checks": [
+   "M7"
+  ],
   "related": [
    "LIB-modules"
   ],
@@ -790,6 +802,8 @@
    "level": "Advanced",
    "minutes": 4
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  }
 ]
