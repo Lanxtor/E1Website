@@ -8273,17 +8273,14 @@
   {
    "id": "WEB-board",
    "title": "The Shape E1 board: requests and votes",
-   "summary": "Search, vote for, comment on and post feature requests for E1.",
+   "summary": "A board for feature requests and votes; not on the website at the moment.",
    "anchor": "web-board",
-   "status": "preview",
+   "status": "parked",
    "since": "2026-11-04",
-   "updated": "2026-11-10",
+   "updated": "2026-11-11",
    "roadmap": [
     "W1.2",
     "W3.3"
-   ],
-   "checks": [
-    "W7"
    ],
    "related": [
     "WEB-login",
@@ -8332,7 +8329,9 @@
    "roadmap": [
     "28.1"
    ],
-   "checks": [],
+   "checks": [
+    "R1"
+   ],
    "related": [
     "WIRE-terminals",
     "WIRE-cables-cores",
@@ -8359,7 +8358,9 @@
    "roadmap": [
     "28.1"
    ],
-   "checks": [],
+   "checks": [
+    "R1"
+   ],
    "related": [
     "WIRE-enclosures",
     "WIRE-cables-cores"
@@ -8384,7 +8385,9 @@
    "roadmap": [
     "28.1"
    ],
-   "checks": [],
+   "checks": [
+    "R2"
+   ],
    "related": [
     "WIRE-terminals",
     "WIRE-trace",
@@ -8411,7 +8414,9 @@
    "roadmap": [
     "28.1"
    ],
-   "checks": [],
+   "checks": [
+    "R2"
+   ],
    "related": [
     "WIRE-cables-cores",
     "WIRE-construction-status"
@@ -8436,7 +8441,9 @@
    "roadmap": [
     "28.1"
    ],
-   "checks": [],
+   "checks": [
+    "R2"
+   ],
    "related": [
     "WIRE-trace",
     "WIRE-cables-cores"
@@ -8461,7 +8468,9 @@
    "roadmap": [
     "28.1"
    ],
-   "checks": [],
+   "checks": [
+    "R3"
+   ],
    "related": [
     "WIRE-cables-cores",
     "LIB-project-settings"
@@ -8477,18 +8486,49 @@
    "page": "guide-wiring.html#wire-cable-lengths"
   },
   {
+   "id": "WIRE-import",
+   "title": "Import existing or vendor wiring",
+   "summary": "A termination list of an existing plant or a vendor's panel is imported with a preview: the enclosures, strips, terminals, cables and cores not yet in the project are made, and every core is landed as fixed, with its scope and construction status.",
+   "anchor": "wire-import",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [
+    "R3"
+   ],
+   "related": [
+    "WIRE-cables-cores",
+    "WIRE-construction-status",
+    "AI-side-panel"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Importing existing wiring",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-import"
+  },
+  {
    "id": "WIRE-loop-diagram",
    "title": "Loop diagrams from the wiring",
-   "summary": "The loop diagram follows each circuit through junction boxes, cables, marshalling and interposing devices to the I/O channel, with its power and screens, and is issued in bulk.",
+   "summary": "The loop diagram follows each circuit of a loop through the junction boxes, cables, marshalling and barriers to the I/O channel, with its power feed and its screen, in columns by zone; the loop diagrams of a unit are generated and issued as one set.",
    "anchor": "wire-loop-diagram",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "28.2"
    ],
-   "checks": [],
+   "checks": [
+    "R4"
+   ],
    "related": [
     "WIRE-trace",
-    "DRAW-loop-diagram"
+    "DRAW-loop-diagram",
+    "WIRE-lists"
    ],
    "roles": "A license and a project role that may edit documents",
    "training": {
@@ -8497,8 +8537,35 @@
     "minutes": 5
    },
    "screenshots": [],
+   "since": "2026-11-11",
    "category": "wiring",
    "page": "guide-wiring.html#wire-loop-diagram"
+  },
+  {
+   "id": "WIRE-lists",
+   "title": "Wire list, termination list, cable schedule and I/O list",
+   "summary": "Each of these lists is a query you build and save once: E1 ships none (examples below). They read the same wiring as the loop diagram, so they never go stale.",
+   "anchor": "wire-lists",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.2"
+   ],
+   "checks": [],
+   "related": [
+    "LIST-eng-columns",
+    "LIST-templates",
+    "WIRE-cables-cores"
+   ],
+   "roles": "Anyone who may view the project; saving for the project needs a role that may edit it",
+   "training": {
+    "topic": "Wiring lists as queries",
+    "level": "Intermediate",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-lists"
   },
   {
    "id": "WIRE-typicals",

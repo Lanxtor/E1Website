@@ -947,18 +947,18 @@
      {
       "id": "28.1",
       "title": "Physical layer: cabinets, cards, terminals, cables, and cores",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Create a junction box with a terminal strip and a multicore cable, connect a transmitter's cores to its terminals, and see the wire list."
+      "tryIt": "Make a cabinet in Assets located in an equipment room; right-click it → New part… for a rail, strip and I/O card; right-click the strip → Add terminals…. Make a cable from a catalog cable type, right-click a core → Connect to terminal…, then Trace circuit."
      },
      {
       "id": "28.2",
       "title": "Loop diagrams with terminals",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Generate a loop diagram for a loop: it follows the circuit through the field, the junction box, the cable and the cabinet terminals to the control system channel."
+      "tryIt": "Wire a transmitter through a junction box to a marshalling cabinet, then right-click its loop in Systems → Generate loop diagram: the terminals appear in columns by zone. On a unit, Generate loop diagrams and Issue loop diagrams… do every loop at once."
      },
      {
       "id": "28.3",
@@ -1019,74 +1019,98 @@
      {
       "id": "32.1c",
       "title": "Place modules from the Modules tab",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Open Add asset → Modules, pick a module, turn it with R and flip it with F, and click onto a pipe: its objects arrive connected, with new tags from the rules."
+      "tryIt": "Add asset → Modules: pick a module, Add to diagram, press R to turn it and F to flip it, and click onto a pipe or an open line end: its objects arrive connected, with new tags from the rules; one Undo takes it back."
      },
      {
       "id": "32.1d",
       "title": "Module instances on the object",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Open a placed member's properties: Part of module names the module and version; Module ▸ Select module instance selects all its members, and Detach module instance… leaves plain objects."
+      "tryIt": "Open the properties of a placed module's object: Part of module names the module and version; Module ▾ → Select module instance selects all its members, Detach module instance… leaves plain objects. After Publish in Save as module…, link the source objects as an instance."
      },
      {
       "id": "32.2a",
       "title": "Compare an instance with its module",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Change a value in one instance and see Changed here in the tree; Compare with module… lists it, with Keep mine and Use module."
+      "tryIt": "Change a value of a placed module's object: its Part of module line shows Changed here; Module ▾ → Compare with module… lists it with Keep mine (with a reason), Use module and Remove from instance."
      },
      {
       "id": "32.2b",
       "title": "Update instances to a new module version",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Publish a new module version and update its instances from Updates available, deciding each conflict with Keep mine or Use module, or Update without conflicts."
+      "tryIt": "Publish a new version of a placed module, then Configuration → Modules → Update instances…: decide each conflict group with Use module for all or Keep mine for all, or Update without conflicts."
      },
      {
       "id": "32.2c",
-      "title": "Paste instances; delete and restore members",
+      "title": "Delete, void and restore members of an instance",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Delete a member of a placed module to the bin: Compare with module lists it as Removed here; restore it and it is back in step. Put all its objects in the bin: the module no longer offers that instance an update."
+     },
+     {
+      "id": "32.2d",
+      "title": "Paste carries values and whole instances",
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "Copy a whole instance and paste it: a new instance with new tags. Delete a member and restore it from the Deleted bin."
+      "tryIt": "Copy a whole placed module and paste it: a new instance of the same module and version, with the values and relationships and new tags."
      },
      {
       "id": "32.3a",
-      "title": "Edit a module on the module sheet",
-      "done": false,
-      "doneOn": null,
+      "title": "Edit modules: new versions, upgrade, duplicate, copy to the company",
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Open a module in Configuration → Modules with New version, add a valve on the module sheet, set its tie-in points and parameters, and publish."
+      "tryIt": "Configuration → Modules: click a module, New version, change a tie-in point's rating and the change note, Upgrade members, Publish; Duplicate… and Copy to company library make new modules from it."
      },
      {
       "id": "32.3b",
       "title": "Promote an instance's changes to the module",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Add an object to an instance with Add to module instance and turn the instance's changes into the next version with Save changes to module…."
+      "tryIt": "Select a placed module's object and another symbol, right-click → Add to module instance; change a value; on the object's page Module ▾ → Save changes to module…, Publish: the module's next version holds them and the instance is in step."
      },
      {
       "id": "32.3c",
-      "title": "Modules in packages, Alex and the API",
+      "title": "Modules in the integration API",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Read a placed module's object through the API (GET its object record): moduleInstance names the module, its version, the instance and the member."
+     },
+     {
+      "id": "32.3d",
+      "title": "Modules in content packages, and Alex suggesting Save as module?",
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "See Alex suggest Save as module? for a group drawn three times, and read an object's moduleInstance through the API."
+      "tryIt": "Load a content package with modules and place one; draw the same group three times and see Alex suggest Save as module?."
      },
      {
       "id": "32.4",
-      "title": "Engineering rules at module boundaries",
+      "title": "Checks at module boundaries",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Give a module's inlet a size of 2 in and place it onto the open end of a 6\" pipe: placing reports that the inlet is for 2 in and the pipe it meets is 6\"; the same for pipe class, rating and medium."
+     },
+     {
+      "id": "32.4b",
+      "title": "Pipelines, rules and prefixes at module boundaries",
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "Place a module whose inlet pipe class differs from the header it meets and see the mismatch reported; place it with an IEC 81346 prefix."
+      "tryIt": "Place a module on a pipeline and accept the proposed pipeline and line numbers; let a rule choose a parameter's default; place it with an IEC 81346 prefix; mark a module as vendor scope."
      }
     ]
    },
