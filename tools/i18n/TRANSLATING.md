@@ -11,7 +11,7 @@ Rules for translations
 - Keep every HTML tag and attribute exactly as in the English text (`<a href="…" class="…">`, `<br>`,
   `<span data-usd="345">$345</span>`, `<b>`, entities such as `&amp;` and `&#8209;`). Translate only the words.
 - Keep `{placeholders}` as they are.
-- Do not translate: LANXTOR, E1, E1 Cloud, E1 Academy, Microsoft Azure, Amazon Web Services, AWS, Google Cloud,
+- Do not translate: LANXTOR, E1, E1 Cloud, E1 Academy, Microsoft Azure, Amazon Web Services, AWS, Google Cloud, Alibaba Cloud,
   PostgreSQL, Windows, macOS, Linux, iPad, CFIHOS, FEED, P&ID (P&amp;ID), PFD, DWG, PDF, Excel, SHA-256.
 - Tone: short, clear, professional B2B software for engineers. German uses "Sie", French "vous",
   Spanish "tú", Norwegian bokmål "du".
