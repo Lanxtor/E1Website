@@ -8487,16 +8487,19 @@
   {
    "id": "WIRE-loop-diagram",
    "title": "Loop diagrams from the wiring",
-   "summary": "The loop diagram follows each circuit through junction boxes, cables, marshalling and interposing devices to the I/O channel, with its power and screens, and is issued in bulk.",
+   "summary": "The loop diagram follows each circuit of a loop through the junction boxes, cables, marshalling and barriers to the I/O channel, with its power feed and its screen, in columns by zone; the loop diagrams of a unit are generated and issued as one set.",
    "anchor": "wire-loop-diagram",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "28.2"
    ],
-   "checks": [],
+   "checks": [
+    "R4"
+   ],
    "related": [
     "WIRE-trace",
-    "DRAW-loop-diagram"
+    "DRAW-loop-diagram",
+    "WIRE-lists"
    ],
    "roles": "A license and a project role that may edit documents",
    "training": {
@@ -8505,8 +8508,35 @@
     "minutes": 5
    },
    "screenshots": [],
+   "since": "2026-11-11",
    "category": "wiring",
    "page": "guide-wiring.html#wire-loop-diagram"
+  },
+  {
+   "id": "WIRE-lists",
+   "title": "Wire list, termination list, cable schedule and I/O list",
+   "summary": "Each of these lists is a query you build and save once: E1 ships none (examples below). They read the same wiring as the loop diagram, so they never go stale.",
+   "anchor": "wire-lists",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.2"
+   ],
+   "checks": [],
+   "related": [
+    "LIST-eng-columns",
+    "LIST-templates",
+    "WIRE-cables-cores"
+   ],
+   "roles": "Anyone who may view the project; saving for the project needs a role that may edit it",
+   "training": {
+    "topic": "Wiring lists as queries",
+    "level": "Intermediate",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-lists"
   },
   {
    "id": "WIRE-typicals",

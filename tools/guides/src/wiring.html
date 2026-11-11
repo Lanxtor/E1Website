@@ -8,7 +8,8 @@
     <li>Make the <a href="#wire-cables-cores">cables</a> from the catalog's cable types, and land their cores on the terminals.</li>
     <li><a href="#wire-trace">Trace a circuit</a> to check it reaches its channel, and set its <a href="#wire-construction-status">construction status</a> as the work goes on.</li>
     <li>Keep the <a href="#wire-cable-lengths">cable lengths</a> from 3D and by hand, and see where they differ; <a href="#wire-import">import</a> the wiring of an existing plant or a vendor panel.</li>
-    <li>See what is coming: <a href="#wire-loop-diagram">loop diagrams from the wiring</a>, <a href="#wire-typicals">wiring typicals</a> and <a href="#wire-allocation">allocation in Panorama EI&amp;C</a>.</li>
+    <li>Generate the <a href="#wire-loop-diagram">loop diagrams</a> from the wiring, issue them as a set, and build the <a href="#wire-lists">wire list and other lists</a> as queries.</li>
+    <li>See what is coming: <a href="#wire-typicals">wiring typicals</a> and <a href="#wire-allocation">allocation in Panorama EI&amp;C</a>.</li>
   </ol>
   <h3>Before you start</h3>
   <p>You have a project whose library includes the Electrical foundation package (E1 library version 17 or newer: see <a href="guide-library.html#lib-project-settings">Project settings</a>). The examples use a marshalling cabinet A3 in equipment room CR1, a junction box JB-12, a transmitter TT-101, a field cable W-101 and a multicore W-201; on a project of your own, use your own names.</p>
@@ -102,7 +103,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click field cable W-101 → <span class="ui">Trace circuit</span>.</td><td>E1 shows the way, for example "TT-101 → JB-12 → A3", and where it ends: "Ends at +CR1-A3-1:1 (channel), +CR1-A3-1:2 (channel)."</td></tr>
+      <tr><td>1</td><td>Right-click field cable W-101 → <span class="ui">Trace circuit</span>.</td><td>E1 shows the way, for example "TT-101 → JB-12 → A3", and where it ends: "Ends at +CR1-A3-A5-1:1 (channel), +CR1-A3-A5-1:2 (channel)."</td></tr>
       <tr><td>2</td><td>Land one more core of W-201 at JB-12 only, and trace W-201.</td><td>The message adds "1 line landed at one end only."</td></tr>
       <tr><td>3</td><td>Trace a strip with nothing landed on it.</td><td>"It reaches no channel yet."</td></tr>
     </tbody>
@@ -182,10 +183,48 @@
 
 <section class="g-feature" id="wire-loop-diagram">
   <h2>Loop diagrams from the wiring</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">WIRE-loop-diagram</span><span>Roadmap 28.2</span></div>
-  <p class="g-summary">The loop diagram will follow each circuit of a loop through the junction boxes, cables, marshalling and barriers to the I/O channel, with its power feed and its screen, in columns by zone. Loop diagrams of a unit will be generated and issued as one set.</p>
-  <p class="g-note">Today's loop diagram shows the loop's devices and the lines between them: see <a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a>.</p>
-  <p class="g-related">Related: <a href="#wire-trace">Trace a circuit</a> · <a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-loop-diagram</span><span>Roadmap 28.2</span><span>Review check R4</span></div>
+  <p class="g-summary">The loop diagram follows each circuit of a loop from its devices through the junction boxes, the cables, the marshalling and the barriers to the I/O channel, with the barrier's power feed and the screens to their earth bar. Every terminal it uses is drawn in a column by zone, left to right: Junction box, Marshalling: field side, Interposing, Marshalling: system side, I/O, and Supply and earth. Nothing of it is drawn by hand: it is made again from the wiring every time it is opened.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click a function in <span class="ui">Systems</span> → <span class="ui">Generate loop diagram</span>, <span class="ui">Generate loop diagrams</span> or <span class="ui">Issue loop diagrams…</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may make documents; issuing needs a role that may issue revisions</dd>
+    <dt>Before you start</dt><dd>The loop's instruments implement the function and their cores are landed (<a href="#wire-cables-cores">Cables and their cores</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click TIC-101 in <span class="ui">Systems</span> → <span class="ui">Generate loop diagram</span>.</td><td>The loop diagram opens. The line above it reads, for example, "1 devices, 4 terminals, 4 lines, in signal order: field, junction box, marshalling, I/O." TT-101 is on the left; to its right the columns <span class="ui">Junction box JB-12</span> and <span class="ui">Marshalling: field side A3</span>, each with the terminals the loop uses (JB-12 X1:1, JB-12 X1:2 …), and the cores drawn between them.</td></tr>
+      <tr><td>2</td><td>Drag a terminal a little and click <span class="ui">Regenerate</span>.</td><td>The terminal stays where you put it: "Moved by hand: …". A hand move is kept on the diagram, never in the wiring.</td></tr>
+      <tr><td>3</td><td>In <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Wiring</span> choose <span class="ui">Name printed first</span> → <span class="ui">IEC 81346 reference designation (+CR1-A3-X1:5)</span>, then <span class="ui">Regenerate</span>.</td><td>The terminals are named +CR1-A3-X1:1 and so on.</td></tr>
+      <tr><td>4</td><td>Right-click the unit above several loops → <span class="ui">Generate loop diagrams</span>.</td><td>"3 loop diagrams generated." (or how many): every function below it that has devices has its loop diagram in <span class="ui">Documents</span>.</td></tr>
+      <tr><td>5</td><td>Right-click the unit → <span class="ui">Issue loop diagrams…</span>, keep the description and the purpose <code>Issued for construction</code>.</td><td>Each loop diagram gets its next revision with that description and is issued: "3 loop diagrams issued: Issued for construction: Loop diagrams of … (set of 3)."</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A device without terminals is drawn as before, joined to the others by the lines drawn on the P&amp;ID (<a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a>). A core landed at one end only is counted above the diagram: "One core is not connected at one end." A screen earthed at one end is not counted: its other end is insulated on purpose.</p>
+  <p class="g-warn">The diagram's columns come after all of the loop's devices, also its controller and valve. The PDF of a set is one file per diagram: a single PDF with a contents page is not made yet.</p>
+  <p class="g-related">Related: <a href="#wire-trace">Trace a circuit</a> · <a href="#wire-lists">Wire list and other lists</a> · <a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a></p>
+</section>
+
+<section class="g-feature" id="wire-lists">
+  <h2>Wire list, termination list, cable schedule and I/O list</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-lists</span><span>Roadmap 28.2</span></div>
+  <p class="g-summary">E1 ships no fixed lists: a wiring list is a query you build once and save as a template for the project. It reads the same wiring as the loop diagram, so it is never out of date. These are examples to start from.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click <span class="ui">Assets</span> (or an enclosure, or a cable) → <span class="ui">Query</span> ▸ <span class="ui">New query…</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the project</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>List</th><th>Rows</th><th>Columns to choose</th></tr></thead>
+    <tbody>
+      <tr><td>Wire list</td><td>Filter Class is Core (and Wire for cross-wires)</td><td>Owner (the cable), Name, Wire number, Role, Construction status, and Related → <span class="ui">Connects to</span> → <span class="ui">Their names</span> (the two terminals)</td></tr>
+      <tr><td>Termination list</td><td>Filter Class is Terminal, started on an enclosure</td><td>Owner (the strip), Name, Kind, Construction status, Scope, and Related → <span class="ui">Is connected by</span> → <span class="ui">Their names</span> (the cores landed on it)</td></tr>
+      <tr><td>Cable schedule</td><td>Filter Class is Cable</td><td>Tag, Cable type, Core grouping, Groups, Length used, Length from 3D, Length (by hand), Construction status, Scope</td></tr>
+      <tr><td>I/O list</td><td>Filter Class is Channel</td><td>Owner (the card), Name, Channel types, Assigned type, HART, and Related → <span class="ui">Is connected by</span> (what lands on its terminals)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Save each one: <span class="ui">Save</span>, then <span class="ui">For this project (everyone on it)</span> and <span class="ui">Save template</span>: from then on it is in every node's <span class="ui">Query</span> ▸ menu, and it exports to Excel like any query.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-eng-columns">Engineering columns</a> · <a href="guide-lists.html#list-templates">Templates</a> · <a href="#wire-cables-cores">Cables and their cores</a></p>
 </section>
 
 <section class="g-feature" id="wire-typicals">
