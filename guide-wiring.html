@@ -57,7 +57,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Wiring (EI&amp;C)</p>
         <h1>13. Wiring (EI&amp;C)</h1>
         <p class="lead">Cabinets and junction boxes in their locations, rails, terminal strips and terminals, I/O cards and channels, cables and their cores landed on terminals, tracing a circuit from the field to the I/O channel, construction status, and cable lengths.</p>
-        <div class="g-meta"><span>11 features</span><span>9 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>11 features</span><span>10 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="wiring-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 wiring is data, not a drawing. A cabinet or junction box has a location and an enclosure; the enclosure holds rails, terminal strips and I/O cards; cables have their cores, and each core is landed on a terminal at both ends. From that data E1 traces every circuit from the field device to its I/O channel.</p>
@@ -69,7 +69,7 @@
     <li><a href="#wire-trace">Trace a circuit</a> to check it reaches its channel, and set its <a href="#wire-construction-status">construction status</a> as the work goes on.</li>
     <li>Keep the <a href="#wire-cable-lengths">cable lengths</a> from 3D and by hand, and see where they differ; <a href="#wire-import">import</a> the wiring of an existing plant or a vendor panel.</li>
     <li>Generate the <a href="#wire-loop-diagram">loop diagrams</a> from the wiring, issue them as a set, and build the <a href="#wire-lists">wire list and other lists</a> as queries.</li>
-    <li>See what is coming: <a href="#wire-typicals">wiring typicals</a> and <a href="#wire-allocation">allocation in Panorama EI&amp;C</a>.</li>
+    <li>Give devices a <a href="#wire-typicals">wiring typical</a>, and see what is coming: <a href="#wire-allocation">allocation in Panorama EI&amp;C</a>.</li>
   </ol>
   <h3>Before you start</h3>
   <p>You have a project whose library includes the Electrical foundation package (E1 library version 17 or newer: see <a href="guide-library.html#lib-project-settings">Project settings</a>). The examples use a marshalling cabinet A3 in equipment room CR1, a junction box JB-12, a transmitter TT-101, a field cable W-101 and a multicore W-201; on a project of your own, use your own names.</p>
@@ -289,9 +289,27 @@
 
 <section class="g-feature" id="wire-typicals">
   <h2>Signals and wiring typicals</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">WIRE-typicals</span><span>Roadmap 28.3</span></div>
-  <p class="g-summary">Devices will get their signals, and a wiring typical with its options and variants (for example "AI 2-wire, intrinsically safe through a barrier") that says which cables, cores, terminals and channel each signal needs, with names from the tag rules.</p>
-  <p class="g-related">Related: <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-typicals</span><span>Roadmap 28.3</span><span>Review check R5</span></div>
+  <p class="g-summary">Most devices of a plant follow a handful of patterns: a 2-wire transmitter, a solenoid valve, a motor-operated valve. A <em>wiring typical</em> describes one pattern once: the device's signals (open command, closed limit, position …), the field cables and which pair each signal takes, options such as <em>Position feedback</em>, variants (named sets of option values) and the naming of cables and wires. Given to a device, it makes the device's I/O signals, its terminals, and its field cables with their cores landed on the device and numbered.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click an instrument, valve or motor in the explorer → <span class="ui">Wiring typical…</span>; making and publishing a typical, and giving one to many devices at once: Alex in the side panel</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects; publishing a typical in the project's library needs a role that may configure the project</dd>
+    <dt>Before you start</dt><dd>The devices have tags: they name the cables and the wire numbers.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex: <em>"Make a wiring typical Motor-operated valve for the project: open, close and stop commands, open and closed limits, torque fault and local/remote on an 8-pair control cable, and the position (AI, HART) on its own 1-pair cable when the option Position feedback is on; a variant Without position. Publish it."</em></td><td>Alex saves the typical as a draft, checks it (every signal on a cable, every option it names exists) and publishes it. A typical with a mistake is refused with what is wrong, for example "Signal pv is on no cable."</td></tr>
+      <tr><td>2</td><td>Right-click valve XV-101 → <span class="ui">Wiring typical…</span>, type <code>1</code> for Motor-operated valve, and leave the variant empty.</td><td>"XV-101 follows Motor-operated valve: 8 signals, 16 terminals, cables W-XV-101-1, W-XV-101-2." Under XV-101 are its I/O signals (open, close, … zt) and terminals 1 to 16; the two cables are in Assets with their cores, each core landed on its terminal and carrying its wire number (XV-101-open-1 …). XV-101's <span class="ui">Wiring</span> group shows the typical, the variant and the options.</td></tr>
+      <tr><td>3</td><td>Do the same with the variant <code>Without position</code> on XV-102.</td><td>Only the control cable is made: Position feedback is off.</td></tr>
+      <tr><td>4</td><td>Ask Alex: <em>"Give XV-103 to XV-112 the Motor-operated valve typical."</em></td><td>The ten valves get their signals, terminals and cables in one step, which one <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) takes back.</td></tr>
+      <tr><td>5</td><td>Run <span class="ui">Wiring typical…</span> again on XV-101.</td><td>Nothing new is made: what is there by name or tag is kept.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Each I/O signal has its kind (AI, AO, DI, DO …), its segregation class, control system and redundancy group, used by the allocation. A terminal can also be made part of a <em>potential</em> (a 24 V rail, its common, an earth) with the relationship <span class="ui">is part of potential</span>.</p>
+  <p class="g-warn">There is no editor on the screen for typicals yet: they are made and published through Alex. Setting typicals by rule (for example every transmitter in a hazardous area) comes with rules; the junction box, marshalling and channel each signal lands on come with the allocation.</p>
+  <p class="g-related">Related: <a href="#wire-cables-cores">Cables and their cores</a> · <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a> · <a href="guide-ai.html#ai-side-panel">The side panel</a></p>
 </section>
 
 <section class="g-feature" id="wire-allocation">
