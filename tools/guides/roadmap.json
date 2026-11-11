@@ -789,7 +789,7 @@
    {
     "id": "M7",
     "title": "Piping",
-    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, the pipe schedule (line list), and DEXPI exchange for 3D design tools.",
+    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, and the pipe schedule (line list). DEXPI export moved after the MVP (owner, 2026-11-11, 00-D16).",
     "mvp": true,
     "stages": [
      {
@@ -823,14 +823,6 @@
       "doneOn": "2026-11-11",
       "visible": true,
       "tryIt": "Right-click Assets → Piping → Query ▸ New query…, filter Class is Pipeline, add From, To, Nominal size, Pipe class and 2D spaces, and Save it as Pipe schedule for the project; a list document of it exports to Excel and PDF."
-     },
-     {
-      "id": "13.5",
-      "title": "DEXPI exchange and handover",
-      "done": false,
-      "doneOn": null,
-      "visible": true,
-      "tryIt": "Export the model as a DEXPI file and import it in a 3D design tool (or import one back)."
      }
     ]
    },
@@ -1461,9 +1453,17 @@
    {
     "id": "after",
     "title": "After the MVP",
-    "summary": "Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat; markups as PDF annotations and field walkdowns; hook-up drawings (not designed yet); options, variants, and the configurator for modules (32.5, 32.6).",
+    "summary": "Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat; markups as PDF annotations and field walkdowns; hook-up drawings (not designed yet); options, variants, and the configurator for modules (32.5, 32.6); DEXPI export and handover per pipeline (13.5, 00-D16).",
     "mvp": false,
     "stages": [
+     {
+      "id": "13.5",
+      "title": "DEXPI export and handover",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Export pipelines and their P&IDs as a DEXPI file for a 3D design tool, and import it back with the same pipelines, segments, and boundaries. Until then: the integration API and the pipe schedule in Excel."
+     },
      {
       "id": "32.5",
       "title": "Module options and variants",
