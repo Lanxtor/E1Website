@@ -10,6 +10,8 @@ const S = process.env.E1_GUIDE_WORK || path.resolve('guide-work');
 const OUT = S + '/shots';
 fs.mkdirSync(OUT, { recursive: true });
 const BASE = process.env.BASE || 'http://localhost:5173/';
+// The E1 checkout (NODE_PATH points at its node_modules), for the terms version to accept.
+const E1_ROOT = process.env.E1_ROOT || path.resolve(String(process.env.NODE_PATH || '../E1/node_modules').split(path.delimiter)[0], '..');
 const scen = require(path.resolve(process.argv[2]));
 const only = process.argv.slice(3);
 
@@ -17,7 +19,16 @@ function helpers(page, log) {
   const h = {
     page,
     async ready() { await page.locator('.save-state').filter({ hasText: 'Saved' }).waitFor({ timeout: 30000 }).catch(() => {}); await page.waitForTimeout(600); },
-    async open(url = BASE) { await page.goto(url); await h.ready(); },
+    async open(url = BASE) {
+      // The E1 Terms and License Agreement, accepted for the person before E1 opens (as E1's own tests do).
+      if (url.startsWith(BASE) && !h.termsAccepted) {
+        const version = (await import(path.join(E1_ROOT, 'src/domain/legal/terms.mjs'))).TERMS_VERSION;
+        await page.request.post(new URL('/api/terms', BASE).href, { data: { version } });
+        h.termsAccepted = true;
+      }
+      await page.goto(url);
+      await h.ready();
+    },
     reset() {
       const store = S + '/store';
       for (const name of fs.readdirSync(store)) if (name !== 'base.json') fs.rmSync(path.join(store, name), { recursive: true, force: true });
