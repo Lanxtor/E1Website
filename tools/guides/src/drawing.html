@@ -1075,25 +1075,34 @@
   </table></div>
   <h3>The objects you saved from</h3>
   <p>After <span class="ui">Publish</span> in <a href="#draw-module-save">Save as module…</a>, the dialog offers <span class="ui">Link the source objects as an instance</span>: the objects the module was made from become its first instance, as if they had been placed from it. An object already in another instance, or deleted since, is left out. <span class="ui">Not now</span> leaves them as they are.</p>
-  <p class="g-warn">Comparing an instance with its module, and updating instances to a new version, are being built (<a href="#draw-module-compare">Compare an instance</a>, <a href="guide-library.html#lib-module-updates">Updating placed modules</a>).</p>
+  <p>What an instance changed: <a href="#draw-module-compare">Compare an instance with its module</a>. Updating instances to a new version is being built (<a href="guide-library.html#lib-module-updates">Updating placed modules</a>).</p>
   <p class="g-related">Related: <a href="#draw-module-place">Place a module</a> · <a href="#draw-module-save">Save a selection as a module</a></p>
 </section>
 
 <section class="g-feature" id="draw-module-compare">
   <h2>Compare an instance with its module</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-compare</span><span>Roadmap 32.2a</span></div>
-  <p class="g-summary">See what one placed module changed against its module.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-compare</span><span>Roadmap 32.2a</span><span>Review check M5</span></div>
+  <p class="g-summary">See what one placed module changed against its module: values, relations, members removed. Keep a change with a reason, take the module's value back, or take an object out of the instance.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Not on screen yet</dd>
-    <dt>Who</dt><dd>Editing the project</dd>
+    <dt>Where</dt><dd>The object's properties → <span class="ui">Module ▾</span> → <span class="ui">Compare with module…</span>; <span class="ui">Changed here</span> on the <span class="ui">Part of module</span> line</dd>
+    <dt>Who</dt><dd>Everyone who can view the objects compares; deciding needs changing objects</dd>
   </dl>
-  <div class="g-dev"><p><strong>Planned (roadmap 32.2a "Compare an instance with its module").</strong></p></div>
-  <h3>What you will be able to do</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Change a value of an object of a placed module, then open its properties.</td><td><span class="ui">Part of module</span> shows <span class="ui">Changed here</span>.</td></tr>
+      <tr><td>2</td><td><span class="ui">Module ▾</span> → <span class="ui">Compare with module…</span></td><td>One row per local change: the member with its tag, the element (the attribute, <em>Relation removed</em>, <em>Added here</em>, <em>Removed here</em>, …), the module's value and this instance's. An instance with none reads <em>In step</em>.</td></tr>
+      <tr><td>3</td><td>Type a <span class="ui">Reason</span> and click <span class="ui">Keep mine</span> on a row.</td><td>The change moves to <span class="ui">Kept changes</span>, with who kept it, when and why, and is no longer <em>Changed here</em>. If the value changes again, it is listed again.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Use module</span> on a row (or on a kept change).</td><td>The module's value is written back. A relation removed here is made again; one added here is deleted.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Remove from instance</span> on a member's row.</td><td>The object stays as an ordinary object; the instance lists the member as <em>Removed from the instance</em>.</td></tr>
+    </tbody>
+  </table></div>
   <ul>
-    <li>See Changed here in the tree.</li>
-    <li>Keep a change, with a reason, or take the module's value.</li>
+    <li>Per-instance values, parameter values, tags and calculated values are never compared.</li>
+    <li><span class="ui">Keep mine for all</span> and <span class="ui">Use module for all…</span> decide every row at once. Each decision is one change with one <span class="ui">Undo</span>.</li>
   </ul>
-  <p class="g-related">Related: <a href="#draw-module-instance">A placed module</a> · <a href="guide-library.html#lib-module-updates">Updating placed modules</a></p>
+  <p class="g-warn">Not yet: taking a removed member back with Use module, and a changed class or symbol (shown, decided by Keep mine only); the tree marks.</p>
+  <p class="g-related">Related: <a href="#draw-module-instance">A placed module on its objects</a> · <a href="guide-library.html#lib-module-updates">Updating placed modules</a></p>
 </section>
 
 <section class="g-feature" id="draw-module-promote">
