@@ -895,14 +895,39 @@
 
 <section class="g-feature" id="draw-pipe-classes">
   <h2>Pipe classes</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-pipe-classes</span><span>Roadmap 13.3</span></div>
-  <p class="g-summary">Pipe classes (piping specifications) give each line its material, rating and allowed components.</p>
-  <p class="g-dev">Planned in the Piping milestone, stage 13.3 "Pipe classes". Not started.</p>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-pipe-classes</span><span>Roadmap 13.3</span></div>
+  <p class="g-summary">A pipe class (piping specification) says what a line in it is made of and what it may carry: its rating, material, pressure–temperature envelope, sizes with their schedule, and the valves and fittings it allows. A pipeline names it by its code; its segments then show the schedule, material and rating, and the piping check holds them to the class.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration → Pipe classes</span>; on a pipeline or segment, the attribute <span class="ui">Pipe class</span></dd>
+    <dt>Who</dt><dd>Company library: library.edit:pipe-class (or library.edit) to save drafts, library.publish to publish. A project's own classes: Project administrator. Anyone who can view the project reads them.</dd>
+  </dl>
+  <h3>Make and publish a pipe class</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Pipe classes</span> and click <span class="ui">New pipe class</span>.</td><td>The editor opens.</td></tr>
+      <tr><td>2</td><td>Type the code (A1A), description, rating (ASME 150 or PN 16), material; the envelope as lines <em>38 °C | 19.6 bar(g)</em>; the sizes as lines <em>6" | SCH 40</em>; the allowed components one a line (<em>valve.gate</em>). Choose <span class="ui">For</span>: the company or this project only.</td><td><span class="ui">Save draft</span> keeps it a draft. A second class with the same code in the same library is refused.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Publish</span> on its row.</td><td>The row reads <em>Published v1</em>. That version never changes; projects read it through their library version.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Import pipe classes from a spreadsheet</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Import…</span> and choose an Excel or CSV file: one row per fact, by the class code. Columns: <em>Pipe class</em>, <em>Description</em>, <em>Rating</em>, <em>Material</em>; <em>Temperature</em> and <em>Pressure</em> (an envelope point); <em>Size</em> and <em>Schedule</em>; <em>Component</em>.</td><td>—</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Dry run</span>.</td><td>Per class <em>New</em>, <em>New version</em>, <em>Unchanged</em> or <em>Refused</em> with why, and the rows refused. Nothing changes.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Import</span>, then <span class="ui">Publish n drafts</span>.</td><td>The import makes drafts only; publishing is your step.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Use it on a pipeline</h3>
   <ul>
-    <li>Assign a pipe class to a pipeline and see the components that are allowed in it.</li>
+    <li>Set the pipeline's <span class="ui">Pipe class</span> to the code (a segment after a spec change may have its own) and its nominal size. A new pipeline takes the class and size its pipe runs had.</li>
+    <li>On the 2D space right-click empty space → <span class="ui">Check piping…</span> → <span class="ui">Refresh pipelines</span>: each segment shows <em>Schedule</em>, <em>Material</em> and <em>Rating</em> from the class. After a newer version is published, refresh again.</li>
+    <li>The check reports a segment whose design pressure at its design temperature is above the class's envelope as an <strong>error</strong>, and as warnings a size the class does not list, a valve or fitting it does not allow, two segments of different classes next to each other, and a class not in the library.</li>
+    <li>Changing a pipe class never splits, makes or re-bounds a pipeline.</li>
   </ul>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-line-list">Line list</a></p>
+  <p class="g-warn">Not built yet: spec break symbols, the branch table check, size ranges of valves, a read-only mark on the calculated values, and the line number rule with the class code.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-line-list">Pipe schedule</a></p>
 </section>
 
 <section class="g-feature" id="draw-line-list">
