@@ -2599,7 +2599,7 @@
    "anchor": "draw-clipboard",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
     "M3.4"
    ],
@@ -3459,16 +3459,20 @@
   {
    "id": "DRAW-module-place",
    "title": "Place a module from the Modules tab",
-   "summary": "Place a saved module in one step from Add asset → Modules: turned and flipped, connected at its tie-in points, inserted into a pipe, with new tags from the rules.",
+   "summary": "Place a saved module in one step from Add asset → Modules: turned and flipped, connected at its tie-in points, inserted into a pipe (the module of its category that takes the pipe's size), with new tags from the rules.",
    "anchor": "draw-module-place",
    "status": "available",
    "roadmap": [
     "32.1c",
-    "32.4"
+    "32.4",
+    "32.4b",
+    "32.4c"
    ],
    "checks": [
     "M3",
-    "M9"
+    "M9",
+    "M10",
+    "M13"
    ],
    "related": [
     "DRAW-module-save",
@@ -3489,14 +3493,16 @@
   {
    "id": "DRAW-module-instance",
    "title": "A placed module on its objects",
-   "summary": "A placed module's objects stay ordinary objects; Part of module names the module and version, and its menu selects or detaches the instance. The objects a module was saved from can be linked as its first instance.",
+   "summary": "A placed module's objects stay ordinary objects; Part of module names the module and version, and its menu selects or detaches the instance. The objects a module was saved from can be linked as its first instance; a copied whole instance is a new instance.",
    "anchor": "draw-module-instance",
    "status": "available",
    "roadmap": [
-    "32.1d"
+    "32.1d",
+    "32.2d"
    ],
    "checks": [
-    "M4"
+    "M4",
+    "M12"
    ],
    "related": [
     "DRAW-module-place"
@@ -6818,16 +6824,18 @@
   {
    "id": "LIB-modules",
    "title": "Modules in the library",
-   "summary": "Parts of P&IDs saved for placing again, kept in the company library or a project's: the list, search, details, and Usually per instance.",
+   "summary": "Parts of P&IDs saved for placing again, kept in the company library, a project's or a content package: the list, search, details, Save as module? for groups drawn three times, and Usually per instance.",
    "anchor": "lib-modules",
    "status": "available",
    "since": "2026-11-11",
    "updated": "2026-11-11",
    "roadmap": [
-    "32.1a"
+    "32.1a",
+    "32.3d"
    ],
    "checks": [
-    "M1"
+    "M1",
+    "M11"
    ],
    "related": [
     "LIB-module-versions",
@@ -6906,7 +6914,8 @@
    "anchor": "lib-module-edit",
    "status": "available",
    "roadmap": [
-    "32.3a"
+    "32.3a",
+    "32.4b"
    ],
    "checks": [
     "M7"
@@ -8718,16 +8727,19 @@
   {
    "id": "WIRE-allocation",
    "title": "Allocation and Panorama EI&C",
-   "summary": "E1 proposes where every signal lands by the segregation rules and spares; you walk it hop by hop in Panorama EI&C and accept it.",
+   "summary": "E1 proposes where every signal of a group of devices lands, junction box, multicore pair and I/O channel, keeping the segregation rules, redundancy groups and spares, and says why for each choice; you walk the proposal hop by hop in Panorama EI&C, change a junction box for one device or all, and accept a hop, a device or everything.",
    "anchor": "wire-allocation",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "28.4"
    ],
-   "checks": [],
+   "checks": [
+    "R6"
+   ],
    "related": [
     "WIRE-typicals",
-    "WIRE-construction-status"
+    "WIRE-wire-moves",
+    "WIRE-circuit-checks"
    ],
    "roles": "A license and a project role that may edit relationships",
    "training": {
@@ -8736,8 +8748,147 @@
     "minutes": 8
    },
    "screenshots": [],
+   "since": "2026-11-11",
    "category": "wiring",
    "page": "guide-wiring.html#wire-allocation"
+  },
+  {
+   "id": "WIRE-wire-moves",
+   "title": "Changes after issue: the wire move list",
+   "summary": "Once wiring is issued for construction, a change is a list for the field: moving a device to another junction box lifts and lands its cores and keeps everything else, and a device to be removed keeps its wiring until the field has lifted it.",
+   "anchor": "wire-wire-moves",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.4"
+   ],
+   "checks": [
+    "R6"
+   ],
+   "related": [
+    "WIRE-allocation",
+    "WIRE-construction-status",
+    "AI-side-panel"
+   ],
+   "roles": "A license and a project role that may edit relationships",
+   "training": {
+    "topic": "Changes after issue",
+    "level": "Advanced",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-wire-moves"
+  },
+  {
+   "id": "WIRE-circuit-checks",
+   "title": "Entity check and voltage budget",
+   "summary": "For an intrinsically safe loop E1 checks the barrier against the device and the cable for its length (the entity check), and for every loop with a supply the voltage left at the device at 20 mA. A value it needs and does not have is reported as missing.",
+   "anchor": "wire-circuit-checks",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.4"
+   ],
+   "checks": [
+    "R6"
+   ],
+   "related": [
+    "WIRE-cable-lengths",
+    "WIRE-allocation",
+    "AI-side-panel"
+   ],
+   "roles": "Anyone who may view the project",
+   "training": {
+    "topic": "Entity check and voltage budget",
+    "level": "Advanced",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-circuit-checks"
+  },
+  {
+   "id": "WIRE-fill-heat",
+   "title": "Cabinet fill and heat balance",
+   "summary": "On a cabinet's or junction box's page: each strip and card as a bar of what is used, spare and free, and the cabinet's heat balance from physics: its inside and top temperature, the margin to its limit, the cooling missing, and which devices give the most heat.",
+   "anchor": "wire-fill-heat",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.5"
+   ],
+   "checks": [
+    "R7"
+   ],
+   "related": [
+    "WIRE-enclosures",
+    "WIRE-allocation"
+   ],
+   "roles": "Anyone who may view the project",
+   "training": {
+    "topic": "Cabinet fill and heat",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-fill-heat"
+  },
+  {
+   "id": "WIRE-io-list",
+   "title": "Exchange the I/O list with the control-system vendor",
+   "summary": "Export the I/O list of a unit or a cabinet for the control-system vendor, and import their list back: a channel they kept comes back fixed, a channel they changed is a finding, and is moved to when you apply it.",
+   "anchor": "wire-io-list",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.5"
+   ],
+   "checks": [
+    "R7"
+   ],
+   "related": [
+    "WIRE-allocation",
+    "WIRE-lists",
+    "AI-side-panel"
+   ],
+   "roles": "Exporting: anyone who may view the project. Importing: a license and a project role that may edit relationships",
+   "training": {
+    "topic": "I/O list exchange",
+    "level": "Advanced",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-io-list"
+  },
+  {
+   "id": "WIRE-markers",
+   "title": "Markers and the block diagram",
+   "summary": "Export the wire, terminal and cable markers of a cabinet for the printer's software, and see the block diagram: the locations, the enclosures in them, and the cables between them.",
+   "anchor": "wire-markers",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.5"
+   ],
+   "checks": [
+    "R7"
+   ],
+   "related": [
+    "WIRE-fill-heat",
+    "WIRE-cables-cores"
+   ],
+   "roles": "Anyone who may view the project",
+   "training": {
+    "topic": "Markers and the block diagram",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-markers"
   },
   {
    "id": "IPAD-sign-in",

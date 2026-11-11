@@ -270,7 +270,7 @@
   "anchor": "draw-clipboard",
   "status": "available",
   "since": "2026-11-04",
-  "updated": "2026-11-09",
+  "updated": "2026-11-11",
   "roadmap": [
    "M3.4"
   ],
@@ -1072,16 +1072,20 @@
  {
   "id": "DRAW-module-place",
   "title": "Place a module from the Modules tab",
-  "summary": "Place a saved module in one step from Add asset → Modules: turned and flipped, connected at its tie-in points, inserted into a pipe, with new tags from the rules.",
+  "summary": "Place a saved module in one step from Add asset → Modules: turned and flipped, connected at its tie-in points, inserted into a pipe (the module of its category that takes the pipe's size), with new tags from the rules.",
   "anchor": "draw-module-place",
   "status": "available",
   "roadmap": [
    "32.1c",
-   "32.4"
+   "32.4",
+   "32.4b",
+   "32.4c"
   ],
   "checks": [
    "M3",
-   "M9"
+   "M9",
+   "M10",
+   "M13"
   ],
   "related": [
    "DRAW-module-save",
@@ -1100,14 +1104,16 @@
  {
   "id": "DRAW-module-instance",
   "title": "A placed module on its objects",
-  "summary": "A placed module's objects stay ordinary objects; Part of module names the module and version, and its menu selects or detaches the instance. The objects a module was saved from can be linked as its first instance.",
+  "summary": "A placed module's objects stay ordinary objects; Part of module names the module and version, and its menu selects or detaches the instance. The objects a module was saved from can be linked as its first instance; a copied whole instance is a new instance.",
   "anchor": "draw-module-instance",
   "status": "available",
   "roadmap": [
-   "32.1d"
+   "32.1d",
+   "32.2d"
   ],
   "checks": [
-   "M4"
+   "M4",
+   "M12"
   ],
   "related": [
    "DRAW-module-place"
