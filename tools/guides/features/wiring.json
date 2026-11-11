@@ -258,22 +258,78 @@
   {
     "id": "WIRE-allocation",
     "title": "Allocation and Panorama EI&C",
-    "summary": "E1 proposes where every signal lands by the segregation rules and spares; you walk it hop by hop in Panorama EI&C and accept it.",
+    "summary": "E1 proposes where every signal of a group of devices lands, junction box, multicore pair and I/O channel, keeping the segregation rules, redundancy groups and spares, and says why for each choice; you walk the proposal hop by hop in Panorama EI&C, change a junction box for one device or all, and accept a hop, a device or everything.",
     "anchor": "wire-allocation",
-    "status": "planned",
+    "status": "available",
     "roadmap": [
       "28.4"
     ],
-    "checks": [],
+    "checks": [
+      "R6"
+    ],
     "related": [
       "WIRE-typicals",
-      "WIRE-construction-status"
+      "WIRE-wire-moves",
+      "WIRE-circuit-checks"
     ],
     "roles": "A license and a project role that may edit relationships",
     "training": {
       "topic": "Allocation and Panorama EI&C",
       "level": "Advanced",
       "minutes": 8
+    },
+    "screenshots": [],
+    "since": "2026-11-11"
+  },
+  {
+    "id": "WIRE-wire-moves",
+    "title": "Changes after issue: the wire move list",
+    "summary": "Once wiring is issued for construction, a change is a list for the field: moving a device to another junction box lifts and lands its cores and keeps everything else, and a device to be removed keeps its wiring until the field has lifted it.",
+    "anchor": "wire-wire-moves",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.4"
+    ],
+    "checks": [
+      "R6"
+    ],
+    "related": [
+      "WIRE-allocation",
+      "WIRE-construction-status",
+      "AI-side-panel"
+    ],
+    "roles": "A license and a project role that may edit relationships",
+    "training": {
+      "topic": "Changes after issue",
+      "level": "Advanced",
+      "minutes": 4
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-circuit-checks",
+    "title": "Entity check and voltage budget",
+    "summary": "For an intrinsically safe loop E1 checks the barrier against the device and the cable for its length (the entity check), and for every loop with a supply the voltage left at the device at 20 mA. A value it needs and does not have is reported as missing.",
+    "anchor": "wire-circuit-checks",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.4"
+    ],
+    "checks": [
+      "R6"
+    ],
+    "related": [
+      "WIRE-cable-lengths",
+      "WIRE-allocation",
+      "AI-side-panel"
+    ],
+    "roles": "Anyone who may view the project",
+    "training": {
+      "topic": "Entity check and voltage budget",
+      "level": "Advanced",
+      "minutes": 4
     },
     "screenshots": []
   }
