@@ -7,8 +7,9 @@
     <li><a href="#wire-terminals">Add terminals</a> to the strips, the channels and the instruments.</li>
     <li>Make the <a href="#wire-cables-cores">cables</a> from the catalog's cable types, and land their cores on the terminals.</li>
     <li><a href="#wire-trace">Trace a circuit</a> to check it reaches its channel, and set its <a href="#wire-construction-status">construction status</a> as the work goes on.</li>
-    <li>Keep the <a href="#wire-cable-lengths">cable lengths</a> from 3D and by hand, and see where they differ.</li>
-    <li>See what is coming: <a href="#wire-loop-diagram">loop diagrams from the wiring</a>, <a href="#wire-typicals">wiring typicals</a> and <a href="#wire-allocation">allocation in Panorama EI&amp;C</a>.</li>
+    <li>Keep the <a href="#wire-cable-lengths">cable lengths</a> from 3D and by hand, and see where they differ; <a href="#wire-import">import</a> the wiring of an existing plant or a vendor panel.</li>
+    <li>Generate the <a href="#wire-loop-diagram">loop diagrams</a> from the wiring, issue them as a set, and build the <a href="#wire-lists">wire list and other lists</a> as queries.</li>
+    <li>Give devices a <a href="#wire-typicals">wiring typical</a>, and see what is coming: <a href="#wire-allocation">allocation in Panorama EI&amp;C</a>.</li>
   </ol>
   <h3>Before you start</h3>
   <p>You have a project whose library includes the Electrical foundation package (E1 library version 17 or newer: see <a href="guide-library.html#lib-project-settings">Project settings</a>). The examples use a marshalling cabinet A3 in equipment room CR1, a junction box JB-12, a transmitter TT-101, a field cable W-101 and a multicore W-201; on a project of your own, use your own names.</p>
@@ -16,7 +17,7 @@
 
 <section class="g-feature" id="wire-enclosures">
   <h2>Cabinets and junction boxes: where they are and what they hold</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-enclosures</span><span>Roadmap 28.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-enclosures</span><span>Roadmap 28.1</span><span>Review check R1</span></div>
   <p class="g-summary">A cabinet or junction box is two objects. Its <em>location</em> (an equipment room or a field location) is in <span class="ui">Areas</span>; the <em>enclosure</em> (a junction box, marshalling cabinet, system cabinet, local panel or vendor panel) is in <span class="ui">Assets</span> and is located in it. The enclosure holds rails, terminal strips, I/O cards with their channels, interposing devices (barriers, isolators, relays), power supplies, earth bars and cable entries. An MCC and a distribution board are enclosures too.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click <span class="ui">Areas</span> → <span class="ui">New area…</span>; right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span>; right-click an enclosure, rail, I/O card or interposing device → <span class="ui">New part…</span>; the object window's <span class="ui">Relationships</span> tab</dd>
@@ -42,7 +43,7 @@
 
 <section class="g-feature" id="wire-terminals">
   <h2>Add terminals to a strip</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-terminals</span><span>Roadmap 28.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-terminals</span><span>Roadmap 28.1</span><span>Review check R1</span></div>
   <p class="g-summary">A terminal strip gets its terminals in one step: you say how many, and E1 numbers them on from the last one. The same works for a channel of an I/O card or a barrier, an earth bar, a power supply, and an instrument's own terminals.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click a terminal strip, channel, earth bar or power supply in the explorer → <span class="ui">Add terminals…</span></dd>
@@ -67,7 +68,7 @@
 
 <section class="g-feature" id="wire-cables-cores">
   <h2>Cables, their cores, and landing a core on a terminal</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-cables-cores</span><span>Roadmap 28.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-cables-cores</span><span>Roadmap 28.1</span><span>Review check R2</span></div>
   <p class="g-summary">A cable made from a cable type in the catalog gets its cores at once: for a cable of pairs, each pair's two cores (P1-1, P1-2), the pair's screen (P1-S) when the pairs are screened, and the overall screen (OS). Each core is landed on a terminal at each end, never more.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span> → <span class="ui">Cable</span> with <span class="ui">From catalog</span>; right-click a cable → <span class="ui">Create cores</span>; right-click a core or wire → <span class="ui">Connect to terminal…</span></dd>
@@ -91,7 +92,7 @@
 
 <section class="g-feature" id="wire-trace">
   <h2>Trace a circuit</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-trace</span><span>Roadmap 28.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-trace</span><span>Roadmap 28.1</span><span>Review check R2</span></div>
   <p class="g-summary">E1 follows a circuit through cores, wires and jumpers, through feed-through terminals and across barriers and isolators, to the I/O channel, the power supply and the earth bar. It names the places on the way and every terminal by its reference designation, for example +CR1-A3-X1:5.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click an enclosure, strip, channel, terminal, cable or core in the explorer → <span class="ui">Trace circuit</span></dd>
@@ -102,7 +103,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click field cable W-101 → <span class="ui">Trace circuit</span>.</td><td>E1 shows the way, for example "TT-101 → JB-12 → A3", and where it ends: "Ends at +CR1-A3-1:1 (channel), +CR1-A3-1:2 (channel)."</td></tr>
+      <tr><td>1</td><td>Right-click field cable W-101 → <span class="ui">Trace circuit</span>.</td><td>E1 shows the way, for example "TT-101 → JB-12 → A3", and where it ends: "Ends at +CR1-A3-A5-1:1 (channel), +CR1-A3-A5-1:2 (channel)."</td></tr>
       <tr><td>2</td><td>Land one more core of W-201 at JB-12 only, and trace W-201.</td><td>The message adds "1 line landed at one end only."</td></tr>
       <tr><td>3</td><td>Trace a strip with nothing landed on it.</td><td>"It reaches no channel yet."</td></tr>
     </tbody>
@@ -113,7 +114,7 @@
 
 <section class="g-feature" id="wire-construction-status">
   <h2>Construction status of cores and terminals</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-construction-status</span><span>Roadmap 28.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-construction-status</span><span>Roadmap 28.1</span><span>Review check R2</span></div>
   <p class="g-summary">Every landed core and every terminal has a construction status: Designed, Issued for construction, Installed, Terminated, Loop-checked, As-built, or To be removed. A core's status is kept at both of its ends.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click a cable, core, wire or terminal in the explorer → <span class="ui">Construction status</span> ▸</dd>
@@ -135,7 +136,7 @@
 
 <section class="g-feature" id="wire-cable-lengths">
   <h2>Cable lengths and the wiring settings</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-cable-lengths</span><span>Roadmap 28.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-cable-lengths</span><span>Roadmap 28.1</span><span>Review check R3</span></div>
   <p class="g-summary">A cable has a <span class="ui">Length (by hand)</span> and a <span class="ui">Length from 3D</span> (written by the 3D model's script through E1's API). E1 fills <span class="ui">Length used</span> itself: the length by hand when there is one, else the one from 3D. When the two differ by more than the project's tolerance, that is a finding.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A cable's <span class="ui">Attributes</span> tab, group <span class="ui">Line</span>; <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Wiring</span> (also <em>File → Project settings…</em>)</dd>
@@ -158,19 +159,97 @@
   <p class="g-related">Related: <a href="#wire-cables-cores">Cables and their cores</a> · <a href="guide-library.html#lib-project-settings">Project settings</a></p>
 </section>
 
+<section class="g-feature" id="wire-import">
+  <h2>Import existing or vendor wiring</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-import</span><span>Roadmap 28.1</span><span>Review check R3</span></div>
+  <p class="g-summary">The wiring of an existing plant, or of a vendor's panel, comes in as a termination list: one row per core with its two ends. E1 shows first what it would do, then makes the enclosures, strips, terminals, cables and cores not yet in the project and lands every core as <em>fixed</em>, so the new design is made around it and never moves it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Alex in the side panel; there is no button on the screen for it yet</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>A CSV or Excel file with the columns <code>From</code>, <code>From strip</code>, <code>From terminal</code>, <code>Cable</code>, <code>Core</code>, <code>Wire number</code>, <code>To</code>, <code>To strip</code>, <code>To terminal</code>, and optionally <code>From class</code> and <code>To class</code> for enclosures E1 does not have yet (for example <code>Marshalling cabinet</code>; without it, a Junction box).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Attach the file in the side panel and ask Alex: <em>"Import this termination list as existing wiring, preview first."</em></td><td>Alex says how many rows it would create, how many are unchanged and which have a problem, with the row number and why (for example "To: name the strip of CAB-9"). Nothing is changed yet.</td></tr>
+      <tr><td>2</td><td>Ask Alex to import it.</td><td>The enclosures, strips, terminals, the cables and their cores appear in <span class="ui">Assets</span>. Every core is landed at both ends, fixed, with the scope Existing and the construction status As-built (Designed for a vendor's list unless you name another). A row with a problem is left out. One <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) takes the whole import back.</td></tr>
+      <tr><td>3</td><td>Ask Alex to import the same list again.</td><td>Nothing changes: every row is unchanged.</td></tr>
+      <tr><td>4</td><td>Change one row so a core lands on another terminal, and import it with a preview.</td><td>That row is a problem: the core "is landed elsewhere on a fixed connection: the list differs from the project". E1 never moves a fixed core by itself.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#wire-cables-cores">Cables and their cores</a> · <a href="#wire-construction-status">Construction status</a> · <a href="guide-ai.html#ai-side-panel">The side panel</a></p>
+</section>
+
 <section class="g-feature" id="wire-loop-diagram">
   <h2>Loop diagrams from the wiring</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">WIRE-loop-diagram</span><span>Roadmap 28.2</span></div>
-  <p class="g-summary">The loop diagram will follow each circuit of a loop through the junction boxes, cables, marshalling and barriers to the I/O channel, with its power feed and its screen, in columns by zone. Loop diagrams of a unit will be generated and issued as one set.</p>
-  <p class="g-note">Today's loop diagram shows the loop's devices and the lines between them: see <a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a>.</p>
-  <p class="g-related">Related: <a href="#wire-trace">Trace a circuit</a> · <a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-loop-diagram</span><span>Roadmap 28.2</span><span>Review check R4</span></div>
+  <p class="g-summary">The loop diagram follows each circuit of a loop from its devices through the junction boxes, the cables, the marshalling and the barriers to the I/O channel, with the barrier's power feed and the screens to their earth bar. Every terminal it uses is drawn in a column by zone, left to right: Junction box, Marshalling: field side, Interposing, Marshalling: system side, I/O, and Supply and earth. Nothing of it is drawn by hand: it is made again from the wiring every time it is opened.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click a function in <span class="ui">Systems</span> → <span class="ui">Generate loop diagram</span>, <span class="ui">Generate loop diagrams</span> or <span class="ui">Issue loop diagrams…</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may make documents; issuing needs a role that may issue revisions</dd>
+    <dt>Before you start</dt><dd>The loop's instruments implement the function and their cores are landed (<a href="#wire-cables-cores">Cables and their cores</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click TIC-101 in <span class="ui">Systems</span> → <span class="ui">Generate loop diagram</span>.</td><td>The loop diagram opens. The line above it reads, for example, "1 devices, 4 terminals, 4 lines, in signal order: field, junction box, marshalling, I/O." TT-101 is on the left; to its right the columns <span class="ui">Junction box JB-12</span> and <span class="ui">Marshalling: field side A3</span>, each with the terminals the loop uses (JB-12 X1:1, JB-12 X1:2 …), and the cores drawn between them.</td></tr>
+      <tr><td>2</td><td>Drag a terminal a little and click <span class="ui">Regenerate</span>.</td><td>The terminal stays where you put it: "Moved by hand: …". A hand move is kept on the diagram, never in the wiring.</td></tr>
+      <tr><td>3</td><td>In <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Wiring</span> choose <span class="ui">Name printed first</span> → <span class="ui">IEC 81346 reference designation (+CR1-A3-X1:5)</span>, then <span class="ui">Regenerate</span>.</td><td>The terminals are named +CR1-A3-X1:1 and so on.</td></tr>
+      <tr><td>4</td><td>Right-click the unit above several loops → <span class="ui">Generate loop diagrams</span>.</td><td>"3 loop diagrams generated." (or how many): every function below it that has devices has its loop diagram in <span class="ui">Documents</span>.</td></tr>
+      <tr><td>5</td><td>Right-click the unit → <span class="ui">Issue loop diagrams…</span>, keep the description and the purpose <code>Issued for construction</code>.</td><td>Each loop diagram gets its next revision with that description and is issued: "3 loop diagrams issued: Issued for construction: Loop diagrams of … (set of 3)."</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A device without terminals is drawn as before, joined to the others by the lines drawn on the P&amp;ID (<a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a>). A core landed at one end only is counted above the diagram: "One core is not connected at one end." A screen earthed at one end is not counted: its other end is insulated on purpose.</p>
+  <p class="g-warn">The diagram's columns come after all of the loop's devices, also its controller and valve. The PDF of a set is one file per diagram: a single PDF with a contents page is not made yet.</p>
+  <p class="g-related">Related: <a href="#wire-trace">Trace a circuit</a> · <a href="#wire-lists">Wire list and other lists</a> · <a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a></p>
+</section>
+
+<section class="g-feature" id="wire-lists">
+  <h2>Wire list, termination list, cable schedule and I/O list</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-lists</span><span>Roadmap 28.2</span></div>
+  <p class="g-summary">E1 ships no fixed lists: a wiring list is a query you build once and save as a template for the project. It reads the same wiring as the loop diagram, so it is never out of date. These are examples to start from.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click <span class="ui">Assets</span> (or an enclosure, or a cable) → <span class="ui">Query</span> ▸ <span class="ui">New query…</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the project</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>List</th><th>Rows</th><th>Columns to choose</th></tr></thead>
+    <tbody>
+      <tr><td>Wire list</td><td>Filter Class is Core (and Wire for cross-wires)</td><td>Owner (the cable), Name, Wire number, Role, Construction status, and Related → <span class="ui">Connects to</span> → <span class="ui">Their names</span> (the two terminals)</td></tr>
+      <tr><td>Termination list</td><td>Filter Class is Terminal, started on an enclosure</td><td>Owner (the strip), Name, Kind, Construction status, Scope, and Related → <span class="ui">Is connected by</span> → <span class="ui">Their names</span> (the cores landed on it)</td></tr>
+      <tr><td>Cable schedule</td><td>Filter Class is Cable</td><td>Tag, Cable type, Core grouping, Groups, Length used, Length from 3D, Length (by hand), Construction status, Scope</td></tr>
+      <tr><td>I/O list</td><td>Filter Class is Channel</td><td>Owner (the card), Name, Channel types, Assigned type, HART, and Related → <span class="ui">Is connected by</span> (what lands on its terminals)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Save each one: <span class="ui">Save</span>, then <span class="ui">For this project (everyone on it)</span> and <span class="ui">Save template</span>: from then on it is in every node's <span class="ui">Query</span> ▸ menu, and it exports to Excel like any query.</p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-eng-columns">Engineering columns</a> · <a href="guide-lists.html#list-templates">Templates</a> · <a href="#wire-cables-cores">Cables and their cores</a></p>
 </section>
 
 <section class="g-feature" id="wire-typicals">
   <h2>Signals and wiring typicals</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">WIRE-typicals</span><span>Roadmap 28.3</span></div>
-  <p class="g-summary">Devices will get their signals, and a wiring typical with its options and variants (for example "AI 2-wire, intrinsically safe through a barrier") that says which cables, cores, terminals and channel each signal needs, with names from the tag rules.</p>
-  <p class="g-related">Related: <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-typicals</span><span>Roadmap 28.3</span><span>Review check R5</span></div>
+  <p class="g-summary">Most devices of a plant follow a handful of patterns: a 2-wire transmitter, a solenoid valve, a motor-operated valve. A <em>wiring typical</em> describes one pattern once: the device's signals (open command, closed limit, position …), the field cables and which pair each signal takes, options such as <em>Position feedback</em>, variants (named sets of option values) and the naming of cables and wires. Given to a device, it makes the device's I/O signals, its terminals, and its field cables with their cores landed on the device and numbered.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click an instrument, valve or motor in the explorer → <span class="ui">Wiring typical…</span>; making and publishing a typical, and giving one to many devices at once: Alex in the side panel</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects; publishing a typical in the project's library needs a role that may configure the project</dd>
+    <dt>Before you start</dt><dd>The devices have tags: they name the cables and the wire numbers.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex: <em>"Make a wiring typical Motor-operated valve for the project: open, close and stop commands, open and closed limits, torque fault and local/remote on an 8-pair control cable, and the position (AI, HART) on its own 1-pair cable when the option Position feedback is on; a variant Without position. Publish it."</em></td><td>Alex saves the typical as a draft, checks it (every signal on a cable, every option it names exists) and publishes it. A typical with a mistake is refused with what is wrong, for example "Signal pv is on no cable."</td></tr>
+      <tr><td>2</td><td>Right-click valve XV-101 → <span class="ui">Wiring typical…</span>, type <code>1</code> for Motor-operated valve, and leave the variant empty.</td><td>"XV-101 follows Motor-operated valve: 8 signals, 16 terminals, cables W-XV-101-1, W-XV-101-2." Under XV-101 are its I/O signals (open, close, … zt) and terminals 1 to 16; the two cables are in Assets with their cores, each core landed on its terminal and carrying its wire number (XV-101-open-1 …). XV-101's <span class="ui">Wiring</span> group shows the typical, the variant and the options.</td></tr>
+      <tr><td>3</td><td>Do the same with the variant <code>Without position</code> on XV-102.</td><td>Only the control cable is made: Position feedback is off.</td></tr>
+      <tr><td>4</td><td>Ask Alex: <em>"Give XV-103 to XV-112 the Motor-operated valve typical."</em></td><td>The ten valves get their signals, terminals and cables in one step, which one <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) takes back.</td></tr>
+      <tr><td>5</td><td>Run <span class="ui">Wiring typical…</span> again on XV-101.</td><td>Nothing new is made: what is there by name or tag is kept.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Each I/O signal has its kind (AI, AO, DI, DO …), its segregation class, control system and redundancy group, used by the allocation. A terminal can also be made part of a <em>potential</em> (a 24 V rail, its common, an earth) with the relationship <span class="ui">is part of potential</span>.</p>
+  <p class="g-warn">There is no editor on the screen for typicals yet: they are made and published through Alex. Setting typicals by rule (for example every transmitter in a hazardous area) comes with rules; the junction box, marshalling and channel each signal lands on come with the allocation.</p>
+  <p class="g-related">Related: <a href="#wire-cables-cores">Cables and their cores</a> · <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a> · <a href="guide-ai.html#ai-side-panel">The side panel</a></p>
 </section>
 
 <section class="g-feature" id="wire-allocation">
