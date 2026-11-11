@@ -519,21 +519,32 @@
 
 <section class="g-feature" id="lib-rules">
   <h2>Rules: calculations, check rules and copy rules</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span></div>
-  <p class="g-summary">Rules will let a value be calculated from others, check the model and report findings, and copy values from one object to another. The <span class="ui">Rules</span> section already shows a sketch (Sources → Action → Target, and the kinds Copy rule, Check rule, Calculation rule), but nothing can be made or stored yet.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span></div>
+  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object and its owners are available; calculations through relationships, check rules and copy rules come in the next stages.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Rules</span> (badge <span class="ui">M6</span>)</dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Rules</span>; on an object page, a calculated value shows <span class="ui">ƒ</span> and <span class="ui">Why this value?</span></dd>
+    <dt>Who</dt><dd>Making, publishing and withdrawing rules: Manage project rules (the Project administrator has it). Everyone who can view the project sees the values and why.</dd>
   </dl>
-  <p class="g-dev">Planned for milestone M6 Rules. Today the section reads "Planned · M6 Rules".</p>
-  <h3>What you will be able to do</h3>
+  <h3>Make a rule</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Rules</span> and click <span class="ui">New rule</span>. Type its name.</td><td>The editor opens in three columns: Sources, Action, Target.</td></tr>
+      <tr><td>2</td><td>Sources: <span class="ui">Applies to</span> a class (its subclasses too). Add inputs, each with a name: <em>This object's attribute</em>, <em>This object's name</em>, <em>Owner's attribute</em> (the nearest owner, or the nearest of a class you type), <em>Project attribute</em>, or a <em>Constant</em>.</td><td>—</td></tr>
+      <tr><td>3</td><td>Action: add steps, each with a name for its result. <em>Compose</em> joins text (<code>{area}-{letter}{nr:3}</code> pads the number to 3 digits); <em>Map</em> looks a value up in its table (<code>Temperature = T</code>); <em>Calculate</em> runs a formula (<code>power / (sqrt(3) * voltage * pf)</code>) with the unit of each quantity (<code>power = W</code>) and of the result (<code>A</code>); <em>Choose</em> picks by conditions (<code>fluid is Steam =&gt; Insulated</code>); <em>Format</em> changes case or pads; <em>Copy</em> takes a value as it is.</td><td>The <span class="ui">Preview</span> shows sample objects with their value now and after, or what is wrong: a unit of the wrong kind, adding a length to a pressure, a name not defined.</td></tr>
+      <tr><td>4</td><td>Target: the attribute it calculates. Click <span class="ui">Save draft</span>.</td><td>The draft changes no value. A second rule on the same attribute of the same objects is refused.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Publish…</span>, read how many values it writes and changes, and click <span class="ui">Publish</span>.</td><td>The values are written in one change; the rule reads <em>active (version 1)</em>.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Calculated values</h3>
   <ul>
-    <li>Set a calculation on an attribute (for example power from voltage and current) and see the value update when an input changes (12.1), also from a related object, such as a motor's value from its pump (12.2).</li>
-    <li>Add a check rule, see the findings it reports, and see a revision blocked until they are fixed (12.3).</li>
-    <li>Add a copy rule and see a value copied from its source object, and updated when the source changes (12.4).</li>
-    <li>Use rules in the tag configurator and in lists (12.5), and see rules that come from your organization or a content package applied in a project (12.6).</li>
+    <li>When an input changes (the object's own value, or its owner's), the value changes in the same change, and a new object of the class gets it when it is made.</li>
+    <li>Nobody types a calculated value: the object page shows it with <span class="ui">ƒ</span> and no field, a query view cell is read-only, and Alex and the integration API are refused.</li>
+    <li><span class="ui">Why this value?</span> shows the rule and version, each input with its value and the object it came from, and each step's result. When an input is missing the value is empty and the reason is shown.</li>
+    <li><span class="ui">Withdraw</span> pauses a rule: its values stay, as ordinary values people may change. <span class="ui">Publish…</span> again calculates them again.</li>
   </ul>
-  <figure class="g-shot"><img src="assets/img/guides/config-rules.webp" alt="Configuration, Rules: the planned sketch of Sources, Action and Target with Copy rule, Check rule and Calculation rule" width="2160" height="1350" loading="lazy"><figcaption>Rules: a sketch of what is planned.</figcaption></figure>
-  <p class="g-related">Related: <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="#lib-configuration">The Configuration place</a></p>
+  <p class="g-warn">Not built yet: calculations through relationships and over lists (12.2), check rules and findings (12.3), copy rules (12.4), calculated values on drawing labels and in the API marked as calculated (12.5), and organization and content package rules (12.6).</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-configuration">Configuration</a></p>
 </section>
 
 <section class="g-feature" id="lib-units">
