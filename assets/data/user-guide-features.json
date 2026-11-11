@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07",
+ "updated": "2026-11-11",
  "screenshotsTaken": "2026-11-07",
  "statuses": {
   "available": "Available",
@@ -143,15 +143,26 @@
    "order": 12
   },
   {
+   "id": "wiring",
+   "title": "Wiring (EI&C)",
+   "summary": "Cabinets and junction boxes in their locations, rails, terminal strips and terminals, I/O cards and channels, cables and their cores landed on terminals, tracing a circuit from the field to the I/O channel, construction status, and cable lengths.",
+   "training": {
+    "series": "Wiring (EI&C)",
+    "order": 13
+   },
+   "page": "guide-wiring.html",
+   "order": 13
+  },
+  {
    "id": "reviewer",
    "title": "E1 Reviewer for iPad",
    "summary": "Review E1 projects on the iPad: dashboards, projects, sheets, objects, photos and voice notes, redlining, your tasks and checklists, search and Alex.",
    "training": {
     "series": "E1 Reviewer for iPad",
-    "order": 13
+    "order": 14
    },
    "page": "guide-reviewer.html",
-   "order": 13
+   "order": 14
   }
  ],
  "features": [
@@ -191,7 +202,7 @@
    "summary": "Create projects, save and print, and open the project settings and the Organization dialog.",
    "anchor": "gs-menu-file",
    "status": "available",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [],
    "checks": [
     "A2"
@@ -200,7 +211,8 @@
     "PRJ-new-project",
     "DOC-sheet-pdf",
     "LIST-excel-export",
-    "ORG-organization-dialog"
+    "ORG-organization-dialog",
+    "PRJ-project-templates"
    ],
    "roles": "Everyone who can open E1",
    "training": {
@@ -323,15 +335,16 @@
   {
    "id": "GS-menu-help",
    "title": "The Help menu and About E1",
-   "summary": "Keyboard shortcuts, Under construction and the version of E1.",
+   "summary": "Alex E1 Guide, the user guides and the Academy, the keyboard shortcuts, Under construction, the terms and conditions, and About E1.",
    "anchor": "gs-menu-help",
    "status": "available",
-   "updated": "2026-11-07",
+   "updated": "2026-11-11",
    "roadmap": [],
    "checks": [],
    "related": [
     "GS-shortcuts",
-    "GS-under-construction"
+    "GS-under-construction",
+    "GS-terms"
    ],
    "roles": "Everyone who can open E1",
    "training": {
@@ -345,6 +358,34 @@
    ],
    "category": "getting-started",
    "page": "guide-getting-started.html#gs-menu-help"
+  },
+  {
+   "id": "GS-terms",
+   "title": "Terms and conditions: accept before first use",
+   "summary": "Before you use E1 for the first time you read the E1 Terms and License Agreement and accept it; Help → Terms and conditions shows it, and the date you accepted, at any time.",
+   "anchor": "gs-terms",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "M4.23"
+   ],
+   "checks": [],
+   "related": [
+    "GS-menu-help",
+    "ACC-sign-in",
+    "IPAD-terms"
+   ],
+   "roles": "Everyone, for themselves and their organization",
+   "training": {
+    "topic": "The terms and license agreement",
+    "level": "Beginner",
+    "minutes": 1
+   },
+   "screenshots": [
+    "terms-accept.webp"
+   ],
+   "category": "getting-started",
+   "page": "guide-getting-started.html#gs-terms"
   },
   {
    "id": "GS-rail",
@@ -980,12 +1021,66 @@
    "page": "guide-access.html#acc-session"
   },
   {
+   "id": "ACC-one-person",
+   "title": "One person per account",
+   "summary": "An E1 account is for one named person: when your account is open on another computer, E1 asks you to sign out there or here.",
+   "anchor": "acc-one-person",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.8"
+   ],
+   "checks": [],
+   "related": [
+    "ACC-session",
+    "ACC-sign-in",
+    "ORG-licenses-seats"
+   ],
+   "roles": "Everyone signed in",
+   "training": {
+    "topic": "Sessions and signing out",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "access",
+   "page": "guide-access.html#acc-one-person"
+  },
+  {
+   "id": "ACC-ai-credits",
+   "title": "AI credits this month",
+   "summary": "Each license includes AI credits a month for Alex: 300 with Editor Basic and Reviewer, 2,000 with Editor Pro; a University class shares 300 for each Editor.",
+   "anchor": "acc-ai-credits",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.9"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-plan",
+    "ORG-university",
+    "WEB-pricing"
+   ],
+   "roles": "Everyone with Alex",
+   "training": {
+    "topic": "AI credits",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "access",
+   "page": "guide-access.html#acc-ai-credits"
+  },
+  {
    "id": "ACC-trial",
    "title": "The 30-day trial",
    "summary": "An organization of your own for 30 days; afterwards it is read-only and can still be viewed and exported.",
    "anchor": "acc-trial",
    "status": "available",
-   "updated": "2026-11-08",
+   "updated": "2026-11-11",
    "roadmap": [],
    "checks": [],
    "related": [
@@ -1435,13 +1530,15 @@
   {
    "id": "PRJ-sample-project",
    "title": "The sample project: Demo Plant",
-   "summary": "Every new organization and every new desktop install starts with Demo Plant (sample), the DEXPI reference P&ID imported by E1, to learn and try E1 on; delete it when you no longer need it and add a fresh copy at any time.",
+   "summary": "Every new organization and every new desktop install starts with Demo Plant (sample): the Demo Field, a fictional oil and gas production facility on five P&IDs, and the DEXPI reference P&ID, imported by E1, to learn and try E1 on; delete it when you no longer need it and add a fresh copy at any time.",
    "anchor": "prj-sample-project",
    "status": "available",
    "since": "2026-11-10",
-   "updated": "2026-11-10",
+   "updated": "2026-11-11",
    "roadmap": [
-    "31.1"
+    "31.1",
+    "31.1b",
+    "31.1c"
    ],
    "checks": [],
    "related": [
@@ -1461,15 +1558,43 @@
    "page": "guide-projects.html#prj-sample-project"
   },
   {
+   "id": "PRJ-project-templates",
+   "title": "Project templates: save a project as a template, start a project from one",
+   "summary": "Keep a copy of a project as a template, see the organization's templates in Configuration, and make a new project as a blank one or as a copy of a template.",
+   "anchor": "prj-project-templates",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "04.8"
+   ],
+   "checks": [],
+   "related": [
+    "PRJ-new-project",
+    "PRJ-sample-project",
+    "LIB-project-settings"
+   ],
+   "roles": "Saving needs the Export permission in the project and the permission to create projects; making a project from a template needs the permission to create projects; a template is deleted by whoever saved it or an organization administrator",
+   "training": {
+    "topic": "Starting projects from templates",
+    "level": "Beginner",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "projects",
+   "page": "guide-projects.html#prj-project-templates"
+  },
+  {
    "id": "PRJ-import-dexpi",
    "title": "Import a DEXPI P&ID",
    "summary": "Bring a P&ID from another tool into a project as objects, values and a drawing, and import it again later to update what is there, deciding every difference yourself.",
    "anchor": "prj-import-dexpi",
    "status": "available",
    "since": "2026-11-10",
-   "updated": "2026-11-10",
+   "updated": "2026-11-11",
    "roadmap": [
-    "31.1"
+    "31.1",
+    "31.1b"
    ],
    "checks": [],
    "related": [
@@ -2122,31 +2247,68 @@
   {
    "id": "OBJ-calculations",
    "title": "Calculations and copy rules on attributes",
-   "summary": "Attribute values computed from other attributes or related objects, check rules and copy rules are planned in M6 Rules.",
+   "summary": "A calculated attribute shows its value with ƒ, read-only, and Why this value? explains it. A copied value shows ⧉ copied: it follows its source until someone changes it, which asks first and marks it manually modified; Copy from source again links it back.",
    "anchor": "obj-calculations",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "12.1",
     "12.2",
-    "12.3",
-    "12.4",
-    "12.6"
+    "12.4"
    ],
-   "checks": [],
+   "checks": [
+    "P1",
+    "P2",
+    "P4"
+   ],
    "related": [
     "OBJ-attributes",
     "OBJ-relationships",
-    "OBJ-tag-rules"
+    "OBJ-tag-rules",
+    "LIB-rules",
+    "OBJ-checks"
    ],
-   "roles": "",
+   "roles": "Everyone who can view the project; changing a copied value needs Change copied values (Lead engineer, Project administrator)",
    "training": {
-    "topic": "Calculations: what is coming",
+    "topic": "Calculated values",
     "level": "Intermediate",
     "minutes": 2
    },
    "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
    "category": "objects",
    "page": "guide-objects.html#obj-calculations"
+  },
+  {
+   "id": "OBJ-checks",
+   "title": "Checks: findings and accepting them",
+   "summary": "The Checks tab of an object's window lists its findings, and the project's window lists the whole project's: required values missing, pending tags, check rules, calculations with a missing input and the piping check. An open error blocks issuing a revision until it is fixed or accepted.",
+   "anchor": "obj-checks",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "12.3"
+   ],
+   "checks": [
+    "P3"
+   ],
+   "related": [
+    "LIB-rules",
+    "DOC-issue",
+    "OBJ-calculations",
+    "OBJ-tags",
+    "DRAW-piping-check"
+   ],
+   "roles": "Everyone who can view the project sees the findings; accepting needs Accept findings (Lead engineer, Project administrator)",
+   "training": {
+    "topic": "Checks and findings",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "objects",
+   "page": "guide-objects.html#obj-checks"
   },
   {
    "id": "DRAW-sheet-view",
@@ -2244,7 +2406,7 @@
    "anchor": "draw-place-symbol",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
     "M3.11",
     "M1.1b"
@@ -2261,7 +2423,8 @@
     "OBJ-tags",
     "OBJ-tag-rules",
     "OBJ-new-object",
-    "DRAW-drop-from-explorer"
+    "DRAW-drop-from-explorer",
+    "DRAW-module-place"
    ],
    "roles": "Editor license; a project role that may edit drawings",
    "training": {
@@ -2436,7 +2599,7 @@
    "anchor": "draw-clipboard",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
     "M3.4"
    ],
@@ -2740,7 +2903,7 @@
    "anchor": "draw-symbol-menu",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
     "M3.11"
    ],
@@ -2755,7 +2918,8 @@
     "DRAW-arrange",
     "OBJ-object-window",
     "DOC-datasheet",
-    "DRAW-symbol-designer"
+    "DRAW-symbol-designer",
+    "DRAW-module-save"
    ],
    "roles": "Everyone; editing items need edit rights",
    "training": {
@@ -3069,19 +3233,25 @@
   {
    "id": "DRAW-pipelines",
    "title": "Pipelines and completeness checks",
-   "summary": "Group pipe runs into pipelines across 2D spaces, select them whole and find incomplete ones.",
+   "summary": "Define a pipeline from one equipment nozzle to another, or create one from a selected pipe: it holds the pipe runs, valves and fittings between them in piping segments, goes on across off-page connectors, takes the line number, names From and To, and a double-click selects it whole.",
    "anchor": "draw-pipelines",
-   "status": "planned",
-   "updated": "2026-11-09",
+   "status": "available",
+   "since": "2026-11-10",
+   "updated": "2026-11-11",
    "roadmap": [
     "13.1",
     "13.2"
    ],
-   "checks": [],
+   "checks": [
+    "O1",
+    "O2"
+   ],
    "related": [
     "DRAW-connector",
     "DRAW-off-page",
-    "DRAW-pipe-classes"
+    "DRAW-pipe-classes",
+    "DRAW-piping-check",
+    "DRAW-module-place"
    ],
    "roles": "Editor license; a project role that may edit drawings",
    "training": {
@@ -3094,60 +3264,99 @@
    "page": "guide-drawing.html#draw-pipelines"
   },
   {
+   "id": "DRAW-piping-check",
+   "title": "Check piping and flow direction",
+   "summary": "Check every pipe on a 2D space: flow that leaves an inlet or enters an outlet, pipe that meets head-on, a pump turned the wrong way, incomplete pipelines, and pipe in no pipeline; fix with Flip the flow of the chain or Turn around, and make the proposed pipelines with Detect pipelines.",
+   "anchor": "draw-piping-check",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "13.2"
+   ],
+   "checks": [
+    "O2"
+   ],
+   "related": [
+    "DRAW-pipelines",
+    "DRAW-flow-arrows",
+    "DRAW-off-page"
+   ],
+   "roles": "Editor license; a project role that may edit drawings (Check piping: any role that can view the project)",
+   "training": {
+    "topic": "Flow direction and the piping check",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-piping-check"
+  },
+  {
    "id": "DRAW-pipe-classes",
    "title": "Pipe classes",
-   "summary": "Give each pipeline its piping specification: material, rating and allowed components.",
+   "summary": "Keep your piping specifications as pipe classes in the company or project library, import them from a spreadsheet, and name one on a pipeline: its segments get schedule, material and rating, and the piping check holds them to the class's envelope, sizes and components.",
    "anchor": "draw-pipe-classes",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "13.3"
    ],
-   "checks": [],
+   "checks": [
+    "O3"
+   ],
    "related": [
     "DRAW-pipelines",
+    "DRAW-piping-check",
     "DRAW-line-list"
    ],
-   "roles": "Editor license; a project role that may edit drawings",
+   "roles": "Company library: a role with library.edit:pipe-class (or library.edit) to save drafts and library.publish to publish; a project's own classes: Project administrator",
    "training": {
     "topic": "Pipe classes",
     "level": "Advanced",
     "minutes": 3
    },
    "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
    "category": "drawing",
    "page": "guide-drawing.html#draw-pipe-classes"
   },
   {
    "id": "DRAW-line-list",
    "title": "Pipe schedule (line list)",
-   "summary": "A line list of the project's pipelines, kept up to date from the drawing.",
+   "summary": "Build the pipe schedule as a query on the project's pipelines: line number, From and To, size, pipe class, design conditions and the P&IDs each is drawn on, with its segments' schedule, material and rating; save it for the project and issue it as a list document in Excel and PDF.",
    "anchor": "draw-line-list",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "13.4"
    ],
-   "checks": [],
+   "checks": [
+    "O4"
+   ],
    "related": [
     "DRAW-pipelines",
+    "DRAW-pipe-classes",
     "LIST-new-query"
    ],
-   "roles": "Editor license; a project role that may edit drawings",
+   "roles": "Anyone who can view the project builds and exports it; saving it for the project needs project.configure",
    "training": {
     "topic": "The line list",
     "level": "Intermediate",
     "minutes": 3
    },
    "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
    "category": "drawing",
    "page": "guide-drawing.html#draw-line-list"
   },
   {
    "id": "DRAW-dexpi",
    "title": "DEXPI exchange and handover",
-   "summary": "Exchange P&IDs with other tools and hand them over in the DEXPI format.",
+   "summary": "Hand P&IDs and their pipelines over to 3D design tools and the owner in the DEXPI format (after the MVP; importing DEXPI is available).",
    "anchor": "draw-dexpi",
    "status": "planned",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
     "13.5"
    ],
@@ -3218,6 +3427,153 @@
    "screenshots": [],
    "category": "drawing",
    "page": "guide-drawing.html#draw-redlining"
+  },
+  {
+   "id": "DRAW-module-save",
+   "title": "Save a selection as a module",
+   "summary": "Select part of a P&ID and save it as a module: its members, the tie-in points where lines leave it, per-instance values and parameters; the objects stay as they are.",
+   "anchor": "draw-module-save",
+   "status": "available",
+   "roadmap": [
+    "32.1b"
+   ],
+   "checks": [
+    "M2"
+   ],
+   "related": [
+    "LIB-modules",
+    "DRAW-module-place"
+   ],
+   "roles": "Viewing the objects, and editing the library the module goes to",
+   "training": {
+    "topic": "Saving modules",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-module-save"
+  },
+  {
+   "id": "DRAW-module-place",
+   "title": "Place a module from the Modules tab",
+   "summary": "Place a saved module in one step from Add asset → Modules: turned and flipped, connected at its tie-in points, inserted into a pipe (the module of its category that takes the pipe's size), with new tags from the rules.",
+   "anchor": "draw-module-place",
+   "status": "available",
+   "roadmap": [
+    "32.1c",
+    "32.4",
+    "32.4b",
+    "32.4c"
+   ],
+   "checks": [
+    "M3",
+    "M9",
+    "M10",
+    "M13"
+   ],
+   "related": [
+    "DRAW-module-save",
+    "DRAW-module-instance"
+   ],
+   "roles": "Creating objects in the project",
+   "training": {
+    "topic": "Placing modules",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-module-place"
+  },
+  {
+   "id": "DRAW-module-instance",
+   "title": "A placed module on its objects",
+   "summary": "A placed module's objects stay ordinary objects; Part of module names the module and version, and its menu selects or detaches the instance. The objects a module was saved from can be linked as its first instance; a copied whole instance is a new instance.",
+   "anchor": "draw-module-instance",
+   "status": "available",
+   "roadmap": [
+    "32.1d",
+    "32.2d"
+   ],
+   "checks": [
+    "M4",
+    "M12"
+   ],
+   "related": [
+    "DRAW-module-place"
+   ],
+   "roles": "Everyone who can view the object; detaching and linking need changing objects",
+   "training": {
+    "topic": "Module instances",
+    "level": "Intermediate",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-module-instance"
+  },
+  {
+   "id": "DRAW-module-compare",
+   "title": "Compare an instance with its module",
+   "summary": "See what one placed module changed against its module; Keep mine with a reason, Use module, or Remove from instance.",
+   "anchor": "draw-module-compare",
+   "status": "available",
+   "roadmap": [
+    "32.2a"
+   ],
+   "checks": [
+    "M5"
+   ],
+   "related": [
+    "DRAW-module-instance",
+    "LIB-module-updates"
+   ],
+   "roles": "Everyone who can view the objects; deciding needs changing objects",
+   "training": {
+    "topic": "Comparing instances",
+    "level": "Advanced",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-module-compare"
+  },
+  {
+   "id": "DRAW-module-promote",
+   "title": "Turn an instance's changes into the module's next version",
+   "summary": "Add objects to a placed module and make its changes the module's next version with Save changes to module…; Publish puts the instance on it.",
+   "anchor": "draw-module-promote",
+   "status": "available",
+   "roadmap": [
+    "32.3b"
+   ],
+   "checks": [
+    "M8"
+   ],
+   "related": [
+    "DRAW-module-compare",
+    "LIB-module-edit"
+   ],
+   "roles": "Changing the objects, and editing the library the module is in",
+   "training": {
+    "topic": "Promoting changes",
+    "level": "Advanced",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-module-promote"
   },
   {
    "id": "LIST-new-query",
@@ -4160,13 +4516,14 @@
   {
    "id": "DOC-issue",
    "title": "Issue a revision",
-   "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards.",
+   "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards. While the revision gate is on, an open error on what the document shows refuses the issue.",
    "anchor": "doc-issue",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
-    "07.7"
+    "07.7",
+    "12.3"
    ],
    "checks": [
     "E2",
@@ -4176,7 +4533,8 @@
     "DOC-revisions",
     "DOC-changed-since",
     "DOC-list-document",
-    "DOC-status"
+    "DOC-status",
+    "OBJ-checks"
    ],
    "roles": "A Lead on the project; an Engineer is refused",
    "training": {
@@ -4872,6 +5230,30 @@
    "page": "guide-collaboration.html#col-conflicts"
   },
   {
+   "id": "COL-presence",
+   "title": "See who else has a sheet open",
+   "summary": "Avatars in the sheet toolbar show who else has the same 2D space open, and whether they are viewing or editing; not built yet.",
+   "anchor": "col-presence",
+   "status": "planned",
+   "updated": "2026-11-10",
+   "roadmap": [
+    "08.6"
+   ],
+   "related": [
+    "COL-live-refresh",
+    "COL-conflicts"
+   ],
+   "roles": "Everyone with a role on the project",
+   "training": {
+    "topic": "Working at the same time",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "collaboration",
+   "page": "guide-collaboration.html#col-presence"
+  },
+  {
    "id": "COL-messages",
    "title": "Messages (direct messages)",
    "summary": "Direct messages between people; not connected yet.",
@@ -4914,7 +5296,7 @@
     "COL-conflicts",
     "GS-under-construction"
    ],
-   "roles": "Not yet decided",
+   "roles": "Editor license to work in a branch (part of the license, no add-on); Reviewer license to look, compare and approve",
    "training": {
     "topic": "Branches (preview)",
     "level": "Advanced",
@@ -4942,7 +5324,7 @@
     "COL-branches",
     "ORG-four-eyes"
    ],
-   "roles": "Not yet decided",
+   "roles": "Editor license (part of the license, no add-on); Reviewer license to review and approve when asked",
    "training": {
     "topic": "Merge requests (preview)",
     "level": "Advanced",
@@ -4955,15 +5337,16 @@
   {
    "id": "ORG-organization-dialog",
    "title": "The Organization dialog",
-   "summary": "File → Organization… holds the members with licenses and roles (Owner, Administrator or Member), invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
+   "summary": "File → Organization… holds the plan, the members with licenses and roles (Owner, Administrator or Member), invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
    "anchor": "org-organization-dialog",
    "status": "available",
    "since": "2026-11-03",
-   "updated": "2026-11-08",
+   "updated": "2026-11-11",
    "roadmap": [
     "M2.4",
     "PR1",
-    "09.6a"
+    "09.6a",
+    "09.7"
    ],
    "checks": [
     "J4",
@@ -4977,7 +5360,8 @@
     "ORG-groups",
     "ORG-audit",
     "ORG-export",
-    "ORG-join-requests"
+    "ORG-join-requests",
+    "ORG-plan"
    ],
    "roles": "Owner or Administrator with a passkey",
    "training": {
@@ -5027,7 +5411,7 @@
    "anchor": "org-licenses-seats",
    "status": "available",
    "since": "2026-11-03",
-   "updated": "2026-11-08",
+   "updated": "2026-11-11",
    "roadmap": [
     "M2.4",
     "PR1"
@@ -5038,7 +5422,8 @@
    "related": [
     "ORG-organization-dialog",
     "COL-inbox",
-    "WEB-account-page"
+    "WEB-account-page",
+    "ORG-plan"
    ],
    "roles": "Owner or Administrator with a passkey",
    "training": {
@@ -5049,6 +5434,89 @@
    "screenshots": [],
    "category": "organization",
    "page": "guide-organization.html#org-licenses-seats"
+  },
+  {
+   "id": "ORG-plan",
+   "title": "Your organization's plan: Editor Basic or Editor Pro",
+   "summary": "The plan belongs to the organization: in a Standard organization every Editor is Editor Basic, in a Professional, University or Enterprise one every Editor is Editor Pro; the Owner upgrades Standard to Professional.",
+   "anchor": "org-plan",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.7"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-organization-dialog",
+    "ORG-pro-features",
+    "ORG-licenses-seats",
+    "WEB-pricing"
+   ],
+   "roles": "Everyone sees the plan; the Owner (Manage billing) upgrades",
+   "training": {
+    "topic": "Plans and upgrades",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-plan"
+  },
+  {
+   "id": "ORG-pro-features",
+   "title": "Pro features in an Editor Basic organization",
+   "summary": "With Editor Basic the Editor Pro features stay on screen, greyed out with Pro; pressing one says why, with See plans and, for the Owner, Upgrade.",
+   "anchor": "org-pro-features",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.7"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-plan",
+    "ORG-organization-dialog",
+    "WEB-pricing"
+   ],
+   "roles": "Everyone in a Standard organization",
+   "training": {
+    "topic": "Plans and upgrades",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-pro-features"
+  },
+  {
+   "id": "ORG-university",
+   "title": "University organizations: the term, Reviewers and Viewers",
+   "summary": "A University organization has Editor Pro free for 3 months, renewed each term, one free Reviewer per Editor and unlimited free Viewers; after the term it is read-only until it is renewed.",
+   "anchor": "org-university",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.10"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-plan",
+    "ORG-licenses-seats",
+    "ACC-ai-credits",
+    "WEB-pricing"
+   ],
+   "roles": "Teachers and students in a University organization",
+   "training": {
+    "topic": "Plans and upgrades",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-university"
   },
   {
    "id": "ORG-roles-passkey",
@@ -5337,7 +5805,7 @@
    "summary": "An organization of your own, usually for 30 days (LANXTOR can choose another length or change it while it runs); afterwards it is read-only and can still be viewed and exported.",
    "anchor": "org-trials",
    "status": "available",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [],
    "checks": [],
    "related": [
@@ -5609,7 +6077,7 @@
    "summary": "Find the shared set-up of E1: data model, company library, catalogs, content packages, project settings and installation.",
    "anchor": "lib-configuration",
    "status": "available",
-   "updated": "2026-11-06",
+   "updated": "2026-11-11",
    "roadmap": [],
    "checks": [],
    "related": [
@@ -5785,7 +6253,7 @@
    "anchor": "lib-library-updates",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-06",
+   "updated": "2026-11-11",
    "roadmap": [
     "11.2"
    ],
@@ -5796,7 +6264,8 @@
    "related": [
     "LIB-company-library",
     "LIB-upgrade",
-    "LIB-catalog-reapply"
+    "LIB-catalog-reapply",
+    "LIB-module-updates"
    ],
    "roles": "Check against projects: Owner or Library administrator",
    "training": {
@@ -6203,9 +6672,9 @@
   {
    "id": "LIB-rules",
    "title": "Rules: calculations, check rules and copy rules",
-   "summary": "Calculated values, check rules with findings, and copy rules between objects.",
+   "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. A check rule gives a finding where its condition does not hold. A copy rule copies a value people may still change.",
    "anchor": "lib-rules",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "12.1",
     "12.2",
@@ -6214,12 +6683,18 @@
     "12.5",
     "12.6"
    ],
-   "checks": [],
+   "checks": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+   ],
    "related": [
     "OBJ-tag-rules",
-    "LIB-configuration"
+    "LIB-configuration",
+    "OBJ-checks"
    ],
-   "roles": "",
+   "roles": "Manage project rules (rule.manage): Project administrator",
    "training": {
     "topic": "Rules in E1",
     "level": "Advanced",
@@ -6228,6 +6703,8 @@
    "screenshots": [
     "config-rules.webp"
    ],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
    "category": "library",
    "page": "guide-library.html#lib-rules"
   },
@@ -6345,6 +6822,120 @@
    "page": "guide-library.html#lib-catalog-import"
   },
   {
+   "id": "LIB-modules",
+   "title": "Modules in the library",
+   "summary": "Parts of P&IDs saved for placing again, kept in the company library, a project's or a content package: the list, search, details, Save as module? for groups drawn three times, and Usually per instance.",
+   "anchor": "lib-modules",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "32.1a",
+    "32.3d"
+   ],
+   "checks": [
+    "M1",
+    "M11"
+   ],
+   "related": [
+    "LIB-module-versions",
+    "LIB-configuration",
+    "LIB-company-library"
+   ],
+   "roles": "Everyone may look; editing and publishing need the library rights",
+   "training": {
+    "topic": "Modules",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "library",
+   "page": "guide-library.html#lib-modules"
+  },
+  {
+   "id": "LIB-module-versions",
+   "title": "Module versions, withdraw and reinstate",
+   "summary": "Publish a module draft as its next version, read its versions with change notes, withdraw it from placing and reinstate it.",
+   "anchor": "lib-module-versions",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "32.1a"
+   ],
+   "checks": [
+    "M1"
+   ],
+   "related": [
+    "LIB-modules",
+    "LIB-module-updates"
+   ],
+   "roles": "Publishing the company library, or Configure the project",
+   "training": {
+    "topic": "Module versions",
+    "level": "Intermediate",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "library",
+   "page": "guide-library.html#lib-module-versions"
+  },
+  {
+   "id": "LIB-module-updates",
+   "title": "Updating placed modules to a new version",
+   "summary": "Update placed instances to a new module version: the module's changes written, each instance's kept, conflicts decided once per group; Update without conflicts.",
+   "anchor": "lib-module-updates",
+   "status": "available",
+   "roadmap": [
+    "32.2b"
+   ],
+   "checks": [
+    "M6"
+   ],
+   "related": [
+    "LIB-module-versions"
+   ],
+   "roles": "Changing the objects of the project",
+   "training": {
+    "topic": "Module updates",
+    "level": "Advanced",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "category": "library",
+   "page": "guide-library.html#lib-module-updates"
+  },
+  {
+   "id": "LIB-module-edit",
+   "title": "Editing a module: new versions",
+   "summary": "Open a module's next version, change its details, members, tie-in points and parameters, upgrade its members and publish; duplicate a module or copy it to the company library.",
+   "anchor": "lib-module-edit",
+   "status": "available",
+   "roadmap": [
+    "32.3a",
+    "32.4b"
+   ],
+   "checks": [
+    "M7"
+   ],
+   "related": [
+    "LIB-modules"
+   ],
+   "roles": "Editing the library the module is in",
+   "training": {
+    "topic": "Editing modules",
+    "level": "Advanced",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "category": "library",
+   "page": "guide-library.html#lib-module-edit"
+  },
+  {
    "id": "AI-side-panel",
    "title": "The Alex panel",
    "summary": "The right-hand panel is Alex, the one assistant, with one row of tabs: Co-engineer, Ask, Agent, Plan and E1 Guide; its badge says Built-in or names the model, and the panel can be hidden and shown from the left rail.",
@@ -6430,7 +7021,7 @@
    "anchor": "ai-alex-trainer",
    "status": "available",
    "since": "2026-11-07",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [],
    "checks": [],
    "related": [
@@ -6656,8 +7247,10 @@
    "anchor": "ai-alex-knowledge",
    "status": "available",
    "since": "2026-11-06",
-   "updated": "2026-11-09",
-   "roadmap": [],
+   "updated": "2026-11-11",
+   "roadmap": [
+    "25.10"
+   ],
    "checks": [],
    "related": [
     "AI-alex-team-memory",
@@ -7175,31 +7768,37 @@
   {
    "id": "AI-stored-assistants",
    "title": "Stored assistants",
-   "summary": "Save work as an assistant to run again, share and package.",
+   "summary": "Save what Alex did in one reply, or record what you do, as an assistant, and run it again on another selection without Alex: one change, one undo, or a preview first; repeat it for each selected object and skip a step when it is not needed. Sharing comes later.",
    "anchor": "ai-stored-assistants",
-   "status": "planned",
-   "updated": "2026-11-09",
+   "status": "available",
+   "updated": "2026-11-11",
    "roadmap": [
-    "17.3",
     "18.1",
     "18.2",
     "18.3",
     "18.4",
     "18.5",
-    "18.6"
+    "18.6",
+    "17.3"
    ],
-   "checks": [],
+   "checks": [
+    "Q1",
+    "Q2"
+   ],
    "related": [
     "AI-cloud-ai",
+    "AI-undo",
+    "AI-review-first",
     "AI-branch"
    ],
-   "roles": "To be decided",
+   "roles": "Saving needs Create assistants and running Run assistants (Engineer and above); each step also needs its own permission",
    "training": {
     "topic": "Stored assistants",
-    "level": "Advanced",
-    "minutes": 3
+    "level": "Intermediate",
+    "minutes": 4
    },
    "screenshots": [],
+   "since": "2026-11-11",
    "category": "ai",
    "page": "guide-ai.html#ai-stored-assistants"
   },
@@ -7258,7 +7857,7 @@
    "summary": "Log in or create your account on the secure LANXTOR E1 sign-in page; the same account works in E1.",
    "anchor": "web-login",
    "status": "under-development",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
     "W3.2"
    ],
@@ -7503,7 +8102,7 @@
    "screenshots": [
     "web-account-billing.webp"
    ],
-   "updated": "2026-11-08",
+   "updated": "2026-11-11",
    "category": "account",
    "page": "guide-account.html#web-billing"
   },
@@ -7590,11 +8189,11 @@
   {
    "id": "WEB-pricing",
    "title": "Licenses, prices, currencies and the trial",
-   "summary": "Compare the licenses and prices in four currencies, and request a 30-day trial.",
+   "summary": "Compare the plans (University, Standard with Editor Basic, Professional with Editor Pro, Enterprise) and prices in four currencies, and request a 30-day trial.",
    "anchor": "web-pricing",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-10",
+   "updated": "2026-11-11",
    "roadmap": [
     "W1.2"
    ],
@@ -7804,17 +8403,14 @@
   {
    "id": "WEB-board",
    "title": "The Shape E1 board: requests and votes",
-   "summary": "Search, vote for, comment on and post feature requests for E1.",
+   "summary": "A board for feature requests and votes; not on the website at the moment.",
    "anchor": "web-board",
-   "status": "preview",
+   "status": "parked",
    "since": "2026-11-04",
-   "updated": "2026-11-10",
+   "updated": "2026-11-11",
    "roadmap": [
     "W1.2",
     "W3.3"
-   ],
-   "checks": [
-    "W7"
    ],
    "related": [
     "WEB-login",
@@ -7854,6 +8450,476 @@
    "page": "guide-account.html#web-languages"
   },
   {
+   "id": "WIRE-enclosures",
+   "title": "Cabinets and junction boxes: where they are and what they hold",
+   "summary": "A cabinet or junction box is two objects: its location in Areas and the enclosure in Assets. The enclosure holds rails, terminal strips, I/O cards with their channels, interposing devices, power supplies and earth bars.",
+   "anchor": "wire-enclosures",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [
+    "R1"
+   ],
+   "related": [
+    "WIRE-terminals",
+    "WIRE-cables-cores",
+    "OBJ-new-object",
+    "OBJ-relationships"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Cabinets and junction boxes",
+    "level": "Beginner",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-enclosures"
+  },
+  {
+   "id": "WIRE-terminals",
+   "title": "Add terminals to a strip",
+   "summary": "Add numbered terminals to a terminal strip, a channel, an earth bar, a power supply or an instrument in one step, counting on from the last one.",
+   "anchor": "wire-terminals",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [
+    "R1"
+   ],
+   "related": [
+    "WIRE-enclosures",
+    "WIRE-cables-cores"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Terminal strips and terminals",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-terminals"
+  },
+  {
+   "id": "WIRE-cables-cores",
+   "title": "Cables, their cores, and landing a core on a terminal",
+   "summary": "A cable made from a cable type in the catalog gets its cores at once (pairs with their screens, the overall screen). Each core is landed on a terminal at each end.",
+   "anchor": "wire-cables-cores",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [
+    "R2"
+   ],
+   "related": [
+    "WIRE-terminals",
+    "WIRE-trace",
+    "WIRE-cable-lengths",
+    "LIB-catalogs"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Cables and cores",
+    "level": "Beginner",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-cables-cores"
+  },
+  {
+   "id": "WIRE-trace",
+   "title": "Trace a circuit",
+   "summary": "Follow a circuit from an instrument through its cable, the junction box, the multicore and the marshalling to the I/O channel, with every terminal's reference designation.",
+   "anchor": "wire-trace",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [
+    "R2"
+   ],
+   "related": [
+    "WIRE-cables-cores",
+    "WIRE-construction-status"
+   ],
+   "roles": "Anyone who may view the project",
+   "training": {
+    "topic": "Tracing a circuit",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-trace"
+  },
+  {
+   "id": "WIRE-construction-status",
+   "title": "Construction status of cores and terminals",
+   "summary": "Mark cores, cables and terminals as issued for construction, installed, terminated, loop-checked or as-built.",
+   "anchor": "wire-construction-status",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [
+    "R2"
+   ],
+   "related": [
+    "WIRE-trace",
+    "WIRE-cables-cores"
+   ],
+   "roles": "A license and a project role that may edit relationships",
+   "training": {
+    "topic": "Construction status",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-construction-status"
+  },
+  {
+   "id": "WIRE-cable-lengths",
+   "title": "Cable lengths and the wiring settings",
+   "summary": "A cable has a length by hand and a length from 3D; E1 uses the one by hand and reports when they differ by more than the project's tolerance. Project settings → Wiring holds the tolerance and which names documents print first.",
+   "anchor": "wire-cable-lengths",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [
+    "R3"
+   ],
+   "related": [
+    "WIRE-cables-cores",
+    "LIB-project-settings"
+   ],
+   "roles": "A project role that may configure the project (settings); a license and a project role that may edit objects (lengths)",
+   "training": {
+    "topic": "Cable lengths",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-cable-lengths"
+  },
+  {
+   "id": "WIRE-import",
+   "title": "Import existing or vendor wiring",
+   "summary": "A termination list of an existing plant or a vendor's panel is imported with a preview: the enclosures, strips, terminals, cables and cores not yet in the project are made, and every core is landed as fixed, with its scope and construction status.",
+   "anchor": "wire-import",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [
+    "R3"
+   ],
+   "related": [
+    "WIRE-cables-cores",
+    "WIRE-construction-status",
+    "AI-side-panel"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Importing existing wiring",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-import"
+  },
+  {
+   "id": "WIRE-loop-diagram",
+   "title": "Loop diagrams from the wiring",
+   "summary": "The loop diagram follows each circuit of a loop through the junction boxes, cables, marshalling and barriers to the I/O channel, with its power feed and its screen, in columns by zone; the loop diagrams of a unit are generated and issued as one set.",
+   "anchor": "wire-loop-diagram",
+   "status": "available",
+   "roadmap": [
+    "28.2"
+   ],
+   "checks": [
+    "R4"
+   ],
+   "related": [
+    "WIRE-trace",
+    "DRAW-loop-diagram",
+    "WIRE-lists"
+   ],
+   "roles": "A license and a project role that may edit documents",
+   "training": {
+    "topic": "Loop diagrams from the wiring",
+    "level": "Intermediate",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-loop-diagram"
+  },
+  {
+   "id": "WIRE-lists",
+   "title": "Wire list, termination list, cable schedule and I/O list",
+   "summary": "Each of these lists is a query you build and save once: E1 ships none (examples below). They read the same wiring as the loop diagram, so they never go stale.",
+   "anchor": "wire-lists",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.2"
+   ],
+   "checks": [],
+   "related": [
+    "LIST-eng-columns",
+    "LIST-templates",
+    "WIRE-cables-cores"
+   ],
+   "roles": "Anyone who may view the project; saving for the project needs a role that may edit it",
+   "training": {
+    "topic": "Wiring lists as queries",
+    "level": "Intermediate",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-lists"
+  },
+  {
+   "id": "WIRE-typicals",
+   "title": "Signals and wiring typicals",
+   "summary": "A wiring typical describes one kind of device: its signals, its field cables and the cores each signal takes, options and variants, and naming patterns. Give it to one device or many: each gets its I/O signals, terminals and cables with their cores landed and numbered.",
+   "anchor": "wire-typicals",
+   "status": "available",
+   "roadmap": [
+    "28.3"
+   ],
+   "checks": [
+    "R5"
+   ],
+   "related": [
+    "WIRE-cables-cores",
+    "WIRE-allocation",
+    "AI-side-panel"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Wiring typicals",
+    "level": "Intermediate",
+    "minutes": 6
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-typicals"
+  },
+  {
+   "id": "WIRE-allocation",
+   "title": "Allocation and Panorama EI&C",
+   "summary": "E1 proposes where every signal of a group of devices lands, junction box, multicore pair and I/O channel, keeping the segregation rules, redundancy groups and spares, and says why for each choice; you walk the proposal hop by hop in Panorama EI&C, change a junction box for one device or all, and accept a hop, a device or everything.",
+   "anchor": "wire-allocation",
+   "status": "available",
+   "roadmap": [
+    "28.4"
+   ],
+   "checks": [
+    "R6"
+   ],
+   "related": [
+    "WIRE-typicals",
+    "WIRE-wire-moves",
+    "WIRE-circuit-checks"
+   ],
+   "roles": "A license and a project role that may edit relationships",
+   "training": {
+    "topic": "Allocation and Panorama EI&C",
+    "level": "Advanced",
+    "minutes": 8
+   },
+   "screenshots": [],
+   "since": "2026-11-11",
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-allocation"
+  },
+  {
+   "id": "WIRE-wire-moves",
+   "title": "Changes after issue: the wire move list",
+   "summary": "Once wiring is issued for construction, a change is a list for the field: moving a device to another junction box lifts and lands its cores and keeps everything else, and a device to be removed keeps its wiring until the field has lifted it.",
+   "anchor": "wire-wire-moves",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.4"
+   ],
+   "checks": [
+    "R6"
+   ],
+   "related": [
+    "WIRE-allocation",
+    "WIRE-construction-status",
+    "AI-side-panel"
+   ],
+   "roles": "A license and a project role that may edit relationships",
+   "training": {
+    "topic": "Changes after issue",
+    "level": "Advanced",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-wire-moves"
+  },
+  {
+   "id": "WIRE-circuit-checks",
+   "title": "Entity check and voltage budget",
+   "summary": "For an intrinsically safe loop E1 checks the barrier against the device and the cable for its length (the entity check), and for every loop with a supply the voltage left at the device at 20 mA. A value it needs and does not have is reported as missing.",
+   "anchor": "wire-circuit-checks",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.4"
+   ],
+   "checks": [
+    "R6"
+   ],
+   "related": [
+    "WIRE-cable-lengths",
+    "WIRE-allocation",
+    "AI-side-panel"
+   ],
+   "roles": "Anyone who may view the project",
+   "training": {
+    "topic": "Entity check and voltage budget",
+    "level": "Advanced",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-circuit-checks"
+  },
+  {
+   "id": "WIRE-fill-heat",
+   "title": "Cabinet fill and heat balance",
+   "summary": "On a cabinet's or junction box's page: each strip and card as a bar of what is used, spare and free, and the cabinet's heat balance from physics: its inside and top temperature, the margin to its limit, the cooling missing, and which devices give the most heat.",
+   "anchor": "wire-fill-heat",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.5"
+   ],
+   "checks": [
+    "R7"
+   ],
+   "related": [
+    "WIRE-enclosures",
+    "WIRE-allocation"
+   ],
+   "roles": "Anyone who may view the project",
+   "training": {
+    "topic": "Cabinet fill and heat",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-fill-heat"
+  },
+  {
+   "id": "WIRE-io-list",
+   "title": "Exchange the I/O list with the control-system vendor",
+   "summary": "Export the I/O list of a unit or a cabinet for the control-system vendor, and import their list back: a channel they kept comes back fixed, a channel they changed is a finding, and is moved to when you apply it.",
+   "anchor": "wire-io-list",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.5"
+   ],
+   "checks": [
+    "R7"
+   ],
+   "related": [
+    "WIRE-allocation",
+    "WIRE-lists",
+    "AI-side-panel"
+   ],
+   "roles": "Exporting: anyone who may view the project. Importing: a license and a project role that may edit relationships",
+   "training": {
+    "topic": "I/O list exchange",
+    "level": "Advanced",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-io-list"
+  },
+  {
+   "id": "WIRE-markers",
+   "title": "Markers and the block diagram",
+   "summary": "Export the wire, terminal and cable markers of a cabinet for the printer's software, and see the block diagram: the locations, the enclosures in them, and the cables between them.",
+   "anchor": "wire-markers",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.5"
+   ],
+   "checks": [
+    "R7"
+   ],
+   "related": [
+    "WIRE-fill-heat",
+    "WIRE-cables-cores"
+   ],
+   "roles": "Anyone who may view the project",
+   "training": {
+    "topic": "Markers and the block diagram",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-markers"
+  },
+  {
+   "id": "WIRE-fieldbus",
+   "title": "Fieldbus segments",
+   "summary": "Make a fieldbus segment from a segment typical, place Foundation Fieldbus H1 and Profibus PA devices on its coupler ports within its limits, and see the segment against its limits on its page.",
+   "anchor": "wire-fieldbus",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.6"
+   ],
+   "checks": [
+    "R8"
+   ],
+   "related": [
+    "WIRE-typicals",
+    "WIRE-allocation",
+    "WIRE-loop-diagram"
+   ],
+   "roles": "A license and a project role that may create objects; anyone who may view the project sees the segment view",
+   "training": {
+    "topic": "Fieldbus segments",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-fieldbus"
+  },
+  {
    "id": "IPAD-sign-in",
    "title": "Open E1 Reviewer on the iPad and sign in",
    "summary": "Open your E1's /reviewer/ address in Safari on the iPad, sign in with your company account, and add it to the Home Screen; the E1 Reviewer app, once released, signs in the same way.",
@@ -7881,17 +8947,18 @@
   {
    "id": "IPAD-profile-organization",
    "title": "Your profile and organization",
-   "summary": "The avatar in the top bar shows who is signed in, the organizations you belong to, and Sign out; tap another organization to work in it.",
+   "summary": "The avatar in the top bar shows who is signed in, the organizations you belong to, the terms and conditions, and Sign out; tap another organization to work in it.",
    "anchor": "ipad-profile-organization",
    "status": "under-development",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
     "27.1"
    ],
    "checks": [],
    "related": [
     "IPAD-sign-in",
-    "IPAD-project-grid"
+    "IPAD-project-grid",
+    "IPAD-terms"
    ],
    "roles": "Everyone",
    "training": {
@@ -7902,6 +8969,32 @@
    "screenshots": [],
    "category": "reviewer",
    "page": "guide-reviewer.html#ipad-profile-organization"
+  },
+  {
+   "id": "IPAD-terms",
+   "title": "Terms and conditions on the iPad",
+   "summary": "After you sign in for the first time, E1 Reviewer shows the E1 Terms and License Agreement; you accept it once for E1 and E1 Reviewer, and Profile → Terms and conditions shows it at any time.",
+   "anchor": "ipad-terms",
+   "status": "under-development",
+   "since": "2026-11-11",
+   "roadmap": [
+    "27.11"
+   ],
+   "checks": [],
+   "related": [
+    "IPAD-sign-in",
+    "IPAD-profile-organization",
+    "GS-terms"
+   ],
+   "roles": "Everyone with an E1 account",
+   "training": {
+    "topic": "E1 Reviewer on the iPad",
+    "level": "Beginner",
+    "minutes": 1
+   },
+   "screenshots": [],
+   "category": "reviewer",
+   "page": "guide-reviewer.html#ipad-terms"
   },
   {
    "id": "IPAD-dashboard",

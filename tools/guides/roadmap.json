@@ -1,6 +1,6 @@
 {
  "app": {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "milestones": [
    {
     "id": "M0",
@@ -325,7 +325,7 @@
    {
     "id": "M4",
     "title": "Documents",
-    "summary": "Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex's engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), specification attributes for instruments, and document control (versions and revisions on the sheet, changes since a date, clouds in outputs). M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.",
+    "summary": "Datasheets designed by the users: double-clicking an object opens its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex's engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), specification attributes for instruments, and document control (versions and revisions on the sheet, changes since a date, clouds in outputs). Everyone sees who else has the same sheet open (presence; no live pointers). M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.",
     "mvp": true,
     "stages": [
      {
@@ -529,6 +529,14 @@
       "tryIt": "Configuration → Privacy → Groups only: the history of every project, sheet and object shows the groups of the person who made each change, not their name. Names of people shows the names again."
      },
      {
+      "id": "08.6",
+      "title": "Presence: who has this sheet open",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open the same 2D space as a colleague in two browsers: each sees the other's avatar in the sheet toolbar, with a pencil while they edit; it is gone within a minute after they close the sheet. Configuration → Privacy → Show who has a sheet open turns it off."
+     },
+     {
       "id": "M4.16",
       "title": "Pilot readiness: the second cloud",
       "done": false,
@@ -567,6 +575,30 @@
       "doneOn": null,
       "visible": false,
       "tryIt": "Behind the scenes: the rights to the standards behind the content packages and the legal review are recorded."
+     },
+     {
+      "id": "M4.21",
+      "title": "Enterprise installation on Alibaba Cloud: file storage",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": false,
+      "tryIt": "Behind the scenes: E1 stores files in Alibaba Cloud OSS through its S3-compatible interface (virtual-hosted addresses, chosen by itself for an endpoint on aliyuncs.com, or E1_S3_ADDRESSING=virtual). See deploy/README.md, \"Alibaba Cloud\"."
+     },
+     {
+      "id": "M4.22",
+      "title": "Enterprise installation on Alibaba Cloud: a tested installation",
+      "done": false,
+      "doneOn": null,
+      "visible": false,
+      "tryIt": "Behind the scenes: the same image runs in a trial Alibaba Cloud account with ApsaraDB RDS for PostgreSQL, OSS, the customer's sign-in provider, and Qwen through Model Studio for Alex; then the website shows Alibaba Cloud as available for enterprise installations."
+     },
+     {
+      "id": "M4.23",
+      "title": "Pilot readiness: terms and license agreement before first use",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Open E1 as a new user: the E1 Terms and License Agreement comes first, and only its checkbox and Accept and continue open E1. Help → Terms and conditions shows it and its PDF; lanxtor.com/e1-terms.html has it too, and every invoice links there."
      }
     ]
    },
@@ -697,6 +729,14 @@
       "tryIt": "File → Project settings… → Content packages: switch Plant engineering off in a project with pumps: E1 lists what still uses it and keeps it. In an empty project switch it off: New asset… and the symbol picker no longer offer pumps."
      },
      {
+      "id": "04.8",
+      "title": "Project templates: save a project as a template, start a project from one",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Right-click a project → Save as template…; Configuration → Project templates lists it. File → New project from a template…: choose it, name the project and Create project: a copy with everything in it; changing the copy leaves the template as it was."
+     },
+     {
       "id": "04.3",
       "title": "Content package licensing",
       "done": true,
@@ -781,48 +821,40 @@
    {
     "id": "M7",
     "title": "Piping",
-    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, the pipe schedule (line list), and DEXPI exchange for 3D design tools.",
+    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, and the pipe schedule (line list). DEXPI export moved after the MVP (owner, 2026-11-11, 00-D16).",
     "mvp": true,
     "stages": [
      {
       "id": "13.1",
       "title": "Pipelines and selection",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-10",
       "visible": true,
-      "tryIt": "Draw a pipeline between two boundaries and double-click it: the whole pipeline is selected."
+      "tryIt": "Right-click a tank on a 2D space → Define pipeline from here ▸ Outlet, then click the pump: the pipe, valves and fittings between them become a pipeline under Assets → Piping, in segments split at a reducer. Double-click one of its lines: the pipeline is selected; again, its segment."
      },
      {
       "id": "13.2",
       "title": "Completeness and detection",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "See an incomplete pipeline marked, and see pipelines detected from lines that are already drawn. Already live: an off-page connector shows its partner's sheet, and a double-click opens it; here a stored link replaces pairing by name."
+      "tryIt": "Right-click a pump → Turn around, then right-click empty 2D space → Check piping…: one finding, P-… is turned the wrong way, with Turn around and Flip the flow as fixes. Proposals lists the pipelines to make; Create makes one."
      },
      {
       "id": "13.3",
       "title": "Pipe classes",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Give a line a pipe class and see schedule, material, and rating filled in."
+      "tryIt": "Configuration → Pipe classes → New pipe class (or Import… a spreadsheet), Publish; set a pipeline's Pipe class to its code, then Check piping… → Refresh pipelines: each segment shows its schedule, material and rating."
      },
      {
       "id": "13.4",
       "title": "Pipe schedule (line list)",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Open the pipe schedule (line list) of the project as a live table."
-     },
-     {
-      "id": "13.5",
-      "title": "DEXPI exchange and handover",
-      "done": false,
-      "doneOn": null,
-      "visible": true,
-      "tryIt": "Export the model as a DEXPI file and import it in a 3D design tool (or import one back)."
+      "tryIt": "Right-click Assets → Piping → Query ▸ New query…, filter Class is Pipeline, add From, To, Nominal size, Pipe class and 2D spaces, and Save it as Pipe schedule for the project; a list document of it exports to Excel and PDF."
      }
     ]
    },
@@ -835,34 +867,34 @@
      {
       "id": "12.1",
       "title": "Rule engine and calculations on the object",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Set a calculation on an attribute (for example power from voltage and current) and see the value update when an input changes."
+      "tryIt": "Configuration → Rules → New rule: a motor's rated current from its rated output, voltage, power factor and efficiency (Calculate, with units), Save draft, Publish. On the motor's page the value shows ƒ and Why this value?; change its voltage and the current follows."
      },
      {
       "id": "12.2",
       "title": "Calculations through relationships",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Set a calculation that reads a related object (for example a motor's value from its pump) and see it update."
+      "tryIt": "In Configuration → Rules, give an input the source Related object's attribute (an instrument's function code), or count a tank's instruments with All, as a list and Aggregate. Change the related object or relate another: the value follows at once."
      },
      {
       "id": "12.3",
       "title": "Check rules and findings",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Add a check rule, see the findings it reports, and see a revision blocked until they are fixed."
+      "tryIt": "Make a check rule (Kind: Check, a Compare step), see its findings on an object's Checks tab, and see issuing a revision refused until you fix it or Accept… it."
      },
      {
       "id": "12.4",
       "title": "Copy rules",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Add a copy rule and see a value copied from its source object, and updated when the source changes."
+      "tryIt": "Make a copy rule (Kind: Copy) and publish it: the value shows ⧉ copied. Change it: E1 asks first and marks it manually modified; Copy from source again links it back."
      },
      {
       "id": "12.5",
@@ -883,18 +915,18 @@
      {
       "id": "18.1",
       "title": "Stored assistants: save and run",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Save an assistant turn as a stored assistant and run it again with one click."
+      "tryIt": "Under a reply of Alex that changed something, choose Save as assistant; select another object, open Assistants on the left rail and Run it, then Undo it in one step."
      },
      {
       "id": "18.2",
       "title": "Stored assistants: record by hand and repeat",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Record a few manual steps as an assistant and repeat them on other objects."
+      "tryIt": "In Assistants click Record, change a value on an object, then Stop: a new assistant holds the step. Tick For each selected object, select two objects and Run it."
      },
      {
       "id": "18.3",
@@ -923,50 +955,50 @@
      {
       "id": "28.1",
       "title": "Physical layer: cabinets, cards, terminals, cables, and cores",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Create a junction box with a terminal strip and a multicore cable, connect a transmitter's cores to its terminals, and see the wire list."
+      "tryIt": "Make a cabinet in Assets located in an equipment room; right-click it → New part… for a rail, strip and I/O card; right-click the strip → Add terminals…. Make a cable from a catalog cable type, right-click a core → Connect to terminal…, then Trace circuit."
      },
      {
       "id": "28.2",
       "title": "Loop diagrams with terminals",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Generate a loop diagram for a loop: it follows the circuit through the field, the junction box, the cable and the cabinet terminals to the control system channel."
+      "tryIt": "Wire a transmitter through a junction box to a marshalling cabinet, then right-click its loop in Systems → Generate loop diagram: the terminals appear in columns by zone. On a unit, Generate loop diagrams and Issue loop diagrams… do every loop at once."
      },
      {
       "id": "28.3",
       "title": "Signals and wiring typicals",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Give a transmitter its signal and choose a wiring typical with its options: the terminals, cores and channel it needs are created with names from the tag rules."
+      "tryIt": "Ask Alex to make and publish a wiring typical (signals, cables, options, variants), then right-click a valve → Wiring typical…: it gets its I/O signals, terminals, and cables with their cores landed and numbered. Alex gives it to many at once."
      },
      {
       "id": "28.4",
       "title": "Allocation and Panorama EI&C",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Run the allocation: E1 proposes terminals and channels for every open signal by the segregation rules and the spares; review it in Panorama EI&C and Apply."
+      "tryIt": "Open a unit in Systems: Panorama EI&C lists its devices; Propose wiring places each signal on a junction box, multicore pair and channel by the rules, with why; walk the hops, send a group to another box, and Accept hop."
      },
      {
       "id": "28.5",
       "title": "Capacity, cabinet heat, and exchange with the control system",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "See each cabinet's capacity and heat balance, export the I/O list for the control-system vendor and import it back, and export markers and ferrules."
+      "tryIt": "Open a cabinet: Fill and heat shows its strips and cards as bars and its heat balance against its limit, naming a device without its heat loss. Export I/O list for the vendor and ask Alex to import their list back; Export markers."
      },
      {
       "id": "28.6",
       "title": "Fieldbus segments",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Place fieldbus devices on a segment from a segment typical: the segment rules are checked, and the segment shows in Panorama EI&C and on the loop diagram."
+      "tryIt": "Ask Alex to make a fieldbus segment from a segment typical and place fieldbus devices on it: a device goes on a free coupler port while the segment keeps within its current budget and limits. The segment's page shows them against its limits; the loop diagram draws the segment."
      }
     ]
    },
@@ -977,36 +1009,124 @@
     "mvp": true,
     "stages": [
      {
-      "id": "32.1",
-      "title": "Make and place modules",
-      "done": false,
-      "doneOn": null,
+      "id": "32.1a",
+      "title": "Module items and Configuration → Modules",
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Select a control valve station on a P&ID, Save as module…, and place it from the Modules tab onto another pipe: its objects arrive connected, with new tags from the rules."
+      "tryIt": "Ask Alex to save and publish a module, then open Configuration → Modules: its version, state and members; click it for its versions, tie-in points and parameters; Withdraw and Reinstate; edit Usually per instance."
      },
      {
-      "id": "32.2",
-      "title": "Keep instances in step",
-      "done": false,
-      "doneOn": null,
+      "id": "32.1b",
+      "title": "Save a selection as a module",
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Change a value in one instance and see Changed here; publish a new module version and update the instances in Updates available, deciding each conflict with Keep mine or Use module."
+      "tryIt": "Select a valve and a reducer on a 2D space, right-click → Save as module…: the line between them comes along, the lines leaving give Inlet and Outlet tie-in points; name it and Publish, then see it in Configuration → Modules."
      },
      {
-      "id": "32.3",
-      "title": "Edit modules and promote changes",
-      "done": false,
-      "doneOn": null,
+      "id": "32.1c",
+      "title": "Place modules from the Modules tab",
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Open a module in Configuration → Modules, add a valve on the module sheet and publish; or turn an instance's changes into the next version with Save changes to module…."
+      "tryIt": "Add asset → Modules: pick a module, Add to diagram, press R to turn it and F to flip it, and click onto a pipe or an open line end: its objects arrive connected, with new tags from the rules; one Undo takes it back."
+     },
+     {
+      "id": "32.1d",
+      "title": "Module instances on the object",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Open the properties of a placed module's object: Part of module names the module and version; Module ▾ → Select module instance selects all its members, Detach module instance… leaves plain objects. After Publish in Save as module…, link the source objects as an instance."
+     },
+     {
+      "id": "32.2a",
+      "title": "Compare an instance with its module",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Change a value of a placed module's object: its Part of module line shows Changed here; Module ▾ → Compare with module… lists it with Keep mine (with a reason), Use module and Remove from instance."
+     },
+     {
+      "id": "32.2b",
+      "title": "Update instances to a new module version",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Publish a new version of a placed module, then Configuration → Modules → Update instances…: decide each conflict group with Use module for all or Keep mine for all, or Update without conflicts."
+     },
+     {
+      "id": "32.2c",
+      "title": "Delete, void and restore members of an instance",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Delete a member of a placed module to the bin: Compare with module lists it as Removed here; restore it and it is back in step. Put all its objects in the bin: the module no longer offers that instance an update."
+     },
+     {
+      "id": "32.2d",
+      "title": "Paste carries values and whole instances",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Select every symbol of a placed module and Duplicate (Ctrl+D): the copies are a new instance of the same module and version, with its values and relationships and new tags. A single copied object keeps its values and leaves the instance."
+     },
+     {
+      "id": "32.3a",
+      "title": "Edit modules: new versions, upgrade, duplicate, copy to the company",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Configuration → Modules: click a module, New version, change a tie-in point's rating and the change note, Upgrade members, Publish; Duplicate… and Copy to company library make new modules from it."
+     },
+     {
+      "id": "32.3b",
+      "title": "Promote an instance's changes to the module",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Select a placed module's object and another symbol, right-click → Add to module instance; change a value; on the object's page Module ▾ → Save changes to module…, Publish: the module's next version holds them and the instance is in step."
+     },
+     {
+      "id": "32.3c",
+      "title": "Modules in the integration API",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Read a placed module's object through the API (GET its object record): moduleInstance names the module, its version, the instance and the member."
+     },
+     {
+      "id": "32.3d",
+      "title": "Modules in content packages, and Alex suggesting Save as module?",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Duplicate a valve, a reducer and the pipe between them twice: Configuration → Modules shows Save as module? for that group (Alex finds it with suggest_modules). A content package's modules are listed read only and can be placed."
      },
      {
       "id": "32.4",
-      "title": "Engineering rules at module boundaries",
-      "done": false,
-      "doneOn": null,
+      "title": "Checks at module boundaries",
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Place a module whose inlet pipe class differs from the header it meets and see the mismatch reported; place it with an IEC 81346 prefix."
+      "tryIt": "Give a module's inlet a size of 2 in and place it onto the open end of a 6\" pipe: placing reports that the inlet is for 2 in and the pipe it meets is 6\"; the same for pipe class, rating and medium."
+     },
+     {
+      "id": "32.4b",
+      "title": "Pipelines, prefixes and vendor scope at module boundaries",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Click a module with one inlet and one outlet onto a pipe of a pipeline: its valve and the pipe halves stay in the segment. Place one with an IEC 81346 prefix A1 (designation -A1.V). Mark a module as supplied by a vendor: its placed members take only per-instance values."
+     },
+     {
+      "id": "32.4c",
+      "title": "Rules that choose a module",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Give two block valve modules of one category a 2 in and a 6 in inlet, set a pipe's Nominal size to DN 150 and click the 2 in module onto it: the 6 in one is placed, and placing says why (Alex: choose_module)."
      }
     ]
    },
@@ -1039,6 +1159,78 @@
       "doneOn": null,
       "visible": true,
       "tryIt": "Set an alarm's priority and limits, and see which alarms each plant context (start-up, normal, shutdown) shows or hides."
+     }
+    ]
+   },
+   {
+    "id": "M11",
+    "title": "Workflow and dashboards",
+    "summary": "Asked for by the owner on 2026-11-10 (concept 33, agreed): statuses with five fixed categories (New, Active, Resolved, Closed, Removed) and the company's own sub-statuses, on objects, attribute values, diagrams, documents, tasks, and branches; workflows as ordered steps with exit criteria, approvals, and a small flow editor; and configurable progress dashboards for the environment and each project, also shown in E1 Reviewer.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "33.1",
+      "title": "Statuses on objects, values, diagrams, and documents",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "In Project settings → Workflow add a sub-status under Active, set it on a pump and on a sheet, mark a value Confirmed and another on hold, and see them in the query view and on the Status layer."
+     },
+     {
+      "id": "33.2",
+      "title": "Workflows and the board",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Assign a workflow to instruments, move one to the next step from its status chip, move 20 at once from the query view, and drag a card on the workflow board."
+     },
+     {
+      "id": "33.3",
+      "title": "Exit criteria, approvals, and overrides",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Give a step the criterion Required values confirmed: the move is refused and names the missing values; a checker approves the step, and cannot approve an item they moved themselves."
+     },
+     {
+      "id": "33.4",
+      "title": "Flow editor and workflow versions",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open a workflow's Flow tab, draw a decision that skips a step, publish a new version that removes a step, and map its items to another step."
+     },
+     {
+      "id": "33.5",
+      "title": "Dashboards for the environment and the project",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open Dashboards: the Environment and Project tabs; edit Project progress, add a tile Required values missing by discipline, click a bar to open its items, and set who sees the dashboard."
+     },
+     {
+      "id": "33.6",
+      "title": "Progress and trends",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Set rules of credit and a plan, and see earned progress on an S-curve against the plan, a burn-up, and the cumulative flow of the last weeks."
+     },
+     {
+      "id": "33.7",
+      "title": "Dashboards in E1 Reviewer (the Progress card on the iPad)",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Tick Show in E1 Reviewer on a dashboard, open the reviewer on the iPad: the Progress card opens the dashboard read-only, and tapping a number lists its items."
+     },
+     {
+      "id": "33.8",
+      "title": "Statuses in branches and branch tiles",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Change a status in a branch and in main, push: the conflict is offered; on a dashboard see branches open, in review, and merged, with their age."
      }
     ]
    },
@@ -1209,6 +1401,62 @@
       "tryIt": "Account → Access tokens: create a token, see it shown once and then listed with its access and last use. File → Organization… → Service accounts: create one for another system and give it a token."
      },
      {
+      "id": "25.10",
+      "title": "Alex answers from the company's standards",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Upload a company standard in Configuration → Alex knowledge, then ask Alex in Ask \"What is our velocity limit on pump suction?\": the clauses that fit go with the question, and the answer quotes the document, clause and page. A question the documents do not cover is answered as such."
+     },
+     {
+      "id": "09.7",
+      "title": "Editor Basic and Editor Pro: plans per organization",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "In a Standard organization (Editor Basic), Alex Agent and Plan, Apply on Alex's suggestions, Check piping…, DEXPI and PDF import, and Configuration → Pipe classes, Rules and Modules are greyed out with Pro; press one: \"Available with Editor Pro\", and the Owner's Upgrade makes every Editor Pro."
+     },
+     {
+      "id": "09.8",
+      "title": "One person per account: active sessions limit",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Sign in on a second computer with the same account while E1 is open on the first: the dialog \"Your account is open on another computer\" names the other place; choose Sign out there and continue here, or Sign out here. E1 on a computer and E1 Reviewer for iPad may be open at once."
+     },
+     {
+      "id": "09.9",
+      "title": "Included AI credits per person a month",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Account → Your access reads \"AI credits this month: 120 of 300\": 300 a month with Editor Basic and Reviewer, 2,000 with Editor Pro. When they are used up Alex says so, and everything else goes on."
+     },
+     {
+      "id": "09.10",
+      "title": "University organizations: term, free Reviewers and Viewers, class AI pool",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "In a University organization, File → Organization… shows \"Term until …\" with Renew term (3 more months); a Reviewer beyond one per Editor is refused; the class shares 300 AI credits for each Editor; after the term the organization is read-only until renewed."
+     },
+     {
+      "id": "09.11",
+      "title": "Operator console: University terms, accounts used from two places, University and guest billing",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": false,
+      "tryIt": "In the operator console, renew a University customer's term on its Licenses section, see the AI credits used this month and the accounts used from two places at once; seat invoices charge a University nothing and never bill guests."
+     },
+     {
+      "id": "09.12",
+      "title": "Projects shared across organizations",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Share a project with another organization: its people work on the same project with their own organization's seats and licenses (Editor Pro)."
+     },
+     {
       "id": "09.6",
       "title": "Discipline permissions, four-eyes approval, support access",
       "done": false,
@@ -1231,6 +1479,22 @@
       "doneOn": "2026-11-10",
       "visible": true,
       "tryIt": "Select a project, File → Import DEXPI…, add the DEXPI reference P&ID, Accept all high, Check and Apply: the 2D space 123/A93 with its pumps, lines and instruments, as one Undo step. Import it again after a change in E1: the difference waits for Use file or Keep E1."
+     },
+     {
+      "id": "31.1b",
+      "title": "DEXPI drawings as the file draws them, and the sample project with them",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Open Demo Plant (sample) → Model Space → 123/A93 DEXPI example PID: it looks as the DEXPI reference P&ID draws it, with border, title block, data tables, nozzle and line labels, its colours, and instruments showing their letters and loop numbers."
+     },
+     {
+      "id": "31.1c",
+      "title": "Demo Field: a full sample plant in the sample project",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Open Demo Plant (sample) → Model Space → DF-20-P-0001: a production manifold and HP separator drawn as plant documentation, with four more P&IDs for heating, compression, flare and produced water."
      },
      {
       "id": "31.2",
@@ -1367,15 +1631,31 @@
       "doneOn": null,
       "visible": true,
       "tryIt": "Open a project, go offline in a walk-down, add redlines and notes: they are kept and sent when the connection is back."
+     },
+     {
+      "id": "27.11",
+      "title": "Terms and license agreement in the reviewer",
+      "done": true,
+      "doneOn": "2026-11-11",
+      "visible": true,
+      "tryIt": "Sign in on the iPad (or Try the demo) as someone who has not accepted the E1 Terms and License Agreement: it comes first, with its checkbox and Accept and continue. Profile → Terms and conditions shows it and when you accepted it."
      }
     ]
    },
    {
     "id": "after",
     "title": "After the MVP",
-    "summary": "Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat; markups as PDF annotations and field walkdowns; hook-up drawings (not designed yet); options, variants, and the configurator for modules (32.5, 32.6).",
+    "summary": "Import of DXF drawings (and later DWG) converted into E1 symbols and lines through a saved mapping, including DXF blocks as symbols; wire harness and marine content packages; message queues; a sandboxed script step for stored assistants; voice input in the chat; markups as PDF annotations and field walkdowns; hook-up drawings (not designed yet); options, variants, and the configurator for modules (32.5, 32.6); DEXPI export and handover per pipeline (13.5, 00-D16).",
     "mvp": false,
     "stages": [
+     {
+      "id": "13.5",
+      "title": "DEXPI export and handover",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Export pipelines and their P&IDs as a DEXPI file for a 3D design tool, and import it back with the same pipelines, segments, and boundaries. Until then: the integration API and the pipe schedule in Excel."
+     },
      {
       "id": "32.5",
       "title": "Module options and variants",

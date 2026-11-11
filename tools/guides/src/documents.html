@@ -53,7 +53,7 @@
       <tr><td>4</td><td>Click <span class="ui">Create</span> (or press <kbd>Enter</kbd> in <span class="ui">Tag</span> or <span class="ui">Name</span>).</td><td>The dialog closes and the document's window opens; its Revisions panel says “No revision yet.”.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/new-document-dialog.webp" alt="The New object in Revisions dialog: Search classes, the Document kinds Datasheet document, Generated document, List document, Plot, Uploaded document, then Tag, Name, How many, Cancel and Create." width="1056" height="1180" loading="lazy"><figcaption>The document kinds (taken before the section was renamed Documents and Revision and Version were added).</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/new-document-dialog.webp" alt="The New object in Documents dialog: Search classes; under Documents, Document with Generated document (Datasheet document, List document, Plot, Revision, Version) and Uploaded document; under Project structure, Folder; then Tag, Name, How many, Cancel and Create." width="1056" height="1180" loading="lazy"><figcaption>The document kinds.</figcaption></figure>
   <p class="g-note">A double-click on a kind under <span class="ui">Recent</span> creates the document at once; a double-click in the search list only chooses the kind. <kbd>Esc</kbd> does not close the dialog; click <span class="ui">Cancel</span> or outside it.</p>
   <p class="g-note">The document number is its tag, made by the project's tag rules. A <span class="ui">Generated document</span> is a loop diagram, made from the drawing (see <a href="guide-drawing.html#draw-loop-diagram">Loop diagrams</a>).</p>
   <p class="g-warn"><span class="ui">Revision</span> and <span class="ui">Version</span> are new kinds of generated document. You can make one, but E1 does not generate their content yet.</p>
@@ -180,8 +180,8 @@
 
 <section class="g-feature" id="doc-issue">
   <h2>Issue a revision</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">DOC-issue</span><span>Roadmap 07.7</span><span>Review checks E2, E3</span></div>
-  <p class="g-summary">Issuing freezes a revision and its PDF; an issued revision cannot change afterwards.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-11</span><span class="g-id">DOC-issue</span><span>Roadmap 07.7, 12.3</span><span>Review checks E2, E3</span></div>
+  <p class="g-summary">Issuing freezes a revision and its PDF; an issued revision cannot change afterwards. While the revision gate is on, an open error on what the document shows refuses the issue.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Revision list → <span class="ui">Issue</span> column → <span class="ui">Issue A</span></dd>
     <dt>Who</dt><dd>A Lead on the project. An Engineer is refused.</dd>
@@ -194,12 +194,13 @@
       <tr><td>1</td><td>Click <span class="ui">Issue A</span>.</td><td>The browser asks “Issue revision A? The document and its PDF are frozen as they are now and cannot change afterwards.”.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">OK</span>.</td><td>The Status of A shows <span class="ui">Issued</span> as plain text, without a dropdown. The Issue column shows the link <span class="ui">PDF of A</span>. The panel says “Nothing changed since Rev A was issued.”.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">PDF of A</span>.</td><td>The issued PDF opens. It stays byte for byte as issued, even after the model changes.</td></tr>
-      <tr><td>4</td><td>On a document where B is issued but A is not, click <span class="ui">Issue A</span> and confirm.</td><td>It is refused: “A later revision is already issued; A stays as it is.”.</td></tr>
+      <tr><td>4</td><td>On a document that lists a pump with an open error (for example a check rule's), click <span class="ui">Issue A</span> and confirm.</td><td>It is refused, naming the errors: “A cannot be issued: 1 open error on what it shows. … Fix it, or accept it in Checks.”. Fix the pump, or accept the finding on its <a href="guide-objects.html#obj-checks">Checks</a> tab, and issue again.</td></tr>
+      <tr><td>5</td><td>On a document where B is issued but A is not, click <span class="ui">Issue A</span> and confirm.</td><td>It is refused: “A later revision is already issued; A stays as it is.”.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/document-issued.webp" alt="The Pump list document after issuing A: the revision list with Rev A, its date, the signed-in user, Issued and the link PDF of A, and the note Nothing changed since Rev A was issued." width="2160" height="1350" loading="lazy"><figcaption>Revision A issued.</figcaption></figure>
   <p class="g-note">Issuing freezes what the document shows: a list's rows, a plot's 2D space with its objects, or a datasheet's object with its children and its layout version. Any later attempt to change an issued revision is refused with “An issued revision does not change.”.</p>
-  <p class="g-warn">Issuing does not yet check for open rule findings (that comes with rules, milestone M6), and an issued document cannot be retagged.</p>
+  <p class="g-warn">An issued document cannot be retagged.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-revisions">Add revisions A, B, …</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a>, <a href="guide-documents.html#doc-list-document">List documents from a saved query, with PDF and Excel</a>, <a href="guide-documents.html#doc-status">Draft and In review</a></p>
 </section>
 

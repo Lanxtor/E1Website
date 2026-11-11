@@ -38,13 +38,13 @@ module.exports = {
   },
   async comments(h) {
     const p = h.page; await h.open();
-    await openPump(h, 'Comments');
-    const box = p.getByRole('textbox', { name: 'Comment' });
+    await openPump(h, 'Chat');
+    const box = p.getByRole('textbox', { name: 'Chat message' });
     await box.click(); await p.keyboard.type('Check the design pressure against #V3', { delay: 30 }); await p.waitForTimeout(500);
     await p.getByRole('listbox', { name: 'Objects' }).getByRole('button', { name: /V3/ }).first().click().catch(()=>{}); await p.waitForTimeout(300);
     await box.press('Control+Enter');
     await p.waitForTimeout(800);
-    const comments = p.getByRole('list', { name: 'Comments' });
+    const comments = p.getByRole('list', { name: 'Chat' });
     await comments.getByRole('button', { name: 'Reply' }).click();
     await p.getByRole('textbox', { name: 'Reply' }).fill('16 bar(g), same as V3.');
     await p.getByRole('button', { name: 'Reply', exact: true }).last().click();
@@ -85,11 +85,11 @@ module.exports = {
     await p.mouse.click(x, y, { button: 'right' });
     const m = p.getByRole('menu').first(); await m.waitFor();
     
-    await p.getByRole('menuitem', { name: 'Comment here' }).click();
-    const f = p.getByRole('form', { name: 'Pin a comment' }); await f.waitFor();
-    await f.getByRole('textbox', { name: 'Comment' }).fill('Check the NPSH margin');
+    await p.getByRole('menuitem', { name: 'Chat here' }).click();
+    const f = p.getByRole('form', { name: 'Pin a message' }); await f.waitFor();
+    await f.getByRole('textbox', { name: 'Chat message' }).fill('Check the NPSH margin');
     await h.shot('pin-form', { clip: f, pad: 40 });
-    await f.getByRole('button', { name: 'Pin comment' }).click();
+    await f.getByRole('button', { name: 'Pin message' }).click();
     await p.waitForTimeout(1000);
     await h.mark(tree(p).getByRole('treeitem', { name: /^Pump1, Needs review/ }));
     await h.shot('pin-needs-review');

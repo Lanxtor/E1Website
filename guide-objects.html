@@ -32,7 +32,8 @@
           <li><a href="guide-library.html">10. Configuration, library and catalogs</a></li>
           <li><a href="guide-ai.html">11. AI: Alex</a></li>
           <li><a href="guide-account.html">12. Your account, Academy and website</a></li>
-          <li><a href="guide-reviewer.html">13. E1 Reviewer for iPad</a></li>
+          <li><a href="guide-wiring.html">13. Wiring (EI&amp;C)</a></li>
+          <li><a href="guide-reviewer.html">14. E1 Reviewer for iPad</a></li>
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
@@ -59,13 +60,14 @@
           <li><a href="#obj-deep-view">Deep view</a></li>
           <li><a href="#obj-units">Units of measurement</a></li>
           <li><a href="#obj-calculations">Calculations and copy rules on attributes</a></li>
+          <li><a href="#obj-checks">Checks: findings and accepting them</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Objects, attributes and tags</p>
         <h1>4. Objects, attributes and tags</h1>
         <p class="lead">Make equipment and other objects from library classes, fill in attributes with units, relate objects, and tag them with your project&#x27;s rules.</p>
-        <div class="g-meta"><span>20 features</span><span>18 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>21 features</span><span>20 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="objects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 everything in the plant is an object: a pump, a valve, a function, an area, a pipe run. Each object is made from a class of the library, carries attributes with units, can be related to other objects, and gets its tag from your project's rules. Drawings, lists and datasheets all show the same objects.</p>
@@ -609,23 +611,66 @@
 
 <section class="g-feature" id="obj-calculations">
   <h2>Calculations and copy rules on attributes</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">OBJ-calculations</span><span>Roadmap 12.1, 12.2, 12.4</span></div>
-  <p class="g-summary">Attributes will be able to compute their value from other attributes, of the same object or of related objects, and to copy values from a source object, updating when the inputs change.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">OBJ-calculations</span><span>Roadmap 12.1, 12.2, 12.4</span><span>Review checks P1, P2, P4</span></div>
+  <p class="g-summary">An attribute a rule calculates shows its value with <span class="ui">ƒ</span>, read-only, and <span class="ui">Why this value?</span> says how it came about. The rules themselves are made in <a href="guide-library.html#lib-rules">Configuration → Rules</a>.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Not on screen yet</dd>
+    <dt>Where</dt><dd>An object's window → <span class="ui">Attributes</span>; a query view's cells; the datasheet</dd>
+    <dt>Who</dt><dd>Everyone who can view the project</dd>
+    <dt>Before you start</dt><dd>A published rule calculates an attribute of the object's class, for example an instrument's loop number.</dd>
   </dl>
-  <div class="g-dev">
-    <p><strong>Planned (milestone M6 Rules, not started).</strong></p>
-    <h3>What you will be able to do</h3>
-    <ul>
-      <li>Set a calculation on an attribute, for example power from voltage and current, and see the value update when an input changes (12.1).</li>
-      <li>Set a calculation that reads a related object, for example a motor's value from its pump (12.2).</li>
-      <li>Add check rules that report findings and can block a revision until they are fixed (12.3).</li>
-      <li>Add a copy rule that copies a value from its source object and updates it when the source changes (12.4).</li>
-      <li>See rules that come from your organization or a content package applied in a project (12.6).</li>
-    </ul>
-  </div>
-  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="#obj-tag-rules">Tag rules</a></p>
+  <h3>Read a calculated value</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open the instrument's window on <span class="ui">Attributes</span>.</td><td>Loop number shows its value with <span class="ui">ƒ</span>, without a field to type in.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Why this value?</span>.</td><td>The rule and its version, each input with its value and the object it came from (the instrument, its owner, a related function), each step's result, and when it was calculated.</td></tr>
+      <tr><td>3</td><td>Change an input, for example the function's short code.</td><td>The loop number follows in the same change, and one undo takes both back.</td></tr>
+      <tr><td>4</td><td>Try to type the loop number in a query view cell, or ask Alex to set it.</td><td>Refused: it is calculated by the rule and follows its inputs.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A value whose input is missing is empty, and <span class="ui">Why this value?</span> and the object's <a href="#obj-checks">Checks</a> tab say which input.</p>
+  <h3>A copied value</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open an object whose attribute a copy rule fills, on <span class="ui">Attributes</span>.</td><td>The attribute shows <span class="ui">⧉ copied</span>; pointing at it names the rule. It follows its source: change the source and the value changes in the same change.</td></tr>
+      <tr><td>2</td><td>Type another value and press Enter.</td><td>E1 asks: “This value is copied automatically by the rule …. If you change it, it will be marked as manually modified and will no longer be copied.” Cancel keeps the copy.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">OK</span>.</td><td>Your value stays, marked <span class="ui">manually modified</span>. A later change of the source no longer reaches it.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Copy from source again</span>.</td><td>The source's value is back, <span class="ui">⧉ copied</span>, and follows its source again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Changing a copied value needs Change copied values (Lead engineer, Project administrator); without it the change is refused. Through Alex the change is held in its proposal like any change, and through the integration API it needs <code>stopCopy: true</code>, otherwise it is refused with <code>copied_needs_stopcopy</code>.</p>
+  <p class="g-warn">A query view cell or a paste over copied values does not ask yet: it is refused with the reason, and the change is made on the object page.</p>
+  <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-rules">Rules</a> · <a href="#obj-checks">Checks</a></p>
+</section>
+
+<section class="g-feature" id="obj-checks">
+  <h2>Checks: findings and accepting them</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">OBJ-checks</span><span>Roadmap 12.3</span><span>Review check P3</span></div>
+  <p class="g-summary">Everything soft about an object is a finding, whatever produced it: a required value missing, a relationship minimum not reached, a pending tag or one out of date, an object that breaks its class's behavior, a check rule, a calculation with a missing input, and the piping check. Each has a severity: error, warning or information. An open error blocks issuing a revision until it is fixed or accepted.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An object's window → <span class="ui">Checks</span>; the project's window → <span class="ui">Checks</span> for the whole project</dd>
+    <dt>Who</dt><dd>Everyone who can view the project sees the findings. <span class="ui">Accept…</span> needs Accept findings (Lead engineer, Project administrator).</dd>
+  </dl>
+  <h3>Read and accept findings</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a pump's window and click <span class="ui">Checks</span>.</td><td>The counts (errors, warnings, information, accepted), then the findings grouped by severity: ● error, ▲ warning, i information, each with its message (<em>P-101: Design pressure is required and has no value.</em>) and the rule or check it comes from. The tab's badge counts the open errors and warnings.</td></tr>
+      <tr><td>2</td><td>Set <span class="ui">Group by</span> to <span class="ui">Rule or check</span>, or <span class="ui">Object</span>.</td><td>The same findings, grouped that way. <span class="ui">Check again</span> reads them anew after a change.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Accept…</span> on a finding, type why, and click <span class="ui">Accept</span>.</td><td>The finding stays, marked <em>Accepted by</em> you with the comment, and no longer blocks a gate. <span class="ui">Accept</span> stays off until there is a comment.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Reopen</span>.</td><td>The acceptance is taken back: the finding is open again.</td></tr>
+      <tr><td>5</td><td>Open the project's window and click <span class="ui">Checks</span>.</td><td>Every finding of the project, and whether the revision gate is on.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>The revision gate</h3>
+  <ul>
+    <li>While the gate is on (it is, unless the project turns it off), issuing a revision is refused while the document shows an object with an open error, built-in or from a rule: <em>A cannot be issued: 1 open error on what it shows. … Fix it, or accept it in Checks.</em></li>
+    <li>Warnings and information never block.</li>
+    <li>Built-in checks have these severities unless the project changes them: a pending tag and an object breaking its class's behavior are errors; a required value missing, a relationship minimum not reached and a tag out of date are warnings. A check rule has the severity it was made with.</li>
+  </ul>
+  <p class="g-warn">The gate and the built-in severities are set by asking Alex (set_gate_options) or through the integration API; they have no screen yet. Markers on the drawing and a findings column in the query view come later, and the gates on pushing a branch come with branches.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-rules">Rules</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a> · <a href="#obj-calculations">Calculations</a> · <a href="#obj-tags">Tags</a> · <a href="guide-drawing.html#draw-piping-check">Piping check</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-projects.html">Projects and the explorer</a> · <a href="guide-drawing.html">Drawing P&amp;IDs</a> →</p>
