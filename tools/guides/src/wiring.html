@@ -245,6 +245,30 @@
   <p class="g-related">Related: <a href="#wire-fill-heat">Cabinet fill and heat</a> · <a href="#wire-cables-cores">Cables and their cores</a></p>
 </section>
 
+<section class="g-feature" id="wire-fieldbus">
+  <h2>Fieldbus segments</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-fieldbus</span><span>Roadmap 28.6</span><span>Review check R8</span></div>
+  <p class="g-summary">A fieldbus segment is one Foundation Fieldbus H1 or Profibus PA network: a power conditioner, a trunk cable, device couplers with their spur ports, and the devices on the spurs. Its limits are data the project edits: the current budget, the supply voltage and the lowest voltage a device needs, the most devices and final elements, the longest total length and spur, and the ports kept spare. A device goes on a segment only while the segment keeps within all of them.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Making a segment and placing devices: Alex in the side panel. The segment's page → <span class="ui">Segment view</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may create objects; anyone who may view the project sees the segment view</dd>
+    <dt>Before you start</dt><dd>A published segment typical (<a href="#wire-typicals">Wiring typicals</a>); each device has a signal of kind FF or PA with its fieldbus current, and a spur cable with its length.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex to make segment SEG-1 from the segment typical "FF H1 FISCO" with trunk cable W-TR1.</td><td>SEG-1 in Assets with its limits, power conditioner PC1 and device coupler DC1 with its spur ports.</td></tr>
+      <tr><td>2</td><td>Ask Alex to place FT-01 to FT-06 on segments, first as a preview.</td><td>Five go on SEG-1, each on a free port (DC1/1 …). FT-06 is not placed, with the reason: "SEG-1: 120 mA, over the current budget of 100 mA".</td></tr>
+      <tr><td>3</td><td>Make a second segment and place them again.</td><td>FT-06 goes on SEG-2. Devices already placed stay where they are; two devices of one redundancy group never share a segment.</td></tr>
+      <tr><td>4</td><td>Open SEG-1.</td><td>The <span class="ui">Segment view</span>: devices, current, the voltage at the farthest device, trunk and spurs, the longest spur, free ports and final elements against their limits, the rules it breaks and what is missing.</td></tr>
+      <tr><td>5</td><td>Generate the loop diagram of a loop with FT-01.</td><td>The segment is drawn in its own column, with the spur from the device to it. The wiring workbench says "On segment SEG-1".</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-warn">The voltage is worked out from the trunk's and spurs' resistance per length; it is a check for design, not a vendor's segment calculation.</p>
+  <p class="g-related">Related: <a href="#wire-typicals">Wiring typicals</a> · <a href="#wire-allocation">Panorama EI&amp;C and allocation</a> · <a href="#wire-loop-diagram">Loop diagrams from the wiring</a></p>
+</section>
+
 <section class="g-feature" id="wire-loop-diagram">
   <h2>Loop diagrams from the wiring</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-loop-diagram</span><span>Roadmap 28.2</span><span>Review check R4</span></div>
