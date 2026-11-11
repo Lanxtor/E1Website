@@ -911,7 +911,7 @@
 
 <section class="g-feature" id="ai-stored-assistants">
   <h2>Stored assistants</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 18.1–18.6, 17.3</span><span>Review checks Q1, Q2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 18.1–18.6, 17.3</span><span>Review checks Q1, Q2, Q3</span></div>
   <p class="g-summary">Save what Alex did in one reply as an assistant: its steps, in order, with what you had selected and the project as parameters. Run it again on another selection without Alex, as one change that one undo takes back, or as a preview first.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Under a reply that changed something → <span class="ui">Save as assistant</span>; the left rail → <span class="ui">Assistants</span></dd>
@@ -943,6 +943,18 @@
     <li>A repeat stops at the first object that fails and keeps nothing; tick <span class="ui">Keep the ones that succeed when one fails</span> to keep the objects that went through, and the failed one is reported.</li>
     <li><span class="ui">Propose parameters</span> suggests recorded values (an object, a number) to ask for when it runs; <span class="ui">Make parameter</span> takes one.</li>
   </ul>
+  <h3>Share and pin</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open one of <span class="ui">My assistants</span> and click <span class="ui">Share with the project…</span>.</td><td>It says a project approver decides.</td></tr>
+      <tr><td>2</td><td>As a lead engineer or the project's administrator, open <span class="ui">Assistants</span>.</td><td><span class="ui">Share requests</span> lists who asks, the name and the steps in plain language, with <span class="ui">Approve</span> and <span class="ui">Refuse</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Approve</span>.</td><td>It is under <span class="ui">This project</span> for everyone in the project. Each member runs it with their own permissions: a step they may not do stops it before anything changes.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Pin</span>.</td><td>A shortcut with its first letters is on the left rail and opens it. A lead's <span class="ui">Recommend to the project</span> pins it for every member, who can <span class="ui">Hide recommendation</span>.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Submit to the company library…</span> and confirm.</td><td>It is in the company library draft. Once a library administrator publishes it in Configuration → Company library, it is under <span class="ui">Organization</span> in every project, at the project's library pin. It changes only there; <span class="ui">Copy to mine</span> makes your own copy to change.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Alex can ask to share an assistant, but never approves a share or submits one to the company library.</p>
   <h3>Run it</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
@@ -954,7 +966,7 @@
     </tbody>
   </table></div>
   <p class="g-note">If a step fails (a value it cannot set, a permission you lack), the run stops and nothing of it is kept; the report names the step and why.</p>
-  <p class="g-warn">Not built yet: sharing with the project and the organization (18.3), assistants from written instructions (18.4), assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
+  <p class="g-warn">Not built yet: assistants from written instructions (18.4), assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
   <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
 </section>
 
