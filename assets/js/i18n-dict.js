@@ -99,7 +99,8 @@ window.E1_I18N_DICT = {
   "How can I talk to sales?": "Wie erreiche ich den Vertrieb?",
   "How do I get support?": "Wie bekomme ich Support?",
   "Download on the App Store": "Laden im App Store",
-  "Security": "Sicherheit"
+  "Security": "Sicherheit",
+  "License agreement": "Lizenzvertrag"
  },
  "fr": {
   "Home": "Accueil",
@@ -199,7 +200,8 @@ window.E1_I18N_DICT = {
   "How can I talk to sales?": "Comment contacter l'équipe commerciale ?",
   "How do I get support?": "Comment obtenir de l'aide ?",
   "Download on the App Store": "Télécharger dans l’App Store",
-  "Security": "Sécurité"
+  "Security": "Sécurité",
+  "License agreement": "Contrat de licence"
  },
  "es": {
   "Home": "Inicio",
@@ -299,7 +301,8 @@ window.E1_I18N_DICT = {
   "How can I talk to sales?": "¿Cómo hablo con ventas?",
   "How do I get support?": "¿Cómo obtengo soporte?",
   "Download on the App Store": "Descargar en el App Store",
-  "Security": "Seguridad"
+  "Security": "Seguridad",
+  "License agreement": "Contrato de licencia"
  },
  "no": {
   "Home": "Hjem",
@@ -399,6 +402,7 @@ window.E1_I18N_DICT = {
   "How can I talk to sales?": "Hvordan kan jeg snakke med salg?",
   "How do I get support?": "Hvordan får jeg brukerstøtte?",
   "Download on the App Store": "Last ned fra App Store",
-  "Security": "Sikkerhet"
+  "Security": "Sikkerhet",
+  "License agreement": "Lisensavtale"
  }
 };
