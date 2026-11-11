@@ -76,13 +76,18 @@
           <li><a href="#draw-dexpi">DEXPI exchange and handover</a></li>
           <li><a href="#draw-cad-import">CAD import (DXF, later DWG)</a></li>
           <li><a href="#draw-redlining">Redlining</a></li>
+          <li><a href="#draw-module-save">Save a selection as a module</a></li>
+          <li><a href="#draw-module-place">Place a module from the Modules tab</a></li>
+          <li><a href="#draw-module-instance">A placed module on its objects</a></li>
+          <li><a href="#draw-module-compare">Compare an instance with its module</a></li>
+          <li><a href="#draw-module-promote">Turn an instance&#x27;s changes into the module&#x27;s next version</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>37 features</span><span>34 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>42 features</span><span>34 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -1077,6 +1082,95 @@
     <li>Open the Markups list of a 2D space, a round or the project, filter it, zoom to a markup, and change the status of several at once.</li>
   </ul>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Chat here</a> · <a href="guide-drawing.html#draw-layers">Layers</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-save">
+  <h2>Save a selection as a module</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-save</span><span>Roadmap 32.1b</span></div>
+  <p class="g-summary">Select part of a P&amp;ID, such as a control valve station, and save it as a module to place again.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">Save as module…</span> on the selection's right-click menu</dd>
+    <dt>Who</dt><dd>Editing the library the module goes to</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.1b "Save a selection as a module").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Review the members, and which attributes stay per instance.</li>
+    <li>Check the tie-in points E1 found where lines leave the selection.</li>
+    <li>Name the parameters asked for when it is placed, such as area and loop number.</li>
+    <li>Save a draft, or publish it.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-library.html#lib-modules">Modules in the library</a> · <a href="#draw-module-place">Place a module</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-place">
+  <h2>Place a module from the Modules tab</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-place</span><span>Roadmap 32.1c</span></div>
+  <p class="g-summary">Place a module in one step: its objects arrive connected, with new tags from the rules.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">Add asset</span> → <span class="ui">Modules</span></dd>
+    <dt>Who</dt><dd>Editing the project</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.1c "Place modules from the Modules tab").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Turn the module with R, flip it with F or Shift+F.</li>
+    <li>Click it onto a pipe to insert it.</li>
+    <li>Fill in its parameters, and see the tags it will get before placing.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-module-save">Save a selection as a module</a> · <a href="#draw-module-instance">A placed module</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-instance">
+  <h2>A placed module on its objects</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-instance</span><span>Roadmap 32.1d</span></div>
+  <p class="g-summary">A placed module's objects stay ordinary objects; each shows which module it is part of.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">Part of module</span> on the object's properties</dd>
+    <dt>Who</dt><dd>Editing the project</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.1d "Module instances on the object").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>See Part of module with the module and version.</li>
+    <li>Select every member of the instance.</li>
+    <li>Detach the instance, leaving plain objects.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-module-place">Place a module</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-compare">
+  <h2>Compare an instance with its module</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-compare</span><span>Roadmap 32.2a</span></div>
+  <p class="g-summary">See what one placed module changed against its module.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet</dd>
+    <dt>Who</dt><dd>Editing the project</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.2a "Compare an instance with its module").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>See Changed here in the tree.</li>
+    <li>Keep a change, with a reason, or take the module's value.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-module-instance">A placed module</a> · <a href="guide-library.html#lib-module-updates">Updating placed modules</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-promote">
+  <h2>Turn an instance's changes into the module's next version</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-promote</span><span>Roadmap 32.3b</span></div>
+  <p class="g-summary">Make what one instance changed the module's next version.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet</dd>
+    <dt>Who</dt><dd>Editing the library the module is in</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.3b "Promote an instance's changes to the module").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Add objects to an instance.</li>
+    <li>Save the instance's changes to the module and publish.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-module-compare">Compare an instance</a> · <a href="guide-library.html#lib-module-edit">Editing a module</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-objects.html">Objects, attributes and tags</a> · <a href="guide-lists.html">Lists and queries</a> →</p>

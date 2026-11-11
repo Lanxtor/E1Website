@@ -65,13 +65,17 @@
           <li><a href="#lib-package-switching">Switching content packages on and off</a></li>
           <li><a href="#lib-package-licensing">Content package licensing and updates</a></li>
           <li><a href="#lib-catalog-import">Catalog import</a></li>
+          <li><a href="#lib-modules">Modules in the library</a></li>
+          <li><a href="#lib-module-versions">Module versions, withdraw and reinstate</a></li>
+          <li><a href="#lib-module-updates">Updating placed modules to a new version</a></li>
+          <li><a href="#lib-module-edit">Editing a module on the module sheet</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Configuration, library and catalogs</p>
         <h1>10. Configuration, library and catalogs</h1>
         <p class="lead">The Configuration place: classes, attributes, shapes, the company library with drafts, publishing and upgrades, catalogs, content packages and project settings.</p>
-        <div class="g-meta"><span>26 features</span><span>24 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>30 features</span><span>26 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="library-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the shared set-up of E1: the <span class="ui">Configuration</span> place with its object classes, attributes, shapes and relationships, the company library where your organization adds its own classes and attributes, catalogs of approved products, the content packages a project uses, and the project settings. A change made here applies to everyone, not only to you; your own preferences are in <span class="ui">Settings</span>.</p>
@@ -107,7 +111,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Configuration</span> in the left rail.</td><td>A tab <span class="ui">Configuration</span> opens. The heading reads "Shared: a change here applies to everyone. Your own preferences are in Settings."</td></tr>
-      <tr><td>2</td><td>Look at the section bar along the top.</td><td>The sections are, in groups: <span class="ui">Object classes</span>, <span class="ui">Attributes</span>, <span class="ui">Shapes</span>, <span class="ui">Relationships</span>, <span class="ui">Company library</span>, <span class="ui">Catalogs</span>; <span class="ui">Alex knowledge</span>, <span class="ui">Rules</span> (with an <span class="ui">M6</span> badge); <span class="ui">Content and standards</span>, <span class="ui">Datasheets</span>; <span class="ui">Project defaults</span>, <span class="ui">Project settings</span>; <span class="ui">Alex’s AI help</span>, <span class="ui">Storage</span>. Several show a count (for example Object classes 2014).</td></tr>
+      <tr><td>2</td><td>Look at the section bar along the top.</td><td>The sections are, in groups: <span class="ui">Object classes</span>, <span class="ui">Attributes</span>, <span class="ui">Shapes</span>, <span class="ui">Relationships</span>, <span class="ui">Company library</span>, <span class="ui">Catalogs</span>; <span class="ui">Alex knowledge</span>, <span class="ui">Pipe classes</span>, <span class="ui">Rules</span>; <span class="ui">Content and standards</span>, <span class="ui">Modules</span>, <span class="ui">Datasheets</span>; <span class="ui">Project defaults</span>, <span class="ui">Project settings</span>; <span class="ui">Privacy</span>; <span class="ui">Alex’s AI help</span>, <span class="ui">Storage</span>. Several show a count (for example Object classes 2014).</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Attributes</span>, then close the tab and click <span class="ui">Configuration</span> in the rail again.</td><td>The place opens on <span class="ui">Attributes</span>, the section you left it on.</td></tr>
       <tr><td>4</td><td>Hover a greyed-out button such as <span class="ui">New class</span>.</td><td>The button cannot be clicked; its tooltip reads "Comes with …" and names the stage that brings it.</td></tr>
     </tbody>
@@ -738,6 +742,78 @@
   <p class="g-warn">A long import may say "The import is taking long; look again in a moment."; the items appear in the catalog once it is done.</p>
   <p class="g-note">This runs as a job on the server, which may wait its turn first when the server is busy. At most 20 jobs a minute per person, else <span class="ui">You started more than 20 jobs in a minute; wait a minute and try again.</span></p>
   <p class="g-related">Related: <a href="#lib-catalogs">Catalogs</a> · <a href="#lib-from-catalog">From catalog</a> · <a href="guide-lists.html#list-import-excel">Import Excel… into a section</a></p>
+</section>
+
+<section class="g-feature" id="lib-modules">
+  <h2>Modules in the library</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a</span><span>Review check M1</span></div>
+  <p class="g-summary">A module is a part of a P&amp;ID saved for placing again: a control valve station, a pump with its valves, a sampling point. Modules are kept in the company library, for every project, or in one project's library, and Configuration → Modules lists them all.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> (in the Content group)</dd>
+    <dt>Who</dt><dd>Everyone in the project sees the modules. Company modules: editing needs the library editing right for modules, publishing and withdrawing the library publishing right. Project modules: Configure the project.</dd>
+  </dl>
+  <h3>See the modules</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a project, then <span class="ui">Configuration → Modules</span>.</td><td>A list of the modules: <span class="ui">Name</span>, <span class="ui">Category</span>, <span class="ui">Library</span> (Company or Project), <span class="ui">Version</span> (the newest published, and <em>draft open</em> when there is a draft), <span class="ui">State</span> (Draft, Published or Withdrawn) and the number of <span class="ui">Members</span>.</td></tr>
+      <tr><td>2</td><td>Type in <span class="ui">Search modules</span>.</td><td>Only modules whose name, key, category or keywords contain the text stay.</td></tr>
+      <tr><td>3</td><td>Click a module's name.</td><td>Its details: description, library, state, versions, members by class, tie-in points (where lines connect to it: name, type, direction, size, rating) and parameters (values asked for when it is placed).</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Usually per instance</h3>
+  <p>Some attributes differ from place to place, such as service, size, design pressure and temperature and set points. <span class="ui">Usually per instance</span>, below the list, holds these attribute paths, one a line. When a module is saved, E1 proposes to keep them per instance: each placed module has its own value, and an update from the module never changes it. <span class="ui">Save</span> keeps the list for the organization (managing organization policies). E1 ships with a list; the desktop app uses that list.</p>
+  <p class="g-warn">Saving a selection as a module (<a href="guide-drawing.html#draw-module-save">Save as module…</a>) and placing modules (<a href="guide-drawing.html#draw-module-place">the Modules tab</a>) are being built; until then a module is made by Alex or through the commands.</p>
+  <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a> · <a href="#lib-configuration">The Configuration place</a> · <a href="#lib-company-library">Company library</a></p>
+</section>
+
+<section class="g-feature" id="lib-module-versions">
+  <h2>Module versions, withdraw and reinstate</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-module-versions</span><span>Roadmap 32.1a</span><span>Review check M1</span></div>
+  <p class="g-summary">A module is a draft until it is published; each publish makes its next version, which never changes. Withdraw takes a module out of placing without touching what was placed.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>: the buttons on each row, and a module's details</dd>
+    <dt>Who</dt><dd>Company modules: publishing the company library. Project modules: Configure the project.</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On a module with a draft open, click <span class="ui">Publish</span>.</td><td>The draft becomes the next version (v1, v2, …), with its change note. A company module reaches a project through the project's library version.</td></tr>
+      <tr><td>2</td><td>Click the module's name and read <span class="ui">Versions</span>.</td><td>Each version with its date, who published it and its change note, newest first. When a project reads an older company version, the details say so: newer ones are available with a library version change.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Withdraw</span>.</td><td>The state is Withdrawn: the module can no longer be placed. Its versions stay readable, and every module already placed keeps working.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Reinstate</span>.</td><td>The state is Published again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a> · <a href="#lib-module-updates">Updating placed modules</a></p>
+</section>
+
+<section class="g-feature" id="lib-module-updates">
+  <h2>Updating placed modules to a new version</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-module-updates</span><span>Roadmap 32.2b</span></div>
+  <p class="g-summary">When a module gets a new version, its placed instances can be updated: E1 takes what the module changed, keeps what each instance changed, and asks about each conflict.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet; it will be in <span class="ui">Updates available</span>, group Modules</dd>
+    <dt>Who</dt><dd>Editing the project</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.2b "Update instances to a new module version").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>See per module the versions in use, the newest, and how many instances have conflicts.</li>
+    <li>Decide conflicts once for a group of instances with <em>Use module for all</em> or <em>Keep mine for all</em>, or one by one; or <em>Update without conflicts</em>.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a></p>
+</section>
+
+<section class="g-feature" id="lib-module-edit">
+  <h2>Editing a module on the module sheet</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span></div>
+  <p class="g-summary">Open a module's draft on its own sheet, change members, tie-in points and parameters, and publish the next version.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">New version</span> in Configuration → Modules</dd>
+    <dt>Who</dt><dd>Editing the library the module is in</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.3a "Edit a module on the module sheet").</strong></p></div>
+  <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-organization.html">Organization, members and access</a> · <a href="guide-ai.html">AI: Alex</a> →</p>
