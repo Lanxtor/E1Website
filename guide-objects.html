@@ -611,7 +611,7 @@
 
 <section class="g-feature" id="obj-calculations">
   <h2>Calculations and copy rules on attributes</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">OBJ-calculations</span><span>Roadmap 12.1, 12.2, 12.4</span><span>Review checks P1, P2, P4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">OBJ-calculations</span><span>Roadmap 12.1, 12.2, 12.4, 12.5</span><span>Review checks P1, P2, P4, P5</span></div>
   <p class="g-summary">An attribute a rule calculates shows its value with <span class="ui">ƒ</span>, read-only, and <span class="ui">Why this value?</span> says how it came about. The rules themselves are made in <a href="guide-library.html#lib-rules">Configuration → Rules</a>.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>An object's window → <span class="ui">Attributes</span>; a query view's cells; the datasheet</dd>
@@ -641,6 +641,17 @@
   </table></div>
   <p class="g-note">Changing a copied value needs Change copied values (Lead engineer, Project administrator); without it the change is refused. Through Alex the change is held in its proposal like any change, and through the integration API it needs <code>stopCopy: true</code>, otherwise it is refused with <code>copied_needs_stopcopy</code>.</p>
   <p class="g-warn">A query view cell or a paste over copied values does not ask yet: it is refused with the reason, and the change is made on the object page.</p>
+  <h3>Everywhere a value shows</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Show the calculated attribute on a symbol's label on a drawing.</td><td>The label shows the calculated value and follows its inputs, as on the object.</td></tr>
+      <tr><td>2</td><td>List the objects in a query view, or issue the drawing or list as PDF.</td><td>The same value, in the cell and on the PDF.</td></tr>
+      <tr><td>3</td><td>Read the object through the integration API (<code>GET /api/v1/projects/{project}/objects/{id}</code>).</td><td>The value is marked <code>calculated</code> with its rule, or <code>copied</code> (or <code>manuallyModified</code>) with its rule and source.</td></tr>
+      <tr><td>4</td><td>Ask Alex why the value is what it is, or to make a rule for it.</td><td>Alex names the rule, the inputs and the steps; saving, publishing or pausing a rule asks you first.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">An input whose attribute is empty on the object reads its class's default value, as tags do; the tag configurator's tags and a rule reading the same parts give the same result.</p>
   <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-rules">Rules</a> · <a href="#obj-checks">Checks</a></p>
 </section>
 
