@@ -2122,31 +2122,67 @@
   {
    "id": "OBJ-calculations",
    "title": "Calculations and copy rules on attributes",
-   "summary": "Attribute values computed from other attributes or related objects, check rules and copy rules are planned in M6 Rules.",
+   "summary": "A calculated attribute shows its value with ƒ, read-only, and Why this value? explains it: the rule, its inputs and where they came from, its steps. Copy rules are planned in M6 Rules.",
    "anchor": "obj-calculations",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "12.1",
     "12.2",
-    "12.3",
-    "12.4",
-    "12.6"
+    "12.4"
    ],
-   "checks": [],
+   "checks": [
+    "P1",
+    "P2"
+   ],
    "related": [
     "OBJ-attributes",
     "OBJ-relationships",
-    "OBJ-tag-rules"
+    "OBJ-tag-rules",
+    "LIB-rules",
+    "OBJ-checks"
    ],
-   "roles": "",
+   "roles": "Everyone who can view the project",
    "training": {
-    "topic": "Calculations: what is coming",
+    "topic": "Calculated values",
     "level": "Intermediate",
     "minutes": 2
    },
    "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
    "category": "objects",
    "page": "guide-objects.html#obj-calculations"
+  },
+  {
+   "id": "OBJ-checks",
+   "title": "Checks: findings and accepting them",
+   "summary": "The Checks tab of an object's window lists its findings, and the project's window lists the whole project's: required values missing, pending tags, check rules, calculations with a missing input and the piping check. An open error blocks issuing a revision until it is fixed or accepted.",
+   "anchor": "obj-checks",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "12.3"
+   ],
+   "checks": [
+    "P3"
+   ],
+   "related": [
+    "LIB-rules",
+    "DOC-issue",
+    "OBJ-calculations",
+    "OBJ-tags",
+    "DRAW-piping-check"
+   ],
+   "roles": "Everyone who can view the project sees the findings; accepting needs Accept findings (Lead engineer, Project administrator)",
+   "training": {
+    "topic": "Checks and findings",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "objects",
+   "page": "guide-objects.html#obj-checks"
   },
   {
    "id": "DRAW-sheet-view",
@@ -4323,13 +4359,14 @@
   {
    "id": "DOC-issue",
    "title": "Issue a revision",
-   "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards.",
+   "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards. While the revision gate is on, an open error on what the document shows refuses the issue.",
    "anchor": "doc-issue",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
-    "07.7"
+    "07.7",
+    "12.3"
    ],
    "checks": [
     "E2",
@@ -4339,7 +4376,8 @@
     "DOC-revisions",
     "DOC-changed-since",
     "DOC-list-document",
-    "DOC-status"
+    "DOC-status",
+    "OBJ-checks"
    ],
    "roles": "A Lead on the project; an Engineer is refused",
    "training": {
@@ -6390,7 +6428,7 @@
   {
    "id": "LIB-rules",
    "title": "Rules: calculations, check rules and copy rules",
-   "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. Check rules and copy rules come later.",
+   "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. A check rule gives a finding where its condition does not hold. Copy rules come later.",
    "anchor": "lib-rules",
    "status": "available",
    "roadmap": [
@@ -6403,11 +6441,13 @@
    ],
    "checks": [
     "P1",
-    "P2"
+    "P2",
+    "P3"
    ],
    "related": [
     "OBJ-tag-rules",
-    "LIB-configuration"
+    "LIB-configuration",
+    "OBJ-checks"
    ],
    "roles": "Manage project rules (rule.manage): Project administrator",
    "training": {
