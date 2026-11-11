@@ -58,7 +58,7 @@ def _structured(lang):
          "url": SITE + "/solutions.html",
          "publisher": {"@id": SITE + "/#organization"},
          "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "0", "highPrice": "645",
-                    "offerCount": "4", "url": SITE + "/download.html#pricing"}},
+                    "offerCount": "5", "url": SITE + "/download.html#pricing"}},
     ]
     data = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=1)
     return '<script type="application/ld+json">\n' + data.replace("</", "<\\/") + "\n  </script>"
