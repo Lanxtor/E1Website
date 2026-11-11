@@ -911,7 +911,7 @@
 
 <section class="g-feature" id="ai-stored-assistants">
   <h2>Stored assistants</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 18.1–18.6, 17.3</span><span>Review checks Q1, Q2, Q3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 18.1–18.6, 17.3</span><span>Review checks Q1, Q2, Q3, Q4</span></div>
   <p class="g-summary">Save what Alex did in one reply as an assistant: its steps, in order, with what you had selected and the project as parameters. Run it again on another selection without Alex, as one change that one undo takes back, or as a preview first.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Under a reply that changed something → <span class="ui">Save as assistant</span>; the left rail → <span class="ui">Assistants</span></dd>
@@ -943,6 +943,15 @@
     <li>A repeat stops at the first object that fails and keeps nothing; tick <span class="ui">Keep the ones that succeed when one fails</span> to keep the objects that went through, and the failed one is reported.</li>
     <li><span class="ui">Propose parameters</span> suggests recorded values (an object, a number) to ask for when it runs; <span class="ui">Make parameter</span> takes one.</li>
   </ul>
+  <h3>Instruction assistants</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Assistants</span>, click <span class="ui">New instruction assistant…</span> and type what Alex should do, for example “Write a short description for the selected object.”.</td><td>It opens with its <span class="ui">Instruction</span> and <span class="ui">What Alex may use</span> (area:attributes, area:objects, area:query: commands, or areas of them).</td></tr>
+      <tr><td>2</td><td>Select an object and click <span class="ui">Preview</span>.</td><td>Alex follows the instruction with its AI help and only those tools. The report quotes Alex, and the change waits for <span class="ui">Apply</span> or <span class="ui">Discard</span>; an instruction assistant never changes anything without your review.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">With Alex's AI help off, instruction assistants are not offered. A recorded assistant runs without the model; an instruction assistant needs it.</p>
   <h3>Share and pin</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
@@ -966,7 +975,7 @@
     </tbody>
   </table></div>
   <p class="g-note">If a step fails (a value it cannot set, a permission you lack), the run stops and nothing of it is kept; the report names the step and why.</p>
-  <p class="g-warn">Not built yet: assistants from written instructions (18.4), assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
+  <p class="g-warn">Not built yet: assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
   <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
 </section>
 
