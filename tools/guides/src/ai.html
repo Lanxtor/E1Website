@@ -827,16 +827,35 @@
 
 <section class="g-feature" id="ai-stored-assistants">
   <h2>Stored assistants</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span>Updated 2026-11-09</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 17.3, 18.1–18.6</span></div>
-  <p class="g-summary">Save a piece of work Alex did with its AI help, or one you did by hand, as an assistant you can run again, share and package.</p>
-  <p class="g-dev">On the roadmap, not started: stored assistants save and run (18.1), record by hand and repeat (18.2), sharing (18.3), instruction assistants (18.4), assistants in content packages and from the API (18.5), a script step (18.6), and stored assistants in a branch (17.3).</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Save a successful request to Alex as an assistant and run it on another 2D space or project.</li>
-    <li>Record steps you do by hand and repeat them.</li>
-    <li>Share assistants with colleagues and ship them in content packages.</li>
-  </ul>
-  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-branch">Alex in your branch</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 18.1–18.6, 17.3</span><span>Review check Q1</span></div>
+  <p class="g-summary">Save what Alex did in one reply as an assistant: its steps, in order, with what you had selected and the project as parameters. Run it again on another selection without Alex, as one change that one undo takes back, or as a preview first.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Under a reply that changed something → <span class="ui">Save as assistant</span>; the left rail → <span class="ui">Assistants</span></dd>
+    <dt>Who</dt><dd>Saving needs Create assistants and running Run assistants (Engineer and above). Each step also needs its own permission: a step you may not do stops the run before anything changes.</dd>
+    <dt>Before you start</dt><dd>Alex changed something in one reply, for example added a valve to the selected folder and described it.</dd>
+  </dl>
+  <h3>Save a reply as an assistant</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Under the reply, click <span class="ui">Save as assistant</span>.</td><td>Alex notes “Saved as the assistant …, with 2 steps.” and <span class="ui">Assistants</span> opens on it.</td></tr>
+      <tr><td>2</td><td>Read its <span class="ui">Steps</span>.</td><td>Each step is one sentence, for example “Create object: with the selected object (selected), the current project (project)”; open one to see its command and input.</td></tr>
+      <tr><td>3</td><td>Check its <span class="ui">Parameters</span>.</td><td>What you had selected became <em>selected</em> (The selection) and the project <em>project</em> (The current project). An object a step made and a later step used is taken from that step's result. Change a parameter's <span class="ui">Comes from</span> to <em>Asked when it runs</em> or <em>Always this value</em>, or its label, and click <span class="ui">Save</span>: a new version.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Run it</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select another folder in the explorer, open <span class="ui">Assistants</span>, open the assistant and click <span class="ui">Run</span>.</td><td>Every step is checked first. Then the report lists each step as <em>Done</em>, and the valve is in the folder you selected. Without a selection it says “Select the selected object first”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Undo</span>.</td><td>Everything the run changed is back as it was, in one step. The run is also one entry in History, labelled with the assistant and who ran it.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Preview</span>.</td><td>The report says what would change and that nothing is changed until <span class="ui">Apply</span>; <span class="ui">Discard</span> keeps nothing.</td></tr>
+      <tr><td>4</td><td>Ask Alex “run my isolation valve assistant”.</td><td>Alex runs it without its AI choosing the steps; the change waits for you to <span class="ui">Apply</span> it, like every change Alex holds for review.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">If a step fails (a value it cannot set, a permission you lack), the run stops and nothing of it is kept; the report names the step and why.</p>
+  <p class="g-warn">Not built yet: recording steps you do by hand, repeating over every selected object and skip conditions (18.2), sharing with the project and the organization (18.3), assistants from written instructions (18.4), assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
+  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
 </section>
 
 <section class="g-feature" id="ai-branch">

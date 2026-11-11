@@ -1854,6 +1854,18 @@ body.alex-open .alex-launcher { display: none; }
 .legal-list { margin: 12px 0 0; padding-left: 20px; color: var(--text-muted); line-height: 1.7; }
 .legal-list li + li { margin-top: 6px; }
 .legal-list b { color: var(--text); }
+.legal h3 { margin-top: 28px; font-size: 1.1rem; scroll-margin-top: 90px; }
+.legal h2.legal-part { margin-top: 56px; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.04em; scroll-margin-top: 90px; }
+.legal ul { margin: 12px 0 0; padding-left: 20px; color: var(--text-muted); line-height: 1.7; }
+.legal ul li + li { margin-top: 6px; }
+.legal-toc { margin-top: 28px; padding: 20px 24px; border: 1px solid var(--line); border-radius: 12px; columns: 2 300px; column-gap: 32px; }
+.legal-toc h2 { column-span: all; margin: 0 0 8px; font-size: 1.1rem; }
+.legal-toc > div { break-inside: avoid; margin-bottom: 14px; }
+.legal-toc h3 { margin: 0 0 4px; font-size: 0.9rem; }
+.legal-toc ol { list-style: none; margin: 0; padding: 0; font-size: 0.88rem; line-height: 1.6; }
+.legal-toc a { color: var(--text-muted); text-decoration: none; }
+.legal-toc a:hover { color: var(--accent); text-decoration: underline; }
+@media print { .legal-toc { display: none; } }
 .ph { padding: 1px 6px; border-radius: 6px; background: #fff4d6; color: #8a6100; font-weight: 500; }
 
 /* Footer legal links */
@@ -3145,6 +3157,8 @@ code {
 .get-now > .get-btn:first-child:not(.is-soon):hover { background: var(--brand-hover); }
 .get-release { margin-top: 14px; font-size: 0.85rem; color: var(--text-muted); text-align: center; }
 .get-release:empty { display: none; }
+.get-terms { margin: 6px auto 0; max-width: 620px; font-size: 0.85rem; color: var(--text-muted); text-align: center; }
+.get-terms a { color: inherit; text-decoration: underline; }
 .getE1-page .ask-box { margin-top: 56px; }
 @media (max-width: 760px) { .get-now { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .getE1-page .ask-box { margin-top: 36px; } }
@@ -3774,3 +3788,4 @@ code {
 .pricing-licenses thead .per { white-space: normal; line-height: 1.35; }
 .pricing-licenses .price { font-size: clamp(1.5rem, 2.3vw, 2rem); }
 .pricing-licenses th, .pricing-licenses td { padding-left: 8px; padding-right: 8px; }
+#roles .section-head h2 { hyphens: manual; max-width: 900px; }

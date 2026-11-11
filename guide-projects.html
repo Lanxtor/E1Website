@@ -32,7 +32,8 @@
           <li><a href="guide-library.html">10. Configuration, library and catalogs</a></li>
           <li><a href="guide-ai.html">11. AI: Alex</a></li>
           <li><a href="guide-account.html">12. Your account, Academy and website</a></li>
-          <li><a href="guide-reviewer.html">13. E1 Reviewer for iPad</a></li>
+          <li><a href="guide-wiring.html">13. Wiring (EI&amp;C)</a></li>
+          <li><a href="guide-reviewer.html">14. E1 Reviewer for iPad</a></li>
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
@@ -52,6 +53,7 @@
           <li><a href="#prj-delete">Delete a project and restore it from the Bin</a></li>
           <li><a href="#prj-project-bin">The project Bin: Deleted bin and Voided bin</a></li>
           <li><a href="#prj-sample-project">The sample project: Demo Plant</a></li>
+          <li><a href="#prj-project-templates">Project templates: save a project as a template, start a project from one</a></li>
           <li><a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a></li>
           <li><a href="#prj-import-excel">Import Excel workbooks</a></li>
           <li><a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a></li>
@@ -63,7 +65,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Projects and the explorer</p>
         <h1>3. Projects and the explorer</h1>
         <p class="lead">Create, rename, arrange and delete projects and folders, the sections of a project, the Bin, searching and dragging in the explorer.</p>
-        <div class="g-meta"><span>18 features</span><span>17 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>19 features</span><span>18 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="projects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the explorer, the tree on the left of the E1 window: your projects, how you arrange them in folders, the nine sections every project has, the folders and 2D spaces inside the sections, the Bin, searching the tree and dragging rows around.</p>
@@ -454,6 +456,34 @@
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/dexpi-sheet.webp" alt="The sample project's 2D space 123/A93 DEXPI example PID in the light appearance: the pumps P4711 and P4712, the heat exchangers H1007 and H1008 and the tank T4750 in dark red, olive pipe runs with their line numbers, green instrument circles, the data tables and the title block." width="2160" height="1350" loading="lazy"><figcaption>Demo Plant (sample): the DEXPI reference P&amp;ID, DEXPI Specification 2.0 (dexpi.org).</figcaption></figure>
   <p class="g-note">Instrumentation, electrical and the other parts of the plant will be added to the sample over time; a copy you already have keeps what it had. An E1 server's operator can leave the sample out of new organizations (setting <code>E1_SAMPLE_PROJECT=off</code>).</p>
   <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
+</section>
+
+<section class="g-feature" id="prj-project-templates">
+  <h2>Project templates: save a project as a template, start a project from one</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-11</span><span class="g-id">PRJ-project-templates</span><span>Roadmap 04.8</span></div>
+  <p class="g-summary">A project template is a copy of a project kept to start new projects from. <span class="ui">Save as template…</span> on any project keeps a copy of it as it is now: its folders, 2D spaces and drawings, objects, relationships, tags, its settings (content packages, drawing, units, tag rules) and its shared queries. The templates are listed in <span class="ui">Configuration</span> → <span class="ui">Project templates</span>, apart from the projects. A new project is either blank or a copy of a template; the copy is a project of its own, so changing it never changes the template, and changing the project the template was saved from never changes the template either.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click a project → <span class="ui">Save as template…</span>, or <span class="ui">File</span> → <span class="ui">Save project as template…</span>; <span class="ui">File</span> → <span class="ui">New project from a template…</span>, or right-click the organization's name → <span class="ui">New project from a template…</span>; <span class="ui">Configuration</span> → <span class="ui">Project templates</span></dd>
+    <dt>Who</dt><dd>Saving: the <span class="ui">Export</span> permission in the project and the permission to create projects. A new project from a template: the permission to create projects; you become its Project administrator. Deleting a template: whoever saved it, or an organization administrator.</dd>
+    <dt>Before you start</dt><dd>A project to keep as a template, for example <span class="ui">Demo Plant (sample)</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Demo Plant (sample)</span> in the explorer → <span class="ui">Save as template…</span>.</td><td>The <span class="ui">Save as template</span> dialog opens, with <span class="ui">Template name</span> set to the project's name and an empty <span class="ui">Description</span>. It says what is copied and what is not.</td></tr>
+      <tr><td>2</td><td>Type a name, for example <span class="ui">Process unit</span>, and a description, then click <span class="ui">Save template</span>.</td><td>The dialog closes and E1 says "Saved the template Process unit. Find it in Configuration → Project templates." The project itself is not changed, and no new project appears in the explorer. A name already taken by a template gets " 2", " 3"….</td></tr>
+      <tr><td>3</td><td>Open <span class="ui">Configuration</span> (the sliders on the left rail) → <span class="ui">Project templates</span> (under <span class="ui">Projects</span>).</td><td>A card for <span class="ui">Process unit</span>: its description, how many objects and sheets it holds, the project it was saved from and the day. Each card has <span class="ui">New project from this template</span> and <span class="ui">Delete</span>; the head has <span class="ui">Save a project as template…</span> and <span class="ui">New project…</span>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">File</span> → <span class="ui">New project from a template…</span>.</td><td>The <span class="ui">New project</span> dialog: <span class="ui">Blank project</span> and each template (its name, description, objects and sheets), and <span class="ui">Project name</span>.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Process unit</span>.</td><td><span class="ui">Project name</span> becomes <span class="ui">Process unit</span>; type another name if you like.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Create project</span>.</td><td>A new project with that name (" 2" added when the name is taken) appears among the projects and is selected, with everything the template holds: the 2D space <span class="ui">123/A93 DEXPI example PID</span>, P4711 with its values, the pipes still connected.</td></tr>
+      <tr><td>7</td><td>Change a value of P4711 in the new project.</td><td>Only the new project changes: <span class="ui">Demo Plant (sample)</span> and the template keep their values, and the next project made from the template has the template's values.</td></tr>
+      <tr><td>8</td><td>In <span class="ui">Configuration</span> → <span class="ui">Project templates</span>, click <span class="ui">Delete</span> on the card and confirm.</td><td>The template is gone from the list and from <span class="ui">New project</span>. The projects made from it stay as they are. Someone who did not save it, and is not an organization administrator, is told only whoever saved it or an organization administrator can delete it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Choosing <span class="ui">Blank project</span> in the <span class="ui">New project</span> dialog makes the same empty project as <span class="ui">New project</span>, with the name you typed. A template belongs to the organization: everyone who may create projects sees it, and deleting the project it was saved from keeps it.</p>
+  <p class="g-warn">A template does not copy the project's history, comments, tasks, document revisions, attached files or who has access. A template holds what the person who saved it could see: values hidden from them are not in it.</p>
+  <p class="g-related">Related: <a href="#prj-new-project">Create a project</a> · <a href="#prj-sample-project">The sample project: Demo Plant</a> · <a href="guide-library.html#lib-project-settings">Project settings</a></p>
 </section>
 
 <section class="g-feature" id="prj-import-dexpi">

@@ -115,8 +115,8 @@
 
 <section class="g-feature" id="draw-place-symbol">
   <h2>Place a symbol</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-place-symbol</span><span>Roadmap M3.11, M1.1b</span><span>Review checks B2, B3, A3</span></div>
-  <p class="g-summary">You place equipment, valves and instruments from the <span class="ui">Add asset</span> window. Each symbol you place is a new object in the project with its next free name or tag. Two clicks set its inlet and outlet, so you choose its direction and size as you place it.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-11</span><span class="g-id">DRAW-place-symbol</span><span>Roadmap M3.11, M1.1b</span><span>Review checks B2, B3, A3</span></div>
+  <p class="g-summary">You place equipment, valves and instruments from the <span class="ui">Add asset</span> window, tab <span class="ui">Shapes</span>; its tab <span class="ui">Modules</span> places a whole saved module (<a href="#draw-module-place">Place a module</a>). Each symbol you place is a new object in the project with its next free name or tag. Two clicks set its inlet and outlet, so you choose its direction and size as you place it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object</span> while <span class="ui">Object type</span> shows <span class="ui">Asset</span>, or <span class="ui">Object type</span> → <span class="ui">Asset</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -540,7 +540,7 @@
   </dl>
   <h3>What the menus hold</h3>
   <ul>
-    <li><strong>Symbol:</strong> <span class="ui">Cut</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span> · <span class="ui">Object properties</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Open datasheet</span> · <span class="ui">Chat here</span> · <span class="ui">Highlight flow</span>, <span class="ui">Highlight flow through pumps and compressors</span> (and the off-page items on an off-page connector) · <span class="ui">Flip horizontal</span>, <span class="ui">Flip vertical</span>, <span class="ui">Replace</span>, <span class="ui">Modify shape…</span> (<a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a>) · <span class="ui">Delete</span>.</li>
+    <li><strong>Symbol:</strong> <span class="ui">Cut</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span> · <span class="ui">Object properties</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Open datasheet</span> · <span class="ui">Chat here</span> · <span class="ui">Highlight flow</span>, <span class="ui">Highlight flow through pumps and compressors</span> (and the off-page items on an off-page connector) · <span class="ui">Flip horizontal</span>, <span class="ui">Flip vertical</span>, <span class="ui">Replace</span>, <span class="ui">Save as module…</span> (<a href="guide-drawing.html#draw-module-save">Save a selection as a module</a>), <span class="ui">Modify shape…</span> (<a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a>) · <span class="ui">Delete</span>.</li>
     <li><strong>Line:</strong> <span class="ui">Cut</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span> · <span class="ui">Highlight flow</span>, <span class="ui">Highlight flow through pumps and compressors</span>, <span class="ui">Clear flow highlight</span> (while shown) · <span class="ui">Flip direction</span> · <span class="ui">Delete</span>.</li>
     <li><strong>An empty spot:</strong> <span class="ui">Paste</span>, <span class="ui">Select all</span> · <span class="ui">Chat here</span>.</li>
   </ul>
@@ -817,7 +817,7 @@
 
 <section class="g-feature" id="draw-pipelines">
   <h2>Pipelines and completeness checks</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-11</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
   <p class="g-summary">A pipeline is a line of the line list: the pipe runs, valves and fittings from one end (an equipment nozzle, or an open end of pipe) to the other. It holds them in piping segments, carries the line number, and names where it comes from and where it goes.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space: right-click equipment → <span class="ui">Define pipeline from here</span>; in the explorer: <span class="ui">Assets → Piping</span></dd>
@@ -851,6 +851,7 @@
     <li><strong>New pipe joins:</strong> a valve or fitting dropped into a pipeline's pipe, with the pipe split on both sides of it, joins that segment in the same change. A branch drawn off the pipeline joins nothing until you make a pipeline of it.</li>
   </ul>
   <p class="g-warn">Not built yet: Redefine boundaries and Swap from and to on a pipeline, and a nozzle's own flow role. Pipe classes come in stage 13.3.</p>
+  <p>A module with one process inlet and one process outlet can be clicked onto a pipe from the <a href="#draw-module-place">Modules tab</a>: it is inserted, and the pipe is split around it. E1 never joins pipelines by itself: a module's bypass or drain line joins no pipeline until you define one.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
 </section>
 
@@ -992,4 +993,135 @@
     <li>Open the Markups list of a 2D space, a round or the project, filter it, zoom to a markup, and change the status of several at once.</li>
   </ul>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Chat here</a> · <a href="guide-drawing.html#draw-layers">Layers</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-save">
+  <h2>Save a selection as a module</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-save</span><span>Roadmap 32.1b</span><span>Review check M2</span></div>
+  <p class="g-summary">Select part of a P&amp;ID, such as a control valve station, and save it as a module to place again. E1 finds its members, the tie-in points where lines leave it, and the parameters to ask for; the objects on the 2D space stay as they are.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space: select, then right-click a selected symbol → <span class="ui">Save as module…</span></dd>
+    <dt>Who</dt><dd>Viewing the objects, and editing the library the module goes to: Configure the project (Project library) or editing company library modules (Company library)</dd>
+    <dt>Before you start</dt><dd>A 2D space you can edit, with the part drawn and connected</dd>
+  </dl>
+  <h3>Save a module</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click a symbol, then Shift-click the others (or drag a frame around them).</td><td>They are selected.</td></tr>
+      <tr><td>2</td><td>Right-click one of them → <span class="ui">Save as module…</span>.</td><td>The <span class="ui">Save as module</span> dialog opens.</td></tr>
+      <tr><td>3</td><td>Read <span class="ui">Members</span>.</td><td>Each object with its member id (such as <em>valve-gate-1</em>), class and tag. Below, what E1 added: a line between selected symbols, an owned part that is not drawn, a loop whose instruments are all selected. Untick one to leave it out.</td></tr>
+      <tr><td>4</td><td>Tick or untick <span class="ui">Per instance</span>.</td><td>A ticked attribute keeps its own value in each placed module, and the module does not store it. The ticks start from <a href="guide-library.html#lib-modules">Usually per instance</a>.</td></tr>
+      <tr><td>5</td><td>Check <span class="ui">Tie-in points</span>.</td><td>Where a line leaves the selection, a tie-in point at the port it meets, typed from the line (a pipe is Process, a signal Signal, a cable Power), with its direction (In at an inlet, Out at an outlet) and the side the line leaves by. An open end of a selected line is a tie-in point too. Ports with no connection are listed below, unticked. Names, types, directions and sides can be changed.</td></tr>
+      <tr><td>6</td><td>Check <span class="ui">Parameters</span>.</td><td>When the lines share one size, <em>Line size</em> is proposed; a loop gives a <em>Loop number</em>. Rename or remove them.</td></tr>
+      <tr><td>7</td><td>Type the <span class="ui">Name</span>, and the category, ISA-88 level, function, keywords and standard if you like. Choose the <span class="ui">Library</span>: Project library or Company library.</td><td>The key is made from the name.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Save draft</span>, or <span class="ui">Publish</span>.</td><td>The module is in <a href="guide-library.html#lib-modules">Configuration → Modules</a>, as a draft or as version 1, with a preview drawn by E1. Nothing on the 2D space changes.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What a module keeps</h3>
+  <ul>
+    <li>The objects' classes and their design values. Calculated and copied values, the per-instance attributes and the parameters' attributes are not stored.</li>
+    <li>Tags, short codes and owners outside the module are never taken: placed modules get new tags from the tag rules.</li>
+    <li>The relationships between members, the layout relative to the first process inlet, and the notes you selected.</li>
+  </ul>
+  <p>To place it again: <a href="#draw-module-place">Add asset → Modules</a>.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-modules">Modules in the library</a> · <a href="#draw-module-place">Place a module</a> · <a href="#draw-symbol-menu">The right-click menus</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-place">
+  <h2>Place a module from the Modules tab</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-place</span><span>Roadmap 32.1c, 32.4</span><span>Review checks M3, M9</span></div>
+  <p class="g-summary">Place a saved module in one step: its objects arrive connected, with new tags from the tag rules and the module's values. Turn and flip it before you click, connect it to an open line end, or click it onto a pipe to insert it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object</span> (Object type <span class="ui">Asset</span>) → <span class="ui">Add asset</span>, tab <span class="ui">Modules</span></dd>
+    <dt>Who</dt><dd>Creating objects in the project, on a 2D space you can edit</dd>
+    <dt>Before you start</dt><dd>A published module (<a href="#draw-module-save">Save as module…</a>) that this project reads</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Add asset</span> and click the <span class="ui">Modules</span> tab.</td><td>The modules this project reads, by category, with <span class="ui">Search modules</span>. A module that cannot be placed here is greyed with the reason: <em>Needs library version …</em> or <em>Available with a pin change</em>. A withdrawn module is not shown. The window opens on the tab you used last.</td></tr>
+      <tr><td>2</td><td>Click a module.</td><td>Its details: version, library, members, tie-in points and parameters.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Add to diagram</span> (or double-click the module).</td><td>The window closes; a bar says where to click, and that <kbd>R</kbd> turns the module by 90°, <kbd>F</kbd> flips it, <kbd>Shift</kbd>+<kbd>F</kbd> flips it vertically and <kbd>Esc</kbd> ends.</td></tr>
+      <tr><td>4</td><td>Click where the module's inlet goes.</td><td>Without parameters it is placed at once. A tie-in point that lands on an open end of a line of its kind is connected to it. Clicked onto a pipe, a module with one process inlet and one process outlet is turned to the pipe and inserted, and the pipe is split around it.</td></tr>
+      <tr><td>5</td><td>A module with parameters opens <span class="ui">Place module</span>: fill them in and click <span class="ui">Place</span>.</td><td><span class="ui">Tags</span> shows each new object with the tag it is expected to get (a forecast: someone else may take a number first). <span class="ui">Check these values for this place</span> lists the values that came from the module.</td></tr>
+      <tr><td>6</td><td>Click again for the next one; <kbd>Esc</kbd> or <span class="ui">Done</span> ends.</td><td>The tool stays armed. Parameters that feed tags start empty each time; the others keep what you entered.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Each placed object is an ordinary object in its usual place in the tree, with its own new tag. It remembers which module and version it came from.</li>
+    <li>One <span class="ui">Undo</span> takes the whole placement back.</li>
+    <li>A parameter never writes a value a rule calculates; such a value is listed as skipped.</li>
+    <li>After placing, the bar names the tie-in points left open, and every tie-in point whose size, pipe class, rating or medium differs from the pipe it met (for example <em>Inlet is for 2 in; the pipe it meets is 6"</em>). Nothing is changed for it: you decide.</li>
+  </ul>
+  <p>Each placed object shows which module it is part of: <a href="#draw-module-instance">A placed module on its objects</a>.</p>
+  <p class="g-related">Related: <a href="#draw-module-save">Save a selection as a module</a> · <a href="#draw-place-symbol">Place a symbol</a> · <a href="guide-library.html#lib-modules">Modules in the library</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-instance">
+  <h2>A placed module on its objects</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-instance</span><span>Roadmap 32.1d</span><span>Review check M4</span></div>
+  <p class="g-summary">A placed module's objects stay ordinary objects, each in its usual place in the tree with its own tag. Each one's properties say which module and version it is part of; the Module menu selects the whole instance or detaches it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The object's properties, under the class: <span class="ui">Part of module</span> and <span class="ui">Module ▾</span>; and the <span class="ui">Save as module</span> dialog after <span class="ui">Publish</span></dd>
+    <dt>Who</dt><dd>Everyone who can view the object sees the line; detaching and linking need changing objects</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open the properties of an object of a placed module.</td><td>Under the class: <em>Part of module</em> <strong>the module's name</strong> <em>(v1)</em>. <span class="ui">Module update</span> shows when this project reads a newer version of the module.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Module ▾</span> → <span class="ui">Select module instance</span>.</td><td>Every member of the instance on its 2D space is selected.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Module ▾</span> → <span class="ui">Detach module instance…</span> and confirm.</td><td>The objects stay as they are, as ordinary objects: the line is gone, and later versions of the module no longer reach them. <span class="ui">Undo</span> takes it back.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>The objects you saved from</h3>
+  <p>After <span class="ui">Publish</span> in <a href="#draw-module-save">Save as module…</a>, the dialog offers <span class="ui">Link the source objects as an instance</span>: the objects the module was made from become its first instance, as if they had been placed from it. An object already in another instance, or deleted since, is left out. <span class="ui">Not now</span> leaves them as they are.</p>
+  <p>What an instance changed: <a href="#draw-module-compare">Compare an instance with its module</a>. Updating instances to a new version: <a href="guide-library.html#lib-module-updates">Updating placed modules</a>.</p>
+  <p class="g-related">Related: <a href="#draw-module-place">Place a module</a> · <a href="#draw-module-save">Save a selection as a module</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-compare">
+  <h2>Compare an instance with its module</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-compare</span><span>Roadmap 32.2a</span><span>Review check M5</span></div>
+  <p class="g-summary">See what one placed module changed against its module: values, relations, members removed. Keep a change with a reason, take the module's value back, or take an object out of the instance.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The object's properties → <span class="ui">Module ▾</span> → <span class="ui">Compare with module…</span>; <span class="ui">Changed here</span> on the <span class="ui">Part of module</span> line</dd>
+    <dt>Who</dt><dd>Everyone who can view the objects compares; deciding needs changing objects</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Change a value of an object of a placed module, then open its properties.</td><td><span class="ui">Part of module</span> shows <span class="ui">Changed here</span>.</td></tr>
+      <tr><td>2</td><td><span class="ui">Module ▾</span> → <span class="ui">Compare with module…</span></td><td>One row per local change: the member with its tag, the element (the attribute, <em>Relation removed</em>, <em>Added here</em>, <em>Removed here</em>, …), the module's value and this instance's. An instance with none reads <em>In step</em>.</td></tr>
+      <tr><td>3</td><td>Type a <span class="ui">Reason</span> and click <span class="ui">Keep mine</span> on a row.</td><td>The change moves to <span class="ui">Kept changes</span>, with who kept it, when and why, and is no longer <em>Changed here</em>. If the value changes again, it is listed again.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Use module</span> on a row (or on a kept change).</td><td>The module's value is written back. A relation removed here is made again; one added here is deleted.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Remove from instance</span> on a member's row.</td><td>The object stays as an ordinary object; the instance lists the member as <em>Removed from the instance</em>.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Per-instance values, parameter values, tags and calculated values are never compared.</li>
+    <li><span class="ui">Keep mine for all</span> and <span class="ui">Use module for all…</span> decide every row at once. Each decision is one change with one <span class="ui">Undo</span>.</li>
+  </ul>
+  <p class="g-warn">Not yet: taking a removed member back with Use module, and a changed class or symbol (shown, decided by Keep mine only); the tree marks.</p>
+  <p class="g-related">Related: <a href="#draw-module-instance">A placed module on its objects</a> · <a href="guide-library.html#lib-module-updates">Updating placed modules</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-promote">
+  <h2>Turn an instance's changes into the module's next version</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-promote</span><span>Roadmap 32.3b</span><span>Review check M8</span></div>
+  <p class="g-summary">Change one placed module on a 2D space, add objects to it, and make that the module's next version: the changes go into the module's draft, and with Publish the instance moves onto the new version.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space with several symbols selected, right-click → <span class="ui">Add to module instance</span>; the object's properties → <span class="ui">Module ▾</span> → <span class="ui">Save changes to module…</span></dd>
+    <dt>Who</dt><dd>Changing the objects, and editing the library the module is in</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select a member of a placed module and Shift-click symbols that are in no module; right-click → <span class="ui">Add to module instance</span>.</td><td>They join the instance as local additions: Compare lists them as <em>Added here</em>. A symbol already in an instance is refused.</td></tr>
+      <tr><td>2</td><td>Change what the module should change, such as a value.</td><td>Compare lists it as a local change.</td></tr>
+      <tr><td>3</td><td>On a member's properties, <span class="ui">Module ▾</span> → <span class="ui">Save changes to module…</span></td><td>Every change and addition, ticked. Untick what should stay local.</td></tr>
+      <tr><td>4</td><td>Type a <span class="ui">Change note</span> and click <span class="ui">Publish</span> (or <span class="ui">Save draft</span>).</td><td>The module's next version holds the changes and the added objects, drawn where they are relative to the instance. With Publish, this instance is on the new version and in step; other instances are offered the update.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#draw-module-compare">Compare an instance</a> · <a href="guide-library.html#lib-module-edit">Editing a module</a></p>
 </section>
