@@ -1030,7 +1030,7 @@
 
 <section class="g-feature" id="draw-module-place">
   <h2>Place a module from the Modules tab</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-place</span><span>Roadmap 32.1c, 32.4</span><span>Review checks M3, M9</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-place</span><span>Roadmap 32.1c, 32.4, 32.4b</span><span>Review checks M3, M9, M10</span></div>
   <p class="g-summary">Place a saved module in one step: its objects arrive connected, with new tags from the tag rules and the module's values. Turn and flip it before you click, connect it to an open line end, or click it onto a pipe to insert it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object</span> (Object type <span class="ui">Asset</span>) → <span class="ui">Add asset</span>, tab <span class="ui">Modules</span></dd>
@@ -1051,7 +1051,9 @@
   <ul>
     <li>Each placed object is an ordinary object in its usual place in the tree, with its own new tag. It remembers which module and version it came from.</li>
     <li>One <span class="ui">Undo</span> takes the whole placement back.</li>
-    <li>A parameter never writes a value a rule calculates; such a value is listed as skipped.</li>
+    <li>A parameter whose attributes a rule calculates is not asked: the rule sets them once the objects are made.</li>
+    <li><span class="ui">IEC 81346 prefix</span> (in <span class="ui">Place module</span>, for example <em>A1</em>) adds one level to the reference designation of each member: <em>-A1.V</em>.</li>
+    <li>Clicked onto a pipe of a pipeline, the valves and fittings between the module's inlet and outlet, and the two pieces of the pipe, stay in that pipeline's segment; a bypass or drain line joins no pipeline until you define one.</li>
     <li>After placing, the bar names the tie-in points left open, and every tie-in point whose size, pipe class, rating or medium differs from the pipe it met (for example <em>Inlet is for 2 in; the pipe it meets is 6"</em>). Nothing is changed for it: you decide.</li>
   </ul>
   <p>Each placed object shows which module it is part of: <a href="#draw-module-instance">A placed module on its objects</a>.</p>
