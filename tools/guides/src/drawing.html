@@ -282,7 +282,7 @@
 
 <section class="g-feature" id="draw-clipboard">
   <h2>Undo, redo, copy, paste and duplicate</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4</span><span>Review checks A4, B5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-11</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4</span><span>Review checks A4, B5</span></div>
   <p class="g-summary">Copy, paste and duplicate make new objects with new tags; cut removes them to the Deleted bin. Undo and redo work step by step across the drawing, the explorer and attributes, one history per person per project.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar (<span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>), the <span class="ui">Edit</span> menu, and the right-click menus</dd>
@@ -295,13 +295,14 @@
     <tbody>
       <tr><td>1</td><td>Move a symbol, then press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The move is undone.</td></tr>
       <tr><td>2</td><td>Press <kbd>Ctrl+Shift+Z</kbd> (<kbd>⇧⌘Z</kbd>) or <kbd>Ctrl+Y</kbd>.</td><td>The move is done again.</td></tr>
-      <tr><td>3</td><td>Select a pump and press <kbd>Ctrl+C</kbd> (<kbd>⌘C</kbd>), then <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>A copy of the pump appears. It is a new object with a new tag, shown in the explorer.</td></tr>
+      <tr><td>3</td><td>Select a pump and press <kbd>Ctrl+C</kbd> (<kbd>⌘C</kbd>), then <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>A copy of the pump appears. It is a new object with a new tag, shown in the explorer, with the pump's values and its parts.</td></tr>
       <tr><td>4</td><td>Select a valve and press <kbd>Ctrl+D</kbd> (<kbd>⌘D</kbd>) or click <span class="ui">Duplicate</span>.</td><td>A duplicate with a new name appears beside it.</td></tr>
       <tr><td>5</td><td>Select the copy and press <kbd>Ctrl+X</kbd> (<kbd>⌘X</kbd>).</td><td>It leaves the 2D space and goes to the Deleted bin.</td></tr>
       <tr><td>6</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu with Undo and Redo and their shortcuts" width="380" height="196" loading="lazy"><figcaption>The Edit menu: Undo and Redo; cut, copy, paste and duplicate are on their keys and in the right-click menu.</figcaption></figure>
+  <p>A copy takes its original's design values (calculated values come from their rules again), the relationships between the objects you copied, and the parts of an object that are not drawn. Copy every symbol of a placed module and the copies are a new instance of it: <a href="#draw-module-instance">A placed module on its objects</a>. The values come in a second step after the copy is made: <kbd>Ctrl+Z</kbd> takes them back first.</p>
   <p class="g-note"><kbd>Ctrl+C</kbd>, <kbd>Ctrl+X</kbd>, <kbd>Ctrl+V</kbd>, <kbd>Ctrl+D</kbd> and <kbd>Ctrl+A</kbd> (<kbd>⌘</kbd> on a Mac) act on the 2D space only when the 2D space was the last pane you clicked. After a click in the explorer, click the 2D space first. Paste in the right-click menu is greyed out until you have copied something. To undo a change of someone else's, or an older change, use History (<a href="guide-collaboration.html#col-history">History and undo</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a> · <a href="guide-collaboration.html#col-history">History and undo</a></p>
 </section>
@@ -1030,7 +1031,7 @@
 
 <section class="g-feature" id="draw-module-place">
   <h2>Place a module from the Modules tab</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-place</span><span>Roadmap 32.1c, 32.4, 32.4b</span><span>Review checks M3, M9, M10</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-place</span><span>Roadmap 32.1c, 32.4, 32.4b, 32.4c</span><span>Review checks M3, M9, M10, M13</span></div>
   <p class="g-summary">Place a saved module in one step: its objects arrive connected, with new tags from the tag rules and the module's values. Turn and flip it before you click, connect it to an open line end, or click it onto a pipe to insert it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object</span> (Object type <span class="ui">Asset</span>) → <span class="ui">Add asset</span>, tab <span class="ui">Modules</span></dd>
@@ -1054,6 +1055,7 @@
     <li>A parameter whose attributes a rule calculates is not asked: the rule sets them once the objects are made.</li>
     <li><span class="ui">IEC 81346 prefix</span> (in <span class="ui">Place module</span>, for example <em>A1</em>) adds one level to the reference designation of each member: <em>-A1.V</em>.</li>
     <li>Clicked onto a pipe of a pipeline, the valves and fittings between the module's inlet and outlet, and the two pieces of the pipe, stay in that pipeline's segment; a bypass or drain line joins no pipeline until you define one.</li>
+    <li>Clicked onto a pipe with a <span class="ui">Nominal size</span>, the module of the same category whose inlet takes that size is placed, when the one you chose does not take it (for example <em>Block valve 6 in</em> on a DN 150 pipe). <span class="ui">Place module</span> and the bar say which: <em>Placed Block valve 6 in: it takes the pipe's DN 150.</em> Alex answers the same question: which module fits this pipe.</li>
     <li>After placing, the bar names the tie-in points left open, and every tie-in point whose size, pipe class, rating or medium differs from the pipe it met (for example <em>Inlet is for 2 in; the pipe it meets is 6"</em>). Nothing is changed for it: you decide.</li>
   </ul>
   <p>Each placed object shows which module it is part of: <a href="#draw-module-instance">A placed module on its objects</a>.</p>
@@ -1062,7 +1064,7 @@
 
 <section class="g-feature" id="draw-module-instance">
   <h2>A placed module on its objects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-instance</span><span>Roadmap 32.1d</span><span>Review check M4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-instance</span><span>Roadmap 32.1d, 32.2d</span><span>Review checks M4, M12</span></div>
   <p class="g-summary">A placed module's objects stay ordinary objects, each in its usual place in the tree with its own tag. Each one's properties say which module and version it is part of; the Module menu selects the whole instance or detaches it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The object's properties, under the class: <span class="ui">Part of module</span> and <span class="ui">Module ▾</span>; and the <span class="ui">Save as module</span> dialog after <span class="ui">Publish</span></dd>
@@ -1078,6 +1080,8 @@
   </table></div>
   <h3>The objects you saved from</h3>
   <p>After <span class="ui">Publish</span> in <a href="#draw-module-save">Save as module…</a>, the dialog offers <span class="ui">Link the source objects as an instance</span>: the objects the module was made from become its first instance, as if they had been placed from it. An object already in another instance, or deleted since, is left out. <span class="ui">Not now</span> leaves them as they are.</p>
+  <h3>Copy a whole instance</h3>
+  <p>Select every symbol of a placed module and press <kbd>Ctrl+D</kbd> (<span class="ui">Duplicate</span>), or copy and paste them: the copies are a new instance of the same module and version, with its values, its relationships and new tags; what you kept as changed here is kept too. A copy of only some of an instance's objects keeps their values and is part of no instance.</p>
   <p>What an instance changed: <a href="#draw-module-compare">Compare an instance with its module</a>. Updating instances to a new version: <a href="guide-library.html#lib-module-updates">Updating placed modules</a>.</p>
   <p class="g-related">Related: <a href="#draw-module-place">Place a module</a> · <a href="#draw-module-save">Save a selection as a module</a></p>
 </section>
