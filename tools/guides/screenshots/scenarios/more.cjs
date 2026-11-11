@@ -49,12 +49,12 @@ module.exports = {
   async documents(h) {
     const p = h.page; await h.open();
     await p.request.post('http://localhost:5173/api/query/templates/save', { data: { project: 'project', savedFor: 'project', name: 'Pumps', definition: { name: 'Pumps', source: { type: 'below', classes: ['plant.class.equipment.pump.centrifugal'] }, columns: [{ source: 'attribute', attr: 'plant.attr.design-pressure' }] } } });
-    await tree(p).getByRole('treeitem', { name: /^Revisions(,|$)/ }).click({ button: 'right' });
+    await tree(p).getByRole('treeitem', { name: /^Documents(,|$)/ }).click({ button: 'right' });
     await p.getByRole('menuitem', { name: 'New document…' }).click();
-    const picker = p.getByRole('dialog', { name: 'New object in Revisions' }); await picker.waitFor();
+    const picker = p.getByRole('dialog', { name: 'New object in Documents' }); await picker.waitFor();
     await h.shot('new-document-dialog', { clip: picker });
     await picker.getByRole('textbox', { name: 'Search classes' }).fill('list');
-    await picker.getByRole('option', { name: /^List document/ }).click();
+    await picker.getByRole('tree', { name: 'Classes' }).getByRole('button', { name: 'List document', exact: true }).click();
     const named = picker.getByRole('textbox', { name: 'Name' }); if (await named.count()) await named.fill('Pump list');
     await picker.getByRole('button', { name: 'Create' }).click();
     const panel = p.getByRole('region', { name: 'Revisions' }); await panel.waitFor();
