@@ -89,7 +89,7 @@
   "anchor": "draw-place-symbol",
   "status": "available",
   "since": "2026-11-04",
-  "updated": "2026-11-09",
+  "updated": "2026-11-11",
   "roadmap": [
    "M3.11",
    "M1.1b"
@@ -106,7 +106,8 @@
    "OBJ-tags",
    "OBJ-tag-rules",
    "OBJ-new-object",
-   "DRAW-drop-from-explorer"
+   "DRAW-drop-from-explorer",
+   "DRAW-module-place"
   ],
   "roles": "Editor license; a project role that may edit drawings",
   "training": {
@@ -269,7 +270,7 @@
   "anchor": "draw-clipboard",
   "status": "available",
   "since": "2026-11-04",
-  "updated": "2026-11-09",
+  "updated": "2026-11-11",
   "roadmap": [
    "M3.4"
   ],
@@ -878,7 +879,8 @@
    "DRAW-connector",
    "DRAW-off-page",
    "DRAW-pipe-classes",
-   "DRAW-piping-check"
+   "DRAW-piping-check",
+   "DRAW-module-place"
   ],
   "roles": "Editor license; a project role that may edit drawings",
   "training": {
@@ -1070,88 +1072,112 @@
  {
   "id": "DRAW-module-place",
   "title": "Place a module from the Modules tab",
-  "summary": "Place a module in one step from Add asset → Modules: turned and flipped, inserted into a pipe, with new tags from the rules.",
+  "summary": "Place a saved module in one step from Add asset → Modules: turned and flipped, connected at its tie-in points, inserted into a pipe (the module of its category that takes the pipe's size), with new tags from the rules.",
   "anchor": "draw-module-place",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
-   "32.1c"
+   "32.1c",
+   "32.4",
+   "32.4b",
+   "32.4c"
   ],
-  "checks": [],
+  "checks": [
+   "M3",
+   "M9",
+   "M10",
+   "M13"
+  ],
   "related": [
    "DRAW-module-save",
    "DRAW-module-instance"
   ],
-  "roles": "Editing the project",
+  "roles": "Creating objects in the project",
   "training": {
    "topic": "Placing modules",
    "level": "Intermediate",
    "minutes": 4
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  },
  {
   "id": "DRAW-module-instance",
   "title": "A placed module on its objects",
-  "summary": "Part of module on a member's properties; select every member of an instance, or detach it.",
+  "summary": "A placed module's objects stay ordinary objects; Part of module names the module and version, and its menu selects or detaches the instance. The objects a module was saved from can be linked as its first instance; a copied whole instance is a new instance.",
   "anchor": "draw-module-instance",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
-   "32.1d"
+   "32.1d",
+   "32.2d"
   ],
-  "checks": [],
+  "checks": [
+   "M4",
+   "M12"
+  ],
   "related": [
    "DRAW-module-place"
   ],
-  "roles": "Editing the project",
+  "roles": "Everyone who can view the object; detaching and linking need changing objects",
   "training": {
    "topic": "Module instances",
    "level": "Intermediate",
    "minutes": 2
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  },
  {
   "id": "DRAW-module-compare",
   "title": "Compare an instance with its module",
-  "summary": "See what an instance changed against its module, and keep it or take the module's value.",
+  "summary": "See what one placed module changed against its module; Keep mine with a reason, Use module, or Remove from instance.",
   "anchor": "draw-module-compare",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
    "32.2a"
   ],
-  "checks": [],
+  "checks": [
+   "M5"
+  ],
   "related": [
    "DRAW-module-instance",
    "LIB-module-updates"
   ],
-  "roles": "Editing the project",
+  "roles": "Everyone who can view the objects; deciding needs changing objects",
   "training": {
    "topic": "Comparing instances",
    "level": "Advanced",
    "minutes": 3
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  },
  {
   "id": "DRAW-module-promote",
   "title": "Turn an instance's changes into the module's next version",
-  "summary": "Add objects to an instance and save its changes to the module.",
+  "summary": "Add objects to a placed module and make its changes the module's next version with Save changes to module…; Publish puts the instance on it.",
   "anchor": "draw-module-promote",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
    "32.3b"
   ],
-  "checks": [],
+  "checks": [
+   "M8"
+  ],
   "related": [
    "DRAW-module-compare",
    "LIB-module-edit"
   ],
-  "roles": "Editing the library",
+  "roles": "Changing the objects, and editing the library the module is in",
   "training": {
    "topic": "Promoting changes",
    "level": "Advanced",
    "minutes": 3
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  }
 ]

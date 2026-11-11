@@ -513,17 +513,20 @@
  {
   "id": "OBJ-calculations",
   "title": "Calculations and copy rules on attributes",
-  "summary": "A calculated attribute shows its value with ƒ, read-only, and Why this value? explains it: the rule, its inputs and where they came from, its steps. Copy rules are planned in M6 Rules.",
+  "summary": "A calculated attribute shows its value with ƒ, read-only, and Why this value? explains it. A copied value shows ⧉ copied: it follows its source until someone changes it, which asks first and marks it manually modified; Copy from source again links it back. Calculated and copied values show the same on drawing labels, in query views, in PDFs and through the integration API.",
   "anchor": "obj-calculations",
   "status": "available",
   "roadmap": [
    "12.1",
    "12.2",
-   "12.4"
+   "12.4",
+   "12.5"
   ],
   "checks": [
    "P1",
-   "P2"
+   "P2",
+   "P4",
+   "P5"
   ],
   "related": [
    "OBJ-attributes",
@@ -532,7 +535,7 @@
    "LIB-rules",
    "OBJ-checks"
   ],
-  "roles": "Everyone who can view the project",
+  "roles": "Everyone who can view the project; changing a copied value needs Change copied values (Lead engineer, Project administrator)",
   "training": {
    "topic": "Calculated values",
    "level": "Intermediate",

@@ -174,7 +174,7 @@
 
 <section class="g-feature" id="lib-library-updates">
   <h2>Updates available and Check against projects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-06</span><span class="g-id">LIB-library-updates</span><span>Roadmap 11.2</span><span>Review checks L5, L6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-11</span><span class="g-id">LIB-library-updates</span><span>Roadmap 11.2</span><span>Review checks L5, L6</span></div>
   <p class="g-summary">When a new version of a company class, attribute, convention template or catalog item is published, the company library lists what in the open project is still on the older version and what changed. Before you publish, Check against projects tells you which objects a draft would break.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span> → the region <span class="ui">Updates available in this project</span> (shown only when there is something), and the button <span class="ui">Check against projects</span> on a draft</dd>
@@ -193,6 +193,7 @@
   </table></div>
   <p class="g-note">The region also lists convention templates ("convention template version 1 → 2 (the project keeps version 1 until you apply it again)" with <span class="ui">Apply version 2</span>), catalog items with a newer version (with <span class="ui">Re-apply…</span>), withdrawn catalog items still in use, and changed attributes and relationship types ("version a → b").</p>
   <p class="g-warn">Updates available is part of the Company library section, not a screen of its own. It reads the newest company classes even for a project pinned to an older library version.</p>
+  <p>Placed modules with a newer version are in their own <span class="ui">Modules</span> box: <a href="#lib-module-updates">Updating placed modules</a>.</p>
   <p class="g-related">Related: <a href="#lib-company-library">Company library</a> · <a href="#lib-upgrade">Upgrade with preview</a> · <a href="#lib-catalog-reapply">Re-apply and Detach</a></p>
 </section>
 
@@ -519,11 +520,11 @@
 
 <section class="g-feature" id="lib-rules">
   <h2>Rules: calculations, check rules and copy rules</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span></div>
-  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, and check rules, are available; copy rules come in a next stage.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span><span>Review checks P1, P2, P3, P4, P6</span></div>
+  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, copy rules and check rules are available, in the project, in the organization's company library and in content packages.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Rules</span>; on an object page, a calculated value shows <span class="ui">ƒ</span> and <span class="ui">Why this value?</span></dd>
-    <dt>Who</dt><dd>Making, publishing and withdrawing rules: Manage project rules (the Project administrator has it). Everyone who can view the project sees the values and why.</dd>
+    <dt>Who</dt><dd>Making, publishing and withdrawing a project's rules: Manage project rules (the Project administrator has it). An organization rule: Edit the company library to save it, Publish the company library to publish it. Everyone who can view the project sees the values and why.</dd>
   </dl>
   <h3>Make a rule</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -546,6 +547,15 @@
     </tbody>
   </table></div>
   <p class="g-note">Rules that read each other's targets in a circle are refused when saved, with the circle named (<em>Description → Short code → Description</em>).</p>
+  <h3>Make a copy rule</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In a new rule, set <span class="ui">Kind</span> to <em>Copy: a value people may change</em>. Give it an input that reads the source, for example the valve's pipeline (<em>Owner's attribute</em> of class pipeline, design pressure), a <em>Copy</em> step of it, and <span class="ui">Copies into</span> the valve's design pressure.</td><td>The preview shows each object's value now and after. A value someone changed by hand stays and says so.</td></tr>
+      <tr><td>2</td><td><span class="ui">Save draft</span>, then <span class="ui">Publish…</span>.</td><td>The values are copied in one change and show <span class="ui">⧉ copied</span>; they follow their source from then on. A new object of the class gets its copy when it is made.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A copy never writes an attribute a calculation holds: a calculation and a copy on the same attribute of the same objects are refused when saved. Alex can run a copy rule by hand on some objects (run_copy_rule), also as a step of a stored assistant.</p>
   <h3>Make a check rule</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
@@ -563,7 +573,21 @@
     <li><span class="ui">Why this value?</span> shows the rule and version, each input with its value and the object it came from, and each step's result. When an input is missing the value is empty and the reason is shown.</li>
     <li><span class="ui">Withdraw</span> pauses a rule: its values stay, as ordinary values people may change. <span class="ui">Publish…</span> again calculates them again.</li>
   </ul>
-  <p class="g-warn">Not built yet: copy rules (12.4), calculated values on drawing labels and in the API marked as calculated (12.5), and organization and content package rules (12.6).</p>
+  <h3>Organization and content package rules</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">New rule</span>, set <span class="ui">Save to</span> to <em>The organization's library</em>, make the rule and click <span class="ui">Save draft</span>.</td><td>The rule is a draft in the company library; its row reads <em>From: Organization</em>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Publish in the company library</span>.</td><td>It is published as a new company library version. No project's values change yet: the row says it reaches the project when its pin moves.</td></tr>
+      <tr><td>3</td><td>Ask Alex to pin the project to that library version, preview first.</td><td>The preview lists the rule as added, with how many values it creates and changes. Pinned, the values are written in the same change, and the row reads <em>active (version 1, at the pin)</em>.</td></tr>
+      <tr><td>4</td><td>Publish a new version of the organization rule.</td><td>The project keeps the version at its pin until the pin moves again; the pin's preview then lists the rule as changed, version 1 → 2.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>A project reading the newest company library, without a pin, uses no organization rules. A pin that takes a rule away leaves its values as ordinary values.</li>
+    <li>A content package's rules come with the E1 library version the project reads: <span class="ui">Preview package update</span> lists each rule the update adds, changes or takes away and the values it writes. They are listed with <em>From: Package</em>, read only.</li>
+    <li>One attribute has one rule: a project rule is refused on an attribute an organization rule calculates for the same objects, and a project's own rule takes the attribute from an organization or package rule that arrives later (that rule's row says so).</li>
+  </ul>
   <p class="g-related">Related: <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-configuration">Configuration</a></p>
 </section>
 
@@ -688,7 +712,7 @@
 
 <section class="g-feature" id="lib-modules">
   <h2>Modules in the library</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a</span><span>Review check M1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a, 32.3d</span><span>Review checks M1, M11</span></div>
   <p class="g-summary">A module is a part of a P&amp;ID saved for placing again, with <a href="guide-drawing.html#draw-module-save">Save as module…</a>: a control valve station, a pump with its valves, a sampling point. Modules are kept in the company library, for every project, or in one project's library, and Configuration → Modules lists them all.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> (in the Content group)</dd>
@@ -705,7 +729,11 @@
   </table></div>
   <h3>Usually per instance</h3>
   <p>Some attributes differ from place to place, such as service, size, design pressure and temperature and set points. <span class="ui">Usually per instance</span>, below the list, holds these attribute paths, one a line. When a module is saved, E1 proposes to keep them per instance: each placed module has its own value, and an update from the module never changes it. <span class="ui">Save</span> keeps the list for the organization (managing organization policies). E1 ships with a list to start from.</p>
-  <p class="g-warn">Placing modules (<a href="guide-drawing.html#draw-module-place">the Modules tab</a>) is being built.</p>
+  <p>Placing a module: <a href="guide-drawing.html#draw-module-place">Add asset → Modules</a>.</p>
+  <h3>Save as module?</h3>
+  <p>When the same group is drawn three times or more and is in no module (two symbols of the same classes joined the same way, such as a valve and a reducer with the pipe between them), the box <span class="ui">Save as module?</span> names it, with how many times and examples. Alex finds the same groups when you ask it. Select one on its 2D space and right-click → <a href="guide-drawing.html#draw-module-save">Save as module…</a>.</p>
+  <h3>Modules in content packages</h3>
+  <p>A content package can carry modules. They are listed with the library <em>Package</em>, read only, and can be placed like the others. E1 checks each one against the library when the package is loaded and draws its preview itself; one that names something the library does not have is left out.</p>
   <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a> · <a href="#lib-configuration">The Configuration place</a> · <a href="#lib-company-library">Company library</a></p>
 </section>
 
@@ -731,29 +759,52 @@
 
 <section class="g-feature" id="lib-module-updates">
   <h2>Updating placed modules to a new version</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-module-updates</span><span>Roadmap 32.2b</span></div>
-  <p class="g-summary">When a module gets a new version, its placed instances can be updated: E1 takes what the module changed, keeps what each instance changed, and asks about each conflict.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-module-updates</span><span>Roadmap 32.2b</span><span>Review check M6</span></div>
+  <p class="g-summary">When a module gets a new version, its placed instances can be updated: E1 takes what the module changed, keeps what each instance changed, and asks about each conflict, once for a group of instances.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Not on screen yet; it will be in <span class="ui">Updates available</span>, group Modules</dd>
-    <dt>Who</dt><dd>Editing the project</dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>, the <span class="ui">Modules</span> box at the top; and with <span class="ui">Updates available</span> in <span class="ui">Company library</span></dd>
+    <dt>Who</dt><dd>Changing the objects of the project</dd>
+    <dt>Before you start</dt><dd>A newer published version of a module that the project's library version reads</dd>
   </dl>
-  <div class="g-dev"><p><strong>Planned (roadmap 32.2b "Update instances to a new module version").</strong></p></div>
-  <h3>What you will be able to do</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Modules</span>.</td><td>The <span class="ui">Modules</span> box lists each module with instances on an older version: the versions in use with their counts → the newest, its change note, and how many instances update without and with a conflict.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Update instances…</span></td><td>The update dialog: the <span class="ui">Conflicts</span>, grouped where several instances have the same one, and per instance its rows: <em>From the module</em> (old → new), <em>Changed here</em>, <em>Same on both sides</em>, <em>Added from the module</em>, <em>Removed by the module</em>, <em>Flagged: still connected outside</em>, <em>Module conflict</em>. <span class="ui">With conflicts only</span> narrows the list.</td></tr>
+      <tr><td>3</td><td>For each conflict group, choose <span class="ui">Use module for all</span> or <span class="ui">Keep mine for all</span>.</td><td><span class="ui">Apply</span> becomes available once every conflict is decided.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Apply</span>, or <span class="ui">Update without conflicts</span> to update only the instances that have none.</td><td>The instances are on the new version: the module's changes written, members it added placed with new tags, members it removed deleted (or left in place and taken out of the instance when still connected outside). Kept changes are recorded against the new version. One <span class="ui">Undo</span> takes the update back.</td></tr>
+    </tbody>
+  </table></div>
   <ul>
-    <li>See per module the versions in use, the newest, and how many instances have conflicts.</li>
-    <li>Decide conflicts once for a group of instances with <em>Use module for all</em> or <em>Keep mine for all</em>, or one by one; or <em>Update without conflicts</em>.</li>
+    <li>Per-instance values, parameters, tags and owners outside the module are never changed by an update.</li>
+    <li>If something the dialog read changed meanwhile, <span class="ui">Apply</span> asks you to look again.</li>
   </ul>
-  <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a></p>
+  <p class="g-warn">Not yet: replacing a member whose class the new version changed (decide it with Keep mine), and lines the new version adds (draw them by hand).</p>
+  <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a> · <a href="guide-drawing.html#draw-module-compare">Compare an instance</a> · <a href="#lib-library-updates">Updates available</a></p>
 </section>
 
 <section class="g-feature" id="lib-module-edit">
-  <h2>Editing a module on the module sheet</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span></div>
-  <p class="g-summary">Open a module's draft on its own sheet, change members, tie-in points and parameters, and publish the next version.</p>
+  <h2>Editing a module: new versions</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span><span>Review check M7</span></div>
+  <p class="g-summary">Open a module's next version, change its details, members, tie-in points and parameters, move its members to the newest class versions, and publish it. Duplicate a module, or copy a project module to the company library.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">New version</span> in Configuration → Modules</dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> → a module → <span class="ui">New version</span> (or <span class="ui">Edit draft</span>), <span class="ui">Duplicate…</span>, <span class="ui">Copy to company library</span></dd>
     <dt>Who</dt><dd>Editing the library the module is in</dd>
   </dl>
-  <div class="g-dev"><p><strong>Planned (roadmap 32.3a "Edit a module on the module sheet").</strong></p></div>
-  <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a></p>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click a module's name, then <span class="ui">New version</span>.</td><td>Its draft opens: the details, the <span class="ui">Members</span> (id, class, class version, the attributes kept per instance), the <span class="ui">Tie-in points</span> and the <span class="ui">Parameters</span>.</td></tr>
+      <tr><td>2</td><td>Change what the version changes: a tie-in point's size, rating, pipe class or medium, a parameter's name, kind, default or whether it is required, the attributes kept per instance. Type a <span class="ui">Change note</span>.</td><td>Member ids can be renamed until the module is first published; after that an id is fixed, and a removed member's id is never used again.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Upgrade members</span> if the members should move to the newest class versions.</td><td>It says how many moved. Without it, projects on older library versions can still place the module.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Publish</span> (or <span class="ui">Save draft</span> to finish later).</td><td>The next version, with its change note. Placed instances are offered the update (<a href="#lib-module-updates">Updating placed modules</a>).</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><span class="ui">Supplied by vendor</span>, with the vendor's document and revision, marks a vendor's package. In a project its members then take only per-instance values; any other change is refused (<em>Supplied by vendor …: change the vendor module</em>). A new vendor revision is published as a new version.</li>
+    <li><span class="ui">Duplicate…</span> makes a new module, as a draft, with the same content; its instances stay with the first.</li>
+    <li><span class="ui">Copy to company library</span> makes a company module from a published project module, checked against the company library: a project class or shape is refused and named.</li>
+    <li>To change what is drawn, place the module on a 2D space, change that instance, and use <span class="ui">Save changes to module…</span> (<a href="guide-drawing.html#draw-module-promote">Turn an instance's changes into the next version</a>).</li>
+  </ul>
+  <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a> · <a href="#lib-module-versions">Module versions</a></p>
 </section>
