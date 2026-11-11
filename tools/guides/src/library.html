@@ -521,7 +521,7 @@
 <section class="g-feature" id="lib-rules">
   <h2>Rules: calculations, check rules and copy rules</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span></div>
-  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, and check rules, are available; copy rules come in a next stage.</p>
+  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, copy rules and check rules are available.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Rules</span>; on an object page, a calculated value shows <span class="ui">ƒ</span> and <span class="ui">Why this value?</span></dd>
     <dt>Who</dt><dd>Making, publishing and withdrawing rules: Manage project rules (the Project administrator has it). Everyone who can view the project sees the values and why.</dd>
@@ -547,6 +547,15 @@
     </tbody>
   </table></div>
   <p class="g-note">Rules that read each other's targets in a circle are refused when saved, with the circle named (<em>Description → Short code → Description</em>).</p>
+  <h3>Make a copy rule</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In a new rule, set <span class="ui">Kind</span> to <em>Copy: a value people may change</em>. Give it an input that reads the source, for example the valve's pipeline (<em>Owner's attribute</em> of class pipeline, design pressure), a <em>Copy</em> step of it, and <span class="ui">Copies into</span> the valve's design pressure.</td><td>The preview shows each object's value now and after. A value someone changed by hand stays and says so.</td></tr>
+      <tr><td>2</td><td><span class="ui">Save draft</span>, then <span class="ui">Publish…</span>.</td><td>The values are copied in one change and show <span class="ui">⧉ copied</span>; they follow their source from then on. A new object of the class gets its copy when it is made.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A copy never writes an attribute a calculation holds: a calculation and a copy on the same attribute of the same objects are refused when saved. Alex can run a copy rule by hand on some objects (run_copy_rule), also as a step of a stored assistant.</p>
   <h3>Make a check rule</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
@@ -564,7 +573,7 @@
     <li><span class="ui">Why this value?</span> shows the rule and version, each input with its value and the object it came from, and each step's result. When an input is missing the value is empty and the reason is shown.</li>
     <li><span class="ui">Withdraw</span> pauses a rule: its values stay, as ordinary values people may change. <span class="ui">Publish…</span> again calculates them again.</li>
   </ul>
-  <p class="g-warn">Not built yet: copy rules (12.4), calculated values on drawing labels and in the API marked as calculated (12.5), and organization and content package rules (12.6).</p>
+  <p class="g-warn">Not built yet: calculated values on drawing labels and in the API marked as calculated (12.5), and organization and content package rules (12.6).</p>
   <p class="g-related">Related: <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-configuration">Configuration</a></p>
 </section>
 
