@@ -757,13 +757,26 @@
 </section>
 
 <section class="g-feature" id="lib-module-edit">
-  <h2>Editing a module on the module sheet</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span></div>
-  <p class="g-summary">Open a module's draft on its own sheet, change members, tie-in points and parameters, and publish the next version.</p>
+  <h2>Editing a module: new versions</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span><span>Review check M7</span></div>
+  <p class="g-summary">Open a module's next version, change its details, members, tie-in points and parameters, move its members to the newest class versions, and publish it. Duplicate a module, or copy a project module to the company library.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">New version</span> in Configuration → Modules</dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> → a module → <span class="ui">New version</span> (or <span class="ui">Edit draft</span>), <span class="ui">Duplicate…</span>, <span class="ui">Copy to company library</span></dd>
     <dt>Who</dt><dd>Editing the library the module is in</dd>
   </dl>
-  <div class="g-dev"><p><strong>Planned (roadmap 32.3a "Edit a module on the module sheet").</strong></p></div>
-  <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a></p>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click a module's name, then <span class="ui">New version</span>.</td><td>Its draft opens: the details, the <span class="ui">Members</span> (id, class, class version, the attributes kept per instance), the <span class="ui">Tie-in points</span> and the <span class="ui">Parameters</span>.</td></tr>
+      <tr><td>2</td><td>Change what the version changes: a tie-in point's size, rating, pipe class or medium, a parameter's name, kind, default or whether it is required, the attributes kept per instance. Type a <span class="ui">Change note</span>.</td><td>Member ids can be renamed until the module is first published; after that an id is fixed, and a removed member's id is never used again.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Upgrade members</span> if the members should move to the newest class versions.</td><td>It says how many moved. Without it, projects on older library versions can still place the module.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Publish</span> (or <span class="ui">Save draft</span> to finish later).</td><td>The next version, with its change note. Placed instances are offered the update (<a href="#lib-module-updates">Updating placed modules</a>).</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><span class="ui">Duplicate…</span> makes a new module, as a draft, with the same content; its instances stay with the first.</li>
+    <li><span class="ui">Copy to company library</span> makes a company module from a published project module, checked against the company library: a project class or shape is refused and named.</li>
+    <li>To change what is drawn, place the module on a 2D space, change that instance, and use <span class="ui">Save changes to module…</span> (<a href="guide-drawing.html#draw-module-promote">Turn an instance's changes into the next version</a>).</li>
+  </ul>
+  <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a> · <a href="#lib-module-versions">Module versions</a></p>
 </section>
