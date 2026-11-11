@@ -202,7 +202,7 @@
    "summary": "Create projects, save and print, and open the project settings and the Organization dialog.",
    "anchor": "gs-menu-file",
    "status": "available",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [],
    "checks": [
     "A2"
@@ -211,7 +211,8 @@
     "PRJ-new-project",
     "DOC-sheet-pdf",
     "LIST-excel-export",
-    "ORG-organization-dialog"
+    "ORG-organization-dialog",
+    "PRJ-project-templates"
    ],
    "roles": "Everyone who can open E1",
    "training": {
@@ -1020,6 +1021,60 @@
    "page": "guide-access.html#acc-session"
   },
   {
+   "id": "ACC-one-person",
+   "title": "One person per account",
+   "summary": "An E1 account is for one named person: when your account is open on another computer, E1 asks you to sign out there or here.",
+   "anchor": "acc-one-person",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.8"
+   ],
+   "checks": [],
+   "related": [
+    "ACC-session",
+    "ACC-sign-in",
+    "ORG-licenses-seats"
+   ],
+   "roles": "Everyone signed in",
+   "training": {
+    "topic": "Sessions and signing out",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "access",
+   "page": "guide-access.html#acc-one-person"
+  },
+  {
+   "id": "ACC-ai-credits",
+   "title": "AI credits this month",
+   "summary": "Each license includes AI credits a month for Alex: 300 with Editor Basic and Reviewer, 2,000 with Editor Pro; a University class shares 300 for each Editor.",
+   "anchor": "acc-ai-credits",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.9"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-plan",
+    "ORG-university",
+    "WEB-pricing"
+   ],
+   "roles": "Everyone with Alex",
+   "training": {
+    "topic": "AI credits",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "access",
+   "page": "guide-access.html#acc-ai-credits"
+  },
+  {
    "id": "ACC-trial",
    "title": "The 30-day trial",
    "summary": "An organization of your own for 30 days; afterwards it is read-only and can still be viewed and exported.",
@@ -1499,6 +1554,33 @@
    ],
    "category": "projects",
    "page": "guide-projects.html#prj-sample-project"
+  },
+  {
+   "id": "PRJ-project-templates",
+   "title": "Project templates: save a project as a template, start a project from one",
+   "summary": "Keep a copy of a project as a template, see the organization's templates in Configuration, and make a new project as a blank one or as a copy of a template.",
+   "anchor": "prj-project-templates",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "04.8"
+   ],
+   "checks": [],
+   "related": [
+    "PRJ-new-project",
+    "PRJ-sample-project",
+    "LIB-project-settings"
+   ],
+   "roles": "Saving needs the Export permission in the project and the permission to create projects; making a project from a template needs the permission to create projects; a template is deleted by whoever saved it or an organization administrator",
+   "training": {
+    "topic": "Starting projects from templates",
+    "level": "Beginner",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "projects",
+   "page": "guide-projects.html#prj-project-templates"
   },
   {
    "id": "PRJ-import-dexpi",
@@ -5399,6 +5481,34 @@
    "page": "guide-organization.html#org-pro-features"
   },
   {
+   "id": "ORG-university",
+   "title": "University organizations: the term, Reviewers and Viewers",
+   "summary": "A University organization has Editor Pro free for 3 months, renewed each term, one free Reviewer per Editor and unlimited free Viewers; after the term it is read-only until it is renewed.",
+   "anchor": "org-university",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.10"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-plan",
+    "ORG-licenses-seats",
+    "ACC-ai-credits",
+    "WEB-pricing"
+   ],
+   "roles": "Teachers and students in a University organization",
+   "training": {
+    "topic": "Plans and upgrades",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-university"
+  },
+  {
    "id": "ORG-roles-passkey",
    "title": "Organization roles and the passkey rule",
    "summary": "Organization roles and why Owner, Administrator and Project administrator take effect only after you add a passkey; confirming it is you.",
@@ -8570,15 +8680,19 @@
   {
    "id": "WIRE-typicals",
    "title": "Signals and wiring typicals",
-   "summary": "Give devices their signals and a wiring typical with options and variants; E1 names wires, terminals and cables from it.",
+   "summary": "A wiring typical describes one kind of device: its signals, its field cables and the cores each signal takes, options and variants, and naming patterns. Give it to one device or many: each gets its I/O signals, terminals and cables with their cores landed and numbered.",
    "anchor": "wire-typicals",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "28.3"
    ],
-   "checks": [],
+   "checks": [
+    "R5"
+   ],
    "related": [
-    "WIRE-allocation"
+    "WIRE-cables-cores",
+    "WIRE-allocation",
+    "AI-side-panel"
    ],
    "roles": "A license and a project role that may edit objects",
    "training": {
@@ -8587,6 +8701,7 @@
     "minutes": 6
    },
    "screenshots": [],
+   "since": "2026-11-11",
    "category": "wiring",
    "page": "guide-wiring.html#wire-typicals"
   },
