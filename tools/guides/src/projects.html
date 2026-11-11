@@ -388,6 +388,34 @@
   <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
 </section>
 
+<section class="g-feature" id="prj-project-templates">
+  <h2>Project templates: save a project as a template, start a project from one</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-11</span><span class="g-id">PRJ-project-templates</span><span>Roadmap 04.8</span></div>
+  <p class="g-summary">A project template is a copy of a project kept to start new projects from. <span class="ui">Save as template…</span> on any project keeps a copy of it as it is now: its folders, 2D spaces and drawings, objects, relationships, tags, its settings (content packages, drawing, units, tag rules) and its shared queries. The templates are listed in <span class="ui">Configuration</span> → <span class="ui">Project templates</span>, apart from the projects. A new project is either blank or a copy of a template; the copy is a project of its own, so changing it never changes the template, and changing the project the template was saved from never changes the template either.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click a project → <span class="ui">Save as template…</span>, or <span class="ui">File</span> → <span class="ui">Save project as template…</span>; <span class="ui">File</span> → <span class="ui">New project from a template…</span>, or right-click the organization's name → <span class="ui">New project from a template…</span>; <span class="ui">Configuration</span> → <span class="ui">Project templates</span></dd>
+    <dt>Who</dt><dd>Saving: the <span class="ui">Export</span> permission in the project and the permission to create projects. A new project from a template: the permission to create projects; you become its Project administrator. Deleting a template: whoever saved it, or an organization administrator.</dd>
+    <dt>Before you start</dt><dd>A project to keep as a template, for example <span class="ui">Demo Plant (sample)</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Demo Plant (sample)</span> in the explorer → <span class="ui">Save as template…</span>.</td><td>The <span class="ui">Save as template</span> dialog opens, with <span class="ui">Template name</span> set to the project's name and an empty <span class="ui">Description</span>. It says what is copied and what is not.</td></tr>
+      <tr><td>2</td><td>Type a name, for example <span class="ui">Process unit</span>, and a description, then click <span class="ui">Save template</span>.</td><td>The dialog closes and E1 says "Saved the template Process unit. Find it in Configuration → Project templates." The project itself is not changed, and no new project appears in the explorer. A name already taken by a template gets " 2", " 3"….</td></tr>
+      <tr><td>3</td><td>Open <span class="ui">Configuration</span> (the sliders on the left rail) → <span class="ui">Project templates</span> (under <span class="ui">Projects</span>).</td><td>A card for <span class="ui">Process unit</span>: its description, how many objects and sheets it holds, the project it was saved from and the day. Each card has <span class="ui">New project from this template</span> and <span class="ui">Delete</span>; the head has <span class="ui">Save a project as template…</span> and <span class="ui">New project…</span>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">File</span> → <span class="ui">New project from a template…</span>.</td><td>The <span class="ui">New project</span> dialog: <span class="ui">Blank project</span> and each template (its name, description, objects and sheets), and <span class="ui">Project name</span>.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Process unit</span>.</td><td><span class="ui">Project name</span> becomes <span class="ui">Process unit</span>; type another name if you like.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Create project</span>.</td><td>A new project with that name (" 2" added when the name is taken) appears among the projects and is selected, with everything the template holds: the 2D space <span class="ui">123/A93 DEXPI example PID</span>, P4711 with its values, the pipes still connected.</td></tr>
+      <tr><td>7</td><td>Change a value of P4711 in the new project.</td><td>Only the new project changes: <span class="ui">Demo Plant (sample)</span> and the template keep their values, and the next project made from the template has the template's values.</td></tr>
+      <tr><td>8</td><td>In <span class="ui">Configuration</span> → <span class="ui">Project templates</span>, click <span class="ui">Delete</span> on the card and confirm.</td><td>The template is gone from the list and from <span class="ui">New project</span>. The projects made from it stay as they are. Someone who did not save it, and is not an organization administrator, is told only whoever saved it or an organization administrator can delete it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Choosing <span class="ui">Blank project</span> in the <span class="ui">New project</span> dialog makes the same empty project as <span class="ui">New project</span>, with the name you typed. A template belongs to the organization: everyone who may create projects sees it, and deleting the project it was saved from keeps it.</p>
+  <p class="g-warn">A template does not copy the project's history, comments, tasks, document revisions, attached files or who has access. A template holds what the person who saved it could see: values hidden from them are not in it.</p>
+  <p class="g-related">Related: <a href="#prj-new-project">Create a project</a> · <a href="#prj-sample-project">The sample project: Demo Plant</a> · <a href="guide-library.html#lib-project-settings">Project settings</a></p>
+</section>
+
 <section class="g-feature" id="prj-import-dexpi">
   <h2>Import a DEXPI P&amp;ID</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-dexpi</span><span>Roadmap 31.1</span></div>
