@@ -1628,6 +1628,7 @@ a.card:hover { opacity: 0.6; }
 .choice:not(.choice-dark) .logo-chip { border: 1px solid var(--line); }
 .host-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .host-tiles.host-tiles-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.host-tiles.host-tiles-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .host-tile { min-width: 0; }
 @media (max-width: 520px) {
   .host-tile-region { flex-direction: column; text-align: center; }
@@ -3763,3 +3764,13 @@ code {
 .cs-section { padding: 56px 0; }
 /* Get E1: the E1 Cloud panel follows the download buttons directly */
 .getE1-page #saas { padding-top: 32px; }
+/* Unlimited Viewers: a small mark after the faces (Get E1 trial) */
+.team-more { align-self: center; margin-left: 2px; font-size: 1.05rem; font-weight: 700; color: var(--c-amber); white-space: nowrap; }
+.team-row:has(.team-more) { grid-template-columns: 78px auto 1fr; }
+
+/* Licenses table with six offers: equal columns that fit the page */
+.pricing-licenses { table-layout: fixed; width: 100%; min-width: 900px; }
+.pricing-licenses thead th:first-child, .pricing-licenses tbody th { width: 19%; min-width: 0; }
+.pricing-licenses thead .per { white-space: normal; line-height: 1.35; }
+.pricing-licenses .price { font-size: clamp(1.5rem, 2.3vw, 2rem); }
+.pricing-licenses th, .pricing-licenses td { padding-left: 8px; padding-right: 8px; }

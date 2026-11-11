@@ -48,7 +48,7 @@ module.exports = {
   async alex(h) {
     const p = h.page; await h.open();
     await p.getByRole('tablist', { name: 'Open tabs' }).getByRole('tab', { name: /Assets/ }).click();
-    await p.getByRole('button', { name: 'Turn Alex on' }).click();
+    await p.getByRole('button', { name: 'Let Alex help' }).click();
     await p.waitForTimeout(4000);
     await h.shot('alex-on');
   },

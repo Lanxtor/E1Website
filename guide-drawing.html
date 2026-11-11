@@ -76,13 +76,18 @@
           <li><a href="#draw-dexpi">DEXPI exchange and handover</a></li>
           <li><a href="#draw-cad-import">CAD import (DXF, later DWG)</a></li>
           <li><a href="#draw-redlining">Redlining</a></li>
+          <li><a href="#draw-module-save">Save a selection as a module</a></li>
+          <li><a href="#draw-module-place">Place a module from the Modules tab</a></li>
+          <li><a href="#draw-module-instance">A placed module on its objects</a></li>
+          <li><a href="#draw-module-compare">Compare an instance with its module</a></li>
+          <li><a href="#draw-module-promote">Turn an instance&#x27;s changes into the module&#x27;s next version</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>37 features</span><span>34 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>42 features</span><span>34 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -143,7 +148,7 @@
     <dt>Who</dt><dd>Everyone sees it; the editing buttons need edit rights on the drawing</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
-  <figure class="g-shot g-small" style="max-width:798px"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar: Object and Asset, Connector and Flow lines, Let Alex help and the space name Assets; below the tools Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align and Layers; below that Font, text color, B I U S, A− A+, Rotate, Line thickness, line color, Style, minus and plus" width="1596" height="246" loading="lazy"><figcaption>The three rows of the drawing toolbar. Taken before the Let Alex help button moved to the Alex tab.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:798px"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar: Object and Asset, Connector and Flow lines, and the space name Assets; below the tools Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align and Layers; below that Font, text color, B I U S, A− A+, Rotate, Line thickness, line color, Style, minus and plus" width="1596" height="246" loading="lazy"><figcaption>The three rows of the drawing toolbar.</figcaption></figure>
   <h3>What is on it</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Row</th><th>Control</th><th>What it does</th></tr></thead>
@@ -234,7 +239,6 @@
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/asset-window.webp" alt="The Add asset window: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add asset window, opened from the Object button.</figcaption></figure>
-  <p class="g-warn">Manual-review check B2 still says "Place symbols from Insert → Asset"; E1 has no Insert menu any more, so follow it with the toolbar's <span class="ui">Object</span> button instead.</p>
   <p class="g-note">The tags come from your project's tag rules (<a href="guide-objects.html#obj-tag-rules">Tag rules</a>). To place an object that already exists, drag it from the explorer (<a href="guide-drawing.html#draw-drop-from-explorer">Drop from the explorer</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-object-types">Object types</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-standards">ISA 5.1 and ISO 10628 symbols</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-new-object">Create an object</a></p>
 </section>
@@ -644,7 +648,7 @@
       <tr><td>8</td><td>Right-click an empty spot of the 2D space.</td><td>A short menu with <span class="ui">Paste</span>, <span class="ui">Select all</span> and <span class="ui">Chat here</span>.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small" style="max-width:347px"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol: Cut, Copy, Paste, Duplicate, Object properties, Deep view, Data sheet, Open datasheet, Comment here, Highlight flow, Highlight flow through pumps and compressors, Flip horizontal (F), Flip vertical, Replace, Delete" width="694" height="954" loading="lazy"><figcaption>The symbol menu, grouped, with Delete last.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:347px"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol: Cut, Copy, Paste, Duplicate, Show in tree, Object properties, Deep view, Data sheet, Open datasheet, Chat here, Highlight flow, Highlight flow through pumps and compressors, Define pipeline from here, Turn around, Flip horizontal (F), Flip vertical, Replace, Modify shape…, Delete" width="694" height="954" loading="lazy"><figcaption>The symbol menu, grouped, with Delete last.</figcaption></figure>
   <p class="g-note"><span class="ui">Data sheet</span> opens the object on its attributes view, as the same item in the explorer does; <span class="ui">Open datasheet</span> opens the formatted datasheet document. Deep view is a placeholder tab today.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Chat here</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-arrange">Flip</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-documents.html#doc-datasheet">Datasheets</a></p>
 </section>
@@ -662,13 +666,13 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Chat here</span>.</td><td>A small card <span class="ui">Pin a message</span> opens where you clicked: "A comment on Pump1, pinned here", the box <span class="ui">Chat message</span>, <span class="ui">Pin message</span> and <span class="ui">Cancel</span>.</td></tr>
+      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Chat here</span>.</td><td>A small card <span class="ui">Pin a message</span> opens where you clicked: "A message on Pump1, pinned here", the box <span class="ui">Chat message</span>, <span class="ui">Pin message</span> and <span class="ui">Cancel</span>.</td></tr>
       <tr><td>2</td><td>Type "Check the seal type" and click <span class="ui">Pin message</span>.</td><td>A pin appears on the 2D space ("Comment 1 on Pump1"). Pump1 in the explorer shows its Needs review mark ("Needs review: 1 unresolved comment").</td></tr>
       <tr><td>3</td><td>Click the pin.</td><td>The card "Comment 1" shows the message, with <span class="ui">Resolve</span>, <span class="ui">Open discussion</span> and <span class="ui">Close</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Resolve</span>.</td><td>The pin reads "Comment 1 on Pump1, resolved", and the Needs review mark goes. <span class="ui">Reopen</span> would open it again.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small" style="max-width:340px"><img src="assets/img/guides/pin-form.webp" alt="The form A comment on Pump1, pinned here, with a typed comment and the buttons Pin comment and Cancel" width="680" height="438" loading="lazy"><figcaption>The pin card opened with Chat here (taken while it was still named Comment here).</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:340px"><img src="assets/img/guides/pin-form.webp" alt="The form A message on Pump1, pinned here, with a typed message and the buttons Pin message and Cancel" width="680" height="438" loading="lazy"><figcaption>The pin card opened with Chat here (taken while it was still named Comment here).</figcaption></figure>
   <figure class="g-shot" style="max-width:943px"><img src="assets/img/guides/pin-needs-review.webp" alt="After pinning: Pump1 in the explorer framed with its Needs review mark, and the pin on the 2D space" width="2160" height="1650" loading="lazy"><figcaption>The pinned comment and the Needs review mark in the explorer.</figcaption></figure>
   <p class="g-related">Related: <a href="guide-collaboration.html#col-comments">Chat and mentions</a> · <a href="guide-collaboration.html#col-tasks">Tasks</a> · <a href="guide-drawing.html#draw-symbol-menu">The right-click menus</a></p>
 </section>
@@ -744,7 +748,7 @@
       <tr><td>10</td><td>Click <span class="ui">Stop Alex</span>.</td><td>Predictive mode stops; the panel shows <span class="ui">Let Alex help</span> again.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: markers on the 2D space, cards with warnings, questions and suggestions, " width="2160" height="1350" loading="lazy"><figcaption>Alex on: Alex's cards are in the side panel. Taken before the toolbar's Alex button was removed.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: markers on the 2D space, cards with warnings, questions and suggestions, " width="2160" height="1350" loading="lazy"><figcaption>Alex on: Alex's cards are in the side panel.</figcaption></figure>
   <p class="g-note">The drawing toolbar has no Alex or Skills button: Alex is switched on and off, and its skill chosen, in Alex (Co-engineer).</p>
   <p class="g-related">Related: <a href="guide-ai.html#ai-alex">Alex</a> · <a href="guide-drawing.html#draw-patterns">Engineering patterns</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
 </section>
@@ -1078,6 +1082,95 @@
     <li>Open the Markups list of a 2D space, a round or the project, filter it, zoom to a markup, and change the status of several at once.</li>
   </ul>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Chat here</a> · <a href="guide-drawing.html#draw-layers">Layers</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-save">
+  <h2>Save a selection as a module</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-save</span><span>Roadmap 32.1b</span></div>
+  <p class="g-summary">Select part of a P&amp;ID, such as a control valve station, and save it as a module to place again.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">Save as module…</span> on the selection's right-click menu</dd>
+    <dt>Who</dt><dd>Editing the library the module goes to</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.1b "Save a selection as a module").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Review the members, and which attributes stay per instance.</li>
+    <li>Check the tie-in points E1 found where lines leave the selection.</li>
+    <li>Name the parameters asked for when it is placed, such as area and loop number.</li>
+    <li>Save a draft, or publish it.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-library.html#lib-modules">Modules in the library</a> · <a href="#draw-module-place">Place a module</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-place">
+  <h2>Place a module from the Modules tab</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-place</span><span>Roadmap 32.1c</span></div>
+  <p class="g-summary">Place a module in one step: its objects arrive connected, with new tags from the rules.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">Add asset</span> → <span class="ui">Modules</span></dd>
+    <dt>Who</dt><dd>Editing the project</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.1c "Place modules from the Modules tab").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Turn the module with R, flip it with F or Shift+F.</li>
+    <li>Click it onto a pipe to insert it.</li>
+    <li>Fill in its parameters, and see the tags it will get before placing.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-module-save">Save a selection as a module</a> · <a href="#draw-module-instance">A placed module</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-instance">
+  <h2>A placed module on its objects</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-instance</span><span>Roadmap 32.1d</span></div>
+  <p class="g-summary">A placed module's objects stay ordinary objects; each shows which module it is part of.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">Part of module</span> on the object's properties</dd>
+    <dt>Who</dt><dd>Editing the project</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.1d "Module instances on the object").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>See Part of module with the module and version.</li>
+    <li>Select every member of the instance.</li>
+    <li>Detach the instance, leaving plain objects.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-module-place">Place a module</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-compare">
+  <h2>Compare an instance with its module</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-compare</span><span>Roadmap 32.2a</span></div>
+  <p class="g-summary">See what one placed module changed against its module.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet</dd>
+    <dt>Who</dt><dd>Editing the project</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.2a "Compare an instance with its module").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>See Changed here in the tree.</li>
+    <li>Keep a change, with a reason, or take the module's value.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-module-instance">A placed module</a> · <a href="guide-library.html#lib-module-updates">Updating placed modules</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-promote">
+  <h2>Turn an instance's changes into the module's next version</h2>
+  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DRAW-module-promote</span><span>Roadmap 32.3b</span></div>
+  <p class="g-summary">Make what one instance changed the module's next version.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Not on screen yet</dd>
+    <dt>Who</dt><dd>Editing the library the module is in</dd>
+  </dl>
+  <div class="g-dev"><p><strong>Planned (roadmap 32.3b "Promote an instance's changes to the module").</strong></p></div>
+  <h3>What you will be able to do</h3>
+  <ul>
+    <li>Add objects to an instance.</li>
+    <li>Save the instance's changes to the module and publish.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-module-compare">Compare an instance</a> · <a href="guide-library.html#lib-module-edit">Editing a module</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-objects.html">Objects, attributes and tags</a> · <a href="guide-lists.html">Lists and queries</a> →</p>

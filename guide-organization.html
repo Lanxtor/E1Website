@@ -93,7 +93,7 @@
 
 <section class="g-feature" id="org-organization-dialog">
   <h2>The Organization dialog</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-08</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1, 09.6a</span><span>Review checks J4, J7, J8</span></div>
+  <div class="g-meta"><span>Updated 2026-11-11</span><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-08</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1, 09.6a</span><span>Review checks J4, J7, J8</span></div>
   <p class="g-summary">One dialog holds your organization: its members with their licenses and roles, open invitations, groups, the audit log and the export. Its first lines tell you how much of the trial, the AI credits, the file storage and the seats is used.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span></dd>
@@ -105,7 +105,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span>, <span class="ui">Assignments</span>, <span class="ui">History</span>, <span class="ui">Reviews</span> and <span class="ui">Emergency</span>, see <a href="#org-access-history">Access history</a>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Sign-on</span> (see <a href="#org-sso">Company single sign-on</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
-      <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u of t · Student u of t · Administrator u of t</span>.</td></tr>
+      <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor u of t · Reviewer u of t · Viewer u (unlimited) · Administrator u of t</span> (Viewers are unlimited). A license your organization has no seats for, such as Student, is not listed.</td></tr>
       <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
       <tr><td>5</td><td>Press <kbd>Esc</kbd>, click <span class="ui">Close</span>, or click outside the dialog.</td><td>The dialog closes.</td></tr>
@@ -148,7 +148,7 @@
 
 <section class="g-feature" id="org-licenses-seats">
   <h2>Licenses and seats</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-08</span><span class="g-id">ORG-licenses-seats</span><span>Roadmap M2.4, PR1</span><span>Review check J8</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-11</span><span class="g-id">ORG-licenses-seats</span><span>Roadmap M2.4, PR1</span><span>Review check J8</span></div>
   <p class="g-summary">Each member has one license, which caps what any of their roles allow. Your organization has a number of seats per license. Owners and Administrators are told in the Inbox when a license is 80 % and 100 % used.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span> → the <span class="ui">License</span> list of a person</dd>
@@ -164,6 +164,7 @@
     <li><strong>Administrator</strong>: organization administration only.</li>
     <li><span class="ui">No license</span>: the person can only view.</li>
   </ul>
+  <p class="g-note">The <span class="ui">License</span> lists offer only the licenses your organization has seats for (and Viewer, which is unlimited); a person keeps the license they hold even when it has no seats left. The list follows E1's license catalog, so a new kind of license appears here when it is added.</p>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
@@ -302,7 +303,7 @@
       <tr><td>4</td><td>As Anna, click <span class="ui">Remove</span> beside Ben's role.</td><td>The role is gone from the list.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/project-settings.webp" alt="The page of the project Demo Plant with the buttons Members and Export at the top, and the tabs Attributes, Relationships, Deep view, Data sheet, Attachments, Comments and History" width="2160" height="1350" loading="lazy"><figcaption>The project's page: <span class="ui">Members</span> is the first button.</figcaption></figure>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/project-settings.webp" alt="The page of the project Demo Plant with the buttons Members and Export at the top, and the tabs Attributes, Relationships, Deep view, Data sheet, Chat, History and Attachments" width="2160" height="1350" loading="lazy"><figcaption>The project's page: <span class="ui">Members</span> is the first button.</figcaption></figure>
   <p class="g-note">A role on the project counts as being a member at that level. An explicit maximum is needed to give someone more on a section, folder or drawing than on the whole project (for example Viewer on the project, Engineer on the Electrical folder, at most Engineer). Nobody who is not a member can be given a role inside the project. <span class="ui">Until (optional)</span> ends a role on a day you choose.</p>
   <p class="g-note">Groups are shown in the list as <em>&lt;name&gt; (group)</em>. Only an administrator sees the whole organization in <span class="ui">Person or group</span>; others see only the people already on the project.</p>
   <p class="g-note">Without a passkey, a Project administrator acts as a Lead engineer and cannot give roles (see <a href="#org-roles-passkey">the passkey rule</a>).</p>
@@ -462,7 +463,7 @@
 
 <section class="g-feature" id="org-trials">
   <h2>Trials and the read-only lock</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">ORG-trials</span></div>
+  <div class="g-meta"><span>Updated 2026-11-11</span><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">ORG-trials</span></div>
   <p class="g-summary">A trial gives a person a new organization of their own, usually for 30 days; LANXTOR can choose another length, and lengthen or shorten a running trial. When it ends, the organization becomes read-only: everything can still be viewed and exported, but nothing can be changed until a contract is in place.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The trial line at the top of <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>; the Account page</dd>
@@ -470,7 +471,7 @@
   </dl>
   <h3>What a trial includes</h3>
   <ul>
-    <li>30 days unless LANXTOR chose another length (the invitation email says how many); LANXTOR can also lengthen it while it runs, and the trial line then shows the new end date. 5 Editor seats (the owner takes one), 5 Reviewer and 5 Viewer seats.</li>
+    <li>30 days unless LANXTOR chose another length (the invitation email says how many); LANXTOR can also lengthen it while it runs, and the trial line then shows the new end date. 5 Editor seats (the owner takes one), 5 Reviewer seats and unlimited Viewers.</li>
     <li>18 000 AI credits, with a daily limit per person (Editor 600, Reviewer 150). Premium models are <span class="ui">Not included in a trial.</span></li>
     <li>5 GB of files. Kept export results (for 7 days) and the PDFs of issued revisions count toward it too.</li>
   </ul>
