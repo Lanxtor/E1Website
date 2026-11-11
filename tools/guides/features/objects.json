@@ -512,27 +512,61 @@
  {
   "id": "OBJ-calculations",
   "title": "Calculations and copy rules on attributes",
-  "summary": "Attribute values computed from other attributes or related objects, check rules and copy rules are planned in M6 Rules.",
+  "summary": "A calculated attribute shows its value with ƒ, read-only, and Why this value? explains it: the rule, its inputs and where they came from, its steps. Copy rules are planned in M6 Rules.",
   "anchor": "obj-calculations",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
    "12.1",
    "12.2",
-   "12.3",
-   "12.4",
-   "12.6"
+   "12.4"
   ],
-  "checks": [],
+  "checks": [
+   "P1",
+   "P2"
+  ],
   "related": [
    "OBJ-attributes",
    "OBJ-relationships",
-   "OBJ-tag-rules"
+   "OBJ-tag-rules",
+   "LIB-rules",
+   "OBJ-checks"
   ],
-  "roles": "",
+  "roles": "Everyone who can view the project",
   "training": {
-   "topic": "Calculations: what is coming",
+   "topic": "Calculated values",
    "level": "Intermediate",
    "minutes": 2
+  },
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
+ },
+ {
+  "id": "OBJ-checks",
+  "title": "Checks: findings and accepting them",
+  "summary": "The Checks tab of an object's window lists its findings, and the project's window lists the whole project's: required values missing, pending tags, check rules, calculations with a missing input and the piping check. An open error blocks issuing a revision until it is fixed or accepted.",
+  "anchor": "obj-checks",
+  "status": "available",
+  "since": "2026-11-11",
+  "updated": "2026-11-11",
+  "roadmap": [
+   "12.3"
+  ],
+  "checks": [
+   "P3"
+  ],
+  "related": [
+   "LIB-rules",
+   "DOC-issue",
+   "OBJ-calculations",
+   "OBJ-tags",
+   "DRAW-piping-check"
+  ],
+  "roles": "Everyone who can view the project sees the findings; accepting needs Accept findings (Lead engineer, Project administrator)",
+  "training": {
+   "topic": "Checks and findings",
+   "level": "Intermediate",
+   "minutes": 3
   },
   "screenshots": []
  }

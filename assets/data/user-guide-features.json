@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07",
+ "updated": "2026-11-11",
  "screenshotsTaken": "2026-11-07",
  "statuses": {
   "available": "Available",
@@ -143,15 +143,26 @@
    "order": 12
   },
   {
+   "id": "wiring",
+   "title": "Wiring (EI&C)",
+   "summary": "Cabinets and junction boxes in their locations, rails, terminal strips and terminals, I/O cards and channels, cables and their cores landed on terminals, tracing a circuit from the field to the I/O channel, construction status, and cable lengths.",
+   "training": {
+    "series": "Wiring (EI&C)",
+    "order": 13
+   },
+   "page": "guide-wiring.html",
+   "order": 13
+  },
+  {
    "id": "reviewer",
    "title": "E1 Reviewer for iPad",
    "summary": "Review E1 projects on the iPad: dashboards, projects, sheets, objects, photos and voice notes, redlining, your tasks and checklists, search and Alex.",
    "training": {
     "series": "E1 Reviewer for iPad",
-    "order": 13
+    "order": 14
    },
    "page": "guide-reviewer.html",
-   "order": 13
+   "order": 14
   }
  ],
  "features": [
@@ -2151,31 +2162,67 @@
   {
    "id": "OBJ-calculations",
    "title": "Calculations and copy rules on attributes",
-   "summary": "Attribute values computed from other attributes or related objects, check rules and copy rules are planned in M6 Rules.",
+   "summary": "A calculated attribute shows its value with ƒ, read-only, and Why this value? explains it: the rule, its inputs and where they came from, its steps. Copy rules are planned in M6 Rules.",
    "anchor": "obj-calculations",
-   "status": "planned",
+   "status": "available",
    "roadmap": [
     "12.1",
     "12.2",
-    "12.3",
-    "12.4",
-    "12.6"
+    "12.4"
    ],
-   "checks": [],
+   "checks": [
+    "P1",
+    "P2"
+   ],
    "related": [
     "OBJ-attributes",
     "OBJ-relationships",
-    "OBJ-tag-rules"
+    "OBJ-tag-rules",
+    "LIB-rules",
+    "OBJ-checks"
    ],
-   "roles": "",
+   "roles": "Everyone who can view the project",
    "training": {
-    "topic": "Calculations: what is coming",
+    "topic": "Calculated values",
     "level": "Intermediate",
     "minutes": 2
    },
    "screenshots": [],
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
    "category": "objects",
    "page": "guide-objects.html#obj-calculations"
+  },
+  {
+   "id": "OBJ-checks",
+   "title": "Checks: findings and accepting them",
+   "summary": "The Checks tab of an object's window lists its findings, and the project's window lists the whole project's: required values missing, pending tags, check rules, calculations with a missing input and the piping check. An open error blocks issuing a revision until it is fixed or accepted.",
+   "anchor": "obj-checks",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "12.3"
+   ],
+   "checks": [
+    "P3"
+   ],
+   "related": [
+    "LIB-rules",
+    "DOC-issue",
+    "OBJ-calculations",
+    "OBJ-tags",
+    "DRAW-piping-check"
+   ],
+   "roles": "Everyone who can view the project sees the findings; accepting needs Accept findings (Lead engineer, Project administrator)",
+   "training": {
+    "topic": "Checks and findings",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "objects",
+   "page": "guide-objects.html#obj-checks"
   },
   {
    "id": "DRAW-sheet-view",
@@ -4357,13 +4404,14 @@
   {
    "id": "DOC-issue",
    "title": "Issue a revision",
-   "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards.",
+   "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards. While the revision gate is on, an open error on what the document shows refuses the issue.",
    "anchor": "doc-issue",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-09",
+   "updated": "2026-11-11",
    "roadmap": [
-    "07.7"
+    "07.7",
+    "12.3"
    ],
    "checks": [
     "E2",
@@ -4373,7 +4421,8 @@
     "DOC-revisions",
     "DOC-changed-since",
     "DOC-list-document",
-    "DOC-status"
+    "DOC-status",
+    "OBJ-checks"
    ],
    "roles": "A Lead on the project; an Engineer is refused",
    "training": {
@@ -5176,7 +5225,7 @@
   {
    "id": "ORG-organization-dialog",
    "title": "The Organization dialog",
-   "summary": "File → Organization… holds the members with licenses and roles (Owner, Administrator or Member), invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
+   "summary": "File → Organization… holds the plan, the members with licenses and roles (Owner, Administrator or Member), invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
    "anchor": "org-organization-dialog",
    "status": "available",
    "since": "2026-11-03",
@@ -5184,7 +5233,8 @@
    "roadmap": [
     "M2.4",
     "PR1",
-    "09.6a"
+    "09.6a",
+    "09.7"
    ],
    "checks": [
     "J4",
@@ -5198,7 +5248,8 @@
     "ORG-groups",
     "ORG-audit",
     "ORG-export",
-    "ORG-join-requests"
+    "ORG-join-requests",
+    "ORG-plan"
    ],
    "roles": "Owner or Administrator with a passkey",
    "training": {
@@ -5259,7 +5310,8 @@
    "related": [
     "ORG-organization-dialog",
     "COL-inbox",
-    "WEB-account-page"
+    "WEB-account-page",
+    "ORG-plan"
    ],
    "roles": "Owner or Administrator with a passkey",
    "training": {
@@ -5270,6 +5322,61 @@
    "screenshots": [],
    "category": "organization",
    "page": "guide-organization.html#org-licenses-seats"
+  },
+  {
+   "id": "ORG-plan",
+   "title": "Your organization's plan: Editor Basic or Editor Pro",
+   "summary": "The plan belongs to the organization: in a Standard organization every Editor is Editor Basic, in a Professional, University or Enterprise one every Editor is Editor Pro; the Owner upgrades Standard to Professional.",
+   "anchor": "org-plan",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.7"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-organization-dialog",
+    "ORG-pro-features",
+    "ORG-licenses-seats",
+    "WEB-pricing"
+   ],
+   "roles": "Everyone sees the plan; the Owner (Manage billing) upgrades",
+   "training": {
+    "topic": "Plans and upgrades",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-plan"
+  },
+  {
+   "id": "ORG-pro-features",
+   "title": "Pro features in an Editor Basic organization",
+   "summary": "With Editor Basic the Editor Pro features stay on screen, greyed out with Pro; pressing one says why, with See plans and, for the Owner, Upgrade.",
+   "anchor": "org-pro-features",
+   "status": "available",
+   "since": "2026-11-11",
+   "updated": "2026-11-11",
+   "roadmap": [
+    "09.7"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-plan",
+    "ORG-organization-dialog",
+    "WEB-pricing"
+   ],
+   "roles": "Everyone in a Standard organization",
+   "training": {
+    "topic": "Plans and upgrades",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-pro-features"
   },
   {
    "id": "ORG-roles-passkey",
@@ -6424,7 +6531,7 @@
   {
    "id": "LIB-rules",
    "title": "Rules: calculations, check rules and copy rules",
-   "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. Check rules and copy rules come later.",
+   "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. A check rule gives a finding where its condition does not hold. Copy rules come later.",
    "anchor": "lib-rules",
    "status": "available",
    "roadmap": [
@@ -6437,11 +6544,13 @@
    ],
    "checks": [
     "P1",
-    "P2"
+    "P2",
+    "P3"
    ],
    "related": [
     "OBJ-tag-rules",
-    "LIB-configuration"
+    "LIB-configuration",
+    "OBJ-checks"
    ],
    "roles": "Manage project rules (rule.manage): Project administrator",
    "training": {
@@ -7834,7 +7943,7 @@
    "screenshots": [
     "web-account-billing.webp"
    ],
-   "updated": "2026-11-08",
+   "updated": "2026-11-11",
    "category": "account",
    "page": "guide-account.html#web-billing"
   },
@@ -8183,6 +8292,231 @@
    "screenshots": [],
    "category": "account",
    "page": "guide-account.html#web-languages"
+  },
+  {
+   "id": "WIRE-enclosures",
+   "title": "Cabinets and junction boxes: where they are and what they hold",
+   "summary": "A cabinet or junction box is two objects: its location in Areas and the enclosure in Assets. The enclosure holds rails, terminal strips, I/O cards with their channels, interposing devices, power supplies and earth bars.",
+   "anchor": "wire-enclosures",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-terminals",
+    "WIRE-cables-cores",
+    "OBJ-new-object",
+    "OBJ-relationships"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Cabinets and junction boxes",
+    "level": "Beginner",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-enclosures"
+  },
+  {
+   "id": "WIRE-terminals",
+   "title": "Add terminals to a strip",
+   "summary": "Add numbered terminals to a terminal strip, a channel, an earth bar, a power supply or an instrument in one step, counting on from the last one.",
+   "anchor": "wire-terminals",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-enclosures",
+    "WIRE-cables-cores"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Terminal strips and terminals",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-terminals"
+  },
+  {
+   "id": "WIRE-cables-cores",
+   "title": "Cables, their cores, and landing a core on a terminal",
+   "summary": "A cable made from a cable type in the catalog gets its cores at once (pairs with their screens, the overall screen). Each core is landed on a terminal at each end.",
+   "anchor": "wire-cables-cores",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-terminals",
+    "WIRE-trace",
+    "WIRE-cable-lengths",
+    "LIB-catalogs"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Cables and cores",
+    "level": "Beginner",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-cables-cores"
+  },
+  {
+   "id": "WIRE-trace",
+   "title": "Trace a circuit",
+   "summary": "Follow a circuit from an instrument through its cable, the junction box, the multicore and the marshalling to the I/O channel, with every terminal's reference designation.",
+   "anchor": "wire-trace",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-cables-cores",
+    "WIRE-construction-status"
+   ],
+   "roles": "Anyone who may view the project",
+   "training": {
+    "topic": "Tracing a circuit",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-trace"
+  },
+  {
+   "id": "WIRE-construction-status",
+   "title": "Construction status of cores and terminals",
+   "summary": "Mark cores, cables and terminals as issued for construction, installed, terminated, loop-checked or as-built.",
+   "anchor": "wire-construction-status",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-trace",
+    "WIRE-cables-cores"
+   ],
+   "roles": "A license and a project role that may edit relationships",
+   "training": {
+    "topic": "Construction status",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-construction-status"
+  },
+  {
+   "id": "WIRE-cable-lengths",
+   "title": "Cable lengths and the wiring settings",
+   "summary": "A cable has a length by hand and a length from 3D; E1 uses the one by hand and reports when they differ by more than the project's tolerance. Project settings → Wiring holds the tolerance and which names documents print first.",
+   "anchor": "wire-cable-lengths",
+   "status": "available",
+   "since": "2026-11-11",
+   "roadmap": [
+    "28.1"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-cables-cores",
+    "LIB-project-settings"
+   ],
+   "roles": "A project role that may configure the project (settings); a license and a project role that may edit objects (lengths)",
+   "training": {
+    "topic": "Cable lengths",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-cable-lengths"
+  },
+  {
+   "id": "WIRE-loop-diagram",
+   "title": "Loop diagrams from the wiring",
+   "summary": "The loop diagram follows each circuit through junction boxes, cables, marshalling and interposing devices to the I/O channel, with its power and screens, and is issued in bulk.",
+   "anchor": "wire-loop-diagram",
+   "status": "planned",
+   "roadmap": [
+    "28.2"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-trace",
+    "DRAW-loop-diagram"
+   ],
+   "roles": "A license and a project role that may edit documents",
+   "training": {
+    "topic": "Loop diagrams from the wiring",
+    "level": "Intermediate",
+    "minutes": 5
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-loop-diagram"
+  },
+  {
+   "id": "WIRE-typicals",
+   "title": "Signals and wiring typicals",
+   "summary": "Give devices their signals and a wiring typical with options and variants; E1 names wires, terminals and cables from it.",
+   "anchor": "wire-typicals",
+   "status": "planned",
+   "roadmap": [
+    "28.3"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-allocation"
+   ],
+   "roles": "A license and a project role that may edit objects",
+   "training": {
+    "topic": "Wiring typicals",
+    "level": "Intermediate",
+    "minutes": 6
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-typicals"
+  },
+  {
+   "id": "WIRE-allocation",
+   "title": "Allocation and Panorama EI&C",
+   "summary": "E1 proposes where every signal lands by the segregation rules and spares; you walk it hop by hop in Panorama EI&C and accept it.",
+   "anchor": "wire-allocation",
+   "status": "planned",
+   "roadmap": [
+    "28.4"
+   ],
+   "checks": [],
+   "related": [
+    "WIRE-typicals",
+    "WIRE-construction-status"
+   ],
+   "roles": "A license and a project role that may edit relationships",
+   "training": {
+    "topic": "Allocation and Panorama EI&C",
+    "level": "Advanced",
+    "minutes": 8
+   },
+   "screenshots": [],
+   "category": "wiring",
+   "page": "guide-wiring.html#wire-allocation"
   },
   {
    "id": "IPAD-sign-in",
