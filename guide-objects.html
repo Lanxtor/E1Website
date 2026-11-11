@@ -67,7 +67,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Objects, attributes and tags</p>
         <h1>4. Objects, attributes and tags</h1>
         <p class="lead">Make equipment and other objects from library classes, fill in attributes with units, relate objects, and tag them with your project&#x27;s rules.</p>
-        <div class="g-meta"><span>21 features</span><span>20 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>21 features</span><span>21 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="objects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 everything in the plant is an object: a pump, a valve, a function, an area, a pipe run. Each object is made from a class of the library, carries attributes with units, can be related to other objects, and gets its tag from your project's rules. Drawings, lists and datasheets all show the same objects.</p>
@@ -79,7 +79,7 @@
     <li><a href="#obj-relationships">Relate it to other objects</a>, for example a function that is implemented by a pump.</li>
     <li>For instruments, keep the project's <a href="#obj-hookups">hookups</a> in Assets ▸ Hookups and choose on each instrument which one it uses.</li>
     <li><a href="#obj-rename">Rename</a>, <a href="#obj-cases">add cases</a>, <a href="#obj-move">move</a>, <a href="#obj-void">void</a> or <a href="#obj-delete">delete</a> it.</li>
-    <li>See what is coming: <a href="#obj-deep-view">Deep view</a>, <a href="#obj-units">units of measurement</a> and <a href="#obj-calculations">calculations on attributes</a>.</li>
+    <li>See everything an object is associated with in its <a href="#obj-deep-view">Deep view</a>; see what is coming: <a href="#obj-units">units of measurement</a> and <a href="#obj-calculations">calculations on attributes</a>.</li>
   </ol>
   <h3>Before you start</h3>
   <p>You have a project with its sections (<a href="guide-projects.html#prj-new-project">Create a project</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a>). The classes and attributes you can choose come from the library in <span class="ui">Configuration</span> (<a href="guide-library.html#lib-configuration">Configuration</a>). The examples use the demo project with pumps Pump1 to Pump3 and valves V1 to V10; on a project of your own, use your own names.</p>
@@ -564,23 +564,37 @@
 
 <section class="g-feature" id="obj-deep-view">
   <h2>Deep view</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-deep-view</span><span>Roadmap M4</span></div>
-  <p class="g-summary">Deep view will be a graphical view of one object and what it is connected to. The tab and the menu item are there today, but they only show a placeholder.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">OBJ-deep-view</span><span>Roadmap M4.24</span></div>
+  <p class="g-summary">Deep view shows an object and every object associated with it, as a data model of cards and links, like a UML object diagram rather than a drawing. From a valve you follow the pipes on its ports to the pump beyond, the transmitter that measures the pump, its terminals, the cable core landed on them, the cable and the junction box at its other end, until nothing more is linked. You open it layer by layer, or all at once.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Object window → <span class="ui">Deep view</span>; right-click a symbol on a 2D space → <span class="ui">Deep view</span></dd>
-    <dt>Who</dt><dd>Everyone</dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
   </dl>
+  <h3>What you see</h3>
+  <ul>
+    <li><strong>Cards.</strong> Each card shows the class as «Check valve», the tag or name, and up to four values, the description first. <span class="ui">Attributes</span> on the toolbar hides or shows the values. The object is the outlined card on the left; the others stand in columns by how many links away they are.</li>
+    <li><strong>Links.</strong> Every relationship, in both directions, named from the card it starts at: <i>connects to (inlet)</i>, <i>measures</i>, <i>is located in</i>. A pipe, wire or cable core that ends on a port (a nozzle, a connection point) is linked to the port's object, and the port's name is in brackets. An owner and its parts (a strip and its terminals, a cable and its cores) are linked by <i>has part</i>, drawn with a diamond at the owner.</li>
+    <li><strong>+ and −.</strong> The <span class="ui">+n</span> on a card is how many objects it links to that are not shown. Click it for the next layer: a card linked to more than 30 objects shows 30 at a time. <span class="ui">−</span> closes what that card opened.</li>
+    <li><strong>The status line</strong> counts the objects, links and levels shown, and the cards with more to show.</li>
+  </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open Pump1 and click the <span class="ui">Deep view</span> tab.</td><td>The heading "Deep view" and the text "A graphical view of Pump1 will be shown here. It is being designed."</td></tr>
-      <tr><td>2</td><td>On a 2D space, right-click the pump's symbol → <span class="ui">Deep view</span>.</td><td>The object window opens on the same placeholder tab.</td></tr>
+      <tr><td>1</td><td>In the explorer, right-click V3 under Assets → <span class="ui">Open</span>, and click the <span class="ui">Deep view</span> tab.</td><td>The card of V3 («Check valve») and two cards «Pipe run», linked by "connects to (inlet)" and "connects to (outlet)". The status line reads "3 objects · 2 links · 2 levels · 1 with more to show": the inlet's pipe is open at its other end.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">+1</span> on the outlet's pipe.</td><td>The card of Pump1 («Centrifugal pump») appears to the right, linked by "connects to (suction)".</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Expand all</span>.</td><td>Every card opens until nothing more is linked: the pipe on Pump1's discharge and the objects beyond it. The status line ends with "nothing more to show". Expand all stops at 400 objects and says so.</td></tr>
+      <tr><td>4</td><td>Click the Pump1 card, then <span class="ui">Highlight route</span>.</td><td>The route from V3 through the pipe to Pump1 is drawn bold; everything else fades. Pump1's details are at the side: its links, <span class="ui">Open</span>, <span class="ui">Show in tree</span> and <span class="ui">Deep view of this</span>. Shift and a click on another card shows the route between the two.</td></tr>
+      <tr><td>5</td><td>Type <i>Pump</i> in <span class="ui">Find in view</span>, then clear it.</td><td>The cards whose tag, name, class or value holds the text are outlined, and the status line says how many are found.</td></tr>
+      <tr><td>6</td><td>Clear the check box <span class="ui">connects to</span> under the toolbar, then tick it again.</td><td>Those links, and the cards reached only through them, are left out, then shown again. Each kind of link has its own check box with how many are shown.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Deep view of this</span> in Pump1's details.</td><td>Pump1 becomes the center with its first layer. <span class="ui">Back to this object</span> above the view returns to V3.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Collapse all</span>.</td><td>Only the object and its first layer are left.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/object-tab-deep-view.webp" alt="Pump1 with the Deep view tab selected, showing the placeholder text that the graphical view is being designed." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Deep view</span> tab is a placeholder.</figcaption></figure>
-  <div class="g-dev"><p><strong>Being designed (listed under Controls that do not work yet in Help → Under construction, milestone M4).</strong> What it will show is not decided yet.</p></div>
-  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="guide-getting-started.html#gs-under-construction">Under construction</a></p>
+  <figure class="g-shot" style="max-width:742px"><img src="assets/img/guides/object-tab-deep-view.webp" alt="The Deep view of V3 after Expand all: the toolbar framed, V3's card on the left linked to two pipe runs, and the route to Pump1 highlighted, with Pump1's details at the side." width="1484" height="1180" loading="lazy"><figcaption>The <span class="ui">Deep view</span> of V3 with the route to Pump1 highlighted; the toolbar is framed.</figcaption></figure>
+  <p class="g-note">Moving around: the mouse wheel moves the view, Ctrl (⌘ on a Mac) and the wheel zoom it, and you can drag the background. <span class="ui">Fit</span>, <span class="ui">−</span> and <span class="ui">+</span> size it. After you open or close cards the network is fitted to the view, never smaller than 50% so it stays readable; once you have moved or zoomed the view yourself, the card you opened stays where it was. A double-click on a card opens its object window. With the keyboard: Tab to a card, Enter or Space chooses it, + and − open and close it.</p>
+  <p class="g-note">A project, folder or 2D space that is not an object of a class has no associations, and its Deep view tab says so.</p>
+  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-relationships">Relate objects</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol menu</a></p>
 </section>
 
 <section class="g-feature" id="obj-units">

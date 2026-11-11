@@ -17,7 +17,16 @@ function helpers(page, log) {
   const h = {
     page,
     async ready() { await page.locator('.save-state').filter({ hasText: 'Saved' }).waitFor({ timeout: 30000 }).catch(() => {}); await page.waitForTimeout(600); },
-    async open(url = BASE) { await page.goto(url); await h.ready(); },
+    async open(url = BASE) {
+      await page.goto(url);
+      // A new user accepts the E1 Terms and License Agreement first.
+      const terms = page.getByRole('checkbox', { name: /accept the E1 Terms and License Agreement/ });
+      if (await terms.waitFor({ timeout: 3000 }).then(() => true, () => false)) {
+        await terms.check();
+        await page.getByRole('button', { name: 'Accept and continue' }).click();
+      }
+      await h.ready();
+    },
     reset() {
       const store = S + '/store';
       for (const name of fs.readdirSync(store)) if (name !== 'base.json') fs.rmSync(path.join(store, name), { recursive: true, force: true });
