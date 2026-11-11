@@ -1,0 +1,209 @@
+[
+  {
+    "id": "WIRE-enclosures",
+    "title": "Cabinets and junction boxes: where they are and what they hold",
+    "summary": "A cabinet or junction box is two objects: its location in Areas and the enclosure in Assets. The enclosure holds rails, terminal strips, I/O cards with their channels, interposing devices, power supplies and earth bars.",
+    "anchor": "wire-enclosures",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.1"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-terminals",
+      "WIRE-cables-cores",
+      "OBJ-new-object",
+      "OBJ-relationships"
+    ],
+    "roles": "A license and a project role that may edit objects",
+    "training": {
+      "topic": "Cabinets and junction boxes",
+      "level": "Beginner",
+      "minutes": 5
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-terminals",
+    "title": "Add terminals to a strip",
+    "summary": "Add numbered terminals to a terminal strip, a channel, an earth bar, a power supply or an instrument in one step, counting on from the last one.",
+    "anchor": "wire-terminals",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.1"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-enclosures",
+      "WIRE-cables-cores"
+    ],
+    "roles": "A license and a project role that may edit objects",
+    "training": {
+      "topic": "Terminal strips and terminals",
+      "level": "Beginner",
+      "minutes": 3
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-cables-cores",
+    "title": "Cables, their cores, and landing a core on a terminal",
+    "summary": "A cable made from a cable type in the catalog gets its cores at once (pairs with their screens, the overall screen). Each core is landed on a terminal at each end.",
+    "anchor": "wire-cables-cores",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.1"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-terminals",
+      "WIRE-trace",
+      "WIRE-cable-lengths",
+      "LIB-catalogs"
+    ],
+    "roles": "A license and a project role that may edit objects",
+    "training": {
+      "topic": "Cables and cores",
+      "level": "Beginner",
+      "minutes": 5
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-trace",
+    "title": "Trace a circuit",
+    "summary": "Follow a circuit from an instrument through its cable, the junction box, the multicore and the marshalling to the I/O channel, with every terminal's reference designation.",
+    "anchor": "wire-trace",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.1"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-cables-cores",
+      "WIRE-construction-status"
+    ],
+    "roles": "Anyone who may view the project",
+    "training": {
+      "topic": "Tracing a circuit",
+      "level": "Beginner",
+      "minutes": 3
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-construction-status",
+    "title": "Construction status of cores and terminals",
+    "summary": "Mark cores, cables and terminals as issued for construction, installed, terminated, loop-checked or as-built.",
+    "anchor": "wire-construction-status",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.1"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-trace",
+      "WIRE-cables-cores"
+    ],
+    "roles": "A license and a project role that may edit relationships",
+    "training": {
+      "topic": "Construction status",
+      "level": "Intermediate",
+      "minutes": 3
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-cable-lengths",
+    "title": "Cable lengths and the wiring settings",
+    "summary": "A cable has a length by hand and a length from 3D; E1 uses the one by hand and reports when they differ by more than the project's tolerance. Project settings → Wiring holds the tolerance and which names documents print first.",
+    "anchor": "wire-cable-lengths",
+    "status": "available",
+    "since": "2026-11-11",
+    "roadmap": [
+      "28.1"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-cables-cores",
+      "LIB-project-settings"
+    ],
+    "roles": "A project role that may configure the project (settings); a license and a project role that may edit objects (lengths)",
+    "training": {
+      "topic": "Cable lengths",
+      "level": "Intermediate",
+      "minutes": 3
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-loop-diagram",
+    "title": "Loop diagrams from the wiring",
+    "summary": "The loop diagram follows each circuit through junction boxes, cables, marshalling and interposing devices to the I/O channel, with its power and screens, and is issued in bulk.",
+    "anchor": "wire-loop-diagram",
+    "status": "planned",
+    "roadmap": [
+      "28.2"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-trace",
+      "DRAW-loop-diagram"
+    ],
+    "roles": "A license and a project role that may edit documents",
+    "training": {
+      "topic": "Loop diagrams from the wiring",
+      "level": "Intermediate",
+      "minutes": 5
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-typicals",
+    "title": "Signals and wiring typicals",
+    "summary": "Give devices their signals and a wiring typical with options and variants; E1 names wires, terminals and cables from it.",
+    "anchor": "wire-typicals",
+    "status": "planned",
+    "roadmap": [
+      "28.3"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-allocation"
+    ],
+    "roles": "A license and a project role that may edit objects",
+    "training": {
+      "topic": "Wiring typicals",
+      "level": "Intermediate",
+      "minutes": 6
+    },
+    "screenshots": []
+  },
+  {
+    "id": "WIRE-allocation",
+    "title": "Allocation and Panorama EI&C",
+    "summary": "E1 proposes where every signal lands by the segregation rules and spares; you walk it hop by hop in Panorama EI&C and accept it.",
+    "anchor": "wire-allocation",
+    "status": "planned",
+    "roadmap": [
+      "28.4"
+    ],
+    "checks": [],
+    "related": [
+      "WIRE-typicals",
+      "WIRE-construction-status"
+    ],
+    "roles": "A license and a project role that may edit relationships",
+    "training": {
+      "topic": "Allocation and Panorama EI&C",
+      "level": "Advanced",
+      "minutes": 8
+    },
+    "screenshots": []
+  }
+]

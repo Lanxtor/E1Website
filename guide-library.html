@@ -32,7 +32,8 @@
           <li><a href="guide-library.html" aria-current="page">10. Configuration, library and catalogs</a></li>
           <li><a href="guide-ai.html">11. AI: Alex</a></li>
           <li><a href="guide-account.html">12. Your account, Academy and website</a></li>
-          <li><a href="guide-reviewer.html">13. E1 Reviewer for iPad</a></li>
+          <li><a href="guide-wiring.html">13. Wiring (EI&amp;C)</a></li>
+          <li><a href="guide-reviewer.html">14. E1 Reviewer for iPad</a></li>
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
@@ -598,7 +599,7 @@
 <section class="g-feature" id="lib-rules">
   <h2>Rules: calculations, check rules and copy rules</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span></div>
-  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships are available; check rules and copy rules come in the next stages.</p>
+  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, and check rules, are available; copy rules come in a next stage.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Rules</span>; on an object page, a calculated value shows <span class="ui">ƒ</span> and <span class="ui">Why this value?</span></dd>
     <dt>Who</dt><dd>Making, publishing and withdrawing rules: Manage project rules (the Project administrator has it). Everyone who can view the project sees the values and why.</dd>
@@ -624,6 +625,16 @@
     </tbody>
   </table></div>
   <p class="g-note">Rules that read each other's targets in a circle are refused when saved, with the circle named (<em>Description → Short code → Description</em>).</p>
+  <h3>Make a check rule</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In a new rule, set <span class="ui">Kind</span> (Target) to <em>Check: a finding</em>. Choose its <span class="ui">Severity</span> (Error, Warning, Information) and type its <span class="ui">Message</span>, for example <code>{object}: no description</code>; <code>{object}</code> is the object's tag or name, and any input or step name shows its value.</td><td>—</td></tr>
+      <tr><td>2</td><td>Make the last step a <em>Compare</em> step: the input, a condition (<em>=, ≠, &lt;, ≤, &gt;, ≥, is, is not, contains, has a value, is empty</em>), and the value or the name it is compared with. Units convert: <code>3000 kPa ≤ 40 bar</code> holds.</td><td>The preview shows each sample object with <em>holds</em> or its finding, and how many get one.</td></tr>
+      <tr><td>3</td><td><span class="ui">Save draft</span>, then <span class="ui">Publish…</span>.</td><td>Publishing says how many objects it checks and how many get a finding. The rule's row reads <em>Check: an error</em>. From then on its findings are on each object's <a href="guide-objects.html#obj-checks">Checks</a> tab, and an error blocks issuing a revision until it is fixed or accepted.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A check that cannot read an input gives a finding of its own severity that says so. A calculation with a missing input gives a warning finding too.</p>
   <h3>Calculated values</h3>
   <ul>
     <li>When an input changes (the object's own value, its owner's, or a related object's), or a relationship it reads through is made or removed, the value changes in the same change, and a new object of the class gets it when it is made.</li>
@@ -631,7 +642,7 @@
     <li><span class="ui">Why this value?</span> shows the rule and version, each input with its value and the object it came from, and each step's result. When an input is missing the value is empty and the reason is shown.</li>
     <li><span class="ui">Withdraw</span> pauses a rule: its values stay, as ordinary values people may change. <span class="ui">Publish…</span> again calculates them again.</li>
   </ul>
-  <p class="g-warn">Not built yet: check rules and findings (12.3), copy rules (12.4), calculated values on drawing labels and in the API marked as calculated (12.5), and organization and content package rules (12.6).</p>
+  <p class="g-warn">Not built yet: copy rules (12.4), calculated values on drawing labels and in the API marked as calculated (12.5), and organization and content package rules (12.6).</p>
   <p class="g-related">Related: <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-configuration">Configuration</a></p>
 </section>
 
