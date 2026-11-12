@@ -278,7 +278,7 @@
 
 <section class="g-feature" id="obj-tag-rules">
   <h2>Set up tag rules for a project</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-tag-rules</span><span>Roadmap M1.8</span><span>Review checks C3, K2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-12</span><span class="g-id">OBJ-tag-rules</span><span>Roadmap M1.8</span><span>Review checks C3, K2</span></div>
   <p class="g-summary">The tag configurator sets how a project's objects are tagged: rules per class built from segments (text, attributes, the owner, a running number), lookup tables and options. You see a sample tag as you build, test the rules against the project, and save.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Select one project, then <span class="ui">File</span> → <span class="ui">Project settings…</span> → <span class="ui">Tag rules</span>; or left rail <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Tag rules</span></dd>
@@ -289,18 +289,31 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select the project and choose <span class="ui">File</span> → <span class="ui">Project settings…</span>, then go to <span class="ui">Tag rules</span>.</td><td>The text "New objects get their tags from these rules at once; existing objects change only when retagged." and a list <span class="ui">Rules</span> with the default rule.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Add rule</span>.</td><td>A rule "New rule" is added and selected, with three segments (an attribute, the text "-", a running number).</td></tr>
-      <tr><td>3</td><td>Type <code>Pumps</code> in <span class="ui">Name</span> and <code>plant.class.equipment.pump</code> in <span class="ui">Applies to (class keys, comma separated; empty for the default rule)</span>.</td><td>The rule shows its name in the list.</td></tr>
-      <tr><td>4</td><td>Set <span class="ui">Segment 1 source</span> to <code>text</code> and type <code>PU</code> in its text field.</td><td>The sample tag changes to start with PU.</td></tr>
-      <tr><td>5</td><td>Set the start of segment 3 (the running number) to <code>101</code>.</td><td>The <span class="ui">Sample tag</span> reads <span class="ui">PU-101</span>.</td></tr>
+      <tr><td>1</td><td>Select the project and choose <span class="ui">File</span> → <span class="ui">Project settings…</span>, then click <span class="ui">Tag rules</span> in the bar at the top.</td><td>The card: the list <span class="ui">Rules</span> on the left (each with the classes it tags; <span class="ui">Default rule: every other object</span>), and the chosen rule on the right with its <span class="ui">Preview</span> first: the tag it gives a new object of the class under "for a new", with its segments as blocks.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add rule</span>.</td><td>A rule "New rule" is added and selected, with three segments (an attribute, the text "-", a running number). The bar at the end reads "Unsaved changes. Test them against the project, then save."</td></tr>
+      <tr><td>3</td><td>Type <code>Pumps</code> in <span class="ui">Rule name</span>. Under <span class="ui">Applies to</span>, choose Pump in <span class="ui">Add a class…</span> (or type <code>plant.class.equipment.pump</code> in the field).</td><td>The rule shows its name and Pump in the list; Pump is a chip under <span class="ui">Applies to</span> with × to remove it.</td></tr>
+      <tr><td>4</td><td>In segment 1 set <span class="ui">Source</span> to <span class="ui">Fixed text</span> and type <code>PU</code> in <span class="ui">Text</span>.</td><td>The preview starts with PU.</td></tr>
+      <tr><td>5</td><td>In segment 3 (<span class="ui">Running number</span>) set <span class="ui">Starts at</span> to <code>101</code>.</td><td>The preview reads <span class="ui">PU-101</span>.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Test against project</span>.</td><td>"<i>n</i> of <i>m</i> objects would get another tag." and a table with the columns Now, With these rules and Class. Nothing has changed yet.</td></tr>
       <tr><td>7</td><td>Click <span class="ui">Save rules</span>.</td><td>"Saved. New objects use these rules; retag to change existing tags."</td></tr>
       <tr><td>8</td><td>Create a Centrifugal pump under <span class="ui">Assets</span>.</td><td>Its heading is <span class="ui">PU-101</span>. Existing pumps keep their tags until you use <a href="#obj-retag">Retag…</a>.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-project-settings.webp" alt="Configuration with the Project settings section open: the project Demo Plant ticked in the Projects list, and below it the buttons Content packages, Drawing and Tag rules, with the Content packages card shown." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Configuration</span> → <span class="ui">Project settings</span>: <span class="ui">Tag rules</span> is next to <span class="ui">Content packages</span> and <span class="ui">Drawing</span>.</figcaption></figure>
+  <h3>Segments</h3>
+  <div class="g-table-wrap"><table>
+    <thead><tr><th>Source</th><th>What it gives</th></tr></thead>
+    <tbody>
+      <tr><td>Fixed text</td><td>The same text in every tag, such as - or PU.</td></tr>
+      <tr><td>Attribute</td><td>A value of the object itself, such as its short code. A lookup table can replace it; Upper case capitalises it.</td></tr>
+      <tr><td>Owner's attribute</td><td>A value of what the object is part of, such as its unit.</td></tr>
+      <tr><td>Related object's attribute</td><td>A value of an object it is related to, such as the area it is located in.</td></tr>
+      <tr><td>Project attribute</td><td>A value of the project, such as its code.</td></tr>
+      <tr><td>Running number</td><td>A number with Digits and Starts at, counted per prefix (PU-001, V-001), per rule or per project.</td></tr>
+    </tbody>
+  </table></div>
   <h3>Options</h3>
+  <p><span class="ui">Lookup tables</span> and <span class="ui">Options</span> are folded under the rule; click one to open it.</p>
   <div class="g-table-wrap"><table>
     <thead><tr><th>Option</th><th>Choices</th></tr></thead>
     <tbody>
@@ -313,7 +326,7 @@
       <tr><td>Short codes</td><td>Conventional letters (P, V, TK), IEC 81346-2 letter codes (GPB, QM, CM)</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The rule list has <span class="ui">Move up</span>, <span class="ui">Move down</span>, <span class="ui">Remove rule</span> and <span class="ui">Start from template</span> (the library's rules). Each segment has ↑, ↓ and ×; <span class="ui">Add segment</span> adds one. A segment's source can be text, an attribute, the owner, a related object, the project or a sequence. <span class="ui">Lookup tables</span> take one "text = replacement" per line; <span class="ui">Add table</span> makes a new one. The sample can be shown for another class with the class picker next to "Sample:".</p>
+  <p class="g-note">An object takes the rule that names its most specific class; a rule with nothing under <span class="ui">Applies to</span> is the default rule. Beside <span class="ui">Rule name</span> are <span class="ui">Move up</span>, <span class="ui">Move down</span> and <span class="ui">Remove rule</span>; under the list, <span class="ui">Start from template</span> puts the library's rules back. Each segment has ↑, ↓ and ×; <span class="ui">Add segment</span> adds one. <span class="ui">Lookup tables</span> take one "text = replacement" per line; <span class="ui">Add table</span> makes a new one.</p>
   <div class="g-dev"><p><strong>Planned (roadmap 12.5, M6 Rules):</strong> the tag configurator will run on the same rule engine as calculations and lists, so that rules can be used everywhere and tags follow them.</p></div>
   <p class="g-related">Related: <a href="#obj-tags">Automatic tags</a> · <a href="#obj-retag">Retag…</a> · <a href="guide-library.html#lib-configuration">Configuration</a> · <a href="#obj-calculations">Calculations</a></p>
 </section>
