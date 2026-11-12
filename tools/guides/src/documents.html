@@ -244,9 +244,9 @@
 </section>
 
 <section class="g-feature" id="doc-sign-off">
-  <h2>Sign-off: Prepared, Checked, Approved</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sign-off</span><span>Roadmap 29.1</span><span>Review check E8</span></div>
-  <p class="g-summary">Every revision is signed by who prepared it, checked by someone else and approved by someone with Issue revisions; each signature asks you to confirm it is you. Reject… and Withdraw… take it back.</p>
+  <h2>Sign-off of a revision</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sign-off</span><span>Roadmap 29.1, 29.5</span><span>Review check E8</span></div>
+  <p class="g-summary">Every revision is signed along its purpose's route: by who prepared it, checked by someone else and approved by someone with Issue revisions (IFI and VOID: Prepared and Approved; IFC: a project engineer after Approved); each signature asks you to confirm it is you. Reject… and Withdraw… take it back.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The <span class="ui">Sign-off</span> panel of the open revision, in its document's window or its 2D space's page</dd>
     <dt>Who</dt><dd>Checked: Sign revisions (Engineer and above); Approved: Issue revisions (Lead engineer and above). A Reviewer, a token and Alex never sign.</dd>
@@ -261,8 +261,50 @@
       <tr><td>4</td><td>As a Lead, click <span class="ui">Reject…</span>, give a reason, and <span class="ui">Reject</span>.</td><td>The revision is <span class="ui">Rejected</span> with the reason; <span class="ui">Withdraw…</span> takes it back, and a new revision gets the same label.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">A small team can turn off “Someone else checks and approves” in Project settings → Documents; one person may then sign every step. A signature binds to the frozen revision: if it no longer matches, signing is refused.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-status">Statuses of a version or revision</a></p>
+  <p class="g-note">The route of each purpose is chosen in Project settings → Documents → <span class="ui">Sign-off</span>, from E1's routes and the <a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a> of the company and the project; a revision keeps the route it started with. A small team can turn off “Someone else checks and approves” in Project settings → Documents; one person may then sign every step. A signature binds to the frozen revision: if it no longer matches, signing is refused.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-reassign-signer">Reassign a step of a sign-off</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-status">Statuses of a version or revision</a></p>
+</section>
+
+<section class="g-feature" id="doc-reassign-signer">
+  <h2>Reassign a step of a sign-off</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-reassign-signer</span><span>Roadmap 29.5</span><span>Review check E14</span></div>
+  <p class="g-summary">Reassign… beside a step not signed yet gives it to one of the project's people who may sign it, or back to anyone who may; a step past its days to sign is marked Late, and its signer and the creator are told.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The <span class="ui">Sign-off</span> panel of the open revision → <span class="ui">Reassign…</span> beside a step</dd>
+    <dt>Who</dt><dd>The revision's creator, or Issue revisions (Lead engineer and above)</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In a revision in sign-off, click <span class="ui">Reassign…</span> beside <span class="ui">Checked</span>.</td><td>“Who signs Checked?” with <span class="ui">Anyone who may sign it</span> and the project's people who may sign it; whoever prepared it is not listed.</td></tr>
+      <tr><td>2</td><td>Choose a colleague and click <span class="ui">Reassign</span>.</td><td>“Checked is assigned to …”; the step reads “waiting for …” and they are told.</td></tr>
+      <tr><td>3</td><td>As someone else who may sign, open the revision.</td><td>Signing Checked is refused: it is assigned to your colleague.</td></tr>
+      <tr><td>4</td><td>Reassign it to <span class="ui">Anyone who may sign it</span>.</td><td>“Checked is open to anyone who may sign it.”</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A step not signed within its days to sign (Project settings → Documents → <span class="ui">Days to sign a step</span>, or the route's own) is marked <span class="ui">Late</span>, and its signer and the revision's creator are told once. A signer who loses the right to sign is taken off the step, which is then open to anyone who may sign it, and the creator is told. Without accounts (the desktop app) there is no one to list.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off of a revision</a>, <a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a></p>
+</section>
+
+<section class="g-feature" id="doc-audit-report">
+  <h2>The audit report of a document</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-audit-report</span><span>Roadmap 29.5</span><span>Review check E14</span></div>
+  <p class="g-summary">Audit report (CSV) and Audit report (PDF) on the Document control card: every version and revision with its creation, each signature or rejection with who, when, the sentence signed and the sign-in, the issue with its PDF's fingerprint, withdrawals, deletions and restores.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The <span class="ui">Document control</span> card of a document's window or a 2D space's page</dd>
+    <dt>Who</dt><dd>Issue revisions or Configure documents (Lead engineer and above); versions are listed only for people who see them</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a document with an issued revision and click <span class="ui">Audit report (CSV)</span>.</td><td>A file <code>&lt;number&gt;_audit.csv</code> with the columns Output, Kind, Purpose, Status, Event, Step, By, At, Meaning, Sign-in and Snapshot SHA-256.</td></tr>
+      <tr><td>2</td><td>Open it.</td><td>A line per event in time order: Created, Signed (with the sentence signed, such as “I have checked revision A of …”), Rejected, Issued (with the PDF and its fingerprint), Withdrawn, Deleted and Restored with their reasons.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Audit report (PDF)</span>.</td><td>The same as a PDF with the project and the document in its title.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off of a revision</a>, <a href="guide-documents.html#doc-delete-output">Delete and restore a version or revision</a></p>
 </section>
 
 <section class="g-feature" id="doc-delete-output">
@@ -289,8 +331,8 @@
 
 <section class="g-feature" id="doc-document-settings">
   <h2>Project settings → Documents</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Roadmap 29.1</span><span>Review check E9</span></div>
-  <p class="g-summary">The project’s revision scheme, document number pattern, purposes of issue, who sees versions, how long deleted outputs are kept, four-eyes and the output format.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Roadmap 29.1, 29.5</span><span>Review check E9</span></div>
+  <p class="g-summary">The project's revision scheme, document number pattern, purposes of issue, who sees versions, how long deleted outputs are kept, four-eyes, the sign-off route of each purpose and the output format.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Project settings → <span class="ui">Documents</span></dd>
     <dt>Who</dt><dd>Configure documents (Lead engineer and project administrator)</dd>
@@ -306,6 +348,7 @@
       <tr><td><span class="ui">Versions visible to</span></td><td>Reviewer and above (the default), Engineer and above, or everyone who may view the document.</td></tr>
       <tr><td><span class="ui">Deleted outputs are kept for</span></td><td>How long a deleted version or revision can be restored (30 days by default).</td></tr>
       <tr><td><span class="ui">Someone else checks and approves</span></td><td>Four-eyes; off for a small team.</td></tr>
+      <tr><td><span class="ui">Sign-off</span>: a route per purpose, <span class="ui">Versions</span>, <span class="ui">Days to sign a step</span></td><td>The route each purpose's revisions follow (by default Prepared, checked, approved; Prepared, approved for IFI and VOID; with a project engineer for IFC), the route of versions, and the days before a step is late (<a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a>).</td></tr>
       <tr><td><span class="ui">Print INTERNAL — NOT FOR ISSUE on versions</span>, <span class="ui">Page</span>, <span class="ui">Date format</span></td><td>The output format.</td></tr>
     </tbody>
   </table></div>

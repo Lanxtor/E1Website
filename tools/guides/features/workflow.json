@@ -188,7 +188,7 @@
  {
   "id": "WF-move",
   "title": "Move an item to another step",
-  "summary": "On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back.",
+  "summary": "On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back. In a query view, Move to… moves the selected rows' items at once.",
   "anchor": "wf-move",
   "status": "available",
   "since": "2026-11-11",
@@ -196,7 +196,8 @@
    "33.2"
   ],
   "checks": [
-   "S3"
+   "S3",
+   "S10"
   ],
   "related": [
    "WF-status-chip",
@@ -450,13 +451,15 @@
   "status": "available",
   "since": "2026-11-12",
   "roadmap": [
-   "33.5"
+   "33.5",
+   "33.7"
   ],
   "checks": [
    "S6"
   ],
   "related": [
-   "WF-dashboard-edit"
+   "WF-dashboard-edit",
+   "IPAD-progress-card"
   ],
   "roles": "As editing the dashboard",
   "training": {

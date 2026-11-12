@@ -175,8 +175,8 @@
 
 <section class="g-feature" id="wf-move">
   <h2>Move an item to another step</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-move</span><span>Roadmap 33.2</span><span>Review checks S3</span></div>
-  <p class="g-summary">On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-move</span><span>Roadmap 33.2</span><span>Review checks S3, S10</span></div>
+  <p class="g-summary">On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back. In a query view, <span class="ui">Move to…</span> moves the selected rows' items at once.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The status chip on an object's window; the <a href="#wf-board">board</a>; Alex for many at once</dd>
     <dt>Who</dt><dd>Move items in their workflow (Engineer and above)</dd>
@@ -189,6 +189,7 @@
       <tr><td>3</td><td>On the chip choose <span class="ui">Move back to In design…</span> and type a reason.</td><td>It moves back; the reason is kept and the return is counted.</td></tr>
       <tr><td>4</td><td>Move it on to <em>Closed</em> and type a new description.</td><td>Refused: it is in a locked step of its workflow. Move it back to change it.</td></tr>
       <tr><td>5</td><td>Choose <span class="ui">Remove…</span>, then <span class="ui">Restore to …</span>, each with a reason.</td><td>Removed, then back in the step it left.</td></tr>
+      <tr><td>6</td><td>In a query view of the tanks, select several rows (Ctrl-click), right-click and choose <span class="ui">Move to…</span>. Pick <em>In design</em> and <span class="ui">Move</span>.</td><td>The list offers the steps they may move to, each with how many may. Those that can move move together as one change (Ctrl+Z undoes it); the rows that did not move are listed with why: on hold, at an approval, following no workflow, criteria not met.</td></tr>
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-board">The board</a> · <a href="#wf-hold">Hold</a></p>
@@ -378,7 +379,7 @@
 
 <section class="g-feature" id="wf-dashboard-audience">
   <h2>Who sees a dashboard</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-dashboard-audience</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-dashboard-audience</span><span>Roadmap 33.5, 33.7</span><span>Review checks S6</span></div>
   <p class="g-summary">Who sees it: everyone in the project, Lead engineers or Project administrators. Show in E1 Reviewer offers the dashboard on the iPad.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span> → <span class="ui">Edit</span> → <span class="ui">Who sees it</span></dd>
@@ -388,10 +389,10 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Choose <em>Lead engineers</em> and Save.</td><td>An Engineer no longer finds the dashboard in the picker.</td></tr>
-      <tr><td>2</td><td>Tick <span class="ui">Show in E1 Reviewer</span> and Save.</td><td>The dashboard is offered in E1 Reviewer.</td></tr>
+      <tr><td>2</td><td>Tick <span class="ui">Show in E1 Reviewer</span>, choose each tile's size under <span class="ui">Tiles</span> (<span class="ui">iPad: Small</span>, <span class="ui">Medium</span> or <span class="ui">Wide</span>) and Save.</td><td>The dashboard is offered on E1 Reviewer's Progress card, its tiles in those sizes.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related:  <a href="#wf-dashboard-edit">Change a dashboard</a></p>
+  <p class="g-related">Related:  <a href="#wf-dashboard-edit">Change a dashboard</a> · <a href="guide-reviewer.html#ipad-progress-card">The Progress card on the iPad</a></p>
 </section>
 
 <section class="g-feature" id="wf-every-project">

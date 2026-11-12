@@ -291,13 +291,14 @@
  },
  {
   "id": "DOC-sign-off",
-  "title": "Sign-off: Prepared, Checked, Approved",
-  "summary": "Every revision is signed by who prepared it, checked by someone else and approved by someone with Issue revisions; each signature asks you to confirm it is you. Reject… and Withdraw… take it back.",
+  "title": "Sign-off of a revision",
+  "summary": "Every revision is signed along its purpose's route: by who prepared it, checked by someone else and approved by someone with Issue revisions (IFI and VOID: Prepared and Approved; IFC: a project engineer after Approved); each signature asks you to confirm it is you. Reject… and Withdraw… take it back.",
   "anchor": "doc-sign-off",
   "status": "available",
   "since": "2026-11-12",
   "roadmap": [
-   "29.1"
+   "29.1",
+   "29.5"
   ],
   "checks": [
    "E8"
@@ -305,13 +306,67 @@
   "related": [
    "DOC-sheet-revisions",
    "DOC-issue",
-   "DOC-status"
+   "DOC-status",
+   "DOC-reassign-signer",
+   "LIB-documents-signoff-routes"
   ],
   "roles": "Checked: Sign revisions (Engineer and above); Approved: Issue revisions (Lead engineer and above); never a Reviewer, a token or Alex",
   "training": {
    "topic": "Signing off a revision",
    "level": "Intermediate",
    "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-reassign-signer",
+  "title": "Reassign a step of a sign-off",
+  "summary": "Reassign… beside a step not signed yet gives it to one of the project's people who may sign it, or back to anyone who may; a step past its days to sign is marked Late, and its signer and the creator are told.",
+  "anchor": "doc-reassign-signer",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.5"
+  ],
+  "checks": [
+   "E14"
+  ],
+  "related": [
+   "DOC-sign-off",
+   "DOC-document-settings",
+   "LIB-documents-signoff-routes"
+  ],
+  "roles": "The revision's creator, or Issue revisions (Lead engineer and above)",
+  "training": {
+   "topic": "Signing off a revision",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-audit-report",
+  "title": "The audit report of a document",
+  "summary": "Audit report (CSV) and Audit report (PDF) on the Document control card: every version and revision with its creation, each signature or rejection with who, when, the sentence signed and the sign-in, the issue with its PDF's fingerprint, withdrawals, deletions and restores.",
+  "anchor": "doc-audit-report",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.5"
+  ],
+  "checks": [
+   "E14"
+  ],
+  "related": [
+   "DOC-sign-off",
+   "DOC-delete-output",
+   "DOC-issue"
+  ],
+  "roles": "Issue revisions or Configure documents (Lead engineer and above); versions only for people who see them",
+  "training": {
+   "topic": "Signing off a revision",
+   "level": "Intermediate",
+   "minutes": 2
   },
   "screenshots": []
  },
@@ -343,12 +398,13 @@
  {
   "id": "DOC-document-settings",
   "title": "Project settings → Documents",
-  "summary": "The project’s revision scheme, document number pattern, purposes of issue, who sees versions, how long deleted outputs are kept, four-eyes and the output format.",
+  "summary": "The project's revision scheme, document number pattern, purposes of issue, who sees versions, how long deleted outputs are kept, four-eyes, the sign-off route of each purpose and the output format.",
   "anchor": "doc-document-settings",
   "status": "available",
   "since": "2026-11-12",
   "roadmap": [
-   "29.1"
+   "29.1",
+   "29.5"
   ],
   "checks": [
    "E9"
