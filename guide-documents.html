@@ -55,6 +55,7 @@
           <li><a href="#doc-sign-off">Sign-off: Prepared, Checked, Approved</a></li>
           <li><a href="#doc-delete-output">Delete and restore a version or revision</a></li>
           <li><a href="#doc-document-settings">Project settings → Documents</a></li>
+          <li><a href="#doc-changes-since">Changes since a date on the drawing</a></li>
           <li><a href="#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></li>
           <li><a href="#doc-sheet-pdf">PDF of a P&amp;ID 2D space</a></li>
           <li><a href="#doc-print">Print… and Ctrl+P</a></li>
@@ -78,7 +79,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Documents, revisions and datasheets</p>
         <h1>7. Documents, revisions and datasheets</h1>
         <p class="lead">Documents and their revisions, issuing, changed since, PDF and Excel output, sheet PDF and printing, datasheets and the datasheet designer.</p>
-        <div class="g-meta"><span>30 features</span><span>29 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>31 features</span><span>30 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="documents-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Documents are the deliverables of a project: lists, drawings plotted to PDF, datasheets and uploaded files. Each document has revisions A, B, …; issuing a revision freezes it and its PDF, and E1 then shows what changed since. Datasheets are also the everyday screen of an object, with a designer to lay them out.</p>
@@ -391,6 +392,31 @@
   </table></div>
   <p class="g-note">Each setting is saved at once and applies to outputs made afterwards; outputs already made never change.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-versions">Versions of a 2D space</a>, <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a></p>
+</section>
+
+<section class="g-feature" id="doc-changes-since">
+  <h2>Changes since a date on the drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-changes-since</span><span>Roadmap 29.2</span><span>Review check E11</span></div>
+  <p class="g-summary">Changes since… on a 2D space draws a cloud around everything added, deleted, modified or moved since a day, a revision or a version, with before → after and who changed it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An open 2D space → the drawing toolbar → <span class="ui">Changes since…</span> (<kbd>Shift</kbd>+<kbd>C</kbd>)</dd>
+    <dt>Who</dt><dd>Anyone who may view the 2D space; a version is a choice only for people who see versions</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Changes since…</span>.</td><td>A box with <span class="ui">Last revision</span> and <span class="ui">Last version</span> (when the 2D space has them), <span class="ui">Yesterday</span>, <span class="ui">Last 7 days</span>, <span class="ui">Start of the project</span>, and a <span class="ui">Day</span> and <span class="ui">Time</span> with <span class="ui">Show changes</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Last 7 days</span>.</td><td>The toolbar shows “Changes since &lt;date&gt; · &lt;count&gt;”, and every change has a cloud: added green with +, deleted red and dashed with −, modified amber with ✎, moved blue with ↔ and a faint box where it was.</td></tr>
+      <tr><td>3</td><td>Click a cloud.</td><td>Its card: the element, the kind, each field before → after (for example “Design pressure / In: 16 bar(g) → 25 bar(g)”), “Changed by …, &lt;date and time&gt;”, and <span class="ui">Open the object</span>.</td></tr>
+      <tr><td>4</td><td>Click the count on the toolbar.</td><td>The <span class="ui">Changes</span> list, by kind; click one to show its card.</td></tr>
+      <tr><td>5</td><td>Change something on the 2D space.</td><td>Its cloud appears a moment later; editing stays on.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">×</span> beside the count.</td><td>The clouds are gone.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The 2D space as it was then is rebuilt from the project's history; since a revision or a version it is that output's frozen copy. Your choice is kept in this browser only and is never part of the drawing. <span class="ui">Layers</span> ▸ <span class="ui">Changes since</span> hides the clouds.</p>
+  <p class="g-warn">Where the history before a date is not kept, the list says so instead of guessing. The calendar does not mark the days with changes yet.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></p>
 </section>
 
 <section class="g-feature" id="doc-changed-since">
@@ -752,7 +778,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open Configuration → Datasheets.</td><td>Under Content packages, templates such as <span class="ui">Magnetic Flowmeter with or without Integral Totalizer Indicator specification</span> read “inspired by ISA 20F2321”, and <span class="ui">Centrifugal pump specification</span> reads “inspired by API 610”.</td></tr>
+      <tr><td>1</td><td>Open Configuration → Datasheets.</td><td>Under Content packages, templates such as <span class="ui">Electromagnetic flowmeter specification</span> read “inspired by ISA 20F2321”, and <span class="ui">Centrifugal pump specification</span> reads “inspired by API 610”.</td></tr>
       <tr><td>2</td><td>Make an Electromagnetic flowmeter FT-101 and open its <span class="ui">Data sheet</span>.</td><td>It opens in its template: the lines of the form's content, labelled with E1's attribute names, and “Inspired by ISA 20F2321” at the foot.</td></tr>
       <tr><td>3</td><td>Open <span class="ui">Centrifugal pump specification</span> and click <span class="ui">Use for this project</span>.</td><td>“This project uses it for the class.” Every centrifugal pump's datasheet now opens in it.</td></tr>
     </tbody>
