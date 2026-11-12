@@ -896,6 +896,27 @@
   <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
 </section>
 
+<section class="g-feature" id="ai-package-assistants">
+  <h2>Assistants from content packages, other assistants and the API</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">AI-package-assistants</span><span>Roadmap 18.5</span><span>Review checks Q6</span></div>
+  <p class="g-summary">Content packages bring assistants of their own, such as Plant's Describe the duty of pumps and Set design conditions, under From content packages; an assistant can run another assistant as one of its steps; and another system runs an assistant through the integration API.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Assistants</span> on the left rail → <span class="ui">From content packages</span>; the integration API</dd>
+    <dt>Who</dt><dd>Run stored assistants (Engineer and above), with each step's own permission</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Assistants</span>.</td><td><span class="ui">From content packages</span> lists <em>Describe the duty of pumps</em> and <em>Set design conditions</em>, marked <em>plant</em>: they come with the project's library version.</td></tr>
+      <tr><td>2</td><td>Select two pumps, open <em>Describe the duty of pumps</em>, type <em>Feed water, duty</em> as the Duty and click <span class="ui">Run</span>.</td><td>Both pumps' descriptions say <em>Feed water, duty</em>, as one change; <span class="ui">Undo</span> takes it back.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Copy to mine</span>.</td><td>A copy is under <span class="ui">My assistants</span> to change; the package's own has no Save or Delete.</td></tr>
+      <tr><td>4</td><td>Ask Alex to make an assistant whose step runs <em>Describe the duty of pumps</em> with the duty <em>Standby</em>, and run it.</td><td>The step reads <em>Run the assistant plant.assistant.pump-duty</em>; running it runs that assistant's steps with its values. An assistant never runs itself, and at most three deep.</td></tr>
+      <tr><td>5</td><td>With an API token, <code>GET /api/v1/projects/{id}/assistants</code>, then <code>POST /api/v1/projects/{id}/assistants/plant.assistant.pump-duty/run</code> with <code>{ "values": { "pumps": [ids], "duty": "Cooling water" } }</code>.</td><td>The list, then a run as the token's owner: <code>{ "status": "applied", "report": … }</code>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#ai-stored-assistants">Stored assistants</a> · <a href="guide-organization.html#org-tokens">API tokens</a></p>
+</section>
+
 <section class="g-feature" id="ai-branch">
   <h2>Alex in your branch</h2>
   <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">AI-branch</span><span>Roadmap 17.1, 17.2</span></div>
