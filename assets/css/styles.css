@@ -3807,11 +3807,12 @@ code {
 .tw-svg { display: block; width: 100%; height: auto; overflow: visible; }
 
 /* 1. engineering: parts are lowered into place one after another */
-.tw-part { opacity: 0; transform: translate(0, -70px); transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); transition-delay: calc(var(--i) * 0.38s); }
+.tw-part { opacity: 0; transform: translate(0, -70px); transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .tw-water { transform: none; }
 .tw-water path { stroke-opacity: 0.5; }
-.tw.is-built .tw-part { opacity: 1; transform: none; }
-.tw.is-run .tw-part { opacity: 0.5; transition-delay: 0s; }
+.tw-part.is-up { opacity: 1; transform: none; }
+/* once the engineers are at work, the placed parts step back behind their cards */
+.tw.is-run .tw-part.is-set { opacity: 0.5; }
 
 /* 2. the engineers: a mark on the equipment, a line, and their card */
 .tw-people { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
