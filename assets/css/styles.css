@@ -3871,3 +3871,63 @@ code {
 .tw-card-text b, .tw-card-text span { overflow-wrap: anywhere; hyphens: auto; }
 .tw-card { width: 380px; }
 @media (max-width: 1100px) { .tw-card { width: 300px; } }
+
+/* The change reaches everyone: a wave from the engineer's mark (twin.js) */
+.tw-waves { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.tw-wave { position: absolute; border-radius: 50%; border: 3px solid var(--c, #3faa69); background: radial-gradient(closest-side, transparent 82%, color-mix(in srgb, var(--c, #3faa69) 14%, transparent) 96%, transparent 100%); transform: scale(0.02); opacity: 0.9; animation: tw-wave 2.6s cubic-bezier(0.3, 0.45, 0.5, 1) forwards; }
+.tw-wave[data-d="process"] { --c: #0f8a78; }
+.tw-wave[data-d="instrumentation"] { --c: #1565c0; }
+.tw-wave[data-d="electrical"] { --c: #b8860b; }
+.tw-wave[data-d="automation"] { --c: #8e44ad; }
+.tw-wave[data-d="maintenance"] { --c: #c45a12; }
+@keyframes tw-wave { 0% { transform: scale(0.02); opacity: 0.95; } 70% { opacity: 0.55; } 100% { transform: scale(1); opacity: 0; } }
+.tw-upd { position: absolute; top: -12px; right: 12px; padding: 2px 9px 2px 7px; border-radius: 99px; background: #1f7a45; color: #fff; font-size: 0.68rem; font-style: normal; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0; transform: translateY(4px); transition: opacity 0.25s, transform 0.3s; }
+.tw-upd::before { content: "\2713\00a0"; }
+.tw-who.is-upd .tw-upd { opacity: 1; transform: none; }
+.tw-who.is-upd .tw-card { box-shadow: 0 0 0 3px rgba(63, 170, 105, 0.45), 0 18px 36px -22px rgba(11, 42, 74, 0.5); }
+.tw-who.is-upd .tw-dot { box-shadow: 0 0 0 3px #fff, 0 0 0 7px rgba(63, 170, 105, 0.6); }
+@media (max-width: 700px) { .tw-upd { display: none; } }
+@media (prefers-reduced-motion: reduce) { .tw-wave { display: none; } }
+
+/* About us: the founder as a half-body portrait with the text beside it;
+   the team and its map as the second row. */
+.about-people { grid-template-columns: 1fr; gap: 88px; }
+.founder-profile { display: grid; grid-template-columns: minmax(240px, 340px) minmax(0, 520px); gap: 48px; align-items: center; margin-top: 28px; }
+.founder-photo { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; }
+.founder-profile h3 { margin-top: 0; font-size: 1.6rem; }
+.founder-profile .founder-lines { margin-top: 20px; font-size: 1rem; }
+.about-team { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 48px; align-items: center; }
+.about-team > h2 { grid-column: 1; align-self: end; }
+.about-team > p { grid-column: 1; align-self: start; margin-top: 0; }
+.about-team .team-map { grid-column: 2; grid-row: 1 / span 2; margin: 0; max-width: 760px; }
+@media (max-width: 960px) {
+  .about-people { gap: 64px; }
+  .founder-profile { grid-template-columns: 1fr; gap: 28px; }
+  .founder-photo { width: 100%; max-width: 340px; height: auto; border-radius: 20px; }
+  .about-team { grid-template-columns: 1fr; gap: 12px; }
+  .about-team > h2, .about-team > p, .about-team .team-map { grid-column: 1; grid-row: auto; }
+  .about-team .team-map { margin-top: 28px; }
+}
+.about-team { row-gap: 14px; }
+@media (max-width: 640px) { .founder-photo { max-width: 240px; } }
+
+/* Home: the three pillars under the headline, and calmer spacing around the plant */
+.hero-pillars { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; margin: 22px auto 0; padding: 0; }
+.hero-pillars span { position: relative; padding: 4px 28px; font-size: clamp(1.15rem, 2.1vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; color: var(--heading); }
+.hero-pillars span + span::before { content: ""; position: absolute; left: 0; top: 18%; bottom: 18%; width: 1.5px; background: linear-gradient(180deg, transparent, #cfd4db 30%, #cfd4db 70%, transparent); }
+.hero-pillars span::after { content: ""; display: block; width: 28px; height: 3px; margin: 8px auto 0; border-radius: 3px; background: linear-gradient(90deg, var(--brand), var(--c-teal)); }
+.hero-twin .tw { margin-top: 40px; padding-bottom: 0; }
+.hero.hero-twin + .section, #see-it-work { padding-top: 56px; }
+@media (max-width: 700px) {
+  .hero-pillars { margin-top: 16px; }
+  .hero-pillars span { padding: 4px 14px; font-size: 1rem; }
+  .hero-pillars span::after { width: 20px; margin-top: 6px; }
+  .hero-twin .tw { margin-top: 20px; }
+  #see-it-work { padding-top: 40px; }
+}
+@media (max-width: 700px) { .hero-pillars { flex-wrap: nowrap; } .hero-pillars span { padding: 4px 9px; font-size: 0.86rem; white-space: nowrap; } }
+@media (max-width: 360px) { .hero-pillars span { padding: 4px 6px; font-size: 0.78rem; } }
+/* Price table: rows grouped under small headings */
+.pricing tbody tr.pricing-group th { padding: 28px 8px 8px; border-top: 0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand); text-align: left; }
+.pricing tbody tr.pricing-group + tr th, .pricing tbody tr.pricing-group + tr td { border-top: 1px solid var(--line); }
+.pricing tbody tr.pricing-group:first-child th { padding-top: 12px; }

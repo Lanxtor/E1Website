@@ -23,6 +23,11 @@
  *   [data-product]           with data-usd: the product id in E1's price list
  *   [data-currency-switch]   the USD / EUR / GBP / NOK buttons are drawn here
  *   [data-currency-note]     "Prices in …" text for the current currency
+ *   tr[data-plan-feature]    a row of the plan table: which plan includes it comes from
+ *                            GET <apiBase>/api/site/plan-features (the operator console's
+ *                            Plans & features); its cells, in the order University,
+ *                            Essentials, Standard, Enterprise, show a tick, a dash or the
+ *                            row's words. The page as written stays as the fallback.
  */
 (function () {
   "use strict";
@@ -161,7 +166,41 @@
       .then(function () { if (timer) clearTimeout(timer); });
   }
 
+  // Which plan includes which feature, as set in the operator console (Plans & features).
+  function livePlanFeatures() {
+    var config = window.E1_CONFIG || {};
+    if (!config.apiBase || !document.querySelector("tr[data-plan-feature]")) return;
+    var base = String(config.apiBase).replace(/\/+$/, "");
+    fetch(base + "/api/site/plan-features", { credentials: "omit" })
+      .then(function (r) { if (!r.ok) throw new Error("plan-features"); return r.json(); })
+      .then(function (data) {
+        var columns = data && data.columns || [];
+        (data && data.rows || []).forEach(function (row) {
+          var tr = document.querySelector('tr[data-plan-feature="' + row.id + '"]');
+          if (!tr || !row.plans) return;
+          var cells = tr.querySelectorAll("td");
+          columns.forEach(function (plan, i) {
+            var td = cells[i];
+            if (!td || typeof row.plans[plan] !== "boolean") return;
+            var on = row.plans[plan];
+            var words = on ? row.yes : row.no;
+            td.removeAttribute("data-yes");
+            td.removeAttribute("data-no");
+            td.textContent = "";
+            if (words) { td.textContent = t(words); return; }
+            td.setAttribute(on ? "data-yes" : "data-no", "");
+            var hidden = document.createElement("span");
+            hidden.className = "visually-hidden";
+            hidden.textContent = t(on ? "Included" : "Not included");
+            td.appendChild(hidden);
+          });
+        });
+      })
+      .catch(function () {});
+  }
+
   function load() {
+    livePlanFeatures();
     if (!document.querySelector("[data-usd]")) return;
     drawSwitches();
     livePrices();

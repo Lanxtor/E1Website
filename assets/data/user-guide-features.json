@@ -1072,7 +1072,7 @@
   {
    "id": "ACC-ai-credits",
    "title": "AI credits this month",
-   "summary": "Each license includes AI credits a month for Alex: 300 with Editor Basic and Reviewer, 2,000 with Editor Pro; a University class shares 300 for each Editor.",
+   "summary": "Each license includes AI credits a month for Alex: 300 with Editor Basic and Reviewer, 2,000 with Editor; a University class shares 300 for each Editor.",
    "anchor": "acc-ai-credits",
    "status": "available",
    "since": "2026-11-11",
@@ -1482,7 +1482,8 @@
    ],
    "related": [
     "PRJ-project-bin",
-    "PRJ-new-project"
+    "PRJ-new-project",
+    "PRJ-empty-bin"
    ],
    "roles": "A project role that may delete the project",
    "training": {
@@ -1491,6 +1492,7 @@
     "minutes": 3
    },
    "screenshots": [],
+   "updated": "2026-11-12",
    "category": "projects",
    "page": "guide-projects.html#prj-delete"
   },
@@ -1500,14 +1502,15 @@
    "summary": "Restore, delete permanently or empty what was deleted in a project, and unvoid what was voided.",
    "anchor": "prj-project-bin",
    "status": "available",
-   "updated": "2026-11-09",
+   "updated": "2026-11-12",
    "roadmap": [],
    "checks": [],
    "related": [
     "OBJ-delete",
     "OBJ-void",
     "PRJ-folders-sheets",
-    "PRJ-delete"
+    "PRJ-delete",
+    "PRJ-empty-bin"
    ],
    "roles": "A license and a project role that may edit the project",
    "training": {
@@ -1518,6 +1521,32 @@
    "screenshots": [],
    "category": "projects",
    "page": "guide-projects.html#prj-project-bin"
+  },
+  {
+   "id": "PRJ-empty-bin",
+   "title": "Empty a bin (the permission Empty bins)",
+   "summary": "Delete everything in a project's Deleted bin, or every project in the workspace's Bin, for good at once; only with the permission Empty bins.",
+   "anchor": "prj-empty-bin",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [],
+   "checks": [
+    "A9"
+   ],
+   "related": [
+    "PRJ-project-bin",
+    "PRJ-delete",
+    "OBJ-delete"
+   ],
+   "roles": "The permission Empty bins in the project (Project administrator has it; a custom role can be given it)",
+   "training": {
+    "topic": "Emptying bins",
+    "level": "Intermediate",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "projects",
+   "page": "guide-projects.html#prj-empty-bin"
   },
   {
    "id": "PRJ-branches",
@@ -5863,8 +5892,8 @@
   },
   {
    "id": "DOC-spec-datasheet-templates",
-   "title": "Datasheet templates inspired by ISA 20 and API",
-   "summary": "Ready-made specification datasheets for instruments (inspired by ISA 20) and for pumps and exchangers (inspired by API and ASME).",
+   "title": "Datasheet templates inspired by ISA and API datasheets",
+   "summary": "Ready-made specification datasheets for instruments, pumps and exchangers, E1’s own templates inspired by ISA, API and ASME specification datasheets.",
    "anchor": "doc-spec-datasheet-templates",
    "status": "available",
    "since": "2026-11-12",
@@ -6517,8 +6546,8 @@
   },
   {
    "id": "ORG-plan",
-   "title": "Your organization's plan: Editor Basic or Editor Pro",
-   "summary": "The plan belongs to the organization: in a Standard organization every Editor is Editor Basic, in a Professional, University or Enterprise one every Editor is Editor Pro; the Owner upgrades Standard to Professional.",
+   "title": "Your organization's plan: Editor Basic or Editor",
+   "summary": "The plan belongs to the organization: in an Essentials organization every Editor is Editor Basic, in a Standard, University or Enterprise one every Editor is Editor; the Owner upgrades Standard to Professional.",
    "anchor": "org-plan",
    "status": "available",
    "since": "2026-11-11",
@@ -6546,11 +6575,11 @@
   {
    "id": "ORG-pro-features",
    "title": "Pro features in an Editor Basic organization",
-   "summary": "With Editor Basic the Editor Pro features stay on screen, greyed out with Pro; pressing one says why, with See plans and, for the Owner, Upgrade.",
+   "summary": "With Editor Basic the features of the full Editor license stay on screen, greyed out with Pro; pressing one says why, with See plans and, for the Owner, Upgrade.",
    "anchor": "org-pro-features",
    "status": "available",
    "since": "2026-11-11",
-   "updated": "2026-11-11",
+   "updated": "2026-11-12",
    "roadmap": [
     "09.7"
    ],
@@ -6560,7 +6589,7 @@
     "ORG-organization-dialog",
     "WEB-pricing"
    ],
-   "roles": "Everyone in a Standard organization",
+   "roles": "Everyone in an Essentials organization",
    "training": {
     "topic": "Plans and upgrades",
     "level": "Beginner",
@@ -6573,7 +6602,7 @@
   {
    "id": "ORG-university",
    "title": "University organizations: the term, Reviewers and Viewers",
-   "summary": "A University organization has Editor Pro free for 3 months, renewed each term, one free Reviewer per Editor and unlimited free Viewers; after the term it is read-only until it is renewed.",
+   "summary": "A University organization has Editor free for 3 months, renewed each term, one free Reviewer per Editor and unlimited free Viewers; after the term it is read-only until it is renewed.",
    "anchor": "org-university",
    "status": "available",
    "since": "2026-11-11",
@@ -9634,7 +9663,7 @@
   {
    "id": "WEB-pricing",
    "title": "Licenses, prices, currencies and the trial",
-   "summary": "Compare the plans (University, Standard with Editor Basic, Professional with Editor Pro, Enterprise) and prices in four currencies, and request a 30-day trial.",
+   "summary": "Compare the plans (University, Essentials with Editor Basic, Standard with Editor, Enterprise) and prices in four currencies, and request a 30-day trial.",
    "anchor": "web-pricing",
    "status": "available",
    "since": "2026-11-04",
@@ -11026,7 +11055,7 @@
     "SAFE-documents",
     "WIRE-allocation"
    ],
-   "roles": "Editor Pro; a project role that may edit objects",
+   "roles": "Editor; a project role that may edit objects",
    "training": {
     "topic": "The cause and effect matrix",
     "level": "Intermediate",
@@ -11052,7 +11081,7 @@
    "related": [
     "SAFE-cause-effect"
    ],
-   "roles": "Editor Pro; a project role that may edit objects",
+   "roles": "Editor; a project role that may edit objects",
    "training": {
     "topic": "Safety instrumented functions",
     "level": "Advanced",
@@ -11079,7 +11108,7 @@
     "SAFE-plant-states",
     "SAFE-documents"
    ],
-   "roles": "Editor Pro; a project role that may edit objects",
+   "roles": "Editor; a project role that may edit objects",
    "training": {
     "topic": "Alarm management",
     "level": "Intermediate",
@@ -11105,7 +11134,7 @@
    "related": [
     "SAFE-alarms"
    ],
-   "roles": "Editor Pro; a project role that may change project settings",
+   "roles": "Editor; a project role that may change project settings",
    "training": {
     "topic": "Plant states",
     "level": "Beginner",
@@ -11134,7 +11163,7 @@
     "SAFE-alarms",
     "DOC-revisions"
    ],
-   "roles": "Editor Pro; a project role that may create documents",
+   "roles": "Editor; a project role that may create documents",
    "training": {
     "topic": "Safety documents",
     "level": "Intermediate",
