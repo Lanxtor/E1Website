@@ -46,6 +46,7 @@
           <li><a href="#wf-status-chip">The status chip: set an item&#x27;s status</a></li>
           <li><a href="#wf-value-status">Value statuses: Assumed, Preliminary, Confirmed, Final</a></li>
           <li><a href="#wf-hold">Put an item or a value on hold</a></li>
+          <li><a href="#wf-status-layer">Statuses and holds on the drawing</a></li>
           <li><a href="#wf-workflows">Workflows: steps an item moves through</a></li>
           <li><a href="#wf-assignments">Assign workflows and start them</a></li>
           <li><a href="#wf-move">Move an item to another step</a></li>
@@ -69,7 +70,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Workflow and dashboards</p>
         <h1>14. Workflow and dashboards</h1>
         <p class="lead">Statuses of objects, sheets, documents and tasks in status sets with your own sub-statuses, the status chip, value statuses (Assumed, Preliminary, Confirmed, Final) and holds; workflows, boards and progress dashboards as they are built.</p>
-        <div class="g-meta"><span>21 features</span><span>21 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>22 features</span><span>22 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="workflow-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Every object, sheet, document and task in E1 has a status. Statuses come in status sets: five fixed categories (New, Active, Resolved, Closed, Removed) with the sub-statuses your company or project adds under them. Values have a status of their own, from Assumed to Final, and anything can be put on hold with a reason.</p>
@@ -174,7 +175,31 @@
       <tr><td>4</td><td>Choose <span class="ui">Release hold</span> on the chip and on the value.</td><td>No <span class="ui">HOLD</span>.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-value-status">Value statuses</a> · <a href="guide-lists.html#list-columns">Columns</a></p>
+  <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-value-status">Value statuses</a> · <a href="guide-lists.html#list-columns">Columns</a> · <a href="#wf-status-layer">Statuses and holds on the drawing</a></p>
+</section>
+
+<section class="g-feature" id="wf-status-layer">
+  <h2>Statuses and holds on the drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-status-layer</span><span>Roadmap 33.1</span><span>Review checks S8</span></div>
+  <p class="g-summary">Layers ▸ Status tints each symbol on a 2D space by its status, with a legend at the bottom left; Layers ▸ Show holds marks every held item HOLD. Both are off until you turn them on, for you and that 2D space only.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A 2D space: the drawing toolbar's Layers menu</dd>
+    <dt>Who</dt><dd>Everyone who can view the project</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Set a pump's status to <em>Active</em> on its status chip, then open its 2D space. Open <span class="ui">Layers</span> and tick <span class="ui">Status</span>.</td><td>The pump's symbol is tinted amber; the legend at the bottom left says <em>Active (1)</em>. Symbols of items without a workflow or a status stay as they are. Pointing at the tint says the status.</td></tr>
+      <tr><td>2</td><td>Tick <span class="ui">Show statuses</span> in the legend.</td><td>The legend lists the statuses themselves, each in its own colour, and the symbols take those colours.</td></tr>
+      <tr><td>3</td><td>Put the pump on hold, then tick <span class="ui">Show holds</span> in <span class="ui">Layers</span>.</td><td>A red dashed outline and <span class="ui">HOLD</span> above the pump; pointing at HOLD says why.</td></tr>
+      <tr><td>4</td><td>Reload the page.</td><td>Status and Show holds are still on for you on this 2D space; other people and other 2D spaces are unchanged.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>The tint is only on the screen: plots and PDFs never print it.</li>
+    <li>The statuses are read again a moment after the drawing changes and when you come back to the window.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-hold">Hold</a> · <a href="guide-drawing.html#draw-layers">Layers</a></p>
 </section>
 
 <section class="g-feature" id="wf-workflows">
