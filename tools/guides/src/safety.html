@@ -17,7 +17,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">SAFE-cause-effect</span><span>Roadmap 34.1</span><span>Review check T1</span></div>
   <p class="g-summary">On any unit or loop in Systems: add interlocks, the trips that start them and what they act on, see the matrix and the narrative E1 writes from them.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click a unit or loop in <span class="ui">Systems</span> → <span class="ui">Cause and effect</span> (or open it): the <span class="ui">Cause and effect</span> panel, tab <span class="ui">Matrix</span></dd>
+    <dt>Where</dt><dd>Right-click a unit or loop in <span class="ui">Systems</span> → <span class="ui">Cause and effect</span>, or open it and click <span class="ui">Cause and effect</span> in the tabs at the top of its window: the <span class="ui">Cause and effect</span> page, tab <span class="ui">Matrix</span></dd>
     <dt>Who</dt><dd>Editor, and a project role that may edit objects</dd>
     <dt>Before you start</dt><dd>The unit and its instruments and devices exist.</dd>
   </dl>
@@ -25,7 +25,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click UNIT-100 → <span class="ui">Cause and effect</span>.</td><td>The unit's page shows <span class="ui">Cause and effect</span> with the tabs <span class="ui">Matrix</span>, <span class="ui">Safety functions</span> and <span class="ui">Alarms</span>. It shows everything in the unit's part of the tree.</td></tr>
+      <tr><td>1</td><td>Right-click UNIT-100 → <span class="ui">Cause and effect</span>.</td><td>The unit's window opens on its <span class="ui">Cause and effect</span> page, beside the unit's own page (the tab named UNIT-100), with the tabs <span class="ui">Matrix</span>, <span class="ui">Safety functions</span> and <span class="ui">Alarms</span>. It shows everything in the unit's part of the tree.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Add interlock</span>, type I-101, choose the type <em>Shutdown</em> and <span class="ui">Voting</span> 2, <span class="ui">Reset</span> <em>Manual reset</em>, and click <span class="ui">Add</span>.</td><td>I-101 is a function under UNIT-100. Voting 2 means two of its causes are needed.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Add cause</span>: I-101, the instrument PT-101A, <span class="ui">Condition</span> <em>High-high</em>, <span class="ui">Setting</span> 12 bar(g). Do the same for PT-101B and PT-101C.</td><td>Three rows: PT-101A HH, PT-101B HH, PT-101C HH, voting 2oo3. Each trip is an object under I-101 that watches its instrument.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Add effect</span>: I-101, the device XV-101, <span class="ui">Action</span> <em>Close</em>.</td><td>A column XV-101; each of I-101's rows reads Close in it.</td></tr>
@@ -36,7 +36,8 @@
   <ul>
     <li>The same instrument can start several interlocks at different settings: each is its own trip.</li>
     <li>An interlock without causes or without effects, or with a voting higher than its causes, is an error in <span class="ui">Checks</span> and is listed under the narrative; its tag is red in the matrix.</li>
-    <li>The panel on the plant's top function shows the whole plant.</li>
+    <li><span class="ui">Cause and effect</span> is a page of its own in the tabs at the top of the window: the unit's own page (its details and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span> …) is the first tab, named after the unit.</li>
+    <li>The page on the plant's top function shows the whole plant.</li>
     <li>Alex reads and changes the same data: ask it for the matrix of a unit, or to add a cause.</li>
   </ul>
   <p class="g-related">Related: <a href="#safe-sif">Safety instrumented functions</a> · <a href="#safe-documents">The matrix as a document</a> · <a href="guide-wiring.html#wire-allocation">Allocation in Panorama EI&amp;C</a></p>
