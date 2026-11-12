@@ -47,6 +47,7 @@
           <li><a href="#prj-sections">The sections of a project</a></li>
           <li><a href="#prj-hidden-folders">Hide a project&#x27;s folders from the tree</a></li>
           <li><a href="#prj-tree-rows">Rows, clicks and marks in the explorer</a></li>
+          <li><a href="#prj-tree-columns">Values beside the names: columns in the explorer</a></li>
           <li><a href="#prj-folders-sheets">Folders and 2D spaces inside a project</a></li>
           <li><a href="#prj-drag-drop">Move rows by drag and drop</a></li>
           <li><a href="#prj-search">Search the explorer</a></li>
@@ -77,7 +78,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Projects and the explorer</p>
         <h1>3. Projects and the explorer</h1>
         <p class="lead">Create, rename, arrange and delete projects and folders, the sections of a project, the Bin, searching and dragging in the explorer.</p>
-        <div class="g-meta"><span>29 features</span><span>29 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>30 features</span><span>30 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="projects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the explorer, the tree on the left of the E1 window: your projects, how you arrange them in folders, the nine sections every project has, the folders and 2D spaces inside the sections, the Bin, searching the tree and dragging rows around.</p>
@@ -222,7 +223,7 @@
 
 <section class="g-feature" id="prj-tree-rows">
   <h2>Rows, clicks and marks in the explorer</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-tree-rows</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-tree-rows</span></div>
   <p class="g-summary">A click selects a row, a double-click opens it, and only the arrow expands or collapses it; a row you collapse stays collapsed, also after a reload. Small marks at the end of a row tell you that something needs your attention, and a parent row rolls them up.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer</dd>
@@ -238,7 +239,7 @@
       <tr><td>2D space</td><td>Its drawing</td></tr>
       <tr><td>Object</td><td>Its object window (on the data sheet when the class has one)</td></tr>
       <tr><td>Drawing shortcut under an object ("<i>2D space</i>, drawing")</td><td>That drawing with the object in view (also <kbd>Enter</kbd>)</td></tr>
-      <tr><td>Reference (a related object shown with a link mark)</td><td>The referenced object</td></tr>
+      <tr><td>Relationship (a related object shown with a link mark)</td><td>The related object</td></tr>
     </tbody>
   </table></div>
   <h3>Steps</h3>
@@ -261,6 +262,32 @@
   <p class="g-note">Keys in the tree: <kbd>F2</kbd> renames the selected project or object (not a 2D space or folder: use right-click → <span class="ui">Rename</span> for those), <kbd>Delete</kbd> or <kbd>Backspace</kbd> deletes it (see <a href="#prj-delete">Delete a project</a> and <a href="guide-objects.html#obj-delete">Delete an object</a>), and <kbd>Esc</kbd> clears projects picked with <kbd>Ctrl</kbd>-click.</p>
   <p class="g-note">Larger text in the explorer: <kbd>Ctrl</kbd> and the mouse wheel (or a pinch on a touchpad) zoom the tree from 80% to 200% in steps (80, 90, 100, 110, 125, 150, 175, 200%). With the focus in the tree, <kbd>Ctrl</kbd> and <kbd>+</kbd> or <kbd>−</kbd> do the same and <kbd>Ctrl+0</kbd> goes back to 100% (elsewhere these keys zoom the drawing). The size is remembered on this computer.</p>
   <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-collaboration.html#col-comments">Chat</a></p>
+</section>
+
+<section class="g-feature" id="prj-tree-columns">
+  <h2>Values beside the names: columns in the explorer</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">PRJ-tree-columns</span></div>
+  <p class="g-summary">Choose up to five attributes to show beside each object's name, and the explorer reads as a tree and a table: the design pressure of each vessel, the flow rate of each pump, a description. An object without a value shows nothing in that column. The attributes come from the library (<span class="ui">Configuration</span> → <span class="ui">Attributes</span>), with their sub-attributes such as <span class="ui">Mass flow / Normal</span>. The columns are your own: nobody else sees them, and they stay after a reload.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → <span class="ui">…</span> (<span class="ui">More explorer actions</span>) → <span class="ui">Columns…</span>; or click a column header above the tree</dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
+    <dt>Before you start</dt><dd>A pump with a description and a flow rate, for example Pump1 with "Feed pump" and 60 m³/h.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the explorer, click <span class="ui">…</span> → <span class="ui">Columns…</span>.</td><td>The window <span class="ui">Columns in the explorer</span> opens: "No columns: the explorer shows the names only."</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add an attribute…</span>, type <kbd>Description</kbd> and pick <span class="ui">Description</span>; then add <span class="ui">Flow rate</span> the same way.</td><td>Both are listed in that order. Above the tree, headers read <span class="ui">Name</span>, <span class="ui">Description</span>, <span class="ui">Flow rate</span>; the explorer widens to fit them.</td></tr>
+      <tr><td>3</td><td>Expand <span class="ui">Assets</span>.</td><td>Pump1 shows "Feed pump" and "60 m³/h" beside its name. A valve without these values shows nothing there.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">→</span> beside <span class="ui">Description</span>.</td><td>Flow rate comes first, in the headers and in every row. <span class="ui">←</span> moves it back.</td></tr>
+      <tr><td>5</td><td>Add three more attributes.</td><td>With five columns, <span class="ui">Add an attribute</span> says "5 columns: remove one to add another".</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Done</span> and reload the page.</td><td>The columns are still there.</td></tr>
+      <tr><td>7</td><td>Click a column header, then <span class="ui">Remove all</span>.</td><td>The headers go; the explorer shows the names only.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A quantity shows with its unit, Yes or No for a yes/no attribute, and several choices separated by commas. Point at a value to see it in full with its attribute's name. Rows that are not objects (projects, sections, folders) leave the columns empty.</p>
+  <p class="g-related">Related: <a href="#prj-tree-rows">Rows, clicks and marks</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-lists.html#list-columns">Columns of a query</a></p>
 </section>
 
 <section class="g-feature" id="prj-folders-sheets">
