@@ -1,0 +1,54 @@
+{
+ "generated": "2026-11-12",
+ "source": "E1 cloud (deploy/azure)",
+ "subProcessors": [
+  {
+   "company": "Microsoft Ireland Operations Ltd. (Microsoft Azure)",
+   "service": "Hosting: servers, PostgreSQL database, file storage, secrets, logs",
+   "purpose": "Runs E1 and stores its data",
+   "data": "All customer data: projects, drawings, files, accounts and their audit records",
+   "location": "Netherlands (EU)",
+   "setting": "E1_AZURE_STORAGE_ACCOUNT"
+  },
+  {
+   "company": "Microsoft Ireland Operations Ltd. (Microsoft Entra)",
+   "service": "Sign-in",
+   "purpose": "Signs people in",
+   "data": "Name, email address, sign-in records",
+   "location": "EU (the tenant's location)",
+   "setting": "E1_OIDC_ISSUER"
+  },
+  {
+   "company": "Microsoft Ireland Operations Ltd. (Azure OpenAI)",
+   "service": "The co-engineer's model",
+   "purpose": "Answers questions to Alex",
+   "data": "What a person asks Alex and the project data the answer needs",
+   "location": "Sweden (EU)",
+   "setting": "E1_AI_AZURE_URL"
+  },
+  {
+   "company": "Microsoft Ireland Operations Ltd. (Microsoft Foundry, Claude by Anthropic)",
+   "service": "The co-engineer's premium model (Editor licenses)",
+   "purpose": "Answers questions to Alex",
+   "data": "What a person asks Alex and the project data the answer needs",
+   "location": "Global: may be processed outside the EU",
+   "setting": "E1_AI_FOUNDRY_URL"
+  },
+  {
+   "company": "Microsoft Ireland Operations Ltd. (Azure Communication Services)",
+   "service": "Email",
+   "purpose": "Sends invitations and notices",
+   "data": "Email address, the message",
+   "location": "EU (the resource's data location)",
+   "setting": "E1_SMTP_URL"
+  },
+  {
+   "company": "Stripe Payments Europe, Ltd.",
+   "service": "Payments",
+   "purpose": "Takes card payments of invoices",
+   "data": "The payer's name, email address, billing address; card data stays with Stripe",
+   "location": "Ireland (EU) and United States",
+   "setting": "STRIPE_SECRET_KEY"
+  }
+ ]
+}
