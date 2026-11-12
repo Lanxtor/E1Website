@@ -917,6 +917,28 @@
   <p class="g-related">Related: <a href="#ai-stored-assistants">Stored assistants</a> · <a href="guide-organization.html#org-tokens">API tokens</a></p>
 </section>
 
+<section class="g-feature" id="ai-assistant-script">
+  <h2>A script step in a stored assistant</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">AI-assistant-script</span><span>Roadmap 18.6</span><span>Review check Q7</span></div>
+  <p class="g-summary">A step that calculates values from the assistant's parameters and earlier results, with the steps of a calculation rule, for the steps after it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Assistants</span> → an assistant → <span class="ui">Add script step</span></dd>
+    <dt>Who</dt><dd>Whoever may make assistants</dd>
+    <dt>Before you start</dt><dd>An assistant that creates a valve, with the parameters Design flow (flow) and Unit number (unit).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Add script step</span>.</td><td>A script step first, its inputs the parameters.</td></tr>
+      <tr><td>2</td><td>Write its steps: <code>{ "calculate": "flow * 1.1", "as": "design" }</code>, a <code>choose</code> of DN 150 above 100 m³/h else DN 80 as <code>size</code>, and <code>{ "compose": "XV-{unit}01", "as": "tag" }</code>.</td><td>The step reads “Calculate design, size, tag”.</td></tr>
+      <tr><td>3</td><td>In the valve step use <code>{s1c.result.tag}</code>; <span class="ui">Save</span> and run it with 120 m³/h and unit 2.</td><td>XV-201 is made.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A script uses the steps of a calculation rule: Compose, Copy, Map, Calculate (+ − × ÷, powers, sqrt, min, max, round, each quantity in the unit you name), Choose, Format and Compare. It only calculates: it reads and writes nothing, so a run with a value that is not a number stops at the script with the reason and keeps nothing.</p>
+  <p class="g-related">Related: <a href="guide-ai.html#ai-package-assistants">Assistants from content packages, other assistants and the API</a></p>
+</section>
+
 <section class="g-feature" id="ai-branch">
   <h2>Alex in your branch</h2>
   <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">AI-branch</span><span>Roadmap 17.1, 17.2</span></div>
