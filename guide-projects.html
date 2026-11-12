@@ -60,6 +60,7 @@
           <li><a href="#prj-import-excel">Import Excel workbooks</a></li>
           <li><a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a></li>
           <li><a href="#prj-import-pdf">Import a P&amp;ID from a PDF</a></li>
+          <li><a href="#prj-export-mapping">Save an import mapping and export with it</a></li>
           <li><a href="#prj-branches">Branches</a></li>
           <li><a href="#prj-branch-conflicts">Pull from main and resolve conflicts</a></li>
           <li><a href="#prj-branch-push">Push a branch to main</a></li>
@@ -69,7 +70,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Projects and the explorer</p>
         <h1>3. Projects and the explorer</h1>
         <p class="lead">Create, rename, arrange and delete projects and folders, the sections of a project, the Bin, searching and dragging in the explorer.</p>
-        <div class="g-meta"><span>21 features</span><span>21 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>22 features</span><span>22 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="projects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the explorer, the tree on the left of the E1 window: your projects, how you arrange them in folders, the nine sections every project has, the folders and 2D spaces inside the sections, the Bin, searching the tree and dragging rows around.</p>
@@ -598,6 +599,30 @@
   </table></div>
   <p class="g-note">A PDF names nothing, so E1 knows a symbol only by its look: symbols that look alike are proposed with <span class="ui">Medium</span> confidence and the other likely classes in the list. Some CAD programs export their texts as strokes only; E1 reads those strokes as letters, learning the font from the texts it can read, so a tag may be misread where the font is unusual: check the tags in the <span class="ui">Differences</span> step. A tag beside two shapes of different classes stays with the first. Import the set again for a new revision: every drawing is found again, also an object drawn twice, and only what changed is shown; a drawing that moved is yours to decide. A shape that looks like no E1 symbol, texts that are not tags, and fills are listed under "What … has that is not imported". A DXF or DEXPI file of the same drawing, where you have one, holds more: see <a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a>.</p>
   <p class="g-related">Related: <a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a> · <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-import-excel">Import Excel workbooks</a></p>
+</section>
+
+<section class="g-feature" id="prj-export-mapping">
+  <h2>Save an import mapping and export with it</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">PRJ-export-mapping</span><span>Roadmap 31.5</span><span>Review checks J11</span></div>
+  <p class="g-summary">Keep the mapping you reviewed in the import wizard under a name: the next workbook of the same shape maps itself, and File → Export with a saved mapping… writes the project's objects back in the same sheets, headers and units.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>File → Import → <span class="ui">Excel workbooks…</span> (Mapping step); File → <span class="ui">Export with a saved mapping…</span></dd>
+    <dt>Who</dt><dd>Saving a mapping: whoever may import into the project. Exporting: whoever may export (Viewer and above); only the objects you may see.</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Import a vendor's tag list (File → Import → <span class="ui">Excel workbooks…</span>). On the Mapping step, set the Pumps sheet to <em>Centrifugal pump</em>, type <em>Vendor tag list</em> under <span class="ui">Save mapping as</span> and click <span class="ui">Save mapping</span>.</td><td>It says the mapping is saved, and the import goes on as usual.</td></tr>
+      <tr><td>2</td><td>Import the vendor's next workbook.</td><td>On the Mapping step, <span class="ui">Saved mapping</span> offers <em>Vendor tag list</em>; choosing it maps every sheet and column it knows as before.</td></tr>
+      <tr><td>3</td><td>File → <span class="ui">Export with a saved mapping…</span>, choose <em>Vendor tag list</em> and <span class="ui">Export</span>.</td><td>A workbook downloads: a sheet per type (<em>Pumps</em>, <em>Heat exchangers</em>) with the same headers, values in the headers' units (<em>Flow rate [m³/h]</em>), and the E1 id last so it can come back.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">CSV</span> for a mapping of one type.</td><td>One CSV file with the same columns.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Excel and CSV mappings export. A DXF or PDF mapping is offered again for the next drawings; drawings are not written back. A DEXPI export is on the roadmap with the piping handover (13.5).</li>
+    <li>A project keeps up to 50 mappings; saving a name again replaces it.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#prj-import-excel">Import Excel workbooks</a> · <a href="#prj-import-dxf">Import a DXF drawing</a></p>
 </section>
 
 <section class="g-feature" id="prj-branches">
