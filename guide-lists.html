@@ -61,7 +61,7 @@
           <li><a href="#list-read-only-cells">Read-only cells are tinted blue</a></li>
           <li><a href="#list-find-replace">Find and replace…</a></li>
           <li><a href="#list-owner-cell">Owner cell: open the object, or move it with F2</a></li>
-          <li><a href="#list-excel-export">Export a query to Excel or CSV</a></li>
+          <li><a href="#list-excel-export">Export a query to Excel, CSV or JSON</a></li>
           <li><a href="#list-update-from-excel">Update from Excel… with Check and Apply</a></li>
           <li><a href="#list-import-excel">Import Excel…: bring a tag list into a section</a></li>
           <li><a href="#list-project-excel">Export the project: every saved query in one workbook</a></li>
@@ -563,11 +563,11 @@
 </section>
 
 <section class="g-feature" id="list-excel-export">
-  <h2>Export a query to Excel or CSV</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">LIST-excel-export</span><span>Roadmap M3.8</span><span>Review check D5</span></div>
-  <p class="g-summary">Download every row of the query as an Excel workbook or a CSV file, with an E1 id column.</p>
+  <h2>Export a query to Excel, CSV or JSON</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-12</span><span class="g-id">LIST-excel-export</span><span>Roadmap M3.8, 19.5</span><span>Review check D5</span></div>
+  <p class="g-summary">Download every row of the query as an Excel workbook, a CSV file, JSON or JSON Lines, with an E1 id column.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Query tab → <span class="ui">Export</span> → <span class="ui">Excel (.xlsx)</span> or <span class="ui">CSV (.csv)</span></dd>
+    <dt>Where</dt><dd>Query tab → <span class="ui">Export</span> → <span class="ui">Excel (.xlsx)</span>, <span class="ui">CSV (.csv)</span>, <span class="ui">JSON (.json)</span> or <span class="ui">JSON Lines (.jsonl)</span></dd>
     <dt>Who</dt><dd>A project role that may export. A restricted project asks you to sign in again first.</dd>
     <dt>Before you start</dt><dd>A query is open.</dd>
   </dl>
@@ -575,9 +575,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Export</span>.</td><td>A menu opens with <span class="ui">Excel (.xlsx)</span> and <span class="ui">CSV (.csv)</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Export</span>.</td><td>A menu opens with <span class="ui">Excel (.xlsx)</span>, <span class="ui">CSV (.csv)</span>, <span class="ui">JSON (.json)</span> and <span class="ui">JSON Lines (.jsonl)</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Excel (.xlsx)</span>.</td><td>“Exporting…” shows briefly, then an .xlsx file downloads.</td></tr>
       <tr><td>3</td><td>Open the file in Excel.</td><td>Row 1 holds the view's columns plus <span class="ui">E1 id</span>, for example Owner, Name, Class, E1 id. There is one row per query row: all rows, not only those loaded on screen. Every cell is a value, never a formula.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Export</span> → <span class="ui">JSON (.json)</span>.</td><td>A .json file with the columns (label, kind, attribute, unit) and one object per row, its values by column label with its <span class="ui">E1 id</span>. <span class="ui">JSON Lines (.jsonl)</span> writes the same rows one per line, for a program to read row by row.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-view.webp" alt="The query bar with the Export button among Filter, Find and replace…, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Export</span> is in the query bar.</figcaption></figure>

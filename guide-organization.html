@@ -70,6 +70,7 @@
           <li><a href="#org-sso">Company single sign-on and directory sync</a></li>
           <li><a href="#org-tokens">Tokens, service accounts and agents</a></li>
           <li><a href="#org-webhooks">Webhooks and the change feed</a></li>
+          <li><a href="#org-message-queues">Message queues: events to a broker, commands from one</a></li>
           <li><a href="#org-four-eyes">Discipline permissions, four-eyes approval and support access</a></li>
         </ol>
       </nav>
@@ -77,7 +78,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>29 features</span><span>28 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>30 features</span><span>29 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -895,6 +896,38 @@
   </ul>
   <p class="g-warn">Not built yet: webhooks as part of a connection with its status page and failure notices, filters by attribute, and events of documents, branches and class upgrades.</p>
   <p class="g-related">Related: <a href="#org-tokens">Tokens, service accounts and agents</a> · <a href="#org-audit">Audit</a></p>
+</section>
+
+<section class="g-feature" id="org-message-queues">
+  <h2>Message queues: events to a broker, commands from one</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-message-queues</span><span>Roadmap 19.5</span></div>
+  <p class="g-summary">Send the change feed's events to an MQTT, AMQP or Kafka broker instead of a web address, and let another system send E1 commands through a broker, each run as an access token.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>File → Organization… → <span class="ui">Webhooks</span>: the webhook form, and <span class="ui">Queue consumers</span> below it</dd>
+    <dt>Who</dt><dd>Owners and Administrators (Manage connections)</dd>
+    <dt>Before you start</dt><dd>A broker reachable over TLS on the internet (a customer's own installation may allow its own network), its user name and password, and for commands an access token (Organization → Access tokens) with the permissions the commands need</dd>
+  </dl>
+  <h3>Events to a broker</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Webhooks</span>, type a name and a broker address: <code>mqtts://broker.example.com:8883/e1/events</code>, <code>amqps://broker.example.com/plant?exchange=e1&amp;routingKey=e1.events</code> (or <code>?queue=e1-events</code>), or <code>kafkas://k1.example.com:9093,k2.example.com:9093/e1-events</code>.</td><td><span class="ui">Broker user name</span> and <span class="ui">Broker password</span> appear.</td></tr>
+      <tr><td>2</td><td>Fill them in, tick the events and click <span class="ui">Create webhook</span>.</td><td>The signing secret is shown once. The list shows the webhook with its transport (MQTT, AMQP, KAFKA) and address; the password is kept sealed and never shown.</td></tr>
+      <tr><td>3</td><td>Change an object.</td><td>The event is published to the topic, exchange or queue with the headers E1-Event-Id, E1-Event-Type, E1-Delivery-Id and E1-Signature (over MQTT, in the message's <code>headers</code>). <span class="ui">Deliveries…</span> shows it delivered once the broker confirmed it; a broker that cannot be reached is tried again, as a web address is.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Commands from a broker</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Queue consumers</span>, give a <span class="ui">Consumer name</span>, the <span class="ui">Broker address</span> to read (an MQTT topic, an AMQP <code>?queue=</code>, or a Kafka topic), the <span class="ui">Access token</span>, the broker's user name and password, and click <span class="ui">Create queue consumer</span>.</td><td>It is listed, Active, with 0 run · 0 refused.</td></tr>
+      <tr><td>2</td><td>From the other system, send <code>{ "id": "m-1", "tool": "set_values", "input": { "project": "…", "object": "…", "values": { … } }, "replyTo": "e1/replies" }</code>.</td><td>E1 runs it as the token and answers <code>{ "id": "m-1", "ok": true, "status": 200, "result": … }</code> to replyTo (AMQP: the reply-to queue; Kafka: the reply-to header).</td></tr>
+      <tr><td>3</td><td>Send the same message again.</td><td>The same answer; nothing is changed twice. The same id with another command is answered with idempotency_conflict.</td></tr>
+      <tr><td>4</td><td>Send a command the API does not offer, or a change with a read-only token.</td><td>Answered with ok false and the reason; the list counts it as refused and shows the last error.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Only the API's commands run this way (finding and reading objects, setting values, renaming, external ids, queries, assistants), with the token's read-only and project limits and its rate. Addresses carry no user name or password: they are given apart.</p>
+  <p class="g-related">Related: <a href="guide-organization.html#org-webhooks">Webhooks and the change feed</a>, <a href="guide-organization.html#org-tokens">Access tokens</a></p>
 </section>
 
 <section class="g-feature" id="org-four-eyes">
