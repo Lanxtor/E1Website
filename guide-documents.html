@@ -485,22 +485,25 @@
     <dt>Who</dt><dd>Configure documents (Lead engineer and project administrator)</dd>
   </dl>
   <h3>The settings</h3>
+  <p>The card has six parts, each with its title and a line on what it is for on the left and its settings on the right.</p>
   <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
+    <thead><tr><th>Part</th><th>Setting</th><th>What it does</th></tr></thead>
     <tbody>
-      <tr><td><span class="ui">Sheet template</span></td><td>The page, frame and title block a 2D space's next version or revision prints on (<a href="guide-library.html#lib-documents-templates">Sheet templates</a>).</td></tr>
-      <tr><td><span class="ui">Revision scheme</span></td><td>Letters before construction, numbers from construction (the default); ISO 19650 (P01 … then C01 …); Numeric (01-IFR, 02-IFA …); Letters only; or the company's and project's own (<a href="guide-library.html#lib-documents-numbering">Numbering schemes</a>). An example line shows the labels.</td></tr>
-      <tr><td><span class="ui">Document number pattern</span>, <span class="ui">Project code</span>, <span class="ui">Document type</span></td><td>The number a 2D space gets with its first output, for example {project.code}-{docType}-{seq:4} → P-PID-0001.</td></tr>
-      <tr><td><span class="ui">Purposes</span></td><td>EPC purposes of issue (IFR … IFC, AB, VOID), ISO 19650 suitability (S1 … S4, A1, CR), or the company's and project's own (<a href="guide-library.html#lib-documents-purposes">Purposes of issue</a>).</td></tr>
-      <tr><td><span class="ui">Filing rule</span></td><td>Where an issued PDF is filed under Documents: By document (the default), By discipline and type, By status, Flat, or the company's and project's own (<a href="guide-library.html#lib-documents-filing">Filing rules</a>).</td></tr>
-      <tr><td><span class="ui">Versions visible to</span></td><td>Reviewer and above (the default), Engineer and above, or everyone who may view the document.</td></tr>
+      <tr><td rowspan="3">Sheet and numbering</td><td><span class="ui">Sheet template</span></td><td>The page, frame and title block a 2D space's next version or revision prints on (<a href="guide-library.html#lib-documents-templates">Sheet templates</a>).</td></tr>
+      <tr><td><span class="ui">Revision scheme</span></td><td>Letters before construction, numbers from construction (the default); ISO 19650 (P01 … then C01 …); Numeric (01-IFR, 02-IFA …); Letters only; or the company's and project's own (<a href="guide-library.html#lib-documents-numbering">Numbering schemes</a>). An example under it shows the labels.</td></tr>
+      <tr><td><span class="ui">Document number pattern</span>, <span class="ui">Project code</span>, <span class="ui">Document type</span></td><td>The number a 2D space gets with its first output. Under the pattern, <span class="ui">Gives P-PID-0001</span> shows the number it gives as you type, and the tokens it can use: {project.code}, {docType}, {unit}, {discipline} and {seq:4}.</td></tr>
+      <tr><td>Purposes of issue</td><td><span class="ui">Purposes</span></td><td>EPC purposes of issue (IFR … IFC, AB, VOID), ISO 19650 suitability (S1 … S4, A1, CR), or the company's and project's own (<a href="guide-library.html#lib-documents-purposes">Purposes of issue</a>). Their codes are shown under it.</td></tr>
+      <tr><td rowspan="3">Sign-off</td><td><span class="ui">Someone else checks and approves</span></td><td>A switch: four-eyes. Off for a small team.</td></tr>
+      <tr><td>The table <span class="ui">Purpose</span> / <span class="ui">Sign-off route</span></td><td>One row per purpose (its code and name) with the route its revisions follow (by default Prepared, checked, approved; Prepared, approved for IFI and VOID; with a project engineer for IFC), and a last row <span class="ui">Versions</span> for internal checks (<a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a>).</td></tr>
+      <tr><td><span class="ui">Days to sign a step</span></td><td>1 to 90 days, or empty for <span class="ui">No limit</span>: a step not signed in time is marked late, and its signer and the revision's creator are told.</td></tr>
+      <tr><td rowspan="2">Access</td><td><span class="ui">Versions visible to</span></td><td>Reviewer and above (the default), Engineer and above, or everyone who may view the document. The roles are explained in Project settings → Access → <span class="ui">What the roles mean</span>.</td></tr>
       <tr><td><span class="ui">Deleted outputs are kept for</span></td><td>How long a deleted version or revision can be restored (30 days by default).</td></tr>
-      <tr><td><span class="ui">Someone else checks and approves</span></td><td>Four-eyes; off for a small team.</td></tr>
-      <tr><td><span class="ui">Sign-off</span>: a route per purpose, <span class="ui">Versions</span>, <span class="ui">Days to sign a step</span></td><td>The route each purpose's revisions follow (by default Prepared, checked, approved; Prepared, approved for IFI and VOID; with a project engineer for IFC), the route of versions, and the days before a step is late (<a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a>).</td></tr>
-      <tr><td><span class="ui">Print INTERNAL — NOT FOR ISSUE on versions</span>, <span class="ui">Page</span>, <span class="ui">Date format</span></td><td>The output format.</td></tr>
+      <tr><td>Filing</td><td><span class="ui">Filing rule</span></td><td>Where an issued PDF is filed under Documents: By document (the default), By discipline and type, By status, Flat, or the company's and project's own (<a href="guide-library.html#lib-documents-filing">Filing rules</a>). The folders it files into are shown under it.</td></tr>
+      <tr><td rowspan="2">Output</td><td><span class="ui">Page</span>, <span class="ui">Date format</span></td><td>The page of a 2D space's first output (A3 by default), and how dates print, each shown with today's date.</td></tr>
+      <tr><td><span class="ui">Print INTERNAL — NOT FOR ISSUE on versions</span></td><td>A switch: the watermark across every version's PDF.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Each setting is saved at once and applies to outputs made afterwards; outputs already made never change.</p>
+  <p class="g-note">Each setting is saved at once (<span class="ui">Saved</span> shows for a moment beside the card's title) and applies to outputs made afterwards; outputs already made never change.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-versions">Versions of a 2D space</a>, <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a></p>
 </section>
 
