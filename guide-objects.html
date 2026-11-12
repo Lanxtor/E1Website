@@ -154,10 +154,17 @@
     <li>The heading (tag, or the name when there is no tag), then the class name, "· <i>class key</i> · version N".</li>
     <li>The fields <span class="ui">Tag</span> (for tagged classes) and <span class="ui">Name</span>. <kbd>Enter</kbd> or leaving the field saves; <kbd>Esc</kbd> brings back the old text.</li>
     <li>"Id …", a fixed identifier that never changes.</li>
-    <li>The buttons <span class="ui">New task…</span>, <span class="ui">Export</span> (the attributes as an Excel file) and <span class="ui">Export PDF</span>.</li>
-    <li>"Cases: none yet" with <span class="ui">New case</span> (see <a href="#obj-cases">Cases</a>).</li>
-    <li>The tag state, for example "Tag from the rule", with a <span class="ui">Tag…</span> button (see <a href="#obj-tag-dialog">Tag…</a>).</li>
+    <li>The actions, in one row under the name: <span class="ui">New task…</span>, then <span class="ui">Export</span> (the attributes as an Excel file) and <span class="ui">Export PDF</span>.</li>
     <li>For an object made from a catalog item: "From catalog: …" with <span class="ui">Re-apply…</span> and <span class="ui">Detach</span>.</li>
+  </ul>
+  <h3>Details</h3>
+  <p>Under the actions, a box with one row per fact: its name on the left, its value, and its buttons at the end of the row. A row that does not apply is not shown.</p>
+  <ul>
+    <li><span class="ui">Status</span>: the status chip, for example "New", and "No workflow".</li>
+    <li><span class="ui">Responsible</span>: who changes the object ("nobody" when no one), with <span class="ui">Take it</span> and <span class="ui">Assign to…</span> (see <a href="guide-organization.html#org-responsibility">Responsibility</a>; shown with sign-in).</li>
+    <li><span class="ui">Cases</span>: the object's cases, or "none yet", with <span class="ui">New case</span> (see <a href="#obj-cases">Cases</a>).</li>
+    <li><span class="ui">Tag source</span>: where the tag comes from, for example "Tag from the rule" or "Manual tag", with <span class="ui">Tag…</span> (see <a href="#obj-tag-dialog">Tag…</a>).</li>
+    <li><span class="ui">In other systems</span>: the object's ids in other systems, for example "erp 10004711".</li>
   </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -492,7 +499,7 @@
       <tr><td>4</td><td>Click ↺.</td><td>The row goes back to the object's value and reads "Inherited" again.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The object's own window lists its cases on the line "Cases:" ("none yet" when there are none). A case's relationships are those of its object and cannot be changed on the case.</p>
+  <p class="g-note">The object's own window lists its cases in Details, on the row <span class="ui">Cases</span> ("none yet" when there are none). A case's relationships are those of its object and cannot be changed on the case.</p>
   <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a></p>
 </section>
 
