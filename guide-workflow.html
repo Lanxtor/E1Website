@@ -510,7 +510,7 @@
 <section class="g-feature" id="wf-progress">
   <h2>Progress, weights and the plan</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-progress</span><span>Roadmap 33.6</span><span>Review checks S7</span></div>
-  <p class="g-summary">Progress is the credit of the step each item has reached, weighted by a number of your choice (or 1). The plan gives the percentage progress should have reached by each date; the S-curve draws progress against it.</p>
+  <p class="g-summary">Progress is the credit of the step each item has reached, weighted by a number of your choice (or 1). Each workflow step's credit can be changed for the project. The plan gives the percentage progress should have reached by each date; the S-curve draws progress against it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflow</span> → <span class="ui">Progress</span></dd>
     <dt>Who</dt><dd>Manage project workflows (Project administrator)</dd>
@@ -518,12 +518,13 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <span class="ui">Configuration → Progress</span>. Under <span class="ui">Weights</span>, choose a number attribute for <em>Instrument data</em>, or keep <em>Every item weighs 1</em>.</td><td>—</td></tr>
-      <tr><td>2</td><td>Under <span class="ui">Plan</span>, type a baseline (<em>B1</em>) and one line per date: <code>2026-12-01 10</code>, <code>2027-01-15 50</code>, <code>2027-02-28 100</code>. Click <span class="ui">Save</span>.</td><td>Saved. A date out of order or a percentage that goes down is refused, naming it.</td></tr>
-      <tr><td>3</td><td>On a dashboard, look at a <em>Progress</em> tile.</td><td>The weighted share of the credits reached: an item in a step with credit 50 counts half.</td></tr>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Progress</span>.</td><td>At the top, <span class="ui">How progress is counted</span> in three steps; below, one card per workflow under <span class="ui">Credit per step</span>, and <span class="ui">The plan</span>. With no workflow yet, <span class="ui">Open Workflows</span> takes you to make one.</td></tr>
+      <tr><td>2</td><td>On the <em>Instrument data</em> card, type <em>70</em> in the box under <em>Checked</em>. Beside <span class="ui">Each item weighs</span>, choose a number attribute, or keep <em>1 (all items equal)</em>.</td><td>The step is highlighted and its bar grows; <span class="ui">Reset to …</span> brings back the workflow's credit. An empty box keeps the workflow's credit.</td></tr>
+      <tr><td>3</td><td>Under <span class="ui">The plan</span>, click <span class="ui">Add a date</span> three times and set <em>1 Dec 2026 – 10 %</em>, <em>15 Jan 2027 – 50 %</em>, <em>28 Feb 2027 – 100 %</em>. Optionally type a <span class="ui">Baseline name</span> (<em>B1</em>).</td><td>The curve beside the table draws the plan, with today marked. A date twice or a percentage lower than an earlier one is named on its row.</td></tr>
+      <tr><td>4</td><td>In the bar at the bottom, click <span class="ui">Save</span>.</td><td>The bar says <em>Saved</em>. While something needs fixing, <span class="ui">Save</span> is greyed out and the bar says how many things; <span class="ui">Discard changes</span> goes back to what was saved.</td></tr>
+      <tr><td>5</td><td>On a dashboard, look at a <em>Progress</em> tile.</td><td>The weighted share of the credits reached: an item in a step with credit 50 counts half.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The credits are the workflow's steps' own; ask Alex to give the project other credits for a step.</p>
   <p class="g-related">Related: <a href="#wf-trends">Trends</a> · <a href="#wf-workflows">Workflows</a> · <a href="#wf-dashboards">Dashboards</a></p>
 </section>
 
