@@ -323,7 +323,7 @@
 <section class="g-feature" id="wf-dashboards">
   <h2>Dashboards: the project's and the environment's progress</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-dashboards</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
-  <p class="g-summary">Dashboards on the left rail shows the project's dashboards and the environment's. Project progress, Data completeness and Review and comments are there from the start; Environment overview counts every project you may open.</p>
+  <p class="g-summary">Dashboards on the left rail shows the project's dashboards and the environment's. Project progress, Branches, Data completeness and Review and comments are there from the start; Environment overview counts every project you may open.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span></dd>
     <dt>Who</dt><dd>Everyone who can view the project and is in a dashboard's audience</dd>
@@ -334,7 +334,8 @@
       <tr><td>1</td><td>Click <span class="ui">Dashboards</span> on the left rail.</td><td>The tab <span class="ui">Project</span> opens on <em>Project progress</em>: Progress, Items by step, Required values missing by discipline, Overdue items, On hold, Objects by status. <em>Data as of …</em> says when it was computed.</td></tr>
       <tr><td>2</td><td>Choose <em>Data completeness</em> in <span class="ui">Dashboard</span>.</td><td>Required values filled in, missing by class, the value statuses.</td></tr>
       <tr><td>3</td><td>Choose <em>Review and comments</em>.</td><td>Open tasks, tasks by assignee, findings, documents, and the open markups and markups by status (Open, Accepted, Answered, Incorporated, Closed).</td></tr>
-      <tr><td>4</td><td>Click the tab <span class="ui">Environment</span>.</td><td><em>Environment overview</em>: how many projects you may open and their missing required values.</td></tr>
+      <tr><td>4</td><td>Choose <em>Branches</em>.</td><td>Open branches, In review, the average age of open branches in days, conflicts open, branches by status (Open, In review, Merged, Closed) and by owner.</td></tr>
+      <tr><td>5</td><td>Click the tab <span class="ui">Environment</span>.</td><td><em>Environment overview</em>: how many projects you may open and their missing required values.</td></tr>
     </tbody>
   </table></div>
   <p class="g-related">Related:  <a href="#wf-tiles">Tiles</a> · <a href="#wf-dashboard-edit">Change a dashboard</a> · <a href="#wf-board">The board</a></p>
@@ -474,3 +475,25 @@
   </ul>
   <p class="g-related">Related: <a href="#wf-progress">Progress</a> · <a href="#wf-tiles">Tiles</a> · <a href="#wf-dashboard-edit">Change a dashboard</a></p>
 </section>
+<section class="g-feature" id="wf-branches">
+  <h2>Statuses in branches, and the Branches dashboard</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-branches</span><span>Roadmap 33.8</span><span>Review check S7</span></div>
+  <p class="g-summary">An item's status, step and hold change in a branch like its values, and come to main with the push. Where main and the branch both changed a status, E1 proposes the lower one.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A branch's <span class="ui">Conflicts</span>; <span class="ui">Dashboards</span> → <em>Branches</em></dd>
+    <dt>Who</dt><dd>Everyone who works in branches; Lead engineers set a workflow's steps</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In a branch, set a pump to <em>Resolved</em>; in main set it to <em>Closed</em>. In the branch, <span class="ui">Pull from main</span>.</td><td>A conflict of kind <span class="ui">Status</span>, with <span class="ui">Proposed: Keep mine (the lower status: resolved)</span>. Its category follows the status.</td></tr>
+      <tr><td>2</td><td>In a branch, sign <span class="ui">Checked</span> on an item, then change one of its values in the branch.</td><td>The signature is void: <span class="ui">Checked</span> is open to sign again.</td></tr>
+      <tr><td>3</td><td>In a branch, move an item to a step its workflow marks <em>main only</em>, or give the last signature that moves it there.</td><td>Refused: the step is entered in main, not in a branch.</td></tr>
+      <tr><td>4</td><td>Give a step the criterion <em>Not changed in an open branch</em> and change an item in a branch.</td><td>In main the item cannot move on until the branch pushes; the criterion names the branch.</td></tr>
+      <tr><td>5</td><td>Open <span class="ui">Dashboards</span> → <em>Branches</em>.</td><td>Open branches, In review, their age and open conflicts; branches by status: Open, In review, Merged (pushed and closed), Closed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Dashboards compute on main. Ask Alex for a dashboard "in branch …" to compute it in one branch. Tasks, markups and construction status stay in main.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branch-conflicts">Conflicts</a> · <a href="#wf-approvals">Approvals</a> · <a href="#wf-criteria">Criteria</a> · <a href="#wf-dashboards">Dashboards</a></p>
+</section>
+
