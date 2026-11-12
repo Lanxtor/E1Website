@@ -248,8 +248,8 @@
 
 <section class="g-feature" id="wf-move">
   <h2>Move an item to another step</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-move</span><span>Roadmap 33.2</span><span>Review checks S3</span></div>
-  <p class="g-summary">On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-move</span><span>Roadmap 33.2</span><span>Review checks S3, S10</span></div>
+  <p class="g-summary">On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back. In a query view, <span class="ui">Move to…</span> moves the selected rows' items at once.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The status chip on an object's window; the <a href="#wf-board">board</a>; Alex for many at once</dd>
     <dt>Who</dt><dd>Move items in their workflow (Engineer and above)</dd>
@@ -262,6 +262,7 @@
       <tr><td>3</td><td>On the chip choose <span class="ui">Move back to In design…</span> and type a reason.</td><td>It moves back; the reason is kept and the return is counted.</td></tr>
       <tr><td>4</td><td>Move it on to <em>Closed</em> and type a new description.</td><td>Refused: it is in a locked step of its workflow. Move it back to change it.</td></tr>
       <tr><td>5</td><td>Choose <span class="ui">Remove…</span>, then <span class="ui">Restore to …</span>, each with a reason.</td><td>Removed, then back in the step it left.</td></tr>
+      <tr><td>6</td><td>In a query view of the tanks, select several rows (Ctrl-click), right-click and choose <span class="ui">Move to…</span>. Pick <em>In design</em> and <span class="ui">Move</span>.</td><td>The list offers the steps they may move to, each with how many may. Those that can move move together as one change (Ctrl+Z undoes it); the rows that did not move are listed with why: on hold, at an approval, following no workflow, criteria not met.</td></tr>
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-board">The board</a> · <a href="#wf-hold">Hold</a></p>
