@@ -123,7 +123,8 @@
   <ul>
     <li>Each step is a status of the set, once; Removed is never a step, it is always reachable. A step's credit never decreases down the list.</li>
     <li>A locked step keeps its items' values, name, tag and owner as they are until the item moves back; holds, comments and tasks stay possible. Rules leave a locked item's values as they are.</li>
-    <li>A step may make a task about the item, or set a value, when an item enters it.</li>
+    <li>A step may make a task about the item, set a value, or notify the people it names, when an item enters it.</li>
+    <li>Moves, holds and value statuses are events of their own in the integration API's change feed: <code>object.status-changed</code>, <code>object.hold-changed</code>, <code>value.maturity-changed</code>.</li>
   </ul>
   <p class="g-related">Related: <a href="#wf-assignments">Assignments</a> · <a href="#wf-move">Moving items</a> · <a href="#wf-board">The board</a> · <a href="#wf-statuses">Status sets</a></p>
 </section>
@@ -232,7 +233,7 @@
       <tr><td>5</td><td>Change one of its values.</td><td>The chip shows <span class="ui">Changed since Approved</span> until it next moves forward.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note"><span class="ui">Reject…</span> asks why and sends the item to the step the approval names; the signatures given so far stay on record.</p>
+  <p class="g-note"><span class="ui">Reject…</span> asks why and sends the item to the step the approval names; the signatures given so far stay on record. The people a sign-off step names are notified when an item waits for them, and the person who moved it in is notified of a rejection.</p>
   <p class="g-related">Related: <a href="#wf-criteria">Exit criteria</a> · <a href="#wf-move">Moving items</a></p>
 </section>
 
