@@ -83,6 +83,7 @@
           <li><a href="#draw-markup-status">Answer a markup: accept, reject, answer, incorporate, close</a></li>
           <li><a href="#draw-markups-list">The Markups list, review rounds and the comment resolution sheet</a></li>
           <li><a href="#draw-markup-print">Marked-up prints and markups on a revision</a></li>
+          <li><a href="#draw-markup-pdf">Markups as PDF comments: a reviewer&#x27;s annotated PDF back in E1</a></li>
           <li><a href="#draw-markup-settings">Markup colors and stamps</a></li>
           <li><a href="#draw-module-save">Save a selection as a module</a></li>
           <li><a href="#draw-module-place">Place a module from the Modules tab</a></li>
@@ -97,7 +98,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>49 features</span><span>47 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>50 features</span><span>48 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -1215,6 +1216,28 @@
   </table></div>
   <p class="g-note">A marked-up print is an export, never a revision. Issuing a revision ignores the markups whatever the screen shows: its PDF is the same with or without them.</p>
   <p class="g-related">Related: <a href="#draw-redlining">Redlining</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a> · <a href="guide-documents.html#doc-plot">Plot documents</a></p>
+</section>
+
+<section class="g-feature" id="draw-markup-pdf">
+  <h2>Markups as PDF comments: a reviewer's annotated PDF back in E1</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DRAW-markup-pdf</span><span>Roadmap 23.5</span><span>Review check U5</span></div>
+  <p class="g-summary">A marked-up print carries each markup as a real PDF comment; a reviewer's annotated copy reads back as markups in the round, their replies as comments.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space in markup mode: <span class="ui">Markups</span> → <span class="ui">Marked-up print</span> and <span class="ui">Import annotated PDF…</span></dd>
+    <dt>Who</dt><dd>Exporting: Export in the project; importing: whoever may draw markups</dd>
+    <dt>Before you start</dt><dd>A 2D space with a cloud, a pin and a stamp in a review round.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Marked-up print</span> and open the PDF in a PDF tool.</td><td>Each markup is also a comment there: the cloud a cloud, the pin a note, the stamp a stamp, with its author and words.</td></tr>
+      <tr><td>2</td><td>In the PDF tool, reply to the cloud and add a note of your own; save the PDF.</td><td>The PDF has your comments.</td></tr>
+      <tr><td>3</td><td>Choose the round, then <span class="ui">Import annotated PDF…</span> and the saved file.</td><td>“1 markup from … , 1 reply as comments”: your note is a markup in the round at its place, with your name; the reply is a comment on the cloud.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">E1's own markups in the PDF are not imported again. A PDF E1 did not print is refused: only E1's print knows where it sits on the 2D space. Rectangles, ellipses, polygons, ink, lines, free text, notes, stamps and highlights each become their markup; a question mark at the end makes it a question. In the field, mark up on E1 Reviewer for iPad in a walkdown round. Alex imports with <code>import_markup_pdf</code>.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-markup-print">Marked-up prints and markups on a revision</a>, <a href="guide-drawing.html#draw-markups-list">The Markups list, review rounds and the comment resolution sheet</a></p>
 </section>
 
 <section class="g-feature" id="draw-markup-settings">
