@@ -73,7 +73,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open the list document.</td><td>The Versions and revisions panel shows “What this list shows” with <span class="ui">Lists</span> (“Choose a saved query…”) and <span class="ui">From</span> (<span class="ui">The whole project</span> or a section). <span class="ui">From</span>, <span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> stay off until a saved query is chosen.</td></tr>
+      <tr><td>1</td><td>Open the list document.</td><td>The Versions and revisions panel shows “What this list shows”, a box with the rows <span class="ui">Lists</span> (“Choose a saved query…”), <span class="ui">From</span> (<span class="ui">The whole project</span> or a section) and <span class="ui">Print</span>, with <span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> at its end. <span class="ui">From</span>, <span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> stay off until a saved query is chosen.</td></tr>
       <tr><td>2</td><td>Set <span class="ui">Lists</span> to “Equipment list” and <span class="ui">From</span> to <span class="ui">Assets</span>.</td><td>The choices are kept.</td></tr>
       <tr><td>3</td><td>Create Rev A and sign it off (<a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a>).</td><td>Rev A is issued.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Export PDF</span>.</td><td>“Writing the PDF…”, then a file ending “Rev-A.pdf” downloads and the panel says “The PDF is downloaded.”.</td></tr>
@@ -125,7 +125,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click Documents and choose <span class="ui">New PDF package</span>.</td><td>“PDF package” is made in Documents and opens, with <span class="ui">Cover title</span>, <span class="ui">Index after the cover</span> and “No documents yet”.</td></tr>
+      <tr><td>1</td><td>Right-click Documents and choose <span class="ui">New PDF package</span>.</td><td>“PDF package” is made in Documents and opens, with the rows <span class="ui">Cover title</span> and <span class="ui">Index</span> (<span class="ui">Index after the cover</span>), “No documents yet”, and <span class="ui">Generate package</span> at the end of the row <span class="ui">Package</span>.</td></tr>
       <tr><td>2</td><td>In <span class="ui">Find a document</span> type part of a number or name and click <span class="ui">Add …</span> on two documents.</td><td>Both are listed with their number and title; each <span class="ui">Takes</span> <span class="ui">Current revision</span>.</td></tr>
       <tr><td>3</td><td>Set the second one's <span class="ui">Takes</span> to <span class="ui">Current state (not issued)</span>.</td><td>The choice is kept.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Generate package</span>.</td><td>“Binding the package…”, then one PDF downloads: the cover with the project and the title, the index (Document no., Title, Revision, Purpose, Pages), then each document's pages in order; the one in its current state says Not issued in the index and NOT ISSUED across its pages.</td></tr>
@@ -162,12 +162,19 @@
 <section class="g-feature" id="doc-revisions">
   <h2>Versions and revisions of a document</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-revisions</span><span>Roadmap 07.2, 29.1</span><span>Review checks E1, E4, E7</span></div>
-  <p class="g-summary">A document’s window shows its versions and revisions with the Document control card; Create revision… with a purpose of issue gives the next label.</p>
+  <p class="g-summary">A document’s window shows its versions and revisions with the Document control box; Create revision… with a purpose of issue gives the next label.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A document's window → <span class="ui">Versions and revisions</span>; a 2D space's page has the same panel (<a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>)</dd>
     <dt>Who</dt><dd>A project role that may create revisions (Engineer and above); a Reviewer reads but creates none</dd>
     <dt>Before you start</dt><dd>A document is open with “No version or revision yet.”; a list document shows a saved query.</dd>
   </dl>
+  <h3>The panel</h3>
+  <ul>
+    <li>A row of actions: <span class="ui">Create version…</span> and <span class="ui">Create revision…</span>, then <span class="ui">Audit report (CSV)</span> and <span class="ui">Audit report (PDF)</span> (see <a href="#doc-audit-report">Audit report</a>), and <span class="ui">Reinstate…</span> for a void document.</li>
+    <li>The <span class="ui">Document control</span> box, a row each: <span class="ui">Document no.</span>, <span class="ui">Title</span>, <span class="ui">Current revision</span> and <span class="ui">Latest version</span> (<span class="ui">Issued</span> before the first one).</li>
+    <li>For a list, a plot, a datasheet or a PDF package, a box with what it prints, a row each, and its exports at the end of the row <span class="ui">Print</span> (or <span class="ui">Package</span>).</li>
+    <li>The outputs, newest first.</li>
+  </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
@@ -263,7 +270,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click the 2D space <span class="ui">Assets</span> once in the explorer.</td><td>Its page shows the Document control card: “This 2D space has no versions or revisions yet. …”.</td></tr>
+      <tr><td>1</td><td>Click the 2D space <span class="ui">Assets</span> once in the explorer.</td><td>Its page shows the Details box (<span class="ui">Status</span>, and <span class="ui">Responsible</span> with sign-in) and, under Versions and revisions, the Document control box: “This 2D space has no versions or revisions yet. …”.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Create version…</span>.</td><td>“Version A.1 of &lt;number&gt;” (after Rev B: B's next, C.1).</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Create version</span>.</td><td>A.1 is <span class="ui">Issued</span>; its PDF, printed INTERNAL — NOT FOR ISSUE, is filed under Documents ▸ &lt;number&gt; Assets ▸ Versions. The next is A.2; after the next revision is issued, the count starts again.</td></tr>
     </tbody>
@@ -340,9 +347,9 @@
 <section class="g-feature" id="doc-audit-report">
   <h2>The audit report of a document</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-audit-report</span><span>Roadmap 29.5</span><span>Review check E14</span></div>
-  <p class="g-summary">Audit report (CSV) and Audit report (PDF) on the Document control card: every version and revision with its creation, each signature or rejection with who, when, the sentence signed and the sign-in, the issue with its PDF's fingerprint, withdrawals, deletions and restores.</p>
+  <p class="g-summary">Audit report (CSV) and Audit report (PDF), in the row of actions above the Document control box: every version and revision with its creation, each signature or rejection with who, when, the sentence signed and the sign-in, the issue with its PDF's fingerprint, withdrawals, deletions and restores.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The <span class="ui">Document control</span> card of a document's window or a 2D space's page</dd>
+    <dt>Where</dt><dd>A document's window or a 2D space's page → Versions and revisions → the row of actions above the <span class="ui">Document control</span> box</dd>
     <dt>Who</dt><dd>Issue revisions or Configure documents (Lead engineer and above); versions are listed only for people who see them</dd>
   </dl>
   <h3>Steps</h3>
@@ -558,7 +565,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, search <code>plot</code>, choose <span class="ui">Plot</span>, type <code>PID 001</code> in <span class="ui">Name</span>, and click <span class="ui">Create</span>.</td><td>The plot's window opens with <span class="ui">2D space</span> (“Choose a 2D space…”), <span class="ui">Page</span> (A3), four layer checkboxes Process, Instrument, Electrical, Annotation (all ticked), <span class="ui">Export PDF</span> and <span class="ui">Print…</span>.</td></tr>
+      <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, search <code>plot</code>, choose <span class="ui">Plot</span>, type <code>PID 001</code> in <span class="ui">Name</span>, and click <span class="ui">Create</span>.</td><td>The plot's window opens with a box of rows: <span class="ui">2D space</span> (“Choose a 2D space…”), <span class="ui">Page</span> (A3), <span class="ui">Layers</span> with four checkboxes Process, Instrument, Electrical, Annotation (all ticked), and <span class="ui">Print</span> with <span class="ui">Export PDF</span> and <span class="ui">Print…</span> at its end.</td></tr>
       <tr><td>2</td><td>Look at the controls before choosing a 2D space.</td><td><span class="ui">Page</span>, the layer checkboxes, <span class="ui">Export PDF</span> and <span class="ui">Print…</span> are off until a 2D space is chosen.</td></tr>
       <tr><td>3</td><td>Set <span class="ui">2D space</span> to <span class="ui">Assets</span> and <span class="ui">Page</span> to <span class="ui">A4</span>.</td><td>The other controls turn on. The choices are kept. Page offers A4, A3, A2, A1 and A0.</td></tr>
       <tr><td>4</td><td>Untick the Annotation layer.</td><td>It is left out of the plot.</td></tr>
