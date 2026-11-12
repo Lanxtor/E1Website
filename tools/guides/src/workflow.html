@@ -9,6 +9,7 @@
     <li><a href="#wf-hold">Put on hold</a> what waits for someone else, and find it in the query view.</li>
     <li>Make a <a href="#wf-workflows">workflow</a> from a template, <a href="#wf-assignments">assign it</a> to instruments, and <a href="#wf-move">move them</a> on their chip or on the <a href="#wf-board">board</a>.</li>
     <li>Give a step <a href="#wf-criteria">exit criteria</a> and an <a href="#wf-approvals">approval</a>; a lead can <a href="#wf-override">override</a> a failing criterion with a reason.</li>
+    <li>Follow the progress on the <a href="#wf-dashboards">dashboards</a>, and open the items behind any number.</li>
   </ol>
 </section>
 
@@ -288,4 +289,115 @@
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="#wf-flow-editor">The flow</a> · <a href="#wf-workflows">Workflows</a></p>
+</section>
+
+<section class="g-feature" id="wf-dashboards">
+  <h2>Dashboards: the project's and the environment's progress</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-dashboards</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
+  <p class="g-summary">Dashboards on the left rail shows the project's dashboards and the environment's. Project progress, Data completeness and Review and comments are there from the start; Environment overview counts every project you may open.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span></dd>
+    <dt>Who</dt><dd>Everyone who can view the project and is in a dashboard's audience</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Dashboards</span> on the left rail.</td><td>The tab <span class="ui">Project</span> opens on <em>Project progress</em>: Progress, Items by step, Required values missing by discipline, Overdue items, On hold, Objects by status. <em>Data as of …</em> says when it was computed.</td></tr>
+      <tr><td>2</td><td>Choose <em>Data completeness</em> in <span class="ui">Dashboard</span>.</td><td>Required values filled in, missing by class, the value statuses.</td></tr>
+      <tr><td>3</td><td>Click the tab <span class="ui">Environment</span>.</td><td><em>Environment overview</em>: how many projects you may open and their missing required values.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related:  <a href="#wf-tiles">Tiles</a> · <a href="#wf-dashboard-edit">Change a dashboard</a> · <a href="#wf-board">The board</a></p>
+</section>
+
+<section class="g-feature" id="wf-tiles">
+  <h2>Tiles: numbers, bars and the items behind them</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-tiles</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
+  <p class="g-summary">A tile counts or measures the rows of a source (objects, sheets, required values, value statuses, workflow items, tasks, documents, findings, projects), grouped or not. Click a number or a bar to list its items and open one.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span></dd>
+    <dt>Who</dt><dd>As the dashboard</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On <em>Project progress</em>, click <em>Instrumentation</em> in <em>Required values missing</em>.</td><td>The items behind it, each with the attribute that has no value; click one to open the object on Attributes.</td></tr>
+      <tr><td>2</td><td>Look at <em>Progress</em>.</td><td>The share of the work done by the credits of the steps the items are in, coloured with its word: On target, At risk or Off target.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A tile without rows says <em>No data</em>, which is not the same as 0.</p>
+  <p class="g-related">Related:  <a href="#wf-dashboards">Dashboards</a> · <a href="#wf-dashboard-edit">Change a dashboard</a></p>
+</section>
+
+<section class="g-feature" id="wf-dashboard-edit">
+  <h2>Change a dashboard</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-dashboard-edit</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
+  <p class="g-summary">Edit changes the name and the tiles: add one from the catalogue, remove one, Save. Each save is a version; Versions lists the last 20 and restores one.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span> → <span class="ui">Edit</span></dd>
+    <dt>Who</dt><dd>A project dashboard: Manage project dashboards (Lead engineer, Project administrator); the organization's: Manage organization dashboards</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Edit</span>, choose <em>Days in step</em> in <span class="ui">Add a tile</span>, and <span class="ui">Save</span>.</td><td>“Saved as version 1.” The tile is below the others. A standard dashboard saved becomes the project's own.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Versions</span> and <span class="ui">Restore</span> on an earlier one.</td><td>It is restored as the newest version.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related:  <a href="#wf-dashboards">Dashboards</a> · <a href="#wf-dashboard-audience">Who sees it</a></p>
+</section>
+
+<section class="g-feature" id="wf-dashboard-audience">
+  <h2>Who sees a dashboard</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-dashboard-audience</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
+  <p class="g-summary">Who sees it: everyone in the project, Lead engineers or Project administrators. Show in E1 Reviewer offers the dashboard on the iPad.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span> → <span class="ui">Edit</span> → <span class="ui">Who sees it</span></dd>
+    <dt>Who</dt><dd>As editing the dashboard</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Choose <em>Lead engineers</em> and Save.</td><td>An Engineer no longer finds the dashboard in the picker.</td></tr>
+      <tr><td>2</td><td>Tick <span class="ui">Show in E1 Reviewer</span> and Save.</td><td>The dashboard is offered in E1 Reviewer.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related:  <a href="#wf-dashboard-edit">Change a dashboard</a></p>
+</section>
+
+<section class="g-feature" id="wf-every-project">
+  <h2>Every-project dashboards</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-every-project</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
+  <p class="g-summary">A dashboard the organization makes for every project shows in each project with that project's data. Copy to this project makes it the project's own; Reset to the organization's brings the shared one back.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span></dd>
+    <dt>Who</dt><dd>Making one: Manage organization dashboards; copying and resetting: Manage project dashboards</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex to save a dashboard for every project.</td><td>It shows in each project's picker, with that project's data.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy to this project</span>.</td><td>The project has its own copy to change.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Reset to the organization's</span>.</td><td>The copy is gone and the shared one shows again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related:  <a href="#wf-dashboards">Dashboards</a> · <a href="#wf-dashboard-edit">Change a dashboard</a></p>
+</section>
+
+<section class="g-feature" id="wf-present">
+  <h2>Present a dashboard</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-present</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
+  <p class="g-summary">Present hides the controls and enlarges the tiles for a meeting; Stop presenting brings them back.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span> → <span class="ui">Present</span></dd>
+    <dt>Who</dt><dd>As the dashboard</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Present</span>.</td><td>The picker and buttons are hidden and the tiles are larger.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Stop presenting</span>.</td><td>The controls are back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related:  <a href="#wf-dashboards">Dashboards</a></p>
 </section>

@@ -4447,22 +4447,21 @@
     "level": "Intermediate",
     "minutes": 5
    },
-   "screenshots": [
-    "revision-new-form.webp"
-   ],
+   "screenshots": [],
    "category": "documents",
    "page": "guide-documents.html#doc-list-document"
   },
   {
    "id": "DOC-upload",
    "title": "Uploaded documents: revise a PDF from outside",
-   "summary": "Keep a PDF made elsewhere as a document and attach files to each revision.",
+   "summary": "Keep a PDF made elsewhere as a document: attach it, then create a revision, which holds the newest attached PDF.",
    "anchor": "doc-upload",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-09",
+   "updated": "2026-11-12",
    "roadmap": [
-    "07.2"
+    "07.2",
+    "29.1"
    ],
    "checks": [
     "E4"
@@ -4483,59 +4482,65 @@
   },
   {
    "id": "DOC-revisions",
-   "title": "Add revisions A, B, …",
-   "summary": "Add a revision with its label, description and files; E1 proposes the next label.",
+   "title": "Versions and revisions of a document",
+   "summary": "A document’s window shows its versions and revisions with the Document control card; Create revision… with a purpose of issue gives the next label.",
    "anchor": "doc-revisions",
    "status": "available",
    "since": "2026-11-05",
    "roadmap": [
-    "07.2"
+    "07.2",
+    "29.1"
    ],
    "checks": [
     "E1",
-    "E4"
+    "E4",
+    "E7"
    ],
    "related": [
-    "DOC-status",
+    "DOC-sheet-revisions",
+    "DOC-sign-off",
     "DOC-issue",
-    "DOC-list-document"
+    "DOC-status"
    ],
-   "roles": "A project role that may write documents",
+   "roles": "A project role that may create revisions (a Reviewer reads but creates none)",
    "training": {
     "topic": "Revisions of a document",
     "level": "Beginner",
     "minutes": 3
    },
-   "screenshots": [
-    "revision-new-form.webp"
-   ],
+   "screenshots": [],
+   "updated": "2026-11-12",
    "category": "documents",
    "page": "guide-documents.html#doc-revisions"
   },
   {
    "id": "DOC-status",
-   "title": "Draft and In review",
-   "summary": "Mark a revision that is not issued yet as Draft or In review.",
+   "title": "Statuses of a version or revision",
+   "summary": "In sign-off, Rendering…, Could not make the PDF, Issued, Superseded, Rejected, Withdrawn and Deleted: where a version or revision is in its life.",
    "anchor": "doc-status",
    "status": "available",
    "since": "2026-11-05",
    "roadmap": [
-    "07.2"
+    "07.2",
+    "29.1"
    ],
    "checks": [
-    "E4"
+    "E7",
+    "E10"
    ],
    "related": [
     "DOC-revisions",
-    "DOC-issue"
+    "DOC-sign-off",
+    "DOC-delete-output"
    ],
-   "roles": "A project role that may write documents",
+   "roles": "Anyone who may view the document",
    "training": {
     "topic": "Revision status",
     "level": "Beginner",
     "minutes": 2
    },
    "screenshots": [],
+   "updated": "2026-11-12",
    "category": "documents",
    "page": "guide-documents.html#doc-status"
   },
@@ -4570,37 +4575,177 @@
   {
    "id": "DOC-issue",
    "title": "Issue a revision",
-   "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards. While the revision gate is on, an open error on what the document shows refuses the issue.",
+   "summary": "The last sign-off signature issues a revision: its PDF is made once, filed, and never changes; the revision before is superseded. While the revision gate is on, an open error on what the document shows refuses the revision when it is created.",
    "anchor": "doc-issue",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-11",
+   "updated": "2026-11-12",
    "roadmap": [
     "07.7",
-    "12.3"
+    "12.3",
+    "29.1"
    ],
    "checks": [
     "E2",
-    "E3"
+    "E3",
+    "E8"
    ],
    "related": [
-    "DOC-revisions",
+    "DOC-sign-off",
     "DOC-changed-since",
-    "DOC-list-document",
-    "DOC-status",
+    "DOC-revisions",
     "OBJ-checks"
    ],
-   "roles": "A Lead on the project; an Engineer is refused",
+   "roles": "The person who signs the last step (Issue revisions)",
    "training": {
     "topic": "Issuing a revision",
     "level": "Intermediate",
     "minutes": 4
    },
-   "screenshots": [
-    "document-issued.webp"
-   ],
+   "screenshots": [],
    "category": "documents",
    "page": "guide-documents.html#doc-issue"
+  },
+  {
+   "id": "DOC-sheet-versions",
+   "title": "Versions of a 2D space",
+   "summary": "Create version… on a 2D space’s page makes an internal version (C.1 after Rev B): signed as prepared, issued at once, printed INTERNAL — NOT FOR ISSUE, seen only by people who see versions.",
+   "anchor": "doc-sheet-versions",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "29.1"
+   ],
+   "checks": [
+    "E9"
+   ],
+   "related": [
+    "DOC-sheet-revisions",
+    "DOC-document-settings",
+    "DOC-delete-output"
+   ],
+   "roles": "A project role that may create versions (Engineer and above)",
+   "training": {
+    "topic": "Versions",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-sheet-versions"
+  },
+  {
+   "id": "DOC-sheet-revisions",
+   "title": "Revisions of a 2D space",
+   "summary": "Create revision… on a 2D space’s page: the 2D space gets its document number and its printed area on its first output, and each revision goes through sign-off to an issued, filed PDF with its revision block.",
+   "anchor": "doc-sheet-revisions",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "29.1"
+   ],
+   "checks": [
+    "E7",
+    "E8"
+   ],
+   "related": [
+    "DOC-sign-off",
+    "DOC-sheet-versions",
+    "DOC-issue",
+    "DOC-sheet-pdf"
+   ],
+   "roles": "A project role that may create revisions (Engineer and above)",
+   "training": {
+    "topic": "Revisions of a 2D space",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-sheet-revisions"
+  },
+  {
+   "id": "DOC-sign-off",
+   "title": "Sign-off: Prepared, Checked, Approved",
+   "summary": "Every revision is signed by who prepared it, checked by someone else and approved by someone with Issue revisions; each signature asks you to confirm it is you. Reject… and Withdraw… take it back.",
+   "anchor": "doc-sign-off",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "29.1"
+   ],
+   "checks": [
+    "E8"
+   ],
+   "related": [
+    "DOC-sheet-revisions",
+    "DOC-issue",
+    "DOC-status"
+   ],
+   "roles": "Checked: Sign revisions (Engineer and above); Approved: Issue revisions (Lead engineer and above); never a Reviewer, a token or Alex",
+   "training": {
+    "topic": "Signing off a revision",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-sign-off"
+  },
+  {
+   "id": "DOC-delete-output",
+   "title": "Delete and restore a version or revision",
+   "summary": "Delete… with a reason takes a version or revision and its PDF out of the document; a record of who, when and why stays, its label is never used again, and Restore brings it back for the project’s kept period.",
+   "anchor": "doc-delete-output",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "29.1"
+   ],
+   "checks": [
+    "E10"
+   ],
+   "related": [
+    "DOC-status",
+    "DOC-document-settings"
+   ],
+   "roles": "Delete versions (Lead engineer and above); Delete revisions (project administrator)",
+   "training": {
+    "topic": "Deleting outputs",
+    "level": "Intermediate",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-delete-output"
+  },
+  {
+   "id": "DOC-document-settings",
+   "title": "Project settings → Documents",
+   "summary": "The project’s revision scheme, document number pattern, purposes of issue, who sees versions, how long deleted outputs are kept, four-eyes and the output format.",
+   "anchor": "doc-document-settings",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "29.1"
+   ],
+   "checks": [
+    "E9"
+   ],
+   "related": [
+    "DOC-sheet-versions",
+    "DOC-sheet-revisions",
+    "DOC-delete-output"
+   ],
+   "roles": "Configure documents (Lead engineer and project administrator)",
+   "training": {
+    "topic": "Document settings",
+    "level": "Intermediate",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-document-settings"
   },
   {
    "id": "DOC-changed-since",
@@ -9340,6 +9485,167 @@
    "screenshots": [],
    "category": "workflow",
    "page": "guide-workflow.html#wf-versions"
+  },
+  {
+   "id": "WF-dashboards",
+   "title": "Dashboards: the project's and the environment's progress",
+   "summary": "Dashboards on the left rail shows the project's dashboards and the environment's. Project progress, Data completeness and Review and comments are there from the start; Environment overview counts every project you may open.",
+   "anchor": "wf-dashboards",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "33.5"
+   ],
+   "checks": [
+    "S6"
+   ],
+   "related": [
+    "WF-tiles",
+    "WF-dashboard-edit",
+    "WF-board"
+   ],
+   "roles": "Everyone who can view the project, and is in a dashboard's audience",
+   "training": {
+    "topic": "Dashboards",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-dashboards"
+  },
+  {
+   "id": "WF-tiles",
+   "title": "Tiles: numbers, bars and the items behind them",
+   "summary": "A tile counts or measures the rows of a source (objects, sheets, required values, value statuses, workflow items, tasks, documents, findings, projects), grouped or not. Click a number or a bar to list its items and open one.",
+   "anchor": "wf-tiles",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "33.5"
+   ],
+   "checks": [
+    "S6"
+   ],
+   "related": [
+    "WF-dashboards",
+    "WF-dashboard-edit"
+   ],
+   "roles": "As the dashboard",
+   "training": {
+    "topic": "Tiles",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-tiles"
+  },
+  {
+   "id": "WF-dashboard-edit",
+   "title": "Change a dashboard",
+   "summary": "Edit changes the name and the tiles: add one from the catalogue, remove one, Save. Each save is a version; Versions lists the last 20 and restores one.",
+   "anchor": "wf-dashboard-edit",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "33.5"
+   ],
+   "checks": [
+    "S6"
+   ],
+   "related": [
+    "WF-dashboards",
+    "WF-dashboard-audience"
+   ],
+   "roles": "A project dashboard: Manage project dashboards (Lead engineer, Project administrator); the organization's: Manage organization dashboards",
+   "training": {
+    "topic": "Editing dashboards",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-dashboard-edit"
+  },
+  {
+   "id": "WF-dashboard-audience",
+   "title": "Who sees a dashboard",
+   "summary": "Who sees it: everyone in the project, Lead engineers or Project administrators. Show in E1 Reviewer offers the dashboard on the iPad.",
+   "anchor": "wf-dashboard-audience",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "33.5"
+   ],
+   "checks": [
+    "S6"
+   ],
+   "related": [
+    "WF-dashboard-edit"
+   ],
+   "roles": "As editing the dashboard",
+   "training": {
+    "topic": "Audience",
+    "level": "Intermediate",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-dashboard-audience"
+  },
+  {
+   "id": "WF-every-project",
+   "title": "Every-project dashboards",
+   "summary": "A dashboard the organization makes for every project shows in each project with that project's data. Copy to this project makes it the project's own; Reset to the organization's brings the shared one back.",
+   "anchor": "wf-every-project",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "33.5"
+   ],
+   "checks": [
+    "S6"
+   ],
+   "related": [
+    "WF-dashboards",
+    "WF-dashboard-edit"
+   ],
+   "roles": "Making one: Manage organization dashboards; copying and resetting: Manage project dashboards",
+   "training": {
+    "topic": "Every-project dashboards",
+    "level": "Intermediate",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-every-project"
+  },
+  {
+   "id": "WF-present",
+   "title": "Present a dashboard",
+   "summary": "Present hides the controls and enlarges the tiles for a meeting; Stop presenting brings them back.",
+   "anchor": "wf-present",
+   "status": "available",
+   "since": "2026-11-12",
+   "roadmap": [
+    "33.5"
+   ],
+   "checks": [
+    "S6"
+   ],
+   "related": [
+    "WF-dashboards"
+   ],
+   "roles": "As the dashboard",
+   "training": {
+    "topic": "Presenting",
+    "level": "Beginner",
+    "minutes": 1
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-present"
   },
   {
    "id": "SAFE-cause-effect",

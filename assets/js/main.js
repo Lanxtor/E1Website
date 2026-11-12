@@ -7,7 +7,7 @@
   var PRODUCT = "E1";
 
   var NAV = [
-    { href: "index.html", label: "Home" },
+    { href: "index.html", label: "Overview" },
     { href: "solutions.html", label: "Solutions" },
     { href: "academy.html", label: "Academy" },
     { href: "shape-e1.html", label: "Contact us" },
