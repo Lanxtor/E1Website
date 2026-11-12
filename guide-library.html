@@ -876,7 +876,7 @@
 
 <section class="g-feature" id="lib-modules">
   <h2>Modules in the library</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a, 32.3d</span><span>Review checks M1, M11</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a, 32.3d, 32.3e</span><span>Review checks M1, M11</span></div>
   <p class="g-summary">A module is a part of a P&amp;ID saved for placing again, with <a href="guide-drawing.html#draw-module-save">Save as module…</a>: a control valve station, a pump with its valves, a sampling point. Modules are kept in the company library, for every project, or in one project's library, and Configuration → Modules lists them all.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> (in the Content group)</dd>
@@ -886,18 +886,19 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a project, then <span class="ui">Configuration → Modules</span>.</td><td>A list of the modules: <span class="ui">Name</span>, <span class="ui">Category</span>, <span class="ui">Library</span> (Company or Project), <span class="ui">Version</span> (the newest published, and <em>draft open</em> when there is a draft), <span class="ui">State</span> (Draft, Published or Withdrawn) and the number of <span class="ui">Members</span>.</td></tr>
+      <tr><td>1</td><td>Open a project, then <span class="ui">Configuration → Modules</span>.</td><td>A list of the modules, each with its preview: <span class="ui">Name</span>, <span class="ui">Category</span>, <span class="ui">Library</span> (Company, Project or Content package), <span class="ui">Version</span> (the newest published, and <em>draft open</em> when there is a draft), <span class="ui">State</span> (Draft, Published or Withdrawn), the number of <span class="ui">Members</span>, and how many times it is <span class="ui">Placed</span> in this project.</td></tr>
       <tr><td>2</td><td>Type in <span class="ui">Search modules</span>.</td><td>Only modules whose name, key, category or keywords contain the text stay.</td></tr>
-      <tr><td>3</td><td>Click a module's name.</td><td>Its details: description, library, state, versions, members by class, tie-in points (where lines connect to it: name, type, direction, size, rating) and parameters (values asked for when it is placed).</td></tr>
+      <tr><td>3</td><td>Click a module's name or preview.</td><td>Its details: description, library, state, versions, members by class, <span class="ui">Where it is placed</span>, tie-in points (where lines connect to it: name, type, direction, size, rating) and parameters (values asked for when it is placed).</td></tr>
+      <tr><td>4</td><td>In <span class="ui">Where it is placed</span>, click <span class="ui">Show on sheet</span> on an instance.</td><td>Each instance of the module in this project is listed with its sheet, its objects (by tag) and its version (<em>Update</em> when a newer one is read). Show on sheet opens that sheet with the instance's objects selected and in view, to change them there.</td></tr>
     </tbody>
   </table></div>
   <h3>Usually per instance</h3>
   <p>Some attributes differ from place to place, such as service, size, design pressure and temperature and set points. <span class="ui">Usually per instance</span>, below the list, holds these attribute paths, one a line. When a module is saved, E1 proposes to keep them per instance: each placed module has its own value, and an update from the module never changes it. <span class="ui">Save</span> keeps the list for the organization (managing organization policies). E1 ships with a list to start from.</p>
   <p>Placing a module: <a href="guide-drawing.html#draw-module-place">Add asset → Modules</a>.</p>
   <h3>Save as module?</h3>
-  <p>When the same group is drawn three times or more and is in no module (two symbols of the same classes joined the same way, such as a valve and a reducer with the pipe between them), the box <span class="ui">Save as module?</span> names it, with how many times and examples. Alex finds the same groups when you ask it. Select one on its 2D space and right-click → <a href="guide-drawing.html#draw-module-save">Save as module…</a>.</p>
+  <p>When the same group is drawn three times or more and is in no module (two symbols of the same classes joined the same way, such as a valve and a reducer with the pipe between them), the table <span class="ui">Save as module?</span> lists it: the <span class="ui">Group</span>, how often it is <span class="ui">Drawn</span>, and <span class="ui">Examples</span> by their tags with the sheet each is on. Click an example: its sheet opens with the two symbols and the pipe between them selected; right-click them → <a href="guide-drawing.html#draw-module-save">Save as module…</a>. Alex finds the same groups when you ask it.</p>
   <h3>Modules in content packages</h3>
-  <p>A content package can carry modules. They are listed with the library <em>Package</em>, read only, and can be placed like the others. E1 checks each one against the library when the package is loaded and draws its preview itself; one that names something the library does not have is left out.</p>
+  <p>A content package can carry modules. They are listed with the library <em>Content package</em>, read only, and can be placed like the others; their details have no New version or Withdraw. <span class="ui">Duplicate…</span> makes an editable copy in this project's library, which you can change and publish. E1 checks each one against the library when the package is loaded and draws its preview itself; one that names something the library does not have is left out.</p>
   <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a> · <a href="#lib-configuration">The Configuration place</a> · <a href="#lib-company-library">Company library</a></p>
 </section>
 
@@ -966,9 +967,9 @@
   </table></div>
   <ul>
     <li><span class="ui">Supplied by vendor</span>, with the vendor's document and revision, marks a vendor's package. In a project its members then take only per-instance values; any other change is refused (<em>Supplied by vendor …: change the vendor module</em>). A new vendor revision is published as a new version.</li>
-    <li><span class="ui">Duplicate…</span> makes a new module, as a draft, with the same content; its instances stay with the first.</li>
+    <li><span class="ui">Duplicate…</span> makes a new module, as a draft, with the same content; its instances stay with the first. A content package's module, which is read only, is copied into this project's library.</li>
     <li><span class="ui">Copy to company library</span> makes a company module from a published project module, checked against the company library: a project class or shape is refused and named.</li>
-    <li>To change what is drawn, place the module on a 2D space, change that instance, and use <span class="ui">Save changes to module…</span> (<a href="guide-drawing.html#draw-module-promote">Turn an instance's changes into the next version</a>).</li>
+    <li>To change what is drawn: in the module's details, <span class="ui">Where it is placed</span> → <span class="ui">Show on sheet</span> opens an instance selected (or place the module on a 2D space first); change it there, then on one of its objects <span class="ui">Module ▾</span> → <span class="ui">Save changes to module…</span> (<a href="guide-drawing.html#draw-module-promote">Turn an instance's changes into the next version</a>).</li>
   </ul>
   <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a> · <a href="#lib-module-versions">Module versions</a></p>
 </section>
