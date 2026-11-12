@@ -5135,7 +5135,7 @@
    "anchor": "doc-datasheet-designer",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-11",
+   "updated": "2026-11-12",
    "roadmap": [
     "07.5"
    ],
@@ -5146,7 +5146,8 @@
     "DOC-datasheet",
     "DOC-datasheet-pdf",
     "LIB-configuration",
-    "LIB-company-library"
+    "LIB-company-library",
+    "DOC-spec-datasheet-designer"
    ],
    "roles": "Datasheet design on the project",
    "training": {
@@ -5186,14 +5187,23 @@
   },
   {
    "id": "DOC-spec-datasheets",
-   "title": "Standard specification datasheets (ISA 20, API)",
-   "summary": "Specification datasheets in the industry formats, with operating-case tables and repeated blocks.",
+   "title": "Specification datasheets",
+   "summary": "A datasheet of numbered lines, tables of parts that continue on continuation pages, operating cases and revision marks, the same on screen and in the PDF.",
    "anchor": "doc-spec-datasheets",
-   "status": "planned",
-   "roadmap": [],
-   "checks": [],
+   "status": "available",
+   "roadmap": [
+    "24.1",
+    "24.2"
+   ],
+   "checks": [
+    "V1"
+   ],
    "related": [
-    "DOC-datasheet-designer",
+    "DOC-spec-datasheet-rows",
+    "DOC-spec-datasheet-cases",
+    "DOC-spec-datasheet-marks",
+    "DOC-spec-datasheet-templates",
+    "DOC-spec-datasheet-designer",
     "DOC-datasheet"
    ],
    "roles": "Datasheet design on the project",
@@ -5203,8 +5213,149 @@
     "minutes": 4
    },
    "screenshots": [],
+   "since": "2026-11-12",
+   "updated": "2026-11-12",
    "category": "documents",
    "page": "guide-documents.html#doc-spec-datasheets"
+  },
+  {
+   "id": "DOC-spec-datasheet-rows",
+   "title": "Add row and Remove row on a datasheet",
+   "summary": "Add and remove the parts a datasheet lists (nozzles, stages, sides) right on the datasheet.",
+   "anchor": "doc-spec-datasheet-rows",
+   "status": "available",
+   "since": "2026-11-12",
+   "updated": "2026-11-12",
+   "roadmap": [
+    "24.2"
+   ],
+   "checks": [
+    "V1"
+   ],
+   "related": [
+    "DOC-spec-datasheets"
+   ],
+   "roles": "Any project role; editing values needs a role that may edit objects",
+   "training": {
+    "topic": "Parts on the datasheet",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-spec-datasheet-rows"
+  },
+  {
+   "id": "DOC-spec-datasheet-cases",
+   "title": "Operating cases on the datasheet",
+   "summary": "A case table shows the object’s cases side by side: inherited values, a case’s own values, Reset and + Add case.",
+   "anchor": "doc-spec-datasheet-cases",
+   "status": "available",
+   "since": "2026-11-12",
+   "updated": "2026-11-12",
+   "roadmap": [
+    "24.3"
+   ],
+   "checks": [
+    "V2"
+   ],
+   "related": [
+    "DOC-spec-datasheets"
+   ],
+   "roles": "Any project role; editing values needs a role that may edit objects",
+   "training": {
+    "topic": "Operating cases",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-spec-datasheet-cases"
+  },
+  {
+   "id": "DOC-spec-datasheet-marks",
+   "title": "Revision marks on a datasheet",
+   "summary": "After a datasheet document is issued, each value changed since shows the next revision beside it.",
+   "anchor": "doc-spec-datasheet-marks",
+   "status": "available",
+   "since": "2026-11-12",
+   "updated": "2026-11-12",
+   "roadmap": [
+    "24.3"
+   ],
+   "checks": [
+    "V2"
+   ],
+   "related": [
+    "DOC-spec-datasheets",
+    "DOC-datasheet-document"
+   ],
+   "roles": "Any project role; editing values needs a role that may edit objects",
+   "training": {
+    "topic": "Revision marks",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-spec-datasheet-marks"
+  },
+  {
+   "id": "DOC-spec-datasheet-templates",
+   "title": "Datasheet templates inspired by ISA 20 and API",
+   "summary": "Ready-made specification datasheets for instruments (inspired by ISA 20) and for pumps and exchangers (inspired by API and ASME).",
+   "anchor": "doc-spec-datasheet-templates",
+   "status": "available",
+   "since": "2026-11-12",
+   "updated": "2026-11-12",
+   "roadmap": [
+    "24.4",
+    "24.5"
+   ],
+   "checks": [
+    "V3"
+   ],
+   "related": [
+    "DOC-spec-datasheets",
+    "DOC-spec-datasheet-designer"
+   ],
+   "roles": "Any project role; editing values needs a role that may edit objects",
+   "training": {
+    "topic": "Standard templates",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-spec-datasheet-templates"
+  },
+  {
+   "id": "DOC-spec-datasheet-designer",
+   "title": "Design a specification datasheet",
+   "summary": "Build a layout from components, make it apply only to some objects, preview several objects, and take over changes from the layout it was copied from.",
+   "anchor": "doc-spec-datasheet-designer",
+   "status": "available",
+   "since": "2026-11-12",
+   "updated": "2026-11-12",
+   "roadmap": [
+    "24.6"
+   ],
+   "checks": [
+    "V4"
+   ],
+   "related": [
+    "DOC-datasheet-designer",
+    "DOC-spec-datasheet-templates"
+   ],
+   "roles": "Datasheet design on the project",
+   "training": {
+    "topic": "Designing specification datasheets",
+    "level": "Advanced",
+    "minutes": 8
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-spec-datasheet-designer"
   },
   {
    "id": "COL-undo-redo",
