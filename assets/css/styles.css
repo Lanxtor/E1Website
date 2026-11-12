@@ -3813,57 +3813,61 @@ code {
 .tw.is-built .tw-part { opacity: 1; transform: none; }
 .tw.is-run .tw-part { opacity: 0.5; transition-delay: 0s; }
 
-/* 2. operation: marks on the equipment */
-.tw-hots { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
-.tw-hot { position: absolute; --c: var(--brand); opacity: 0; transition: opacity 0.5s; }
-.tw-hot[data-d="process"] { --c: #0f8a78; }
-.tw-hot[data-d="instrumentation"] { --c: #1565c0; }
-.tw-hot[data-d="electrical"] { --c: #b8860b; }
-.tw-hot[data-d="automation"] { --c: #8e44ad; }
-.tw-hot[data-d="maintenance"] { --c: #c45a12; }
-.tw-hot i { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px #fff; }
-.tw-hot i::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--c); animation: tw-ping 1.8s ease-out infinite; }
+/* 2. the engineers: a mark on the equipment, a line, and their card */
+.tw-people { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+.tw-who { --c: var(--brand); }
+.tw-who[data-d="process"] { --c: #0f8a78; }
+.tw-who[data-d="instrumentation"] { --c: #1565c0; }
+.tw-who[data-d="electrical"] { --c: #b8860b; }
+.tw-who[data-d="automation"] { --c: #8e44ad; }
+.tw-who[data-d="maintenance"] { --c: #c45a12; }
+.tw-dot { position: absolute; left: var(--x); top: var(--y); width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px #fff; opacity: 0; transition: opacity 0.4s; }
+.tw-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--c); animation: tw-ping 1.8s ease-out infinite; }
 @keyframes tw-ping { from { transform: scale(0.7); opacity: 1; } to { transform: scale(2.6); opacity: 0; } }
-.tw-hot span { position: absolute; top: -64px; left: 22px; padding: 10px 16px 10px 18px; border: 1.5px solid var(--c); border-left-width: 6px; border-radius: 10px; background: #fff; box-shadow: 0 12px 26px -14px rgba(11, 42, 74, 0.45); font-size: 1rem; font-weight: 600; color: var(--heading); white-space: nowrap; opacity: 0; transform: translateY(6px) scale(0.96); transition: opacity 0.35s, transform 0.45s cubic-bezier(0.2, 1.4, 0.4, 1); }
-.tw-hot.tw-l span { left: auto; right: 22px; }
-.tw-hot span::before { content: ""; position: absolute; bottom: -27px; left: -14px; width: 1.5px; height: 30px; background: var(--c); transform: rotate(-30deg); transform-origin: bottom; }
-.tw-hot.tw-l span::before { left: auto; right: -14px; transform: rotate(30deg); }
-.tw.is-run .tw-hot.is-cur, .tw.is-run .tw-hot.is-seen, .tw.is-all .tw-hot { opacity: 1; }
-.tw-hot.is-seen { opacity: 0.6 !important; }
-.tw.is-all .tw-hot { opacity: 1 !important; }
-.tw-hot.is-cur span { opacity: 1; transform: none; }
-.tw:not(.is-run) .tw-hot { opacity: 0; transition: none; }
+.tw-card { position: absolute; z-index: 2; display: grid; grid-template-columns: 48px minmax(0, 1fr) 96px; align-items: center; gap: 12px; width: 370px; padding: 12px 14px 12px 12px; border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: 14px; background: rgba(255, 255, 255, 0.97); box-shadow: 0 18px 36px -22px rgba(11, 42, 74, 0.5); opacity: 0; transform: translateY(10px) scale(0.97); transition: opacity 0.4s, transform 0.5s cubic-bezier(0.2, 1.3, 0.4, 1), box-shadow 0.4s; }
+.tw-card img { width: 48px; height: 48px; border-radius: 50%; background: color-mix(in srgb, var(--c) 12%, #fff); box-shadow: inset 0 0 0 2px var(--c); }
+.tw-card-text { display: grid; gap: 1px; min-width: 0; line-height: 1.3; text-align: left; }
+.tw-card-text b { font-size: 0.95rem; color: var(--c); }
+.tw-card-text span { font-size: 0.86rem; font-weight: 600; color: var(--heading); }
+.tw-card-text small { font-size: 0.74rem; color: var(--text-muted); }
+.tw-thumb { width: 96px; height: 64px; color: var(--c); }
+.tw-who.is-on .tw-dot, .tw-who.is-on .tw-card { opacity: 1; }
+.tw-who.is-on .tw-card { transform: none; }
+.tw-who.is-cur .tw-card { box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 22%, transparent), 0 22px 40px -22px rgba(11, 42, 74, 0.6); }
+.tw-leads { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.tw-leads line { stroke-width: 1.6; stroke-dasharray: 4 4; opacity: 0; transition: opacity 0.5s; }
+.tw-leads line[data-d="process"] { stroke: #0f8a78; }
+.tw-leads line[data-d="instrumentation"] { stroke: #1565c0; }
+.tw-leads line[data-d="electrical"] { stroke: #b8860b; }
+.tw-leads line[data-d="automation"] { stroke: #8e44ad; }
+.tw-leads line[data-d="maintenance"] { stroke: #c45a12; }
+.tw-leads line.is-on { opacity: 0.9; }
+.tw:not(.is-run) .tw-who .tw-dot, .tw:not(.is-run) .tw-who .tw-card, .tw:not(.is-run) .tw-leads line { opacity: 0; transition: none; }
 
-/* the panel: phase and what is happening */
-.tw-panel { position: absolute; z-index: 2; left: 40px; top: 40px; max-width: 380px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255, 255, 255, 0.93); box-shadow: 0 18px 40px -26px rgba(11, 42, 74, 0.45); }
-.tw-phase { display: flex; gap: 8px; margin: 0; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-.tw-phase span { padding: 5px 12px; border: 1px solid #cfd4db; border-radius: 99px; color: #8a939e; transition: background 0.4s, color 0.4s, border-color 0.4s; }
-.tw-phase span.is-on { border-color: var(--navy); background: var(--navy); color: #fff; }
-.tw-say { margin: 12px 0 0; min-height: 2.7em; font-size: 1.05rem; font-weight: 600; line-height: 1.35; color: var(--heading); }
-.tw-say small { display: block; margin-bottom: 2px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5c6673; }
-.tw-say small[data-d="process"] { color: #0f8a78; }
-.tw-say small[data-d="instrumentation"] { color: #1565c0; }
-.tw-say small[data-d="electrical"] { color: #b8860b; }
-.tw-say small[data-d="automation"] { color: #8e44ad; }
-.tw-say small[data-d="maintenance"] { color: #c45a12; }
-
-@media (max-width: 900px) {
-  .tw-hot span { font-size: 0.85rem; padding: 7px 12px 7px 14px; top: -54px; }
-  .tw-panel { left: 24px; top: 16px; max-width: 320px; }
+@media (max-width: 1100px) {
+  .tw-card { width: 300px; grid-template-columns: 40px minmax(0, 1fr) 72px; gap: 9px; padding: 9px 10px; }
+  .tw-card img { width: 40px; height: 40px; }
+  .tw-thumb { width: 72px; height: 48px; }
+  .tw-card-text b { font-size: 0.85rem; } .tw-card-text span { font-size: 0.78rem; }
 }
-/* phones: the platform larger and cropped, marks without bubbles, the panel below */
+/* phones: the platform larger and cropped, one card at a time under the drawing */
 @media (max-width: 700px) {
   .hero.hero-twin { padding-top: 24px; }
   .hero-twin h1 { font-size: 2rem; }
   .hero-lead { font-size: 0.98rem; }
   .tw { margin-top: 8px; padding: 0 0 20px; }
+  .tw-stage { overflow: visible; }
   .tw-canvas { width: 170%; margin-left: -22%; }
-  .tw-hot span { display: none; }
-  .tw-hot i { left: -9px; top: -9px; width: 18px; height: 18px; }
-  .tw-panel { position: relative; left: auto; top: auto; max-width: none; margin: 4px 16px 0; text-align: center; }
-  .tw-phase { justify-content: center; }
+  .tw-stage { overflow: hidden; padding-bottom: 104px; }
+  .tw-leads { display: none; }
+  .tw-dot { width: 18px; height: 18px; margin: -9px 0 0 -9px; }
+  .tw-card { left: 42.35% !important; top: auto !important; bottom: -100px; width: min(360px, calc(100vw - 32px)); margin-left: calc(min(360px, calc(100vw - 32px)) / -2); grid-template-columns: 44px minmax(0, 1fr) 80px; }
+  .tw-who.is-on:not(.is-cur) .tw-card { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .tw-part { transition: none; }
-  .tw-hot i::after { animation: none; }
+  .tw-dot::after { animation: none; }
 }
+.tw-card-text b, .tw-card-text span { overflow-wrap: anywhere; hyphens: auto; }
+.tw-card { width: 380px; }
+@media (max-width: 1100px) { .tw-card { width: 300px; } }
