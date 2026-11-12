@@ -524,7 +524,7 @@
 
 <section class="g-feature" id="doc-datasheet-designer">
   <h2>The datasheet designer</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-11</span><span class="g-id">DOC-datasheet-designer</span><span>Roadmap 07.5</span><span>Review check F3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-datasheet-designer</span><span>Roadmap 07.5</span><span>Review check F3</span></div>
   <p class="g-summary">Copy or create a datasheet layout, add fields, preview it with an object, and publish it for a class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Datasheets</span></dd>
@@ -551,8 +551,8 @@
   <p>Pages (<span class="ui">Add page</span>, <span class="ui">Remove page</span>), sections (<span class="ui">Add section</span>, <span class="ui">Columns</span> 1–3, <span class="ui">Up</span>, <span class="ui">Down</span>, <span class="ui">Remove section</span>), groups (<span class="ui">Add group</span>, <span class="ui">Add field to group</span>), tables (<span class="ui">Add table</span>, <span class="ui">Add column</span>), and per field its label, unit, <span class="ui">read only</span> and <span class="ui">Remove</span>. Problems with fields the class lacks are listed under “Binding problems”. <span class="ui">Submit for review</span> says “Submitted for review.”; <span class="ui">Withdraw vN</span> asks “Withdraw version N? Projects pinned to it still read it.” and then says “Version N withdrawn.”; <span class="ui">Use for this project</span> says “This project uses it for the class.”.</p>
   <figure class="g-shot"><img src="assets/img/guides/config-datasheets.webp" alt="Configuration → Datasheets: Project Demo Plant, New layout…, This project None, Company library None, and the content package layouts Centrifugal pump, Equipment, Instrument and Function datasheet, each v1." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Configuration</span> → <span class="ui">Datasheets</span>.</figcaption></figure>
   <p class="g-warn"><kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) does not undo layout edits: use the designer's <span class="ui">Undo</span> button. Outside a text field, <kbd>Ctrl+Z</kbd> undoes your last saved change to the project instead.</p>
-  <p class="g-warn">One layout per class. A layout has no logo or other fixed elements yet.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-documents.html#doc-datasheet-pdf">Datasheet PDF</a>, <a href="guide-library.html#lib-configuration">The Configuration place</a>, <a href="guide-library.html#lib-company-library">The company library</a></p>
+  <p class="g-warn">A layout has no logo or other fixed elements yet. For layouts of components, conditions and comparing a copy with its source, see <a href="#doc-spec-datasheet-designer">Design a specification datasheet</a>.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-documents.html#doc-datasheet-pdf">Datasheet PDF</a>, <a href="guide-library.html#lib-configuration">The Configuration place</a>, <a href="guide-library.html#lib-company-library">The company library</a>, <a href="guide-documents.html#doc-spec-datasheet-designer">Design a specification datasheet</a></p>
 </section>
 
 <section class="g-feature" id="doc-revisions-filter">
@@ -572,14 +572,137 @@
 </section>
 
 <section class="g-feature" id="doc-spec-datasheets">
-  <h2>Standard specification datasheets (ISA 20, API)</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DOC-spec-datasheets</span></div>
-  <p class="g-summary">Specification datasheets in the industry formats, with operating-case tables and repeated blocks.</p>
-  <p class="g-dev">Planned: the design is a draft for review (2026-11-05) and not yet a roadmap stage. Nothing of it is in the app today.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Use datasheets laid out like ISA 20 and API specification sheets.</li>
-    <li>Fill operating-case tables and repeated blocks.</li>
-  </ul>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet-designer">The datasheet designer</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a></p>
+  <h2>Specification datasheets</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheets</span><span>Roadmap 24.1, 24.2</span><span>Review check V1</span></div>
+  <p class="g-summary">A datasheet of numbered lines, tables of parts that continue on continuation pages, operating cases and revision marks, the same on screen and in the PDF.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An object's <span class="ui">Data sheet</span> tab, when its class uses a specification layout (a <a href="#doc-spec-datasheet-templates">standard template</a> or one made in the <a href="#doc-spec-datasheet-designer">designer</a>)</dd>
+    <dt>Who</dt><dd>Any project role reads it; a role that may edit objects types values</dd>
+    <dt>Before you start</dt><dd>The project uses library version 24 (it has the <span class="ui">Specification</span> content package). A centrifugal pump P-101 with two nozzles, and Configuration → Datasheets → <span class="ui">Centrifugal pump specification</span> → <span class="ui">Use for this project</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Double-click P-101 in the explorer and click <span class="ui">Data sheet</span>.</td><td>The datasheet's lines are numbered 1, 2, 3 … down the page; Identification shows the tag, name and class; each line's label is the attribute's name in E1.</td></tr>
+      <tr><td>2</td><td>Type a value in a line and press <kbd>Enter</kbd>.</td><td>It is saved with its unit, as on any datasheet; a line with a second box (an extra cell, such as Outlet) saves each box on its own.</td></tr>
+      <tr><td>3</td><td>Scroll to the end.</td><td>Remarks, the revision chronicle and the foot of the page: “Inspired by API 610 datasheet”.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Export PDF</span>.</td><td>The PDF has the same lines with their numbers, the same tables and pages, and the same footer.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A list of parts longer than the rows the layout prints goes on a continuation page at the end, with its header repeated. A column repeater (one column per stage or side) prints in bands, each with the label column.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheet-rows">Add row and Remove row on a datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-cases">Operating cases on the datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-marks">Revision marks on a datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-templates">Datasheet templates inspired by ISA 20 and API</a>, <a href="guide-documents.html#doc-spec-datasheet-designer">Design a specification datasheet</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-rows">
+  <h2>Add row and Remove row on a datasheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-rows</span><span>Roadmap 24.2</span><span>Review check V1</span></div>
+  <p class="g-summary">Add and remove the parts a datasheet lists (nozzles, stages, sides) right on the datasheet.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A table of parts on a specification datasheet</dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>P-101's datasheet of <a href="#doc-spec-datasheets">Specification datasheets</a> is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Under the nozzles table, click <span class="ui">+ Add row</span>.</td><td>A nozzle owned by P-101 is added as a new row.</td></tr>
+      <tr><td>2</td><td>Click outside the fields and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The nozzle is gone again in one step.</td></tr>
+      <tr><td>3</td><td>Add it again, then click × at the end of its row and confirm.</td><td>“Remove this row? A part of the object goes to the Deleted bin; a related object only loses its link.” The row goes; the nozzle is in the Deleted bin.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The ports of the object's symbol (suction, discharge) have no ×: they belong to the symbol. In a table of related objects (a driver, a seal), × removes only the relationship. A column repeater has <span class="ui">+ Add column</span> and a × in each column's head.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-cases">
+  <h2>Operating cases on the datasheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-cases</span><span>Roadmap 24.3</span><span>Review check V2</span></div>
+  <p class="g-summary">A case table shows the object’s cases side by side: inherited values, a case’s own values, Reset and + Add case.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A case table (for example Operating conditions) on a specification datasheet</dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>P-101 has a flow and a head; its datasheet is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Under Operating conditions, click <span class="ui">+ Add case</span>.</td><td>A new case column; its cells show P-101's values, pale: they are inherited from the object (the Design column).</td></tr>
+      <tr><td>2</td><td>Type a flow in the case's column and press <kbd>Enter</kbd>.</td><td>The case has its own flow (no longer pale) and a <span class="ui">Reset</span>; P-101's own flow is unchanged.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Reset</span>.</td><td>The case inherits P-101's flow again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A case's role (maximum, rated, normal, minimum, design, start-up) is shown with its name; a template that orders roles puts the columns in that order. Alex sets a role with <code>set_case_role</code>. Cases are the object's cases, the same as everywhere in E1.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-marks">
+  <h2>Revision marks on a datasheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-marks</span><span>Roadmap 24.3</span><span>Review check V2</span></div>
+  <p class="g-summary">After a datasheet document is issued, each value changed since shows the next revision beside it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A specification datasheet whose object has a <a href="#doc-datasheet-document">datasheet document</a></dd>
+    <dt>Who</dt><dd>Any project role</dd>
+    <dt>Before you start</dt><dd>A datasheet document for P-101, issued as revision A.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Change P-101's speed on its datasheet.</td><td>That line shows a small box with B beside the value; pointing at it says “Changed since the issued revision; issued next in B”. The other lines have no mark.</td></tr>
+      <tr><td>2</td><td>Issue revision B of the datasheet document.</td><td>The marks are gone until the next change.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a>, <a href="guide-documents.html#doc-datasheet-document">Datasheet documents</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-templates">
+  <h2>Datasheet templates inspired by ISA 20 and API</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-templates</span><span>Roadmap 24.4, 24.5</span><span>Review check V3</span></div>
+  <p class="g-summary">Ready-made specification datasheets for instruments (inspired by ISA 20) and for pumps and exchangers (inspired by API and ASME).</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Datasheets</span> → Content packages</dd>
+    <dt>Who</dt><dd>Anyone reads them; <span class="ui">Use for this project</span> and copying need Datasheet design on the project</dd>
+    <dt>Before you start</dt><dd>The project uses library version 24.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → Datasheets.</td><td>Under Content packages, templates such as <span class="ui">Electromagnetic flowmeter specification</span> read “inspired by ISA 20F2321”, and <span class="ui">Centrifugal pump specification</span> reads “inspired by API 610”.</td></tr>
+      <tr><td>2</td><td>Make an Electromagnetic flowmeter FT-101 and open its <span class="ui">Data sheet</span>.</td><td>It opens in its template: the lines of the form's content, labelled with E1's attribute names, and “Inspired by ISA 20F2321” at the foot.</td></tr>
+      <tr><td>3</td><td>Open <span class="ui">Centrifugal pump specification</span> and click <span class="ui">Use for this project</span>.</td><td>“This project uses it for the class.” Every centrifugal pump's datasheet now opens in it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A template follows the content of the form it is inspired by, in E1's own layout and wording: E1 numbers the lines, names them after its attributes, and shows no form number, legend, logo or copyright of ISA or API. A template is read only; <span class="ui">Copy to edit…</span> makes your own, which can later take over changes from it (<a href="#doc-spec-datasheet-designer">Design a specification datasheet</a>).</p>
+  <p class="g-dev">The 54 ISA 20 forms read so far have a template; the other 35 follow. Pumps (API 610, 674, 675, 676, 685, ASME B73.1) and exchangers (API 660, 661, 662, 663, 664) have one; compressors, turbines, fans, tanks and fired heaters follow after the first release.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a>, <a href="guide-documents.html#doc-spec-datasheet-designer">Design a specification datasheet</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-designer">
+  <h2>Design a specification datasheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-designer</span><span>Roadmap 24.6</span><span>Review check V4</span></div>
+  <p class="g-summary">Build a layout from components, make it apply only to some objects, preview several objects, and take over changes from the layout it was copied from.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Datasheets</span></dd>
+    <dt>Who</dt><dd>Datasheet design on the project</dd>
+    <dt>Before you start</dt><dd>Two centrifugal pumps, P-101 and P-102 (material SS316).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">New layout…</span>, choose Class <span class="ui">Centrifugal pump</span>, Made of <span class="ui">Components (specification datasheet)</span>, key <code>plant1.pump-spec</code>, and click <span class="ui">Create</span>.</td><td>An empty layout opens with Page 1 and <span class="ui">Add component</span>.</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Add component</span> choose <span class="ui">Field table</span>, then <span class="ui">Row list</span>.</td><td>Both are on Page 1 with their title, <span class="ui">Up</span>, <span class="ui">Down</span>, <span class="ui">Details</span> and <span class="ui">Remove</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Details</span> of the field table, add lines in the text, and click <span class="ui">Apply details</span>.</td><td>The lines are in the preview. Text that is not valid is refused with the reason.</td></tr>
+      <tr><td>4</td><td>In <span class="ui">Preview with object</span> add P-101 and P-102.</td><td>One tab per pump, each filled with its values.</td></tr>
+      <tr><td>5</td><td>Under <span class="ui">Applies when</span>, click <span class="ui">Add condition</span> and set Material is <code>SS316</code>.</td><td>P-101's tab says the layout does not apply to it; P-102's is filled.</td></tr>
+      <tr><td>6</td><td>Publish. Open a template under Content packages, click <span class="ui">Copy to edit…</span> and <span class="ui">Copy</span>.</td><td>The copy says “Copied from … version 1” with <span class="ui">Compare with source</span>.</td></tr>
+      <tr><td>7</td><td>When the source has a newer version, click <span class="ui">Compare with source</span>, tick the changes and click <span class="ui">Take over selected</span>.</td><td>Each difference reads Changed in the source, New in the source, Removed in the source or Changed in both; after taking over, “Taken over: N.”, and your own changes stay.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The components are Field table, Row list, Column repeater, Case table, Attribute grid, Option group, Notes, Text and Revision chronicle. With several conditions, all must hold. A layout without a condition applies to every object of its class; one with a condition comes first for the objects it applies to.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet-designer">The datasheet designer</a>, <a href="guide-documents.html#doc-spec-datasheet-templates">Datasheet templates inspired by ISA 20 and API</a></p>
 </section>
