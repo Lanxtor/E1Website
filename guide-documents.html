@@ -71,6 +71,7 @@
           <li><a href="#doc-datasheet-pdf">Datasheet PDF</a></li>
           <li><a href="#doc-datasheet-document">Datasheet documents</a></li>
           <li><a href="#doc-hookup-schedule">The hookup schedule (PDF and Excel)</a></li>
+          <li><a href="#doc-hookup-drawing">A hookup drawing</a></li>
           <li><a href="#doc-datasheet-designer">The datasheet designer</a></li>
           <li><a href="#doc-revisions-filter">Filter documents by kind</a></li>
           <li><a href="#doc-spec-datasheets">Specification datasheets</a></li>
@@ -86,7 +87,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Documents, revisions and datasheets</p>
         <h1>7. Documents, revisions and datasheets</h1>
         <p class="lead">Documents and their revisions, issuing, changed since, PDF and Excel output, sheet PDF and printing, datasheets and the datasheet designer.</p>
-        <div class="g-meta"><span>38 features</span><span>37 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>39 features</span><span>38 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="documents-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Documents are the deliverables of a project: lists, drawings plotted to PDF, datasheets and uploaded files. Each document has revisions A, B, …; issuing a revision freezes it and its PDF, and E1 then shows what changed since. Datasheets are also the everyday screen of an object, with a designer to lay them out.</p>
@@ -773,7 +774,32 @@
     </tbody>
   </table></div>
   <p class="g-note">The schedule is always made from the model: a new hookup or an instrument given another hookup shows in the next export without anything to update.</p>
-  <p class="g-related">Related: <a href="guide-objects.html#obj-hookups">Hookups</a> · <a href="#doc-revisions">Revisions</a> · <a href="#doc-issue">Issue a revision</a> · <a href="#doc-changed-since">Changed since</a></p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-hookups">Hookups</a> · <a href="#doc-revisions">Revisions</a> · <a href="#doc-issue">Issue a revision</a> · <a href="#doc-changed-since">Changed since</a> · <a href="#doc-hookup-drawing">A hookup drawing</a></p>
+</section>
+
+<section class="g-feature" id="doc-hookup-drawing">
+  <h2>A hookup drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-hookup-drawing</span><span>Roadmap HU</span></div>
+  <p class="g-summary">A hookup's drawing is made from the model: an arrangement sketch with a balloon per part, the hookup's bill of material, the instruments that use it and notes, on one A3 page with the title block. Each hookup has one; it is in <span class="ui">Revisions</span> and is revised and issued like any other document.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A hookup's window (<span class="ui">Assets ▸ Hookups</span>): <span class="ui">Hookup drawing</span>, <span class="ui">Fill bill of material</span>; then the drawing's window: <span class="ui">Arrangement</span>, <span class="ui">Fill bill of material</span>, <span class="ui">Export PDF</span></dd>
+    <dt>Who</dt><dd>A project role that may create documents (to make it) and edit generated drawings (to change its arrangement); filling the bill of material needs the permission to edit attributes.</dd>
+    <dt>Before you start</dt><dd>The project uses hookups and has one, with its <span class="ui">Hookup type</span> set (<a href="guide-objects.html#obj-hookups">Hookups</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a hookup and click <span class="ui">Hookup drawing</span>.</td><td>The document <em>&lt;hookup&gt; hookup drawing</em> opens; it is listed in <span class="ui">Revisions</span>. Its template follows the hookup type: Process → <span class="ui">Pressure</span>, Pneumatic → <span class="ui">Instrument air supply</span>, Electrical → <span class="ui">Cable entry</span>, Mounting and support → <span class="ui">Pipe stand</span>. Clicking it again opens the same drawing.</td></tr>
+      <tr><td>2</td><td>Under <span class="ui">Arrangement</span>, choose <span class="ui">Template</span> <span class="ui">Differential pressure</span>, <span class="ui">Service</span> <span class="ui">Steam</span> and <span class="ui">Manifold</span> <span class="ui">5-valve</span>.</td><td>The drawing below shows two tappings (H and L) with root valves and condensate pots, the impulse lines sloping down to a 5-valve manifold, and the transmitter with the tag of the first instrument that uses the hookup. With <span class="ui">Gas</span> the instrument is above the pipe and the lines slope back to the process.</td></tr>
+      <tr><td>3</td><td>Type <span class="ui">Impulse tube</span>, <span class="ui">Material</span>, <span class="ui">Impulse line length (m)</span> or <span class="ui">Process connection</span> and press Enter.</td><td>The change is saved; the notes on the drawing show it. The manifold offered fits the template: None or 2-valve for Pressure, 3-valve or 5-valve for Differential pressure.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Fill bill of material</span>.</td><td>The hookup's <span class="ui">Bill of material</span> lists the arrangement's parts with item numbers as the balloons on the drawing, sizes and materials from the options, and quantities per hookup (two root valves and twice the tube length for differential pressure). If it already has rows, E1 asks <em>Replace the n rows of the bill of material?</em> first.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Export PDF</span>.</td><td>One A3 page downloads: the sketch, <em>Bill of material</em>, <em>Instruments that use it (n)</em> and <em>Notes</em>, with the project, document, revision and <em>Not to scale</em> in the title block.</td></tr>
+      <tr><td>6</td><td>Issue a revision (<a href="#doc-issue">Issue a revision</a>).</td><td>The PDF is kept with the revision. The hookup and its instruments are frozen with it, so a changed bill of material or a new instrument shows in <a href="#doc-changed-since">Changed since</a>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The sketch is a standard arrangement, not to scale. The table on the drawing is the hookup's bill of material as it is, so rows changed by hand on the hookup's Attributes tab show too. A drawing whose hookup is deleted says <em>The hookup of this drawing is gone</em> and exports nothing.</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-hookups">Hookups</a> · <a href="#doc-hookup-schedule">The hookup schedule</a> · <a href="#doc-revisions">Revisions</a> · <a href="#doc-issue">Issue a revision</a></p>
 </section>
 
 <section class="g-feature" id="doc-datasheet-designer">
