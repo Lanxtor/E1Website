@@ -397,8 +397,32 @@
     <li><strong>CFIHOS</strong> (needs Core, Electrical foundation and Plant engineering 1.1): 847 tag classes, 759 equipment classes, 1388 properties as attributes and 367 pick lists.</li>
     <li><strong>NORSOK SCD</strong> (needs Core, Electrical foundation and Plant engineering; off until a project switches it on): NORSOK I-005 system control diagrams: the 16 function templates with every terminal and parameter, elementary functions, references, sequence diagrams, the NORSOK function tag and the SCD check. See <a href="guide-drawing.html#draw-scd">System control diagrams</a>.</li>
   </ul>
-  <p class="g-warn">A package still in use is not switched off: E1 lists what uses it (see <a href="#lib-package-switching">Switching packages on and off</a>). <span class="ui">Add a content package</span> is greyed out; it comes with content package updates. Without the workspace server, a switch answers "Switching packages needs the workspace server."</p>
+  <p class="g-warn">A package still in use is not switched off: E1 lists what uses it (see <a href="#lib-package-switching">Switching packages on and off</a>). A partner’s package is installed with <a href="#lib-partner-packages">Install a partner package…</a>. Without the workspace server, a switch answers "Switching packages needs the workspace server."</p>
   <p class="g-related">Related: <a href="#lib-project-settings">Project settings</a> · <a href="#lib-object-classes">Object classes</a> · <a href="#lib-shapes">Shapes</a> · <a href="#lib-package-licensing">Package licensing and updates</a></p>
+</section>
+
+<section class="g-feature" id="lib-partner-packages">
+  <h2>Partner content packages</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-partner-packages</span><span>Roadmap 04.7</span></div>
+  <p class="g-summary">Install a content package a partner made and E1 reviewed and signed: it is installed for the organization, off in every project until the project switches it on, and refused when changed after E1's review.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Content and standards</span> → <span class="ui">Install a partner package…</span></dd>
+    <dt>Who</dt><dd>Publish the library (Administrator) installs and removes; a Project administrator switches it on for a project</dd>
+    <dt>Before you start</dt><dd>The package's bundle file from the partner, after E1's review (E1 signs it; a partner cannot sign one alone)</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Content and standards</span> and click <span class="ui">Install a partner package…</span>; choose the bundle file.</td><td>“Acme valves 1.0.0 is installed for the organization. Switch it on for a project in Project settings → Content packages.” Its card says <span class="ui">Partner package, reviewed by E1</span>, by its publisher, with its counts and what it needs.</td></tr>
+      <tr><td>2</td><td>Open Project settings → <span class="ui">Content packages</span> of a project.</td><td>The package is listed and off.</td></tr>
+      <tr><td>3</td><td>Switch it on.</td><td>Its classes are offered, for example <span class="ui">Acme knife gate valve</span> with its <span class="ui">Seat material</span>.</td></tr>
+      <tr><td>4</td><td>Install a file someone changed after E1's review.</td><td>Refused, with the reason: the signature no longer matches.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Remove Acme valves</span> while a project has it on.</td><td>Refused: “switch it off there first”. Once it is off everywhere, it is removed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A partner package keeps to its own names (its keys start with its own key), may build on E1's packages and add to their classes, and never replaces them. A newer version of an installed package replaces the older one for the organization.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-content-packages">Content packages and standards</a>, <a href="guide-library.html#lib-package-switching">Switching packages on and off</a></p>
 </section>
 
 <section class="g-feature" id="lib-project-settings">
