@@ -72,7 +72,7 @@
      engineer's mark, and each engineer already there sees "Updated" as it
      passes them. Nothing goes through a centre. */
   var waves = twin.querySelector(".tw-waves");
-  var WAVE_MS = 1600;
+  var WAVE_MS = 2600;
   function centre(el) {
     var b = canvas.getBoundingClientRect(), r = el.getBoundingClientRect();
     return [r.left + r.width / 2 - b.left, r.top + r.height / 2 - b.top];
@@ -81,7 +81,13 @@
     if (!waves) return;
     var box = canvas.getBoundingClientRect();
     var from = centre(w.querySelector(".tw-dot"));
-    var reach = Math.hypot(Math.max(from[0], box.width - from[0]), Math.max(from[1], box.height - from[1]));
+    // The wave stays on the plant: it reaches just past the farthest engineer.
+    var reach = 0;
+    who.forEach(function (x) {
+      var to = centre(x.querySelector(".tw-dot"));
+      reach = Math.max(reach, Math.hypot(to[0] - from[0], to[1] - from[1]));
+    });
+    reach = Math.max(reach * 1.08, box.width * 0.18);
     var ring = document.createElement("span");
     ring.className = "tw-wave";
     ring.setAttribute("data-d", w.getAttribute("data-d"));
@@ -89,6 +95,7 @@
     ring.style.top = from[1] + "px";
     ring.style.width = ring.style.height = (reach * 2) + "px";
     ring.style.marginLeft = ring.style.marginTop = (-reach) + "px";
+    ring.style.animationDuration = WAVE_MS + "ms";
     waves.appendChild(ring);
     setTimeout(function () { ring.remove(); }, WAVE_MS + 200);
     who.forEach(function (x) {
@@ -124,8 +131,8 @@
     var t = parts * 380 + 1000;
     later(function () { state("is-built is-run"); drawLeads(); }, t);
     t += 700;
-    who.forEach(function (w, i) { later(function () { join(w); }, t + i * 2600); });
-    t += who.length * 2600;
+    who.forEach(function (w, i) { later(function () { join(w); }, t + i * 3400); });
+    t += who.length * 3400;
     later(function () { who.forEach(function (x) { x.classList.remove("is-cur"); }); }, t);
     later(cycle, t + 5500);
   }
