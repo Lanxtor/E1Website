@@ -57,6 +57,7 @@
           <li><a href="#doc-document-settings">Project settings → Documents</a></li>
           <li><a href="#doc-changes-since">Changes since a date on the drawing</a></li>
           <li><a href="#doc-change-clouds">Clouds and the changes table in a revision&#x27;s PDF</a></li>
+          <li><a href="#doc-sheet-frame">The sheet frame on the drawing</a></li>
           <li><a href="#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></li>
           <li><a href="#doc-sheet-pdf">PDF of a P&amp;ID 2D space</a></li>
           <li><a href="#doc-print">Print… and Ctrl+P</a></li>
@@ -80,7 +81,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Documents, revisions and datasheets</p>
         <h1>7. Documents, revisions and datasheets</h1>
         <p class="lead">Documents and their revisions, issuing, changed since, PDF and Excel output, sheet PDF and printing, datasheets and the datasheet designer.</p>
-        <div class="g-meta"><span>32 features</span><span>31 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>33 features</span><span>32 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="documents-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Documents are the deliverables of a project: lists, drawings plotted to PDF, datasheets and uploaded files. Each document has revisions A, B, …; issuing a revision freezes it and its PDF, and E1 then shows what changed since. Datasheets are also the everyday screen of an object, with a designer to lay them out.</p>
@@ -382,6 +383,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
     <tbody>
+      <tr><td><span class="ui">Sheet template</span></td><td>The page, frame and title block a 2D space's next version or revision prints on (<a href="guide-library.html#lib-documents-templates">Sheet templates</a>).</td></tr>
       <tr><td><span class="ui">Revision scheme</span></td><td>Letters before construction, numbers from construction (the default); ISO 19650 (P01 … then C01 …); Numeric (01-IFR, 02-IFA …); Letters only. An example line shows the labels.</td></tr>
       <tr><td><span class="ui">Document number pattern</span>, <span class="ui">Project code</span>, <span class="ui">Document type</span></td><td>The number a 2D space gets with its first output, for example {project.code}-{docType}-{seq:4} → P-PID-0001.</td></tr>
       <tr><td><span class="ui">Purposes</span></td><td>EPC purposes of issue (IFR … IFC, AB, VOID) or ISO 19650 suitability (S1 … S4, A1, CR).</td></tr>
@@ -442,6 +444,26 @@
   <p class="g-note">A revision is compared with the revision before it, a version with the output before it. The comparison is frozen when the output is created, so a later edit never changes a PDF. A deleted element's place is clouded; a change inside the title block's area is only listed.</p>
   <p class="g-warn">Clouds are drawn on 2D spaces; a list, datasheet or loop diagram lists its changes under Compare with… only.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changes-since">Changes since a date on the drawing</a></p>
+</section>
+
+<section class="g-feature" id="doc-sheet-frame">
+  <h2>The sheet frame on the drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sheet-frame</span><span>Roadmap 29.4</span><span>Review check E13</span></div>
+  <p class="g-summary">A 2D space with a version or revision shows its sheet template's frame, title block and revision block in grey at its printed area and scale; Layers ▸ Sheet frame hides it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An open 2D space that has a version or revision; <span class="ui">Layers</span> ▸ <span class="ui">Sheet frame</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the 2D space</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a 2D space after its first version or revision.</td><td>The page, the frame and the title block with its current values (Title, Document no., Rev …) are drawn in grey where the PDF prints them.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Layers</span> ▸ <span class="ui">Sheet frame</span>.</td><td>The frame is hidden; choose it again to show it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The frame is never part of the drawing and cannot be selected. It follows the printed area fixed at the first output (Change printed area… by asking Alex) and the sheet template of Project settings → Documents.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-documents-templates">Sheet templates</a>, <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a></p>
 </section>
 
 <section class="g-feature" id="doc-changed-since">
