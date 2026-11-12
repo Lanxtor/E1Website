@@ -420,7 +420,7 @@
 
 <section class="g-feature" id="prj-import-dexpi">
   <h2>Import a DEXPI P&amp;ID</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-11</span><span class="g-id">PRJ-import-dexpi</span><span>Roadmap 31.1 · 31.1b</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-import-dexpi</span><span>Roadmap 31.1 · 31.1b</span></div>
   <p class="g-summary">DEXPI is the exchange format P&amp;ID tools use. <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> reads one or more DEXPI 2.0 files, proposes how their equipment, piping and instruments map onto E1's classes and attributes, and shows every change before anything is stored. An import always imports and updates: import a revised file again and the objects already there are updated, never duplicated. A value someone changed in E1 is never overwritten without your decision.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> (for the project selected in the explorer)</dd>
@@ -446,9 +446,31 @@
   <figure class="g-shot"><img src="assets/img/guides/dexpi-mapping.webp" alt="The Import DEXPI dialog on the Mapping step for the DEXPI reference P&amp;ID: the drawing 123/A93 DEXPI example PID, revision R2.2, and rows such as CentrifugalPump with the class Centrifugal pump, confidence High, the reason, and Accept and Ignore buttons." width="2160" height="1350" loading="lazy"><figcaption>Mapping: every class E1 proposes says how sure it is and why. DEXPI reference P&amp;ID, DEXPI Specification 2.0 (dexpi.org).</figcaption></figure>
   <figure class="g-shot"><img src="assets/img/guides/dexpi-differences.webp" alt="The Differences step of a revised file: 3 differences to decide, H1007A whose tag differs, and P4711 with Flow rate 200 to 250 m³/h as an update, Rated power 75 kW in E1 and 65 kW in the file, and its placement, each with Use file and Keep E1; Apply is off." width="2160" height="1350" loading="lazy"><figcaption>Differences: E1 decides nothing for you; Apply waits until every difference is decided.</figcaption></figure>
   <figure class="g-shot"><img src="assets/img/guides/dexpi-sheet.webp" alt="The imported 2D space 123/A93 DEXPI example PID, as the file draws it: the pumps, heat exchangers and tank, the pipe runs with their line numbers, the instruments, the data tables and the title block." width="2160" height="1350" loading="lazy"><figcaption>The DEXPI reference P&amp;ID imported into Demo Plant.</figcaption></figure>
-  <p class="g-note">E1 reads DEXPI 2.0 today; DEXPI 1.3 and 1.4 files, and Excel, DWG and PDF files, come next. The 2D space looks as the file draws it: the symbols take the file's places, sizes, colours and line widths, each tag sits where the file writes it, and the border, title block, data tables, nozzle, line and valve labels and flow arrows are kept as the 2D space's background. The background is drawn and plotted, but not selected or edited; the next import of the same file replaces it. A valve or fitting the file gives no tag shows none on the drawing. The dialog closes when you click outside it: use <span class="ui">Cancel</span> or <span class="ui">Close</span>.</p>
+  <p class="g-note">E1 reads DEXPI 2.0 today; DEXPI 1.3 and 1.4 files, and Excel, DWG and PDF files, come next. The 2D space looks as the file draws it: the symbols take the file's places, sizes, colours and line widths, each tag sits where the file writes it, and the border, title block, data tables, nozzle, line and valve labels and flow arrows are kept as the 2D space's background. The background is drawn and plotted, but not selected or edited; the next import of the same file replaces it. A valve or fitting the file gives no tag shows none on the drawing. Each pipeline and segment flows from and to the boundaries the file gives it (a nozzle, an off-page connector, or an open end); <span class="ui">Check piping…</span> → <span class="ui">Refresh pipelines</span> writes their From and To. The dialog closes when you click outside it: use <span class="ui">Cancel</span> or <span class="ui">Close</span>.</p>
   <p class="g-warn">A tag or a placement you keep in E1 is asked again at the next import of the same file; a value you keep is not.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
+</section>
+
+<section class="g-feature" id="prj-export-dexpi">
+  <h2>Export a 2D space as DEXPI</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-export-dexpi</span><span>Roadmap 13.5</span><span>Review check O5</span></div>
+  <p class="g-summary">Write a 2D space's pipelines, segments, equipment, instruments and drawing as a DEXPI 2.0 file, for a 3D design tool or another P&amp;ID tool; imported again it gives the same pipelines, segments and boundaries.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → a 2D space (one click) → <span class="ui">Export DEXPI</span> on its page</dd>
+    <dt>Who</dt><dd>The <span class="ui">Export</span> permission in the project; no content package licence is needed</dd>
+    <dt>Before you start</dt><dd>The sample project's 2D space 123/A93 DEXPI example PID, or a 2D space of your own with pipelines.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the 2D space in the explorer, then <span class="ui">Export DEXPI</span>.</td><td>123-A93.xml downloads: the 2D space's drawing number names it.</td></tr>
+      <tr><td>2</td><td>Make an empty project and <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> that file; <span class="ui">Apply</span>.</td><td>11 pipelines with their segments, the pumps, tanks, valves and instruments with their values, and the drawing in the same places, colours and tags.</td></tr>
+      <tr><td>3</td><td>On the 2D space right-click empty space → <span class="ui">Check piping…</span> → <span class="ui">Refresh pipelines</span>.</td><td>Each pipeline and segment has the same From and To as in the sample project.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">In the file: each pipeline with its line number and values, its segments with their valves, fittings and off-page connectors and the pipe runs between them, where each segment starts and ends; the equipment with its nozzles, chambers and values; the instruments, loops and signals; a control valve with its actuator; the drawing with its tags and background. From and To are not in the file (DEXPI has none): the import finds them again from the boundaries. A run outside a pipeline is written as a pipeline of its own, by its line number. Alex exports a 2D space too (<code>export_dexpi</code>).</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-import-dexpi">Import a DEXPI P&amp;ID</a>, <a href="guide-documents.html#doc-sheet-pdf">PDF of a P&amp;ID 2D space</a></p>
 </section>
 
 <section class="g-feature" id="prj-import-excel">
