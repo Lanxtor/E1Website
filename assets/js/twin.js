@@ -67,11 +67,47 @@
   function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
   function clear() { timers.forEach(clearTimeout); timers = []; }
   function state(cls) { twin.className = "tw" + (cls ? " " + cls : ""); }
-  function reset() { who.forEach(function (w) { w.classList.remove("is-on", "is-cur"); if (w._line) w._line.removeAttribute("class"); }); }
+  function reset() { if (waves) waves.innerHTML = ""; who.forEach(function (w) { w.classList.remove("is-on", "is-cur", "is-upd"); if (w._line) w._line.removeAttribute("class"); }); }
+  /* The change reaches everyone: a wave spreads over the plant from the
+     engineer's mark, and each engineer already there sees "Updated" as it
+     passes them. Nothing goes through a centre. */
+  var waves = twin.querySelector(".tw-waves");
+  var WAVE_MS = 1600;
+  function centre(el) {
+    var b = canvas.getBoundingClientRect(), r = el.getBoundingClientRect();
+    return [r.left + r.width / 2 - b.left, r.top + r.height / 2 - b.top];
+  }
+  function wave(w) {
+    if (!waves) return;
+    var box = canvas.getBoundingClientRect();
+    var from = centre(w.querySelector(".tw-dot"));
+    var reach = Math.hypot(Math.max(from[0], box.width - from[0]), Math.max(from[1], box.height - from[1]));
+    var ring = document.createElement("span");
+    ring.className = "tw-wave";
+    ring.setAttribute("data-d", w.getAttribute("data-d"));
+    ring.style.left = from[0] + "px";
+    ring.style.top = from[1] + "px";
+    ring.style.width = ring.style.height = (reach * 2) + "px";
+    ring.style.marginLeft = ring.style.marginTop = (-reach) + "px";
+    waves.appendChild(ring);
+    setTimeout(function () { ring.remove(); }, WAVE_MS + 200);
+    who.forEach(function (x) {
+      if (x === w || !x.classList.contains("is-on")) return;
+      var to = centre(x.querySelector(".tw-dot"));
+      var d = Math.hypot(to[0] - from[0], to[1] - from[1]);
+      // the ring grows with ease-out: time to reach distance d
+      var k = Math.min(1, d / reach), at = WAVE_MS * (1 - Math.sqrt(1 - k));
+      later(function () {
+        x.classList.remove("is-upd"); void x.offsetWidth; x.classList.add("is-upd");
+        later(function () { x.classList.remove("is-upd"); }, 1700);
+      }, at);
+    });
+  }
   function join(w) {
     who.forEach(function (x) { x.classList.remove("is-cur"); });
     w.classList.add("is-on", "is-cur");
     if (w._line) w._line.setAttribute("class", "is-on");
+    later(function () { wave(w); }, 650);
   }
 
   function finished() {
@@ -88,8 +124,8 @@
     var t = parts * 380 + 1000;
     later(function () { state("is-built is-run"); drawLeads(); }, t);
     t += 700;
-    who.forEach(function (w, i) { later(function () { join(w); }, t + i * 1900); });
-    t += who.length * 1900;
+    who.forEach(function (w, i) { later(function () { join(w); }, t + i * 2600); });
+    t += who.length * 2600;
     later(function () { who.forEach(function (x) { x.classList.remove("is-cur"); }); }, t);
     later(cycle, t + 5500);
   }

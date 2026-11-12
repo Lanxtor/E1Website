@@ -3871,3 +3871,20 @@ code {
 .tw-card-text b, .tw-card-text span { overflow-wrap: anywhere; hyphens: auto; }
 .tw-card { width: 380px; }
 @media (max-width: 1100px) { .tw-card { width: 300px; } }
+
+/* The change reaches everyone: a wave from the engineer's mark (twin.js) */
+.tw-waves { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.tw-wave { position: absolute; border-radius: 50%; border: 3px solid var(--c, #3faa69); background: radial-gradient(closest-side, transparent 82%, color-mix(in srgb, var(--c, #3faa69) 14%, transparent) 96%, transparent 100%); transform: scale(0.02); opacity: 0.9; animation: tw-wave 1.6s cubic-bezier(0.2, 0.6, 0.35, 1) forwards; }
+.tw-wave[data-d="process"] { --c: #0f8a78; }
+.tw-wave[data-d="instrumentation"] { --c: #1565c0; }
+.tw-wave[data-d="electrical"] { --c: #b8860b; }
+.tw-wave[data-d="automation"] { --c: #8e44ad; }
+.tw-wave[data-d="maintenance"] { --c: #c45a12; }
+@keyframes tw-wave { 0% { transform: scale(0.02); opacity: 0.95; } 70% { opacity: 0.55; } 100% { transform: scale(1); opacity: 0; } }
+.tw-upd { position: absolute; top: -12px; right: 12px; padding: 2px 9px 2px 7px; border-radius: 99px; background: #1f7a45; color: #fff; font-size: 0.68rem; font-style: normal; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0; transform: translateY(4px); transition: opacity 0.25s, transform 0.3s; }
+.tw-upd::before { content: "\2713\00a0"; }
+.tw-who.is-upd .tw-upd { opacity: 1; transform: none; }
+.tw-who.is-upd .tw-card { box-shadow: 0 0 0 3px rgba(63, 170, 105, 0.45), 0 18px 36px -22px rgba(11, 42, 74, 0.5); }
+.tw-who.is-upd .tw-dot { box-shadow: 0 0 0 3px #fff, 0 0 0 7px rgba(63, 170, 105, 0.6); }
+@media (max-width: 700px) { .tw-upd { display: none; } }
+@media (prefers-reduced-motion: reduce) { .tw-wave { display: none; } }
