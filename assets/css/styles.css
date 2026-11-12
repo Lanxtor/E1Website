@@ -3910,3 +3910,20 @@ code {
 }
 .about-team { row-gap: 14px; }
 @media (max-width: 640px) { .founder-photo { max-width: 240px; } }
+
+/* Home: the three pillars under the headline, and calmer spacing around the plant */
+.hero-pillars { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; margin: 22px auto 0; padding: 0; }
+.hero-pillars span { position: relative; padding: 4px 28px; font-size: clamp(1.15rem, 2.1vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; color: var(--heading); }
+.hero-pillars span + span::before { content: ""; position: absolute; left: 0; top: 18%; bottom: 18%; width: 1.5px; background: linear-gradient(180deg, transparent, #cfd4db 30%, #cfd4db 70%, transparent); }
+.hero-pillars span::after { content: ""; display: block; width: 28px; height: 3px; margin: 8px auto 0; border-radius: 3px; background: linear-gradient(90deg, var(--brand), var(--c-teal)); }
+.hero-twin .tw { margin-top: 40px; padding-bottom: 0; }
+.hero.hero-twin + .section, #see-it-work { padding-top: 56px; }
+@media (max-width: 700px) {
+  .hero-pillars { margin-top: 16px; }
+  .hero-pillars span { padding: 4px 14px; font-size: 1rem; }
+  .hero-pillars span::after { width: 20px; margin-top: 6px; }
+  .hero-twin .tw { margin-top: 20px; }
+  #see-it-work { padding-top: 40px; }
+}
+@media (max-width: 700px) { .hero-pillars { flex-wrap: nowrap; } .hero-pillars span { padding: 4px 9px; font-size: 0.86rem; white-space: nowrap; } }
+@media (max-width: 360px) { .hero-pillars span { padding: 4px 6px; font-size: 0.78rem; } }
