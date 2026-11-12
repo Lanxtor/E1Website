@@ -1,12 +1,15 @@
 /*
  * Home page hero: the offshore platform as one model.
  *
- * 1. The platform is assembled part by part (the <g class="tw-part"> groups
- *    written by tools/gen-plant-twin.py, each with its --i order).
- * 2. The engineers join one after another (<li class="tw-who">): a mark on
- *    the equipment, a line to their card (picture, role, equipment and a
- *    thumbnail of their diagram), and they stay, so in the end everyone works
- *    on the same plant together. Then it starts again.
+ * The platform is assembled part by part (the <g class="tw-part"> groups
+ * written by tools/gen-plant-twin.py, in their --i order), and the engineers
+ * join while it is still being built, as engineering starts before the plant
+ * is finished: the process engineer once the foundation stands, then
+ * instrumentation, automation, electrical and maintenance (the
+ * <li class="tw-who"> order), each after the part named in JOIN_AFTER. Each
+ * gets a mark on the equipment, a line to their card (picture, role,
+ * equipment and a thumbnail of their diagram), and stays, so in the end
+ * everyone works on the same plant together. Then it starts again.
  *
  * Only class changes and timers (no requestAnimationFrame, no SVG-only CSS),
  * so it runs the same in every browser, Chrome on iPhone included. With
@@ -21,7 +24,12 @@
   var canvas = twin.querySelector(".tw-canvas");
   var leads = twin.querySelector(".tw-leads");
   var who = [].slice.call(twin.querySelectorAll(".tw-who"));
-  var parts = twin.querySelectorAll(".tw-part").length;
+  var parts = [].slice.call(twin.querySelectorAll(".tw-part")).sort(function (a, b) {
+    return (+a.style.getPropertyValue("--i") || 0) - (+b.style.getPropertyValue("--i") || 0);
+  });
+  /* The part after which each engineer joins (the class of a .tw-part). */
+  var JOIN_AFTER = { process: "tw-cellar", instrumentation: "tw-modules", automation: "tw-stacks", electrical: "tw-crane2", maintenance: "tw-bridge" };
+  var PART_MS = 420, JOIN_MS = 2800;
   var NS = "http://www.w3.org/2000/svg";
 
   /* Headline: the part after the comma in the cobalt-to-teal ink (any language). */
@@ -67,7 +75,7 @@
   function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
   function clear() { timers.forEach(clearTimeout); timers = []; }
   function state(cls) { twin.className = "tw" + (cls ? " " + cls : ""); }
-  function reset() { if (waves) waves.innerHTML = ""; who.forEach(function (w) { w.classList.remove("is-on", "is-cur", "is-upd"); if (w._line) w._line.removeAttribute("class"); }); }
+  function reset() { parts.forEach(function (p) { p.classList.remove("is-up", "is-set"); }); if (waves) waves.innerHTML = ""; who.forEach(function (w) { w.classList.remove("is-on", "is-cur", "is-upd"); if (w._line) w._line.removeAttribute("class"); }); }
   /* The change reaches everyone: a wave spreads over the plant from the
      engineer's mark, and each engineer already there sees "Updated" as it
      passes them. Nothing goes through a centre. */
@@ -119,6 +127,7 @@
 
   function finished() {
     state("is-built is-run");
+    parts.forEach(function (p) { p.classList.add("is-up", "is-set"); });
     who.forEach(function (w) { w.classList.add("is-on"); w.classList.remove("is-cur"); });
     drawLeads();
   }
@@ -126,13 +135,30 @@
   function cycle() {
     clear();
     reset();
-    state("");
-    later(function () { state("is-built"); }, 120);
-    var t = parts * 380 + 1000;
-    later(function () { state("is-built is-run"); drawLeads(); }, t);
-    t += 700;
-    who.forEach(function (w, i) { later(function () { join(w); }, t + i * 3400); });
-    t += who.length * 3400;
+    state("is-built");
+    var t = 120, running = false;
+    parts.forEach(function (p) {
+      later(function () { p.classList.add("is-up"); }, t);
+      later(function () { p.classList.add("is-set"); }, t + 900);
+      t += PART_MS;
+      who.forEach(function (w) {
+        if (!p.classList.contains(JOIN_AFTER[w.getAttribute("data-d")])) return;
+        t += 500;
+        later(function () {
+          if (!running) { running = true; state("is-built is-run"); drawLeads(); }
+          join(w);
+        }, t);
+        t += JOIN_MS;
+      });
+    });
+    // anyone without a part to wait for joins after the last part
+    who.forEach(function (w) {
+      var after = JOIN_AFTER[w.getAttribute("data-d")];
+      if (after && twin.querySelector("." + after)) return;
+      later(function () { state("is-built is-run"); drawLeads(); join(w); }, t);
+      t += JOIN_MS;
+    });
+    t += 1200;
     later(function () { who.forEach(function (x) { x.classList.remove("is-cur"); }); }, t);
     later(cycle, t + 5500);
   }

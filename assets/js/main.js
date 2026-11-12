@@ -20,9 +20,9 @@
 
   var LOGO_SVG =
     '<svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">' +
-    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/>' +
+    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0e1116"/>' +
     '<path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<circle cx="21" cy="11" r="2.6" fill="#f08c2e"/>' +
+    '<circle cx="21" cy="11" r="2.6" fill="#1f5cff"/>' +
     "</svg>";
 
   var PLAY_SVG =

@@ -63,9 +63,9 @@
 
       // brand
       '<g transform="translate(' + (W / 2 - 118) + ',128)">' +
-      '<rect x="0" y="0" width="56" height="56" rx="14" fill="#0b2a4a"/>' +
+      '<rect x="0" y="0" width="56" height="56" rx="14" fill="#0e1116"/>' +
       '<path d="M16 16v24h24" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
-      '<circle cx="37" cy="19" r="4.6" fill="#f08c2e"/>' +
+      '<circle cx="37" cy="19" r="4.6" fill="#1f5cff"/>' +
       '<text x="76" y="40" font-size="34" font-weight="700" letter-spacing="3" fill="#0b2a4a">LANXTOR</text></g>' +
 
       '<text x="' + W / 2 + '" y="290" text-anchor="middle" font-size="26" font-weight="600" letter-spacing="9" fill="#5b6470">CERTIFICATE OF COMPLETION</text>' +

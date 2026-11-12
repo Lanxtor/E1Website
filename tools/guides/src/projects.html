@@ -66,7 +66,7 @@
 
 <section class="g-feature" id="prj-sections">
   <h2>The sections of a project</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">PRJ-sections</span><span>Roadmap M1.4</span><span>Review check A1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-sections</span><span>Roadmap M1.4</span><span>Review check A1</span></div>
   <p class="g-summary">Every project has the same nine sections, always in the same order. Each section holds one kind of thing, and right-clicking a section offers exactly what can be made there. The sections cannot be added, removed or reordered.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → expand a project</dd>
@@ -92,7 +92,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Expand a project.</td><td>The nine sections in the order of the table above. There is no <span class="ui">Lines</span> section and no "Workspace" row.</td></tr>
+      <tr><td>1</td><td>Expand a project.</td><td>The nine sections in the order of the table above, except any hidden in <span class="ui">Folders</span> of <span class="ui">Project defaults</span> or <span class="ui">Project settings</span>. There is no <span class="ui">Lines</span> section and no "Workspace" row.</td></tr>
       <tr><td>2</td><td>Expand <span class="ui">Assets</span>.</td><td>The project's equipment, and at the end a group <span class="ui">Lines</span>.</td></tr>
       <tr><td>3</td><td>Right-click <span class="ui">Assets</span>.</td><td>A menu with <span class="ui">New asset…</span>, <span class="ui">New folder</span> and <span class="ui">Query</span> ▸.</td></tr>
       <tr><td>4</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span>.</td><td>A window <span class="ui">New object in Systems</span> opens. Click <span class="ui">Cancel</span>.</td></tr>
@@ -103,7 +103,41 @@
   <figure class="g-shot g-small"><img src="assets/img/guides/tree-menu-assets.webp" alt="The right-click menu of the Assets section with the items New asset…, New folder and Query with a submenu arrow." width="340" height="192" loading="lazy"><figcaption>Right-click <span class="ui">Assets</span>: what can be made in this section.</figcaption></figure>
   <p class="g-note">Marks on sections: <span class="ui">Documents</span> shows "Updated" when a document has a revision you have not seen yet; <span class="ui">Tasks</span> shows "Open tasks: N". The toolbar of the <span class="ui">Tasks</span> page has a working filter <span class="ui">All</span> / <span class="ui">Open</span> / <span class="ui">Done</span>.</p>
   <p class="g-warn">Review check A1 still lists "Workspace" and "Lines" among the sections. Since 2026-11-07 there is no Workspace row (the explorer header names the organization instead), and <span class="ui">Lines</span> is a group under <span class="ui">Assets</span>, not a section. The filter <span class="ui">All</span> / <span class="ui">Drawings</span> / <span class="ui">Lists</span> / <span class="ui">Datasheets</span> on the <span class="ui">Documents</span> page only changes its label and opens <span class="ui">Under construction</span>.</p>
-  <p class="g-related">Related: <a href="#prj-folders-sheets">Folders and 2D spaces</a> · <a href="guide-objects.html#obj-new-object">Create an object</a> · <a href="guide-documents.html#doc-new-document">New document</a> · <a href="guide-lists.html#list-new-query">New query</a> · <a href="#prj-branches">Branches</a></p>
+  <p class="g-related">Related: <a href="#prj-folders-sheets">Folders and 2D spaces</a> · <a href="guide-objects.html#obj-new-object">Create an object</a> · <a href="guide-documents.html#doc-new-document">New document</a> · <a href="guide-lists.html#list-new-query">New query</a> · <a href="#prj-branches">Branches</a> · <a href="#prj-hidden-folders">Hide a project's folders from the tree</a></p>
+</section>
+
+<section class="g-feature" id="prj-hidden-folders">
+  <h2>Hide a project's folders from the tree</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-hidden-folders</span><span>Roadmap 09.14</span></div>
+  <p class="g-summary">A project comes with nine folders: Model Space, Unit Operations, Assets, Systems, Processes, Areas, Documents, Tasks and Branches. Folders a team does not use can be hidden from the tree, for everyone or only for the members of some groups. As with the other project settings, you decide it for the whole organization in <span class="ui">Project defaults</span>, and a project can decide otherwise in its <span class="ui">Project settings</span>. Hiding a folder does not move or remove anything: its objects stay in it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Every project: <span class="ui">Configuration</span> → <span class="ui">Project defaults</span> → <span class="ui">Folders</span>. One project: <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Folders</span>, or <span class="ui">File</span> → <span class="ui">Project settings…</span> → <span class="ui">Folders</span></dd>
+    <dt>Who</dt><dd>Every project: administrators who manage the organization's policies. One project: who may configure the project (Project administrator and above)</dd>
+    <dt>Before you start</dt><dd>A project exists. To hide a folder from a group, the group exists (<span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Groups</span>).</dd>
+  </dl>
+  <h3>For every project</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration</span> and click <span class="ui">Project defaults</span> under <span class="ui">Projects</span>.</td><td>The card <span class="ui">Folders</span> lists the nine folders, each <span class="ui">Shown to everyone</span>.</td></tr>
+      <tr><td>2</td><td>For <span class="ui">Processes</span>, choose <span class="ui">Hidden from everyone</span> in <span class="ui">In the tree</span>.</td><td>“Saved. Processes is hidden from the tree for everyone in every project that follows the organization.” No project lists <span class="ui">Processes</span> in the tree any more.</td></tr>
+      <tr><td>3</td><td>For <span class="ui">Branches</span>, choose <span class="ui">Hidden from some groups</span>.</td><td>The organization's groups are listed with a tick box each; nothing is saved until a group is ticked.</td></tr>
+      <tr><td>4</td><td>Tick <span class="ui">Viewers</span>.</td><td>“Saved. Branches is hidden from the tree for the groups ticked in every project that follows the organization.” A person with a Viewer license, or in the Viewers group, no longer sees <span class="ui">Branches</span>; others still do.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>For one project</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Project settings</span>, select the project and click <span class="ui">Folders</span>.</td><td>Each folder reads <span class="ui">As the organization</span>, with the organization's choice in brackets, for example <span class="ui">As the organization (Hidden from everyone)</span>.</td></tr>
+      <tr><td>2</td><td>For <span class="ui">Processes</span>, choose <span class="ui">Shown to everyone</span>.</td><td>“Saved. Processes is shown in the tree in this project.” This project lists <span class="ui">Processes</span> again; the others still hide it.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">As the organization</span> again.</td><td>“Saved. Processes follows the organization in this project.” It is hidden again.</td></tr>
+      <tr><td>4</td><td>Search for an object in a hidden folder.</td><td>It is found and opens as before: only the tree leaves the folder out.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">With several projects ticked in <span class="ui">Project settings</span>, a change applies to all of them; a folder they differ on reads <span class="ui">Differs between the projects</span>. Someone in a group inside a ticked group is hidden from it too. Alex sets it with <code>set_organization_folder_visibility</code> and <code>set_folder_visibility</code>.</p>
+  <p class="g-warn">A hidden folder is left out of the tree only. It is not a permission: its objects can still be opened from search, links, queries, drawings and Alex by anyone who may see them. To keep values from reviewers or viewers, hide the attributes instead.</p>
+  <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-organization.html#org-groups">Groups</a></p>
 </section>
 
 <section class="g-feature" id="prj-tree-rows">
@@ -316,7 +350,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click the project → <span class="ui">Delete</span>.</td><td>The browser asks: <span class="ui">Delete project "<i>name</i>"? It goes to the Bin, from where it can be restored.</span></td></tr>
-      <tr><td>2</td><td>Click <span class="ui">OK</span>.</td><td>The project is gone from the projects. A top-level row <span class="ui">Bin</span> appears after the projects.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">OK</span>.</td><td>The project is gone from the projects, and every tab of it closes. A top-level row <span class="ui">Bin</span> appears after the projects.</td></tr>
       <tr><td>3</td><td>Expand <span class="ui">Bin</span>.</td><td>The project is listed inside.</td></tr>
       <tr><td>4</td><td>Right-click the project in the Bin.</td><td>Exactly two items: <span class="ui">Restore</span> and <span class="ui">Delete permanently…</span>.</td></tr>
       <tr><td>5</td><td>Choose <span class="ui">Restore</span>.</td><td>The project is back among the projects. The <span class="ui">Bin</span> row disappears when it is empty.</td></tr>
