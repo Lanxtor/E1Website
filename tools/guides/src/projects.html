@@ -661,10 +661,10 @@
 
 <section class="g-feature" id="prj-branches">
   <h2>Branches</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branches</span><span>Roadmap 15.1, 15.2, 15.4, 09.6b</span><span>Review check X1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branches</span><span>Roadmap 15.1, 15.2, 15.4, 15.6, 09.6b</span><span>Review check X1</span></div>
   <p class="g-summary">Make a working branch of part of the design, change it while main stays as it is, and push it back when it is ready.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span></dd>
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span>; or right-click objects in the explorer or on a 2D space → <span class="ui">New branch…</span> or <span class="ui">Add to branch</span></dd>
     <dt>Who</dt><dd>Creating and working in a branch: Engineer and above; pushing to main: Lead engineer and above</dd>
     <dt>Before you start</dt><dd>A project with a pump P-101 drawn on a 2D space.</dd>
   </dl>
@@ -672,15 +672,18 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Branches</span>, then <span class="ui">New branch…</span>; type a name and, in <span class="ui">Add an object to the branch</span>, <code>P-101</code>, and click it.</td><td>The scope preview lists P-101, its nozzles (locked: they come by a built-in rule), the connected lines and the 2D space it is drawn on as Editable, its owner as Information, each with why.</td></tr>
-      <tr><td>2</td><td>Change a row to <span class="ui">Leave out</span> or <span class="ui">Information</span> where it is not locked, and click <span class="ui">Create</span>.</td><td>“Branch … created.” It is listed with its owner, Open, 0 changes.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Enter</span>.</td><td>A bar under the menu reads “In branch …: what you change here changes the branch, not main.” The tree, drawings, attributes and queries show the branch.</td></tr>
-      <tr><td>4</td><td>Change P-101's design pressure and move it on the 2D space.</td><td>The branch has it; another window, on main, still shows the old value and place.</td></tr>
-      <tr><td>5</td><td>Change an object that is not in the branch.</td><td>Refused: “… is outside in this branch: add it to the branch to change it.”</td></tr>
-      <tr><td>6</td><td>Click <span class="ui">Leave branch</span>.</td><td>This window is on main again.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Branches</span>.</td><td>With no branch yet, the page explains what a branch is and the two ways to start one. <span class="ui">Open</span>, <span class="ui">Closed</span> and <span class="ui">All</span> show how many branches each has.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">New branch…</span>; type a name and, in <span class="ui">Add an object to the branch</span>, <code>P-101</code>, and click it.</td><td>P-101 shows as a chip (× takes it out). The scope preview lists P-101, its nozzles (locked: they come by a built-in rule), the connected lines and the 2D space it is drawn on as Editable, its owner as Information, each with why.</td></tr>
+      <tr><td>3</td><td>Change a row to <span class="ui">Leave out</span> or <span class="ui">Information</span> where it is not locked, and click <span class="ui">Create</span>.</td><td>“Branch … created.” It shows as a card: its name, its owner, 0 changes, how many objects are in scope, and <span class="ui">Enter</span>, <span class="ui">Pull from main</span>, <span class="ui">Push to main</span> and <span class="ui">…</span>.</td></tr>
+      <tr><td>4</td><td>On the 2D space, select P-101 and a valve (or Ctrl-click them in the explorer), right-click one of them and choose <span class="ui">New branch… (2 objects)</span>.</td><td>The same window opens with both objects already in it.</td></tr>
+      <tr><td>5</td><td>Cancel, right-click another object and choose <span class="ui">Add to branch</span> ▸ the branch.</td><td>“… added to ….” with <span class="ui">Open Branches</span>. The branch's scope has the object and what comes with it.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Enter</span>.</td><td>A bar under the menu reads “In branch …: what you change here changes the branch, not main.” The tree, drawings, attributes and queries show the branch.</td></tr>
+      <tr><td>7</td><td>Change P-101's design pressure and move it on the 2D space.</td><td>The branch has it; another window, on main, still shows the old value and place.</td></tr>
+      <tr><td>8</td><td>Change an object that is not in the branch.</td><td>Refused: “… is outside in this branch: add it to the branch to change it.”</td></tr>
+      <tr><td>9</td><td>Click <span class="ui">Leave branch</span>.</td><td>This window is on main again.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">In a branch, issuing a revision, the project's settings and the library are refused: they are changed in main. Tag numbers are taken centrally, so two branches never give the same number. <span class="ui">Details</span> lists the branch's scope and what it changed; <span class="ui">Close</span> discards it without changing main. An object being changed in a branch shows Being changed in branch … in the explorer, and can be blocked in main by its branch type. Only the branch's members enter and change it; Alex sets them with <code>set_branch_members</code>. A branch never widens what you may change in main, and a role given on a branch holds only branch permissions.</p>
+  <p class="g-note">In a branch, issuing a revision, the project's settings and the library are refused: they are changed in main. Tag numbers are taken centrally, so two branches never give the same number. Click a branch's name (or <span class="ui">…</span> → <span class="ui">Details</span>) for its scope and what it changed; <span class="ui">…</span> → <span class="ui">Close branch…</span> discards it without changing main. An object being changed in a branch shows Being changed in branch … in the explorer, and can be blocked in main by its branch type. Only the branch's members enter and change it; Alex sets them with <code>set_branch_members</code>. A branch never widens what you may change in main, and a role given on a branch holds only branch permissions.</p>
   <p class="g-related">Related: <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a>, <a href="guide-projects.html#prj-branch-types">Branch types and resolution rules</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a>, <a href="guide-projects.html#prj-branch-packages">Branch packages</a>, <a href="guide-projects.html#prj-branch-proposals">Alex in a branch and Open as branch</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a></p>
 </section>
 
@@ -725,7 +728,7 @@
       <tr><td>3</td><td>Open History in main.</td><td>One change “Pushed branch …”, with <span class="ui">Undo this change</span> taking it all back.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">After the push the branch stays open and counts from what it pushed, or closes when its type says so; <span class="ui">Close after this push</span> closes it this once. A push with conflicts open is refused, and so is one of a type that needs a review before its merge request is approved.</p>
+  <p class="g-note">After the push the branch stays open and counts from what it pushed, or closes when its type says so; <span class="ui">…</span> → <span class="ui">Close after the next push</span> closes it this once. A push with conflicts open is refused, and so is one of a type that needs a review before its merge request is approved.</p>
   <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></p>
 </section>
 
@@ -757,7 +760,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-review</span><span>Roadmap 16.2</span><span>Review check X4</span></div>
   <p class="g-summary">A branch asks for review before it goes to main; a colleague approves or requests changes, and the object shows Under merge review meanwhile.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">Ask for review</span></dd>
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">…</span> → <span class="ui">Ask for review</span></dd>
     <dt>Who</dt><dd>Asking: the branch's members; deciding: Lead engineer and above, not the author when the type has four eyes</dd>
     <dt>Before you start</dt><dd>A branch of a type with <span class="ui">Review before main</span> and <span class="ui">Four eyes</span>, with a change to P-101.</dd>
   </dl>
@@ -766,9 +769,9 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Push to main</span>.</td><td>Refused: the branch needs an approved merge request first.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Ask for review</span>.</td><td>The merge request is open; the reviewers find it in their Inbox. In the explorer, P-101 shows Under merge review in branch ….</td></tr>
-      <tr><td>3</td><td>As the author, click <span class="ui">Approve</span>.</td><td>Refused: four eyes, the author does not approve the branch.</td></tr>
-      <tr><td>4</td><td>As a colleague, click <span class="ui">Request changes</span>, or <span class="ui">Approve</span>.</td><td>The author is told; after an approval, <span class="ui">Push to main</span> lands.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">…</span> → <span class="ui">Ask for review</span>.</td><td>The merge request is open; the reviewers find it in their Inbox. In the explorer, P-101 shows Under merge review in branch ….</td></tr>
+      <tr><td>3</td><td>As the author, click <span class="ui">…</span> → <span class="ui">Approve</span>.</td><td>Refused: four eyes, the author does not approve the branch.</td></tr>
+      <tr><td>4</td><td>As a colleague, click <span class="ui">…</span> → <span class="ui">Request changes…</span>, or <span class="ui">Approve</span>.</td><td>The author is told; after an approval, <span class="ui">Push to main</span> lands.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Comments on a branch are kept with it (Alex: <code>add_comment</code> with <code>branch</code>). Alex never approves or rejects a merge request: a person does. <span class="ui">Ask for review</span> again after changes opens a new round.</p>
@@ -780,7 +783,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-packages</span><span>Roadmap 16.4</span><span>Review check X5</span></div>
   <p class="g-summary">Cut part of a branch into a package of its own that can be pushed alone, such as a commissioning package.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">Package…</span></dd>
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">…</span> → <span class="ui">Package…</span></dd>
     <dt>Who</dt><dd>The branch's members</dd>
     <dt>Before you start</dt><dd>A branch that created an area and two pumps P-201 and P-202, P-201 in that area.</dd>
   </dl>
@@ -788,7 +791,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Package…</span>, tick P-201, type a name and click <span class="ui">Create package</span>.</td><td>Refused: “The package needs what the parent branch created: … Include them too.”</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">…</span> → <span class="ui">Package…</span>, tick P-201, type a name and click <span class="ui">Create package</span>.</td><td>Refused: “The package needs what the parent branch created: … Include them too.”</td></tr>
       <tr><td>2</td><td>Tick the area too and click <span class="ui">Create package</span>.</td><td>A Commissioning package branch with P-201, what it owns and its drawing; its parent is the branch.</td></tr>
       <tr><td>3</td><td>Push the package to main.</td><td>Main has P-201 and the area. The parent counts from main for them: its next pull has no conflict, and its push does not repeat them.</td></tr>
     </tbody>
