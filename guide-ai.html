@@ -75,6 +75,7 @@
           <li><a href="#ai-off">Without a language model: Co-engineer, everything by hand</a></li>
           <li><a href="#ai-mcp">Outside agents through MCP (administrators and developers)</a></li>
           <li><a href="#ai-stored-assistants">Stored assistants</a></li>
+          <li><a href="#ai-package-assistants">Assistants from content packages, other assistants and the API</a></li>
           <li><a href="#ai-branch">Alex in your branch</a></li>
           <li><a href="#ai-query-sentence">Queries from a sentence</a></li>
         </ol>
@@ -83,7 +84,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / AI: Alex</p>
         <h1>11. AI: Alex</h1>
         <p class="lead">Alex, the built-in engineering co-worker that reviews your drawing and, with help from a language model when you tick it, answers in your own words and changes the project with review and undo.</p>
-        <div class="g-meta"><span>35 features</span><span>34 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>36 features</span><span>35 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="ai-overview">
   <h2>About this guide</h2>
   <p class="g-summary">E1 has one assistant, <strong>Alex</strong>, in the side panel on the right of the window, with one row of tabs: <span class="ui">Co-engineer</span> | <span class="ui">Ask</span> | <span class="ui">Agent</span> | <span class="ui">Plan</span> | <span class="ui">E1 Guide</span>. In <strong>Co-engineer</strong>, Alex is built into E1: it reads your drawing as you work and raises warnings, questions and suggestions, with no language model and nothing sent outside. In <strong>Ask</strong>, <strong>Agent</strong> and <strong>Plan</strong>, Alex answers questions in your own words with the help of a language model, and in Agent mode changes the project, with review and undo. <strong>E1 Guide</strong> teaches you E1 where you are.</p>
@@ -980,6 +981,27 @@
   <p class="g-note">An assistant whose steps use a class, attribute or relationship type the project's library no longer has (after its library pin or content packages change) shows <span class="ui">Needs update</span>; open it for the reasons. Record it again with what the library has now.</p>
   <p class="g-warn">Not built yet: assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
   <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
+</section>
+
+<section class="g-feature" id="ai-package-assistants">
+  <h2>Assistants from content packages, other assistants and the API</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">AI-package-assistants</span><span>Roadmap 18.5</span><span>Review checks Q6</span></div>
+  <p class="g-summary">Content packages bring assistants of their own, such as Plant's Describe the duty of pumps and Set design conditions, under From content packages; an assistant can run another assistant as one of its steps; and another system runs an assistant through the integration API.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Assistants</span> on the left rail → <span class="ui">From content packages</span>; the integration API</dd>
+    <dt>Who</dt><dd>Run stored assistants (Engineer and above), with each step's own permission</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Assistants</span>.</td><td><span class="ui">From content packages</span> lists <em>Describe the duty of pumps</em> and <em>Set design conditions</em>, marked <em>plant</em>: they come with the project's library version.</td></tr>
+      <tr><td>2</td><td>Select two pumps, open <em>Describe the duty of pumps</em>, type <em>Feed water, duty</em> as the Duty and click <span class="ui">Run</span>.</td><td>Both pumps' descriptions say <em>Feed water, duty</em>, as one change; <span class="ui">Undo</span> takes it back.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Copy to mine</span>.</td><td>A copy is under <span class="ui">My assistants</span> to change; the package's own has no Save or Delete.</td></tr>
+      <tr><td>4</td><td>Ask Alex to make an assistant whose step runs <em>Describe the duty of pumps</em> with the duty <em>Standby</em>, and run it.</td><td>The step reads <em>Run the assistant plant.assistant.pump-duty</em>; running it runs that assistant's steps with its values. An assistant never runs itself, and at most three deep.</td></tr>
+      <tr><td>5</td><td>With an API token, <code>GET /api/v1/projects/{id}/assistants</code>, then <code>POST /api/v1/projects/{id}/assistants/plant.assistant.pump-duty/run</code> with <code>{ "values": { "pumps": [ids], "duty": "Cooling water" } }</code>.</td><td>The list, then a run as the token's owner: <code>{ "status": "applied", "report": … }</code>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#ai-stored-assistants">Stored assistants</a> · <a href="guide-organization.html#org-tokens">API tokens</a></p>
 </section>
 
 <section class="g-feature" id="ai-branch">
