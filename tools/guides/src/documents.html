@@ -550,7 +550,7 @@
 
 <section class="g-feature" id="doc-datasheet-document">
   <h2>Datasheet documents</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">DOC-datasheet-document</span><span>Roadmap 07.4, 07.7</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-datasheet-document</span><span>Roadmap 07.4, 07.7</span></div>
   <p class="g-summary">A datasheet document puts an object's datasheet under revision control.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">New document…</span> → <span class="ui">Datasheet document</span></dd>
@@ -561,12 +561,13 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, choose <span class="ui">Datasheet document</span>, and click <span class="ui">Create</span>.</td><td>The document's window opens with its Revisions panel.</td></tr>
+      <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, choose <span class="ui">Datasheet document</span>, and click <span class="ui">Create</span>.</td><td>The document's window opens with its Revisions panel and <span class="ui">Tags</span>: “No object yet”.</td></tr>
+      <tr><td>2</td><td>Type <code>Pump1</code> in <span class="ui">Add a tag</span> and click <span class="ui">Pump1</span>.</td><td>“The datasheet is Pump1's.”; its <span class="ui">Data sheet</span> tab shows Pump1's datasheet.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">When a datasheet document's revision is issued, E1 records the object with its children and the layout version; its PDF is named “…-datasheet-Rev-&lt;label&gt;.pdf”.</p>
-  <p class="g-warn">The window has no picker for the object yet: the object can only be chosen by asking Alex (with its AI help) or through the API. Until then a datasheet document cannot be completed from the screen alone.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a></p>
+  <p class="g-note">Choose whose datasheet it is under <span class="ui">Tags</span> in its window: type a tag in <span class="ui">Add a tag</span> and click it. Several tags of one class make <a href="#doc-spec-datasheet-tags">a datasheet for several tags</a>.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a>, <a href="guide-documents.html#doc-spec-datasheet-tags">A datasheet for several tags</a></p>
 </section>
 
 <section class="g-feature" id="doc-hookup-schedule">
@@ -661,7 +662,7 @@
     </tbody>
   </table></div>
   <p class="g-note">A list of parts longer than the rows the layout prints goes on a continuation page at the end, with its header repeated. A column repeater (one column per stage or side) prints in bands, each with the label column.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheet-rows">Add row and Remove row on a datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-cases">Operating cases on the datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-marks">Revision marks on a datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-templates">Datasheet templates inspired by ISA 20 and API</a>, <a href="guide-documents.html#doc-spec-datasheet-designer">Design a specification datasheet</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a></p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheet-rows">Add row and Remove row on a datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-cases">Operating cases on the datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-marks">Revision marks on a datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-templates">Datasheet templates inspired by ISA 20 and API</a>, <a href="guide-documents.html#doc-spec-datasheet-designer">Design a specification datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-tags">A datasheet for several tags</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a></p>
 </section>
 
 <section class="g-feature" id="doc-spec-datasheet-rows">
@@ -726,6 +727,29 @@
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a>, <a href="guide-documents.html#doc-datasheet-document">Datasheet documents</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-tags">
+  <h2>A datasheet for several tags</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-tags</span><span>Roadmap 24.7</span><span>Review check V5</span></div>
+  <p class="g-summary">One datasheet document for several objects of one class: shared values once, See list for differing ones, one change sets all.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A datasheet document's window: <span class="ui">Tags</span>, and its <span class="ui">Data sheet</span> tab</dd>
+    <dt>Who</dt><dd>A project role that may write documents chooses the tags; a role that may edit objects types values</dd>
+    <dt>Before you start</dt><dd>Three pressure transmitters PT-401, PT-402 and PT-403 with the same response time; PT-403 has another dead band.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Make a datasheet document and, under <span class="ui">Tags</span>, add PT-401, PT-402 and PT-403 with <span class="ui">Add a tag</span>.</td><td>“The datasheet is for PT-401 and 2 more.” PT-401 reads (master). A tag of another class is refused: the tags of one datasheet share one class.</td></tr>
+      <tr><td>2</td><td>Open the <span class="ui">Data sheet</span> tab.</td><td>The tags are listed above the page. The response time shows once; the dead band is empty with <span class="ui">See list</span>, which lists PT-401: 0.1, PT-402: 0.1, PT-403: 0.2. The Tags table at the end has a row per tag.</td></tr>
+      <tr><td>3</td><td>Type <code>0.3</code> in the dead band and press <kbd>Enter</kbd>.</td><td>All three have 0.3 %; the field shows it once.</td></tr>
+      <tr><td>4</td><td>Click outside the fields and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>All three go back at once: See list again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The layout is the master's. Parts (nozzles, cases) are the master's; each tag keeps its own and opens its own datasheet with a double-click. Issuing a revision records every tag. Export PDF prints See list and the Tags table.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet-document">Datasheet documents</a>, <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a></p>
 </section>
 
 <section class="g-feature" id="doc-spec-datasheet-templates">

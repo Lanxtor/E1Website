@@ -48,6 +48,7 @@
           <li><a href="#col-comments">Chat about an object: mentions, links, replies and likes</a></li>
           <li><a href="#col-tasks">Give someone a task</a></li>
           <li><a href="#col-inbox">The Inbox: mentions, replies and tasks</a></li>
+          <li><a href="#col-task-checklist">A task&#x27;s checklist</a></li>
           <li><a href="#col-notifications">Choose which notices come by email</a></li>
           <li><a href="#col-sheet-pins">Pin a message on a drawing: Chat here and Needs review</a></li>
           <li><a href="#col-attachments">Attach files to an object or a project</a></li>
@@ -63,7 +64,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Working together</p>
         <h1>8. Working together</h1>
         <p class="lead">History and undo, comments and mentions, tasks and the Inbox, comments pinned on drawings, attachments and live updates between people.</p>
-        <div class="g-meta"><span>15 features</span><span>10 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>16 features</span><span>11 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="collaboration-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers how people work together on one E1 project: taking back changes, reading what changed and who changed it, discussing an object in its chat, handing out tasks, following everything in the Inbox, pinning review messages on a drawing, attaching files, and what you see when two people change the project at the same time. It ends with branches, which are planned.</p>
@@ -249,6 +250,29 @@
   <p class="g-note">Owners and Administrators also get the seat notice <span class="ui">E1 counted the seats</span> here (see <a href="guide-organization.html#org-licenses-seats">Licenses and seats</a>).</p>
   <p class="g-note">The list refreshes every 10 seconds and the badge every 15 seconds, so a new notice may take a moment to show.</p>
   <p class="g-related">Related: <a href="#col-comments">Chat</a> · <a href="#col-tasks">Tasks</a> · <a href="#col-notifications">Notification settings</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a></p>
+</section>
+
+<section class="g-feature" id="col-task-checklist">
+  <h2>A task's checklist</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">COL-task-checklist</span><span>Roadmap 27.6</span></div>
+  <p class="g-summary">A task can have a checklist: items to tick in the Inbox, the same as in E1 Reviewer on the iPad.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The bell on the left rail → Inbox → <span class="ui">Checklist</span> under a task</dd>
+    <dt>Who</dt><dd>The task's assignee or anyone who may edit it ticks; who may edit the task changes the items</dd>
+    <dt>Before you start</dt><dd>A task assigned to you.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Checklist</span> under the task.</td><td>Its items, or “No items yet.”; the button reads <span class="ui">Checklist · 0 of 0</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Edit checklist</span>, then <span class="ui">Add item</span> twice, type two items and click <span class="ui">Save</span>.</td><td>The two items, unticked: <span class="ui">Checklist · 0 of 2</span>.</td></tr>
+      <tr><td>3</td><td>Tick the first item.</td><td>It shows who ticked it and when: <span class="ui">Checklist · 1 of 2</span>. On the iPad, For me shows the same.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Edit checklist</span>, change the first item's text, <span class="ui">Remove</span> the second and click <span class="ui">Save</span>.</td><td>One item, still ticked, with its new text.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Alex reads and changes checklists too (<code>get_task_checklist</code>, <code>set_task_checklist</code>, <code>tick_checklist_item</code>).</p>
+  <p class="g-related">Related: <a href="guide-collaboration.html#col-inbox">The Inbox: mentions, replies and tasks</a>, <a href="guide-reviewer.html#ipad-for-me">For me: your tasks and checklists</a></p>
 </section>
 
 <section class="g-feature" id="col-notifications">

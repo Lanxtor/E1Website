@@ -5163,7 +5163,7 @@
    "anchor": "doc-datasheet-document",
    "status": "available",
    "since": "2026-11-05",
-   "updated": "2026-11-09",
+   "updated": "2026-11-12",
    "roadmap": [
     "07.4",
     "07.7"
@@ -5173,7 +5173,8 @@
     "DOC-new-document",
     "DOC-issue",
     "DOC-datasheet",
-    "AI-cloud-ai"
+    "AI-cloud-ai",
+    "DOC-spec-datasheet-tags"
    ],
    "roles": "A project role that may write documents",
    "training": {
@@ -5288,7 +5289,8 @@
     "DOC-spec-datasheet-marks",
     "DOC-spec-datasheet-templates",
     "DOC-spec-datasheet-designer",
-    "DOC-datasheet"
+    "DOC-datasheet",
+    "DOC-spec-datasheet-tags"
    ],
    "roles": "Datasheet design on the project",
    "training": {
@@ -5440,6 +5442,34 @@
    "screenshots": [],
    "category": "documents",
    "page": "guide-documents.html#doc-spec-datasheet-designer"
+  },
+  {
+   "id": "DOC-spec-datasheet-tags",
+   "title": "A datasheet for several tags",
+   "summary": "One datasheet document for several objects of one class: shared values once, See list for differing ones, one change sets all.",
+   "anchor": "doc-spec-datasheet-tags",
+   "status": "available",
+   "since": "2026-11-12",
+   "updated": "2026-11-12",
+   "roadmap": [
+    "24.7"
+   ],
+   "checks": [
+    "V5"
+   ],
+   "related": [
+    "DOC-datasheet-document",
+    "DOC-spec-datasheets"
+   ],
+   "roles": "A project role that may write documents; editing values needs a role that may edit objects",
+   "training": {
+    "topic": "Multi-tag datasheets",
+    "level": "Intermediate",
+    "minutes": 4
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-spec-datasheet-tags"
   },
   {
    "id": "COL-undo-redo",
@@ -5610,7 +5640,8 @@
     "COL-comments",
     "COL-tasks",
     "COL-notifications",
-    "GS-layout"
+    "GS-layout",
+    "COL-task-checklist"
    ],
    "roles": "Every signed-in person",
    "training": {
@@ -5876,6 +5907,33 @@
    "screenshots": [],
    "category": "collaboration",
    "page": "guide-collaboration.html#col-merge-requests"
+  },
+  {
+   "id": "COL-task-checklist",
+   "title": "A task's checklist",
+   "summary": "A task can have a checklist: items to tick in the Inbox, the same as in E1 Reviewer on the iPad.",
+   "anchor": "col-task-checklist",
+   "status": "available",
+   "since": "2026-11-12",
+   "updated": "2026-11-12",
+   "roadmap": [
+    "27.6"
+   ],
+   "checks": [],
+   "related": [
+    "COL-inbox",
+    "COL-tasks",
+    "IPAD-for-me"
+   ],
+   "roles": "Ticking: the task's assignee or anyone who may edit it; editing the items: who may edit the task",
+   "training": {
+    "topic": "Checklists",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "collaboration",
+   "page": "guide-collaboration.html#col-task-checklist"
   },
   {
    "id": "ORG-organization-dialog",
@@ -10401,9 +10459,10 @@
    "summary": "A project lists its 2D spaces on the left, and the list can be hidden; the 2D space shows as E1 draws it. One finger moves it, two fingers zoom; pin the 2D spaces you use most.",
    "anchor": "ipad-sheets",
    "status": "under-development",
-   "updated": "2026-11-10",
+   "updated": "2026-11-12",
    "roadmap": [
-    "27.2"
+    "27.2",
+    "27.5"
    ],
    "checks": [],
    "related": [
@@ -10427,9 +10486,10 @@
    "summary": "Tap a symbol, a pipe, a signal or a cable on a 2D space to see its object: properties, every attribute, its history and its chat.",
    "anchor": "ipad-object",
    "status": "under-development",
-   "updated": "2026-11-10",
+   "updated": "2026-11-12",
    "roadmap": [
-    "27.2"
+    "27.2",
+    "27.6"
    ],
    "checks": [],
    "related": [
@@ -10477,10 +10537,10 @@
   {
    "id": "IPAD-redlining",
    "title": "Redline a 2D space",
-   "summary": "Redline draws on a 2D space with a pen, a cloud, an arrow or text in four colors; each mark says what it means and carries a note, and its status can be set.",
+   "summary": "Redline draws on a 2D space with a pen, a cloud, an arrow, text or a stamp; each mark says what it means and carries a note, goes into a review round, and is answered by the engineers in E1.",
    "anchor": "ipad-redlining",
    "status": "under-development",
-   "updated": "2026-11-10",
+   "updated": "2026-11-12",
    "roadmap": [
     "27.3",
     "27.7"
@@ -10506,15 +10566,17 @@
    "summary": "For me lists the tasks and checklists assigned to you in every project; tick the items, add items, comment with photos and voice notes, and mark a task done.",
    "anchor": "ipad-for-me",
    "status": "under-development",
-   "updated": "2026-11-09",
+   "updated": "2026-11-12",
    "roadmap": [
-    "27.3"
+    "27.3",
+    "27.6"
    ],
    "checks": [],
    "related": [
     "COL-tasks",
     "COL-inbox",
-    "IPAD-photos-voice"
+    "IPAD-photos-voice",
+    "COL-task-checklist"
    ],
    "roles": "Everyone; ticking needs the task to be yours or a role that may edit it",
    "training": {
@@ -10525,6 +10587,31 @@
    "screenshots": [],
    "category": "reviewer",
    "page": "guide-reviewer.html#ipad-for-me"
+  },
+  {
+   "id": "IPAD-offline",
+   "title": "Offline in a walk-down",
+   "summary": "Without the connection, what was opened on the iPad stays readable, and redlines, comments, photos, voice notes and ticks wait to be sent.",
+   "anchor": "ipad-offline",
+   "status": "under-development",
+   "updated": "2026-11-12",
+   "roadmap": [
+    "27.9"
+   ],
+   "checks": [],
+   "related": [
+    "IPAD-redlining",
+    "IPAD-for-me"
+   ],
+   "roles": "Everyone",
+   "training": {
+    "topic": "Working offline",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "reviewer",
+   "page": "guide-reviewer.html#ipad-offline"
   },
   {
    "id": "IPAD-search",
