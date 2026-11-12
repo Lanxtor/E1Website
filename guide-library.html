@@ -57,6 +57,7 @@
           <li><a href="#lib-from-catalog">Make an object from a catalog item</a></li>
           <li><a href="#lib-catalog-reapply">Re-apply a catalog item, or detach from it</a></li>
           <li><a href="#lib-content-packages">Content packages and standards</a></li>
+          <li><a href="#lib-harness-marine">Wire harness and Marine packages</a></li>
           <li><a href="#lib-partner-packages">Partner content packages</a></li>
           <li><a href="#lib-project-settings">Project settings: packages, drawing and tag rules</a></li>
           <li><a href="#lib-project-defaults">Project defaults</a></li>
@@ -84,7 +85,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Configuration, library and catalogs</p>
         <h1>10. Configuration, library and catalogs</h1>
         <p class="lead">The Configuration place: classes, attributes, shapes, the company library with drafts, publishing and upgrades, catalogs, content packages and project settings.</p>
-        <div class="g-meta"><span>36 features</span><span>34 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>37 features</span><span>35 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="library-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the shared set-up of E1: the <span class="ui">Configuration</span> place with its object classes, attributes, shapes and relationships, the company library where your organization adds its own classes and attributes, catalogs of approved products, the content packages a project uses, and the project settings. A change made here applies to everyone, not only to you; your own preferences are in <span class="ui">Settings</span>.</p>
@@ -458,7 +459,7 @@
 <section class="g-feature" id="lib-content-packages">
   <h2>Content packages and standards</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-11</span><span class="g-id">LIB-content-packages</span><span>Roadmap M1.3, 04.9</span></div>
-  <p class="g-summary">Content packages bring the classes, attributes, shapes and relationship types E1 works with, often from a standard. Each project chooses the packages it uses. E1 ships five: Core (always on), Electrical foundation, Plant engineering, CFIHOS and NORSOK SCD (off until a project switches it on).</p>
+  <p class="g-summary">See the content packages Core, Electrical foundation, Plant engineering, CFIHOS, NORSOK SCD, Specification, Wire harness and Marine, and which ones a project uses.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Content and standards</span>; for one project: select it → <span class="ui">File → Project settings…</span> → <span class="ui">Content packages</span></dd>
     <dt>Who</dt><dd>Everyone may look; switching packages needs the right to configure the project (Project administrator)</dd>
@@ -486,6 +487,30 @@
   </ul>
   <p class="g-warn">A package still in use is not switched off: E1 lists what uses it (see <a href="#lib-package-switching">Switching packages on and off</a>). A partner’s package is installed with <a href="#lib-partner-packages">Install a partner package…</a>. Without the workspace server, a switch answers "Switching packages needs the workspace server."</p>
   <p class="g-related">Related: <a href="#lib-project-settings">Project settings</a> · <a href="#lib-object-classes">Object classes</a> · <a href="#lib-shapes">Shapes</a> · <a href="#lib-package-licensing">Package licensing and updates</a></p>
+</section>
+
+<section class="g-feature" id="lib-harness-marine">
+  <h2>Wire harness and Marine packages</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-harness-marine</span><span>Roadmap 04.6</span></div>
+  <p class="g-summary">Switch on Wire harness for harnesses, wires, connectors, terminals, splices, bundles, protection and fixings, or Marine for fire zones, decks, cable transits and the deck and frame of equipment; both are off until a project switches them on.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Project settings → <span class="ui">Content packages</span>; Configuration → <span class="ui">Content and standards</span></dd>
+    <dt>Who</dt><dd>A Project administrator switches them on; anyone who may edit creates their objects</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Project settings → <span class="ui">Content packages</span>.</td><td><span class="ui">Wire harness</span> (needs Electrical foundation) and <span class="ui">Marine</span> (needs Plant engineering and Wire harness) are listed, off.</td></tr>
+      <tr><td>2</td><td>Switch on <span class="ui">Marine</span>.</td><td>Wire harness is switched on with it.</td></tr>
+      <tr><td>3</td><td>Under Assets, create a <span class="ui">Harness</span>, then in it a <span class="ui">Harness wire</span>, a <span class="ui">Connector housing</span> and a <span class="ui">Splice</span>.</td><td>The wire has <span class="ui">Cross-section</span>, <span class="ui">Colour</span> (IEC 60757 codes such as GN/YE), <span class="ui">Length</span>, <span class="ui">Insulation</span>, <span class="ui">From</span> and <span class="ui">To</span>; the housing has <span class="ui">Cavities</span>, <span class="ui">Gender</span> and <span class="ui">Sealed</span>, and holds <span class="ui">Crimp terminal</span> and <span class="ui">Cavity seal</span> parts.</td></tr>
+      <tr><td>4</td><td>Under Areas, create a <span class="ui">Fire zone</span> with a <span class="ui">Deck</span>; under Assets a <span class="ui">Cable transit</span>.</td><td>The transit has its <span class="ui">Fire rating</span> (A-60 …) and <span class="ui">Watertight</span>.</td></tr>
+      <tr><td>5</td><td>Open a pump.</td><td>It has an <span class="ui">On board</span> group: <span class="ui">Deck</span>, <span class="ui">Frame</span>, <span class="ui">Side</span>, <span class="ui">Fire zone</span>, <span class="ui">Watertight compartment</span> and <span class="ui">Class approval</span>.</td></tr>
+      <tr><td>6</td><td>Open the shape palette on a wiring diagram.</td><td>The <span class="ui">Wire harness</span> group has the connector, splice and fixing shapes; <span class="ui">Marine</span> the cable transit.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-warn">Harness drawings and formboards, and the exchange formats of the automotive industry, are not built yet.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-content-packages">Content packages and standards</a>, <a href="guide-library.html#lib-package-switching">Switching packages on and off</a></p>
 </section>
 
 <section class="g-feature" id="lib-partner-packages">
