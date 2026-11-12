@@ -61,13 +61,15 @@
           <li><a href="#wf-dashboard-audience">Who sees a dashboard</a></li>
           <li><a href="#wf-every-project">Every-project dashboards</a></li>
           <li><a href="#wf-present">Present a dashboard</a></li>
+          <li><a href="#wf-progress">Progress, weights and the plan</a></li>
+          <li><a href="#wf-trends">Trends: S-curve, burn-up, cumulative flow</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Workflow and dashboards</p>
         <h1>14. Workflow and dashboards</h1>
         <p class="lead">Statuses of objects, sheets, documents and tasks in status sets with your own sub-statuses, the status chip, value statuses (Assumed, Preliminary, Confirmed, Final) and holds; workflows, boards and progress dashboards as they are built.</p>
-        <div class="g-meta"><span>19 features</span><span>19 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>21 features</span><span>21 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="workflow-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Every object, sheet, document and task in E1 has a status. Statuses come in status sets: five fixed categories (New, Active, Resolved, Closed, Removed) with the sub-statuses your company or project adds under them. Values have a status of their own, from Assumed to Final, and anything can be put on hold with a reason.</p>
@@ -80,6 +82,7 @@
     <li>Make a <a href="#wf-workflows">workflow</a> from a template, <a href="#wf-assignments">assign it</a> to instruments, and <a href="#wf-move">move them</a> on their chip or on the <a href="#wf-board">board</a>.</li>
     <li>Give a step <a href="#wf-criteria">exit criteria</a> and an <a href="#wf-approvals">approval</a>; a lead can <a href="#wf-override">override</a> a failing criterion with a reason.</li>
     <li>Follow the progress on the <a href="#wf-dashboards">dashboards</a>, and open the items behind any number.</li>
+    <li>Give the project a <a href="#wf-progress">plan</a> and follow it on the <a href="#wf-trends">S-curve and the trends</a>.</li>
   </ol>
 </section>
 
@@ -192,7 +195,8 @@
   <ul>
     <li>Each step is a status of the set, once; Removed is never a step, it is always reachable. A step's credit never decreases down the list.</li>
     <li>A locked step keeps its items' values, name, tag and owner as they are until the item moves back; holds, comments and tasks stay possible. Rules leave a locked item's values as they are.</li>
-    <li>A step may make a task about the item, or set a value, when an item enters it.</li>
+    <li>A step may make a task about the item, set a value, or notify the people it names, when an item enters it.</li>
+    <li>Moves, holds and value statuses are events of their own in the integration API's change feed: <code>object.status-changed</code>, <code>object.hold-changed</code>, <code>value.maturity-changed</code>.</li>
   </ul>
   <p class="g-related">Related: <a href="#wf-assignments">Assignments</a> · <a href="#wf-move">Moving items</a> · <a href="#wf-board">The board</a> · <a href="#wf-statuses">Status sets</a></p>
 </section>
@@ -301,7 +305,7 @@
       <tr><td>5</td><td>Change one of its values.</td><td>The chip shows <span class="ui">Changed since Approved</span> until it next moves forward.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note"><span class="ui">Reject…</span> asks why and sends the item to the step the approval names; the signatures given so far stay on record.</p>
+  <p class="g-note"><span class="ui">Reject…</span> asks why and sends the item to the step the approval names; the signatures given so far stay on record. The people a sign-off step names are notified when an item waits for them, and the person who moved it in is notified of a rejection.</p>
   <p class="g-related">Related: <a href="#wf-criteria">Exit criteria</a> · <a href="#wf-move">Moving items</a></p>
 </section>
 
@@ -472,6 +476,49 @@
     </tbody>
   </table></div>
   <p class="g-related">Related:  <a href="#wf-dashboards">Dashboards</a></p>
+</section>
+
+<section class="g-feature" id="wf-progress">
+  <h2>Progress, weights and the plan</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-progress</span><span>Roadmap 33.6</span><span>Review checks S7</span></div>
+  <p class="g-summary">Progress is the credit of the step each item has reached, weighted by a number of your choice (or 1). The plan gives the percentage progress should have reached by each date; the S-curve draws progress against it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflow</span> → <span class="ui">Progress</span></dd>
+    <dt>Who</dt><dd>Manage project workflows (Project administrator)</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Progress</span>. Under <span class="ui">Weights</span>, choose a number attribute for <em>Instrument data</em>, or keep <em>Every item weighs 1</em>.</td><td>—</td></tr>
+      <tr><td>2</td><td>Under <span class="ui">Plan</span>, type a baseline (<em>B1</em>) and one line per date: <code>2026-12-01 10</code>, <code>2027-01-15 50</code>, <code>2027-02-28 100</code>. Click <span class="ui">Save</span>.</td><td>Saved. A date out of order or a percentage that goes down is refused, naming it.</td></tr>
+      <tr><td>3</td><td>On a dashboard, look at a <em>Progress</em> tile.</td><td>The weighted share of the credits reached: an item in a step with credit 50 counts half.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The credits are the workflow's steps' own; ask Alex to give the project other credits for a step.</p>
+  <p class="g-related">Related: <a href="#wf-trends">Trends</a> · <a href="#wf-workflows">Workflows</a> · <a href="#wf-dashboards">Dashboards</a></p>
+</section>
+
+<section class="g-feature" id="wf-trends">
+  <h2>Trends: S-curve, burn-up, cumulative flow</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-trends</span><span>Roadmap 33.6</span><span>Review checks S7</span></div>
+  <p class="g-summary">E1 records the numbers of every trend tile once a day. A trend shows one number over days, a burn-up done against total, cumulative flow the items in each step per day, and the S-curve progress by week against the plan.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span> → <span class="ui">Edit</span> → <span class="ui">Add a tile</span></dd>
+    <dt>Who</dt><dd>As the dashboard; recording today's numbers by hand: Manage project dashboards</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Edit a dashboard and add <em>Progress against the plan</em>, <em>Burn-up</em>, <em>Items by step over time</em> and <em>Required values missing over time</em>; Save.</td><td>The tiles say there are no snapshots yet: the numbers are recorded once a day.</td></tr>
+      <tr><td>2</td><td>Ask Alex to record today's dashboard numbers, or wait until tomorrow.</td><td>Each tile shows its first day; the S-curve its week with the plan as a dashed line.</td></tr>
+      <tr><td>3</td><td>Come back after some days of work.</td><td>The lines and bars grow by a day each day (by a week for the S-curve).</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>A tile that is changed (its source, measure or grouping) starts a new history from that day.</li>
+    <li>Trends follow the dashboard's own filters; a viewer's filters do not change them.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#wf-progress">Progress</a> · <a href="#wf-tiles">Tiles</a> · <a href="#wf-dashboard-edit">Change a dashboard</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-wiring.html">Wiring (EI&amp;C)</a> · <a href="guide-safety.html">Cause and effect, safety functions, alarms</a> →</p>
