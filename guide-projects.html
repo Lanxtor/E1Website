@@ -61,13 +61,15 @@
           <li><a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a></li>
           <li><a href="#prj-import-pdf">Import a P&amp;ID from a PDF</a></li>
           <li><a href="#prj-branches">Branches</a></li>
+          <li><a href="#prj-branch-conflicts">Pull from main and resolve conflicts</a></li>
+          <li><a href="#prj-branch-push">Push a branch to main</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Projects and the explorer</p>
         <h1>3. Projects and the explorer</h1>
         <p class="lead">Create, rename, arrange and delete projects and folders, the sections of a project, the Bin, searching and dragging in the explorer.</p>
-        <div class="g-meta"><span>19 features</span><span>18 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>21 features</span><span>21 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="projects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the explorer, the tree on the left of the E1 window: your projects, how you arrange them in folders, the nine sections every project has, the folders and 2D spaces inside the sections, the Bin, searching the tree and dragging rows around.</p>
@@ -600,24 +602,72 @@
 
 <section class="g-feature" id="prj-branches">
   <h2>Branches</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span class="g-id">PRJ-branches</span><span>Roadmap M8</span></div>
-  <p class="g-summary">The <span class="ui">Branches</span> section is where working branches of the plant model will live: you change a copy of part of the design and push it back when it is ready. Today the section takes folders only; its other controls open <span class="ui">Under construction</span>.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branches</span><span>Roadmap 15.1, 15.2, 15.4</span><span>Review check W1</span></div>
+  <p class="g-summary">Make a working branch of part of the design, change it while main stays as it is, and push it back when it is ready.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span></dd>
-    <dt>Who</dt><dd>Everyone can see the section</dd>
+    <dt>Who</dt><dd>Creating and working in a branch: Engineer and above; pushing to main: Lead engineer and above</dd>
+    <dt>Before you start</dt><dd>A project with a pump P-101 drawn on a 2D space.</dd>
   </dl>
-  <div class="g-dev">
-    <p><strong>Being planned (roadmap M8 Branches, not started).</strong> These controls are on screen but only open the <span class="ui">Under construction</span> tab today: right-click <span class="ui">Branches</span> → <span class="ui">New branch</span>; the section page's <span class="ui">New branch</span> button; its filter <span class="ui">All</span> / <span class="ui">Procurement</span> / <span class="ui">Construction</span>; and the green dot "Open branch" on the section row.</p>
-    <h3>What you will be able to do</h3>
-    <ul>
-      <li>Create a branch from part of the design and see it in the branch list (15.1).</li>
-      <li>Work in a branch without others seeing your changes until you push them (15.2), pull others' changes and resolve conflicts object by object, also on the drawing (15.3, 15.4).</li>
-      <li>Push the branch back and notify the others (15.5); open merge requests for a colleague to review (16.2).</li>
-      <li>Use branch types such as design or commissioning, branch packages, and automatic resolution rules (16.1, 16.3, 16.4).</li>
-      <li>Have Alex make its changes in your own branch (17.1, 17.2).</li>
-    </ul>
-  </div>
-  <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-getting-started.html#gs-under-construction">Under construction</a></p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Branches</span>, then <span class="ui">New branch…</span>; type a name and, in <span class="ui">Add an object to the branch</span>, <code>P-101</code>, and click it.</td><td>The scope preview lists P-101, its nozzles (locked: they come by a built-in rule), the connected lines and the 2D space it is drawn on as Editable, its owner as Information, each with why.</td></tr>
+      <tr><td>2</td><td>Change a row to <span class="ui">Leave out</span> or <span class="ui">Information</span> where it is not locked, and click <span class="ui">Create</span>.</td><td>“Branch … created.” It is listed with its owner, Open, 0 changes.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Enter</span>.</td><td>A bar under the menu reads “In branch …: what you change here changes the branch, not main.” The tree, drawings, attributes and queries show the branch.</td></tr>
+      <tr><td>4</td><td>Change P-101's design pressure and move it on the 2D space.</td><td>The branch has it; another window, on main, still shows the old value and place.</td></tr>
+      <tr><td>5</td><td>Change an object that is not in the branch.</td><td>Refused: “… is outside in this branch: add it to the branch to change it.”</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Leave branch</span>.</td><td>This window is on main again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">In a branch, issuing a revision, the project's settings and the library are refused: they are changed in main. Tag numbers are taken centrally, so two branches never give the same number. <span class="ui">Details</span> lists the branch's scope and what it changed; <span class="ui">Close</span> discards it without changing main. An object being changed in a branch can be blocked in main by the project's option.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-conflicts">
+  <h2>Pull from main and resolve conflicts</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-conflicts</span><span>Roadmap 15.3, 15.4</span><span>Review check W2</span></div>
+  <p class="g-summary">Pull brings main's changes into a branch value by value; what both changed differently is a conflict you resolve, also on the drawing.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Branches</span> → a branch → <span class="ui">Pull from main</span></dd>
+    <dt>Who</dt><dd>The branch's members</dd>
+    <dt>Before you start</dt><dd>A branch where P-101's design pressure is 14; someone has set it to 11 in main and renamed P-101.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Pull from main</span>.</td><td>“Pulled: 1 conflicts to resolve.” The rename is taken (only main changed it); the pressure is a conflict. <span class="ui">Conflicts</span> opens.</td></tr>
+      <tr><td>2</td><td>Read the row.</td><td>Grouped by object: the element, its kind, Base, Main (11) and Branch (14).</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Keep mine</span> (or <span class="ui">Take theirs</span>, or type a value and <span class="ui">Use value</span>).</td><td>The row shows the choice and who made it; “Every conflict is resolved: the pull is complete.”</td></tr>
+      <tr><td>4</td><td>With a symbol both moved, open its 2D space in the branch.</td><td>It shows twice: Main in blue and Branch in orange, joined by a dashed line; click one to keep it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Keep mine for this object</span>, <span class="ui">Keep mine everywhere</span> and <span class="ui">Take theirs everywhere</span> choose many at once. A pull applies every change from main; there is no partial pull. Alex pulls from another branch too (<code>pull</code> with <code>from</code>).</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-push">
+  <h2>Push a branch to main</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-push</span><span>Roadmap 15.5</span><span>Review check W3</span></div>
+  <p class="g-summary">Push brings a branch into the project as one change that undoes as one; it waits until the branch is up to date with main.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Branches</span> → a branch → <span class="ui">Push to main</span></dd>
+    <dt>Who</dt><dd>Lead engineer and above (Push to main); your role must allow every change</dd>
+    <dt>Before you start</dt><dd>A branch with changes and no open conflicts.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Push to main</span> when main changed something in the branch since its last pull.</td><td>Refused: “Main has 1 change in this branch's scope. Pull first.” Nothing is written.</td></tr>
+      <tr><td>2</td><td><span class="ui">Pull from main</span>, resolve, then <span class="ui">Push to main</span>.</td><td>“Pushed 2 changes to main as one change.” Main has the branch's values and drawing.</td></tr>
+      <tr><td>3</td><td>Open History in main.</td><td>One change “Pushed branch …”, with <span class="ui">Undo this change</span> taking it all back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The branch stays open after a push and counts from what it pushed. A push with conflicts open is refused.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-access.html">Installation and sign-in</a> · <a href="guide-objects.html">Objects, attributes and tags</a> →</p>
