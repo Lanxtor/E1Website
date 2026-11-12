@@ -56,7 +56,7 @@
           <li><a href="#wire-loop-diagram">Loop diagrams from the wiring</a></li>
           <li><a href="#wire-lists">Wire list, termination list, cable schedule and I/O list</a></li>
           <li><a href="#wire-typicals">Signals and wiring typicals</a></li>
-          <li><a href="#wire-allocation">Allocation and Panorama EI&amp;C</a></li>
+          <li><a href="#wire-allocation">Allocation and the Wiring page</a></li>
           <li><a href="#wire-wire-moves">Changes after issue: the wire move list</a></li>
           <li><a href="#wire-circuit-checks">Entity check and voltage budget</a></li>
         </ol>
@@ -77,7 +77,7 @@
     <li><a href="#wire-trace">Trace a circuit</a> to check it reaches its channel, and set its <a href="#wire-construction-status">construction status</a> as the work goes on.</li>
     <li>Keep the <a href="#wire-cable-lengths">cable lengths</a> from 3D and by hand, and see where they differ; <a href="#wire-import">import</a> the wiring of an existing plant or a vendor panel.</li>
     <li>Generate the <a href="#wire-loop-diagram">loop diagrams</a> from the wiring, issue them as a set, and build the <a href="#wire-lists">wire list and other lists</a> as queries.</li>
-    <li>Give devices a <a href="#wire-typicals">wiring typical</a>, let E1 <a href="#wire-allocation">propose where their signals land</a> and accept it in Panorama EI&amp;C, check the <a href="#wire-circuit-checks">entity and voltage budget</a>, and after issue work with the <a href="#wire-wire-moves">wire move list</a>.</li>
+    <li>Give devices a <a href="#wire-typicals">wiring typical</a>, let E1 <a href="#wire-allocation">propose where their signals land</a> and accept it on the <span class="ui">Wiring</span> page, check the <a href="#wire-circuit-checks">entity and voltage budget</a>, and after issue work with the <a href="#wire-wire-moves">wire move list</a>.</li>
     <li>See each cabinet's <a href="#wire-fill-heat">fill and heat balance</a>, exchange the <a href="#wire-io-list">I/O list</a> with the control-system vendor, and export <a href="#wire-markers">markers</a>.</li>
   </ol>
   <h3>Before you start</h3>
@@ -200,7 +200,7 @@
     </tbody>
   </table></div>
   <p class="g-note">A connection can also be marked <em>fixed</em> (allocation will never move it) and given a scope (project, vendor, client, existing), through Alex for now.</p>
-  <p class="g-related">Related: <a href="#wire-trace">Trace a circuit</a> · <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a></p>
+  <p class="g-related">Related: <a href="#wire-trace">Trace a circuit</a> · <a href="#wire-allocation">Allocation and the Wiring page</a></p>
 </section>
 
 <section class="g-feature" id="wire-cable-lengths">
@@ -270,7 +270,7 @@
     </tbody>
   </table></div>
   <p class="g-warn">This is a heat balance from physics with every input shown; it is not a temperature-rise verification under IEC 61439 or IEC TR 60890, which a contract may still ask for. The top allowance is 5 K unless the project sets another.</p>
-  <p class="g-related">Related: <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a></p>
+  <p class="g-related">Related: <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-allocation">Allocation and the Wiring page</a></p>
 </section>
 
 <section class="g-feature" id="wire-io-list">
@@ -290,7 +290,7 @@
       <tr><td>3</td><td>Ask Alex to apply it.</td><td>The cross-wires of FT-1 move to channel 2, fixed and in vendor scope; the next export shows channel 2.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a> · <a href="#wire-lists">Wiring lists</a></p>
+  <p class="g-related">Related: <a href="#wire-allocation">Allocation and the Wiring page</a> · <a href="#wire-lists">Wiring lists</a></p>
 </section>
 
 <section class="g-feature" id="wire-markers">
@@ -334,7 +334,7 @@
     </tbody>
   </table></div>
   <p class="g-warn">The voltage is worked out from the trunk's and spurs' resistance per length; it is a check for design, not a vendor's segment calculation.</p>
-  <p class="g-related">Related: <a href="#wire-typicals">Wiring typicals</a> · <a href="#wire-allocation">Panorama EI&amp;C and allocation</a> · <a href="#wire-loop-diagram">Loop diagrams from the wiring</a></p>
+  <p class="g-related">Related: <a href="#wire-typicals">Wiring typicals</a> · <a href="#wire-allocation">Allocation and the Wiring page</a> · <a href="#wire-loop-diagram">Loop diagrams from the wiring</a></p>
 </section>
 
 <section class="g-feature" id="wire-loop-diagram">
@@ -405,15 +405,15 @@
   </table></div>
   <p class="g-note">Each I/O signal has its kind (AI, AO, DI, DO …), its segregation class, control system and redundancy group, used by the allocation. A terminal can also be made part of a <em>potential</em> (a 24 V rail, its common, an earth) with the relationship <span class="ui">is part of potential</span>.</p>
   <p class="g-warn">There is no editor on the screen for typicals yet: they are made and published through Alex. Setting typicals by rule (for example every transmitter in a hazardous area) comes with rules; the junction box, marshalling and channel each signal lands on come with the allocation.</p>
-  <p class="g-related">Related: <a href="#wire-cables-cores">Cables and their cores</a> · <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a> · <a href="guide-ai.html#ai-side-panel">The side panel</a></p>
+  <p class="g-related">Related: <a href="#wire-cables-cores">Cables and their cores</a> · <a href="#wire-allocation">Allocation and the Wiring page</a> · <a href="guide-ai.html#ai-side-panel">The side panel</a></p>
 </section>
 
 <section class="g-feature" id="wire-allocation">
-  <h2>Allocation and Panorama EI&amp;C</h2>
+  <h2>Allocation and the Wiring page</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-allocation</span><span>Roadmap 28.4</span><span>Review check R6</span></div>
   <p class="g-summary">E1 proposes where every signal of a group of devices lands, in three hops: its field cable on a junction box strip, a free pair of a multicore to the marshalling cabinet, and two cross-wires to a free channel of its kind. It never breaks a hard rule: the control system, the project's segregation matrix and each strip's segregation class, redundancy groups apart (2oo3 on three junction boxes and three cards), the channel's type and HART, fixed and reserved terminals, and the spare percentage. Every choice says why, and every junction box it did not take says which rule it breaks. The same devices give the same proposal every time.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click a function (a loop, a unit, a system) in <span class="ui">Systems</span> → <span class="ui">Panorama EI&amp;C</span>, or open it and click <span class="ui">Panorama EI&amp;C</span> in the tabs at the top of its window: the <span class="ui">Panorama EI&amp;C</span> page with the wiring workbench</dd>
+    <dt>Where</dt><dd>Right-click a function (a loop, a unit, a system) in <span class="ui">Systems</span> → <span class="ui">Wiring</span>, or open it and click <span class="ui">Wiring</span> in the tabs at the top of its window: the <span class="ui">Wiring</span> page with the wiring workbench</dd>
     <dt>Who</dt><dd>Proposing: anyone who may view the project. Accepting: a license and a project role that may edit relationships</dd>
     <dt>Before you start</dt><dd>The devices have their wiring typical (<a href="#wire-typicals">Signals and wiring typicals</a>); the junction boxes, multicores (with <span class="ui">From</span> and <span class="ui">To</span>), marshalling strips (role <span class="ui">Field side</span>) and I/O cards exist. The spare percentage and the segregation matrix are project settings (ask Alex to set them).</dd>
   </dl>
@@ -421,7 +421,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open the unit UNIT-300 from <span class="ui">Systems</span> and click <span class="ui">Panorama EI&amp;C</span> in the tabs at the top of its window.</td><td>The <span class="ui">Panorama EI&amp;C</span> page, beside the unit's own page (the tab named UNIT-300), with the <span class="ui">Wiring workbench</span>: each device with its typical, signals and status (<span class="ui">No typical</span>, <span class="ui">Unassigned</span>, <span class="ui">In progress</span>, <span class="ui">Accepted</span>, <span class="ui">Issued for construction</span>, <span class="ui">Changed since issued</span>). Tick devices to work on some of them only.</td></tr>
+      <tr><td>1</td><td>Open the unit UNIT-300 from <span class="ui">Systems</span> and click <span class="ui">Wiring</span> in the tabs at the top of its window.</td><td>The <span class="ui">Wiring</span> page, beside the unit's own page (the tab named UNIT-300), with the <span class="ui">Wiring workbench</span>: each device with its typical, signals and status (<span class="ui">No typical</span>, <span class="ui">Unassigned</span>, <span class="ui">In progress</span>, <span class="ui">Accepted</span>, <span class="ui">Issued for construction</span>, <span class="ui">Changed since issued</span>). Tick devices to work on some of them only.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Propose wiring</span>.</td><td>The strip of hops appears: <span class="ui">Field → junction box</span>, <span class="ui">Junction box → marshalling</span>, <span class="ui">Marshalling → I/O</span>, each with how many signals are proposed and how many are not placed. The window shows the first hop: each device and signal, where it lands (JB-1 X1:1, JB-1 X1:2) and why.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">→</span> (or press the right arrow key) twice, then <span class="ui">←</span> twice.</td><td>The window walks to the multicore pairs, then to the channels (A3 A5-1 …), and back.</td></tr>
       <tr><td>4</td><td>In the first hop choose <span class="ui">All of these to</span> → JB-2.</td><td>The proposal is made again with every device on JB-2. In a row's <span class="ui">Junction box</span> list, a box that breaks a rule is greyed with the rule, for example "JB-1: redundancy group PT-2oo3 is in it already".</td></tr>
@@ -454,7 +454,7 @@
     </tbody>
   </table></div>
   <p class="g-note">Before issue for construction, a move simply replaces the connections: there is nothing to lift in the field yet.</p>
-  <p class="g-related">Related: <a href="#wire-construction-status">Construction status</a> · <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a></p>
+  <p class="g-related">Related: <a href="#wire-construction-status">Construction status</a> · <a href="#wire-allocation">Allocation and the Wiring page</a></p>
 </section>
 
 <section class="g-feature" id="wire-circuit-checks">
@@ -476,7 +476,7 @@
     </tbody>
   </table></div>
   <p class="g-warn">This is the entity concept with the values of the products' data; it does not replace the intrinsic safety verification a project's rules may ask for.</p>
-  <p class="g-related">Related: <a href="#wire-cable-lengths">Cable lengths</a> · <a href="#wire-allocation">Allocation and Panorama EI&amp;C</a></p>
+  <p class="g-related">Related: <a href="#wire-cable-lengths">Cable lengths</a> · <a href="#wire-allocation">Allocation and the Wiring page</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-account.html">Your account, Academy and website</a> · <a href="guide-workflow.html">Workflow and dashboards</a> →</p>
