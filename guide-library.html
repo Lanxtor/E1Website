@@ -74,13 +74,16 @@
           <li><a href="#lib-module-edit">Editing a module: new versions</a></li>
           <li><a href="#lib-documents-templates">Sheet templates</a></li>
           <li><a href="#lib-documents-signoff-routes">Sign-off routes</a></li>
+          <li><a href="#lib-documents-numbering">Numbering schemes</a></li>
+          <li><a href="#lib-documents-purposes">Purposes of issue</a></li>
+          <li><a href="#lib-documents-filing">Filing rules</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Configuration, library and catalogs</p>
         <h1>10. Configuration, library and catalogs</h1>
         <p class="lead">The Configuration place: classes, attributes, shapes, the company library with drafts, publishing and upgrades, catalogs, content packages and project settings.</p>
-        <div class="g-meta"><span>32 features</span><span>30 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>35 features</span><span>33 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="library-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the shared set-up of E1: the <span class="ui">Configuration</span> place with its object classes, attributes, shapes and relationships, the company library where your organization adds its own classes and attributes, catalogs of approved products, the content packages a project uses, and the project settings. A change made here applies to everyone, not only to you; your own preferences are in <span class="ui">Settings</span>.</p>
@@ -939,6 +942,75 @@
   </table></div>
   <p class="g-note">The first step is always Prepared by the creator. A revision keeps the route it started with: changing a route changes only revisions made afterwards.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off of a revision</a>, <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a>, <a href="guide-documents.html#doc-reassign-signer">Reassign a step of a sign-off</a></p>
+</section>
+
+<section class="g-feature" id="lib-documents-numbering">
+  <h2>Numbering schemes</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-documents-numbering</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">Configuration → Numbering: E1's revision schemes and the company's and project's own: phases with their series, start, digits, prefix and letters to skip, the version label, and the labels they give.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Documents</span> ▸ <span class="ui">Numbering</span></dd>
+    <dt>Who</dt><dd>Configure documents for this project's schemes; the company library's editors for the company's</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Numbering</span>.</td><td>The schemes with their library and what they give, such as “A, B, C … then 0, 1, 2 …; versions A.1”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy Numeric</span>.</td><td>The designer: <span class="ui">Name</span>, <span class="ui">Library</span>, the <span class="ui">Phases</span> table (label, series, starts at, digits, prefix, letters to skip), <span class="ui">Phases</span> (Only forward or Any order), <span class="ui">Version label</span>, <span class="ui">Versions start at</span>, <span class="ui">Restart after each revision</span>, and “Gives …”.</td></tr>
+      <tr><td>3</td><td>Set the phase's <span class="ui">Starts at</span> to 10, its digits to 3 and its prefix to R.</td><td>“Gives R010, R011, R012 …” at once.</td></tr>
+      <tr><td>4</td><td>Set <span class="ui">Version label</span> to {next}-d{n} and click <span class="ui">Publish</span>.</td><td>“… is published: choose it in Project settings → Documents.”</td></tr>
+      <tr><td>5</td><td>In Project settings → Documents → <span class="ui">Revision scheme</span> choose it, and create a revision of a new document.</td><td>It is labelled R010; a version after it R011-d1.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A version label without {n} is named and Publish stays off. A new scheme labels the next outputs only; labels already given stay.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a>, <a href="guide-library.html#lib-documents-purposes">Purposes of issue</a></p>
+</section>
+
+<section class="g-feature" id="lib-documents-purposes">
+  <h2>Purposes of issue</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-documents-purposes</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">Configuration → Purposes of issue: E1's lists and the company's and project's own: each purpose's code, text, phase, watermark, whether it is from construction or makes the document void.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Documents</span> ▸ <span class="ui">Purposes of issue</span></dd>
+    <dt>Who</dt><dd>Configure documents for this project's lists; the company library's editors for the company's</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Purposes of issue</span>.</td><td>EPC purposes of issue and ISO 19650 suitability with their codes, and the company's and this project's lists.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy EPC purposes of issue</span>.</td><td>The <span class="ui">Purposes</span> table: Code, Text, Phase, Watermark, From construction, Makes void, with × on each row and <span class="ui">Add purpose</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Add purpose</span>, give it the code IFA.</td><td>“The code IFA is used twice.”; Save draft and Publish are off.</td></tr>
+      <tr><td>4</td><td>Change it to IFM with the text “Issued for manufacture” and click <span class="ui">Publish</span>.</td><td>“… is published: choose it in Project settings → Documents.”</td></tr>
+      <tr><td>5</td><td>In Project settings → Documents → <span class="ui">Purposes</span> choose it.</td><td><span class="ui">Create revision…</span> offers IFM with its text.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A purpose's phase is one of the numbering scheme's phases (letters and numbers in E1's EPC scheme, shared and published in ISO 19650) or any.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a>, <a href="guide-library.html#lib-documents-numbering">Numbering schemes</a></p>
+</section>
+
+<section class="g-feature" id="lib-documents-filing">
+  <h2>Filing rules</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-documents-filing</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">Configuration → Filing: where an issued PDF is filed under Documents (folders from the document's number, name and attributes), where superseded PDFs go, and the file name, with an example.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Documents</span> ▸ <span class="ui">Filing</span></dd>
+    <dt>Who</dt><dd>Configure documents for this project's rules; the company library's editors for the company's</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Filing</span>.</td><td>By document, By discipline and type, By status and Flat with their folders, and the company's and this project's rules.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy By discipline and type</span>.</td><td>The designer: the <span class="ui">Folders</span> (each text and tokens such as {document.attributes.discipline}), <span class="ui">Add folder</span>, <span class="ui">Superseded PDFs</span> (Stay where they are, or Move to a folder with its name), <span class="ui">File name</span>, and an example: where Rev B of P-PID-0001 is filed, where it goes once superseded, and its file name.</td></tr>
+      <tr><td>3</td><td>Type {document.owner} in a folder.</td><td>“Folder 1: {document.owner} is not a token E1 knows.”; Publish is off.</td></tr>
+      <tr><td>4</td><td>Put it back and click <span class="ui">Publish</span>; choose it in Project settings → Documents → <span class="ui">Filing rule</span>.</td><td>The next issued revision is filed in its folders; a folder whose tokens are all empty is Unfiled.</td></tr>
+      <tr><td>5</td><td>Issue the next revision of the same document.</td><td>The PDF of the one before moves to Superseded.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A PDF moves only when its own output does; a rule changed later files only new outputs. A filing folder renamed by hand keeps receiving its documents' outputs.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a></p>
 </section>
 
 

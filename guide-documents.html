@@ -45,6 +45,8 @@
           <li><a href="#doc-revisions-section">The Documents section</a></li>
           <li><a href="#doc-new-document">New document…: list, plot, uploaded or datasheet document</a></li>
           <li><a href="#doc-list-document">List documents from a saved query, with PDF and Excel</a></li>
+          <li><a href="#doc-reports">Reports: several saved queries in one document</a></li>
+          <li><a href="#doc-pdf-package">PDF packages</a></li>
           <li><a href="#doc-upload">Uploaded documents: revise a PDF from outside</a></li>
           <li><a href="#doc-revisions">Versions and revisions of a document</a></li>
           <li><a href="#doc-status">Statuses of a version or revision</a></li>
@@ -84,7 +86,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Documents, revisions and datasheets</p>
         <h1>7. Documents, revisions and datasheets</h1>
         <p class="lead">Documents and their revisions, issuing, changed since, PDF and Excel output, sheet PDF and printing, datasheets and the datasheet designer.</p>
-        <div class="g-meta"><span>36 features</span><span>35 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>38 features</span><span>37 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="documents-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Documents are the deliverables of a project: lists, drawings plotted to PDF, datasheets and uploaded files. Each document has revisions A, B, …; issuing a revision freezes it and its PDF, and E1 then shows what changed since. Datasheets are also the everyday screen of an object, with a designer to lay them out.</p>
@@ -172,6 +174,56 @@
   <p class="g-warn"><span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> print the current state with the current revision's label; they are downloads, not revisions. The frozen PDF of an issued revision is its <span class="ui">Open PDF of &lt;label&gt;</span> link.</p>
   <p class="g-warn">The window does not preview the list; open the query from the explorer to see its rows.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a></p>
+</section>
+
+<section class="g-feature" id="doc-reports">
+  <h2>Reports: several saved queries in one document</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-reports</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">Add to report… on a saved query makes a report, or adds the query as a section of one; its PDF prints every section under its heading, grouped by a column, and a revision issues it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A saved query's toolbar → <span class="ui">Add to report…</span>; the report's window → Versions and revisions → <span class="ui">Report</span></dd>
+    <dt>Who</dt><dd>Create documents (Engineer and above); its PDF and Excel need a role that may export</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a saved query, such as “Pumps”, and click <span class="ui">Add to report…</span>.</td><td>“Add to report” with <span class="ui">Report</span> (<span class="ui">New report</span> or one of the project's reports), <span class="ui">Name</span>, <span class="ui">Section title</span> and <span class="ui">Start on a new page</span>.</td></tr>
+      <tr><td>2</td><td>Keep <span class="ui">New report</span>, name it “Unit report” and click <span class="ui">Create report</span>.</td><td>A list document “Unit report” is made in Documents and its window opens; its Report shows one section, Pumps.</td></tr>
+      <tr><td>3</td><td>Open another saved query, “Motors”, click <span class="ui">Add to report…</span>, choose “Unit report” and click <span class="ui">Add to report</span>.</td><td>The report's <span class="ui">Sections</span> lists Pumps and Motors, each with where it starts and whether it starts a new page.</td></tr>
+      <tr><td>4</td><td>In the report's window set <span class="ui">Group by</span> to a column's name, such as “Area”, and tick <span class="ui">New page for each group</span>.</td><td>The settings are kept.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Export PDF</span>.</td><td>One PDF: each section under its heading, its rows under a heading per area, each area on a new page, the header repeated on every page and Page n of m in the footer.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Export Excel</span>.</td><td>A workbook with a sheet per section.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Add section…</span>, choose a saved query and click <span class="ui">Add section</span>; then use ↑, ↓ and ×.</td><td>The section is added, moved and removed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The report's first section is also the list's own saved query (Lists and From above it). A revision of the report freezes every section's rows.</p>
+  <p class="g-warn">Columns are each section's own; there is no column width or split setting yet, and rows the person creating a revision may not see are not refused.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-list-document">List documents from a saved query, with PDF and Excel</a>, <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a></p>
+</section>
+
+<section class="g-feature" id="doc-pdf-package">
+  <h2>PDF packages</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-pdf-package</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">New PDF package in Documents binds documents into one PDF: a cover, an index, then each document's current revision, latest version or current state; a revision of the package takes current revisions only.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click Documents → <span class="ui">New PDF package</span>; the package's window → Versions and revisions → <span class="ui">PDF package</span></dd>
+    <dt>Who</dt><dd>Create documents (Engineer and above); Generate package needs a role that may export</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click Documents and choose <span class="ui">New PDF package</span>.</td><td>“PDF package” is made in Documents and opens, with <span class="ui">Cover title</span>, <span class="ui">Index after the cover</span> and “No documents yet”.</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Find a document</span> type part of a number or name and click <span class="ui">Add …</span> on two documents.</td><td>Both are listed with their number and title; each <span class="ui">Takes</span> <span class="ui">Current revision</span>.</td></tr>
+      <tr><td>3</td><td>Set the second one's <span class="ui">Takes</span> to <span class="ui">Current state (not issued)</span>.</td><td>The choice is kept.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Generate package</span>.</td><td>“Binding the package…”, then one PDF downloads: the cover with the project and the title, the index (Document no., Title, Revision, Purpose, Pages), then each document's pages in order; the one in its current state says Not issued in the index and NOT ISSUED across its pages.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Create revision…</span> with IFA.</td><td>Refused: a revision of a package holds only issued revisions.</td></tr>
+      <tr><td>6</td><td>Set both to <span class="ui">Current revision</span> and create the revision again.</td><td>It goes through sign-off like any revision; the issued PDF keeps which revision of each document it bound.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Latest version</span> takes a document's newest version, for people who see versions. A document without an issued revision cannot be taken as its current revision.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-reports">Reports: several saved queries in one document</a></p>
 </section>
 
 <section class="g-feature" id="doc-upload">
@@ -418,8 +470,8 @@
 
 <section class="g-feature" id="doc-document-settings">
   <h2>Project settings → Documents</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Roadmap 29.1, 29.5</span><span>Review check E9</span></div>
-  <p class="g-summary">The project's revision scheme, document number pattern, purposes of issue, who sees versions, how long deleted outputs are kept, four-eyes, the sign-off route of each purpose and the output format.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Roadmap 29.1, 29.5, 29.6</span><span>Review check E9</span></div>
+  <p class="g-summary">The project's revision scheme, document number pattern, purposes of issue, filing rule, who sees versions, how long deleted outputs are kept, four-eyes, the sign-off route of each purpose and the output format.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Project settings → <span class="ui">Documents</span></dd>
     <dt>Who</dt><dd>Configure documents (Lead engineer and project administrator)</dd>
@@ -429,9 +481,10 @@
     <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
     <tbody>
       <tr><td><span class="ui">Sheet template</span></td><td>The page, frame and title block a 2D space's next version or revision prints on (<a href="guide-library.html#lib-documents-templates">Sheet templates</a>).</td></tr>
-      <tr><td><span class="ui">Revision scheme</span></td><td>Letters before construction, numbers from construction (the default); ISO 19650 (P01 … then C01 …); Numeric (01-IFR, 02-IFA …); Letters only. An example line shows the labels.</td></tr>
+      <tr><td><span class="ui">Revision scheme</span></td><td>Letters before construction, numbers from construction (the default); ISO 19650 (P01 … then C01 …); Numeric (01-IFR, 02-IFA …); Letters only; or the company's and project's own (<a href="guide-library.html#lib-documents-numbering">Numbering schemes</a>). An example line shows the labels.</td></tr>
       <tr><td><span class="ui">Document number pattern</span>, <span class="ui">Project code</span>, <span class="ui">Document type</span></td><td>The number a 2D space gets with its first output, for example {project.code}-{docType}-{seq:4} → P-PID-0001.</td></tr>
-      <tr><td><span class="ui">Purposes</span></td><td>EPC purposes of issue (IFR … IFC, AB, VOID) or ISO 19650 suitability (S1 … S4, A1, CR).</td></tr>
+      <tr><td><span class="ui">Purposes</span></td><td>EPC purposes of issue (IFR … IFC, AB, VOID), ISO 19650 suitability (S1 … S4, A1, CR), or the company's and project's own (<a href="guide-library.html#lib-documents-purposes">Purposes of issue</a>).</td></tr>
+      <tr><td><span class="ui">Filing rule</span></td><td>Where an issued PDF is filed under Documents: By document (the default), By discipline and type, By status, Flat, or the company's and project's own (<a href="guide-library.html#lib-documents-filing">Filing rules</a>).</td></tr>
       <tr><td><span class="ui">Versions visible to</span></td><td>Reviewer and above (the default), Engineer and above, or everyone who may view the document.</td></tr>
       <tr><td><span class="ui">Deleted outputs are kept for</span></td><td>How long a deleted version or revision can be restored (30 days by default).</td></tr>
       <tr><td><span class="ui">Someone else checks and approves</span></td><td>Four-eyes; off for a small team.</td></tr>
