@@ -56,6 +56,7 @@
           <li><a href="#doc-delete-output">Delete and restore a version or revision</a></li>
           <li><a href="#doc-document-settings">Project settings → Documents</a></li>
           <li><a href="#doc-changes-since">Changes since a date on the drawing</a></li>
+          <li><a href="#doc-change-clouds">Clouds and the changes table in a revision&#x27;s PDF</a></li>
           <li><a href="#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></li>
           <li><a href="#doc-sheet-pdf">PDF of a P&amp;ID 2D space</a></li>
           <li><a href="#doc-print">Print… and Ctrl+P</a></li>
@@ -79,7 +80,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Documents, revisions and datasheets</p>
         <h1>7. Documents, revisions and datasheets</h1>
         <p class="lead">Documents and their revisions, issuing, changed since, PDF and Excel output, sheet PDF and printing, datasheets and the datasheet designer.</p>
-        <div class="g-meta"><span>31 features</span><span>30 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>32 features</span><span>31 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="documents-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Documents are the deliverables of a project: lists, drawings plotted to PDF, datasheets and uploaded files. Each document has revisions A, B, …; issuing a revision freezes it and its PDF, and E1 then shows what changed since. Datasheets are also the everyday screen of an object, with a designer to lay them out.</p>
@@ -417,6 +418,30 @@
   <p class="g-note">The 2D space as it was then is rebuilt from the project's history; since a revision or a version it is that output's frozen copy. Your choice is kept in this browser only and is never part of the drawing. <span class="ui">Layers</span> ▸ <span class="ui">Changes since</span> hides the clouds.</p>
   <p class="g-warn">Where the history before a date is not kept, the list says so instead of guessing. The calendar does not mark the days with changes yet.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></p>
+</section>
+
+<section class="g-feature" id="doc-change-clouds">
+  <h2>Clouds and the changes table in a revision's PDF</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-change-clouds</span><span>Roadmap 29.3</span><span>Review check E12</span></div>
+  <p class="g-summary">A version or revision is compared with the output before it: its PDF clouds what changed with a triangle carrying its label and lists each change beside the title block; Compare with… lists the changes between any two outputs.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A version's or revision's PDF; the outputs list → <span class="ui">Compare with…</span> and, on a 2D space, <span class="ui">Show changes on the drawing</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the document; versions for people who see them</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>With Rev A of a 2D space issued, change Pump1's design pressure and create and sign off Rev B.</td><td>Rev B's PDF has a cloud around Pump1 with a triangle reading B, and “Changes in this revision (compared with Rev A)” beside the title block: “1 Pump1: Design pressure / In from 16 bar(g) to 25 bar(g)”.</td></tr>
+      <tr><td>2</td><td>Open Rev A's PDF.</td><td>It is as it was issued: a PDF shows only its own clouds.</td></tr>
+      <tr><td>3</td><td>Create Rev C without changing anything.</td><td>Its PDF says “No changes since Rev B”.</td></tr>
+      <tr><td>4</td><td>In Rev B's row, click <span class="ui">Compare with…</span> and choose Rev A.</td><td>The changes between them, each with its fields before → after.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Show changes on the drawing</span> in Rev A's row, and open the 2D space.</td><td><a href="guide-documents.html#doc-changes-since">Changes since</a> Rev A is shown on the drawing.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A revision is compared with the revision before it, a version with the output before it. The comparison is frozen when the output is created, so a later edit never changes a PDF. A deleted element's place is clouded; a change inside the title block's area is only listed.</p>
+  <p class="g-warn">Clouds are drawn on 2D spaces; a list, datasheet or loop diagram lists its changes under Compare with… only.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changes-since">Changes since a date on the drawing</a></p>
 </section>
 
 <section class="g-feature" id="doc-changed-since">

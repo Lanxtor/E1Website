@@ -337,6 +337,30 @@
   <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></p>
 </section>
 
+<section class="g-feature" id="doc-change-clouds">
+  <h2>Clouds and the changes table in a revision's PDF</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-change-clouds</span><span>Roadmap 29.3</span><span>Review check E12</span></div>
+  <p class="g-summary">A version or revision is compared with the output before it: its PDF clouds what changed with a triangle carrying its label and lists each change beside the title block; Compare with… lists the changes between any two outputs.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A version's or revision's PDF; the outputs list → <span class="ui">Compare with…</span> and, on a 2D space, <span class="ui">Show changes on the drawing</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the document; versions for people who see them</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>With Rev A of a 2D space issued, change Pump1's design pressure and create and sign off Rev B.</td><td>Rev B's PDF has a cloud around Pump1 with a triangle reading B, and “Changes in this revision (compared with Rev A)” beside the title block: “1 Pump1: Design pressure / In from 16 bar(g) to 25 bar(g)”.</td></tr>
+      <tr><td>2</td><td>Open Rev A's PDF.</td><td>It is as it was issued: a PDF shows only its own clouds.</td></tr>
+      <tr><td>3</td><td>Create Rev C without changing anything.</td><td>Its PDF says “No changes since Rev B”.</td></tr>
+      <tr><td>4</td><td>In Rev B's row, click <span class="ui">Compare with…</span> and choose Rev A.</td><td>The changes between them, each with its fields before → after.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Show changes on the drawing</span> in Rev A's row, and open the 2D space.</td><td><a href="guide-documents.html#doc-changes-since">Changes since</a> Rev A is shown on the drawing.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A revision is compared with the revision before it, a version with the output before it. The comparison is frozen when the output is created, so a later edit never changes a PDF. A deleted element's place is clouded; a change inside the title block's area is only listed.</p>
+  <p class="g-warn">Clouds are drawn on 2D spaces; a list, datasheet or loop diagram lists its changes under Compare with… only.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changes-since">Changes since a date on the drawing</a></p>
+</section>
+
 <section class="g-feature" id="doc-changed-since">
   <h2>Changed since Rev A, and Modified and Added marks</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">DOC-changed-since</span><span>Roadmap 07.7</span><span>Review check E2</span></div>
