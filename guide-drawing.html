@@ -89,13 +89,14 @@
           <li><a href="#draw-module-instance">A placed module on its objects</a></li>
           <li><a href="#draw-module-compare">Compare an instance with its module</a></li>
           <li><a href="#draw-module-promote">Turn an instance&#x27;s changes into the module&#x27;s next version</a></li>
+          <li><a href="#draw-module-variants">Module options and variants</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>47 features</span><span>45 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>48 features</span><span>46 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -1364,6 +1365,30 @@
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="#draw-module-compare">Compare an instance</a> · <a href="guide-library.html#lib-module-edit">Editing a module</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-variants">
+  <h2>Module options and variants</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DRAW-module-variants</span><span>Roadmap 32.5</span><span>Review check M14</span></div>
+  <p class="g-summary">Give a module options that are on or off and named variants of them; place the variant you need, and switch a placed instance to another variant as an update.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> → a module → <span class="ui">New version</span> → <span class="ui">Options and variants</span>; on a 2D space, <span class="ui">Place module</span> → <span class="ui">Variant</span>, and <span class="ui">Module ▾</span> → <span class="ui">Change variant…</span> on an instance's object</dd>
+    <dt>Who</dt><dd>Setting options: library editors; placing and changing a variant: Engineer and above</dd>
+    <dt>Before you start</dt><dd>A published module of a block valve and a reducer, whose next version has a second valve (a drain valve) with its pipe from the reducer.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Options and variants</span>, click <span class="ui">Add option</span> and name it Drain valve; click <span class="ui">Add variant</span> twice: Plain (Drain valve not ticked) and With drain (ticked).</td><td>The option with its key and <span class="ui">On by default</span>; the variants with a tick per option.</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Members</span>, set <span class="ui">Only with</span> of the drain valve and of its pipe to Drain valve; <span class="ui">Publish</span>.</td><td>The version is published with its options and variants.</td></tr>
+      <tr><td>3</td><td>Place the module; in <span class="ui">Place module</span> choose <span class="ui">Variant</span> Plain, then <span class="ui">Place</span>.</td><td>The block valve, the reducer and their pipe: no drain valve. The <span class="ui">Part of module</span> line says Plain.</td></tr>
+      <tr><td>4</td><td>On one of its objects, <span class="ui">Module ▾</span> → <span class="ui">Change variant…</span>, choose With drain.</td><td>The preview lists the drain valve and its pipe as Placed. <span class="ui">Apply</span>: they are placed through the instance's anchor, the pipe joined to the reducer and the drain valve.</td></tr>
+      <tr><td>5</td><td>Change the drain valve's description, then <span class="ui">Change variant…</span> → Plain.</td><td>A conflict on the drain valve: <span class="ui">Use module</span> removes it, <span class="ui">Keep mine</span> leaves it in place, no longer part of the instance.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Options are the model of wiring typicals: yes or no, each with a default; a variant names a set of them. <span class="ui">Only with</span> can also be <span class="ui">Without …</span>: a member there only while the option is off. Compare with module and Update read an instance against the members its options keep; an update to a newer version keeps the instance's options. Alex sets options with <code>set_module_options</code> and switches an instance with <code>change_module_variant</code>. The built-in patterns are not modules with options yet.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-module-place">Place a module from the Modules tab</a>, <a href="guide-drawing.html#draw-module-instance">A placed module on its objects</a>, <a href="guide-library.html#lib-module-edit">Editing a module: new versions</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-objects.html">Objects, attributes and tags</a> · <a href="guide-lists.html">Lists and queries</a> →</p>
