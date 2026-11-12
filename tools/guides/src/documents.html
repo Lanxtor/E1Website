@@ -312,6 +312,31 @@
   <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-versions">Versions of a 2D space</a>, <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a></p>
 </section>
 
+<section class="g-feature" id="doc-changes-since">
+  <h2>Changes since a date on the drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-changes-since</span><span>Roadmap 29.2</span><span>Review check E11</span></div>
+  <p class="g-summary">Changes since… on a 2D space draws a cloud around everything added, deleted, modified or moved since a day, a revision or a version, with before → after and who changed it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An open 2D space → the drawing toolbar → <span class="ui">Changes since…</span> (<kbd>Shift</kbd>+<kbd>C</kbd>)</dd>
+    <dt>Who</dt><dd>Anyone who may view the 2D space; a version is a choice only for people who see versions</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Changes since…</span>.</td><td>A box with <span class="ui">Last revision</span> and <span class="ui">Last version</span> (when the 2D space has them), <span class="ui">Yesterday</span>, <span class="ui">Last 7 days</span>, <span class="ui">Start of the project</span>, and a <span class="ui">Day</span> and <span class="ui">Time</span> with <span class="ui">Show changes</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Last 7 days</span>.</td><td>The toolbar shows “Changes since &lt;date&gt; · &lt;count&gt;”, and every change has a cloud: added green with +, deleted red and dashed with −, modified amber with ✎, moved blue with ↔ and a faint box where it was.</td></tr>
+      <tr><td>3</td><td>Click a cloud.</td><td>Its card: the element, the kind, each field before → after (for example “Design pressure / In: 16 bar(g) → 25 bar(g)”), “Changed by …, &lt;date and time&gt;”, and <span class="ui">Open the object</span>.</td></tr>
+      <tr><td>4</td><td>Click the count on the toolbar.</td><td>The <span class="ui">Changes</span> list, by kind; click one to show its card.</td></tr>
+      <tr><td>5</td><td>Change something on the 2D space.</td><td>Its cloud appears a moment later; editing stays on.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">×</span> beside the count.</td><td>The clouds are gone.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The 2D space as it was then is rebuilt from the project's history; since a revision or a version it is that output's frozen copy. Your choice is kept in this browser only and is never part of the drawing. <span class="ui">Layers</span> ▸ <span class="ui">Changes since</span> hides the clouds.</p>
+  <p class="g-warn">Where the history before a date is not kept, the list says so instead of guessing. The calendar does not mark the days with changes yet.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></p>
+</section>
+
 <section class="g-feature" id="doc-changed-since">
   <h2>Changed since Rev A, and Modified and Added marks</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">DOC-changed-since</span><span>Roadmap 07.7</span><span>Review check E2</span></div>
