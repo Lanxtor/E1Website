@@ -37,6 +37,20 @@ STATUS = {
 CSS_V = "3"
 
 
+def _styles_version():
+    """The site stylesheet's cache stamp as the pages use it (index.html), so a build never
+    writes an older one over a bumped stamp."""
+    try:
+        with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as handle:
+            found = re.search(r"styles\.css\?v=(\d+)", handle.read())
+        return found.group(1) if found else "1"
+    except OSError:
+        return "1"
+
+
+STYLES_V = _styles_version()
+
+
 def read(path):
     with open(path, encoding="utf-8") as f:
         return f.read()
@@ -97,7 +111,7 @@ def page(title, description, body, toc, crumbs):
   <meta name="description" content="{desc}">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=82">
+  <link rel="stylesheet" href="assets/css/styles.css?v={styles}">
   <link rel="stylesheet" href="assets/css/guides.css?v={css}">
 </head>
 <body>
@@ -126,7 +140,7 @@ def page(title, description, body, toc, crumbs):
   <script src="assets/js/guides.js?v=1"></script>
 </body>
 </html>
-""".format(title=esc(title), desc=esc(description), css=CSS_V, toc=toc, crumbs=crumbs, body=body)
+""".format(title=esc(title), desc=esc(description), css=CSS_V, styles=STYLES_V, toc=toc, crumbs=crumbs, body=body)
 
 
 def nav_toc(cats, current, sections=None):
