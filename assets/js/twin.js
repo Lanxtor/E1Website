@@ -3,7 +3,9 @@
  *
  * 1. The platform is assembled part by part (the <g class="tw-part"> groups
  *    written by tools/gen-plant-twin.py, each with its --i order).
- * 2. The engineers join one after another (<li class="tw-who">): a mark on
+ * 2. The engineers join one after another, in the order of a plant project
+ *    (process, instrumentation, automation, electrical, maintenance; the
+ *    <li class="tw-who"> order): a mark on
  *    the equipment, a line to their card (picture, role, equipment and a
  *    thumbnail of their diagram), and they stay, so in the end everyone works
  *    on the same plant together. Then it starts again.
