@@ -1147,34 +1147,34 @@
     ]
    },
    {
-    "id": "D13",
+    "id": "M12",
     "title": "Cause and effect, safety functions, alarms",
-    "summary": "Ordered by the owner on 2026-11-09 (00-D13) and still to be designed (modular P&ID design is designed: M10): cause-and-effect design with interlock and shutdown logic; safety instrumented functions; and alarm management, which alarms each plant context shows or hides. Each gets its concept, design, and stages before it is built.",
+    "summary": "The last part of the owner's order of 2026-11-09 (00-D13, 00-D18): interlocks with their causes and effects in the model, shown as the cause and effect matrix with narratives; safety instrumented functions with their required SIL and a calculated PFD; and alarm management, with rationalized priorities and the plant states in which each alarm is shown or suppressed (concept 34).",
     "mvp": true,
     "stages": [
      {
-      "id": "CE",
+      "id": "34.1",
       "title": "Cause and effect: interlocks and shutdown logic",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Open the cause-and-effect matrix of a unit: each trip lists its causes and effects, and the interlock narrative and shutdown logic come from the same data."
+      "tryIt": "Right-click a unit in Systems → Cause and effect: Add interlock, Add cause (PT-101 High-high 12 bar(g)), Add effect (XV-101 Close), change a cell, read the narrative; Make document and export it to Excel."
      },
      {
-      "id": "SIF",
+      "id": "34.2",
       "title": "Safety instrumented functions",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Define a safety instrumented function with its sensors, logic, and final elements and its required SIL, and see it on the cause-and-effect matrix."
+      "tryIt": "Add an interlock of type Safety instrumented function with Required SIL 2, give its proof test interval, logic solver PFD and the λDU of its causes and effects: the Safety functions tab shows its PFD, achieved SIL and hardware fault tolerance."
      },
      {
-      "id": "ALM",
+      "id": "34.3",
       "title": "Alarm management",
-      "done": false,
-      "doneOn": null,
+      "done": true,
+      "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Set an alarm's priority and limits, and see which alarms each plant context (start-up, normal, shutdown) shows or hides."
+      "tryIt": "On the Alarms tab: Add alarm, Rationalize… (Proposed priority from severity and time to respond), choose Plant state Shutdown and tick Suppressed in Shutdown; rename the states in Project settings → Plant states."
      }
     ]
    },
