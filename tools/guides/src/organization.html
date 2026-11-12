@@ -552,6 +552,30 @@
   <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-groups">Groups</a> · <a href="#org-responsibility">Assign to…</a> · <a href="#org-access-history">Access history</a></p>
 </section>
 
+<section class="g-feature" id="org-discipline-permissions">
+  <h2>Discipline permissions: one discipline's attributes only</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-discipline-permissions</span><span>Roadmap 09.6</span><span>Review check J12</span></div>
+  <p class="g-summary">A custom role may change the attributes of one discipline only: process engineers a pump's process data, electrical engineers its motor and hazardous area data.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Roles</span>, category <span class="ui">Objects and attributes</span></dd>
+    <dt>Who</dt><dd>Owner or Administrator with a passkey.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in.</dd>
+  </dl>
+  <h3>The disciplines</h3>
+  <p>An attribute's discipline is the group its class puts it in on the datasheet: <em>process</em> (process, operating and design conditions, fluid, performance), <em>mechanical</em> (materials, dimensions, construction, nozzles), <em>piping</em> (pipe, insulation, tracing, testing), <em>electrical</em> (motor, power, cables, hazardous area) and <em>instrumentation</em> (signals, control, alarms, trips, SIL). A group such as General has no discipline.</p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Roles</span>, make a custom project role "Electrical engineer" with <span class="ui">View projects</span>, <span class="ui">View objects</span> and <span class="ui">Edit electrical attributes</span>, and <span class="ui">Save role</span>.</td><td>The role is in the list as <em>custom · project</em>.</td></tr>
+      <tr><td>2</td><td>Give it to a person on a project. As that person, open a centrifugal pump's datasheet and set <span class="ui">Hazardous zone</span>.</td><td>The value is saved.</td></tr>
+      <tr><td>3</td><td>Change <span class="ui">Design pressure</span>, or the description.</td><td><span class="ui">Change refused</span> naming <span class="ui">attribute.edit</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Edit attributes</span> includes every discipline. A change of attributes of two disciplines needs both. The name, the attributes in no discipline and every other change of an object need the permission they always need.</p>
+  <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-project-members">Project members and roles</a> · <a href="#org-responsibility">Assign to…</a></p>
+</section>
+
 <section class="g-feature" id="org-responsibility">
   <h2>Assign to…: objects a person or group is responsible for</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-responsibility</span><span>Roadmap 09.6r</span><span>Review checks N5</span></div>
@@ -609,6 +633,28 @@
   <p class="g-note">The audit log cannot be changed or deleted by anyone, E1 included. Every privileged grant, every change of a project member's maximum role or of a ceiling, and every emergency access is told to the owners.</p>
   <p class="g-warn">Not built yet: a project's own history under Project settings → Access, reviews on a schedule, the alerts by email (they are in the Inbox), and E1 support access requested and approved by you.</p>
   <p class="g-related">Related: <a href="#org-audit">Audit</a> · <a href="#org-custom-roles">Custom roles</a> · <a href="#org-responsibility">Assign to…</a></p>
+</section>
+
+<section class="g-feature" id="org-support-access">
+  <h2>E1 support access</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-support-access</span><span>Roadmap 09.6</span><span>Review check J13</span></div>
+  <p class="g-summary">E1 support has no access to your data. When you ask for help, E1 support may ask for access for a few hours; nothing is given until an owner or administrator approves it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">E1 support</span></dd>
+    <dt>Who</dt><dd>Owner or Administrator with a passkey.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in, and a request from E1 support.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Access</span> → <span class="ui">E1 support</span>.</td><td>Each request with when it was asked, what it is for, the hours, <span class="ui">Read only</span> or <span class="ui">Allowed</span> changes, and its status: <span class="ui">Asked</span>, <span class="ui">Running</span>, <span class="ui">Refused</span> or <span class="ui">Ended</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Approve</span> and confirm it is you.</td><td><span class="ui">Running until …</span>. E1 support reads every project (and changes them only if the request said so); everything they do shows as <em>E1 support</em> in history and the audit log.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">End</span>.</td><td><span class="ui">Ended</span>: the access is gone at once. Otherwise it ends when the hours run out.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Refuse</span> gives nothing. Projects made after the approval are not included. Approving, refusing and ending are in the audit log.</p>
+  <p class="g-related">Related: <a href="#org-access-history">Access history and emergency access</a> · <a href="#org-roles-passkey">Roles and passkeys</a></p>
 </section>
 
 <section class="g-feature" id="org-history-names">
