@@ -80,6 +80,10 @@
           <li><a href="#draw-dexpi">DEXPI exchange and handover</a></li>
           <li><a href="#draw-cad-import">CAD import (DXF, later DWG)</a></li>
           <li><a href="#draw-redlining">Redlining</a></li>
+          <li><a href="#draw-markup-status">Answer a markup: accept, reject, answer, incorporate, close</a></li>
+          <li><a href="#draw-markups-list">The Markups list, review rounds and the comment resolution sheet</a></li>
+          <li><a href="#draw-markup-print">Marked-up prints and markups on a revision</a></li>
+          <li><a href="#draw-markup-settings">Markup colors and stamps</a></li>
           <li><a href="#draw-module-save">Save a selection as a module</a></li>
           <li><a href="#draw-module-place">Place a module from the Modules tab</a></li>
           <li><a href="#draw-module-instance">A placed module on its objects</a></li>
@@ -91,7 +95,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>43 features</span><span>40 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>47 features</span><span>45 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -1118,16 +1122,112 @@
 
 <section class="g-feature" id="draw-redlining">
   <h2>Redlining</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-redlining</span><span>Roadmap 23.1, 23.2, 23.3</span></div>
-  <p class="g-summary">Mark up a 2D space in review rounds with clouds, callouts and notes, on a separate Markups layer that never changes the drawing itself.</p>
-  <p class="g-dev">Designed, but not yet a stage on the roadmap. Not started. Until then, use <a href="guide-drawing.html#draw-comment-here">Chat here</a> to pin review messages on a 2D space.</p>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DRAW-redlining</span><span>Roadmap 23.1</span><span>Review check U1</span></div>
+  <p class="g-summary">Mark up a 2D space with clouds, arrows, text, pins and stamps on a Markups layer that never changes the drawing, and discuss each markup in its card.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Markup</span> (or the key <kbd>M</kbd> on the 2D space)</dd>
+    <dt>Who</dt><dd>Reviewers and editors who may view the 2D space (a Reviewer can mark up, never change the drawing); a Viewer cannot</dd>
+    <dt>Before you start</dt><dd>A 2D space is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Markup</span>.</td><td>The 2D space gets a red frame and the row <span class="ui">Markup tools</span>: Select markups, Pen, Line, Arrow, Rectangle, Ellipse, Cloud, Text, Callout, Highlight, Pin, Stamp, with <span class="ui">Intent</span> and <span class="ui">Round</span>. Only markups can be picked now; the drawing cannot be changed.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Intent</span> <em>Add or change</em> (red), then <span class="ui">Cloud</span>, and drag around Pump1.</td><td>A red cloud. E1 links the pump and the pipes under it; its card opens beside it, <em>Open</em>.</td></tr>
+      <tr><td>3</td><td>Type in <span class="ui">Reply</span> and click <span class="ui">Reply</span>.</td><td>The reply is in the markup's <span class="ui">Discussion</span>.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">Text</span>, click on the 2D space, type the text and click <span class="ui">Add</span>.</td><td>The text is drawn in the intent's color.</td></tr>
+      <tr><td>5</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>Your last markup is taken back. Undo in markup mode works only on your own markups, never on the drawing.</td></tr>
+      <tr><td>6</td><td>With <span class="ui">Select markups</span>, drag one of your markups; press <kbd>Delete</kbd> on one.</td><td>It moves, or goes. Someone else's markup opens its card and cannot be moved.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Markup</span> again (or <kbd>Esc</kbd> until markup mode ends), then <span class="ui">Layers</span> → untick <span class="ui">Markups</span>.</td><td>The markups stay on the drawing outside markup mode; hiding the layer shows the drawing unchanged.</td></tr>
+    </tbody>
+  </table></div>
   <ul>
-    <li>Start a review round for one or more 2D spaces, or for an issued revision, and invite reviewers with a due date.</li>
-    <li>Draw markups (for example a cloud with a callout) marked as add or change, delete, remark, question or verified, on the Markups layer; hiding the layer shows the drawing unchanged.</li>
-    <li>Open the Markups list of a 2D space, a round or the project, filter it, zoom to a markup, and change the status of several at once.</li>
+    <li>Colors follow the intent: red add or change, green delete, blue remark and question, yellow verified (<a href="#draw-markup-settings">Markup colors and stamps</a>).</li>
+    <li>Tool keys in markup mode: <kbd>C</kbd> cloud, <kbd>A</kbd> arrow, <kbd>T</kbd> text, <kbd>H</kbd> highlight, <kbd>P</kbd> pen, <kbd>S</kbd> select.</li>
+    <li>A markup never changes the drawing, its objects, their history or their revisions. New markups by others appear within a few seconds.</li>
+    <li>When a linked object moves or changes after the markup was drawn, the markup shows <em>Δ</em> and its card says <em>Changed since this markup</em>.</li>
+    <li>An object's <span class="ui">Chat</span> tab lists the markups linked to it, above its messages.</li>
   </ul>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Chat here</a> · <a href="guide-drawing.html#draw-layers">Layers</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a></p>
+  <p class="g-related">Related: <a href="#draw-markup-status">Answer a markup</a> · <a href="#draw-markups-list">The Markups list and review rounds</a> · <a href="guide-drawing.html#draw-comment-here">Chat here</a> · <a href="guide-drawing.html#draw-layers">Layers</a></p>
+</section>
+
+<section class="g-feature" id="draw-markup-status">
+  <h2>Answer a markup: accept, reject, answer, incorporate, close</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DRAW-markup-status</span><span>Roadmap 23.2</span><span>Review check U2</span></div>
+  <p class="g-summary">Set a markup's status with a response; every change is written in its discussion and tells its author.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The markup's card → <span class="ui">Set status</span></dd>
+    <dt>Who</dt><dd>Accept, reject, answer, incorporate: someone who may respond to markups and edit the 2D space. Close and reopen: the author, the round's owner, or a markup manager.</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>From</th><th>To</th><th>Needs</th></tr></thead>
+    <tbody>
+      <tr><td>Open</td><td>Accept</td><td>an optional response</td></tr>
+      <tr><td>Open</td><td>Reject</td><td>a response saying why</td></tr>
+      <tr><td>Open</td><td>Answer</td><td>a response; only for remarks, questions and stamps</td></tr>
+      <tr><td>Accepted</td><td>Incorporated</td><td>the change that did it (its group in History)</td></tr>
+      <tr><td>Rejected, Answered, Incorporated</td><td>Close, or Reopen</td><td>closing: nothing; reopening: a reply saying why</td></tr>
+      <tr><td>Open</td><td>Close</td><td>a markup manager, with a reply</td></tr>
+    </tbody>
+  </table></div>
+  <p>Each change appears in the card's <span class="ui">Discussion</span> (<em>Ben Ott set Rejected: …</em>). <span class="ui">Create task</span> on the card makes a task about the markup's first linked object.</p>
+  <p class="g-related">Related: <a href="#draw-redlining">Redlining</a> · <a href="#draw-markups-list">The Markups list</a></p>
+</section>
+
+<section class="g-feature" id="draw-markups-list">
+  <h2>The Markups list, review rounds and the comment resolution sheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DRAW-markups-list</span><span>Roadmap 23.2</span><span>Review check U3</span></div>
+  <p class="g-summary">List and filter a 2D space's markups, run a review round with its reviewers, close it, and export the comment resolution sheet.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Markups list</span> (also in the <span class="ui">Markup tools</span> row)</dd>
+    <dt>Who</dt><dd>Everyone who may view the 2D space; closing a round: its owner or a markup manager</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Markups list</span>.</td><td>The 2D space's markups: number, kind and intent, text, author, status with its response, and <em>Changed</em>. Filter by <span class="ui">Status</span> and <span class="ui">Round</span>; click a row to open its card.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">New review round</span>: <em>Client review Rev B</em>, purpose <em>Client review</em>, a due date, <span class="ui">Create round</span>.</td><td>The round is listed for this 2D space, <em>Open</em>. In markup mode, choose it in <span class="ui">Round</span>: new markups are numbered in it (A-001, A-002).</td></tr>
+      <tr><td>3</td><td>A reviewer clicks <span class="ui">Submit my markups</span>.</td><td>The round's owner is told; when every reviewer has, the round reads <em>Submitted</em>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Close round</span>.</td><td>With every markup closed, it closes. Otherwise it says how many are not closed: type a reply and click <span class="ui">Close all as they are</span> (the reply is written on each). A closed round takes no new markups; <span class="ui">Reopen</span> needs a markup manager.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Export</span> on the round (or above the list).</td><td><span class="ui">Download comment resolution sheet</span>: an Excel workbook with one row per markup: number, 2D space, kind, intent, text, author, date, status, response, responder, response date, incorporated change, linked objects, changed since.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#draw-redlining">Redlining</a> · <a href="#draw-markup-status">Answer a markup</a></p>
+</section>
+
+<section class="g-feature" id="draw-markup-print">
+  <h2>Marked-up prints and markups on a revision</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DRAW-markup-print</span><span>Roadmap 23.3</span><span>Review check U4</span></div>
+  <p class="g-summary">Print a 2D space with its markups, a legend and the watermark; mark up a plotted revision so the markups record it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Markups list</span> → <span class="ui">Marked-up print</span>; a plot document's revisions → <span class="ui">Mark up</span> <em>B</em></dd>
+    <dt>Who</dt><dd>Reviewers and editors</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the <span class="ui">Markups list</span>, choose a round (or all) and click <span class="ui">Marked-up print</span>.</td><td><span class="ui">Download marked-up print</span>: the 2D space's PDF with its markups on top in their colors, a legend of the intents used, and <em>MARKED UP — NOT AN ISSUED DOCUMENT</em> over the title block. Closed markups are left out.</td></tr>
+      <tr><td>2</td><td>On a plot document, click <span class="ui">Mark up B</span> beside revision B.</td><td>Its 2D space opens in markup mode with <em>Marking up revision B</em>: the markups you draw record revision B, and show on the live 2D space too. <span class="ui">Back to current</span> ends it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A marked-up print is an export, never a revision. Issuing a revision ignores the markups whatever the screen shows: its PDF is the same with or without them.</p>
+  <p class="g-related">Related: <a href="#draw-redlining">Redlining</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a> · <a href="guide-documents.html#doc-plot">Plot documents</a></p>
+</section>
+
+<section class="g-feature" id="draw-markup-settings">
+  <h2>Markup colors and stamps</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DRAW-markup-settings</span><span>Roadmap 23.2</span><span>Review check U3</span></div>
+  <p class="g-summary">Choose the project's markup color scheme (by intent or all red) and the stamps reviewers can use.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Project settings…</span> (or <span class="ui">Configuration</span> → <span class="ui">Project settings</span>), card <span class="ui">Markups</span></dd>
+    <dt>Who</dt><dd>A project role that may change project settings</dd>
+  </dl>
+  <ul>
+    <li><span class="ui">Colors</span>: <em>By intent</em> (each intent its color, shown in the legend) or <em>All red</em>.</li>
+    <li><span class="ui">Stamps, one per line</span>: Approved, Approved as noted, Revise and resubmit, Rejected, Reviewed, For information only, Field verified and As-built to start with; at least one stays. A stamp carries the reviewer's name and the date.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#draw-redlining">Redlining</a></p>
 </section>
 
 <section class="g-feature" id="draw-module-save">

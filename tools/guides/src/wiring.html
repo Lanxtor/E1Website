@@ -274,7 +274,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-loop-diagram</span><span>Roadmap 28.2</span><span>Review check R4</span></div>
   <p class="g-summary">The loop diagram follows each circuit of a loop from its devices through the junction boxes, the cables, the marshalling and the barriers to the I/O channel, with the barrier's power feed and the screens to their earth bar. Every terminal it uses is drawn in a column by zone, left to right: Junction box, Marshalling: field side, Interposing, Marshalling: system side, I/O, and Supply and earth. Nothing of it is drawn by hand: it is made again from the wiring every time it is opened.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click a function in <span class="ui">Systems</span> → <span class="ui">Generate loop diagram</span>, <span class="ui">Generate loop diagrams</span> or <span class="ui">Issue loop diagrams…</span></dd>
+    <dt>Where</dt><dd>Right-click a function in <span class="ui">Systems</span> → <span class="ui">Generate loop diagram</span>, <span class="ui">Generate loop diagrams</span> or <span class="ui">Create revisions for the loop diagrams…</span></dd>
     <dt>Who</dt><dd>A license and a project role that may make documents; issuing needs a role that may issue revisions</dd>
     <dt>Before you start</dt><dd>The loop's instruments implement the function and their cores are landed (<a href="#wire-cables-cores">Cables and their cores</a>).</dd>
   </dl>
@@ -286,7 +286,7 @@
       <tr><td>2</td><td>Drag a terminal a little and click <span class="ui">Regenerate</span>.</td><td>The terminal stays where you put it: "Moved by hand: …". A hand move is kept on the diagram, never in the wiring.</td></tr>
       <tr><td>3</td><td>In <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Wiring</span> choose <span class="ui">Name printed first</span> → <span class="ui">IEC 81346 reference designation (+CR1-A3-X1:5)</span>, then <span class="ui">Regenerate</span>.</td><td>The terminals are named +CR1-A3-X1:1 and so on.</td></tr>
       <tr><td>4</td><td>Right-click the unit above several loops → <span class="ui">Generate loop diagrams</span>.</td><td>"3 loop diagrams generated." (or how many): every function below it that has devices has its loop diagram in <span class="ui">Documents</span>.</td></tr>
-      <tr><td>5</td><td>Right-click the unit → <span class="ui">Issue loop diagrams…</span>, keep the description and the purpose <code>Issued for construction</code>.</td><td>Each loop diagram gets its next revision with that description and is issued: "3 loop diagrams issued: Issued for construction: Loop diagrams of … (set of 3)."</td></tr>
+      <tr><td>5</td><td>Right-click the unit → <span class="ui">Create revisions for the loop diagrams…</span>, purpose <code>IFC</code>, keep the description.</td><td>Each loop diagram gets its next revision, with one sign-off for the set: "3 revisions are in sign-off: open a loop diagram to sign them." (<a href="guide-documents.html#doc-sign-off">Sign-off</a>)</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">A device without terminals is drawn as before, joined to the others by the lines drawn on the P&amp;ID (<a href="guide-drawing.html#draw-loop-diagram">Loop diagram</a>). A core landed at one end only is counted above the diagram: "One core is not connected at one end." A screen earthed at one end is not counted: its other end is insulated on purpose.</p>

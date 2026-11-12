@@ -3789,3 +3789,81 @@ code {
 .pricing-licenses .price { font-size: clamp(1.5rem, 2.3vw, 2rem); }
 .pricing-licenses th, .pricing-licenses td { padding-left: 8px; padding-right: 8px; }
 #roles .section-head h2 { hyphens: manual; max-width: 900px; }
+
+/* ==========================================================================
+   Home hero: the offshore platform as one model (assets/js/twin.js;
+   the drawing by tools/gen-plant-twin.py)
+   ========================================================================== */
+.hero.hero-twin { padding: 44px 0 0; }
+.hero-twin h1 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
+.hero-twin h1 em { font-style: normal; background: linear-gradient(100deg, var(--brand), var(--c-teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-lead { max-width: 900px; margin: 14px auto 0; font-size: clamp(1.02rem, 1.6vw, 1.3rem); line-height: 1.5; color: var(--text-muted); }
+.hero-lead b { color: var(--heading); font-weight: 600; }
+
+.tw { position: relative; max-width: 1240px; margin: -10px auto 0; padding: 0 24px 24px; }
+.tw-stage { position: relative; overflow: hidden; }
+.tw-stage::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(11, 42, 74, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(11, 42, 74, 0.045) 1px, transparent 1px); background-size: 32px 32px; -webkit-mask-image: radial-gradient(70% 70% at 50% 55%, #000 40%, transparent 85%); mask-image: radial-gradient(70% 70% at 50% 55%, #000 40%, transparent 85%); }
+.tw-canvas { position: relative; }
+.tw-svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* 1. engineering: parts are lowered into place one after another */
+.tw-part { opacity: 0; transform: translate(0, -70px); transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); transition-delay: calc(var(--i) * 0.38s); }
+.tw-water { transform: none; }
+.tw-water path { stroke-opacity: 0.5; }
+.tw.is-built .tw-part { opacity: 1; transform: none; }
+.tw.is-run .tw-part { opacity: 0.5; transition-delay: 0s; }
+
+/* 2. operation: marks on the equipment */
+.tw-hots { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+.tw-hot { position: absolute; --c: var(--brand); opacity: 0; transition: opacity 0.5s; }
+.tw-hot[data-d="process"] { --c: #0f8a78; }
+.tw-hot[data-d="instrumentation"] { --c: #1565c0; }
+.tw-hot[data-d="electrical"] { --c: #b8860b; }
+.tw-hot[data-d="automation"] { --c: #8e44ad; }
+.tw-hot[data-d="maintenance"] { --c: #c45a12; }
+.tw-hot i { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px #fff; }
+.tw-hot i::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--c); animation: tw-ping 1.8s ease-out infinite; }
+@keyframes tw-ping { from { transform: scale(0.7); opacity: 1; } to { transform: scale(2.6); opacity: 0; } }
+.tw-hot span { position: absolute; top: -64px; left: 22px; padding: 10px 16px 10px 18px; border: 1.5px solid var(--c); border-left-width: 6px; border-radius: 10px; background: #fff; box-shadow: 0 12px 26px -14px rgba(11, 42, 74, 0.45); font-size: 1rem; font-weight: 600; color: var(--heading); white-space: nowrap; opacity: 0; transform: translateY(6px) scale(0.96); transition: opacity 0.35s, transform 0.45s cubic-bezier(0.2, 1.4, 0.4, 1); }
+.tw-hot.tw-l span { left: auto; right: 22px; }
+.tw-hot span::before { content: ""; position: absolute; bottom: -27px; left: -14px; width: 1.5px; height: 30px; background: var(--c); transform: rotate(-30deg); transform-origin: bottom; }
+.tw-hot.tw-l span::before { left: auto; right: -14px; transform: rotate(30deg); }
+.tw.is-run .tw-hot.is-cur, .tw.is-run .tw-hot.is-seen, .tw.is-all .tw-hot { opacity: 1; }
+.tw-hot.is-seen { opacity: 0.6 !important; }
+.tw.is-all .tw-hot { opacity: 1 !important; }
+.tw-hot.is-cur span { opacity: 1; transform: none; }
+.tw:not(.is-run) .tw-hot { opacity: 0; transition: none; }
+
+/* the panel: phase and what is happening */
+.tw-panel { position: absolute; z-index: 2; left: 40px; top: 40px; max-width: 380px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255, 255, 255, 0.93); box-shadow: 0 18px 40px -26px rgba(11, 42, 74, 0.45); }
+.tw-phase { display: flex; gap: 8px; margin: 0; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.tw-phase span { padding: 5px 12px; border: 1px solid #cfd4db; border-radius: 99px; color: #8a939e; transition: background 0.4s, color 0.4s, border-color 0.4s; }
+.tw-phase span.is-on { border-color: var(--navy); background: var(--navy); color: #fff; }
+.tw-say { margin: 12px 0 0; min-height: 2.7em; font-size: 1.05rem; font-weight: 600; line-height: 1.35; color: var(--heading); }
+.tw-say small { display: block; margin-bottom: 2px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5c6673; }
+.tw-say small[data-d="process"] { color: #0f8a78; }
+.tw-say small[data-d="instrumentation"] { color: #1565c0; }
+.tw-say small[data-d="electrical"] { color: #b8860b; }
+.tw-say small[data-d="automation"] { color: #8e44ad; }
+.tw-say small[data-d="maintenance"] { color: #c45a12; }
+
+@media (max-width: 900px) {
+  .tw-hot span { font-size: 0.85rem; padding: 7px 12px 7px 14px; top: -54px; }
+  .tw-panel { left: 24px; top: 16px; max-width: 320px; }
+}
+/* phones: the platform larger and cropped, marks without bubbles, the panel below */
+@media (max-width: 700px) {
+  .hero.hero-twin { padding-top: 24px; }
+  .hero-twin h1 { font-size: 2rem; }
+  .hero-lead { font-size: 0.98rem; }
+  .tw { margin-top: 8px; padding: 0 0 20px; }
+  .tw-canvas { width: 170%; margin-left: -22%; }
+  .tw-hot span { display: none; }
+  .tw-hot i { left: -9px; top: -9px; width: 18px; height: 18px; }
+  .tw-panel { position: relative; left: auto; top: auto; max-width: none; margin: 4px 16px 0; text-align: center; }
+  .tw-phase { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tw-part { transition: none; }
+  .tw-hot i::after { animation: none; }
+}

@@ -88,20 +88,19 @@
    "level": "Intermediate",
    "minutes": 5
   },
-  "screenshots": [
-   "revision-new-form.webp"
-  ]
+  "screenshots": []
  },
  {
   "id": "DOC-upload",
   "title": "Uploaded documents: revise a PDF from outside",
-  "summary": "Keep a PDF made elsewhere as a document and attach files to each revision.",
+  "summary": "Keep a PDF made elsewhere as a document: attach it, then create a revision, which holds the newest attached PDF.",
   "anchor": "doc-upload",
   "status": "available",
   "since": "2026-11-05",
-  "updated": "2026-11-09",
+  "updated": "2026-11-12",
   "roadmap": [
-   "07.2"
+   "07.2",
+   "29.1"
   ],
   "checks": [
    "E4"
@@ -120,57 +119,63 @@
  },
  {
   "id": "DOC-revisions",
-  "title": "Add revisions A, B, …",
-  "summary": "Add a revision with its label, description and files; E1 proposes the next label.",
+  "title": "Versions and revisions of a document",
+  "summary": "A document’s window shows its versions and revisions with the Document control card; Create revision… with a purpose of issue gives the next label.",
   "anchor": "doc-revisions",
   "status": "available",
   "since": "2026-11-05",
   "roadmap": [
-   "07.2"
+   "07.2",
+   "29.1"
   ],
   "checks": [
    "E1",
-   "E4"
+   "E4",
+   "E7"
   ],
   "related": [
-   "DOC-status",
+   "DOC-sheet-revisions",
+   "DOC-sign-off",
    "DOC-issue",
-   "DOC-list-document"
+   "DOC-status"
   ],
-  "roles": "A project role that may write documents",
+  "roles": "A project role that may create revisions (a Reviewer reads but creates none)",
   "training": {
    "topic": "Revisions of a document",
    "level": "Beginner",
    "minutes": 3
   },
-  "screenshots": [
-   "revision-new-form.webp"
-  ]
+  "screenshots": [],
+  "updated": "2026-11-12"
  },
  {
   "id": "DOC-status",
-  "title": "Draft and In review",
-  "summary": "Mark a revision that is not issued yet as Draft or In review.",
+  "title": "Statuses of a version or revision",
+  "summary": "In sign-off, Rendering…, Could not make the PDF, Issued, Superseded, Rejected, Withdrawn and Deleted: where a version or revision is in its life.",
   "anchor": "doc-status",
   "status": "available",
   "since": "2026-11-05",
   "roadmap": [
-   "07.2"
+   "07.2",
+   "29.1"
   ],
   "checks": [
-   "E4"
+   "E7",
+   "E10"
   ],
   "related": [
    "DOC-revisions",
-   "DOC-issue"
+   "DOC-sign-off",
+   "DOC-delete-output"
   ],
-  "roles": "A project role that may write documents",
+  "roles": "Anyone who may view the document",
   "training": {
    "topic": "Revision status",
    "level": "Beginner",
    "minutes": 2
   },
-  "screenshots": []
+  "screenshots": [],
+  "updated": "2026-11-12"
  },
  {
   "id": "DOC-updated-mark",
@@ -201,35 +206,191 @@
  {
   "id": "DOC-issue",
   "title": "Issue a revision",
-  "summary": "Issuing freezes a revision and its PDF; an issued revision cannot change afterwards. While the revision gate is on, an open error on what the document shows refuses the issue.",
+  "summary": "The last sign-off signature issues a revision: its PDF is made once, filed, and never changes; the revision before is superseded. While the revision gate is on, an open error on what the document shows refuses the revision when it is created.",
   "anchor": "doc-issue",
   "status": "available",
   "since": "2026-11-05",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "roadmap": [
    "07.7",
-   "12.3"
+   "12.3",
+   "29.1"
   ],
   "checks": [
    "E2",
-   "E3"
+   "E3",
+   "E8"
   ],
   "related": [
-   "DOC-revisions",
+   "DOC-sign-off",
    "DOC-changed-since",
-   "DOC-list-document",
-   "DOC-status",
+   "DOC-revisions",
    "OBJ-checks"
   ],
-  "roles": "A Lead on the project; an Engineer is refused",
+  "roles": "The person who signs the last step (Issue revisions)",
   "training": {
    "topic": "Issuing a revision",
    "level": "Intermediate",
    "minutes": 4
   },
-  "screenshots": [
-   "document-issued.webp"
-  ]
+  "screenshots": []
+ },
+ {
+  "id": "DOC-sheet-versions",
+  "title": "Versions of a 2D space",
+  "summary": "Create version… on a 2D space’s page makes an internal version (C.1 after Rev B): signed as prepared, issued at once, printed INTERNAL — NOT FOR ISSUE, seen only by people who see versions.",
+  "anchor": "doc-sheet-versions",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.1"
+  ],
+  "checks": [
+   "E9"
+  ],
+  "related": [
+   "DOC-sheet-revisions",
+   "DOC-document-settings",
+   "DOC-delete-output"
+  ],
+  "roles": "A project role that may create versions (Engineer and above)",
+  "training": {
+   "topic": "Versions",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-sheet-revisions",
+  "title": "Revisions of a 2D space",
+  "summary": "Create revision… on a 2D space’s page: the 2D space gets its document number and its printed area on its first output, and each revision goes through sign-off to an issued, filed PDF with its revision block.",
+  "anchor": "doc-sheet-revisions",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.1"
+  ],
+  "checks": [
+   "E7",
+   "E8"
+  ],
+  "related": [
+   "DOC-sign-off",
+   "DOC-sheet-versions",
+   "DOC-issue",
+   "DOC-sheet-pdf"
+  ],
+  "roles": "A project role that may create revisions (Engineer and above)",
+  "training": {
+   "topic": "Revisions of a 2D space",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-sign-off",
+  "title": "Sign-off: Prepared, Checked, Approved",
+  "summary": "Every revision is signed by who prepared it, checked by someone else and approved by someone with Issue revisions; each signature asks you to confirm it is you. Reject… and Withdraw… take it back.",
+  "anchor": "doc-sign-off",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.1"
+  ],
+  "checks": [
+   "E8"
+  ],
+  "related": [
+   "DOC-sheet-revisions",
+   "DOC-issue",
+   "DOC-status"
+  ],
+  "roles": "Checked: Sign revisions (Engineer and above); Approved: Issue revisions (Lead engineer and above); never a Reviewer, a token or Alex",
+  "training": {
+   "topic": "Signing off a revision",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-delete-output",
+  "title": "Delete and restore a version or revision",
+  "summary": "Delete… with a reason takes a version or revision and its PDF out of the document; a record of who, when and why stays, its label is never used again, and Restore brings it back for the project’s kept period.",
+  "anchor": "doc-delete-output",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.1"
+  ],
+  "checks": [
+   "E10"
+  ],
+  "related": [
+   "DOC-status",
+   "DOC-document-settings"
+  ],
+  "roles": "Delete versions (Lead engineer and above); Delete revisions (project administrator)",
+  "training": {
+   "topic": "Deleting outputs",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-document-settings",
+  "title": "Project settings → Documents",
+  "summary": "The project’s revision scheme, document number pattern, purposes of issue, who sees versions, how long deleted outputs are kept, four-eyes and the output format.",
+  "anchor": "doc-document-settings",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.1"
+  ],
+  "checks": [
+   "E9"
+  ],
+  "related": [
+   "DOC-sheet-versions",
+   "DOC-sheet-revisions",
+   "DOC-delete-output"
+  ],
+  "roles": "Configure documents (Lead engineer and project administrator)",
+  "training": {
+   "topic": "Document settings",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-changes-since",
+  "title": "Changes since a date on the drawing",
+  "summary": "Changes since… on a 2D space draws a cloud around everything added, deleted, modified or moved since a day, a revision or a version, with before → after and who changed it.",
+  "anchor": "doc-changes-since",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.2"
+  ],
+  "checks": [
+   "E11"
+  ],
+  "related": [
+   "DOC-sheet-revisions",
+   "DOC-changed-since",
+   "COL-history"
+  ],
+  "roles": "Anyone who may view the 2D space",
+  "training": {
+   "topic": "Changes since",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
  },
  {
   "id": "DOC-changed-since",
@@ -492,7 +653,7 @@
   "anchor": "doc-datasheet-designer",
   "status": "available",
   "since": "2026-11-05",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "roadmap": [
    "07.5"
   ],
@@ -503,7 +664,8 @@
    "DOC-datasheet",
    "DOC-datasheet-pdf",
    "LIB-configuration",
-   "LIB-company-library"
+   "LIB-company-library",
+   "DOC-spec-datasheet-designer"
   ],
   "roles": "Datasheet design on the project",
   "training": {
@@ -539,14 +701,23 @@
  },
  {
   "id": "DOC-spec-datasheets",
-  "title": "Standard specification datasheets (ISA 20, API)",
-  "summary": "Specification datasheets in the industry formats, with operating-case tables and repeated blocks.",
+  "title": "Specification datasheets",
+  "summary": "A datasheet of numbered lines, tables of parts that continue on continuation pages, operating cases and revision marks, the same on screen and in the PDF.",
   "anchor": "doc-spec-datasheets",
-  "status": "planned",
-  "roadmap": [],
-  "checks": [],
+  "status": "available",
+  "roadmap": [
+   "24.1",
+   "24.2"
+  ],
+  "checks": [
+   "V1"
+  ],
   "related": [
-   "DOC-datasheet-designer",
+   "DOC-spec-datasheet-rows",
+   "DOC-spec-datasheet-cases",
+   "DOC-spec-datasheet-marks",
+   "DOC-spec-datasheet-templates",
+   "DOC-spec-datasheet-designer",
    "DOC-datasheet"
   ],
   "roles": "Datasheet design on the project",
@@ -554,6 +725,137 @@
    "topic": "Specification datasheets",
    "level": "Advanced",
    "minutes": 4
+  },
+  "screenshots": [],
+  "since": "2026-11-12",
+  "updated": "2026-11-12"
+ },
+ {
+  "id": "DOC-spec-datasheet-rows",
+  "title": "Add row and Remove row on a datasheet",
+  "summary": "Add and remove the parts a datasheet lists (nozzles, stages, sides) right on the datasheet.",
+  "anchor": "doc-spec-datasheet-rows",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "24.2"
+  ],
+  "checks": [
+   "V1"
+  ],
+  "related": [
+   "DOC-spec-datasheets"
+  ],
+  "roles": "Any project role; editing values needs a role that may edit objects",
+  "training": {
+   "topic": "Parts on the datasheet",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-spec-datasheet-cases",
+  "title": "Operating cases on the datasheet",
+  "summary": "A case table shows the object’s cases side by side: inherited values, a case’s own values, Reset and + Add case.",
+  "anchor": "doc-spec-datasheet-cases",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "24.3"
+  ],
+  "checks": [
+   "V2"
+  ],
+  "related": [
+   "DOC-spec-datasheets"
+  ],
+  "roles": "Any project role; editing values needs a role that may edit objects",
+  "training": {
+   "topic": "Operating cases",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-spec-datasheet-marks",
+  "title": "Revision marks on a datasheet",
+  "summary": "After a datasheet document is issued, each value changed since shows the next revision beside it.",
+  "anchor": "doc-spec-datasheet-marks",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "24.3"
+  ],
+  "checks": [
+   "V2"
+  ],
+  "related": [
+   "DOC-spec-datasheets",
+   "DOC-datasheet-document"
+  ],
+  "roles": "Any project role; editing values needs a role that may edit objects",
+  "training": {
+   "topic": "Revision marks",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-spec-datasheet-templates",
+  "title": "Datasheet templates inspired by ISA 20 and API",
+  "summary": "Ready-made specification datasheets for instruments (inspired by ISA 20) and for pumps and exchangers (inspired by API and ASME).",
+  "anchor": "doc-spec-datasheet-templates",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "24.4",
+   "24.5"
+  ],
+  "checks": [
+   "V3"
+  ],
+  "related": [
+   "DOC-spec-datasheets",
+   "DOC-spec-datasheet-designer"
+  ],
+  "roles": "Any project role; editing values needs a role that may edit objects",
+  "training": {
+   "topic": "Standard templates",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DOC-spec-datasheet-designer",
+  "title": "Design a specification datasheet",
+  "summary": "Build a layout from components, make it apply only to some objects, preview several objects, and take over changes from the layout it was copied from.",
+  "anchor": "doc-spec-datasheet-designer",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "24.6"
+  ],
+  "checks": [
+   "V4"
+  ],
+  "related": [
+   "DOC-datasheet-designer",
+   "DOC-spec-datasheet-templates"
+  ],
+  "roles": "Datasheet design on the project",
+  "training": {
+   "topic": "Designing specification datasheets",
+   "level": "Advanced",
+   "minutes": 8
   },
   "screenshots": []
  }
