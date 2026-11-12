@@ -299,6 +299,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
     <tbody>
+      <tr><td><span class="ui">Sheet template</span></td><td>The page, frame and title block a 2D space's next version or revision prints on (<a href="guide-library.html#lib-documents-templates">Sheet templates</a>).</td></tr>
       <tr><td><span class="ui">Revision scheme</span></td><td>Letters before construction, numbers from construction (the default); ISO 19650 (P01 … then C01 …); Numeric (01-IFR, 02-IFA …); Letters only. An example line shows the labels.</td></tr>
       <tr><td><span class="ui">Document number pattern</span>, <span class="ui">Project code</span>, <span class="ui">Document type</span></td><td>The number a 2D space gets with its first output, for example {project.code}-{docType}-{seq:4} → P-PID-0001.</td></tr>
       <tr><td><span class="ui">Purposes</span></td><td>EPC purposes of issue (IFR … IFC, AB, VOID) or ISO 19650 suitability (S1 … S4, A1, CR).</td></tr>
@@ -335,6 +336,50 @@
   <p class="g-note">The 2D space as it was then is rebuilt from the project's history; since a revision or a version it is that output's frozen copy. Your choice is kept in this browser only and is never part of the drawing. <span class="ui">Layers</span> ▸ <span class="ui">Changes since</span> hides the clouds.</p>
   <p class="g-warn">Where the history before a date is not kept, the list says so instead of guessing. The calendar does not mark the days with changes yet.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></p>
+</section>
+
+<section class="g-feature" id="doc-change-clouds">
+  <h2>Clouds and the changes table in a revision's PDF</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-change-clouds</span><span>Roadmap 29.3</span><span>Review check E12</span></div>
+  <p class="g-summary">A version or revision is compared with the output before it: its PDF clouds what changed with a triangle carrying its label and lists each change beside the title block; Compare with… lists the changes between any two outputs.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A version's or revision's PDF; the outputs list → <span class="ui">Compare with…</span> and, on a 2D space, <span class="ui">Show changes on the drawing</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the document; versions for people who see them</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>With Rev A of a 2D space issued, change Pump1's design pressure and create and sign off Rev B.</td><td>Rev B's PDF has a cloud around Pump1 with a triangle reading B, and “Changes in this revision (compared with Rev A)” beside the title block: “1 Pump1: Design pressure / In from 16 bar(g) to 25 bar(g)”.</td></tr>
+      <tr><td>2</td><td>Open Rev A's PDF.</td><td>It is as it was issued: a PDF shows only its own clouds.</td></tr>
+      <tr><td>3</td><td>Create Rev C without changing anything.</td><td>Its PDF says “No changes since Rev B”.</td></tr>
+      <tr><td>4</td><td>In Rev B's row, click <span class="ui">Compare with…</span> and choose Rev A.</td><td>The changes between them, each with its fields before → after.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Show changes on the drawing</span> in Rev A's row, and open the 2D space.</td><td><a href="guide-documents.html#doc-changes-since">Changes since</a> Rev A is shown on the drawing.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A revision is compared with the revision before it, a version with the output before it. The comparison is frozen when the output is created, so a later edit never changes a PDF. A deleted element's place is clouded; a change inside the title block's area is only listed.</p>
+  <p class="g-warn">Clouds are drawn on 2D spaces; a list, datasheet or loop diagram lists its changes under Compare with… only.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changes-since">Changes since a date on the drawing</a></p>
+</section>
+
+<section class="g-feature" id="doc-sheet-frame">
+  <h2>The sheet frame on the drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sheet-frame</span><span>Roadmap 29.4</span><span>Review check E13</span></div>
+  <p class="g-summary">A 2D space with a version or revision shows its sheet template's frame, title block and revision block in grey at its printed area and scale; Layers ▸ Sheet frame hides it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An open 2D space that has a version or revision; <span class="ui">Layers</span> ▸ <span class="ui">Sheet frame</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the 2D space</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a 2D space after its first version or revision.</td><td>The page, the frame and the title block with its current values (Title, Document no., Rev …) are drawn in grey where the PDF prints them.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Layers</span> ▸ <span class="ui">Sheet frame</span>.</td><td>The frame is hidden; choose it again to show it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The frame is never part of the drawing and cannot be selected. It follows the printed area fixed at the first output (Change printed area… by asking Alex) and the sheet template of Project settings → Documents.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-documents-templates">Sheet templates</a>, <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a></p>
 </section>
 
 <section class="g-feature" id="doc-changed-since">
