@@ -755,17 +755,23 @@
 
 <section class="g-feature" id="doc-revisions-filter">
   <h2>Filter documents by kind</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span>Updated 2026-11-09</span><span class="g-id">DOC-revisions-filter</span><span>Review check E4</span></div>
-  <p class="g-summary">The All ▾ filter on the Documents page is meant to show only drawings, lists or datasheets.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-revisions-filter</span><span>Roadmap M4.25</span><span>Review check E4</span></div>
+  <p class="g-summary">The All ▾ filter on the Documents page shows only the drawings, the lists or the datasheets.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Documents section page → <span class="ui">All</span> ▾</dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
   </dl>
-  <p class="g-dev">The filter is on screen but not built: choosing <span class="ui">Drawings</span>, <span class="ui">Lists</span> or <span class="ui">Datasheets</span> only changes the button's label. It is planned for milestone M4.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Show only the drawings, the lists or the datasheets of the Documents section.</li>
-  </ul>
-  <p class="g-warn">Review check E4 (“filter documents by kind”) cannot pass yet.</p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Documents</span> under the project in the explorer.</td><td>Its page lists every document and folder; the filter reads <span class="ui">All</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">All</span> ▾ and choose <span class="ui">Drawings</span>.</td><td>Only the 2D spaces and plots are listed, with the folders. The button reads <span class="ui">Drawings</span>.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Lists</span>, then <span class="ui">Datasheets</span>.</td><td>Only the list documents, then only the datasheet documents. With none, the page reads "No lists here." or "No datasheets here."</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">All</span>, or open another section.</td><td>Everything is listed again: the filter starts at <span class="ui">All</span> each time you open the section.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Folders always stay in the list, so what is filed in them can still be opened. Uploaded documents show under <span class="ui">All</span>.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-revisions-section">The Documents section</a></p>
 </section>
 

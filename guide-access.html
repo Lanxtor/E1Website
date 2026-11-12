@@ -340,10 +340,10 @@
 
 <section class="g-feature" id="acc-session">
   <h2>Session length, sign out and switching organization</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-08</span><span class="g-id">ACC-session</span><span>Roadmap M2.9</span></div>
-  <p class="g-summary">A sign-in lasts 12 hours, unless your installation sets another length. Then E1 shows the sign-in screen again. You can sign out yourself, and switch between the organizations you belong to.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-12</span><span class="g-id">ACC-session</span><span>Roadmap M2.9</span></div>
+  <p class="g-summary">A sign-in lasts 12 hours, unless your installation sets another length. Then E1 shows the sign-in screen again. At the top of the Account page you sign out, sign in as someone else, or switch between the organizations you belong to; the same page lists your projects and where each one is.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Account</span> → <span class="ui">Session</span> → <span class="ui">Sign out</span>; explorer header → organization name → <span class="ui">Switch organization</span> ▸</dd>
+    <dt>Where</dt><dd><span class="ui">Account</span> (your initial at the bottom of the left rail) → beside your name: <span class="ui">Switch organization</span>, <span class="ui">Sign in as someone else</span>, <span class="ui">Sign out</span>. Also at the top of <span class="ui">File</span> → <span class="ui">Organization…</span>, and explorer header → organization name → <span class="ui">Switch organization</span> ▸</dd>
     <dt>Who</dt><dd>Everyone signed in</dd>
     <dt>Before you start</dt><dd>You are signed in on a server with sign-in.</dd>
   </dl>
@@ -351,18 +351,20 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <span class="ui">Account</span> from the left rail and click <span class="ui">Sign out</span> in the <span class="ui">Session</span> card.</td><td>The sign-in screen <span class="ui">Sign in to E1</span> appears.</td></tr>
-      <tr><td>2</td><td>Sign in again and click the organization name in the explorer header.</td><td>A menu with <span class="ui">New project</span>, <span class="ui">New folder</span>, <span class="ui">Query</span> ▸ and <span class="ui">Switch organization</span> ▸.</td></tr>
-      <tr><td>3</td><td>Open <span class="ui">Switch organization</span> ▸.</td><td>Your organizations are listed; the current one reads "✓ <em>name</em>" and cannot be chosen. With no other: "You belong to no other organization".</td></tr>
-      <tr><td>4</td><td>Choose another organization.</td><td>E1 reloads in that organization; the explorer header shows its name.</td></tr>
-      <tr><td>5</td><td>More than 12 hours after signing in, reload E1.</td><td>The sign-in screen appears again.</td></tr>
+      <tr><td>1</td><td>Open <span class="ui">Account</span> from the left rail.</td><td>Your picture or initials, your organization, name and email, and on the right <span class="ui">Sign in as someone else</span> and <span class="ui">Sign out</span>. When you belong to more than one organization, a <span class="ui">Switch organization</span> list stands before them, showing the current one.</td></tr>
+      <tr><td>2</td><td>Look at <span class="ui">Your access</span> → <span class="ui">Projects</span>.</td><td>A table: <span class="ui">Project</span>, <span class="ui">Organization</span>, <span class="ui">Where</span> (<span class="ui">Projects</span>, or <span class="ui">Bin since</span> the day it was deleted) and <span class="ui">Your role</span>, with <span class="ui">Show in tree</span> (<span class="ui">Show in Bin</span> for a deleted project) on each row. Under the table, what each of your roles allows. A project deleted for good is not listed.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Show in tree</span> or <span class="ui">Show in Bin</span> on a row.</td><td>The explorer opens at that project (under <span class="ui">Bin</span> for a deleted one), selected, and the project opens.</td></tr>
+      <tr><td>4</td><td>Choose another organization in <span class="ui">Switch organization</span>.</td><td>E1 reloads in that organization; the explorer header shows its name.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Sign in as someone else</span>.</td><td>You are signed out, and your sign-in provider asks which account to use.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Sign out</span>.</td><td>The sign-in screen <span class="ui">Sign in to E1</span> appears.</td></tr>
+      <tr><td>7</td><td>More than 12 hours after signing in, reload E1.</td><td>The sign-in screen appears again.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/place-account.webp" alt="The Account place on an installation without sign-in, where Sign out reads Not available" width="2160" height="1350" loading="lazy"><figcaption>Without sign-in (desktop app with its own store, or a file store), Account is a placeholder and <span class="ui">Sign out</span> reads "Not available".</figcaption></figure>
-  <p class="g-note">On an installation served over https, the sign-in cookies got new names on 2026-11-08: everyone is signed out once after that release and simply signs in again.</p>
+  <p class="g-note">The explorer header has <span class="ui">Switch organization</span> ▸ too: click the organization's name, then choose another; the current one reads "✓ <em>name</em>". With no other: "You belong to no other organization".</p>
   <p class="g-note"><span class="ui">Sign out</span> is protected against other sites: a page outside E1 cannot sign you out. If signing out is refused with "The request did not come from E1. Reload the page.", reload E1 and sign out again.</p>
   <p class="g-warn">E1 does not yet sign you out after a time without activity; only the 12-hour limit applies. An idle timeout set by the organization is planned.</p>
-  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-step-up">Confirm it is you</a> · <a href="guide-getting-started.html#gs-places">The places</a></p>
+  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-step-up">Confirm it is you</a> · <a href="guide-getting-started.html#gs-places">The places</a> · <a href="guide-projects.html">Projects</a></p>
 </section>
 
 <section class="g-feature" id="acc-one-person">
