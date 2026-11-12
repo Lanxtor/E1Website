@@ -592,7 +592,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-responsibility</span><span>Roadmap 09.6r</span><span>Review checks N5</span></div>
   <p class="g-summary">Make one person or one group responsible for an object, a folder, a sheet or a whole section. Only they then change it and everything in it: its values, name and tag, moving it, deleting it, placing it on a sheet, and relationships to it. Everyone else still sees it and comments on it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>An object's page: <span class="ui">Responsible</span> with <span class="ui">Take it</span>, <span class="ui">Assign to…</span> and <span class="ui">Release</span>; <span class="ui">Project settings → Access → Responsibilities</span></dd>
+    <dt>Where</dt><dd>An object's page, the row <span class="ui">Responsible</span> in Details, with <span class="ui">Take it</span>, <span class="ui">Assign to…</span> and <span class="ui">Release</span>; <span class="ui">Project settings → Access → Responsibilities</span></dd>
     <dt>Who</dt><dd>Anyone who may edit an object takes one nobody is responsible for. Assigning to someone else, reassigning and releasing someone else's need Assign responsibility (Lead engineer, Project administrator). The responsible person or group always releases their own.</dd>
     <dt>Before you start</dt><dd>E1 with sign-in (the cloud).</dd>
   </dl>
@@ -600,7 +600,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a pump's page and click <span class="ui">Take it</span> beside <span class="ui">Responsible</span>.</td><td><em>Responsible: &lt;you&gt;</em>. A colleague who changes its flow rate, renames it, moves it or relates something to it is refused: "&lt;you&gt; is responsible for P-101: ask them to change it, or to release it."</td></tr>
+      <tr><td>1</td><td>Open a pump's page and click <span class="ui">Take it</span> at the end of the row <span class="ui">Responsible</span>.</td><td>The row reads <em>Responsible &lt;you&gt;</em>. A colleague who changes its flow rate, renames it, moves it or relates something to it is refused: "&lt;you&gt; is responsible for P-101: ask them to change it, or to release it."</td></tr>
       <tr><td>2</td><td>As a Lead engineer, open an object of the section <em>Assets</em>, choose <span class="ui">Assign to…</span> and pick a group, for example <em>Mechanical (group)</em>.</td><td>Everyone in the group may change that object; others are refused with the group's name.</td></tr>
       <tr><td>3</td><td>Open <span class="ui">Project settings → Access</span>.</td><td><span class="ui">Responsibilities</span> lists each assigned object with the person or group and the date, with <span class="ui">Release</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Release</span>.</td><td>Others may change it again (or the folder's or section's responsible, if one above has one).</td></tr>
@@ -786,7 +786,7 @@
     <li><strong>Read:</strong> <code>GET /projects</code>, <code>/projects/{id}/objects?class=…</code>, <code>/objects/{id}?include=occurrences,relationships</code> (the object with its <code>rev</code>, its values with units and comments, its catalog source and its ids in other systems), <code>/objects/{id}/relationships</code>, the project's saved queries: <code>/projects/{id}/queries</code>, and the rows of one: <code>/projects/{id}/queries/{key}</code>.</li>
     <li><strong>Queries:</strong> <code>POST /projects/{id}/query</code> with a query definition or a saved query's key gives its rows; <code>POST /projects/{id}/queries/from-sentence</code> with <code>{ "text": "all pumps without a motor" }</code> gives the definition.</li>
     <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes). Relationships are read, not written.</li>
-    <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them under "In other systems".</li>
+    <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them in Details, on the row "In other systems".</li>
   </ul>
   <p class="g-warn">Not in the API on purpose: drawing, deleting, relationships, the library and administration (use E1 itself), and mapping or scheduling (your script or middleware does that). Not built yet: address ranges in the token form (the API takes them).</p>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-webhooks">Webhooks and the change feed</a> · <a href="#org-sso">Company single sign-on</a></p>
