@@ -911,12 +911,19 @@
 
 <section class="g-feature" id="ai-query-sentence">
   <h2>Queries from a sentence</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">AI-query-sentence</span><span>Roadmap 05.5b</span></div>
-  <p class="g-summary">Type what you want to see, such as "all pumps without a motor", and get the matching table.</p>
-  <p class="g-dev">On the roadmap, not started: queries from a sentence and templates through the API (05.5b).</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Type a sentence and get a query table of the matching objects, which you can then refine with columns and filters.</li>
-  </ul>
-  <p class="g-related">Related: <a href="guide-lists.html#list-new-query">New query</a> · <a href="#ai-cloud-ai">Ask, Agent and Plan</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">AI-query-sentence</span><span>Roadmap 05.5b</span></div>
+  <p class="g-summary">Ask Alex for “all pumps without a motor”: Alex turns the sentence into a query (query_from_sentence), runs it (run_query) and answers with the rows; the integration API offers the same.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Alex (Ask, Agent, Plan); the integration API</dd>
+    <dt>Who</dt><dd>Any project role that may view the project</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex: <em>which pumps have no motor?</em></td><td>Alex lists them with how many there are; only objects you may see are counted.</td></tr>
+      <tr><td>2</td><td>Ask Alex for a saved list, such as the project's equipment list.</td><td>Alex finds it among the saved queries (list_query_templates) and gives its rows.</td></tr>
+      <tr><td>3</td><td>With an API token, <code>POST /api/v1/projects/{id}/queries/from-sentence</code> with <code>{ "text": "all pumps without a motor" }</code>, then <code>POST /api/v1/projects/{id}/query</code> with the definition.</td><td>The definition with its filter in words, then its rows. <code>GET /api/v1/projects/{id}/queries</code> lists the saved queries.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-lists.html#list-sentence-query">Queries from a sentence in the explorer</a> · <a href="guide-lists.html#list-new-query">New query</a> · <a href="#ai-cloud-ai">Ask, Agent and Plan</a></p>
 </section>
