@@ -612,13 +612,24 @@
 
 <section class="g-feature" id="list-sentence-query">
   <h2>Queries from a sentence</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span></div>
-  <p class="g-summary">Type a sentence such as “all pumps without a motor” and get the matching table.</p>
-  <p class="g-dev">Planned in roadmap stage 05.5b, “Queries from a sentence and templates through the API”. It is not built yet; today you build the filter in the <a href="#list-filter">Filter</a> panel.</p>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span><span>Review checks L9</span></div>
+  <p class="g-summary">Right-click a project, section or object and choose Query → From a sentence…: write “all pumps without a motor” and the query view opens with the matching rows, ready to adjust.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The explorer: right-click → <span class="ui">Query</span> → <span class="ui">From a sentence…</span></dd>
+    <dt>Who</dt><dd>Any project role that may view the project</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <em>Assets</em> and choose <span class="ui">Query</span> → <span class="ui">From a sentence…</span>.</td><td><span class="ui">Query from a sentence</span> asks what the list should show, with examples.</td></tr>
+      <tr><td>2</td><td>Write <em>all pumps without a motor</em> and choose <span class="ui">Make the list</span>.</td><td>A query view opens: the pumps below Assets that no motor drives. Its filter in words says <em>Has no related Motor (with subclasses)</em>.</td></tr>
+      <tr><td>3</td><td>Try <em>valves with a design pressure over 10 bar</em>.</td><td>The valves over 10 bar(g) or its equal in other units, with a <em>Design pressure</em> column.</td></tr>
+      <tr><td>4</td><td>Write <em>pumps painted blue</em>.</td><td>E1 says what it understood (<em>Pump</em>) and what not (<em>painted blue</em>); <span class="ui">Open anyway</span> opens the list without it.</td></tr>
+    </tbody>
+  </table></div>
   <ul>
-    <li>Type a sentence such as “all pumps without a motor” and get the matching table.</li>
-    <li>Read and save query templates through the API.</li>
+    <li>Use the names of classes and attributes as the library has them: <em>without a</em> / <em>with a</em> another class (a related object), <em>without</em> / <em>with</em> an attribute (empty or set), an attribute <em>is</em>, <em>over</em>, <em>under</em>, <em>at least</em>, <em>at most</em> a value with its unit, <em>on hold</em>, <em>in status active</em>, <em>named</em> a text. Several are joined by <em>and</em>.</li>
+    <li>The list is a query like any other: change its columns and filter, and save it.</li>
   </ul>
-  <p class="g-related">Related: <a href="guide-lists.html#list-new-query">Open a query with New query…</a>, <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a>, <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a></p>
+  <p class="g-related">Related: <a href="#list-new-query">New query</a> · <a href="#list-filter">Filter</a> · <a href="guide-ai.html#ai-query-sentence">Queries from a sentence with Alex</a></p>
 </section>

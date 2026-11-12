@@ -342,10 +342,27 @@
 
 <section class="g-feature" id="col-presence">
   <h2>See who else has a sheet open</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span>Updated 2026-11-10</span><span class="g-id">COL-presence</span><span>Roadmap 08.6</span></div>
-  <p class="g-summary">When colleagues have the same 2D space open, their avatars appear at the right of the sheet toolbar, with a pencil while they are editing it. Not built yet.</p>
-  <p class="g-dev">Planned for M4: <span class="ui">People on this sheet</span> in the sheet toolbar, a click opens <span class="ui">On this sheet</span> with each person's role, Viewing or Editing, and since when. You never see anyone's pointer or unsaved work, and nothing about who opened what is recorded. With Configuration → Privacy → Groups only, groups are shown instead of names, and <span class="ui">Show who has a sheet open</span> turns it off for the organization.</p>
-  <p class="g-related">Related: <a href="#col-live-refresh">See others' changes live</a> · <a href="#col-conflicts">When two people change the same thing</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">COL-presence</span><span>Roadmap 08.6</span><span>Review checks A13</span></div>
+  <p class="g-summary">Avatars at the right of a 2D space's toolbar show who else has it open, with a pencil while they edit; a click lists them with their role, Viewing or Editing, and since when.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An open 2D space: <span class="ui">People on this sheet</span> at the right of its toolbar</dd>
+    <dt>Who</dt><dd>Everyone with a role on the project, signed in to a server</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a 2D space while a colleague has it open in another browser.</td><td>Within a few seconds their avatar (initials) shows at the right of the toolbar. Pointing at it says their name, role and <em>Viewing</em>.</td></tr>
+      <tr><td>2</td><td>Your colleague changes something on the 2D space.</td><td>A pencil shows on their avatar: <em>Editing</em>, for a minute after their last change.</td></tr>
+      <tr><td>3</td><td>Click the avatars.</td><td><span class="ui">On this sheet</span> lists each person with their role, Viewing or Editing, and since when. More than four people show as four avatars and <em>+n</em>.</td></tr>
+      <tr><td>4</td><td>Your colleague closes the 2D space or the window.</td><td>Their avatar is gone within a minute.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>You never see anyone's pointer or unsaved work, and nothing about who opened what is recorded: no history, no report.</li>
+    <li>With Configuration → Privacy → <span class="ui">Groups only</span>, the avatars show groups instead of names. <span class="ui">Show who has a sheet open</span> there turns it off for the organization.</li>
+    <li>Only people who may see the 2D space are shown, and only on a server: the desktop app on its own file shows no one.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#col-live-refresh">See others' changes live</a> · <a href="#col-conflicts">When two people change the same thing</a> · <a href="guide-organization.html#org-history-names">Groups instead of names</a></p>
 </section>
 
 <section class="g-feature" id="col-messages">
