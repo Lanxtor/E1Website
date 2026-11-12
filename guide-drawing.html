@@ -90,13 +90,14 @@
           <li><a href="#draw-module-compare">Compare an instance with its module</a></li>
           <li><a href="#draw-module-promote">Turn an instance&#x27;s changes into the module&#x27;s next version</a></li>
           <li><a href="#draw-module-variants">Module options and variants</a></li>
+          <li><a href="#draw-module-configure">Configure modules from what a unit needs</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>48 features</span><span>46 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>49 features</span><span>47 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -1389,6 +1390,28 @@
   </table></div>
   <p class="g-note">Options are the model of wiring typicals: yes or no, each with a default; a variant names a set of them. <span class="ui">Only with</span> can also be <span class="ui">Without …</span>: a member there only while the option is off. Compare with module and Update read an instance against the members its options keep; an update to a newer version keeps the instance's options. Alex sets options with <code>set_module_options</code> and switches an instance with <code>change_module_variant</code>. The built-in patterns are not modules with options yet.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-module-place">Place a module from the Modules tab</a>, <a href="guide-drawing.html#draw-module-instance">A placed module on its objects</a>, <a href="guide-library.html#lib-module-edit">Editing a module: new versions</a></p>
+</section>
+
+<section class="g-feature" id="draw-module-configure">
+  <h2>Configure modules from what a unit needs</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DRAW-module-configure</span><span>Roadmap 32.6</span><span>Review check M15</span></div>
+  <p class="g-summary">Say what a unit needs in words; E1 proposes the modules, their variants and how they join, and arranges them on the 2D space as one change.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space: <span class="ui">Add asset</span> → <span class="ui">Modules</span> → <span class="ui">Configure…</span></dd>
+    <dt>Who</dt><dd>Engineer and above</dd>
+    <dt>Before you start</dt><dd>Published modules, for example Block valve and Reducer station, each with a process inlet and outlet as tie-in points.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">What the unit needs</span> type <code>a block valve, then a reducer</code> and click <span class="ui">Propose</span>.</td><td>The two modules, each with the words it is for, and the join Block valve Outlet → Reducer station Inlet.</td></tr>
+      <tr><td>2</td><td>Choose a <span class="ui">Variant</span> where a module has variants, or <span class="ui">Leave out</span> one.</td><td>The proposal changes; nothing is placed yet.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Arrange</span>.</td><td>The modules are placed left to right in flow order, each as its variant, and a pipe joins each pair. One <span class="ui">Undo</span> takes all of it back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A part of the sentence no module matches is listed. A variant or option the sentence names (with standby) is chosen. The pipe runs square from the one port to the other; a tie-in point at a line end is joined by hand. Alex proposes with <code>propose_module_arrangement</code> and arranges with <code>arrange_modules</code>, choosing modules, variants and joins itself; in Review first the arrangement is a proposal you apply.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-module-place">Place a module from the Modules tab</a>, <a href="guide-drawing.html#draw-module-variants">Module options and variants</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-objects.html">Objects, attributes and tags</a> · <a href="guide-lists.html">Lists and queries</a> →</p>
