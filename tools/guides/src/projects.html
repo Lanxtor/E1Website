@@ -186,7 +186,7 @@
 <section class="g-feature" id="prj-tree-columns">
   <h2>Values beside the names: columns in the explorer</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">PRJ-tree-columns</span></div>
-  <p class="g-summary">Choose up to five attributes to show beside each object's name, and the explorer reads as a tree and a table: the design pressure of each vessel, the flow rate of each pump, a description. An object without a value shows nothing in that column. The attributes come from the library (<span class="ui">Configuration</span> → <span class="ui">Attributes</span>), with their sub-attributes such as <span class="ui">Mass flow / Normal</span>. The columns are your own: nobody else sees them, and they stay after a reload.</p>
+  <p class="g-summary">Choose up to five attributes to show beside each object's name, and the explorer reads as a tree and a table: the design pressure of each vessel, the flow rate of each pump, a description. An object without a value shows nothing in that column. The attributes offered are those of the content packages switched on in your projects (<span class="ui">Project settings</span> → <span class="ui">Content packages</span>), with their sub-attributes such as <span class="ui">Mass flow / Normal</span>; an attribute of a package that is off, such as Marine, is not offered. The columns are your own: nobody else sees them, and they stay after a reload.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → <span class="ui">…</span> (<span class="ui">More explorer actions</span>) → <span class="ui">Columns…</span>; or click a column header above the tree</dd>
     <dt>Who</dt><dd>Anyone who can open the project</dd>
@@ -200,9 +200,10 @@
       <tr><td>2</td><td>Click <span class="ui">Add an attribute…</span>, type <kbd>Description</kbd> and pick <span class="ui">Description</span>; then add <span class="ui">Flow rate</span> the same way.</td><td>Both are listed in that order. Above the tree, headers read <span class="ui">Name</span>, <span class="ui">Description</span>, <span class="ui">Flow rate</span>; the explorer widens to fit them.</td></tr>
       <tr><td>3</td><td>Expand <span class="ui">Assets</span>.</td><td>Pump1 shows "Feed pump" and "60 m³/h" beside its name. A valve without these values shows nothing there.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">→</span> beside <span class="ui">Description</span>.</td><td>Flow rate comes first, in the headers and in every row. <span class="ui">←</span> moves it back.</td></tr>
-      <tr><td>5</td><td>Add three more attributes.</td><td>With five columns, <span class="ui">Add an attribute</span> says "5 columns: remove one to add another".</td></tr>
-      <tr><td>6</td><td>Click <span class="ui">Done</span> and reload the page.</td><td>The columns are still there.</td></tr>
-      <tr><td>7</td><td>Click a column header, then <span class="ui">Remove all</span>.</td><td>The headers go; the explorer shows the names only.</td></tr>
+      <tr><td>5</td><td>Type <kbd>marine.attr</kbd> in <span class="ui">Add an attribute…</span>.</td><td>Nothing is offered while the Marine package is off in the project.</td></tr>
+      <tr><td>6</td><td>Add three more attributes.</td><td>With five columns, <span class="ui">Add an attribute</span> says "5 columns: remove one to add another".</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Done</span> and reload the page.</td><td>The columns are still there.</td></tr>
+      <tr><td>8</td><td>Click a column header, then <span class="ui">Remove all</span>.</td><td>The headers go; the explorer shows the names only.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">A quantity shows with its unit, Yes or No for a yes/no attribute, and several choices separated by commas. Point at a value to see it in full with its attribute's name. Rows that are not objects (projects, sections, folders) leave the columns empty.</p>
