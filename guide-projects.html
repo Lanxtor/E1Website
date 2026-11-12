@@ -63,13 +63,17 @@
           <li><a href="#prj-branches">Branches</a></li>
           <li><a href="#prj-branch-conflicts">Pull from main and resolve conflicts</a></li>
           <li><a href="#prj-branch-push">Push a branch to main</a></li>
+          <li><a href="#prj-branch-types">Branch types and resolution rules</a></li>
+          <li><a href="#prj-branch-review">Merge requests: Ask for review</a></li>
+          <li><a href="#prj-branch-packages">Branch packages</a></li>
+          <li><a href="#prj-branch-proposals">Alex in a branch and Open as branch</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Projects and the explorer</p>
         <h1>3. Projects and the explorer</h1>
         <p class="lead">Create, rename, arrange and delete projects and folders, the sections of a project, the Bin, searching and dragging in the explorer.</p>
-        <div class="g-meta"><span>21 features</span><span>21 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>25 features</span><span>25 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="projects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the explorer, the tree on the left of the E1 window: your projects, how you arrange them in folders, the nine sections every project has, the folders and 2D spaces inside the sections, the Bin, searching the tree and dragging rows around.</p>
@@ -602,7 +606,7 @@
 
 <section class="g-feature" id="prj-branches">
   <h2>Branches</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branches</span><span>Roadmap 15.1, 15.2, 15.4</span><span>Review check X1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branches</span><span>Roadmap 15.1, 15.2, 15.4, 09.6b</span><span>Review check X1</span></div>
   <p class="g-summary">Make a working branch of part of the design, change it while main stays as it is, and push it back when it is ready.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span></dd>
@@ -621,8 +625,8 @@
       <tr><td>6</td><td>Click <span class="ui">Leave branch</span>.</td><td>This window is on main again.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">In a branch, issuing a revision, the project's settings and the library are refused: they are changed in main. Tag numbers are taken centrally, so two branches never give the same number. <span class="ui">Details</span> lists the branch's scope and what it changed; <span class="ui">Close</span> discards it without changing main. An object being changed in a branch can be blocked in main by the project's option.</p>
-  <p class="g-related">Related: <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a></p>
+  <p class="g-note">In a branch, issuing a revision, the project's settings and the library are refused: they are changed in main. Tag numbers are taken centrally, so two branches never give the same number. <span class="ui">Details</span> lists the branch's scope and what it changed; <span class="ui">Close</span> discards it without changing main. An object being changed in a branch shows Being changed in branch … in the explorer, and can be blocked in main by its branch type. Only the branch's members enter and change it; Alex sets them with <code>set_branch_members</code>. A branch never widens what you may change in main, and a role given on a branch holds only branch permissions.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a>, <a href="guide-projects.html#prj-branch-types">Branch types and resolution rules</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a>, <a href="guide-projects.html#prj-branch-packages">Branch packages</a>, <a href="guide-projects.html#prj-branch-proposals">Alex in a branch and Open as branch</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a></p>
 </section>
 
 <section class="g-feature" id="prj-branch-conflicts">
@@ -666,8 +670,98 @@
       <tr><td>3</td><td>Open History in main.</td><td>One change “Pushed branch …”, with <span class="ui">Undo this change</span> taking it all back.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The branch stays open after a push and counts from what it pushed. A push with conflicts open is refused.</p>
-  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a></p>
+  <p class="g-note">After the push the branch stays open and counts from what it pushed, or closes when its type says so; <span class="ui">Close after this push</span> closes it this once. A push with conflicts open is refused, and so is one of a type that needs a review before its merge request is approved.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-types">
+  <h2>Branch types and resolution rules</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-types</span><span>Roadmap 16.1, 16.3</span><span>Review checks X4, X5</span></div>
+  <p class="g-summary">The project's branch types say whether a branch needs a review before main, what happens after a push, how main's edits treat its objects, and which conflicts settle themselves.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → <span class="ui">Branch types…</span></dd>
+    <dt>Who</dt><dd>Project admin to set the types; anyone creating a branch chooses one</dd>
+    <dt>Before you start</dt><dd>A project with branches. Until a project sets its own, it has three: Working branch, Design change (reviewed) and Commissioning package.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Branch types…</span>.</td><td>A row per type: <span class="ui">Name</span>, <span class="ui">Review before main</span>, <span class="ui">Four eyes</span>, <span class="ui">After push</span> (Keep open or Close), <span class="ui">Editing in main</span> (Mark, Warn or Block) and <span class="ui">Graphical conflicts</span>.</td></tr>
+      <tr><td>2</td><td>Tick <span class="ui">Review before main</span> and <span class="ui">Four eyes</span> on Design change, set <span class="ui">Graphical conflicts</span> to <span class="ui">Keep mine</span>, and click <span class="ui">Save</span>.</td><td>The types are saved in the project, in main.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">New branch…</span> and choose the type in <span class="ui">Type</span>.</td><td>The branch shows its type in the list.</td></tr>
+      <tr><td>4</td><td>In that branch, move a symbol main moved too, and <span class="ui">Pull from main</span>.</td><td>The move is settled by the rule: listed under <span class="ui">Conflicts</span> with the rule, where you can still take theirs until the push.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A tag or validation conflict is always a person's choice: a rule other than ask on those is refused when you save. <span class="ui">Add type</span> adds one. With <span class="ui">Editing in main</span> on Block, an edit in main to an object in an open branch of that type is refused; on Warn, it is made with a warning.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-review">
+  <h2>Merge requests: Ask for review</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-review</span><span>Roadmap 16.2</span><span>Review check X4</span></div>
+  <p class="g-summary">A branch asks for review before it goes to main; a colleague approves or requests changes, and the object shows Under merge review meanwhile.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">Ask for review</span></dd>
+    <dt>Who</dt><dd>Asking: the branch's members; deciding: Lead engineer and above, not the author when the type has four eyes</dd>
+    <dt>Before you start</dt><dd>A branch of a type with <span class="ui">Review before main</span> and <span class="ui">Four eyes</span>, with a change to P-101.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Push to main</span>.</td><td>Refused: the branch needs an approved merge request first.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Ask for review</span>.</td><td>The merge request is open; the reviewers find it in their Inbox. In the explorer, P-101 shows Under merge review in branch ….</td></tr>
+      <tr><td>3</td><td>As the author, click <span class="ui">Approve</span>.</td><td>Refused: four eyes, the author does not approve the branch.</td></tr>
+      <tr><td>4</td><td>As a colleague, click <span class="ui">Request changes</span>, or <span class="ui">Approve</span>.</td><td>The author is told; after an approval, <span class="ui">Push to main</span> lands.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Comments on a branch are kept with it (Alex: <code>add_comment</code> with <code>branch</code>). Alex never approves or rejects a merge request: a person does. <span class="ui">Ask for review</span> again after changes opens a new round.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branch-types">Branch types and resolution rules</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-packages">
+  <h2>Branch packages</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-packages</span><span>Roadmap 16.4</span><span>Review check X5</span></div>
+  <p class="g-summary">Cut part of a branch into a package of its own that can be pushed alone, such as a commissioning package.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">Package…</span></dd>
+    <dt>Who</dt><dd>The branch's members</dd>
+    <dt>Before you start</dt><dd>A branch that created an area and two pumps P-201 and P-202, P-201 in that area.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Package…</span>, tick P-201, type a name and click <span class="ui">Create package</span>.</td><td>Refused: “The package needs what the parent branch created: … Include them too.”</td></tr>
+      <tr><td>2</td><td>Tick the area too and click <span class="ui">Create package</span>.</td><td>A Commissioning package branch with P-201, what it owns and its drawing; its parent is the branch.</td></tr>
+      <tr><td>3</td><td>Push the package to main.</td><td>Main has P-201 and the area. The parent counts from main for them: its next pull has no conflict, and its push does not repeat them.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A package's objects become information in the parent after its push when its type says so (Commissioning package does).</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-proposals">
+  <h2>Alex in a branch and Open as branch</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-proposals</span><span>Roadmap 17.1, 17.2, 17.3</span><span>Review check X6</span></div>
+  <p class="g-summary">In a branch, Alex and stored assistants change the branch; a held proposal can be kept as a branch with Open as branch.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The chat, in a branch; on a held proposal, <span class="ui">Open as branch</span></dd>
+    <dt>Who</dt><dd>Anyone who can work in a branch</dd>
+    <dt>Before you start</dt><dd>Chat in Review first.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex to change P-101's design pressure.</td><td>Alex's reply holds the change, with <span class="ui">Apply</span>, <span class="ui">Discard</span> and <span class="ui">Open as branch</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Open as branch</span>.</td><td>A branch of the objects it changes, with the change in it; this window is in the branch. The proposal is closed.</td></tr>
+      <tr><td>3</td><td>Ask Alex what conflicts the branch has, or run a stored assistant.</td><td>Alex reads the branch; what it changes goes into the branch, not main.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">What Alex may change in a branch is what you may: an object outside the branch is refused as it is for you.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-access.html">Installation and sign-in</a> · <a href="guide-objects.html">Objects, attributes and tags</a> →</p>
