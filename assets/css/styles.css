@@ -3866,7 +3866,9 @@ code {
   .tw-who.is-on:not(.is-cur) .tw-card { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .tw-part { transition: none; }
+  /* less motion: the same story told with fades only, nothing moves */
+  .tw-part, .tw-part.is-up { transform: none; transition: opacity 0.6s ease; }
+  .tw-card, .tw-who.is-on .tw-card, .tw-upd { transform: none; transition: opacity 0.4s, box-shadow 0.4s; }
   .tw-dot::after { animation: none; }
 }
 .tw-card-text b, .tw-card-text span { overflow-wrap: anywhere; hyphens: auto; }

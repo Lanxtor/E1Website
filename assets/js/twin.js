@@ -13,7 +13,8 @@
  *
  * Only class changes and timers (no requestAnimationFrame, no SVG-only CSS),
  * so it runs the same in every browser, Chrome on iPhone included. With
- * "reduce motion" the finished picture stands still. On phones the cards are
+ * "reduce motion" (often on in iPhones) the same sequence plays with fades
+ * only: nothing slides, no waves, no pulsing. On phones the cards are
  * shown one at a time under the drawing, without lines.
  */
 (function () {
@@ -87,6 +88,7 @@
   }
   function wave(w) {
     if (!waves) return;
+    var calm = reduce;
     var box = canvas.getBoundingClientRect();
     var from = centre(w.querySelector(".tw-dot"));
     // The wave stays on the plant: it reaches just past the farthest engineer.
@@ -104,8 +106,10 @@
     ring.style.width = ring.style.height = (reach * 2) + "px";
     ring.style.marginLeft = ring.style.marginTop = (-reach) + "px";
     ring.style.animationDuration = WAVE_MS + "ms";
-    waves.appendChild(ring);
-    setTimeout(function () { ring.remove(); }, WAVE_MS + 200);
+    if (!calm) {
+      waves.appendChild(ring);
+      setTimeout(function () { ring.remove(); }, WAVE_MS + 200);
+    }
     who.forEach(function (x) {
       if (x === w || !x.classList.contains("is-on")) return;
       var to = centre(x.querySelector(".tw-dot"));
@@ -123,13 +127,6 @@
     w.classList.add("is-on", "is-cur");
     if (w._line) w._line.setAttribute("class", "is-on");
     later(function () { wave(w); }, 650);
-  }
-
-  function finished() {
-    state("is-built is-run");
-    parts.forEach(function (p) { p.classList.add("is-up", "is-set"); });
-    who.forEach(function (w) { w.classList.add("is-on"); w.classList.remove("is-cur"); });
-    drawLeads();
   }
 
   function cycle() {
@@ -165,7 +162,6 @@
 
   window.addEventListener("resize", drawLeads);
   window.addEventListener("load", drawLeads);
-  if (reduce) { finished(); return; }
   cycle();
   // A hidden tab keeps no timers; it starts from the beginning when shown again.
   document.addEventListener("visibilitychange", function () {
