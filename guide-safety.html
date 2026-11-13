@@ -42,36 +42,38 @@
         <h2>On this page</h2>
         <ol>
           <li><a href="#safety-overview">About this guide</a></li>
-          <li><a href="#safe-cause-effect">The cause and effect matrix: interlocks, causes and effects</a></li>
+          <li><a href="#safe-cause-effect">The cause and effect matrix: causes, devices and cells</a></li>
           <li><a href="#safe-sif">Safety instrumented functions: required SIL, PFD and achieved SIL</a></li>
           <li><a href="#safe-alarms">Alarms: priority, rationalization and plant states</a></li>
           <li><a href="#safe-plant-states">Plant states</a></li>
           <li><a href="#safe-documents">The cause and effect matrix and the alarm list as documents</a></li>
+          <li><a href="#safe-excel">The matrix in Excel, and back</a></li>
+          <li><a href="#safe-compare">What changed since the last revision</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Cause and effect, safety functions, alarms</p>
         <h1>15. Cause and effect, safety functions, alarms</h1>
         <p class="lead">Interlocks with their causes and effects as the cause and effect matrix and its narratives, safety instrumented functions with their required SIL and PFD, alarms rationalized and suppressed by plant state, and the matrix and alarm list as documents.</p>
-        <div class="g-meta"><span>5 features</span><span>5 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>7 features</span><span>7 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="safety-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 the cause and effect matrix, the safety instrumented functions and the alarm list are not spreadsheets beside the P&amp;ID: they are part of the model. An <em>interlock</em> is a function in Systems; its <em>causes</em> are trips on the instruments that start it; its <em>effects</em> are what it does to valves, motors and equipment. Alarms watch instruments too. The matrix, the narratives, the PFD of each safety function and the alarm list are computed from them, so a renamed tag or a changed setting is right everywhere at once.</p>
   <h3>Typical workflow</h3>
   <ol>
-    <li>On a unit in Systems, <a href="#safe-cause-effect">add its interlocks, their causes and effects</a>, and read the matrix and the narratives.</li>
+    <li>On a unit in Systems, <a href="#safe-cause-effect">fill its cause and effect matrix like a spreadsheet</a>: type the tags of the causes, add the devices, set the cells, <a href="#safe-cause-effect">group the causes that vote</a>, and read the narratives.</li>
     <li>Make the interlocks that protect against a hazard <a href="#safe-sif">safety instrumented functions</a>, give their failure rates and proof test interval, and check their PFD against the required SIL.</li>
     <li>Add the <a href="#safe-alarms">alarms</a>, rationalize them, and choose which <a href="#safe-plant-states">plant states</a> suppress them.</li>
-    <li>Make the matrix and the alarm list <a href="#safe-documents">documents</a>, export them to Excel or PDF, and issue them.</li>
+    <li><a href="#safe-excel">Export the matrix to Excel</a> for the control system vendor and the test team, and import it back after it was edited there; make the matrix and the alarm list <a href="#safe-documents">documents</a>, issue them, and <a href="#safe-compare">compare</a> the matrix with the last revision.</li>
   </ol>
   <h3>Before you start</h3>
-  <p>You have a project at E1 library version 23 or newer (Plant 1.13.0: see <a href="guide-library.html#lib-project-settings">Project settings</a>), a unit or loop in Systems, and its instruments, valves and motors in Assets. Cause and effect is part of Editor. The examples use a unit UNIT-100 with the pressure transmitters PT-101A, PT-101B, PT-101C, the level transmitter LT-102 and the shutdown valve XV-101.</p>
+  <p>You have a project at E1 library version 28 or newer (Plant 1.16.0: see <a href="guide-library.html#lib-project-settings">Project settings</a>), a unit or loop in Systems, and its instruments, valves and motors in Assets. Cause and effect is part of Editor. The examples use a unit UNIT-100 with the pressure transmitters PT-101A, PT-101B, PT-101C, the level transmitter LT-102 and the shutdown valve XV-101.</p>
 </section>
 
 <section class="g-feature" id="safe-cause-effect">
-  <h2>The cause and effect matrix: interlocks, causes and effects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">SAFE-cause-effect</span><span>Roadmap 34.1</span><span>Review check T1</span></div>
-  <p class="g-summary">On any unit or loop in Systems: add interlocks, the trips that start them and what they act on, see the matrix and the narrative E1 writes from them.</p>
+  <h2>The cause and effect matrix: causes, devices and cells</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">SAFE-cause-effect</span><span>Roadmap 34.1, 34.4</span><span>Review check T1</span></div>
+  <p class="g-summary">On any unit or loop in Systems, fill the cause and effect matrix as you would in Excel: type the tags of the causes, add the devices as columns, set each cell with a click or a key, group the causes that vote, and read the narrative E1 writes from them.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click a unit or loop in <span class="ui">Systems</span> → <span class="ui">Cause and effect</span>, or open it and click <span class="ui">Cause and effect</span> in the tabs at the top of its window: the <span class="ui">Cause and effect</span> page, tab <span class="ui">Matrix</span></dd>
     <dt>Who</dt><dd>Editor, and a project role that may edit objects</dd>
@@ -82,21 +84,30 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click UNIT-100 → <span class="ui">Cause and effect</span>.</td><td>The unit's window opens on its <span class="ui">Cause and effect</span> page, beside the unit's own page (the tab named UNIT-100), with the tabs <span class="ui">Matrix</span>, <span class="ui">Safety functions</span> and <span class="ui">Alarms</span>. It shows everything in the unit's part of the tree.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Add interlock</span>, type I-101, choose the type <em>Shutdown</em> and <span class="ui">Voting</span> 2, <span class="ui">Reset</span> <em>Manual reset</em>, and click <span class="ui">Add</span>.</td><td>I-101 is a function under UNIT-100. Voting 2 means two of its causes are needed.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Add cause</span>: I-101, the instrument PT-101A, <span class="ui">Condition</span> <em>High-high</em>, <span class="ui">Setting</span> 12 bar(g). Do the same for PT-101B and PT-101C.</td><td>Three rows: PT-101A HH, PT-101B HH, PT-101C HH, voting 2oo3. Each trip is an object under I-101 that watches its instrument.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Add effect</span>: I-101, the device XV-101, <span class="ui">Action</span> <em>Close</em>.</td><td>A column XV-101; each of I-101's rows reads Close in it.</td></tr>
-      <tr><td>5</td><td>Choose <em>Stop</em> in a cell, then —.</td><td>The effect changes to Stop, then goes. <span class="ui">Undo</span> brings it back.</td></tr>
-      <tr><td>6</td><td>Read <span class="ui">Narrative</span> under the matrix.</td><td><em>I-101 (2oo3): when two of PT-101A, PT-101B, PT-101C read high-high above 12 bar(g), close XV-101. Manual reset.</em></td></tr>
+      <tr><td>2</td><td>In the last row, <span class="ui">Type a tag to add a cause…</span>: type PT-101A and pick it. Do the same for PT-101B and PT-101C.</td><td>Three rows, each with its own interlock: I-PT-101A, I-PT-101B, I-PT-101C, condition <em>High-high</em>.</td></tr>
+      <tr><td>3</td><td>In each row type the <span class="ui">Setting</span> 12 bar(g) and press Enter.</td><td>The setting is saved; the narrative under the matrix says <em>above 12 bar(g)</em>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">+ Device</span>, type XV-101 and pick it.</td><td>A column XV-101, its tag written upwards.</td></tr>
+      <tr><td>5</td><td>Tick the three rows and choose <span class="ui">Group ▾</span> → <em>2 of 3</em>.</td><td>One interlock I-PT-101A with the vote <em>2oo3</em>: its tag, its vote and each of its cells span the three rows.</td></tr>
+      <tr><td>6</td><td>Click I-PT-101A's cell under XV-101 and choose <em>C Close</em>; type 5 in <span class="ui">Delay</span> first to make it close 5 s later.</td><td>The cell reads <em>C</em> (with <em>5 s</em> under it).</td></tr>
+      <tr><td>7</td><td>Click the interlock's tag, rename it I-101 and choose <span class="ui">Reset</span> <em>Manual reset</em>.</td><td>The matrix and the narrative follow.</td></tr>
+      <tr><td>8</td><td>Read <span class="ui">Narrative</span> under the matrix.</td><td><em>I-101 (2oo3): when two of PT-101A, PT-101B, PT-101C read high-high above 12 bar(g), close XV-101 after 5 s. Manual reset.</em></td></tr>
     </tbody>
   </table></div>
+  <h3>Faster with the keyboard</h3>
   <ul>
-    <li>The same instrument can start several interlocks at different settings: each is its own trip.</li>
-    <li>An interlock without causes or without effects, or with a voting higher than its causes, is an error in <span class="ui">Checks</span> and is listed under the narrative; its tag is red in the matrix.</li>
-    <li><span class="ui">Cause and effect</span> is a page of its own in the tabs at the top of the window: the unit's own page (its details and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span> …) is the first tab, named after the unit.</li>
-    <li>The page on the plant's top function shows the whole plant.</li>
-    <li>Alex reads and changes the same data: ask it for the matrix of a unit, or to add a cause.</li>
+    <li>A cell's letters: <strong>C</strong> Close, <strong>O</strong> Open, <strong>S</strong> Stop, <strong>R</strong> Start, <strong>D</strong> De-energize, <strong>E</strong> Energize, <strong>T</strong> Trip. Press the letter on a cell to set it; <strong>Space</strong> sets the device's usual action (a valve closes, a motor stops) or clears the cell; <strong>Delete</strong> clears it; <strong>Enter</strong> opens the choice.</li>
+    <li>The arrows move from cell to cell; the cell's row and column are highlighted. <strong>Shift</strong>+arrows select a block: a letter sets all of it, <strong>Ctrl+D</strong> fills its first row down.</li>
+    <li><strong>Ctrl+C</strong> copies the selected cells, <strong>Ctrl+V</strong> pastes letters copied from Excel (such as <em>C</em>, <em>S</em>, <em>C 5 s</em>). A paste or a fill is one change: one <span class="ui">Undo</span> takes it back.</li>
   </ul>
-  <p class="g-related">Related: <a href="#safe-sif">Safety instrumented functions</a> · <a href="#safe-documents">The matrix as a document</a> · <a href="guide-wiring.html#wire-allocation">Allocation on the Wiring page</a></p>
+  <ul>
+    <li><span class="ui">Delay</span> in a row is how long the condition must last before the cause trips; a delay in a cell is how long after the trip the device acts. <span class="ui">Bypass</span> says the cause may be bypassed for maintenance, with the hours after which the bypass ends; without them it is a warning in <span class="ui">Checks</span>.</li>
+    <li>Type an interlock's tag in the last row to make a cause that is that interlock tripping: one matrix cascades into the next. An interlock that trips itself that way is an error.</li>
+    <li><span class="ui">Ungroup</span> moves a ticked cause back into an interlock of its own, with a copy of the cells. Change the vote in the <span class="ui">Vote</span> cell.</li>
+    <li>The same instrument can start several interlocks at different settings: each row is its own trip.</li>
+    <li>An interlock without causes or effects, or with a vote higher than its causes, has a warning mark by its tag; its finding is listed under the narrative and in <span class="ui">Checks</span>.</li>
+    <li>The page on the plant's top function shows the whole plant. Alex reads and changes the same data: ask it for the matrix of a unit, or to add a cause.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#safe-excel">The matrix in Excel</a> · <a href="#safe-sif">Safety instrumented functions</a> · <a href="#safe-compare">Compare with a revision</a> · <a href="guide-wiring.html#wire-allocation">Allocation on the Wiring page</a></p>
 </section>
 
 <section class="g-feature" id="safe-sif">
@@ -112,7 +123,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td><span class="ui">Add interlock</span> with the type <em>Safety instrumented function</em> and <span class="ui">Required SIL</span> <em>SIL 2</em>, and give it its causes and effects.</td><td>In the matrix it shows <em>SIL 2</em> beside its tag.</td></tr>
+      <tr><td>1</td><td>In the matrix click the interlock's tag and choose the <span class="ui">Type</span> <em>Safety instrumented function</em> and <span class="ui">Required SIL</span> <em>SIL 2</em>.</td><td>In the matrix it shows <em>SIL 2</em> beside its tag.</td></tr>
       <tr><td>2</td><td>Open the <span class="ui">Safety functions</span> tab.</td><td>Its row names what is missing: the logic solver PFD, the λDU of each device.</td></tr>
       <tr><td>3</td><td>Open the safety function: give <span class="ui">Proof test interval</span> (12 month), <span class="ui">Logic solver PFD</span> (0.0001) and, if not 0.1, <span class="ui">Common cause factor (β)</span>. Open each cause and give its <span class="ui">λDU</span> (1e-6 per hour); ask Alex to set the valve's λDU on the effect.</td><td>The row shows sensors 2oo3 with HFT 1, final elements 1oo1 with HFT 0, PFD <em>5.0 × 10⁻³</em>, achieved SIL <em>SIL 2</em>, <em>Meets its SIL</em>.</td></tr>
       <tr><td>4</td><td>Change the required SIL to SIL 3.</td><td>The row says why it falls short (the PFD, and the hardware fault tolerance of the single valve); <span class="ui">Checks</span> lists both.</td></tr>
@@ -179,22 +190,71 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">SAFE-documents</span><span>Roadmap 34.1, 34.3</span><span>Review check T4</span></div>
   <p class="g-summary">Make the matrix or the alarm list of a unit a document in Revisions, export it to Excel or PDF, and issue it like any document.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The <span class="ui">Cause and effect</span> panel: <span class="ui">Make document</span> on the <span class="ui">Matrix</span> and <span class="ui">Alarms</span> tabs; the document in <span class="ui">Revisions</span></dd>
+    <dt>Where</dt><dd>The <span class="ui">Cause and effect</span> page: <span class="ui">Excel ▾</span> → <span class="ui">Make document</span> on the <span class="ui">Matrix</span> tab, <span class="ui">Make document</span> on the <span class="ui">Alarms</span> tab; the document in <span class="ui">Revisions</span></dd>
     <dt>Who</dt><dd>Editor, and a project role that may create documents</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>On the <span class="ui">Matrix</span> tab click <span class="ui">Make document</span>.</td><td><em>Cause and effect matrix UNIT-100</em> is made in Revisions and opens. Clicked again, it opens the one there is.</td></tr>
-      <tr><td>2</td><td>Export it to Excel.</td><td>A workbook with the sheet <em>Cause and effect matrix</em> (interlock, voting, cause, instrument, condition, setting, then a column per device) and the sheet <em>Narratives</em>, with each safety function's PFD.</td></tr>
-      <tr><td>3</td><td>Export it to PDF.</td><td>The same table, then the narratives.</td></tr>
+      <tr><td>1</td><td>On the <span class="ui">Matrix</span> tab choose <span class="ui">Excel ▾</span> → <span class="ui">Make document</span>.</td><td><em>Cause and effect matrix UNIT-100</em> is made in Revisions and opens. Clicked again, it opens the one there is.</td></tr>
+      <tr><td>2</td><td>Export it to Excel.</td><td>The workbook of <a href="#safe-excel">Export to Excel</a>: the sheets <em>Matrix</em>, <em>Legend</em>, <em>Narratives</em> (with each safety function's PFD) and <em>Test sheet</em>.</td></tr>
+      <tr><td>3</td><td>Export it to PDF.</td><td>The matrix with its letters, then the narratives and the test sheet.</td></tr>
       <tr><td>4</td><td>Add a revision and issue it.</td><td>Issued, with the interlocks, trips, instruments and devices it shows. While one of its interlocks has an open error (no effect), issuing is refused: fix it or accept it in <span class="ui">Checks</span>.</td></tr>
       <tr><td>5</td><td>On the <span class="ui">Alarms</span> tab click <span class="ui">Make document</span> and export it.</td><td><em>Alarm list UNIT-100</em>: one row per alarm with its instrument, type, setting, priority, rationalization, and a column per plant state (Shown or Suppressed).</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">The documents are generated from the model each time they are exported, so they never fall behind the matrix.</p>
   <p class="g-related">Related: <a href="#safe-cause-effect">The cause and effect matrix</a> · <a href="#safe-alarms">Alarms</a> · <a href="guide-documents.html#doc-revisions">Revisions</a></p>
+</section>
+
+<section class="g-feature" id="safe-excel">
+  <h2>The matrix in Excel, and back</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-13</span><span class="g-id">SAFE-excel</span><span>Roadmap 34.4</span></div>
+  <p class="g-summary">Export a unit's cause and effect matrix as the workbook engineers hand over, with its legend, the narratives and a cause-by-cause test sheet; edit it in Excel and import it back, seeing every change before it is made.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The <span class="ui">Cause and effect</span> page, tab <span class="ui">Matrix</span>: <span class="ui">Excel ▾</span></dd>
+    <dt>Who</dt><dd>Editor; importing needs a project role that may create and edit objects</dd>
+    <dt>Before you start</dt><dd>The unit has its causes and devices.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Choose <span class="ui">Excel ▾</span> → <span class="ui">Export to Excel</span>.</td><td>A workbook downloads. Sheet <em>Matrix</em>: the title block, then Interlock, Vote, Cause, Instrument, Service, Condition, Setting, Delay (s), Bypass and a column per device; each interlock's tag, vote and cells merged down its cause rows, the device tags written upwards, the header and the left columns frozen, set to print landscape on one page wide.</td></tr>
+      <tr><td>2</td><td>Open the sheets <em>Legend</em>, <em>Narratives</em> and <em>Test sheet</em>.</td><td>The letters and how to read the vote; one sentence per interlock; one row per cause: what to apply (with the other causes its vote needs), what must happen (each device and its delay), the bypass check, and Result, Tested by, Date and Remarks to fill in.</td></tr>
+      <tr><td>3</td><td>In Excel change I-101's cell under XV-101 to <em>O 2 s</em>, add a row for a new interlock, and save.</td><td>—</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">Excel ▾</span> → <span class="ui">Import from Excel…</span> and pick the workbook.</td><td>E1 lists what it will add, change and remove, and the rows it cannot read (an unknown tag or letter). Nothing is changed yet.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Import</span>.</td><td>The matrix shows the changes; one <span class="ui">Undo</span> takes the whole import back.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Interlocks are found by their tag and causes by their instrument; a cause or a cell of an interlock in the sheet that is no longer in the sheet is removed. Interlocks that are not in the sheet stay as they are.</li>
+    <li>A cell is a letter, a letter with a delay (<em>C 5 s</em>, <em>C5</em>), an action's name, or <em>X</em> for the device's usual action.</li>
+    <li>Importing the exported workbook unchanged changes nothing.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#safe-cause-effect">The cause and effect matrix</a> · <a href="#safe-documents">The matrix as a document</a> · <a href="#safe-compare">Compare with a revision</a></p>
+</section>
+
+<section class="g-feature" id="safe-compare">
+  <h2>What changed since the last revision</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-13</span><span class="g-id">SAFE-compare</span><span>Roadmap 34.4</span></div>
+  <p class="g-summary">Compare a unit's cause and effect matrix with a version or revision of its document: the cells and rows that changed since are marked on the matrix.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The <span class="ui">Cause and effect</span> page, tab <span class="ui">Matrix</span>: <span class="ui">Compare ▾</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the unit; versions only for people who see versions</dd>
+    <dt>Before you start</dt><dd>The unit's cause and effect document has a version or revision (<a href="#safe-documents">make it and issue it</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Change a cell and add a cause after the revision was issued.</td><td>—</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Compare ▾</span> and the revision.</td><td>A line says how many changes there are. A new cell or row is outlined green, a changed cell amber (point at it to read what it was), and what was removed is listed in red under the matrix.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Done</span>.</td><td>The marks go.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#safe-documents">The matrix as a document</a> · <a href="guide-documents.html#doc-revisions">Revisions</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-workflow.html">Workflow and dashboards</a> · <a href="guide-reviewer.html">E1 Reviewer for iPad</a> →</p>
