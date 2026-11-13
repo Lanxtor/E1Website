@@ -283,16 +283,16 @@
 
 <section class="g-feature" id="wf-flow-editor">
   <h2>The flow: paths between steps</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WF-flow-editor</span><span>Roadmap 33.4</span><span>Review checks S5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">WF-flow-editor</span><span>Roadmap 33.4</span><span>Review checks S5</span></div>
   <p class="g-summary">Flow shows a workflow's steps in order with their credit, lock, criteria and approval, and its paths above them: extra moves such as Skip check (small change), each with an optional condition on the item. Add path… adds one and publishes a new version.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflows</span> → <span class="ui">Flow</span></dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflows</span> → <span class="ui">Edit flow…</span></dd>
     <dt>Who</dt><dd>Manage project workflows (Project administrator)</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Flow</span> on <em>Instrument data</em>.</td><td>The steps as boxes from New to Closed with arrows; each says its credit and whether it is locked or has criteria or an approval.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Edit flow…</span> on <em>Instrument data</em>.</td><td>The steps as boxes from New to Closed with arrows; each says its credit and whether it is locked or has criteria or an approval.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Add path…</span>: From <em>In design</em>, To <em>Vendor data</em>, Label <em>Skip check (small change)</em>, Only when <code>core.attr.description</code> <em>is</em> <em>small change</em>; <span class="ui">Save and publish</span>.</td><td>A dashed arrow from In design to Vendor data with its label and condition; the workflow is at its next version.</td></tr>
       <tr><td>3</td><td>Open an instrument in In design whose description is <em>small change</em> and click its chip.</td><td><span class="ui">Move to Skip check (small change)</span> is offered; an instrument with another description does not get it.</td></tr>
     </tbody>
