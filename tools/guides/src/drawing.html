@@ -745,12 +745,13 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Shape</span> ▸ <span class="ui">Modify shape…</span>.</td><td>The designer opens, titled "Modify shape: Centrifugal pump (this project's copy)", with the pump on a grid, its connection points <em>suction</em> and <em>discharge</em> as blue dots, and "No problems." under the preview.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Line</span>, then drag on the grid under the pump.</td><td>A line is drawn, snapped to the grid, and selected: "Shape s4 (line)" with its weight and pattern on the right.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Undo</span> (or press Ctrl+Z).</td><td>The line goes away.</td></tr>
+      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Shape</span> ▸ <span class="ui">Modify shape…</span>.</td><td>The designer opens, titled "Modify shape: Centrifugal pump (this project's copy)", with the pump on a white grid, its connection points <em>suction</em> and <em>discharge</em> as blue dots, and "No problems." beside the preview. The tools are grouped at the top: <span class="ui">Select</span>, <span class="ui">Draw</span> (Line, Rectangle, Circle, Arc), <span class="ui">Text</span>, <span class="ui">Connection point</span>, and on the right Undo, Redo and Delete.</td></tr>
+      <tr><td>2</td><td>Under <span class="ui">Draw</span>, click the line icon (<span class="ui">Line</span>), then drag on the grid under the pump.</td><td>A line is drawn, snapped to the grid, and selected: "Shape s4 (line)" with its weight and pattern on the right.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Undo</span> (or press Ctrl+Z).</td><td>The line goes away; <span class="ui">Redo</span> (Ctrl+Y) brings it back.</td></tr>
       <tr><td>4</td><td>Draw the line again. Click <span class="ui">Select</span> and drag the <em>discharge</em> dot.</td><td>The connection point moves with the pointer; its key, direction and the line kinds it takes are shown on the right.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Save and use here</span>.</td><td>The designer closes. Pump1 is drawn with the changed shape; the other pumps keep E1's.</td></tr>
       <tr><td>6</td><td>Configuration → <span class="ui">Shapes</span>, search "project.symbol".</td><td>The project's copy is listed, key <code>project.symbol.centrifugal-pump</code>.</td></tr>
+      <tr><td>7</td><td>Right-click Pump1 → <span class="ui">Modify shape…</span> again and click <span class="ui">Save and update class</span>.</td><td>The copy becomes the shape the Centrifugal pump class is drawn with in this project: every centrifugal pump placed from now on gets it, and Pump1 takes it now. Pumps already placed keep their shape.</td></tr>
     </tbody>
   </table></div>
   <h3>Draw a new shape for the company</h3>
@@ -758,12 +759,12 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Configuration → <span class="ui">Shapes</span> → <span class="ui">New shape</span>.</td><td>The designer opens on an empty frame; Problems says it has no shapes yet.</td></tr>
-      <tr><td>2</td><td>Draw a <span class="ui">Circle</span>; with <span class="ui">Connection point</span> click its left and right edge and give the keys <em>inlet</em> and <em>outlet</em>.</td><td>The circle and two connection points appear; "No problems."</td></tr>
+      <tr><td>2</td><td>Draw a <span class="ui">Circle</span>; with <span class="ui">Connection point</span> click its left and right edge and, on the right, change the keys to <em>inlet</em> and <em>outlet</em>.</td><td>The circle and two connection points appear; "No problems."</td></tr>
       <tr><td>3</td><td>Type a name, choose what it draws under <span class="ui">Draws</span>, click <span class="ui">Publish</span>.</td><td>The shape is published as version 1 and listed in Shapes.</td></tr>
       <tr><td>4</td><td>On the shape, choose a class in <span class="ui">Allow for a class…</span> and click <span class="ui">Allow</span>.</td><td>A class whose connection points the shape lacks is refused with the reason, for example "cannot draw Vertical vessel: it has no connection point inlet, outlet". Otherwise the shape is offered when placing that class.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Delete removes the selected shape, connection point or label; Esc stops drawing. The designer draws lines, circles, arcs and texts; other kinds of E1's own art are kept, moved and deleted. Modify shape… is on the 2D space's menu; the explorer's comes later.</p>
+  <p class="g-note">Delete removes the selected shape, connection point or label; Esc goes back to Select. The designer draws lines, rectangles, circles, arcs and texts; other kinds of E1's own art are kept, moved and deleted. Modify shape… is on the 2D space's menu; the explorer's comes later.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-attribute-labels">Attribute labels</a> · <a href="guide-drawing.html#draw-symbol-menu">Right-click menus</a> · <a href="guide-drawing.html#draw-standards">Process and instrument symbols</a> · <a href="guide-drawing.html#draw-svg-import">SVG import</a> · <a href="guide-drawing.html#draw-symbol-versions">Symbol versions</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
 </section>
 
@@ -772,7 +773,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-attribute-labels</span><span>Roadmap 21.3</span><span>Review checks L22, L23</span></div>
   <p class="g-summary">A shape can carry labels that show an attribute of the object it draws, for example the design pressure, with its unit. The label always shows the current value: change the value anywhere and every 2D space shows the new one, and so does the PDF. No label text is stored.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>In the symbol designer: <span class="ui">Label shows</span>, under <span class="ui">Draws</span> on the right, and the <span class="ui">Label</span> tool. On a placement: ask Alex to hide, show or move a label (set_symbol_label).</dd>
+    <dt>Where</dt><dd>In the symbol designer: <span class="ui">Attributes on the shape</span> on the right, with <span class="ui">+ Add attribute</span>. On a placement: ask Alex to hide, show or move a label (set_symbol_label).</dd>
     <dt>Who</dt><dd>Adding labels: whoever may edit the shape (see the symbol designer). Hiding or moving one on a placement: a project role that may edit drawings.</dd>
     <dt>Before you start</dt><dd>Pump1 has a design pressure in (for example 16 bar(g)).</dd>
   </dl>
@@ -780,9 +781,9 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Modify shape…</span>.</td><td>On the right, under <span class="ui">Draws</span>, <span class="ui">Label shows</span> lists the attributes of the class the shape draws. While <span class="ui">Draws</span> is empty it is greyed out and reads "Choose what the shape draws first".</td></tr>
-      <tr><td>2</td><td>Choose <span class="ui">Design pressure / In</span> under <span class="ui">Label shows</span> (the <span class="ui">Label</span> tool turns on) and click under the pump on the grid.</td><td>A label "‹Design pressure / In›" is placed and selected; on the right <span class="ui">Shows</span>, <span class="ui">Prefix</span> and <span class="ui">Height (mm)</span>.</td></tr>
-      <tr><td>3</td><td>Type P as the prefix and click <span class="ui">Save and use here</span>.</td><td>Under Pump1 the 2D space reads "P 16 bar(g)".</td></tr>
+      <tr><td>1</td><td>Right-click Pump1 → <span class="ui">Modify shape…</span>.</td><td>On the right, <span class="ui">Attributes on the shape</span> lists what the shape shows (Tag). While <span class="ui">Draws</span> is empty, <span class="ui">+ Add attribute</span> is greyed out with "Choose what the shape draws first".</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">+ Add attribute</span>, choose <span class="ui">Design pressure / In</span> in its list, and drag its label on the grid to under the pump. Add as many more as you need.</td><td>Each click adds a row (prefix, attribute, text height, ✕) and a label "‹Design pressure / In›" below the shape, selected.</td></tr>
+      <tr><td>3</td><td>Type P in the row's <span class="ui">Prefix</span> and click <span class="ui">Save and use here</span>.</td><td>Under Pump1 the 2D space reads "P 16 bar(g)".</td></tr>
       <tr><td>4</td><td>Change Pump1's design pressure in to 18 bar(g) (its page, a list or the datasheet).</td><td>The label reads "P 18 bar(g)" on every open 2D space, without reloading.</td></tr>
       <tr><td>5</td><td>File → <span class="ui">Export PDF</span>.</td><td>The PDF shows "P 18 bar(g)" as text.</td></tr>
       <tr><td>6</td><td>Ask Alex: "hide the design pressure label on Pump1".</td><td>The label goes from this placement only; the shape, the object and other placements keep it.</td></tr>
