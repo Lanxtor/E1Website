@@ -52,12 +52,23 @@ def license_table():
         tier = text(re.search(r'class="tier">(.*?)<', th).group(1))
         price = re.search(r'data-usd="([^"]+)"', th)
         per = re.search(r'class="per">(.*?)</span>\s*$', th.strip(), re.S)
-        cols.append("%s (%s)" % (tier, ("$%s %s" % (price.group(1), text(per.group(1)) if per else "")).strip() if price else "contact sales"))
+        cols.append("%s (%s)" % (tier, text(per.group(1)) if price and per else "contact sales"))
     lines = ["## Licenses table (download.html#pricing)", "Columns: " + "; ".join(cols)]
     for row in re.findall(r"<tr><th scope=\"row\">(.*?)</th>(.*?)</tr>", table, re.S):
         cells = [text(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", row[1], re.S)]
         lines.append("%s: %s" % (text(row[0]), "; ".join("%s = %s" % (cols[i].split(" (")[0], c) for i, c in enumerate(cells))))
-    return "\n".join(lines)
+    return without_prices("\n".join(lines))
+
+
+PRICE_SPAN = re.compile(r"<span[^>]*\bdata-usd=\"[^\"]*\"[^>]*>[^<]*</span>")
+
+
+def without_prices(s):
+    """Prices live only in the licenses table, filled from the E1 server's price list;
+    the numbers written in the page are a fallback and may be out of date, so the
+    assistant gets none of them and links the table instead."""
+    s = PRICE_SPAN.sub("[price in the table]", s)
+    return re.sub(r"(?:US)?\$\s?\d[\d,.]*", "[price in the table]", s)
 
 
 def main():
@@ -67,15 +78,16 @@ def main():
         segs, _ = i18n.segments(src)
         lines, seen = [], set()
         for s, e in sorted(segs):
-            t = text(src[s:e])
+            t = without_prices(text(PRICE_SPAN.sub("[price in the table]", src[s:e])))
             if t and t not in seen and "LANXTOR —" not in t:
                 seen.add(t)
                 lines.append(t)
         out.append("## %s (%s)\n%s" % (title, name, "\n".join(lines)))
     out.append(license_table())
     # Prices shown on the pages come from data-usd attributes; say so plainly.
-    out.append("## Price notes\nAll prices are set in US dollars, excluding VAT. The website shows them in USD, EUR, GBP or NOK; "
-               "other currencies are converted at the daily European Central Bank rate and rounded to a clean number.")
+    out.append("## Price notes\nPrices are not in this text. The only place with the current prices is the licenses table at "
+               "download.html#pricing, which reads them from LANXTOR's price list; it shows them in USD, EUR, GBP or NOK, "
+               "excluding VAT. Never quote a price: link [licenses and prices](download.html#pricing).")
     path = os.path.join(ROOT, "assets", "data", "assistant-knowledge.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n\n".join(out) + "\n")
