@@ -282,8 +282,8 @@
 
 <section class="g-feature" id="draw-clipboard">
   <h2>Undo, redo, copy, paste and duplicate</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-11</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4</span><span>Review checks A4, B5</span></div>
-  <p class="g-summary">Copy, paste and duplicate make new objects with new tags; cut removes them to the Deleted bin. Undo and redo work step by step across the drawing, the explorer and attributes, one history per person per project.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4, M3.13</span><span>Review checks A4, B5</span></div>
+  <p class="g-summary">Copy, paste and duplicate make new objects with new tags; cut removes them to the Deleted bin. A copy pastes on any sheet, in the same project or another one, in any E1 window or tab, and what a paste makes waits in the explorer in <span class="ui">Copy temp</span> until you move it. Undo and redo work step by step across the drawing, the explorer and attributes, one history per person per project.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar (<span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>), the <span class="ui">Edit</span> menu, and the right-click menus</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -296,13 +296,16 @@
       <tr><td>1</td><td>Move a symbol, then press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The move is undone.</td></tr>
       <tr><td>2</td><td>Press <kbd>Ctrl+Shift+Z</kbd> (<kbd>⇧⌘Z</kbd>) or <kbd>Ctrl+Y</kbd>.</td><td>The move is done again.</td></tr>
       <tr><td>3</td><td>Select a pump and press <kbd>Ctrl+C</kbd> (<kbd>⌘C</kbd>), then <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>A copy of the pump appears. It is a new object with a new tag, shown in the explorer, with the pump's values and its parts.</td></tr>
-      <tr><td>4</td><td>Select a valve and press <kbd>Ctrl+D</kbd> (<kbd>⌘D</kbd>) or click <span class="ui">Duplicate</span>.</td><td>A duplicate with a new name appears beside it.</td></tr>
-      <tr><td>5</td><td>Select the copy and press <kbd>Ctrl+X</kbd> (<kbd>⌘X</kbd>).</td><td>It leaves the 2D space and goes to the Deleted bin.</td></tr>
-      <tr><td>6</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
+      <tr><td>4</td><td>In the explorer, open <span class="ui">Assets</span>.</td><td>The copy is in <span class="ui">Copy temp</span>, last in Assets, with its own folder icon. Drag it where it belongs: once Copy temp is empty it is no longer shown.</td></tr>
+      <tr><td>5</td><td>Copy a pump that is in an area, open a sheet of another project (in this window or another tab) and press <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>The copy, with the pump's values, is in Assets ▸ Copy temp of that project, and a copy of its area in Areas ▸ Copy temp, the pump in it. Systems, unit operations and processes come along the same way.</td></tr>
+      <tr><td>6</td><td>Select a valve and press <kbd>Ctrl+D</kbd> (<kbd>⌘D</kbd>) or click <span class="ui">Duplicate</span>.</td><td>A duplicate with a new name appears beside it.</td></tr>
+      <tr><td>7</td><td>Select the copy and press <kbd>Ctrl+X</kbd> (<kbd>⌘X</kbd>).</td><td>It leaves the 2D space and goes to the Deleted bin.</td></tr>
+      <tr><td>8</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu with Undo and Redo and their shortcuts" width="380" height="196" loading="lazy"><figcaption>The Edit menu: Undo and Redo; cut, copy, paste and duplicate are on their keys and in the right-click menu.</figcaption></figure>
   <p>A copy takes its original's design values (calculated values come from their rules again), the relationships between the objects you copied, and the parts of an object that are not drawn. Copy every symbol of a placed module and the copies are a new instance of it: <a href="#draw-module-instance">A placed module on its objects</a>. The values come in a second step after the copy is made: <kbd>Ctrl+Z</kbd> takes them back first.</p>
+  <p>Every paste puts what it makes in <span class="ui">Copy temp</span> of its section (Assets ▸ Copy temp, Systems ▸ Copy temp, Areas ▸ Copy temp, …); a duplicate stays beside its original in the tree. Pasted from a project you cannot open, the copies are made without the originals' values. In another browser, paste reads the copy from the system clipboard, and the browser may ask you to allow that.</p>
   <p class="g-note"><kbd>Ctrl+C</kbd>, <kbd>Ctrl+X</kbd>, <kbd>Ctrl+V</kbd>, <kbd>Ctrl+D</kbd> and <kbd>Ctrl+A</kbd> (<kbd>⌘</kbd> on a Mac) act on the 2D space only when the 2D space was the last pane you clicked. After a click in the explorer, click the 2D space first. Paste in the right-click menu is greyed out until you have copied something. To undo a change of someone else's, or an older change, use History (<a href="guide-collaboration.html#col-history">History and undo</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a> · <a href="guide-collaboration.html#col-history">History and undo</a></p>
 </section>
