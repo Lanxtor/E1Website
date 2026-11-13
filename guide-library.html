@@ -7,7 +7,7 @@
   <meta name="description" content="The Configuration place: classes, attributes, shapes, the company library with drafts, publishing and upgrades, catalogs, content packages and project settings.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=141">
+  <link rel="stylesheet" href="assets/css/styles.css?v=142">
   <link rel="stylesheet" href="assets/css/guides.css?v=3">
 </head>
 <body>
@@ -499,8 +499,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Content and standards</span>.</td><td>One card per package: Core 1.4.0, Electrical foundation 1.1.0, Plant engineering 1.3.0 and CFIHOS 2.0.0, each "by e1", with <span class="ui">Read more</span> beside its name (it opens what the package brings; <span class="ui">Show less</span> folds it again), counts of Classes, Attributes, Shapes and Relationships, its standards and what it needs (for example "Needs core").</td></tr>
-      <tr><td>2</td><td>Click the Classes count on the Plant engineering card.</td><td>The <span class="ui">Object classes</span> section opens.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Content and standards</span>.</td><td>One card per package: Core 1.4.0, Electrical foundation 1.1.0, Plant engineering 1.3.0 and CFIHOS 2.0.0, each "by E1", with <span class="ui">Read more</span> beside its name (it opens what the package brings; <span class="ui">Show less</span> folds it again), counts of Classes, Attributes, Shapes and Relationships, its standards and what it needs (for example "Needs Core").</td></tr>
+      <tr><td>2</td><td>Click the Classes count on the Plant engineering card.</td><td>The <span class="ui">Object classes</span> section opens. <span class="ui">Back</span> in the menu bar (<kbd>Alt+Left</kbd>, <kbd>⌘[</kbd>) returns to <span class="ui">Content and standards</span>; see <a href="guide-getting-started.html#gs-back-forward">Back and Forward</a>.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Choose for a project</span>.</td><td>The <span class="ui">Project settings</span> section opens.</td></tr>
       <tr><td>4</td><td>In the explorer, select the project and choose <span class="ui">File → Project settings…</span>.</td><td>A tab "<em>project</em> settings" opens with <span class="ui">Content packages</span>: "All content" (Core) marked <span class="ui">Always on</span>, and under Disciplines one row per package: only its name and switch, and "Not licensed" where that applies. <span class="ui">Read more</span> beside a name opens the package's description, "version · publisher" and what it needs.</td></tr>
       <tr><td>5</td><td>Switch off Electrical foundation while Plant engineering is on.</td><td>A question reads "Switching off Electrical foundation also switches off Plant engineering, which needs it." with <span class="ui">Switch off</span> / <span class="ui">Cancel</span>. Click <span class="ui">Cancel</span>: nothing changes.</td></tr>
@@ -509,7 +509,7 @@
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/config-content-and-standards.webp" alt="Configuration, Content and standards: cards for Core 1.4.0, Electrical foundation 1.1.0, Plant engineering 1.3.0 and CFIHOS 2.0.0 with their counts, and the buttons Choose for a project and Add a content package" width="2160" height="1350" loading="lazy"><figcaption>The four content packages.</figcaption></figure>
   <h3>The packages</h3>
   <ul>
-    <li><strong>Core</strong> (always on): projects, documents and 2D spaces, functions, areas, tasks, ports and the off-page connector, the general attributes and first relationship types, the catalog attributes, and the default tag rule template. From 1.4.0, off-page connectors can "continue on" each other.</li>
+    <li><strong>Core</strong> (always on): projects, documents and 2D spaces, functions, areas, tasks, ports and the off-page connector, the general attributes and first relationship types, the catalog attributes, and the default tag rule template; off-page connectors can "continue on" each other.</li>
     <li><strong>Electrical foundation</strong> (needs Core): the motor and its symbol, and cables and wires as objects.</li>
     <li><strong>Plant engineering</strong> (needs Core and Electrical foundation): equipment, valves, nozzles, instrumentation and control with E1’s own symbols, the instrument tag rule and the line list attributes.</li>
     <li><strong>CFIHOS</strong> (needs Core, Electrical foundation and Plant engineering 1.1): 847 tag classes, 759 equipment classes, 1388 properties as attributes and 367 pick lists.</li>
@@ -878,7 +878,7 @@
 
 <section class="g-feature" id="lib-modules">
   <h2>Modules in the library</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a, 32.3d</span><span>Review checks M1, M11</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a, 32.3d, 32.3e</span><span>Review checks M1, M11</span></div>
   <p class="g-summary">A module is a part of a P&amp;ID saved for placing again, with <a href="guide-drawing.html#draw-module-save">Save as module…</a>: a control valve station, a pump with its valves, a sampling point. Modules are kept in the company library, for every project, or in one project's library, and Configuration → Modules lists them all.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> (in the Content group)</dd>
@@ -888,14 +888,15 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Configuration → Modules</span>.</td><td>A list of the modules: <span class="ui">Name</span>, <span class="ui">Category</span>, <span class="ui">Library</span> (All projects, This project, or Comes with E1; with several projects ticked on the left, the project’s name), <span class="ui">Version</span> (the newest published, and <em>draft open</em> when there is a draft), <span class="ui">State</span> (Draft, Published or Withdrawn) and the number of <span class="ui">Members</span>.</td></tr>
+      <tr><td>1</td><td>Open a project, then <span class="ui">Configuration → Modules</span>.</td><td>A list of the modules, each with its preview: <span class="ui">Name</span>, <span class="ui">Category</span>, <span class="ui">Library</span> (All projects, This project, or Comes with E1; with several projects ticked on the left, the project’s name), <span class="ui">Version</span> (the newest published, and <em>draft open</em> when there is a draft), <span class="ui">State</span> (Draft, Published or Withdrawn), the number of <span class="ui">Members</span>, and how many times it is <span class="ui">Placed</span> in the project.</td></tr>
       <tr><td>2</td><td>Type in <span class="ui">Search modules</span>.</td><td>Only modules whose name, key, category or keywords contain the text stay.</td></tr>
-      <tr><td>3</td><td>Click a module's name.</td><td>Its details: description, library, state, versions, members by class, tie-in points (where lines connect to it: name, type, direction, size, rating) and parameters (values asked for when it is placed).</td></tr>
+      <tr><td>3</td><td>Click a module's name or preview.</td><td>Its details: description, library, state, versions, members by class, <span class="ui">Where it is placed</span>, tie-in points (where lines connect to it: name, type, direction, size, rating) and parameters (values asked for when it is placed).</td></tr>
+      <tr><td>4</td><td>In <span class="ui">Where it is placed</span>, click <span class="ui">Show on sheet</span> on an instance.</td><td>Each instance of the module in this project is listed with its sheet, its objects (by tag) and its version (<em>Update</em> when a newer one is read). Show on sheet opens that sheet with the instance's objects selected and in view, to change them there.</td></tr>
     </tbody>
   </table></div>
   <p>Placing a module: <a href="guide-drawing.html#draw-module-place">Add asset → Modules</a>.</p>
   <h3>Save as module?</h3>
-  <p>When the same group is drawn three times or more and is in no module (two symbols of the same classes joined the same way, such as a valve and a reducer with the pipe between them), the box <span class="ui">Save as module?</span> names it, with how many times and examples. Alex finds the same groups when you ask it. Select one on its 2D space and right-click → <span class="ui">Module</span> ▸ <a href="guide-drawing.html#draw-module-save">Save as module…</a>.</p>
+  <p>When the same group is drawn three times or more and is in no module (two symbols of the same classes joined the same way, such as a valve and a reducer with the pipe between them), the table <span class="ui">Save as module?</span> lists it: the <span class="ui">Group</span>, how often it is <span class="ui">Drawn</span>, and <span class="ui">Examples</span> by their tags with the sheet each is on. Click an example: its sheet opens with the two symbols and the pipe between them selected; right-click them → <a href="guide-drawing.html#draw-module-save">Save as module…</a>. Alex finds the same groups when you ask it.</p>
   <h3>Modules in content packages</h3>
   <p>A content package can carry modules. They are listed with the library <span class="ui">Comes with E1</span>, read only: they open to their details (“Comes with E1 and cannot be changed or withdrawn.”) and have no <span class="ui">Withdraw</span>, and they can be placed like the others. E1 checks each one against the library when the package is loaded and draws its preview itself; one that names something the library does not have is left out.</p>
   <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a> · <a href="#lib-configuration">The Configuration place</a> · <a href="#lib-company-library">Company library</a></p>
@@ -949,10 +950,10 @@
 
 <section class="g-feature" id="lib-module-edit">
   <h2>Editing a module: new versions</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span><span>Review check M7</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a, 32.3f</span><span>Review check M7</span></div>
   <p class="g-summary">Open a module's next version, change its details, members, tie-in points and parameters, move its members to the newest class versions, and publish it. Duplicate a module, or copy a project module to the company library.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>: <span class="ui">New version</span> (or <span class="ui">Edit draft</span>) on a module's row, next to <span class="ui">Publish</span> and <span class="ui">Withdraw</span>; a module's details (click its name) also have <span class="ui">Duplicate…</span> and <span class="ui">Copy to company library</span></dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>: <span class="ui">New version</span> (or <span class="ui">Edit draft</span>) on a module's row; a module → <span class="ui">Edit on a sheet</span>, <span class="ui">New version</span> (or <span class="ui">Edit draft</span>), <span class="ui">Duplicate…</span>, <span class="ui">Copy to company library</span></dd>
     <dt>Who</dt><dd>Editing the library the module is in</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
@@ -964,11 +965,23 @@
       <tr><td>4</td><td>Click <span class="ui">Publish</span> (or <span class="ui">Save draft</span> to finish later).</td><td>The next version, with its change note. Placed instances are offered the update (<a href="#lib-module-updates">Updating placed modules</a>).</td></tr>
     </tbody>
   </table></div>
+  <h3>Edit on a sheet</h3>
+  <p>To change what a module draws (its symbols, their places and the lines between them) where you can see it:</p>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click a published module's name, then <span class="ui">Edit on a sheet</span>.</td><td>A temporary 2D space, <em>Edit module:</em> and the module's name, opens in the Model Space with the module placed and selected (its objects get tags from the rules). Opened again, the same sheet opens. A bar on top says the sheet is temporary.</td></tr>
+      <tr><td>2</td><td>Change the module's objects on the sheet: values, symbols, lines, objects added to the instance.</td><td>The changes are this instance's, as on any sheet.</td></tr>
+      <tr><td>3</td><td>In the bar, click <span class="ui">Save changes to module…</span>, tick the changes, type a <span class="ui">Change note</span> and click <span class="ui">Publish</span>.</td><td>The module's next version holds them; the other instances are offered the update.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Close sheet</span> and confirm.</td><td>The sheet and the objects drawn only on it are deleted. If changes were not saved to the module, closing asks first and they are lost.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A module that comes with E1 is read only and has no Edit on a sheet.</p>
   <ul>
     <li><span class="ui">Supplied by vendor</span>, with the vendor's document and revision, marks a vendor's package. In a project its members then take only per-instance values; any other change is refused (<em>Supplied by vendor …: change the vendor module</em>). A new vendor revision is published as a new version.</li>
     <li><span class="ui">Duplicate…</span> makes a new module, as a draft, with the same content; its instances stay with the first.</li>
     <li><span class="ui">Copy to company library</span> makes a company module from a published project module, checked against the company library: a project class or shape is refused and named.</li>
-    <li>To change what is drawn, place the module on a 2D space, change that instance, and use <span class="ui">Save changes to module…</span> (<a href="guide-drawing.html#draw-module-promote">Turn an instance's changes into the next version</a>).</li>
+    <li>To change an instance already drawn: <span class="ui">Where it is placed</span> → <span class="ui">Show on sheet</span> opens it selected; change it there, then on one of its objects <span class="ui">Module ▾</span> → <span class="ui">Save changes to module…</span> (<a href="guide-drawing.html#draw-module-promote">Turn an instance's changes into the next version</a>).</li>
   </ul>
   <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a> · <a href="#lib-module-versions">Module versions</a></p>
 </section>

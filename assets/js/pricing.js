@@ -21,6 +21,10 @@
  * Mount points:
  *   [data-usd]               a price, its text is replaced
  *   [data-product]           with data-usd: the product id in E1's price list
+ *   [data-usd-monthly]       with data-usd: the price billed monthly (data-usd is billed yearly)
+ *   [data-billing-switch]    the Billed yearly / Billed monthly buttons are drawn here
+ *   [data-billed]            "Per user / month, billed yearly" or "…, billed monthly"
+ *   [data-year-total]        in a plan's heading: the yearly price a year, or "No yearly commitment"
  *   [data-currency-switch]   the USD / EUR / GBP / NOK buttons are drawn here
  *   [data-currency-note]     "Prices in …" text for the current currency
  *   tr[data-plan-feature]    a row of the plan table: which plan includes it comes from
@@ -64,6 +68,17 @@
 
   var current = stored() || guess();
 
+  // Billed yearly (the list price) or billed monthly (about 20 % more), remembered in this browser.
+  var BILLING_KEY = "e1.billing";
+  var billing = "yearly";
+  try { if (localStorage.getItem(BILLING_KEY) === "monthly") billing = "monthly"; } catch (e) {}
+
+  function priceOf(el) {
+    var monthly = parseFloat(el.getAttribute("data-usd-monthly"));
+    if (billing === "monthly" && !isNaN(monthly)) return monthly;
+    return parseFloat(el.getAttribute("data-usd"));
+  }
+
   /*
    * A clean price: rounded to the nearest step that suits its size, so it
    * reads like a price list and not like a conversion.
@@ -104,8 +119,23 @@
   function render() {
     var cur = (current !== "USD" && !(rates && rates[current])) ? "USD" : current;
     document.querySelectorAll("[data-usd]").forEach(function (el) {
-      var usd = parseFloat(el.getAttribute("data-usd"));
+      var usd = priceOf(el);
       if (!isNaN(usd)) el.textContent = format(amount(usd, cur), cur);
+    });
+    document.querySelectorAll("[data-billed]").forEach(function (el) {
+      el.textContent = t(billing === "monthly" ? "Per user / month, billed monthly" : "Per user / month, billed yearly");
+    });
+    document.querySelectorAll("[data-year-total]").forEach(function (el) {
+      var head = el.closest("th, td, div");
+      var price = head && head.querySelector("[data-usd]");
+      var usd = price ? parseFloat(price.getAttribute("data-usd")) : NaN;
+      if (billing === "monthly") el.textContent = t("No yearly commitment");
+      else el.textContent = isNaN(usd) ? "" : format(amount(usd, cur) * 12, cur) + " " + t("per user a year");
+    });
+    document.querySelectorAll("[data-billing-switch] button").forEach(function (b) {
+      var on = b.getAttribute("data-billing") === billing;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", String(on));
     });
     document.querySelectorAll("[data-currency-note]").forEach(function (el) {
       var text = t(NAMES[cur]);
@@ -139,6 +169,23 @@
     });
   }
 
+  function drawBillingSwitches() {
+    document.querySelectorAll("[data-billing-switch]").forEach(function (mount) {
+      mount.setAttribute("role", "group");
+      mount.setAttribute("aria-label", t("Billing"));
+      mount.innerHTML =
+        '<button type="button" data-billing="yearly" aria-pressed="false">' + t("Billed yearly") + "</button>" +
+        '<button type="button" data-billing="monthly" aria-pressed="false">' + t("Billed monthly") + "</button>";
+      mount.addEventListener("click", function (e) {
+        var b = e.target.closest("button[data-billing]");
+        if (!b) return;
+        billing = b.getAttribute("data-billing");
+        try { localStorage.setItem(BILLING_KEY, billing); } catch (err) {}
+        render();
+      });
+    });
+  }
+
   // The live price list from E1; the page's own prices stay if it cannot be read.
   function livePrices() {
     var config = window.E1_CONFIG || {};
@@ -150,15 +197,24 @@
       .then(function (r) { if (!r.ok) throw new Error("prices"); return r.json(); })
       .then(function (data) {
         var byId = {};
+        var monthlyById = {};
         (data && data.products || []).forEach(function (p) {
           if (p && p.id && typeof p.usd === "number" && p.usd >= 0) byId[p.id] = p.usd;
+          if (p && p.id && typeof p.usdMonthly === "number" && p.usdMonthly >= 0) monthlyById[p.id] = p.usdMonthly;
         });
         var changed = false;
         document.querySelectorAll("[data-product][data-usd]").forEach(function (el) {
-          var usd = byId[el.getAttribute("data-product")];
-          if (usd === undefined || String(usd) === el.getAttribute("data-usd")) return;
-          el.setAttribute("data-usd", String(usd));
-          changed = true;
+          var id = el.getAttribute("data-product");
+          var usd = byId[id];
+          if (usd !== undefined && String(usd) !== el.getAttribute("data-usd")) {
+            el.setAttribute("data-usd", String(usd));
+            changed = true;
+          }
+          var monthly = monthlyById[id];
+          if (monthly !== undefined && el.hasAttribute("data-usd-monthly") && String(monthly) !== el.getAttribute("data-usd-monthly")) {
+            el.setAttribute("data-usd-monthly", String(monthly));
+            changed = true;
+          }
         });
         if (changed) render();
       })
@@ -203,6 +259,7 @@
     livePlanFeatures();
     if (!document.querySelector("[data-usd]")) return;
     drawSwitches();
+    drawBillingSwitches();
     livePrices();
     fetch(RATES_URL, { cache: "no-cache" })
       .then(function (r) { if (!r.ok) throw new Error("rates"); return r.json(); })

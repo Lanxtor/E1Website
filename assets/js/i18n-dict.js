@@ -100,7 +100,14 @@ window.E1_I18N_DICT = {
   "How do I get support?": "Wie bekomme ich Support?",
   "Download on the App Store": "Laden im App Store",
   "Security": "Sicherheit",
-  "License agreement": "Lizenzvertrag"
+  "License agreement": "Lizenzvertrag",
+  "Billing": "Abrechnung",
+  "Billed yearly": "Jährliche Abrechnung",
+  "Billed monthly": "Monatliche Abrechnung",
+  "Per user / month, billed yearly": "Pro Benutzer / Monat, jährliche Abrechnung",
+  "Per user / month, billed monthly": "Pro Benutzer / Monat, monatliche Abrechnung",
+  "No yearly commitment": "Keine jährliche Bindung",
+  "per user a year": "pro Benutzer und Jahr"
  },
  "fr": {
   "Home": "Accueil",
@@ -201,7 +208,14 @@ window.E1_I18N_DICT = {
   "How do I get support?": "Comment obtenir de l'aide ?",
   "Download on the App Store": "Télécharger dans l’App Store",
   "Security": "Sécurité",
-  "License agreement": "Contrat de licence"
+  "License agreement": "Contrat de licence",
+  "Billing": "Facturation",
+  "Billed yearly": "Facturation annuelle",
+  "Billed monthly": "Facturation mensuelle",
+  "Per user / month, billed yearly": "Par utilisateur / mois, facturation annuelle",
+  "Per user / month, billed monthly": "Par utilisateur / mois, facturation mensuelle",
+  "No yearly commitment": "Sans engagement annuel",
+  "per user a year": "par utilisateur et par an"
  },
  "es": {
   "Home": "Inicio",
@@ -302,7 +316,14 @@ window.E1_I18N_DICT = {
   "How do I get support?": "¿Cómo obtengo soporte?",
   "Download on the App Store": "Descargar en el App Store",
   "Security": "Seguridad",
-  "License agreement": "Contrato de licencia"
+  "License agreement": "Contrato de licencia",
+  "Billing": "Facturación",
+  "Billed yearly": "Facturación anual",
+  "Billed monthly": "Facturación mensual",
+  "Per user / month, billed yearly": "Por usuario / mes, facturación anual",
+  "Per user / month, billed monthly": "Por usuario / mes, facturación mensual",
+  "No yearly commitment": "Sin compromiso anual",
+  "per user a year": "por usuario al año"
  },
  "no": {
   "Home": "Hjem",
@@ -403,6 +424,13 @@ window.E1_I18N_DICT = {
   "How do I get support?": "Hvordan får jeg brukerstøtte?",
   "Download on the App Store": "Last ned fra App Store",
   "Security": "Sikkerhet",
-  "License agreement": "Lisensavtale"
+  "License agreement": "Lisensavtale",
+  "Billing": "Fakturering",
+  "Billed yearly": "Fakturert årlig",
+  "Billed monthly": "Fakturert månedlig",
+  "Per user / month, billed yearly": "Per bruker / måned, fakturert årlig",
+  "Per user / month, billed monthly": "Per bruker / måned, fakturert månedlig",
+  "No yearly commitment": "Ingen årlig binding",
+  "per user a year": "per bruker i året"
  }
 };

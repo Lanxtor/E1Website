@@ -5,7 +5,7 @@
   <ol>
     <li>Learn the <a href="#gs-layout">window layout</a> and the <a href="#gs-rail">left rail</a>.</li>
     <li>Look through the three menus: <a href="#gs-menu-file">File</a>, <a href="#gs-menu-edit">Edit</a> and <a href="#gs-menu-help">Help</a>. Everything else is where you work: on the drawing toolbar, in the right-click menus and on the buttons of each page.</li>
-    <li>Work with <a href="#gs-tabs">tabs and the path bar</a>, <a href="#gs-floating-windows">floating windows</a> and <a href="#gs-hide-panels">hiding and showing panels</a>.</li>
+    <li>Work with <a href="#gs-tabs">tabs and the path bar</a>, <a href="#gs-back-forward">Back and Forward</a>, <a href="#gs-floating-windows">floating windows</a> and <a href="#gs-hide-panels">hiding and showing panels</a>.</li>
     <li>Read the <a href="#gs-status-bar">status bar</a> and choose your <a href="#gs-appearance">appearance</a>.</li>
     <li>Learn the <a href="#gs-shortcuts">keyboard shortcuts</a>.</li>
     <li>Open the <a href="#gs-places">places</a> (Inbox, Configuration, Settings, Account) and set your <a href="#gs-settings">Settings</a>.</li>
@@ -26,7 +26,7 @@
   </dl>
   <h3>The parts of the window</h3>
   <ol>
-    <li><strong>Menu bar.</strong> The E1 logo and the word <span class="ui">E1</span>, then the menus <span class="ui">File</span>, <span class="ui">Edit</span> and <span class="ui">Help</span>.</li>
+    <li><strong>Menu bar.</strong> The E1 logo and the word <span class="ui">E1</span>, then the menus <span class="ui">File</span>, <span class="ui">Edit</span> and <span class="ui">Help</span>, and the arrows <span class="ui">Back</span> and <span class="ui">Forward</span>.</li>
     <li><strong>Left rail.</strong> Icons only: the Inbox bell, the Explorer and Alex switches, Configuration, Settings and your account.</li>
     <li><strong>Explorer.</strong> The tree of your projects. Its header shows the name of your organization and the explorer's buttons.</li>
     <li><strong>Tab strip.</strong> One tab for each open 2D space, list, object, place or page.</li>
@@ -313,6 +313,30 @@
   <p class="g-related">Related: <a href="#gs-floating-windows">Floating windows</a> · <a href="#gs-view-kept">What E1 remembers</a> · <a href="#gs-layout">The E1 window</a></p>
 </section>
 
+<section class="g-feature" id="gs-back-forward">
+  <h2>Back and Forward</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">GS-back-forward</span><span>Roadmap M0.nav</span></div>
+  <p class="g-summary">Some links open what they point at in the same tab, for example <span class="ui">Classes</span> on a content package in Configuration. <span class="ui">Back</span> takes you to where you were, and <span class="ui">Forward</span> takes you there again, as in a web browser.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Menu bar, right of <span class="ui">Help</span>: the two arrows <span class="ui">Back</span> and <span class="ui">Forward</span></dd>
+    <dt>Who</dt><dd>Everyone who can open E1</dd>
+    <dt>Before you start</dt><dd>E1 is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On the rail, open Configuration and click <span class="ui">Content and standards</span>.</td><td>The content packages are listed.</td></tr>
+      <tr><td>2</td><td>On the <span class="ui">Core</span> card, click <span class="ui">Classes</span>.</td><td>Configuration shows <span class="ui">Object classes</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Back</span> (the left arrow in the menu bar), or press <kbd>Alt+Left</kbd> (<kbd>⌘[</kbd>).</td><td><span class="ui">Content and standards</span> is shown again.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Forward</span>, or press <kbd>Alt+Right</kbd> (<kbd>⌘]</kbd>).</td><td><span class="ui">Object classes</span> is shown again.</td></tr>
+      <tr><td>5</td><td>Open two tabs one after the other, then click <span class="ui">Back</span>.</td><td>The tab you were on before is in front again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Back and Forward remember the tabs you were on and, in Configuration, the section and item. The back and forward buttons of a mouse do the same. A tab you have closed is skipped; Configuration, Settings and the other places of the rail open again. Back and Forward are kept for this window until it closes; they are greyed out when there is nowhere to go.</p>
+  <p class="g-related">Related: <a href="#gs-tabs">Tabs and the path bar</a> · <a href="#gs-shortcuts">Keyboard shortcuts</a> · <a href="guide-library.html#lib-content-packages">Content packages</a></p>
+</section>
+
 <section class="g-feature" id="gs-floating-windows">
   <h2>Floating windows</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">GS-floating-windows</span><span>Roadmap M0</span></div>
@@ -459,6 +483,8 @@
       <tr><td><kbd>Ctrl</kbd> and scroll (<kbd>⌘</kbd>)</td><td>Make the explorer or an object window larger or smaller</td></tr>
       <tr><td><kbd>Ctrl</kbd> and <kbd>+</kbd> or <kbd>−</kbd>, <kbd>Ctrl+0</kbd> in the explorer or an object window</td><td>Larger, smaller, back to 100%</td></tr>
       <tr><td><kbd>H</kbd>, <kbd>V</kbd>, or hold <kbd>Space</kbd></td><td>Pan tool, Select tool, pan while held</td></tr>
+      <tr><td><kbd>Alt+Left</kbd> (<kbd>⌘[</kbd>)</td><td>Back to where you were</td></tr>
+      <tr><td><kbd>Alt+Right</kbd> (<kbd>⌘]</kbd>)</td><td>Forward again</td></tr>
     </tbody>
   </table></div>
   <h3>Not in the dialog, but they work</h3>

@@ -7,7 +7,7 @@
   <meta name="description" content="Cabinets and junction boxes in their locations, rails, terminal strips and terminals, I/O cards and channels, cables and their cores landed on terminals, tracing a circuit from the field to the I/O channel, construction status, and cable lengths.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=141">
+  <link rel="stylesheet" href="assets/css/styles.css?v=142">
   <link rel="stylesheet" href="assets/css/guides.css?v=3">
 </head>
 <body>
@@ -344,7 +344,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New fieldbus segment…</span>. In the window <span class="ui">New fieldbus segment</span> type <code>SEG-1</code> in <span class="ui">Tag</span>, choose "FF H1 FISCO" in <span class="ui">Segment typical</span>, type <code>W-TR1</code> in <span class="ui">Trunk cable</span> and click <span class="ui">Create</span>.</td><td>SEG-1 in Assets with its limits, power conditioner PC1 and device coupler DC1 with its spur ports; its window opens on <span class="ui">Segment view</span>. Without a segment typical (<span class="ui">None: set its limits on Attributes</span>) the segment has no couplers and no limits until you type them.</td></tr>
+      <tr><td>1</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New fieldbus segment…</span>. In the window <span class="ui">New fieldbus segment</span> type <code>SEG-1</code> in <span class="ui">Tag</span>, choose "FF H1 FISCO" in <span class="ui">Segment typical</span>, choose W-TR1 in <span class="ui">Trunk cable</span> and click <span class="ui">Create</span>.</td><td>SEG-1 in Assets with its limits, power conditioner PC1 and device coupler DC1 with its spur ports; its window opens on <span class="ui">Segment view</span>. Without a segment typical (<span class="ui">None: set its limits on Attributes</span>) the segment has no couplers and no limits until you type them.</td></tr>
       <tr><td>2</td><td>Right-click FT-01 → <span class="ui">Place on segment…</span>.</td><td>The window <span class="ui">Place FT-01 on a segment</span> with <span class="ui">Segment</span> set to <span class="ui">The first that fits</span> says "It goes on SEG-1, port DC1/1." before anything changes; a device without an FF or PA signal is refused with the reason. Click <span class="ui">Place</span>: SEG-1 opens on its Segment view with FT-01 on DC1/1.</td></tr>
       <tr><td>2a</td><td>Ask Alex to place FT-02 to FT-06 on segments, first as a preview.</td><td>Four more go on SEG-1, each on a free port (DC1/2 …). FT-06 is not placed, with the reason: "SEG-1: 120 mA, over the current budget of 100 mA". <span class="ui">Place on segment…</span> on FT-06 says the same: "It fits on no segment: …".</td></tr>
       <tr><td>3</td><td>Make a second segment and place them again.</td><td>FT-06 goes on SEG-2. Devices already placed stay where they are; two devices of one redundancy group never share a segment.</td></tr>
