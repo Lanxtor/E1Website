@@ -899,10 +899,10 @@
 
 <section class="g-feature" id="prj-branch-packages">
   <h2>Branch packages</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-packages</span><span>Roadmap 16.4</span><span>Review check X5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">PRJ-branch-packages</span><span>Roadmap 16.4</span><span>Review check X5</span></div>
   <p class="g-summary">Cut part of a branch into a package of its own that can be pushed alone, such as a commissioning package.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">…</span> → <span class="ui">Package…</span></dd>
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch card → <span class="ui">Create commissioning package</span></dd>
     <dt>Who</dt><dd>The branch's members</dd>
     <dt>Before you start</dt><dd>A branch that created an area and two pumps P-201 and P-202, P-201 in that area.</dd>
   </dl>
@@ -910,11 +910,12 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">…</span> → <span class="ui">Package…</span>, tick P-201, type a name and click <span class="ui">Create package</span>.</td><td>Refused: “The package needs what the parent branch created: … Include them too.”</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Create commissioning package</span>. The name starts as the branch name with CP1 (CP2 for the next package); change it if you like. Tick P-201 and click <span class="ui">Create package</span>.</td><td>Refused: “The package needs what the parent branch created: … Include them too.”</td></tr>
       <tr><td>2</td><td>Tick the area too and click <span class="ui">Create package</span>.</td><td>A Commissioning package branch with P-201, what it owns and its drawing; its parent is the branch.</td></tr>
       <tr><td>3</td><td>Push the package to main.</td><td>Main has P-201 and the area. The parent counts from main for them: its next pull has no conflict, and its push does not repeat them.</td></tr>
     </tbody>
   </table></div>
+  <p class="g-note">Objects are listed by tag or name, never by id. Nozzles and ports are not listed: they go with the object that owns them. An object without a tag shows its class, such as “Pump (no tag)”.</p>
   <p class="g-note">A package's objects become information in the parent after its push when its type says so (Commissioning package does).</p>
   <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a></p>
 </section>
