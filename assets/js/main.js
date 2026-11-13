@@ -385,7 +385,7 @@
       lead.textContent = !signup
         ? T("Sign in to see your licenses, usage, projects and downloads.")
         : uni
-          ? T("For teaching, US$29 per student a month: 90 days as Editor from the day you join, then 90 days read-only.")
+          ? T("For teaching: Editor US$29 a month, Viewer US$9 a month, for as long as you want.")
           : T("Create your account and start your free 30-day trial, for you and your team.");
       submit.textContent = !signup ? T("Continue to sign in") : uni ? T("Continue with your university email") : T("Start your free 30-day trial");
       // Sign up: the panel next to the form, for a trial or for a university.
