@@ -36,6 +36,25 @@ module.exports = {
       await h.shot('object-tab-' + n.trim().split('\n')[0].toLowerCase().replace(/[^a-z0-9]+/g, '-'));
     }
   },
+  async deepView(h) {
+    const p = h.page; await h.open();
+    if (!(await assetsRow(p).getAttribute('aria-expanded'))?.includes('true')) await assetsRow(p).getByRole('button').first().click().catch(() => {});
+    await tree(p).getByRole('treeitem', { name: 'V3', exact: true }).click({ button: 'right' });
+    await p.getByRole('menuitem', { name: 'Open', exact: true }).click();
+    await p.getByRole('tablist', { name: 'Object views' }).getByRole('tab', { name: 'Deep view' }).click();
+    const view = p.getByRole('region', { name: 'Deep view' });
+    await view.getByRole('button', { name: 'Expand all' }).click();
+    await view.getByRole('status').filter({ hasText: 'nothing more to show' }).waitFor();
+    await view.getByRole('textbox', { name: 'Find in view' }).fill('Pump1');
+    await view.getByRole('button', { name: /^Pump1, / }).click();
+    await view.getByRole('textbox', { name: 'Find in view' }).fill('');
+    await view.getByRole('button', { name: 'Highlight route' }).click();
+    await view.getByRole('button', { name: 'Fit' }).click();
+    await p.locator('.object-window-pane').evaluate((el) => el.scrollIntoView({ block: 'start' }));
+    await p.waitForTimeout(300);
+    await h.mark(p.locator('[data-tour="deep-view-tools"]'), { pad: 4 });
+    await h.shot('object-tab-deep-view', { clip: view, pad: 6 });
+  },
   async comments(h) {
     const p = h.page; await h.open();
     await openPump(h, 'Chat');

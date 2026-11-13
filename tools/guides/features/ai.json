@@ -79,9 +79,13 @@
   "anchor": "ai-alex-trainer",
   "status": "available",
   "since": "2026-11-07",
-  "updated": "2026-11-11",
-  "roadmap": [],
-  "checks": [],
+  "updated": "2026-11-12",
+  "roadmap": [
+   "26.1"
+  ],
+  "checks": [
+   "A11"
+  ],
   "related": [
    "AI-alex",
    "GS-layout",
@@ -287,7 +291,7 @@
   "anchor": "ai-alex-knowledge",
   "status": "available",
   "since": "2026-11-06",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "roadmap": [
    "25.10"
   ],
@@ -768,29 +772,89 @@
  {
   "id": "AI-stored-assistants",
   "title": "Stored assistants",
-  "summary": "Save work as an assistant to run again, share and package.",
+  "summary": "Save what Alex did in one reply, or record what you do, as an assistant, and run it again on another selection without Alex: one change, one undo, or a preview first; repeat it for each selected object and skip a step when it is not needed. Share one with the project or the organization, and pin it on the left rail. An instruction assistant keeps what Alex should do, in your words.",
   "anchor": "ai-stored-assistants",
-  "status": "planned",
-  "updated": "2026-11-09",
+  "status": "available",
+  "updated": "2026-11-11",
   "roadmap": [
-   "17.3",
    "18.1",
    "18.2",
    "18.3",
    "18.4",
    "18.5",
-   "18.6"
+   "18.6",
+   "17.3"
   ],
-  "checks": [],
+  "checks": [
+   "Q1",
+   "Q2",
+   "Q3",
+   "Q4",
+   "Q5"
+  ],
   "related": [
    "AI-cloud-ai",
-   "AI-branch"
+   "AI-undo",
+   "AI-review-first",
+   "AI-branch",
+   "AI-package-assistants"
   ],
-  "roles": "To be decided",
+  "roles": "Saving needs Create assistants and running Run assistants (Engineer and above); each step also needs its own permission",
   "training": {
    "topic": "Stored assistants",
-   "level": "Advanced",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": [],
+  "since": "2026-11-11"
+ },
+ {
+  "id": "AI-package-assistants",
+  "title": "Assistants from content packages, other assistants and the API",
+  "summary": "Content packages bring assistants of their own, such as Plant's Describe the duty of pumps and Set design conditions, under From content packages; an assistant can run another assistant as one of its steps; and another system runs an assistant through the integration API.",
+  "anchor": "ai-package-assistants",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "18.5"
+  ],
+  "checks": [
+   "Q6"
+  ],
+  "related": [
+   "AI-stored-assistants",
+   "ORG-tokens"
+  ],
+  "roles": "Running: Run stored assistants (Engineer and above) with each step's own permission",
+  "training": {
+   "topic": "Assistants from packages",
+   "level": "Intermediate",
    "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "AI-assistant-script",
+  "title": "A script step in a stored assistant",
+  "summary": "A step that calculates values from the assistant's parameters and earlier results, with the steps of a calculation rule, for the steps after it.",
+  "anchor": "ai-assistant-script",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "18.6"
+  ],
+  "checks": [
+   "Q7"
+  ],
+  "related": [
+   "AI-package-assistants"
+  ],
+  "roles": "Whoever may make assistants",
+  "training": {
+   "topic": "Script steps",
+   "level": "Advanced",
+   "minutes": 4
   },
   "screenshots": []
  },
@@ -820,9 +884,9 @@
  {
   "id": "AI-query-sentence",
   "title": "Queries from a sentence",
-  "summary": "Type a sentence like \"all pumps without a motor\" and get the matching table.",
+  "summary": "Ask Alex for “all pumps without a motor”: Alex turns the sentence into a query (query_from_sentence), runs it (run_query) and answers with the rows; the integration API offers the same.",
   "anchor": "ai-query-sentence",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
    "05.5b"
   ],
@@ -831,12 +895,13 @@
    "LIST-new-query",
    "AI-cloud-ai"
   ],
-  "roles": "To be decided",
+  "roles": "Any project role that may view the project",
   "training": {
    "topic": "Queries from a sentence",
    "level": "Intermediate",
    "minutes": 2
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-12"
  }
 ]

@@ -3789,3 +3789,246 @@ code {
 .pricing-licenses .price { font-size: clamp(1.5rem, 2.3vw, 2rem); }
 .pricing-licenses th, .pricing-licenses td { padding-left: 8px; padding-right: 8px; }
 #roles .section-head h2 { hyphens: manual; max-width: 900px; }
+
+/* ==========================================================================
+   Home hero: the offshore platform as one model (assets/js/twin.js;
+   the drawing by tools/gen-plant-twin.py)
+   ========================================================================== */
+.hero.hero-twin { padding: 44px 0 0; }
+.hero-twin h1 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
+.hero-twin h1 em { font-style: normal; background: linear-gradient(100deg, var(--brand), var(--c-teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-lead { max-width: 900px; margin: 14px auto 0; font-size: clamp(1.02rem, 1.6vw, 1.3rem); line-height: 1.5; color: var(--text-muted); }
+.hero-lead b { color: var(--heading); font-weight: 600; }
+
+.tw { position: relative; max-width: 1240px; margin: -10px auto 0; padding: 0 24px 24px; }
+.tw-stage { position: relative; overflow: hidden; }
+.tw-stage::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(11, 42, 74, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(11, 42, 74, 0.045) 1px, transparent 1px); background-size: 32px 32px; -webkit-mask-image: radial-gradient(70% 70% at 50% 55%, #000 40%, transparent 85%); mask-image: radial-gradient(70% 70% at 50% 55%, #000 40%, transparent 85%); }
+.tw-canvas { position: relative; }
+.tw-svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* 1. engineering: parts are lowered into place one after another */
+.tw-part { opacity: 0; transform: translate(0, -70px); transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.tw-water { transform: none; }
+.tw-water path { stroke-opacity: 0.5; }
+.tw-part.is-up { opacity: 1; transform: none; }
+/* once the engineers are at work, the placed parts step back behind their cards */
+.tw.is-run .tw-part.is-set { opacity: 0.5; }
+
+/* 2. the engineers: a mark on the equipment, a line, and their card */
+.tw-people { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+.tw-who { --c: var(--brand); }
+.tw-who[data-d="process"] { --c: #0f8a78; }
+.tw-who[data-d="instrumentation"] { --c: #1565c0; }
+.tw-who[data-d="electrical"] { --c: #b8860b; }
+.tw-who[data-d="automation"] { --c: #8e44ad; }
+.tw-who[data-d="maintenance"] { --c: #c45a12; }
+.tw-dot { position: absolute; left: var(--x); top: var(--y); width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px #fff; opacity: 0; transition: opacity 0.4s; }
+.tw-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--c); animation: tw-ping 1.8s ease-out infinite; }
+@keyframes tw-ping { from { transform: scale(0.7); opacity: 1; } to { transform: scale(2.6); opacity: 0; } }
+.tw-card { position: absolute; z-index: 2; display: grid; grid-template-columns: 48px minmax(0, 1fr) 96px; align-items: center; gap: 12px; width: 370px; padding: 12px 14px 12px 12px; border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: 14px; background: rgba(255, 255, 255, 0.97); box-shadow: 0 18px 36px -22px rgba(11, 42, 74, 0.5); opacity: 0; transform: translateY(10px) scale(0.97); transition: opacity 0.4s, transform 0.5s cubic-bezier(0.2, 1.3, 0.4, 1), box-shadow 0.4s; }
+.tw-card img { width: 48px; height: 48px; border-radius: 50%; background: color-mix(in srgb, var(--c) 12%, #fff); box-shadow: inset 0 0 0 2px var(--c); }
+.tw-card-text { display: grid; gap: 1px; min-width: 0; line-height: 1.3; text-align: left; }
+.tw-card-text b { font-size: 0.95rem; color: var(--c); }
+.tw-card-text span { font-size: 0.86rem; font-weight: 600; color: var(--heading); }
+.tw-card-text small { font-size: 0.74rem; color: var(--text-muted); }
+.tw-thumb { width: 96px; height: 64px; color: var(--c); }
+.tw-who.is-on .tw-dot, .tw-who.is-on .tw-card { opacity: 1; }
+.tw-who.is-on .tw-card { transform: none; }
+.tw-who.is-cur .tw-card { box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 22%, transparent), 0 22px 40px -22px rgba(11, 42, 74, 0.6); }
+.tw-leads { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.tw-leads line { stroke-width: 1.6; stroke-dasharray: 4 4; opacity: 0; transition: opacity 0.5s; }
+.tw-leads line[data-d="process"] { stroke: #0f8a78; }
+.tw-leads line[data-d="instrumentation"] { stroke: #1565c0; }
+.tw-leads line[data-d="electrical"] { stroke: #b8860b; }
+.tw-leads line[data-d="automation"] { stroke: #8e44ad; }
+.tw-leads line[data-d="maintenance"] { stroke: #c45a12; }
+.tw-leads line.is-on { opacity: 0.9; }
+.tw:not(.is-run) .tw-who .tw-dot, .tw:not(.is-run) .tw-who .tw-card, .tw:not(.is-run) .tw-leads line { opacity: 0; transition: none; }
+
+@media (max-width: 1100px) {
+  .tw-card { width: 300px; grid-template-columns: 40px minmax(0, 1fr) 72px; gap: 9px; padding: 9px 10px; }
+  .tw-card img { width: 40px; height: 40px; }
+  .tw-thumb { width: 72px; height: 48px; }
+  .tw-card-text b { font-size: 0.85rem; } .tw-card-text span { font-size: 0.78rem; }
+}
+/* phones: the platform larger and cropped, one card at a time under the drawing */
+@media (max-width: 700px) {
+  .hero.hero-twin { padding-top: 24px; }
+  .hero-twin h1 { font-size: 2rem; }
+  .hero-lead { font-size: 0.98rem; }
+  .tw { margin-top: 8px; padding: 0 0 20px; }
+  .tw-stage { overflow: visible; }
+  .tw-canvas { width: 170%; margin-left: -22%; }
+  .tw-stage { overflow: hidden; padding-bottom: 104px; }
+  .tw-leads { display: none; }
+  .tw-dot { width: 18px; height: 18px; margin: -9px 0 0 -9px; }
+  .tw-card { left: 42.35% !important; top: auto !important; bottom: -100px; width: min(360px, calc(100vw - 32px)); margin-left: calc(min(360px, calc(100vw - 32px)) / -2); grid-template-columns: 44px minmax(0, 1fr) 80px; }
+  /* one card at a time in the same place: the last one leaves before the next arrives */
+  .tw-card { visibility: hidden; transition: opacity 0.25s, transform 0.5s cubic-bezier(0.2, 1.3, 0.4, 1), box-shadow 0.4s, visibility 0s 0.25s; }
+  .tw-who.is-cur .tw-card { visibility: visible; transition-delay: 0.35s, 0.35s, 0s, 0s; }
+  .tw-who.is-on:not(.is-cur) .tw-card { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* less motion: the same story told with fades only, nothing moves */
+  .tw-part, .tw-part.is-up { transform: none; transition: opacity 0.6s ease; }
+  .tw-card, .tw-who.is-on .tw-card, .tw-upd { transform: none; transition: opacity 0.4s, box-shadow 0.4s; }
+  .tw-dot::after { animation: none; }
+}
+.tw-card-text b, .tw-card-text span { overflow-wrap: anywhere; hyphens: auto; }
+.tw-card { width: 380px; }
+@media (max-width: 1100px) { .tw-card { width: 300px; } }
+@media (max-width: 700px) { .tw-card { width: min(360px, calc(100vw - 32px)); } }
+
+/* The change reaches everyone: a wave from the engineer's mark (twin.js) */
+.tw-waves { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.tw-wave { position: absolute; border-radius: 50%; border: 3px solid var(--c, #3faa69); background: radial-gradient(closest-side, transparent 82%, color-mix(in srgb, var(--c, #3faa69) 14%, transparent) 96%, transparent 100%); transform: scale(0.02); opacity: 0.9; animation: tw-wave 2.6s cubic-bezier(0.3, 0.45, 0.5, 1) forwards; }
+.tw-wave[data-d="process"] { --c: #0f8a78; }
+.tw-wave[data-d="instrumentation"] { --c: #1565c0; }
+.tw-wave[data-d="electrical"] { --c: #b8860b; }
+.tw-wave[data-d="automation"] { --c: #8e44ad; }
+.tw-wave[data-d="maintenance"] { --c: #c45a12; }
+@keyframes tw-wave { 0% { transform: scale(0.02); opacity: 0.95; } 70% { opacity: 0.55; } 100% { transform: scale(1); opacity: 0; } }
+.tw-upd { position: absolute; top: -12px; right: 12px; padding: 2px 9px 2px 7px; border-radius: 99px; background: #1f7a45; color: #fff; font-size: 0.68rem; font-style: normal; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0; transform: translateY(4px); transition: opacity 0.25s, transform 0.3s; }
+.tw-upd::before { content: "\2713\00a0"; }
+.tw-who.is-upd .tw-upd { opacity: 1; transform: none; }
+.tw-who.is-upd .tw-card { box-shadow: 0 0 0 3px rgba(63, 170, 105, 0.45), 0 18px 36px -22px rgba(11, 42, 74, 0.5); }
+.tw-who.is-upd .tw-dot { box-shadow: 0 0 0 3px #fff, 0 0 0 7px rgba(63, 170, 105, 0.6); }
+@media (max-width: 700px) { .tw-upd { display: none; } }
+@media (prefers-reduced-motion: reduce) { .tw-wave { display: none; } }
+
+/* About us: the founder as a half-body portrait with the text beside it;
+   the team and its map as the second row. */
+.about-people { grid-template-columns: 1fr; gap: 88px; }
+.founder-profile { display: grid; grid-template-columns: minmax(240px, 340px) minmax(0, 520px); gap: 48px; align-items: center; margin-top: 28px; }
+.founder-photo { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; }
+.founder-profile h3 { margin-top: 0; font-size: 1.6rem; }
+.founder-profile .founder-lines { margin-top: 20px; font-size: 1rem; }
+.about-team { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 48px; align-items: center; }
+.about-team > h2 { grid-column: 1; align-self: end; }
+.about-team > p { grid-column: 1; align-self: start; margin-top: 0; }
+.about-team .team-map { grid-column: 2; grid-row: 1 / span 2; margin: 0; max-width: 760px; }
+@media (max-width: 960px) {
+  .about-people { gap: 64px; }
+  .founder-profile { grid-template-columns: 1fr; gap: 28px; }
+  .founder-photo { width: 100%; max-width: 340px; height: auto; border-radius: 20px; }
+  .about-team { grid-template-columns: 1fr; gap: 12px; }
+  .about-team > h2, .about-team > p, .about-team .team-map { grid-column: 1; grid-row: auto; }
+  .about-team .team-map { margin-top: 28px; }
+}
+.about-team { row-gap: 14px; }
+@media (max-width: 640px) { .founder-photo { max-width: 240px; } }
+
+/* Home: the three pillars under the headline, and calmer spacing around the plant */
+.hero-pillars { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; margin: 22px auto 0; padding: 0; }
+.hero-pillars span { position: relative; padding: 4px 28px; font-size: clamp(1.15rem, 2.1vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; color: var(--heading); }
+.hero-pillars span + span::before { content: ""; position: absolute; left: 0; top: 18%; bottom: 18%; width: 1.5px; background: linear-gradient(180deg, transparent, #cfd4db 30%, #cfd4db 70%, transparent); }
+.hero-pillars span::after { content: ""; display: block; width: 28px; height: 3px; margin: 8px auto 0; border-radius: 3px; background: linear-gradient(90deg, var(--brand), var(--c-teal)); }
+.hero-twin .tw { margin-top: 40px; padding-bottom: 0; }
+.hero.hero-twin + .section, #see-it-work { padding-top: 56px; }
+@media (max-width: 700px) {
+  .hero-pillars { margin-top: 16px; }
+  .hero-pillars span { padding: 4px 14px; font-size: 1rem; }
+  .hero-pillars span::after { width: 20px; margin-top: 6px; }
+  .hero-twin .tw { margin-top: 20px; }
+  #see-it-work { padding-top: 40px; }
+}
+@media (max-width: 700px) { .hero-pillars { flex-wrap: nowrap; } .hero-pillars span { padding: 4px 9px; font-size: 0.86rem; white-space: nowrap; } }
+@media (max-width: 360px) { .hero-pillars span { padding: 4px 6px; font-size: 0.78rem; } }
+/* Price table: rows grouped under small headings */
+.pricing tbody tr.pricing-group th { padding: 28px 8px 8px; border-top: 0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand); text-align: left; }
+.pricing tbody tr.pricing-group + tr th, .pricing tbody tr.pricing-group + tr td { border-top: 1px solid var(--line); }
+.pricing tbody tr.pricing-group:first-child th { padding-top: 12px; }
+
+/* Pricing: the plan names and prices stay in view while the features scroll by.
+   Wide screens: the row sticks under the site header. Narrower screens, where
+   the table scrolls sideways: the table scrolls in its own box, row on top. */
+.pricing thead th { position: sticky; top: var(--header-h); z-index: 2; background: #fff; box-shadow: inset 0 -1px 0 var(--line); }
+@media (min-width: 1000px) { .pricing-scroll { overflow: visible; } }
+@media (max-width: 999px) {
+  .pricing-scroll { overflow: auto; max-height: calc(100svh - var(--header-h) - 24px); }
+  .pricing thead th { top: 0; }
+}
+@media (max-width: 640px) { .pricing thead th:first-child { z-index: 3; } }
+/* phones: no gap left of the sticky feature column for the cells to show through */
+@media (max-width: 640px) {
+  .pricing-scroll { padding: 0; scroll-padding-left: 170px; }
+  .pricing tbody th, .pricing thead th:first-child { width: 170px; min-width: 170px; max-width: 170px; padding-left: 20px; }
+}
+@media (max-width: 380px) {
+  .pricing-scroll { padding: 0; scroll-padding-left: 166px; }
+  .pricing tbody th, .pricing thead th:first-child { width: 166px; min-width: 166px; max-width: 166px; padding-left: 16px; }
+}
+
+/* Join us: the full width for the text, and how to apply stands out */
+.roles-head { max-width: none; }
+.roles-apply { display: inline-block; margin-top: 20px !important; padding: 14px 22px; border: 1px solid color-mix(in srgb, var(--brand) 30%, transparent); border-radius: 14px; background: color-mix(in srgb, var(--brand) 7%, #fff); color: var(--heading) !important; font-size: 1.2rem !important; font-weight: 600; }
+.roles-apply a { color: var(--brand); font-weight: 700; white-space: nowrap; }
+#roles .role-list { gap: 28px; }
+#roles .role-list li { display: block; }
+#roles .role-list p { max-width: none; }
+
+/* Get E1: shortcuts to the topics of the page. The bar sticks under the site
+   header; once stuck it is slimmer and marks the section in view (jump.js). */
+.getE1-page { --jump-h: 66px; }
+.page-jump-bar { position: sticky; top: var(--header-h); z-index: 40; margin-top: -8px; padding: 8px 0; pointer-events: none; }
+.page-jump { pointer-events: auto; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: 1180px; margin: 0 auto; padding: 5px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 255, 255, 0.94); box-shadow: 0 18px 40px -30px rgba(11, 42, 74, 0.55); -webkit-backdrop-filter: saturate(180%) blur(12px); backdrop-filter: saturate(180%) blur(12px); transition: box-shadow 0.25s, border-radius 0.25s; }
+.jump-card { position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 0; padding: 8px 10px; border-radius: 13px; color: var(--heading); text-decoration: none; transition: background 0.2s ease, color 0.2s ease; }
+.jump-card + .jump-card::before { content: ""; position: absolute; left: 0; top: 26%; bottom: 26%; width: 1px; background: var(--line); }
+.jump-card:hover, .jump-card:focus-visible { background: color-mix(in srgb, var(--brand) 7%, #fff); }
+.jump-card:hover::before, .jump-card:hover + .jump-card::before, .jump-card.is-active::before, .jump-card.is-active + .jump-card::before { opacity: 0; }
+.jump-icon { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px; background: color-mix(in srgb, var(--brand) 10%, #fff); color: var(--brand); transition: background 0.2s, color 0.2s, width 0.25s, height 0.25s; }
+.jump-icon svg { width: 20px; height: 20px; }
+.jump-card:hover .jump-icon, .jump-card:focus-visible .jump-icon, .jump-card.is-active .jump-icon { background: var(--brand); color: #fff; }
+.jump-card.is-active { background: color-mix(in srgb, var(--brand) 9%, #fff); }
+.jump-text { display: grid; gap: 1px; min-width: 0; line-height: 1.2; text-align: left; }
+.jump-text b { font-size: 0.94rem; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jump-text small { font-size: 0.76rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity 0.2s; }
+.jump-arrow { display: none; }
+/* stuck: one slim line, on white so nothing shows through around it */
+.page-jump-bar.is-stuck { background: linear-gradient(rgba(255, 255, 255, 0.96) 72%, rgba(255, 255, 255, 0)); }
+.page-jump-bar.is-stuck .page-jump { border-radius: 14px; box-shadow: 0 14px 30px -20px rgba(11, 42, 74, 0.5); }
+.page-jump-bar.is-stuck .jump-card { padding: 5px 10px; }
+.page-jump-bar.is-stuck .jump-icon { width: 28px; height: 28px; border-radius: 9px; }
+.page-jump-bar.is-stuck .jump-icon svg { width: 17px; height: 17px; }
+.page-jump-bar.is-stuck .jump-text small { display: none; }
+.getE1-page section[id] { scroll-margin-top: calc(var(--header-h) + var(--jump-h) + 8px); }
+/* the price table's plan row sits under the bar */
+@media (min-width: 1000px) { .getE1-page .pricing thead th { top: calc(var(--header-h) + var(--jump-h)); } }
+@media (max-width: 999px) { .getE1-page .pricing-scroll { max-height: calc(100svh - var(--header-h) - var(--jump-h) - 16px); } }
+@media (max-width: 1100px) { .jump-text small { display: none; } .getE1-page { --jump-h: 58px; } }
+/* phones: a row of chips to swipe */
+@media (max-width: 760px) {
+  .getE1-page { --jump-h: 52px; }
+  .page-jump-bar .container { padding: 0; }
+  .page-jump { display: flex; gap: 4px; overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: 0 12px; padding: 4px; border-radius: 14px; }
+  .page-jump::-webkit-scrollbar { display: none; }
+  .jump-card { flex: none; scroll-snap-align: start; gap: 7px; padding: 5px 10px 5px 5px; }
+  .jump-card + .jump-card::before { display: none; }
+  .jump-icon, .page-jump-bar.is-stuck .jump-icon { width: 28px; height: 28px; border-radius: 9px; }
+  .jump-icon svg, .page-jump-bar.is-stuck .jump-icon svg { width: 17px; height: 17px; }
+  .jump-text b { font-size: 0.86rem; }
+}
+@media (prefers-reduced-motion: reduce) { .page-jump, .jump-icon, .jump-card { transition: none; } }
+
+/* Sign up: for my company or for teaching at a university, with the university email checked as it is typed */
+.signup-kind[hidden], .uni-check[hidden] { display: none; }
+.signup-kind { display: grid; gap: 14px; margin: -8px 0 20px; }
+.kind-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kind-switch button { min-height: 44px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--text-muted); font: inherit; font-size: 0.86rem; line-height: 1.25; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; }
+.kind-switch button[aria-checked="true"] { border-color: var(--brand); background: color-mix(in srgb, var(--brand) 7%, #fff); color: var(--heading); font-weight: 600; }
+.uni-check { display: grid; gap: 6px; }
+.uni-check label { font-size: 0.88rem; font-weight: 500; }
+.uni-check input { height: 44px; padding: 0 14px; border: 1px solid transparent; border-radius: var(--radius-sm); background: var(--bg-soft); font: inherit; font-size: 16px; transition: border-color 0.2s; }
+.uni-check input:focus { outline: none; border-color: var(--accent); }
+.uni-result { min-height: 1.4em; margin: 2px 0 0; font-size: 0.86rem; line-height: 1.45; color: var(--text-muted); }
+.uni-result.is-ok { color: #1f7a45; }
+.uni-result.is-wait { color: #8a5a00; }
+.uni-result.is-bad { color: #b42318; }
+.auth-box .btn.is-disabled { opacity: 0.45; pointer-events: none; }
+.uni-timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
+.uni-timeline li { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; background: rgba(255, 255, 255, 0.05); }
+.uni-timeline li:first-child { border-color: rgba(255, 255, 255, 0.35); background: rgba(21, 101, 192, 0.35); }
+.uni-timeline b { color: #fff; font-size: 1.1rem; }
+.uni-timeline span { color: rgba(255, 255, 255, 0.72); font-size: 0.84rem; line-height: 1.4; }
+.uni-promo a { color: #fff; text-decoration: underline; }
+@media (max-width: 640px) { .uni-timeline { grid-template-columns: 1fr; } }

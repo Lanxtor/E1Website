@@ -103,8 +103,8 @@
 
 <section class="g-feature" id="ai-alex-trainer">
   <h2>E1 Guide: Alex shows you how, where you are</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-11</span><span class="g-id">AI-alex-trainer</span></div>
-  <p class="g-summary">Alex has a second mode, E1 Guide. Instead of reviewing your drawing, Alex offers short lessons for the place you are in, for example in Configuration → Object classes: look up a class, add a new class, give a class more attributes. A lesson shows a bubble on the real button, tells you what it is for and what to click, and goes on one bubble at a time. Above all, the bubbles teach what you cannot see on screen: double-clicks, right-click menus, dragging, keys and the order of the steps, each shown as a badge. Every bubble links to the matching section of this guide.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-12</span><span class="g-id">AI-alex-trainer</span></div>
+  <p class="g-summary">Alex has a second mode, E1 Guide. Instead of reviewing your drawing, Alex offers short lessons for the place you are in, for example in Configuration → Object classes: look up a class, add a new class, give a class more attributes. A lesson shows a bubble on the real button, tells you what it is for and what to click, and goes on one bubble at a time. Above all, the bubbles teach what you cannot see on screen: double-clicks, right-click menus, dragging, keys and the order of the steps, each shown as a badge. Every bubble links to the matching section of this guide. To learn something of another place, search for it, or open <span class="ui">All topics</span> to see every lesson of E1 by topic; Alex asks before taking you there.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Alex</span> → <span class="ui">E1 Guide</span>, or <span class="ui">Help</span> → <span class="ui">Alex E1 Guide</span></dd>
     <dt>Who</dt><dd>Everyone; a lesson can be taken as often as you like</dd>
@@ -121,9 +121,13 @@
       <tr><td>5</td><td>Click <span class="ui">Next</span>, then set <span class="ui">New</span> to <span class="ui">Class</span>.</td><td>The lesson goes on by itself to <span class="ui">Name</span> ("4 / 8").</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Back</span>, then <span class="ui">End tour</span> (or press Esc while the bubble has the focus).</td><td>The bubble goes back one step; End tour closes it.</td></tr>
       <tr><td>7</td><td>Open a 2D space and start <span class="ui">Place a symbol</span>. Click <span class="ui">Object</span>, then follow the bubbles.</td><td>The bubbles show what you cannot see on screen, each with a badge: <span class="ui">DOUBLE-CLICK</span> on a symbol adds it at once; two clicks on the 2D space set its inlet and outlet; the key <kbd>F</kbd> flips it; <kbd>Esc</kbd> or a right-click stops placing. After <span class="ui">Finish</span> the lesson is offered as before: nothing is recorded about who took it.</td></tr>
+      <tr><td>8</td><td>On the 2D space, type <kbd>cause and effect</kbd> in <span class="ui">Search what you want to learn…</span>.</td><td>"8 lessons for “cause and effect”", the closest first: <span class="ui">The cause and effect matrix of a unit</span>, marked "In: An object page or a project or folder" because it is not learned on a 2D space.</td></tr>
+      <tr><td>9</td><td>Click it.</td><td>Alex asks: "Leave this place (a P&amp;ID sheet) and go to an object page? The lesson starts there." <span class="ui">Stay here</span> keeps the 2D space.</td></tr>
+      <tr><td>10</td><td>Click it again, then <span class="ui">Go there</span>.</td><td>An object page of the project opens, Alex reads <span class="ui">Here: An object page</span>, and the lesson's first bubble shows.</td></tr>
+      <tr><td>11</td><td>Clear the search and click <span class="ui">All topics</span>.</td><td>Every lesson of E1, under the topics of this guide: Getting started, Drawing P&amp;IDs, Cause and effect, safety functions, alarms, and the others. A lesson of another place says where it is learned. Click <span class="ui">All topics</span> again for the lessons of where you are.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">A bubble whose button is not on screen (it shows only in some cases) says so in the middle of the window; press Next to go on. Lessons that wait for a click show Skip instead of Next.</p>
+  <p class="g-note">A bubble whose button is not on screen (it shows only in some cases) says so in the middle of the window; press Next to go on. Lessons that wait for a click show Skip instead of Next. A lesson that needs a project, a 2D space or an object opens it in the project of what you selected (else the first project); without one, Alex says what to open first.</p>
   <p class="g-related">Related: <a href="#ai-alex">Alex</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
 </section>
 
@@ -353,7 +357,7 @@
 
 <section class="g-feature" id="ai-alex-knowledge">
   <h2>Teach Alex your company's conventions (Alex knowledge)</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-09</span><span class="g-id">AI-alex-knowledge</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-12</span><span class="g-id">AI-alex-knowledge</span></div>
   <p class="g-summary">Upload your company's engineering standards and Alex proposes the rules it finds in them, such as a velocity limit for pump suction lines. Once an approver accepts a rule, Alex checks every drawing against it and quotes the clause on its card.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Configuration (left rail) → group Engineering → <span class="ui">Alex knowledge</span>: cards <span class="ui">Add a document</span>, <span class="ui">Documents</span>, <span class="ui">Conventions</span>, <span class="ui">Team memory</span></dd>
@@ -364,9 +368,9 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open Configuration and click <span class="ui">Alex knowledge</span>.</td><td>The four cards are shown. Without the permission, <span class="ui">Add a document</span> says "Adding documents needs the permission to manage Alex’s knowledge …".</td></tr>
-      <tr><td>2</td><td>In <span class="ui">Document</span>, choose a text file with "5.1 Pump suction … Pump suction lines shall not exceed a velocity of 1.0 m/s." and "Fuel gas control valves shall fail closed." Leave <span class="ui">Also let a language model review it</span> unticked.</td><td>The note under the box reads "Off: the document stays in E1. Alex reads it locally, with no cloud AI."</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Upload</span>.</td><td>The button shows "Reading…", then the status says "2 conventions proposed". The document is listed with its clauses and "0 accepted, 2 to review".</td></tr>
+      <tr><td>1</td><td>Open Configuration and click <span class="ui">Alex knowledge</span>.</td><td>The <span class="ui">Projects</span> pane is between the section list and the section, with the open project ticked; the cards list the documents and conventions for all projects and for the ticked ones. The four cards are shown. Without the permission, <span class="ui">Add a document</span> says "Adding documents needs the permission to manage Alex’s knowledge …".</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Document</span>, choose a text file with "5.1 Pump suction … Pump suction lines shall not exceed a velocity of 1.0 m/s." and "Fuel gas control valves shall fail closed." Choose <span class="ui">For projects</span>: <em>All projects (the whole company)</em>, or, with a project's name clicked in the <span class="ui">Projects</span> pane, <em>Only</em> that project, for a standard that only one project follows. Leave <span class="ui">Also let a language model review it</span> unticked.</td><td>The note under the box reads "Off: the document stays in E1. Alex reads it locally, with no cloud AI."</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Upload</span>.</td><td>The button shows "Reading…", then the status says "2 conventions proposed". The document is listed with "For All projects" (or the projects' names), its clauses and "0 accepted, 2 to review". Its conventions apply only to the projects it is for: Alex's review of a 2D space of another project does not use them.</td></tr>
       <tr><td>4</td><td>In <span class="ui">Conventions</span>, tab <span class="ui">Proposed (2)</span>, find "Pump suction lines: at most 1 m/s".</td><td>Its source reads "From ‹file› §5.1".</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Accept</span>, then the tab <span class="ui">Accepted</span>.</td><td>The convention is listed as accepted.</td></tr>
       <tr><td>6</td><td>On a 2D space with Alex on, fill the pump inlet line data (Cooling water, liquid, 9 m³/h, 3, 20, DN 50) and click <span class="ui">Save</span>.</td><td>A velocity warning appears with the badge <span class="ui">Company convention</span>. Opened, it says "Company convention from ‹file› §5.1" and quotes the sentence. At about 1.15 m/s it passes general practice but fails your limit.</td></tr>
@@ -827,16 +831,116 @@
 
 <section class="g-feature" id="ai-stored-assistants">
   <h2>Stored assistants</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span>Updated 2026-11-09</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 17.3, 18.1–18.6</span></div>
-  <p class="g-summary">Save a piece of work Alex did with its AI help, or one you did by hand, as an assistant you can run again, share and package.</p>
-  <p class="g-dev">On the roadmap, not started: stored assistants save and run (18.1), record by hand and repeat (18.2), sharing (18.3), instruction assistants (18.4), assistants in content packages and from the API (18.5), a script step (18.6), and stored assistants in a branch (17.3).</p>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">AI-stored-assistants</span><span>Roadmap 18.1–18.6, 17.3</span><span>Review checks Q1, Q2, Q3, Q4, Q5</span></div>
+  <p class="g-summary">Save what Alex did in one reply as an assistant: its steps, in order, with what you had selected and the project as parameters. Run it again on another selection without Alex, as one change that one undo takes back, or as a preview first.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Under a reply that changed something → <span class="ui">Save as assistant</span>; the left rail → <span class="ui">Assistants</span></dd>
+    <dt>Who</dt><dd>Saving needs Create assistants and running Run assistants (Engineer and above). Each step also needs its own permission: a step you may not do stops the run before anything changes.</dd>
+    <dt>Before you start</dt><dd>Alex changed something in one reply, for example added a valve to the selected folder and described it.</dd>
+  </dl>
+  <h3>Save a reply as an assistant</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Under the reply, click <span class="ui">Save as assistant</span>.</td><td>Alex notes “Saved as the assistant …, with 2 steps.” and <span class="ui">Assistants</span> opens on it.</td></tr>
+      <tr><td>2</td><td>Read its <span class="ui">Steps</span>.</td><td>Each step is one sentence, for example “Create object: with the selected object (selected), the current project (project)”; open one to see its command and input.</td></tr>
+      <tr><td>3</td><td>Check its <span class="ui">Parameters</span>.</td><td>What you had selected became <em>selected</em> (The selection) and the project <em>project</em> (The current project). An object a step made and a later step used is taken from that step's result. Change a parameter's <span class="ui">Comes from</span> to <em>Asked when it runs</em> or <em>Always this value</em>, or its label, and click <span class="ui">Save</span>: a new version.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Record by hand</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Assistants</span>, click <span class="ui">Record</span>.</td><td>It reads <em>● Recording: 0 steps</em>, and the Assistants button on the left rail shows ●.</td></tr>
+      <tr><td>2</td><td>Select an object and make your changes, for example its description.</td><td>Each change is kept as a step with what it changed; opening tabs and selecting are not steps.</td></tr>
+      <tr><td>3</td><td>Back in <span class="ui">Assistants</span>, click <span class="ui">Stop</span>.</td><td>A new assistant <em>Recorded …</em> opens with the steps, and what you had selected as the parameter <em>selected</em>.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Repeat and skip</h3>
   <ul>
-    <li>Save a successful request to Alex as an assistant and run it on another 2D space or project.</li>
-    <li>Record steps you do by hand and repeat them.</li>
-    <li>Share assistants with colleagues and ship them in content packages.</li>
+    <li><span class="ui">For each selected object</span> on a selection parameter repeats the steps that use it once per selected object; the steps then read “For each of the selected object (item)”.</li>
+    <li>Open a step and choose <span class="ui">Skip if the object already has a value</span> and the attribute: a step whose condition holds is reported <em>Skipped</em> with the reason.</li>
+    <li>A repeat stops at the first object that fails and keeps nothing; tick <span class="ui">Keep the ones that succeed when one fails</span> to keep the objects that went through, and the failed one is reported.</li>
+    <li><span class="ui">Propose parameters</span> suggests recorded values (an object, a number) to ask for when it runs; <span class="ui">Make parameter</span> takes one.</li>
   </ul>
-  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-branch">Alex in your branch</a></p>
+  <h3>Instruction assistants</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Assistants</span>, click <span class="ui">New instruction assistant…</span> and type what Alex should do, for example “Write a short description for the selected object.”.</td><td>It opens with its <span class="ui">Instruction</span> and <span class="ui">What Alex may use</span> (area:attributes, area:objects, area:query: commands, or areas of them).</td></tr>
+      <tr><td>2</td><td>Select an object and click <span class="ui">Preview</span>.</td><td>Alex follows the instruction with its AI help and only those tools. The report quotes Alex, and the change waits for <span class="ui">Apply</span> or <span class="ui">Discard</span>; an instruction assistant never changes anything without your review.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">With Alex's AI help off, instruction assistants are not offered. A recorded assistant runs without the model; an instruction assistant needs it.</p>
+  <h3>Share and pin</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open one of <span class="ui">My assistants</span> and click <span class="ui">Share with the project…</span>.</td><td>It says a project approver decides.</td></tr>
+      <tr><td>2</td><td>As a lead engineer or the project's administrator, open <span class="ui">Assistants</span>.</td><td><span class="ui">Share requests</span> lists who asks, the name and the steps in plain language, with <span class="ui">Approve</span> and <span class="ui">Refuse</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Approve</span>.</td><td>It is under <span class="ui">This project</span> for everyone in the project. Each member runs it with their own permissions: a step they may not do stops it before anything changes.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Pin</span>.</td><td>A shortcut with its first letters is on the left rail and opens it. A lead's <span class="ui">Recommend to the project</span> pins it for every member, who can <span class="ui">Hide recommendation</span>.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Submit to the company library…</span> and confirm.</td><td>It is in the company library draft. Once a library administrator publishes it in Configuration → Company library, it is under <span class="ui">Organization</span> in every project, at the project's library pin. It changes only there; <span class="ui">Copy to mine</span> makes your own copy to change.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Alex can ask to share an assistant, but never approves a share or submits one to the company library.</p>
+  <h3>Run it</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select another folder in the explorer, open <span class="ui">Assistants</span>, open the assistant and click <span class="ui">Run</span>.</td><td>Every step is checked first. Then the report lists each step as <em>Done</em>, and the valve is in the folder you selected. Without a selection it says “Select the selected object first”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Undo</span>.</td><td>Everything the run changed is back as it was, in one step. The run is also one entry in History, labelled with the assistant and who ran it.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Preview</span>.</td><td>The report says what would change and that nothing is changed until <span class="ui">Apply</span>; <span class="ui">Discard</span> keeps nothing.</td></tr>
+      <tr><td>4</td><td>Ask Alex “run my isolation valve assistant”.</td><td>Alex runs it without its AI choosing the steps; the change waits for you to <span class="ui">Apply</span> it, like every change Alex holds for review.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">If a step fails (a value it cannot set, a permission you lack), the run stops and nothing of it is kept; the report names the step and why.</p>
+  <p class="g-note">An assistant whose steps use a class, attribute or relationship type the project's library no longer has (after its library pin or content packages change) shows <span class="ui">Needs update</span>; open it for the reasons. Record it again with what the library has now.</p>
+  <p class="g-warn">Not built yet: assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
+  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
+</section>
+
+<section class="g-feature" id="ai-package-assistants">
+  <h2>Assistants from content packages, other assistants and the API</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">AI-package-assistants</span><span>Roadmap 18.5</span><span>Review checks Q6</span></div>
+  <p class="g-summary">Content packages bring assistants of their own, such as Plant's Describe the duty of pumps and Set design conditions, under From content packages; an assistant can run another assistant as one of its steps; and another system runs an assistant through the integration API.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Assistants</span> on the left rail → <span class="ui">From content packages</span>; the integration API</dd>
+    <dt>Who</dt><dd>Run stored assistants (Engineer and above), with each step's own permission</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Assistants</span>.</td><td><span class="ui">From content packages</span> lists <em>Describe the duty of pumps</em> and <em>Set design conditions</em>, marked <em>plant</em>: they come with the project's library version.</td></tr>
+      <tr><td>2</td><td>Select two pumps, open <em>Describe the duty of pumps</em>, type <em>Feed water, duty</em> as the Duty and click <span class="ui">Run</span>.</td><td>Both pumps' descriptions say <em>Feed water, duty</em>, as one change; <span class="ui">Undo</span> takes it back.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Copy to mine</span>.</td><td>A copy is under <span class="ui">My assistants</span> to change; the package's own has no Save or Delete.</td></tr>
+      <tr><td>4</td><td>Ask Alex to make an assistant whose step runs <em>Describe the duty of pumps</em> with the duty <em>Standby</em>, and run it.</td><td>The step reads <em>Run the assistant plant.assistant.pump-duty</em>; running it runs that assistant's steps with its values. An assistant never runs itself, and at most three deep.</td></tr>
+      <tr><td>5</td><td>With an API token, <code>GET /api/v1/projects/{id}/assistants</code>, then <code>POST /api/v1/projects/{id}/assistants/plant.assistant.pump-duty/run</code> with <code>{ "values": { "pumps": [ids], "duty": "Cooling water" } }</code>.</td><td>The list, then a run as the token's owner: <code>{ "status": "applied", "report": … }</code>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#ai-stored-assistants">Stored assistants</a> · <a href="guide-organization.html#org-tokens">API tokens</a></p>
+</section>
+
+<section class="g-feature" id="ai-assistant-script">
+  <h2>A script step in a stored assistant</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">AI-assistant-script</span><span>Roadmap 18.6</span><span>Review check Q7</span></div>
+  <p class="g-summary">A step that calculates values from the assistant's parameters and earlier results, with the steps of a calculation rule, for the steps after it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Assistants</span> → an assistant → <span class="ui">Add script step</span></dd>
+    <dt>Who</dt><dd>Whoever may make assistants</dd>
+    <dt>Before you start</dt><dd>An assistant that creates a valve, with the parameters Design flow (flow) and Unit number (unit).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Add script step</span>.</td><td>A script step first, its inputs the parameters.</td></tr>
+      <tr><td>2</td><td>Write its steps: <code>{ "calculate": "flow * 1.1", "as": "design" }</code>, a <code>choose</code> of DN 150 above 100 m³/h else DN 80 as <code>size</code>, and <code>{ "compose": "XV-{unit}01", "as": "tag" }</code>.</td><td>The step reads “Calculate design, size, tag”.</td></tr>
+      <tr><td>3</td><td>In the valve step use <code>{s1c.result.tag}</code>; <span class="ui">Save</span> and run it with 120 m³/h and unit 2.</td><td>XV-201 is made.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A script uses the steps of a calculation rule: Compose, Copy, Map, Calculate (+ − × ÷, powers, sqrt, min, max, round, each quantity in the unit you name), Choose, Format and Compare. It only calculates: it reads and writes nothing, so a run with a value that is not a number stops at the script with the reason and keeps nothing.</p>
+  <p class="g-related">Related: <a href="guide-ai.html#ai-package-assistants">Assistants from content packages, other assistants and the API</a></p>
 </section>
 
 <section class="g-feature" id="ai-branch">
@@ -854,12 +958,19 @@
 
 <section class="g-feature" id="ai-query-sentence">
   <h2>Queries from a sentence</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">AI-query-sentence</span><span>Roadmap 05.5b</span></div>
-  <p class="g-summary">Type what you want to see, such as "all pumps without a motor", and get the matching table.</p>
-  <p class="g-dev">On the roadmap, not started: queries from a sentence and templates through the API (05.5b).</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Type a sentence and get a query table of the matching objects, which you can then refine with columns and filters.</li>
-  </ul>
-  <p class="g-related">Related: <a href="guide-lists.html#list-new-query">New query</a> · <a href="#ai-cloud-ai">Ask, Agent and Plan</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">AI-query-sentence</span><span>Roadmap 05.5b</span></div>
+  <p class="g-summary">Ask Alex for “all pumps without a motor”: Alex turns the sentence into a query (query_from_sentence), runs it (run_query) and answers with the rows; the integration API offers the same.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Alex (Ask, Agent, Plan); the integration API</dd>
+    <dt>Who</dt><dd>Any project role that may view the project</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex: <em>which pumps have no motor?</em></td><td>Alex lists them with how many there are; only objects you may see are counted.</td></tr>
+      <tr><td>2</td><td>Ask Alex for a saved list, such as the project's equipment list.</td><td>Alex finds it among the saved queries (list_query_templates) and gives its rows.</td></tr>
+      <tr><td>3</td><td>With an API token, <code>POST /api/v1/projects/{id}/queries/from-sentence</code> with <code>{ "text": "all pumps without a motor" }</code>, then <code>POST /api/v1/projects/{id}/query</code> with the definition.</td><td>The definition with its filter in words, then its rows. <code>GET /api/v1/projects/{id}/queries</code> lists the saved queries.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-lists.html#list-sentence-query">Queries from a sentence in the explorer</a> · <a href="guide-lists.html#list-new-query">New query</a> · <a href="#ai-cloud-ai">Ask, Agent and Plan</a></p>
 </section>

@@ -2,11 +2,11 @@
  {
   "id": "ORG-organization-dialog",
   "title": "The Organization dialog",
-  "summary": "File → Organization… holds the plan, the members with licenses and roles (Owner, Administrator or Member), invitations, groups, the audit and the export, with the trial, credits, files and seats used.",
+  "summary": "File → Organization… holds the plan, the members with licenses and roles (Owner, Administrator or Member), invitations, access, connections, the audit and the export, each section explained, with who is signed in, Switch organization and Sign out at the top.",
   "anchor": "org-organization-dialog",
   "status": "available",
   "since": "2026-11-03",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "roadmap": [
    "M2.4",
    "PR1",
@@ -96,8 +96,8 @@
  },
  {
   "id": "ORG-plan",
-  "title": "Your organization's plan: Editor Basic or Editor Pro",
-  "summary": "The plan belongs to the organization: in a Standard organization every Editor is Editor Basic, in a Professional, University or Enterprise one every Editor is Editor Pro; the Owner upgrades Standard to Professional.",
+  "title": "Your organization's plan: Editor Basic or Editor",
+  "summary": "The plan belongs to the organization: in an Essentials organization every Editor is Editor Basic, in a Standard, University or Enterprise one every Editor is Editor; the Owner upgrades Standard to Professional.",
   "anchor": "org-plan",
   "status": "available",
   "since": "2026-11-11",
@@ -123,11 +123,11 @@
  {
   "id": "ORG-pro-features",
   "title": "Pro features in an Editor Basic organization",
-  "summary": "With Editor Basic the Editor Pro features stay on screen, greyed out with Pro; pressing one says why, with See plans and, for the Owner, Upgrade.",
+  "summary": "With Editor Basic the features of the full Editor license stay on screen, greyed out with Pro; pressing one says why, with See plans and, for the Owner, Upgrade.",
   "anchor": "org-pro-features",
   "status": "available",
   "since": "2026-11-11",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "roadmap": [
    "09.7"
   ],
@@ -137,7 +137,7 @@
    "ORG-organization-dialog",
    "WEB-pricing"
   ],
-  "roles": "Everyone in a Standard organization",
+  "roles": "Everyone in an Essentials organization",
   "training": {
    "topic": "Plans and upgrades",
    "level": "Beginner",
@@ -147,14 +147,15 @@
  },
  {
   "id": "ORG-university",
-  "title": "University organizations: the term, Reviewers and Viewers",
-  "summary": "A University organization has Editor Pro free for 3 months, renewed each term, one free Reviewer per Editor and unlimited free Viewers; after the term it is read-only until it is renewed.",
+  "title": "University organizations: joining with your university email",
+  "summary": "Everyone with a university's email joins its one organization, up to 200 people: Editor for 90 days from the day they join, then 90 days read-only; a monthly email confirmation; 90 days without activity bring a warning, then deletion.",
   "anchor": "org-university",
   "status": "available",
   "since": "2026-11-11",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "roadmap": [
-   "09.10"
+   "09.10",
+   "09.16"
   ],
   "checks": [],
   "related": [
@@ -252,7 +253,7 @@
   "anchor": "org-project-members",
   "status": "available",
   "since": "2026-11-03",
-  "updated": "2026-11-07",
+  "updated": "2026-11-12",
   "roadmap": [
    "M2.5",
    "09.6a"
@@ -438,7 +439,7 @@
   "summary": "An organization of your own, usually for 30 days (LANXTOR can choose another length or change it while it runs); afterwards it is read-only and can still be viewed and exported.",
   "anchor": "org-trials",
   "status": "available",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "roadmap": [],
   "checks": [],
   "related": [
@@ -506,13 +507,39 @@
   "since": "2026-11-07"
  },
  {
+  "id": "ORG-discipline-permissions",
+  "title": "Discipline permissions: one discipline's attributes only",
+  "summary": "A custom role that changes the attributes of one discipline only: process, mechanical, piping, electrical or instrumentation.",
+  "anchor": "org-discipline-permissions",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "09.6"
+  ],
+  "checks": [
+   "J12"
+  ],
+  "related": [
+   "ORG-custom-roles",
+   "ORG-project-members",
+   "ORG-responsibility"
+  ],
+  "roles": "Owner or Administrator",
+  "training": {
+   "topic": "Discipline permissions",
+   "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
   "id": "ORG-responsibility",
   "title": "Assign to…: objects a person or group is responsible for",
   "summary": "Make a person or group responsible for an object, folder, sheet or section: only they change it and everything in it; everyone else still views and comments.",
   "anchor": "org-responsibility",
   "status": "available",
   "since": "2026-11-10",
-  "updated": "2026-11-10",
+  "updated": "2026-11-12",
   "roadmap": [
    "09.6r"
   ],
@@ -554,6 +581,58 @@
    "topic": "Access history, reviews and emergency access",
    "level": "Advanced",
    "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ORG-support-access",
+  "title": "E1 support access",
+  "summary": "E1 support has no access to your data; approve, refuse or end a time-limited request when you ask for help.",
+  "anchor": "org-support-access",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "09.6"
+  ],
+  "checks": [
+   "J13"
+  ],
+  "related": [
+   "ORG-access-history",
+   "ORG-roles-passkey",
+   "ORG-administrators"
+  ],
+  "roles": "Owner or Administrator",
+  "training": {
+   "topic": "E1 support access",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "ORG-shared-projects",
+  "title": "Share a project with another organization",
+  "summary": "A contractor or client works on your project with its own people and licenses; its administrator chooses who, up to the role you allow.",
+  "anchor": "org-shared-projects",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "09.12"
+  ],
+  "checks": [
+   "J14"
+  ],
+  "related": [
+   "ORG-project-members",
+   "ORG-organization-dialog",
+   "ORG-access-history"
+  ],
+  "roles": "Project administrator (host), Owner or Administrator (partner)",
+  "training": {
+   "topic": "Shared projects",
+   "level": "Intermediate",
+   "minutes": 3
   },
   "screenshots": []
  },
@@ -651,7 +730,8 @@
   ],
   "related": [
    "ORG-tokens",
-   "ORG-audit"
+   "ORG-audit",
+   "ORG-message-queues"
   ],
   "roles": "Owners and Administrators (Manage connections) set up webhooks; anyone who sees a project may read its change feed with a token",
   "training": {
@@ -661,6 +741,29 @@
   },
   "screenshots": [],
   "since": "2026-11-10"
+ },
+ {
+  "id": "ORG-message-queues",
+  "title": "Message queues: events to a broker, commands from one",
+  "summary": "Send the change feed's events to an MQTT, AMQP or Kafka broker instead of a web address, and let another system send E1 commands through a broker, each run as an access token.",
+  "anchor": "org-message-queues",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "19.5"
+  ],
+  "checks": [],
+  "related": [
+   "ORG-webhooks",
+   "ORG-tokens"
+  ],
+  "roles": "Owners and Administrators (Manage connections)",
+  "training": {
+   "topic": "Webhooks and the change feed",
+   "level": "Advanced",
+   "minutes": 4
+  },
+  "screenshots": []
  },
  {
   "id": "ORG-four-eyes",

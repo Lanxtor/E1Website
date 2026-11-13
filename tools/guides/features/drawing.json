@@ -89,7 +89,7 @@
   "anchor": "draw-place-symbol",
   "status": "available",
   "since": "2026-11-04",
-  "updated": "2026-11-09",
+  "updated": "2026-11-11",
   "roadmap": [
    "M3.11",
    "M1.1b"
@@ -106,7 +106,8 @@
    "OBJ-tags",
    "OBJ-tag-rules",
    "OBJ-new-object",
-   "DRAW-drop-from-explorer"
+   "DRAW-drop-from-explorer",
+   "DRAW-module-place"
   ],
   "roles": "Editor license; a project role that may edit drawings",
   "training": {
@@ -269,7 +270,7 @@
   "anchor": "draw-clipboard",
   "status": "available",
   "since": "2026-11-04",
-  "updated": "2026-11-09",
+  "updated": "2026-11-11",
   "roadmap": [
    "M3.4"
   ],
@@ -522,7 +523,7 @@
   "anchor": "draw-off-page",
   "status": "available",
   "since": "2026-11-06",
-  "updated": "2026-11-09",
+  "updated": "2026-11-13",
   "roadmap": [
    "M3.11"
   ],
@@ -696,13 +697,14 @@
  {
   "id": "DRAW-patterns",
   "title": "Engineering patterns",
-  "summary": "Draw a redundant pump train, an instrument tap or a motor feeder at once, placed, routed and checked.",
+  "summary": "Draw a redundant pump train, a control valve station, an instrument tap or a motor feeder at once, placed, routed and checked; the pump train and the control valve station are placed as modules with options.",
   "anchor": "draw-patterns",
   "status": "available",
   "since": "2026-11-05",
-  "updated": "2026-11-09",
+  "updated": "2026-11-12",
   "roadmap": [
-   "02.2"
+   "02.2",
+   "32.5b"
   ],
   "checks": [
    "I7",
@@ -710,7 +712,9 @@
   ],
   "related": [
    "AI-cloud-ai",
-   "DRAW-predictive"
+   "DRAW-predictive",
+   "DRAW-module-place",
+   "DRAW-module-variants"
   ],
   "roles": "Editor license; an AI model set up (Alex's Agent tab)",
   "training": {
@@ -878,7 +882,8 @@
    "DRAW-connector",
    "DRAW-off-page",
    "DRAW-pipe-classes",
-   "DRAW-piping-check"
+   "DRAW-piping-check",
+   "DRAW-module-place"
   ],
   "roles": "Editor license; a project role that may edit drawings",
   "training": {
@@ -912,6 +917,32 @@
    "topic": "Flow direction and the piping check",
    "level": "Intermediate",
    "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-scd",
+  "title": "System control diagrams (NORSOK SCD)",
+  "summary": "Draw NORSOK I-005 system control diagrams: function templates such as MA, CA and SBV with every terminal named on the block, elementary functions, references and sequence diagrams; signals snap to terminals, and Check SCD applies the standard's rules.",
+  "anchor": "draw-scd",
+  "status": "available",
+  "since": "2026-11-11",
+  "updated": "2026-11-11",
+  "roadmap": [
+   "04.9"
+  ],
+  "checks": [],
+  "related": [
+   "LIB-content-packages",
+   "LIB-package-switching",
+   "DRAW-connector",
+   "DRAW-piping-check"
+  ],
+  "roles": "Editor license; a project role that may edit drawings (Check SCD: any role that can view the project); switching the package on: Project administrator",
+  "training": {
+   "topic": "System control diagrams",
+   "level": "Intermediate",
+   "minutes": 5
   },
   "screenshots": []
  },
@@ -1018,16 +1049,15 @@
  {
   "id": "DRAW-redlining",
   "title": "Redlining",
-  "summary": "Mark up 2D spaces in review rounds on a separate Markups layer that never changes the drawing.",
+  "summary": "Mark up a 2D space with clouds, arrows, text, pins and stamps on a Markups layer that never changes the drawing, and discuss each markup in its card.",
   "anchor": "draw-redlining",
-  "status": "planned",
-  "updated": "2026-11-09",
+  "status": "available",
   "roadmap": [
-   "23.1",
-   "23.2",
-   "23.3"
+   "23.1"
   ],
-  "checks": [],
+  "checks": [
+   "U1"
+  ],
   "related": [
    "DRAW-comment-here",
    "DRAW-layers",
@@ -1038,6 +1068,134 @@
    "topic": "Redlining a 2D space",
    "level": "Intermediate",
    "minutes": 4
+  },
+  "screenshots": [],
+  "since": "2026-11-12",
+  "updated": "2026-11-12"
+ },
+ {
+  "id": "DRAW-markup-status",
+  "title": "Answer a markup: accept, reject, answer, incorporate, close",
+  "summary": "Set a markup's status with a response; every change is written in its discussion and tells its author.",
+  "anchor": "draw-markup-status",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "23.2"
+  ],
+  "checks": [
+   "U2"
+  ],
+  "related": [
+   "DRAW-redlining",
+   "DRAW-markups-list"
+  ],
+  "roles": "Responding: editors who may edit the 2D space; closing: the author, the round's owner or a markup manager",
+  "training": {
+   "topic": "Answering markups",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-markups-list",
+  "title": "The Markups list, review rounds and the comment resolution sheet",
+  "summary": "List and filter a 2D space's markups, run a review round with its reviewers, close it, and export the comment resolution sheet.",
+  "anchor": "draw-markups-list",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "23.2"
+  ],
+  "checks": [
+   "U3"
+  ],
+  "related": [
+   "DRAW-redlining",
+   "DRAW-markup-status"
+  ],
+  "roles": "Reviewers and editors; closing a round: its owner or a markup manager",
+  "training": {
+   "topic": "Review rounds",
+   "level": "Intermediate",
+   "minutes": 5
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-markup-print",
+  "title": "Marked-up prints and markups on a revision",
+  "summary": "Print a 2D space with its markups, a legend and the watermark; mark up a plotted revision so the markups record it.",
+  "anchor": "draw-markup-print",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "23.3"
+  ],
+  "checks": [
+   "U4"
+  ],
+  "related": [
+   "DRAW-redlining",
+   "DOC-issue",
+   "DOC-plot"
+  ],
+  "roles": "Reviewers and editors",
+  "training": {
+   "topic": "Marked-up prints",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-markup-pdf",
+  "title": "Markups as PDF comments: a reviewer's annotated PDF back in E1",
+  "summary": "A marked-up print carries each markup as a real PDF comment; a reviewer's annotated copy reads back as markups in the round, their replies as comments.",
+  "anchor": "draw-markup-pdf",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "23.5"
+  ],
+  "checks": [
+   "U5"
+  ],
+  "related": [
+   "DRAW-markup-print",
+   "DRAW-markups-list"
+  ],
+  "roles": "Exporting: Export in the project; importing: who may draw markups",
+  "training": {
+   "topic": "Markups as PDF comments",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-markup-settings",
+  "title": "Markup colors and stamps",
+  "summary": "Choose the project's markup color scheme (by intent or all red) and the stamps reviewers can use.",
+  "anchor": "draw-markup-settings",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "23.2"
+  ],
+  "checks": [
+   "U3"
+  ],
+  "related": [
+   "DRAW-redlining"
+  ],
+  "roles": "A project role that may change project settings",
+  "training": {
+   "topic": "Markup settings",
+   "level": "Beginner",
+   "minutes": 2
   },
   "screenshots": []
  },
@@ -1070,86 +1228,163 @@
  {
   "id": "DRAW-module-place",
   "title": "Place a module from the Modules tab",
-  "summary": "Place a module in one step from Add asset → Modules: turned and flipped, inserted into a pipe, with new tags from the rules.",
+  "summary": "Place a saved module in one step from Add asset → Modules: turned and flipped, connected at its tie-in points, inserted into a pipe (the module of its category that takes the pipe's size), with new tags from the rules.",
   "anchor": "draw-module-place",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
-   "32.1c"
+   "32.1c",
+   "32.4",
+   "32.4b",
+   "32.4c"
   ],
-  "checks": [],
+  "checks": [
+   "M3",
+   "M9",
+   "M10",
+   "M13"
+  ],
   "related": [
    "DRAW-module-save",
    "DRAW-module-instance"
   ],
-  "roles": "Editing the project",
+  "roles": "Creating objects in the project",
   "training": {
    "topic": "Placing modules",
    "level": "Intermediate",
    "minutes": 4
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  },
  {
   "id": "DRAW-module-instance",
   "title": "A placed module on its objects",
-  "summary": "Part of module on a member's properties; select every member of an instance, or detach it.",
+  "summary": "A placed module's objects stay ordinary objects; Part of module names the module and version, and its menu selects or detaches the instance. The objects a module was saved from can be linked as its first instance; a copied whole instance is a new instance.",
   "anchor": "draw-module-instance",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
-   "32.1d"
+   "32.1d",
+   "32.2d"
   ],
-  "checks": [],
+  "checks": [
+   "M4",
+   "M12"
+  ],
   "related": [
    "DRAW-module-place"
   ],
-  "roles": "Editing the project",
+  "roles": "Everyone who can view the object; detaching and linking need changing objects",
   "training": {
    "topic": "Module instances",
    "level": "Intermediate",
    "minutes": 2
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  },
  {
   "id": "DRAW-module-compare",
   "title": "Compare an instance with its module",
-  "summary": "See what an instance changed against its module, and keep it or take the module's value.",
+  "summary": "See what one placed module changed against its module; Keep mine with a reason, Use module, or Remove from instance.",
   "anchor": "draw-module-compare",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
    "32.2a"
   ],
-  "checks": [],
+  "checks": [
+   "M5"
+  ],
   "related": [
    "DRAW-module-instance",
    "LIB-module-updates"
   ],
-  "roles": "Editing the project",
+  "roles": "Everyone who can view the objects; deciding needs changing objects",
   "training": {
    "topic": "Comparing instances",
    "level": "Advanced",
    "minutes": 3
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  },
  {
   "id": "DRAW-module-promote",
   "title": "Turn an instance's changes into the module's next version",
-  "summary": "Add objects to an instance and save its changes to the module.",
+  "summary": "Add objects to a placed module and make its changes the module's next version with Save changes to module…; Publish puts the instance on it.",
   "anchor": "draw-module-promote",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
    "32.3b"
   ],
-  "checks": [],
+  "checks": [
+   "M8"
+  ],
   "related": [
    "DRAW-module-compare",
    "LIB-module-edit"
   ],
-  "roles": "Editing the library",
+  "roles": "Changing the objects, and editing the library the module is in",
   "training": {
    "topic": "Promoting changes",
    "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
+ },
+ {
+  "id": "DRAW-module-variants",
+  "title": "Module options and variants",
+  "summary": "Give a module options that are on or off and named variants of them; place the variant you need, and switch a placed instance to another variant as an update.",
+  "anchor": "draw-module-variants",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "32.5"
+  ],
+  "checks": [
+   "M14"
+  ],
+  "related": [
+   "DRAW-module-place",
+   "DRAW-module-instance",
+   "LIB-module-edit"
+  ],
+  "roles": "Setting options: library editors (Configuration → Modules); placing and Change variant: Engineer and above",
+  "training": {
+   "topic": "Module options and variants",
+   "level": "Advanced",
+   "minutes": 5
+  },
+  "screenshots": []
+ },
+ {
+  "id": "DRAW-module-configure",
+  "title": "Configure modules from what a unit needs",
+  "summary": "Say what a unit needs in words; E1 proposes the modules, their variants and how they join, and arranges them on the 2D space as one change.",
+  "anchor": "draw-module-configure",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "32.6"
+  ],
+  "checks": [
+   "M15"
+  ],
+  "related": [
+   "DRAW-module-place",
+   "DRAW-module-variants"
+  ],
+  "roles": "Engineer and above",
+  "training": {
+   "topic": "The module configurator",
+   "level": "Intermediate",
    "minutes": 3
   },
   "screenshots": []

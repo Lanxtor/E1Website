@@ -7,7 +7,7 @@
   <meta name="description" content="Open E1 in the browser or the desktop app, sign in with your company account or Microsoft, passkeys, sessions and the store E1 runs on.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=82">
+  <link rel="stylesheet" href="assets/css/styles.css?v=141">
   <link rel="stylesheet" href="assets/css/guides.css?v=3">
 </head>
 <body>
@@ -33,7 +33,9 @@
           <li><a href="guide-ai.html">11. AI: Alex</a></li>
           <li><a href="guide-account.html">12. Your account, Academy and website</a></li>
           <li><a href="guide-wiring.html">13. Wiring (EI&amp;C)</a></li>
-          <li><a href="guide-reviewer.html">14. E1 Reviewer for iPad</a></li>
+          <li><a href="guide-workflow.html">14. Workflow and dashboards</a></li>
+          <li><a href="guide-safety.html">15. Cause and effect, safety functions, alarms</a></li>
+          <li><a href="guide-reviewer.html">16. E1 Reviewer for iPad</a></li>
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
@@ -338,10 +340,10 @@
 
 <section class="g-feature" id="acc-session">
   <h2>Session length, sign out and switching organization</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-08</span><span class="g-id">ACC-session</span><span>Roadmap M2.9</span></div>
-  <p class="g-summary">A sign-in lasts 12 hours, unless your installation sets another length. Then E1 shows the sign-in screen again. You can sign out yourself, and switch between the organizations you belong to.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-12</span><span class="g-id">ACC-session</span><span>Roadmap M2.9</span></div>
+  <p class="g-summary">A sign-in lasts 12 hours, unless your installation sets another length. Then E1 shows the sign-in screen again. At the top of the Account page you sign out, sign in as someone else, or switch between the organizations you belong to; the same page lists your projects and where each one is.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Account</span> → <span class="ui">Session</span> → <span class="ui">Sign out</span>; explorer header → organization name → <span class="ui">Switch organization</span> ▸</dd>
+    <dt>Where</dt><dd><span class="ui">Account</span> (your initial at the bottom of the left rail) → beside your name: <span class="ui">Switch organization</span>, <span class="ui">Sign in as someone else</span>, <span class="ui">Sign out</span>. Also at the top of <span class="ui">File</span> → <span class="ui">Organization…</span>, and explorer header → organization name → <span class="ui">Switch organization</span> ▸</dd>
     <dt>Who</dt><dd>Everyone signed in</dd>
     <dt>Before you start</dt><dd>You are signed in on a server with sign-in.</dd>
   </dl>
@@ -349,49 +351,52 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <span class="ui">Account</span> from the left rail and click <span class="ui">Sign out</span> in the <span class="ui">Session</span> card.</td><td>The sign-in screen <span class="ui">Sign in to E1</span> appears.</td></tr>
-      <tr><td>2</td><td>Sign in again and click the organization name in the explorer header.</td><td>A menu with <span class="ui">New project</span>, <span class="ui">New folder</span>, <span class="ui">Query</span> ▸ and <span class="ui">Switch organization</span> ▸.</td></tr>
-      <tr><td>3</td><td>Open <span class="ui">Switch organization</span> ▸.</td><td>Your organizations are listed; the current one reads "✓ <em>name</em>" and cannot be chosen. With no other: "You belong to no other organization".</td></tr>
-      <tr><td>4</td><td>Choose another organization.</td><td>E1 reloads in that organization; the explorer header shows its name.</td></tr>
-      <tr><td>5</td><td>More than 12 hours after signing in, reload E1.</td><td>The sign-in screen appears again.</td></tr>
+      <tr><td>1</td><td>Open <span class="ui">Account</span> from the left rail.</td><td>Your picture or initials, your organization, name and email, and on the right <span class="ui">Sign in as someone else</span> and <span class="ui">Sign out</span>. When you belong to more than one organization, a <span class="ui">Switch organization</span> list stands before them, showing the current one.</td></tr>
+      <tr><td>2</td><td>Look at <span class="ui">Your access</span> → <span class="ui">Projects</span>.</td><td>A table: <span class="ui">Project</span>, <span class="ui">Organization</span>, <span class="ui">Where</span> (<span class="ui">Projects</span>, or <span class="ui">Bin since</span> the day it was deleted) and <span class="ui">Your role</span>, with <span class="ui">Show in tree</span> (<span class="ui">Show in Bin</span> for a deleted project) on each row. Under the table, what each of your roles allows. A project deleted for good is not listed.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Show in tree</span> or <span class="ui">Show in Bin</span> on a row.</td><td>The explorer opens at that project (under <span class="ui">Bin</span> for a deleted one), selected, and the project opens.</td></tr>
+      <tr><td>4</td><td>Choose another organization in <span class="ui">Switch organization</span>.</td><td>E1 reloads in that organization; the explorer header shows its name.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Sign in as someone else</span>.</td><td>You are signed out, and your sign-in provider asks which account to use.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Sign out</span>.</td><td>The sign-in screen <span class="ui">Sign in to E1</span> appears.</td></tr>
+      <tr><td>7</td><td>More than 12 hours after signing in, reload E1.</td><td>The sign-in screen appears again.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/place-account.webp" alt="The Account place on an installation without sign-in, where Sign out reads Not available" width="2160" height="1350" loading="lazy"><figcaption>Without sign-in (desktop app with its own store, or a file store), Account is a placeholder and <span class="ui">Sign out</span> reads "Not available".</figcaption></figure>
-  <p class="g-note">On an installation served over https, the sign-in cookies got new names on 2026-11-08: everyone is signed out once after that release and simply signs in again.</p>
+  <p class="g-note">The explorer header has <span class="ui">Switch organization</span> ▸ too: click the organization's name, then choose another; the current one reads "✓ <em>name</em>". With no other: "You belong to no other organization".</p>
   <p class="g-note"><span class="ui">Sign out</span> is protected against other sites: a page outside E1 cannot sign you out. If signing out is refused with "The request did not come from E1. Reload the page.", reload E1 and sign out again.</p>
   <p class="g-warn">E1 does not yet sign you out after a time without activity; only the 12-hour limit applies. An idle timeout set by the organization is planned.</p>
-  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-step-up">Confirm it is you</a> · <a href="guide-getting-started.html#gs-places">The places</a></p>
+  <p class="g-related">Related: <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-step-up">Confirm it is you</a> · <a href="guide-getting-started.html#gs-places">The places</a> · <a href="guide-projects.html">Projects</a></p>
 </section>
 
 <section class="g-feature" id="acc-one-person">
   <h2>One person per account</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-11</span><span class="g-id">ACC-one-person</span><span>Roadmap 09.8</span></div>
-  <p class="g-summary">An E1 license is for one named person, and every change and approval is recorded under that person's name. When your account is open on another computer, E1 asks you to sign out there or here. E1 on a computer and E1 Reviewer for iPad may be open at the same time.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-12</span><span class="g-id">ACC-one-person</span><span>Roadmap 09.8</span></div>
+  <p class="g-summary">An E1 license is for one named person, and every change and approval is recorded under that person's name. One account may be open in up to 3 places at once (browsers and the desktop app, for example a laptop and a desktop); in a fourth, E1 asks you to sign out the oldest or this one. E1 Reviewer for iPad counts on its own and may be open besides.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A dialog when E1 starts, or when you come back to its window</dd>
     <dt>Who</dt><dd>Everyone signed in</dd>
-    <dt>Before you start</dt><dd>E1 with sign-in. A computer counts while E1 was used there in the last 15 minutes.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in. A place counts while E1 was used there in the last 15 minutes.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Sign in to E1 on a second computer with the same account, while E1 is open on the first.</td><td>A dialog <span class="ui">Your account is open on another computer</span> says, for example, <span class="ui">It is also open in Chrome on Windows, last used 3 minutes ago.</span> and <span class="ui">One person per account: E1 licenses are for one named person.</span> It has no Close button: you choose.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Sign out there and continue here</span>.</td><td>The other computer is signed out, and you work on here. When someone comes back to E1 on the other computer, it shows the sign-in screen.</td></tr>
-      <tr><td>3</td><td>Or click <span class="ui">Sign out here</span>.</td><td>This computer is signed out and shows the sign-in screen; the other one goes on.</td></tr>
+      <tr><td>1</td><td>Sign in to E1 in a second and a third place with the same account, while E1 is open in the first.</td><td>Nothing is asked: three places at once are allowed.</td></tr>
+      <tr><td>2</td><td>Sign in in a fourth place.</td><td>A dialog <span class="ui">Your account is open in too many places</span> says <span class="ui">E1 can be open in up to 3 places at once with one account (browsers and the desktop app; E1 Reviewer for iPad counts on its own).</span>, lists the other places, for example <span class="ui">Chrome on Windows, last used 3 minutes ago</span>, and <span class="ui">One person per account: E1 licenses are for one named person.</span> It has no Close button: you choose.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Sign out the oldest and continue here</span>.</td><td>The place used least recently is signed out, so with this one the account is open in 3 places again, and you work on here. When someone comes back to E1 there, it shows the sign-in screen.</td></tr>
+      <tr><td>4</td><td>Or click <span class="ui">Sign out here</span>.</td><td>This place is signed out and shows the sign-in screen; the others go on.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">LANXTOR sees accounts used from two places at once. A shared account also breaks your own company's four-eyes approval and history, because everything is recorded under one name.</p>
+  <p class="g-note">LANXTOR sees accounts used in more than 3 places at once. A shared account also breaks your own company's four-eyes approval and history, because everything is recorded under one name.</p>
   <p class="g-related">Related: <a href="#acc-session">Session length, sign out and switching organization</a> · <a href="#acc-sign-in">Sign in to E1</a> · <a href="guide-organization.html#org-licenses-seats">Licenses and seats</a></p>
 </section>
 
 <section class="g-feature" id="acc-ai-credits">
   <h2>AI credits this month</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-11</span><span class="g-id">ACC-ai-credits</span><span>Roadmap 09.9</span></div>
-  <p class="g-summary">Each license includes AI credits a month for Alex: <strong>300</strong> with Editor Basic and with Reviewer, <strong>2,000</strong> with Editor Pro. A University class shares one pool: 300 for each Editor. The credits start again on the first day of each month (UTC).</p>
+  <p class="g-summary">Each license includes AI credits a month for Alex: <strong>300</strong> with Editor Basic and with Reviewer, <strong>2,000</strong> with Editor. A University class shares one pool: 300 for each Editor. The credits start again on the first day of each month (UTC).</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Account</span> → <span class="ui">Your access</span>, and <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span></dd>
-    <dt>Who</dt><dd>Everyone with Alex in a Standard, Professional or University organization. A trial has its own limits; an Enterprise contract sets its own.</dd>
+    <dt>Who</dt><dd>Everyone with Alex in an Essentials, Standard or University organization. A trial has its own limits; an Enterprise contract sets its own.</dd>
     <dt>Before you start</dt><dd>E1 with sign-in.</dd>
   </dl>
   <h3>Steps</h3>
@@ -409,16 +414,16 @@
 <section class="g-feature" id="acc-trial">
   <h2>The 30-day trial</h2>
   <div class="g-meta"><span>Updated 2026-11-11</span><span class="g-status available">Available</span><span>Updated 2026-11-08</span><span class="g-id">ACC-trial</span></div>
-  <p class="g-summary">A trial gives you an organization of your own, with you as its owner, for 30 days. When it ends, the organization becomes read-only: everything stays visible and can be exported.</p>
+  <p class="g-summary">A trial gives you an organization of your own, with you as its owner, for 30 days. When it ends, the organization is read-only for 90 days: everything stays visible and can be exported.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Website → <span class="ui">Get E1</span> → <span class="ui">Start your free trial</span> (the sign-up page), or an invitation LANXTOR sends you</dd>
-    <dt>Who</dt><dd>Anyone LANXTOR invites to a trial</dd>
-    <dt>Before you start</dt><dd>Accept the invitation within 14 days and sign in with the invited email address.</dd>
+    <dt>Who</dt><dd>Anyone with a company email (one trial per email domain), or someone LANXTOR invites</dd>
+    <dt>Before you start</dt><dd>Sign up with your company email address; with an invitation, accept it within 14 days and sign in with the invited email address.</dd>
   </dl>
   <h3>What a trial includes</h3>
   <ul>
     <li>5 Editor licenses (one is yours), 5 Reviewer licenses and as many Viewers as you like.</li>
-    <li>Students at a recognised school or university get Editor Pro free for 3 months.</li>
+    <li>For teaching, sign up with your university email instead: <a href="guide-organization.html#org-university">University organizations</a>.</li>
     <li>18 000 AI credits, with a daily limit per person (Editor 600, Reviewer 150).</li>
     <li>5 GB of files. Kept export results (for 7 days) and the PDFs of issued revisions count toward it too.</li>
     <li>Premium AI models are "Not included in a trial."</li>
@@ -427,9 +432,9 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open the invitation link and sign in with the invited address.</td><td>E1 opens in your new organization; you are its owner.</td></tr>
+      <tr><td>1</td><td>Sign up on the website with your company email, or open the invitation link and sign in with the invited address.</td><td>E1 opens in your new organization; you are its owner.</td></tr>
       <tr><td>2</td><td>Choose <span class="ui">File → Organization…</span>.</td><td>The Members tab shows "Trial until <em>date</em>."</td></tr>
-      <tr><td>3</td><td>After the trial ended, change anything, for example rename a project.</td><td>Refused: "The trial of this organization ended on <em>date</em>, so it is read-only now: everything can still be viewed and exported. Contact LANXTOR to continue."</td></tr>
+      <tr><td>3</td><td>After the trial ended, change anything, for example rename a project.</td><td>Refused: "The trial of this organization ended on <em>date</em>, so it is read-only now: everything can still be viewed and exported. Write to sales@lanxtor.com to continue."</td></tr>
       <tr><td>4</td><td>Open <span class="ui">Account</span>.</td><td>A note: "The trial of this organization has ended: everything is read-only, and can still be viewed and exported."</td></tr>
     </tbody>
   </table></div>

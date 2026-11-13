@@ -7,7 +7,7 @@
   <meta name="description" content="Any list is a live query of the model: columns, filters, grouping, editing like Excel, templates, and Excel export and import.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=82">
+  <link rel="stylesheet" href="assets/css/styles.css?v=141">
   <link rel="stylesheet" href="assets/css/guides.css?v=3">
 </head>
 <body>
@@ -33,7 +33,9 @@
           <li><a href="guide-ai.html">11. AI: Alex</a></li>
           <li><a href="guide-account.html">12. Your account, Academy and website</a></li>
           <li><a href="guide-wiring.html">13. Wiring (EI&amp;C)</a></li>
-          <li><a href="guide-reviewer.html">14. E1 Reviewer for iPad</a></li>
+          <li><a href="guide-workflow.html">14. Workflow and dashboards</a></li>
+          <li><a href="guide-safety.html">15. Cause and effect, safety functions, alarms</a></li>
+          <li><a href="guide-reviewer.html">16. E1 Reviewer for iPad</a></li>
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
@@ -59,7 +61,7 @@
           <li><a href="#list-read-only-cells">Read-only cells are tinted blue</a></li>
           <li><a href="#list-find-replace">Find and replace…</a></li>
           <li><a href="#list-owner-cell">Owner cell: open the object, or move it with F2</a></li>
-          <li><a href="#list-excel-export">Export a query to Excel or CSV</a></li>
+          <li><a href="#list-excel-export">Export a query to Excel, CSV or JSON</a></li>
           <li><a href="#list-update-from-excel">Update from Excel… with Check and Apply</a></li>
           <li><a href="#list-import-excel">Import Excel…: bring a tag list into a section</a></li>
           <li><a href="#list-project-excel">Export the project: every saved query in one workbook</a></li>
@@ -71,7 +73,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Lists and queries</p>
         <h1>6. Lists and queries</h1>
         <p class="lead">Any list is a live query of the model: columns, filters, grouping, editing like Excel, templates, and Excel export and import.</p>
-        <div class="g-meta"><span>25 features</span><span>24 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>25 features</span><span>25 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="lists-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 a list is not a separate file: it is a live <em>query</em> of the project's objects. You pick where it starts, choose the columns, filter, group and total, edit the cells like a spreadsheet, save the layout as a template, and move the table to and from Excel.</p>
@@ -538,7 +540,7 @@
 
 <section class="g-feature" id="list-owner-cell">
   <h2>Owner cell: open the object, or move it with F2</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-owner-cell</span><span>Roadmap M3.9</span><span>Review checks D2, D4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-11</span><span class="g-id">LIST-owner-cell</span><span>Roadmap M3.9</span><span>Review checks D2, D4</span></div>
   <p class="g-summary">Double-click an Owner cell to open the object; press F2 to move it to another owner.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → an <span class="ui">Owner</span> cell</dd>
@@ -550,7 +552,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Hover an Owner cell.</td><td>The hover text reads “Double-click opens the object; F2 moves it to another owner”.</td></tr>
-      <tr><td>2</td><td>Double-click the Owner cell of Pump1.</td><td>Pump1 opens in a tab named after it: its datasheet when its class has a designed layout, else its page.</td></tr>
+      <tr><td>2</td><td>Double-click the Owner cell of Pump1.</td><td>Pump1 opens in a tab named after it, on <span class="ui">Attributes</span>.</td></tr>
       <tr><td>3</td><td>Back in the query, click Pump1's Owner cell (“Assets”) and press <kbd>F2</kbd>.</td><td>A box “Move to owner” appears, offering the owner and object names of the loaded rows.</td></tr>
       <tr><td>4</td><td>Type <code>Systems</code> and press <kbd>Enter</kbd>.</td><td>An alert says “A Centrifugal pump cannot be owned by Systems. It may be owned by Assets or a folder in Assets.”.</td></tr>
       <tr><td>5</td><td>Type <code>Feed pumps</code> and press <kbd>Enter</kbd>.</td><td>The cell shows “Feed pumps”.</td></tr>
@@ -561,11 +563,11 @@
 </section>
 
 <section class="g-feature" id="list-excel-export">
-  <h2>Export a query to Excel or CSV</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">LIST-excel-export</span><span>Roadmap M3.8</span><span>Review check D5</span></div>
-  <p class="g-summary">Download every row of the query as an Excel workbook or a CSV file, with an E1 id column.</p>
+  <h2>Export a query to Excel, CSV or JSON</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-12</span><span class="g-id">LIST-excel-export</span><span>Roadmap M3.8, 19.5</span><span>Review check D5</span></div>
+  <p class="g-summary">Download every row of the query as an Excel workbook, a CSV file, JSON or JSON Lines, with an E1 id column.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Query tab → <span class="ui">Export</span> → <span class="ui">Excel (.xlsx)</span> or <span class="ui">CSV (.csv)</span></dd>
+    <dt>Where</dt><dd>Query tab → <span class="ui">Export</span> → <span class="ui">Excel (.xlsx)</span>, <span class="ui">CSV (.csv)</span>, <span class="ui">JSON (.json)</span> or <span class="ui">JSON Lines (.jsonl)</span></dd>
     <dt>Who</dt><dd>A project role that may export. A restricted project asks you to sign in again first.</dd>
     <dt>Before you start</dt><dd>A query is open.</dd>
   </dl>
@@ -573,9 +575,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Export</span>.</td><td>A menu opens with <span class="ui">Excel (.xlsx)</span> and <span class="ui">CSV (.csv)</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Export</span>.</td><td>A menu opens with <span class="ui">Excel (.xlsx)</span>, <span class="ui">CSV (.csv)</span>, <span class="ui">JSON (.json)</span> and <span class="ui">JSON Lines (.jsonl)</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Excel (.xlsx)</span>.</td><td>“Exporting…” shows briefly, then an .xlsx file downloads.</td></tr>
       <tr><td>3</td><td>Open the file in Excel.</td><td>Row 1 holds the view's columns plus <span class="ui">E1 id</span>, for example Owner, Name, Class, E1 id. There is one row per query row: all rows, not only those loaded on screen. Every cell is a value, never a formula.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Export</span> → <span class="ui">JSON (.json)</span>.</td><td>A .json file with the columns (label, kind, attribute, unit) and one object per row, its values by column label with its <span class="ui">E1 id</span>. <span class="ui">JSON Lines (.jsonl)</span> writes the same rows one per line, for a program to read row by row.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-view.webp" alt="The query bar with the Export button among Filter, Find and replace…, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Export</span> is in the query bar.</figcaption></figure>
@@ -686,15 +689,26 @@
 
 <section class="g-feature" id="list-sentence-query">
   <h2>Queries from a sentence</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span></div>
-  <p class="g-summary">Type a sentence such as “all pumps without a motor” and get the matching table.</p>
-  <p class="g-dev">Planned in roadmap stage 05.5b, “Queries from a sentence and templates through the API”. It is not built yet; today you build the filter in the <a href="#list-filter">Filter</a> panel.</p>
-  <h3>What you will be able to do</h3>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span><span>Review checks L9</span></div>
+  <p class="g-summary">Right-click a project, section or object and choose Query → From a sentence…: write “all pumps without a motor” and the query view opens with the matching rows, ready to adjust.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The explorer: right-click → <span class="ui">Query</span> → <span class="ui">From a sentence…</span></dd>
+    <dt>Who</dt><dd>Any project role that may view the project</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <em>Assets</em> and choose <span class="ui">Query</span> → <span class="ui">From a sentence…</span>.</td><td><span class="ui">Query from a sentence</span> asks what the list should show, with examples.</td></tr>
+      <tr><td>2</td><td>Write <em>all pumps without a motor</em> and choose <span class="ui">Make the list</span>.</td><td>A query view opens: the pumps below Assets that no motor drives. Its filter in words says <em>Has no related Motor (with subclasses)</em>.</td></tr>
+      <tr><td>3</td><td>Try <em>valves with a design pressure over 10 bar</em>.</td><td>The valves over 10 bar(g) or its equal in other units, with a <em>Design pressure</em> column.</td></tr>
+      <tr><td>4</td><td>Write <em>pumps painted blue</em>.</td><td>E1 says what it understood (<em>Pump</em>) and what not (<em>painted blue</em>); <span class="ui">Open anyway</span> opens the list without it.</td></tr>
+    </tbody>
+  </table></div>
   <ul>
-    <li>Type a sentence such as “all pumps without a motor” and get the matching table.</li>
-    <li>Read and save query templates through the API.</li>
+    <li>Use the names of classes and attributes as the library has them: <em>without a</em> / <em>with a</em> another class (a related object), <em>without</em> / <em>with</em> an attribute (empty or set), an attribute <em>is</em>, <em>over</em>, <em>under</em>, <em>at least</em>, <em>at most</em> a value with its unit, <em>on hold</em>, <em>in status active</em>, <em>named</em> a text. Several are joined by <em>and</em>.</li>
+    <li>The list is a query like any other: change its columns and filter, and save it.</li>
   </ul>
-  <p class="g-related">Related: <a href="guide-lists.html#list-new-query">Open a query with New query…</a>, <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a>, <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a></p>
+  <p class="g-related">Related: <a href="#list-new-query">New query</a> · <a href="#list-filter">Filter</a> · <a href="guide-ai.html#ai-query-sentence">Queries from a sentence with Alex</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-drawing.html">Drawing P&amp;IDs</a> · <a href="guide-documents.html">Documents, revisions and datasheets</a> →</p>

@@ -2,11 +2,14 @@
  {
   "id": "LIB-configuration",
   "title": "The Configuration place",
-  "summary": "Find the shared set-up of E1: data model, company library, catalogs, content packages, project settings and installation.",
+  "summary": "Find the shared set-up of E1: data model, company library, catalogs, content packages, project settings and installation. The Projects pane starts on All projects, the company configuration every project follows; hold a project where it is, or click its name to see what it reads; drag the panes wider.",
   "anchor": "lib-configuration",
   "status": "available",
-  "updated": "2026-11-11",
-  "roadmap": [],
+  "updated": "2026-11-12",
+  "roadmap": [
+   "11.5",
+   "11.7"
+  ],
   "checks": [],
   "related": [
    "GS-layout",
@@ -135,9 +138,10 @@
   "anchor": "lib-company-library",
   "status": "available",
   "since": "2026-11-05",
-  "updated": "2026-11-08",
+  "updated": "2026-11-12",
   "roadmap": [
-   "11.1"
+   "11.1",
+   "11.6"
   ],
   "checks": [
    "L1",
@@ -152,7 +156,7 @@
    "LIB-object-classes",
    "OBJ-new-object"
   ],
-  "roles": "Owner or Library administrator (company); Project administrator (This project only)",
+  "roles": "Owner or Library administrator (All projects); Project administrator (Only the ticked projects)",
   "training": {
    "topic": "Your own classes in the company library",
    "level": "Intermediate",
@@ -163,13 +167,169 @@
   ]
  },
  {
+  "id": "LIB-import-standard",
+  "title": "Import attributes from a standard",
+  "summary": "A standard's attribute dictionary as a spreadsheet becomes drafts of the company library, each keeping the standard's name and its code.",
+  "anchor": "lib-import-standard",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "11.6"
+  ],
+  "checks": [
+   "L31"
+  ],
+  "related": [
+   "LIB-company-library",
+   "LIB-attributes",
+   "LIB-content-packages"
+  ],
+  "roles": "Owner or Library administrator",
+  "training": {
+   "topic": "Attributes from a standard",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-documents-templates",
+  "title": "Sheet templates",
+  "summary": "Configuration → Sheet templates: E1's ISO and ANSI templates, and the company's and project's own, made in the designer (page, frame, title block cells bound to the document, revision block) and published.",
+  "anchor": "lib-documents-templates",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.4"
+  ],
+  "checks": [
+   "E13"
+  ],
+  "related": [
+   "DOC-sheet-frame",
+   "DOC-document-settings",
+   "DOC-sheet-revisions"
+  ],
+  "roles": "Configure documents for this project's templates; Edit the company library for the company's",
+  "training": {
+   "topic": "Sheet templates",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-documents-signoff-routes",
+  "title": "Sign-off routes",
+  "summary": "Configuration → Sign-off routes: E1's routes and the company's and project's own, made in the designer (the steps, who signs each, whom it must not be, the days to sign) and published; Project settings → Documents chooses one per purpose of issue.",
+  "anchor": "lib-documents-signoff-routes",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.5"
+  ],
+  "checks": [
+   "E14"
+  ],
+  "related": [
+   "DOC-sign-off",
+   "DOC-document-settings",
+   "DOC-reassign-signer"
+  ],
+  "roles": "Configure documents for this project's routes; Edit the company library for the company's",
+  "training": {
+   "topic": "Sign-off routes",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-documents-numbering",
+  "title": "Numbering schemes",
+  "summary": "Configuration → Numbering: E1's revision schemes and the company's and project's own: phases with their series, start, digits, prefix and letters to skip, the version label, and the labels they give.",
+  "anchor": "lib-documents-numbering",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.6"
+  ],
+  "checks": [
+   "E15"
+  ],
+  "related": [
+   "DOC-document-settings",
+   "LIB-documents-purposes",
+   "DOC-sheet-revisions"
+  ],
+  "roles": "Configure documents for this project's schemes; Edit the company library for the company's",
+  "training": {
+   "topic": "Numbering and purposes",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-documents-purposes",
+  "title": "Purposes of issue",
+  "summary": "Configuration → Purposes of issue: E1's lists and the company's and project's own: each purpose's code, text, phase, watermark, whether it is from construction or makes the document void.",
+  "anchor": "lib-documents-purposes",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.6"
+  ],
+  "checks": [
+   "E15"
+  ],
+  "related": [
+   "DOC-document-settings",
+   "LIB-documents-numbering",
+   "DOC-sheet-revisions"
+  ],
+  "roles": "Configure documents for this project's lists; Edit the company library for the company's",
+  "training": {
+   "topic": "Numbering and purposes",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-documents-filing",
+  "title": "Filing rules",
+  "summary": "Configuration → Filing: where an issued PDF is filed under Documents (folders from the document's number, name and attributes), where superseded PDFs go, and the file name, with an example.",
+  "anchor": "lib-documents-filing",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "29.6"
+  ],
+  "checks": [
+   "E15"
+  ],
+  "related": [
+   "DOC-document-settings",
+   "DOC-issue",
+   "DOC-revisions-section"
+  ],
+  "roles": "Configure documents for this project's rules; Edit the company library for the company's",
+  "training": {
+   "topic": "Filing",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
   "id": "LIB-library-updates",
   "title": "Updates available and Check against projects",
   "summary": "See what in a project is on an older library version, and check which objects a draft would break before publishing.",
   "anchor": "lib-library-updates",
   "status": "available",
   "since": "2026-11-05",
-  "updated": "2026-11-06",
+  "updated": "2026-11-11",
   "roadmap": [
    "11.2"
   ],
@@ -180,7 +340,8 @@
   "related": [
    "LIB-company-library",
    "LIB-upgrade",
-   "LIB-catalog-reapply"
+   "LIB-catalog-reapply",
+   "LIB-module-updates"
   ],
   "roles": "Check against projects: Owner or Library administrator",
   "training": {
@@ -219,7 +380,7 @@
  },
  {
   "id": "LIB-project-library",
-  "title": "This project only: the project library",
+  "title": "Only the ticked projects: the project library",
   "summary": "Publish classes and attributes that only one project has.",
   "anchor": "lib-project-library",
   "status": "available",
@@ -387,20 +548,24 @@
  {
   "id": "LIB-content-packages",
   "title": "Content packages and standards",
-  "summary": "See the content packages Core, Electrical foundation, Plant engineering and CFIHOS, and which ones a project uses.",
+  "summary": "See the content packages Core, Electrical foundation, Plant engineering, CFIHOS, NORSOK SCD, Specification, Wire harness and Marine, and which ones a project uses.",
   "anchor": "lib-content-packages",
   "status": "available",
   "since": "2026-11-02",
-  "updated": "2026-11-09",
+  "updated": "2026-11-12",
   "roadmap": [
-   "M1.3"
+   "M1.3",
+   "04.9"
   ],
   "checks": [],
   "related": [
    "LIB-project-settings",
    "LIB-object-classes",
    "LIB-shapes",
-   "LIB-package-licensing"
+   "LIB-package-licensing",
+   "DRAW-scd",
+   "LIB-partner-packages",
+   "LIB-harness-marine"
   ],
   "roles": "Everyone may look; switching: Project administrator",
   "training": {
@@ -413,13 +578,60 @@
   ]
  },
  {
+  "id": "LIB-harness-marine",
+  "title": "Wire harness and Marine packages",
+  "summary": "Switch on Wire harness for harnesses, wires, connectors, terminals, splices, bundles, protection and fixings, or Marine for fire zones, decks, cable transits and the deck and frame of equipment; both are off until a project switches them on.",
+  "anchor": "lib-harness-marine",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "04.6"
+  ],
+  "checks": [],
+  "related": [
+   "LIB-content-packages",
+   "LIB-package-switching"
+  ],
+  "roles": "A Project administrator switches them on; anyone who may edit creates their objects",
+  "training": {
+   "topic": "Content packages and standards",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "LIB-partner-packages",
+  "title": "Partner content packages",
+  "summary": "Install a content package a partner made and E1 reviewed and signed: it is installed for the organization, off in every project until the project switches it on, and refused when changed after E1's review.",
+  "anchor": "lib-partner-packages",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "04.7"
+  ],
+  "checks": [],
+  "related": [
+   "LIB-content-packages",
+   "LIB-package-switching",
+   "LIB-project-settings"
+  ],
+  "roles": "Publish the library (Administrator) installs and removes; Project administrator switches it on",
+  "training": {
+   "topic": "Content packages and standards",
+   "level": "Advanced",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
   "id": "LIB-project-settings",
   "title": "Project settings: packages, drawing and tag rules",
   "summary": "Set a project's content packages, crossing-line style and tag rules, for one or several projects at once.",
   "anchor": "lib-project-settings",
   "status": "available",
   "since": "2026-11-02",
-  "updated": "2026-11-09",
+  "updated": "2026-11-12",
   "roadmap": [
    "M1.3",
    "M1.8"
@@ -469,7 +681,7 @@
   "anchor": "lib-alex-knowledge",
   "status": "available",
   "since": "2026-11-06",
-  "updated": "2026-11-07",
+  "updated": "2026-11-12",
   "roadmap": [],
   "checks": [],
   "related": [
@@ -493,6 +705,7 @@
   "anchor": "lib-datasheets",
   "status": "available",
   "since": "2026-11-05",
+  "updated": "2026-11-12",
   "roadmap": [
    "07.5"
   ],
@@ -557,7 +770,7 @@
  {
   "id": "LIB-rules",
   "title": "Rules: calculations, check rules and copy rules",
-  "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. A check rule gives a finding where its condition does not hold. Copy rules come later.",
+  "summary": "Calculate an attribute from the object's own values, its owners, related objects and the project with a rule: compose, map, calculate with units, choose, aggregate, format; published, its values follow their inputs and are never typed. A check rule gives a finding where its condition does not hold. A copy rule copies a value people may still change. Organization rules are made in the company library and reach a project when its library pin moves; content packages bring their own.",
   "anchor": "lib-rules",
   "status": "available",
   "roadmap": [
@@ -571,14 +784,16 @@
   "checks": [
    "P1",
    "P2",
-   "P3"
+   "P3",
+   "P4",
+   "P6"
   ],
   "related": [
    "OBJ-tag-rules",
    "LIB-configuration",
    "OBJ-checks"
   ],
-  "roles": "Manage project rules (rule.manage): Project administrator",
+  "roles": "Manage project rules (rule.manage): Project administrator; organization rules: Edit the company library, and Publish the company library to publish",
   "training": {
    "topic": "Rules in E1",
    "level": "Advanced",
@@ -698,16 +913,18 @@
  {
   "id": "LIB-modules",
   "title": "Modules in the library",
-  "summary": "Parts of P&IDs saved for placing again, kept in the company library or a project's: the list, search, details, and Usually per instance.",
+  "summary": "Parts of P&IDs saved for placing again, kept in the company library, a project's or a content package: the list, search, details, Save as module? for groups drawn three times, and Usually per instance.",
   "anchor": "lib-modules",
   "status": "available",
   "since": "2026-11-11",
   "updated": "2026-11-11",
   "roadmap": [
-   "32.1a"
+   "32.1a",
+   "32.3d"
   ],
   "checks": [
-   "M1"
+   "M1",
+   "M11"
   ],
   "related": [
    "LIB-module-versions",
@@ -751,34 +968,41 @@
  {
   "id": "LIB-module-updates",
   "title": "Updating placed modules to a new version",
-  "summary": "Update placed instances to a new module version, keeping what each changed and deciding each conflict.",
+  "summary": "Update placed instances to a new module version: the module's changes written, each instance's kept, conflicts decided once per group; Update without conflicts.",
   "anchor": "lib-module-updates",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
    "32.2b"
   ],
-  "checks": [],
+  "checks": [
+   "M6"
+  ],
   "related": [
    "LIB-module-versions"
   ],
-  "roles": "Editing the project",
+  "roles": "Changing the objects of the project",
   "training": {
    "topic": "Module updates",
    "level": "Advanced",
    "minutes": 4
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  },
  {
   "id": "LIB-module-edit",
-  "title": "Editing a module on the module sheet",
-  "summary": "Edit a module's draft on its own sheet and publish the next version.",
+  "title": "Editing a module: new versions",
+  "summary": "Open a module's next version, change its details, members, tie-in points and parameters, upgrade its members and publish; duplicate a module or copy it to the company library.",
   "anchor": "lib-module-edit",
-  "status": "planned",
+  "status": "available",
   "roadmap": [
-   "32.3a"
+   "32.3a",
+   "32.4b"
   ],
-  "checks": [],
+  "checks": [
+   "M7"
+  ],
   "related": [
    "LIB-modules"
   ],
@@ -788,6 +1012,8 @@
    "level": "Advanced",
    "minutes": 4
   },
-  "screenshots": []
+  "screenshots": [],
+  "since": "2026-11-11",
+  "updated": "2026-11-11"
  }
 ]

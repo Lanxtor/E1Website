@@ -22,8 +22,8 @@
 
 <section class="g-feature" id="org-organization-dialog">
   <h2>The Organization dialog</h2>
-  <div class="g-meta"><span>Updated 2026-11-11</span><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-08</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1, 09.6a, 09.7</span><span>Review checks J4, J7, J8</span></div>
-  <p class="g-summary">One dialog holds your organization: its plan, its members with their licenses and roles, open invitations, groups, the audit log and the export. Its first lines tell you how much of the trial, the AI credits, the file storage and the seats is used.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-12</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1, 09.6a, 09.7</span><span>Review checks J4, J7, J8</span></div>
+  <p class="g-summary">One dialog holds your organization: its plan, its members with their licenses and roles, open invitations, access, connections to other systems, the audit log and the export. Each section says what it is for, and the top of the dialog shows who is signed in, with <span class="ui">Switch organization</span> and <span class="ui">Sign out</span>.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span></dd>
     <dt>Who</dt><dd>Owner or Administrator of the organization, with a passkey. Listing members, licenses, groups and the audit each need their own permission; the Administrator license gives only these organization permissions.</dd>
@@ -33,14 +33,15 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with the tabs <span class="ui">Members</span>, <span class="ui">Access</span> (with <span class="ui">Roles</span>, <span class="ui">Groups</span>, <span class="ui">Assignments</span>, <span class="ui">History</span>, <span class="ui">Reviews</span> and <span class="ui">Emergency</span>, see <a href="#org-access-history">Access history</a>), <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>), <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Sign-on</span> (see <a href="#org-sso">Company single sign-on</a>), <span class="ui">Audit</span>, <span class="ui">Export</span> and a <span class="ui">Close</span> button. <span class="ui">Members</span> is shown.</td></tr>
-      <tr><td>2</td><td>Read the lines at the top of <span class="ui">Members</span>.</td><td>First the plan, for example <span class="ui">Plan: Professional. Every Editor is Editor Pro.</span> with <span class="ui">See plans</span> (see <a href="#org-plan">Your organization's plan</a>). For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits: X of Y left; you have a of b left today.</span>, <span class="ui">Files: x GB of y GB used.</span> and the seats, for example <span class="ui">Editor Pro u of t · Reviewer u of t · Viewer u (unlimited) · Administrator u of t</span> (Viewers are unlimited). A license your organization has no seats for, such as Student, is not listed.</td></tr>
-      <tr><td>3</td><td>Look at the table.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Remove</span> on the only owner.</td><td>Refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
-      <tr><td>5</td><td>Press <kbd>Esc</kbd>, click <span class="ui">Close</span>, or click outside the dialog.</td><td>The dialog closes.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with your organization's name under the title and, on the right, you (name and email) with <span class="ui">Switch organization</span> when you belong to more than one, <span class="ui">Sign out</span> and a close cross. On the left the sections, each with a short line under its name: <strong>People</strong>: <span class="ui">Members</span>, <span class="ui">Access</span> (see <a href="#org-access-history">Access history</a>); <strong>Content</strong>: <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>); <strong>Connections</strong>: <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Sign-on</span> (see <a href="#org-sso">Company single sign-on</a>); <strong>Records</strong>: <span class="ui">Audit</span>, <span class="ui">Export</span>. <span class="ui">Members</span> is shown.</td></tr>
+      <tr><td>2</td><td>Click a section on the left.</td><td>It opens on the right under its name and a sentence saying what it is for. <span class="ui">Access</span> has its own row: <span class="ui">Roles</span>, <span class="ui">Groups</span>, <span class="ui">Assignments</span>, <span class="ui">History</span>, <span class="ui">Reviews</span>, <span class="ui">Emergency</span>, <span class="ui">E1 support</span> and <span class="ui">Shared projects</span>, each explained under the row.</td></tr>
+      <tr><td>3</td><td>Read the cards at the top of <span class="ui">Members</span>.</td><td>The plan, for example <span class="ui">Plan: Standard. Every Editor has the Editor license.</span> with <span class="ui">See plans</span> (see <a href="#org-plan">Your organization's plan</a>). For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits this month: X of Y. They start again on &lt;date&gt;.</span> with a bar, <span class="ui">Files: x GB of y GB used.</span>, and the seats, one license per line, for example <span class="ui">Editor 1 of 10</span>, <span class="ui">Reviewer 0 of 10</span>, <span class="ui">Viewer 0 (unlimited)</span>, <span class="ui">Administrator 0 of 5</span>. A license your organization has no seats for, such as Student, is not listed.</td></tr>
+      <tr><td>4</td><td>Look at <span class="ui">People</span>.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. Your own row is marked <span class="ui">You</span> and has no <span class="ui">Remove</span>. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Remove</span> on another member.</td><td>E1 asks: <span class="ui">Remove &lt;name&gt; from the organization? They lose their license and every role here.</span> OK removes them; removing the only Owner is refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
+      <tr><td>6</td><td>Press <kbd>Esc</kbd>, click the cross or <span class="ui">Close</span>, or click outside the dialog.</td><td>The dialog closes.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-warn"><span class="ui">Remove</span> on a member acts at once, without asking first. Only an Owner can remove an Owner. Removing an Owner, Administrator or Library administrator may first ask you to <a href="guide-access.html#acc-step-up">confirm it is you</a>.</p>
+  <p class="g-warn">Only an Owner can remove an Owner. Removing an Owner, Administrator or Library administrator may first ask you to <a href="guide-access.html#acc-step-up">confirm it is you</a>.</p>
   <p class="g-note">When the AI credits are used up the line reads <span class="ui">The AI credits for Alex’s AI help are used up (X of Y). Alex on its own and everything else go on.</span></p>
   <p class="g-note"><span class="ui">Access</span> holds the roles (<a href="#org-custom-roles">Permission categories and custom roles</a>), the <a href="#org-groups">groups</a>, and <span class="ui">Assignments</span>: every role given in the organization, who has it, where, and until when.</p>
   <p class="g-warn">The Role list gives Owner, Administrator or Member only. The dialog has no place yet to give Library administrator, Catalog maintainer or Engineering standards owner; how these are given today is not yet documented. An invitation always makes the person a Member.</p>
@@ -98,7 +99,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>With 3 of 5 Editor seats used, set a fourth member's <span class="ui">License</span> to <span class="ui">Editor</span>.</td><td>The seats line reads <span class="ui">Editor Pro 4 of 5</span> (<span class="ui">Editor Basic 4 of 5</span> in a Standard organization, see <a href="#org-plan">the plan</a>). Every Owner and Administrator gets an Inbox notice <span class="ui">E1 counted the seats</span>: <span class="ui">4 of 5 Editor seats are in use (80 %).</span></td></tr>
+      <tr><td>1</td><td>With 3 of 5 Editor seats used, set a fourth member's <span class="ui">License</span> to <span class="ui">Editor</span>.</td><td>The seats line reads <span class="ui">Editor 4 of 5</span> (<span class="ui">Editor Basic 4 of 5</span> in an Essentials organization, see <a href="#org-plan">the plan</a>). Every Owner and Administrator gets an Inbox notice <span class="ui">E1 counted the seats</span>: <span class="ui">4 of 5 Editor seats are in use (80 %).</span></td></tr>
       <tr><td>2</td><td>Give the fifth Editor license.</td><td>A new notice: <span class="ui">5 of 5 Editor seats are in use (100 %). Nobody else can get this license until seats are added or one is freed.</span></td></tr>
       <tr><td>3</td><td>Try to give a sixth Editor license.</td><td>Refused: <span class="ui">All 5 Editor seats are taken.</span></td></tr>
       <tr><td>4</td><td>Sign in as a member who is not an Owner or Administrator and open the Inbox.</td><td>No seat notice.</td></tr>
@@ -110,9 +111,9 @@
 </section>
 
 <section class="g-feature" id="org-plan">
-  <h2>Your organization's plan: Editor Basic or Editor Pro</h2>
+  <h2>Your organization's plan: Editor Basic or Editor</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-11</span><span class="g-id">ORG-plan</span><span>Roadmap 09.7</span></div>
-  <p class="g-summary">The plan belongs to your organization, not to a person. In a <strong>Standard</strong> organization every Editor is <strong>Editor Basic</strong>; in a <strong>Professional</strong>, <strong>University</strong> or <strong>Enterprise</strong> organization every Editor is <strong>Editor Pro</strong>. Reviewers and Viewers are the same in every plan. A trial is Professional, so the team sees every feature.</p>
+  <p class="g-summary">The plan belongs to your organization, not to a person. In an <strong>Essentials</strong> organization every Editor is <strong>Editor Basic</strong>; in a <strong>Standard</strong>, <strong>University</strong> or <strong>Enterprise</strong> organization every Editor is <strong>Editor</strong>. Reviewers and Viewers are the same in every plan. A trial is Professional, so the team sees every feature.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>, the first line</dd>
     <dt>Who</dt><dd>Everyone who may open the dialog sees the plan; the Owner (the permission <span class="ui">Manage billing</span>) upgrades</dd>
@@ -122,25 +123,25 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>The first line of <span class="ui">Members</span> reads, for example, <span class="ui">Plan: Standard. Every Editor is Editor Basic.</span> with a <span class="ui">See plans</span> button. The seats line names the Editors after the plan: <span class="ui">Editor Basic u of t</span> or <span class="ui">Editor Pro u of t</span>.</td></tr>
-      <tr><td>2</td><td>As an Administrator or member who is not the Owner, in a Standard organization, read the line.</td><td>It ends with <span class="ui">Ask your administrator to upgrade.</span> There is no <span class="ui">Upgrade</span> button.</td></tr>
-      <tr><td>3</td><td>As the Owner, click <span class="ui">Upgrade</span>.</td><td>E1 asks: <span class="ui">Upgrade to Professional? Every Editor of the organization gets Editor Pro at once, and the difference is charged for the rest of the period.</span></td></tr>
-      <tr><td>4</td><td>Confirm.</td><td>The line reads <span class="ui">Plan: Professional. Every Editor is Editor Pro.</span> and the <span class="ui">Upgrade</span> button is gone. Every Editor of the organization has the <a href="#org-pro-features">Pro features</a> at once; the upgrade is in the audit log.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>The first line of <span class="ui">Members</span> reads, for example, <span class="ui">Plan: Essentials. Every Editor has the Editor Basic license.</span> with a <span class="ui">See plans</span> button. The seats line names the Editors after the plan: <span class="ui">Editor Basic u of t</span> or <span class="ui">Editor u of t</span>.</td></tr>
+      <tr><td>2</td><td>As an Administrator or member who is not the Owner, in an Essentials organization, read the line.</td><td>It ends with <span class="ui">Ask your administrator to upgrade.</span> There is no <span class="ui">Upgrade</span> button.</td></tr>
+      <tr><td>3</td><td>As the Owner, click <span class="ui">Upgrade</span>.</td><td>E1 asks: <span class="ui">Upgrade to Standard? Every Editor of the organization gets the Editor license at once, and the difference is charged for the rest of the period.</span></td></tr>
+      <tr><td>4</td><td>Confirm.</td><td>The line reads <span class="ui">Plan: Standard. Every Editor has the Editor license.</span> and the <span class="ui">Upgrade</span> button is gone. Every Editor of the organization has the <a href="#org-pro-features">Pro features</a> at once; the upgrade is in the audit log.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">See plans</span>.</td><td>The website's licenses and prices open in a new tab.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">A Professional, University or Enterprise organization shows its plan without an <span class="ui">Upgrade</span> button. Moving down from Professional to Standard is not offered in E1: it happens at renewal, through LANXTOR. Work done with Pro features then stays visible and exportable, read-only; nothing is deleted.</p>
+  <p class="g-note">A Standard, University or Enterprise organization shows its plan without an <span class="ui">Upgrade</span> button. Moving down from Standard to Essentials is not offered in E1: it happens at renewal, through LANXTOR. Work done with Pro features then stays visible and exportable, read-only; nothing is deleted.</p>
   <p class="g-related">Related: <a href="#org-pro-features">Pro features in an Editor Basic organization</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="guide-account.html#web-pricing">Licenses, prices, currencies and the trial</a></p>
 </section>
 
 <section class="g-feature" id="org-pro-features">
   <h2>Pro features in an Editor Basic organization</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-11</span><span class="g-id">ORG-pro-features</span><span>Roadmap 09.7</span></div>
-  <p class="g-summary">With Editor Basic the Editor Pro features are shown, never hidden: they are greyed out and marked <span class="ui">Pro</span>. Pressing one says why, with <span class="ui">See plans</span> and, for the Owner, <span class="ui">Upgrade</span>.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-12</span><span class="g-id">ORG-pro-features</span><span>Roadmap 09.7</span></div>
+  <p class="g-summary">With Editor Basic the features of the full Editor license are shown, never hidden: they are greyed out and marked <span class="ui">Pro</span>. Pressing one says why, with <span class="ui">See plans</span> and, for the Owner, <span class="ui">Upgrade</span>.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Wherever a Pro feature is on the screen (the list below)</dd>
-    <dt>Who</dt><dd>Everyone in a Standard organization</dd>
-    <dt>Before you start</dt><dd>Your organization's plan is Standard (<a href="#org-plan">Your organization's plan</a>).</dd>
+    <dt>Who</dt><dd>Everyone in an Essentials organization</dd>
+    <dt>Before you start</dt><dd>Your organization's plan is Essentials (<a href="#org-plan">Your organization's plan</a>).</dd>
   </dl>
   <h3>What is greyed out with Editor Basic</h3>
   <ul>
@@ -149,7 +150,11 @@
     <li><strong>Alex trained on your company's standards:</strong> <span class="ui">Configuration</span> → <span class="ui">Alex knowledge</span>. Alex answers and checks without your company's documents, conventions and team memory.</li>
     <li><strong>Advanced piping and pipe classes:</strong> right-click a 2D space → <span class="ui">Check piping…</span> and <span class="ui">Detect pipelines…</span>, and <span class="ui">Configuration</span> → <span class="ui">Pipe classes</span>. Lines, pipelines, segments and the line list work.</li>
     <li><strong>Advanced import:</strong> <span class="ui">File</span> → <span class="ui">Import</span> ▸ <span class="ui">DEXPI P&amp;ID…</span> and <span class="ui">PDF drawing…</span>. DXF, DWG and Excel import work.</li>
-    <li><strong>Company content, rule-based and modular design:</strong> <span class="ui">Configuration</span> → <span class="ui">Company library</span>, <span class="ui">Rules</span> and <span class="ui">Modules</span>. A project's own library works.</li>
+    <li><strong>Company content, rule-based and modular design:</strong> <span class="ui">Configuration</span> → <span class="ui">Company library</span>, <span class="ui">Rules</span> and <span class="ui">Modules</span>, and right-click a selection → <span class="ui">Save as module…</span>. A project's own library works. Module instances already in a project stay; they can be detached and their members removed.</li>
+    <li><strong>Modification branches and commissioning packages:</strong> <span class="ui">New branch…</span>, <span class="ui">Pull from main</span> and <span class="ui">Push to main</span> in the branches view. Branches already made can be entered, looked at and closed.</li>
+    <li><strong>Cause and effect, safety functions, alarms:</strong> the <span class="ui">Cause and effect</span> section of an object's properties is greyed out and read-only.</li>
+    <li><strong>Dashboards and workflow management:</strong> <span class="ui">Configuration</span> → <span class="ui">Statuses</span>, <span class="ui">Workflows</span> and <span class="ui">Progress</span>.</li>
+    <li><strong>Projects shared across organizations:</strong> <span class="ui">Share with another organization…</span> and <span class="ui">Accept</span> on a share.</li>
     <li><strong>Integration API: write.</strong> Scripts and other systems read; a change through the API is refused. A new access token is <span class="ui">Read only</span>.</li>
   </ul>
   <h3>Steps</h3>
@@ -157,38 +162,42 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Open Alex's panel.</td><td>The tabs <span class="ui">Agent</span> and <span class="ui">Plan</span> are greyed out; <span class="ui">Ask</span> is not.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Agent</span>.</td><td>The tab does not change. A dialog <span class="ui">Alex Agent</span> says <span class="ui">Available with Editor Pro. Your organization uses Editor Basic.</span> and <span class="ui">Ask your administrator to upgrade.</span>, with <span class="ui">See plans</span> and <span class="ui">Close</span>.</td></tr>
-      <tr><td>3</td><td>As the Owner, do the same.</td><td>Instead of asking your administrator: <span class="ui">Upgrade to Professional: every Editor of the organization gets Editor Pro at once, and the difference is charged for the rest of the period.</span> and an <span class="ui">Upgrade</span> button.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Upgrade</span>.</td><td><span class="ui">Your organization uses Editor Pro now: every Editor has every feature.</span> After <span class="ui">Close</span>, <span class="ui">Agent</span> and <span class="ui">Plan</span> work.</td></tr>
-      <tr><td>5</td><td>In a Standard organization, open <span class="ui">Configuration</span> → <span class="ui">Rules</span>.</td><td>The section list marks it <span class="ui">Pro</span>. The section shows its rules greyed out and read-only, under <span class="ui">Pro</span> <span class="ui">Available with Editor Pro. Your organization uses Editor Basic.</span> and <span class="ui">More…</span>, which opens the same dialog.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Agent</span>.</td><td>The tab does not change. A dialog <span class="ui">Alex Agent</span> says <span class="ui">Available with the full Editor license. Your organization uses Editor Basic.</span> and <span class="ui">Ask your administrator to upgrade.</span>, with <span class="ui">See plans</span> and <span class="ui">Close</span>.</td></tr>
+      <tr><td>3</td><td>As the Owner, do the same.</td><td>Instead of asking your administrator: <span class="ui">Upgrade to Standard: every Editor of the organization gets the Editor license at once, and the difference is charged for the rest of the period.</span> and an <span class="ui">Upgrade</span> button.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Upgrade</span>.</td><td><span class="ui">Your organization uses the full Editor license now: every Editor has every feature.</span> After <span class="ui">Close</span>, <span class="ui">Agent</span> and <span class="ui">Plan</span> work.</td></tr>
+      <tr><td>5</td><td>In an Essentials organization, open <span class="ui">Configuration</span> → <span class="ui">Rules</span>.</td><td>The section list marks it <span class="ui">Pro</span>. The section shows its rules greyed out and read-only, under <span class="ui">Pro</span> <span class="ui">Available with the full Editor license. Your organization uses Editor Basic.</span> and <span class="ui">More…</span>, which opens the same dialog.</td></tr>
       <tr><td>6</td><td>Open <span class="ui">File</span> → <span class="ui">Import</span> ▸.</td><td><span class="ui">DEXPI P&amp;ID…</span> and <span class="ui">PDF drawing…</span> are greyed out with <span class="ui">Pro</span>; choosing one opens the dialog instead of the import.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">E1 checks the plan itself too: a Pro action from Alex, a script or another way in is refused with <span class="ui">Available with Editor Pro. Your organization uses Editor Basic.</span> A message sent to Alex in Agent or Plan is answered with the same words. <span class="ui">New project from the sample</span> works in every plan.</p>
-  <p class="g-warn">With Editor Basic the AI credits per user are 300 a month and with Editor Pro 2,000; E1 does not count them per person yet.</p>
+  <p class="g-note">E1 checks the plan itself too: a Pro action from Alex, a script or another way in is refused with <span class="ui">Available with the full Editor license. Your organization uses Editor Basic.</span> A message sent to Alex in Agent or Plan is answered with the same words. <span class="ui">Generate DEXPI sample project…</span> works in every plan.</p>
+  <p class="g-warn">With Editor Basic the AI credits per user are 300 a month and with Editor 2,000; E1 does not count them per person yet.</p>
   <p class="g-related">Related: <a href="#org-plan">Your organization's plan</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="guide-account.html#web-pricing">Licenses, prices, currencies and the trial</a></p>
 </section>
 
 <section class="g-feature" id="org-university">
-  <h2>University organizations: the term, Reviewers and Viewers</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-11</span><span class="g-id">ORG-university</span><span>Roadmap 09.10</span></div>
-  <p class="g-summary">A University organization has <strong>Editor Pro free for 3 months</strong>, renewed each term, <strong>one free Reviewer per Editor</strong> and <strong>unlimited free Viewers</strong>. Alex has 300 AI credits a month for each Editor, shared by the class. After the term the organization is read-only until the term is renewed.</p>
+  <h2>University organizations: joining with your university email</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-12</span><span class="g-id">ORG-university</span><span>Roadmap 09.10, 09.16</span></div>
+  <p class="g-summary">Each university has one E1 organization. Everyone who signs up with that university's email address joins it as an ordinary member, up to <strong>200 people</strong>: <strong>Editor for 90 days</strong> from the day they join, then <strong>read-only for 90 days</strong>. Nobody has to manage it. Each person sees their own projects and the projects they are invited to.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>, under the plan line</dd>
-    <dt>Who</dt><dd>Everyone who may open the dialog sees the term; the Owner (the permission <span class="ui">Manage billing</span>) renews it</dd>
-    <dt>Before you start</dt><dd>Your organization's plan is University (<a href="#org-plan">Your organization's plan</a>).</dd>
+    <dt>Where</dt><dd>Website → <span class="ui">Log in</span> → <span class="ui">Sign up</span> → <span class="ui">For teaching at a university</span>, or <span class="ui">Get E1</span> → <span class="ui">Bring E1 to your course</span></dd>
+    <dt>Who</dt><dd>Anyone with an email address of a recognised school or university</dd>
+    <dt>Before you start</dt><dd>Use your university email address, not a personal one.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>Under the plan line: <span class="ui">Term until 1 Jun 2027.</span> The seats line reads, for example, <span class="ui">Reviewer 2 of 3 (one per Editor)</span>.</td></tr>
-      <tr><td>2</td><td>As the Owner, click <span class="ui">Renew term</span>.</td><td>E1 asks: <span class="ui">Renew the term? Editor Pro stays free for 3 more months, from the end of this term (or from today if it has ended).</span> Confirm: the term line shows the new end. Everyone else reads <span class="ui">Ask your administrator to renew the term.</span></td></tr>
-      <tr><td>3</td><td>Give a Reviewer license when there are as many Reviewers as Editors.</td><td>E1 refuses: <span class="ui">A University organization has one free Reviewer per Editor (2 Editors, 2 Reviewers).</span></td></tr>
-      <tr><td>4</td><td>Open the organization after its term has ended.</td><td>The term line reads, in red, <span class="ui">The term ended on 1 Mar 2027: this organization is read-only. Everything can still be viewed and exported.</span> A change is refused until the Owner renews the term.</td></tr>
+      <tr><td>1</td><td>Sign up with your university email as the first person of your university.</td><td>For a university on the public list, E1 opens your university's organization at once, named after it. For another one: "… is not on our list of universities yet, so LANXTOR checks it first. You get an email as soon as it is approved, usually within one working day; then sign in again."</td></tr>
+      <tr><td>2</td><td>A colleague or student signs up with the same university's email.</td><td>They join the same organization, with no approval. Each creates their own projects and invites others to them.</td></tr>
+      <tr><td>3</td><td>Work after your 90 days as Editor.</td><td>A change is refused: "Your time as Editor ended on …: your work is read-only until …, and everything can still be viewed and exported. Write to sales@lanxtor.com to continue."</td></tr>
+      <tr><td>4</td><td>Sign in after the read-only days too.</td><td>"Your time in E1 at … ended on …. Write to sales@lanxtor.com to continue."</td></tr>
+      <tr><td>5</td><td>Once a month, open the email "Confirm your university email for E1" and click <span class="ui">Confirm my email address</span>.</td><td>"Thank you: your university email is confirmed for …". If you do not confirm within 14 days, E1 asks you to at your next sign-in: "Confirm your university email address to go on: we sent a new link to …".</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="#org-plan">Your organization's plan</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="guide-access.html#acc-ai-credits">AI credits this month</a> · <a href="guide-account.html#web-pricing">Licenses, prices, currencies and the trial</a></p>
+  <p class="g-note">When the university has reached its number of people, the next person is told: "… has reached 200 people. Write to sales@lanxtor.com for more." LANXTOR can set other numbers for a university, and give one person more time.</p>
+  <p class="g-warn">Without any activity for 90 days you get an email that your account will be deleted; 30 days later it is deleted, with the projects nobody else works on. Projects shared with others stay with them. Signing in once keeps your account.</p>
+  <p class="g-note">When a university becomes a customer, it names its Owner through sales@lanxtor.com; that person then manages the organization in <span class="ui">File</span> → <span class="ui">Organization…</span> like any other. A University customer can have a term: <span class="ui">Term until …</span> with <span class="ui">Renew term</span> for the Owner, one free Reviewer per Editor, and read-only after the term until it is renewed.</p>
+  <p class="g-related">Related: <a href="#org-plan">Your organization's plan</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="guide-access.html#acc-ai-credits">AI credits this month</a> · <a href="guide-account.html#web-login">Log in and sign up</a> · <a href="guide-account.html#web-pricing">Licenses, prices, currencies and the trial</a></p>
 </section>
 
 <section class="g-feature" id="org-roles-passkey">
@@ -288,7 +297,7 @@
 
 <section class="g-feature" id="org-project-members">
   <h2>Project members and roles</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-09</span><span class="g-id">ORG-project-members</span><span>Roadmap M2.5, 09.6a</span><span>Review check J3, J10</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-12</span><span class="g-id">ORG-project-members</span><span>Roadmap M2.5, 09.6a</span><span>Review check J3, J10</span></div>
   <p class="g-summary">A role on a project decides what a person may do in it. The Project administrator admits people or groups to the project with a <em>maximum role</em> (the most they may hold anywhere in it) and gives them roles, in the project's Members or in Project settings → Access. Whoever creates a project becomes its Project administrator.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Select the project in the explorer; on the project's page click <span class="ui">Members</span>. The same is in <span class="ui">File</span> → <span class="ui">Project settings…</span> → <span class="ui">Access</span>.</dd>
@@ -296,6 +305,7 @@
     <dt>Before you start</dt><dd>E1 with sign-in; a colleague in your organization (Ben).</dd>
   </dl>
   <h3>The project roles</h3>
+  <p>Project settings → <span class="ui">Access</span> explains them under <span class="ui">What the roles mean</span>: each role can do everything the role below it can, and more.</p>
   <ul>
     <li><strong>Project administrator</strong>: <span class="ui">Everything in the project: objects, attributes and drawings, revisions, who has access, its settings, renaming and deleting it.</span></li>
     <li><strong>Lead engineer</strong>: <span class="ui">Edits objects, attributes and drawings, issues revisions, approves branches and designs datasheets. Cannot change access or settings, or rename or delete the project.</span></li>
@@ -475,10 +485,10 @@
 <section class="g-feature" id="org-trials">
   <h2>Trials and the read-only lock</h2>
   <div class="g-meta"><span>Updated 2026-11-11</span><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">ORG-trials</span></div>
-  <p class="g-summary">A trial gives a person a new organization of their own, usually for 30 days; LANXTOR can choose another length, and lengthen or shorten a running trial. When it ends, the organization becomes read-only: everything can still be viewed and exported, but nothing can be changed until a contract is in place.</p>
+  <p class="g-summary">Anyone who signs up with a company email starts a trial: a new organization named after their email domain, with them as its Owner, usually for 30 days; LANXTOR can choose another length, and lengthen or shorten a running trial. One trial per email domain: a colleague who signs up later asks to join it. When it ends, the organization is read-only for 90 days: everything can still be viewed and exported. After that it is closed until a contract is in place.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The trial line at the top of <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>; the Account page</dd>
-    <dt>Who</dt><dd>Trials are offered by LANXTOR. Everyone in the trial organization sees its state.</dd>
+    <dt>Who</dt><dd>Anyone with a company email (not Gmail and the like), or someone LANXTOR invites. Everyone in the trial organization sees its state.</dd>
   </dl>
   <h3>What a trial includes</h3>
   <ul>
@@ -492,13 +502,16 @@
     <tbody>
       <tr><td>1</td><td>During the trial, open <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td><span class="ui">Trial until &lt;date&gt;.</span></td></tr>
       <tr><td>2</td><td>After the end date, open the dialog again.</td><td>The line is red: <span class="ui">The trial ended on &lt;date&gt;: this organization is read-only. Everything can still be viewed and exported.</span></td></tr>
-      <tr><td>3</td><td>Rename an object.</td><td>Refused: <span class="ui">The trial of this organization ended on &lt;YYYY-MM-DD&gt;, so it is read-only now: everything can still be viewed and exported. Contact LANXTOR to continue.</span></td></tr>
+      <tr><td>3</td><td>Rename an object.</td><td>Refused: <span class="ui">The trial of this organization ended on &lt;YYYY-MM-DD&gt;, so it is read-only now: everything can still be viewed and exported. Write to sales@lanxtor.com to continue.</span></td></tr>
       <tr><td>4</td><td>Open <span class="ui">Account</span>.</td><td><span class="ui">The trial of this organization has ended: everything is read-only, and can still be viewed and exported.</span></td></tr>
       <tr><td>5</td><td>Export a 2D space PDF or the organization.</td><td>The export works.</td></tr>
+      <tr><td>6</td><td>Sign in 90 days after the trial ended.</td><td>"The trial of &lt;organization&gt; ended on …, and its read-only time on …. Write to sales@lanxtor.com to continue."</td></tr>
+      <tr><td>7</td><td>A colleague with the same email domain signs up.</td><td>They are told "&lt;domain&gt; already uses E1. We asked its administrators to let you in.", and the trial's Owners and Administrators get the request to join.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">LANXTOR's own staff invite to a trial from the Organization dialog (<span class="ui">Invite to a trial</span>, with <span class="ui">Their organization (optional)</span> and <span class="ui">Days</span>, the trial's length from when the person accepts; empty: the default). Anyone else trying gets <span class="ui">Trial organizations are offered by LANXTOR only.</span></p>
   <p class="g-note">After the end everyone is limited like a Viewer license. LANXTOR lifts the lock when a contract is entered.</p>
+  <p class="g-warn">A trial nobody has used for 90 days after its end gets an email to its Owners; 30 days later the organization is deleted with everything in it.</p>
   <p class="g-related">Related: <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-export">Export everything…</a> · <a href="guide-account.html#web-account-page">Your account page</a></p>
 </section>
 
@@ -552,12 +565,36 @@
   <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-groups">Groups</a> · <a href="#org-responsibility">Assign to…</a> · <a href="#org-access-history">Access history</a></p>
 </section>
 
+<section class="g-feature" id="org-discipline-permissions">
+  <h2>Discipline permissions: one discipline's attributes only</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-discipline-permissions</span><span>Roadmap 09.6</span><span>Review check J12</span></div>
+  <p class="g-summary">A custom role may change the attributes of one discipline only: process engineers a pump's process data, electrical engineers its motor and hazardous area data.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Roles</span>, category <span class="ui">Objects and attributes</span></dd>
+    <dt>Who</dt><dd>Owner or Administrator with a passkey.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in.</dd>
+  </dl>
+  <h3>The disciplines</h3>
+  <p>An attribute's discipline is the group its class puts it in on the datasheet: <em>process</em> (process, operating and design conditions, fluid, performance), <em>mechanical</em> (materials, dimensions, construction, nozzles), <em>piping</em> (pipe, insulation, tracing, testing), <em>electrical</em> (motor, power, cables, hazardous area) and <em>instrumentation</em> (signals, control, alarms, trips, SIL). A group such as General has no discipline.</p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Roles</span>, make a custom project role "Electrical engineer" with <span class="ui">View projects</span>, <span class="ui">View objects</span> and <span class="ui">Edit electrical attributes</span>, and <span class="ui">Save role</span>.</td><td>The role is in the list as <em>custom · project</em>.</td></tr>
+      <tr><td>2</td><td>Give it to a person on a project. As that person, open a centrifugal pump's datasheet and set <span class="ui">Hazardous zone</span>.</td><td>The value is saved.</td></tr>
+      <tr><td>3</td><td>Change <span class="ui">Design pressure</span>, or the description.</td><td><span class="ui">Change refused</span> naming <span class="ui">attribute.edit</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Edit attributes</span> includes every discipline. A change of attributes of two disciplines needs both. The name, the attributes in no discipline and every other change of an object need the permission they always need.</p>
+  <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-project-members">Project members and roles</a> · <a href="#org-responsibility">Assign to…</a></p>
+</section>
+
 <section class="g-feature" id="org-responsibility">
   <h2>Assign to…: objects a person or group is responsible for</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-responsibility</span><span>Roadmap 09.6r</span><span>Review checks N5</span></div>
   <p class="g-summary">Make one person or one group responsible for an object, a folder, a sheet or a whole section. Only they then change it and everything in it: its values, name and tag, moving it, deleting it, placing it on a sheet, and relationships to it. Everyone else still sees it and comments on it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>An object's page: <span class="ui">Responsible</span> with <span class="ui">Take it</span>, <span class="ui">Assign to…</span> and <span class="ui">Release</span>; <span class="ui">Project settings → Access → Responsibilities</span></dd>
+    <dt>Where</dt><dd>An object's page, the row <span class="ui">Responsible</span> in Details, with <span class="ui">Take it</span>, <span class="ui">Assign to…</span> and <span class="ui">Release</span>; <span class="ui">Project settings → Access → Responsibilities</span></dd>
     <dt>Who</dt><dd>Anyone who may edit an object takes one nobody is responsible for. Assigning to someone else, reassigning and releasing someone else's need Assign responsibility (Lead engineer, Project administrator). The responsible person or group always releases their own.</dd>
     <dt>Before you start</dt><dd>E1 with sign-in (the cloud).</dd>
   </dl>
@@ -565,7 +602,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a pump's page and click <span class="ui">Take it</span> beside <span class="ui">Responsible</span>.</td><td><em>Responsible: &lt;you&gt;</em>. A colleague who changes its flow rate, renames it, moves it or relates something to it is refused: "&lt;you&gt; is responsible for P-101: ask them to change it, or to release it."</td></tr>
+      <tr><td>1</td><td>Open a pump's page and click <span class="ui">Take it</span> at the end of the row <span class="ui">Responsible</span>.</td><td>The row reads <em>Responsible &lt;you&gt;</em>. A colleague who changes its flow rate, renames it, moves it or relates something to it is refused: "&lt;you&gt; is responsible for P-101: ask them to change it, or to release it."</td></tr>
       <tr><td>2</td><td>As a Lead engineer, open an object of the section <em>Assets</em>, choose <span class="ui">Assign to…</span> and pick a group, for example <em>Mechanical (group)</em>.</td><td>Everyone in the group may change that object; others are refused with the group's name.</td></tr>
       <tr><td>3</td><td>Open <span class="ui">Project settings → Access</span>.</td><td><span class="ui">Responsibilities</span> lists each assigned object with the person or group and the date, with <span class="ui">Release</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Release</span>.</td><td>Others may change it again (or the folder's or section's responsible, if one above has one).</td></tr>
@@ -609,6 +646,51 @@
   <p class="g-note">The audit log cannot be changed or deleted by anyone, E1 included. Every privileged grant, every change of a project member's maximum role or of a ceiling, and every emergency access is told to the owners.</p>
   <p class="g-warn">Not built yet: a project's own history under Project settings → Access, reviews on a schedule, the alerts by email (they are in the Inbox), and E1 support access requested and approved by you.</p>
   <p class="g-related">Related: <a href="#org-audit">Audit</a> · <a href="#org-custom-roles">Custom roles</a> · <a href="#org-responsibility">Assign to…</a></p>
+</section>
+
+<section class="g-feature" id="org-support-access">
+  <h2>E1 support access</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-support-access</span><span>Roadmap 09.6</span><span>Review check J13</span></div>
+  <p class="g-summary">E1 support has no access to your data. When you ask for help, E1 support may ask for access for a few hours; nothing is given until an owner or administrator approves it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">E1 support</span></dd>
+    <dt>Who</dt><dd>Owner or Administrator with a passkey.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in, and a request from E1 support.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Access</span> → <span class="ui">E1 support</span>.</td><td>Each request with when it was asked, what it is for, the hours, <span class="ui">Read only</span> or <span class="ui">Allowed</span> changes, and its status: <span class="ui">Asked</span>, <span class="ui">Running</span>, <span class="ui">Refused</span> or <span class="ui">Ended</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Approve</span> and confirm it is you.</td><td><span class="ui">Running until …</span>. E1 support reads every project (and changes them only if the request said so); everything they do shows as <em>E1 support</em> in history and the audit log.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">End</span>.</td><td><span class="ui">Ended</span>: the access is gone at once. Otherwise it ends when the hours run out.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Refuse</span> gives nothing. Projects made after the approval are not included. Approving, refusing and ending are in the audit log.</p>
+  <p class="g-related">Related: <a href="#org-access-history">Access history and emergency access</a> · <a href="#org-roles-passkey">Roles and passkeys</a></p>
+</section>
+
+<section class="g-feature" id="org-shared-projects">
+  <h2>Share a project with another organization</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-shared-projects</span><span>Roadmap 09.12</span><span>Review check J14</span></div>
+  <p class="g-summary">An owner company and its contractor work on the same project, each managing its own people. The project stays with the organization that shares it; the other organization's people use their own licenses, not your seats.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Project settings</span> → <span class="ui">Access</span> → <span class="ui">Shared with organizations</span> (sharing); <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Shared projects</span> (accepting)</dd>
+    <dt>Who</dt><dd>A Project administrator shares; the other organization's Owner or Administrator accepts and chooses the people.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in; both organizations with Editor.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the project's <span class="ui">Access</span>, choose <span class="ui">At most Engineer</span> and click <span class="ui">Share with another organization…</span>.</td><td>A code, shown only now, with <span class="ui">Copy code</span>. Send it to the other organization's administrator; it is valid for 14 days.</td></tr>
+      <tr><td>2</td><td>In the other organization, <span class="ui">Access</span> → <span class="ui">Shared projects</span>: enter the code and click <span class="ui">Accept</span>.</td><td>The project with its organization and <em>at most Engineer</em>, and a role choice for each member.</td></tr>
+      <tr><td>3</td><td>Set a member to <span class="ui">Engineer</span> and click <span class="ui">Save people</span>.</td><td>The member can switch to the sharing organization (<span class="ui">Switch organization</span> on the workspace's right-click menu) and work on that project only. History shows their organization after their name.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">End</span>, on either side.</td><td>The other organization's people lose the project at once.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The other organization's people are Guests of yours: they manage nothing and have no integration access, whatever role they hold on the project. Setting a person to <span class="ui">Not on it</span> removes them. Every step is in both organizations' audit logs.</p>
+  <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-access-history">Access history</a></p>
 </section>
 
 <section class="g-feature" id="org-history-names">
@@ -703,9 +785,10 @@
   <p class="g-note">A token never carries an Owner or Administrator role: administration is done signed in. Tokens and service accounts are never made with a token, and Alex never makes them. Every creation, revocation and first use from a new address is in the audit; every API call is in the API access log.</p>
   <h3>Records and other systems' ids</h3>
   <ul>
-    <li><strong>Read:</strong> <code>GET /projects</code>, <code>/projects/{id}/objects?class=…</code>, <code>/objects/{id}?include=occurrences,relationships</code> (the object with its <code>rev</code>, its values with units and comments, its catalog source and its ids in other systems), <code>/objects/{id}/relationships</code>, and the rows of a saved query: <code>/projects/{id}/queries/{key}</code>.</li>
+    <li><strong>Read:</strong> <code>GET /projects</code>, <code>/projects/{id}/objects?class=…</code>, <code>/objects/{id}?include=occurrences,relationships</code> (the object with its <code>rev</code>, its values with units and comments, its catalog source and its ids in other systems), <code>/objects/{id}/relationships</code>, the project's saved queries: <code>/projects/{id}/queries</code>, and the rows of one: <code>/projects/{id}/queries/{key}</code>.</li>
+    <li><strong>Queries:</strong> <code>POST /projects/{id}/query</code> with a query definition or a saved query's key gives its rows; <code>POST /projects/{id}/queries/from-sentence</code> with <code>{ "text": "all pumps without a motor" }</code> gives the definition.</li>
     <li><strong>Change:</strong> <code>PATCH /objects/{id}</code> with <code>If-Match: &lt;rev&gt;</code> (a stale rev is 409, nothing changes). Relationships are read, not written.</li>
-    <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them under "In other systems".</li>
+    <li><strong>By the other system's id:</strong> <code>PUT /projects/{id}/objects/by-external/erp/10004711</code> creates the object the first time (201) and updates it after (200), so the other system never needs E1's ids. An object keeps one id per system, unique in the project; its page shows them in Details, on the row "In other systems".</li>
   </ul>
   <p class="g-warn">Not in the API on purpose: drawing, deleting, relationships, the library and administration (use E1 itself), and mapping or scheduling (your script or middleware does that). Not built yet: address ranges in the token form (the API takes them).</p>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-webhooks">Webhooks and the change feed</a> · <a href="#org-sso">Company single sign-on</a></p>
@@ -745,6 +828,38 @@
   </ul>
   <p class="g-warn">Not built yet: webhooks as part of a connection with its status page and failure notices, filters by attribute, and events of documents, branches and class upgrades.</p>
   <p class="g-related">Related: <a href="#org-tokens">Tokens, service accounts and agents</a> · <a href="#org-audit">Audit</a></p>
+</section>
+
+<section class="g-feature" id="org-message-queues">
+  <h2>Message queues: events to a broker, commands from one</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-message-queues</span><span>Roadmap 19.5</span></div>
+  <p class="g-summary">Send the change feed's events to an MQTT, AMQP or Kafka broker instead of a web address, and let another system send E1 commands through a broker, each run as an access token.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>File → Organization… → <span class="ui">Webhooks</span>: the webhook form, and <span class="ui">Queue consumers</span> below it</dd>
+    <dt>Who</dt><dd>Owners and Administrators (Manage connections)</dd>
+    <dt>Before you start</dt><dd>A broker reachable over TLS on the internet (a customer's own installation may allow its own network), its user name and password, and for commands an access token (Organization → Access tokens) with the permissions the commands need</dd>
+  </dl>
+  <h3>Events to a broker</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Webhooks</span>, type a name and a broker address: <code>mqtts://broker.example.com:8883/e1/events</code>, <code>amqps://broker.example.com/plant?exchange=e1&amp;routingKey=e1.events</code> (or <code>?queue=e1-events</code>), or <code>kafkas://k1.example.com:9093,k2.example.com:9093/e1-events</code>.</td><td><span class="ui">Broker user name</span> and <span class="ui">Broker password</span> appear.</td></tr>
+      <tr><td>2</td><td>Fill them in, tick the events and click <span class="ui">Create webhook</span>.</td><td>The signing secret is shown once. The list shows the webhook with its transport (MQTT, AMQP, KAFKA) and address; the password is kept sealed and never shown.</td></tr>
+      <tr><td>3</td><td>Change an object.</td><td>The event is published to the topic, exchange or queue with the headers E1-Event-Id, E1-Event-Type, E1-Delivery-Id and E1-Signature (over MQTT, in the message's <code>headers</code>). <span class="ui">Deliveries…</span> shows it delivered once the broker confirmed it; a broker that cannot be reached is tried again, as a web address is.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Commands from a broker</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Queue consumers</span>, give a <span class="ui">Consumer name</span>, the <span class="ui">Broker address</span> to read (an MQTT topic, an AMQP <code>?queue=</code>, or a Kafka topic), the <span class="ui">Access token</span>, the broker's user name and password, and click <span class="ui">Create queue consumer</span>.</td><td>It is listed, Active, with 0 run · 0 refused.</td></tr>
+      <tr><td>2</td><td>From the other system, send <code>{ "id": "m-1", "tool": "set_values", "input": { "project": "…", "object": "…", "values": { … } }, "replyTo": "e1/replies" }</code>.</td><td>E1 runs it as the token and answers <code>{ "id": "m-1", "ok": true, "status": 200, "result": … }</code> to replyTo (AMQP: the reply-to queue; Kafka: the reply-to header).</td></tr>
+      <tr><td>3</td><td>Send the same message again.</td><td>The same answer; nothing is changed twice. The same id with another command is answered with idempotency_conflict.</td></tr>
+      <tr><td>4</td><td>Send a command the API does not offer, or a change with a read-only token.</td><td>Answered with ok false and the reason; the list counts it as refused and shows the last error.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Only the API's commands run this way (finding and reading objects, setting values, renaming, external ids, queries, assistants), with the token's read-only and project limits and its rate. Addresses carry no user name or password: they are given apart.</p>
+  <p class="g-related">Related: <a href="guide-organization.html#org-webhooks">Webhooks and the change feed</a>, <a href="guide-organization.html#org-tokens">Access tokens</a></p>
 </section>
 
 <section class="g-feature" id="org-four-eyes">

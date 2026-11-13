@@ -7,7 +7,7 @@
   var PRODUCT = "E1";
 
   var NAV = [
-    { href: "index.html", label: "Home" },
+    { href: "index.html", label: "Overview" },
     { href: "solutions.html", label: "Solutions" },
     { href: "academy.html", label: "Academy" },
     { href: "shape-e1.html", label: "Contact us" },
@@ -20,9 +20,9 @@
 
   var LOGO_SVG =
     '<svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">' +
-    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0b2a4a"/>' +
+    '<rect x="1" y="1" width="30" height="30" rx="8" fill="#0e1116"/>' +
     '<path d="M9 9v14h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<circle cx="21" cy="11" r="2.6" fill="#f08c2e"/>' +
+    '<circle cx="21" cy="11" r="2.6" fill="#1f5cff"/>' +
     "</svg>";
 
   var PLAY_SVG =
@@ -354,39 +354,111 @@
     var box = document.querySelector("[data-auth]");
     if (!box) return;
 
+    var T = window.E1_T || function (x, v) { return v ? x.replace(/\{(\w+)\}/g, function (m, k) { return v[k] != null ? v[k] : m; }) : x; };
     var tabs = box.querySelectorAll(".tabs button");
     var title = box.querySelector("[data-auth-title]");
     var lead = box.querySelector("[data-auth-lead]");
     var submit = box.querySelector("[data-auth-submit]");
     var notice = box.querySelector("[data-auth-notice]");
+    var kindBox = box.querySelector("[data-signup-kind]");
+    var kinds = box.querySelectorAll("[data-kind]");
+    var uniCheck = box.querySelector("[data-uni-check]");
+    var uniEmail = box.querySelector("[data-uni-email]");
+    var uniResult = box.querySelector("[data-uni-result]");
     var api = window.E1;
+    var cfg = window.E1_CONFIG || {};
+    var apiBase = String(cfg.apiBase || "").replace(/\/+$/, "");
     var returnTo = new URLSearchParams(location.search).get("return") || "";
     var mode = "login";
+    var kind = "company";
+    var verdict = null;
 
     function setMode(next) {
       mode = next;
       var signup = mode === "signup";
+      var uni = signup && kind === "university";
       tabs.forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.mode === mode)); });
-      title.textContent = signup ? "Create your account" : "Welcome back";
-      lead.textContent = signup
-        ? "Create your account and start your free 30-day trial, for you and your team."
-        : "Sign in to see your licenses, usage, projects and downloads.";
-      submit.textContent = signup ? "Start your free 30-day trial" : "Continue to sign in";
-      // Sign up: the trial panel next to the form (15 people, 30 days).
+      kinds.forEach(function (k) { k.setAttribute("aria-checked", String(k.dataset.kind === kind)); });
+      if (kindBox) kindBox.hidden = !signup;
+      if (uniCheck) uniCheck.hidden = !uni;
+      title.textContent = !signup ? T("Welcome back") : uni ? T("Create your university account") : T("Create your account");
+      lead.textContent = !signup
+        ? T("Sign in to see your licenses, usage, projects and downloads.")
+        : uni
+          ? T("Free for teaching: 90 days as Editor from the day you join, then 90 days read-only.")
+          : T("Create your account and start your free 30-day trial, for you and your team.");
+      submit.textContent = !signup ? T("Continue to sign in") : uni ? T("Continue with your university email") : T("Start your free 30-day trial");
+      // Sign up: the panel next to the form, for a trial or for a university.
       var promo = document.querySelector("[data-trial-promo]");
-      if (promo) {
-        promo.hidden = !signup;
-        box.parentElement.classList.toggle("has-promo", signup);
-      }
-      var url = api && api.isDemo() ? "" : api && api.loginUrl(mode, returnTo && new URL(returnTo, location.href).href);
-      submit.setAttribute("href", url || "account.html?demo=1");
+      var uniPromo = document.querySelector("[data-uni-promo]");
+      if (promo) promo.hidden = !signup || uni;
+      if (uniPromo) uniPromo.hidden = !uni;
+      box.parentElement.classList.toggle("has-promo", signup);
+      link();
     }
+
+    function link() {
+      var uni = mode === "signup" && kind === "university";
+      var url = api && api.isDemo() ? "" : api && api.loginUrl(mode, returnTo && new URL(returnTo, location.href).href);
+      if (url && uni) {
+        url += "&university=1";
+        var email = uniEmail && uniEmail.value.trim();
+        if (email) url += "&login_hint=" + encodeURIComponent(email);
+      }
+      submit.setAttribute("href", url || "account.html?demo=1");
+      var blocked = uni && verdict && ["full", "rejected", "public-mail"].indexOf(verdict) >= 0;
+      submit.classList.toggle("is-disabled", Boolean(blocked));
+      submit.setAttribute("aria-disabled", blocked ? "true" : "false");
+    }
+
+    /* What sign-up would do with this university email (GET /api/site/university), as it is typed. */
+    var timer = 0, asked = 0;
+    function say(text, tone) {
+      uniResult.textContent = text;
+      uniResult.className = "uni-result" + (tone ? " is-" + tone : "");
+    }
+    function checkEmail() {
+      var email = uniEmail.value.trim();
+      verdict = null;
+      link();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { say("", ""); return; }
+      if (!apiBase || (api && api.isDemo())) { say("", ""); return; }
+      var mine = ++asked;
+      say(T("Checking…"), "");
+      fetch(apiBase + "/api/site/university?email=" + encodeURIComponent(email), { headers: { Accept: "application/json" } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (r) {
+          if (mine !== asked || !r) { if (mine === asked) say("", ""); return; }
+          verdict = r.state;
+          var u = r.university || {};
+          var domain = email.split("@")[1];
+          var where = u.name ? u.name + (u.country ? ", " + u.country : "") : domain;
+          if (r.state === "new") say(T("✓ {where}. You open E1 for your university: everyone with your university’s email joins you.", { where: where }), "ok");
+          else if (r.state === "open") say(T("✓ {where} uses E1 already. You join it.", { where: where }), "ok");
+          else if (r.state === "full") say(T("{where} has reached its number of people in E1. Write to sales@lanxtor.com for more.", { where: where }), "bad");
+          else if (r.state === "pending") say(T("We are checking {domain}. You get an email as soon as it is approved.", { domain: domain }), "wait");
+          else if (r.state === "rejected") say(T("We could not confirm {domain} as a university. Write to sales@lanxtor.com if this is a mistake.", { domain: domain }), "bad");
+          else if (r.state === "unknown") say(T("{domain} is not on our list of universities yet. Continue, and LANXTOR checks it, usually within one working day.", { domain: domain }), "wait");
+          else if (r.state === "public-mail") say(T("Use your university email address, not a personal one."), "bad");
+          else say("", "");
+          link();
+        })
+        .catch(function () { if (mine === asked) say("", ""); });
+    }
+    if (uniEmail) uniEmail.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(checkEmail, 350); });
+    kinds.forEach(function (k) {
+      k.addEventListener("click", function () { kind = k.dataset.kind; setMode("signup"); if (kind === "university" && uniEmail) uniEmail.focus(); });
+    });
+    submit.addEventListener("click", function (e) {
+      if (submit.getAttribute("aria-disabled") === "true") e.preventDefault();
+    });
 
     tabs.forEach(function (t) {
       t.addEventListener("click", function () { setMode(t.dataset.mode); });
     });
 
-    if (location.hash === "#signup") setMode("signup");
+    if (location.hash === "#university") { kind = "university"; setMode("signup"); }
+    else if (location.hash === "#signup") setMode("signup");
     else setMode("login");
 
     // Companies whose Microsoft accounts are connected to E1 sign in with them.

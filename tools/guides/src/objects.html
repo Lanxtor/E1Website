@@ -9,7 +9,7 @@
     <li><a href="#obj-relationships">Relate it to other objects</a>, for example a function that is implemented by a pump.</li>
     <li>For instruments, keep the project's <a href="#obj-hookups">hookups</a> in Assets ▸ Hookups and choose on each instrument which one it uses.</li>
     <li><a href="#obj-rename">Rename</a>, <a href="#obj-cases">add cases</a>, <a href="#obj-move">move</a>, <a href="#obj-void">void</a> or <a href="#obj-delete">delete</a> it.</li>
-    <li>See what is coming: <a href="#obj-deep-view">Deep view</a>, <a href="#obj-units">units of measurement</a> and <a href="#obj-calculations">calculations on attributes</a>.</li>
+    <li>See everything an object is associated with in its <a href="#obj-deep-view">Deep view</a>; see what is coming: <a href="#obj-units">units of measurement</a> and <a href="#obj-calculations">calculations on attributes</a>.</li>
   </ol>
   <h3>Before you start</h3>
   <p>You have a project with its sections (<a href="guide-projects.html#prj-new-project">Create a project</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a>). The classes and attributes you can choose come from the library in <span class="ui">Configuration</span> (<a href="guide-library.html#lib-configuration">Configuration</a>). The examples use the demo project with pumps Pump1 to Pump3 and valves V1 to V10; on a project of your own, use your own names.</p>
@@ -70,10 +70,10 @@
 
 <section class="g-feature" id="obj-object-window">
   <h2>The object window and its tabs</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-10</span><span class="g-id">OBJ-object-window</span><span>Roadmap M1.5</span><span>Review checks C1, F1, H1, H3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-11</span><span class="g-id">OBJ-object-window</span><span>Roadmap M1.5</span><span>Review checks C1, F1, H1, H3</span></div>
   <p class="g-summary">Every object opens in a window of its own, as a tab: a header with its class, tag, name and actions, and seven tabs for its attributes, relationships, deep view, datasheet, chat, history and files.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Double-click an object in the explorer; right-click it → <span class="ui">Open</span>; right-click its symbol on a 2D space → <span class="ui">Object properties</span>; it also opens by itself after <span class="ui">Create</span></dd>
+    <dt>Where</dt><dd>Double-click an object in the explorer, a query view or a 2D space (it opens on <span class="ui">Attributes</span>); right-click it → <span class="ui">Open</span>; right-click its symbol on a 2D space → <span class="ui">Object properties</span>; it also opens by itself after <span class="ui">Create</span></dd>
     <dt>Who</dt><dd>Anyone who can open the project; editing needs a role that may edit objects</dd>
     <dt>Before you start</dt><dd>The project has an object, for example Pump1.</dd>
   </dl>
@@ -82,25 +82,32 @@
     <li>The heading (tag, or the name when there is no tag), then the class name, "· <i>class key</i> · version N".</li>
     <li>The fields <span class="ui">Tag</span> (for tagged classes) and <span class="ui">Name</span>. <kbd>Enter</kbd> or leaving the field saves; <kbd>Esc</kbd> brings back the old text.</li>
     <li>"Id …", a fixed identifier that never changes.</li>
-    <li>The buttons <span class="ui">New task…</span>, <span class="ui">Export</span> (the attributes as an Excel file) and <span class="ui">Export PDF</span>.</li>
-    <li>"Cases: none yet" with <span class="ui">New case</span> (see <a href="#obj-cases">Cases</a>).</li>
-    <li>The tag state, for example "Tag from the rule", with a <span class="ui">Tag…</span> button (see <a href="#obj-tag-dialog">Tag…</a>).</li>
+    <li>The actions, in one row under the name: <span class="ui">New task…</span>, then <span class="ui">Export</span> (the attributes as an Excel file) and <span class="ui">Export PDF</span>.</li>
     <li>For an object made from a catalog item: "From catalog: …" with <span class="ui">Re-apply…</span> and <span class="ui">Detach</span>.</li>
+  </ul>
+  <h3>Details</h3>
+  <p>Under the actions, a box with one row per fact: its name on the left, its value, and its buttons at the end of the row. A row that does not apply is not shown.</p>
+  <ul>
+    <li><span class="ui">Status</span>: the status chip, for example "New", and "No workflow".</li>
+    <li><span class="ui">Responsible</span>: who changes the object ("nobody" when no one), with <span class="ui">Take it</span> and <span class="ui">Assign to…</span> (see <a href="guide-organization.html#org-responsibility">Responsibility</a>; shown with sign-in).</li>
+    <li><span class="ui">Cases</span>: the object's cases, or "none yet", with <span class="ui">New case</span> (see <a href="#obj-cases">Cases</a>).</li>
+    <li><span class="ui">Tag source</span>: where the tag comes from, for example "Tag from the rule" or "Manual tag", with <span class="ui">Tag…</span> (see <a href="#obj-tag-dialog">Tag…</a>).</li>
+    <li><span class="ui">In other systems</span>: the object's ids in other systems, for example "erp 10004711".</li>
   </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Double-click <span class="ui">Pump1</span> in the explorer.</td><td>A tab "Pump1" opens with the heading "Pump1" and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Chat</span>, <span class="ui">History</span>, <span class="ui">Attachments</span>, in this order. Because Centrifugal pump has a datasheet design, the <span class="ui">Data sheet</span> tab is shown ("Datasheet of Pump1"); for a class without one, <span class="ui">Attributes</span> is shown.</td></tr>
+      <tr><td>1</td><td>Double-click <span class="ui">Pump1</span> in the explorer.</td><td>A tab "Pump1" opens with the heading "Pump1" and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Chat</span>, <span class="ui">History</span>, <span class="ui">Attachments</span>, in this order. <span class="ui">Attributes</span> is shown, whatever tab you chose last; <span class="ui">Data sheet</span> shows "Datasheet of Pump1".</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Attributes</span>, then press the <kbd>→</kbd> key.</td><td><span class="ui">Relationships</span> is selected. <kbd>←</kbd>, <kbd>Home</kbd> and <kbd>End</kbd> also move between tabs: <kbd>Home</kbd> goes to <span class="ui">Attributes</span>, <kbd>End</kbd> to <span class="ui">Attachments</span>, the last tab.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Attachments</span>, then double-click <span class="ui">Pump2</span> in the explorer.</td><td>Pump2 opens on <span class="ui">Attachments</span> too: the window opens on the tab you chose last.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Attachments</span>, then right-click <span class="ui">Pump2</span> in the explorer → <span class="ui">Open</span>.</td><td>Pump2 opens on <span class="ui">Attributes</span>: <span class="ui">Open</span>, a double-click and a symbol's <span class="ui">Object properties</span> always open the window there, whatever tab you chose last.</td></tr>
       <tr><td>4</td><td>Click in <span class="ui">Name</span>, type a new name and press <kbd>Esc</kbd>.</td><td>The old name is back; nothing is saved.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Export</span>.</td><td>An Excel file with the object's attributes is downloaded.</td></tr>
       <tr><td>6</td><td>Hold <kbd>Ctrl</kbd> (<kbd>⌘</kbd> on a Mac) and turn the mouse wheel up three times over the window.</td><td>The whole window, header, tabs and attributes, gets larger and "150%" shows for a moment at its top right. It keeps its width: the text and the attribute table are laid out again, and the tabs that no longer fit go on a second row.</td></tr>
       <tr><td>7</td><td>Double-click <span class="ui">Pump2</span> in the explorer.</td><td>Pump2 opens at 150% too: every object window uses the same size, also after a reload. <kbd>Ctrl+0</kbd> with the focus in the window goes back to 100%.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/object-page.webp" alt="The object window of Pump1 opened by a double-click in the explorer: the header with class, Tag and Name, the buttons, and the tab row with the Data sheet tab selected showing the pump's datasheet." width="2160" height="1350" loading="lazy"><figcaption>Pump1 in its object window, on the <span class="ui">Data sheet</span> tab.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/object-page.webp" alt="The object window of Pump1: the header with class, Tag and Name, the buttons, and the tab row with the Data sheet tab selected showing the pump's datasheet." width="2160" height="1350" loading="lazy"><figcaption>Pump1 in its object window, on the <span class="ui">Data sheet</span> tab.</figcaption></figure>
   <p class="g-note">The tabs are described in their own guides: <a href="#obj-attributes">Attributes</a>, <a href="#obj-relationships">Relationships</a>, <a href="#obj-deep-view">Deep view</a>, <a href="guide-documents.html#doc-datasheet">Data sheet</a>, <a href="guide-collaboration.html#col-comments">Chat</a> and <a href="guide-collaboration.html#col-history">History</a>. On <span class="ui">Attachments</span> you add files with <span class="ui">Add files…</span> or by dropping them on the tab; each file has <span class="ui">Open</span> and <span class="ui">Remove</span>, and a PDF is previewed in the tab.</p>
   <p class="g-note">Larger text in the object window: <kbd>Ctrl</kbd> and the mouse wheel (or a pinch on a touchpad) zoom it from 80% to 200% in steps; with the focus in the window, <kbd>Ctrl</kbd> and <kbd>+</kbd> or <kbd>−</kbd> do the same and <kbd>Ctrl+0</kbd> goes back to 100%. The explorer has its own size, set the same way.</p>
   <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="guide-documents.html#doc-datasheet">Datasheet</a> · <a href="guide-collaboration.html#col-history">History</a> · <a href="guide-collaboration.html#col-comments">Chat</a> · <a href="guide-collaboration.html#col-tasks">Tasks</a></p>
@@ -271,7 +278,7 @@
 
 <section class="g-feature" id="obj-tag-rules">
   <h2>Set up tag rules for a project</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-tag-rules</span><span>Roadmap M1.8</span><span>Review checks C3, K2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-12</span><span class="g-id">OBJ-tag-rules</span><span>Roadmap M1.8</span><span>Review checks C3, K2</span></div>
   <p class="g-summary">The tag configurator sets how a project's objects are tagged: rules per class built from segments (text, attributes, the owner, a running number), lookup tables and options. You see a sample tag as you build, test the rules against the project, and save.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Select one project, then <span class="ui">File</span> → <span class="ui">Project settings…</span> → <span class="ui">Tag rules</span>; or left rail <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Tag rules</span></dd>
@@ -282,18 +289,31 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select the project and choose <span class="ui">File</span> → <span class="ui">Project settings…</span>, then go to <span class="ui">Tag rules</span>.</td><td>The text "New objects get their tags from these rules at once; existing objects change only when retagged." and a list <span class="ui">Rules</span> with the default rule.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Add rule</span>.</td><td>A rule "New rule" is added and selected, with three segments (an attribute, the text "-", a running number).</td></tr>
-      <tr><td>3</td><td>Type <code>Pumps</code> in <span class="ui">Name</span> and <code>plant.class.equipment.pump</code> in <span class="ui">Applies to (class keys, comma separated; empty for the default rule)</span>.</td><td>The rule shows its name in the list.</td></tr>
-      <tr><td>4</td><td>Set <span class="ui">Segment 1 source</span> to <code>text</code> and type <code>PU</code> in its text field.</td><td>The sample tag changes to start with PU.</td></tr>
-      <tr><td>5</td><td>Set the start of segment 3 (the running number) to <code>101</code>.</td><td>The <span class="ui">Sample tag</span> reads <span class="ui">PU-101</span>.</td></tr>
+      <tr><td>1</td><td>Select the project and choose <span class="ui">File</span> → <span class="ui">Project settings…</span>, then click <span class="ui">Tag rules</span> in the bar at the top.</td><td>The card: the list <span class="ui">Rules</span> on the left (each with the classes it tags; <span class="ui">Default rule: every other object</span>), and the chosen rule on the right with its <span class="ui">Preview</span> first: the tag it gives a new object of the class under "for a new", with its segments as blocks.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add rule</span>.</td><td>A rule "New rule" is added and selected, with three segments (an attribute, the text "-", a running number). The bar at the end reads "Unsaved changes. Test them against the project, then save."</td></tr>
+      <tr><td>3</td><td>Type <code>Pumps</code> in <span class="ui">Rule name</span>. Under <span class="ui">Applies to</span>, choose Pump in <span class="ui">Add a class…</span> (or type <code>plant.class.equipment.pump</code> in the field).</td><td>The rule shows its name and Pump in the list; Pump is a chip under <span class="ui">Applies to</span> with × to remove it.</td></tr>
+      <tr><td>4</td><td>In segment 1 set <span class="ui">Source</span> to <span class="ui">Fixed text</span> and type <code>PU</code> in <span class="ui">Text</span>.</td><td>The preview starts with PU.</td></tr>
+      <tr><td>5</td><td>In segment 3 (<span class="ui">Running number</span>) set <span class="ui">Starts at</span> to <code>101</code>.</td><td>The preview reads <span class="ui">PU-101</span>.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Test against project</span>.</td><td>"<i>n</i> of <i>m</i> objects would get another tag." and a table with the columns Now, With these rules and Class. Nothing has changed yet.</td></tr>
       <tr><td>7</td><td>Click <span class="ui">Save rules</span>.</td><td>"Saved. New objects use these rules; retag to change existing tags."</td></tr>
       <tr><td>8</td><td>Create a Centrifugal pump under <span class="ui">Assets</span>.</td><td>Its heading is <span class="ui">PU-101</span>. Existing pumps keep their tags until you use <a href="#obj-retag">Retag…</a>.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-project-settings.webp" alt="Configuration with the Project settings section open: the project Demo Plant ticked in the Projects list, and below it the buttons Content packages, Drawing and Tag rules, with the Content packages card shown." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Configuration</span> → <span class="ui">Project settings</span>: <span class="ui">Tag rules</span> is next to <span class="ui">Content packages</span> and <span class="ui">Drawing</span>.</figcaption></figure>
+  <h3>Segments</h3>
+  <div class="g-table-wrap"><table>
+    <thead><tr><th>Source</th><th>What it gives</th></tr></thead>
+    <tbody>
+      <tr><td>Fixed text</td><td>The same text in every tag, such as - or PU.</td></tr>
+      <tr><td>Attribute</td><td>A value of the object itself, such as its short code. A lookup table can replace it; Upper case capitalises it.</td></tr>
+      <tr><td>Owner's attribute</td><td>A value of what the object is part of, such as its unit.</td></tr>
+      <tr><td>Related object's attribute</td><td>A value of an object it is related to, such as the area it is located in.</td></tr>
+      <tr><td>Project attribute</td><td>A value of the project, such as its code.</td></tr>
+      <tr><td>Running number</td><td>A number with Digits and Starts at, counted per prefix (PU-001, V-001), per rule or per project.</td></tr>
+    </tbody>
+  </table></div>
   <h3>Options</h3>
+  <p><span class="ui">Lookup tables</span> and <span class="ui">Options</span> are folded under the rule; click one to open it.</p>
   <div class="g-table-wrap"><table>
     <thead><tr><th>Option</th><th>Choices</th></tr></thead>
     <tbody>
@@ -306,7 +326,7 @@
       <tr><td>Short codes</td><td>Conventional letters (P, V, TK), IEC 81346-2 letter codes (GPB, QM, CM)</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The rule list has <span class="ui">Move up</span>, <span class="ui">Move down</span>, <span class="ui">Remove rule</span> and <span class="ui">Start from template</span> (the library's rules). Each segment has ↑, ↓ and ×; <span class="ui">Add segment</span> adds one. A segment's source can be text, an attribute, the owner, a related object, the project or a sequence. <span class="ui">Lookup tables</span> take one "text = replacement" per line; <span class="ui">Add table</span> makes a new one. The sample can be shown for another class with the class picker next to "Sample:".</p>
+  <p class="g-note">An object takes the rule that names its most specific class; a rule with nothing under <span class="ui">Applies to</span> is the default rule. Beside <span class="ui">Rule name</span> are <span class="ui">Move up</span>, <span class="ui">Move down</span> and <span class="ui">Remove rule</span>; under the list, <span class="ui">Start from template</span> puts the library's rules back. Each segment has ↑, ↓ and ×; <span class="ui">Add segment</span> adds one. <span class="ui">Lookup tables</span> take one "text = replacement" per line; <span class="ui">Add table</span> makes a new one.</p>
   <div class="g-dev"><p><strong>Planned (roadmap 12.5, M6 Rules):</strong> the tag configurator will run on the same rule engine as calculations and lists, so that rules can be used everywhere and tags follow them.</p></div>
   <p class="g-related">Related: <a href="#obj-tags">Automatic tags</a> · <a href="#obj-retag">Retag…</a> · <a href="guide-library.html#lib-configuration">Configuration</a> · <a href="#obj-calculations">Calculations</a></p>
 </section>
@@ -352,7 +372,7 @@
 
 <section class="g-feature" id="obj-hookups">
   <h2>Hookups: how instruments are fixed and connected</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">OBJ-hookups</span><span>Roadmap 30.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-12</span><span class="g-id">OBJ-hookups</span><span>Roadmap 30.1</span></div>
   <p class="g-summary">A hookup shows how an instrument is fixed and connected: its process connection, its pneumatic or electrical connection, or its mounting on a pipe stand, wall or panel. You draw a hookup once and every instrument installed the same way uses it. E1 keeps a project's hookups in a folder of their own, <span class="ui">Assets ▸ Hookups</span>, lets you choose on every instrument which hookup it uses, and shows on every hookup the instruments that use it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Hookups</span> (also <em>File → Project settings…</em>); the explorer: right-click <span class="ui">Assets ▸ Hookups</span>; an instrument's window: <span class="ui">Hookup</span>; a hookup's window: <span class="ui">Used by</span></dd>
@@ -370,7 +390,7 @@
       <tr><td>5</td><td>Double-click an instrument in <span class="ui">Assets</span>.</td><td>Its window shows <span class="ui">Hookup</span> under the header, set to <span class="ui">None</span>.</td></tr>
       <tr><td>6</td><td>Choose <code>HU-01 Pressure on pipe stand</code> in <span class="ui">Hookup</span>.</td><td>It is saved at once and <span class="ui">Open HU-01 Pressure on pipe stand</span> appears beside it. An instrument uses one hookup: choosing another replaces it, <span class="ui">None</span> takes it off.</td></tr>
       <tr><td>7</td><td>In the explorer, expand <span class="ui">Hookups</span> and then the hookup.</td><td>The instrument is listed under the hookup with a link mark (<em>is used by</em>). A double-click opens it.</td></tr>
-      <tr><td>8</td><td>Click <span class="ui">Open HU-01 Pressure on pipe stand</span>.</td><td>The hookup's window says "Used by 1 instrument:" and names the instrument; a click on its tag opens it. The <span class="ui">Relationships</span> tab lists it under <em>is used by</em>.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Open HU-01 Pressure on pipe stand</span>.</td><td>The hookup's window says "Used by 1 instrument:" and names the instrument; a click on its tag opens it. The <span class="ui">Relationships</span> tab lists it under <em>is used by</em>. Beside it are <span class="ui">Hookup drawing</span> (<a href="guide-documents.html#doc-hookup-drawing">A hookup drawing</a>), <span class="ui">Fill bill of material</span> and <span class="ui">Hookup schedule</span>.</td></tr>
       <tr><td>9</td><td>Untick <span class="ui">Use hookups</span> in <span class="ui">Project settings</span>.</td><td><span class="ui">Assets ▸ Hookups</span> and the <span class="ui">Hookup</span> line of the instruments are hidden. The hookups and which instrument uses which are kept and come back when you tick it again.</td></tr>
     </tbody>
   </table></div>
@@ -420,7 +440,7 @@
       <tr><td>4</td><td>Click ↺.</td><td>The row goes back to the object's value and reads "Inherited" again.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The object's own window lists its cases on the line "Cases:" ("none yet" when there are none). A case's relationships are those of its object and cannot be changed on the case.</p>
+  <p class="g-note">The object's own window lists its cases in Details, on the row <span class="ui">Cases</span> ("none yet" when there are none). A case's relationships are those of its object and cannot be changed on the case.</p>
   <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a></p>
 </section>
 
@@ -494,23 +514,38 @@
 
 <section class="g-feature" id="obj-deep-view">
   <h2>Deep view</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-deep-view</span><span>Roadmap M4</span></div>
-  <p class="g-summary">Deep view will be a graphical view of one object and what it is connected to. The tab and the menu item are there today, but they only show a placeholder.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">OBJ-deep-view</span><span>Roadmap M4.24</span></div>
+  <p class="g-summary">Deep view shows an object and every object associated with it, as a data model of cards and links, like a UML object diagram rather than a drawing. From a valve you follow the pipes on its ports to the pump beyond, the transmitter that measures the pump, its terminals, the cable core landed on them, the cable and the junction box at its other end, until nothing more is linked. You open it layer by layer, or all at once.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Object window → <span class="ui">Deep view</span>; right-click a symbol on a 2D space → <span class="ui">Deep view</span></dd>
-    <dt>Who</dt><dd>Everyone</dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
   </dl>
+  <h3>What you see</h3>
+  <ul>
+    <li><strong>Cards.</strong> Each card shows the class as «Check valve», the tag or name, and up to four values, the description first. <span class="ui">Attributes</span> on the toolbar above the view hides or shows the values. The object is the outlined card on the left; the others stand in columns by how many links away they are.</li>
+    <li><strong>Links.</strong> Every relationship, in both directions, named from the card it starts at: <i>connects to (inlet)</i>, <i>measures</i>, <i>is located in</i>. A pipe, wire or cable core that ends on a port (a nozzle, a connection point) is linked to the port's object, and the port's name is in brackets. An owner and its parts (a strip and its terminals, a cable and its cores) are linked by <i>has part</i>, drawn with a diamond at the owner.</li>
+    <li><strong>+ and −.</strong> The <span class="ui">+n</span> on a card is how many objects it links to that are not shown. Click it for the next layer: a card linked to more than 30 objects shows 30 at a time. <span class="ui">−</span> closes what that card opened.</li>
+    <li><strong>The toolbar</strong> above the view has <span class="ui">Expand all</span>, <span class="ui">Collapse all</span>, <span class="ui">Highlight route</span>, <span class="ui">Attributes</span> and <span class="ui">Find in view</span>. Under it, <span class="ui">Links</span> has a chip for each kind of link.</li>
+    <li><strong>The bar under the view</strong> counts the objects, links and levels shown, and the cards with more to show. At its bottom right, as on diagrams, are zoom out, the zoom, zoom in and <span class="ui">Fit</span>.</li>
+  </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open Pump1 and click the <span class="ui">Deep view</span> tab.</td><td>The heading "Deep view" and the text "A graphical view of Pump1 will be shown here. It is being designed."</td></tr>
-      <tr><td>2</td><td>On a 2D space, right-click the pump's symbol → <span class="ui">Deep view</span>.</td><td>The object window opens on the same placeholder tab.</td></tr>
+      <tr><td>1</td><td>In the explorer, right-click V3 under Assets → <span class="ui">Open</span>, and click the <span class="ui">Deep view</span> tab.</td><td>The card of V3 («Check valve») and two cards «Pipe run», linked by "connects to (inlet)" and "connects to (outlet)". The bar under the view reads "3 objects · 2 links · 2 levels · 1 with more to show": the inlet's pipe is open at its other end.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">+1</span> on the outlet's pipe.</td><td>The card of Pump1 («Centrifugal pump») appears to the right, linked by "connects to (suction)".</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Expand all</span>.</td><td>Every card opens until nothing more is linked: the pipe on Pump1's discharge and the objects beyond it. The bar under the view ends with "nothing more to show". Expand all stops at 400 objects and says so.</td></tr>
+      <tr><td>4</td><td>Click the Pump1 card, then <span class="ui">Highlight route</span>.</td><td>The route from V3 through the pipe to Pump1 is drawn bold; everything else fades. Pump1's details are at the side: its links, <span class="ui">Open</span>, <span class="ui">Show in tree</span> and <span class="ui">Deep view of this</span>. Shift and a click on another card shows the route between the two.</td></tr>
+      <tr><td>5</td><td>Type <i>Pump</i> in <span class="ui">Find in view</span>, then clear it.</td><td>The cards whose tag, name, class or value holds the text are outlined, and the bar under the view says how many are found.</td></tr>
+      <tr><td>6</td><td>Click the chip <span class="ui">connects to</span> beside <span class="ui">Links</span> under the toolbar, then click it again.</td><td>Those links, and the cards reached only through them, are left out, then shown again. Each kind of link has its own chip with how many are shown.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Deep view of this</span> in Pump1's details.</td><td>Pump1 becomes the center with its first layer. <span class="ui">Back to this object</span> above the view returns to V3.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Collapse all</span>.</td><td>Only the object and its first layer are left.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/object-tab-deep-view.webp" alt="Pump1 with the Deep view tab selected, showing the placeholder text that the graphical view is being designed." width="2160" height="1350" loading="lazy"><figcaption>The <span class="ui">Deep view</span> tab is a placeholder.</figcaption></figure>
-  <div class="g-dev"><p><strong>Being designed (listed under Controls that do not work yet in Help → Under construction, milestone M4).</strong> What it will show is not decided yet.</p></div>
-  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="guide-getting-started.html#gs-under-construction">Under construction</a></p>
+  <figure class="g-shot"><img src="assets/img/guides/object-tab-deep-view.webp" alt="The Deep view of V3 after Expand all: the toolbar and the zoom at the bottom right framed, V3's card on the left linked to two pipe runs, and the route to Pump1 highlighted, with Pump1's details at the side." width="1460" height="1080" loading="lazy"><figcaption>The <span class="ui">Deep view</span> of V3 with the route to Pump1 highlighted; the toolbar and the zoom at the bottom right are framed.</figcaption></figure>
+  <p class="g-note">Moving around: the mouse wheel moves the view, Ctrl (⌘ on a Mac) and the wheel zoom it, and you can drag the background. Zoom out, zoom in and <span class="ui">Fit</span> at the bottom right of the view size it. After you open or close cards the network is fitted to the view, never smaller than 50% so it stays readable; once you have moved or zoomed the view yourself, the card you opened stays where it was. A double-click on a card opens its object window. With the keyboard: Tab to a card, Enter or Space chooses it, + and − open and close it.</p>
+  <p class="g-note">A project, folder or 2D space that is not an object of a class has no associations, and its Deep view tab says so.</p>
+  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-relationships">Relate objects</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol menu</a></p>
 </section>
 
 <section class="g-feature" id="obj-units">
@@ -541,7 +576,7 @@
 
 <section class="g-feature" id="obj-calculations">
   <h2>Calculations and copy rules on attributes</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">OBJ-calculations</span><span>Roadmap 12.1, 12.2, 12.4</span><span>Review checks P1, P2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">OBJ-calculations</span><span>Roadmap 12.1, 12.2, 12.4, 12.5</span><span>Review checks P1, P2, P4, P5</span></div>
   <p class="g-summary">An attribute a rule calculates shows its value with <span class="ui">ƒ</span>, read-only, and <span class="ui">Why this value?</span> says how it came about. The rules themselves are made in <a href="guide-library.html#lib-rules">Configuration → Rules</a>.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>An object's window → <span class="ui">Attributes</span>; a query view's cells; the datasheet</dd>
@@ -559,7 +594,29 @@
     </tbody>
   </table></div>
   <p class="g-note">A value whose input is missing is empty, and <span class="ui">Why this value?</span> and the object's <a href="#obj-checks">Checks</a> tab say which input.</p>
-  <p class="g-warn">Not built yet: copy rules, which copy a value from its source object and keep it until someone changes it (12.4).</p>
+  <h3>A copied value</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open an object whose attribute a copy rule fills, on <span class="ui">Attributes</span>.</td><td>The attribute shows <span class="ui">⧉ copied</span>; pointing at it names the rule. It follows its source: change the source and the value changes in the same change.</td></tr>
+      <tr><td>2</td><td>Type another value and press Enter.</td><td>E1 asks: “This value is copied automatically by the rule …. If you change it, it will be marked as manually modified and will no longer be copied.” Cancel keeps the copy.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">OK</span>.</td><td>Your value stays, marked <span class="ui">manually modified</span>. A later change of the source no longer reaches it.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Copy from source again</span>.</td><td>The source's value is back, <span class="ui">⧉ copied</span>, and follows its source again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Changing a copied value needs Change copied values (Lead engineer, Project administrator); without it the change is refused. Through Alex the change is held in its proposal like any change, and through the integration API it needs <code>stopCopy: true</code>, otherwise it is refused with <code>copied_needs_stopcopy</code>.</p>
+  <p class="g-warn">A query view cell or a paste over copied values does not ask yet: it is refused with the reason, and the change is made on the object page.</p>
+  <h3>Everywhere a value shows</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Show the calculated attribute on a symbol's label on a drawing.</td><td>The label shows the calculated value and follows its inputs, as on the object.</td></tr>
+      <tr><td>2</td><td>List the objects in a query view, or issue the drawing or list as PDF.</td><td>The same value, in the cell and on the PDF.</td></tr>
+      <tr><td>3</td><td>Read the object through the integration API (<code>GET /api/v1/projects/{project}/objects/{id}</code>).</td><td>The value is marked <code>calculated</code> with its rule, or <code>copied</code> (or <code>manuallyModified</code>) with its rule and source.</td></tr>
+      <tr><td>4</td><td>Ask Alex why the value is what it is, or to make a rule for it.</td><td>Alex names the rule, the inputs and the steps; saving, publishing or pausing a rule asks you first.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">An input whose attribute is empty on the object reads its class's default value, as tags do; the tag configurator's tags and a rule reading the same parts give the same result.</p>
   <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-rules">Rules</a> · <a href="#obj-checks">Checks</a></p>
 </section>
 

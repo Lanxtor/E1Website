@@ -21,7 +21,7 @@
 
 <section class="g-feature" id="lib-configuration">
   <h2>The Configuration place</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-06</span><span class="g-id">LIB-configuration</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-12</span><span class="g-id">LIB-configuration</span></div>
   <p class="g-summary">Configuration is where the shared set-up of E1 lives: the data model, the company library, catalogs, Alex's knowledge, content packages, project settings and the installation. A change here applies to everyone. The place remembers the section and item you left it on.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The left rail → <span class="ui">Configuration</span> (the sliders icon near the bottom)</dd>
@@ -33,9 +33,13 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Configuration</span> in the left rail.</td><td>A tab <span class="ui">Configuration</span> opens. The heading reads "Shared: a change here applies to everyone. Your own preferences are in Settings."</td></tr>
-      <tr><td>2</td><td>Look at the section bar along the top.</td><td>The sections are, in groups: <span class="ui">Object classes</span>, <span class="ui">Attributes</span>, <span class="ui">Shapes</span>, <span class="ui">Relationships</span>, <span class="ui">Company library</span>, <span class="ui">Catalogs</span>; <span class="ui">Alex knowledge</span>, <span class="ui">Pipe classes</span>, <span class="ui">Rules</span>; <span class="ui">Content and standards</span>, <span class="ui">Modules</span>, <span class="ui">Datasheets</span>; <span class="ui">Project defaults</span>, <span class="ui">Project settings</span>; <span class="ui">Privacy</span>; <span class="ui">Alex’s AI help</span>, <span class="ui">Storage</span>. Several show a count (for example Object classes 2014).</td></tr>
+      <tr><td>2</td><td>Look at the section list on the left.</td><td>The sections are, in groups: <span class="ui">Object classes</span>, <span class="ui">Attributes</span>, <span class="ui">Shapes</span>, <span class="ui">Relationships</span>, <span class="ui">Company library</span>, <span class="ui">Catalogs</span>; <span class="ui">Alex knowledge</span>, <span class="ui">Pipe classes</span>, <span class="ui">Rules</span>; <span class="ui">Content and standards</span>, <span class="ui">Modules</span>, <span class="ui">Datasheets</span>; <span class="ui">Project defaults</span>, <span class="ui">Project settings</span>; <span class="ui">Privacy</span>; <span class="ui">Alex’s AI help</span>, <span class="ui">Storage</span>. Several show a count (for example Object classes 2014).</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Attributes</span>, then close the tab and click <span class="ui">Configuration</span> in the rail again.</td><td>The place opens on <span class="ui">Attributes</span>, the section you left it on.</td></tr>
       <tr><td>4</td><td>Hover a greyed-out button such as <span class="ui">New class</span>.</td><td>The button cannot be clicked; its tooltip reads "Comes with …" and names the stage that brings it.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Rules</span>, with nothing selected in the project tree.</td><td>The <span class="ui">Projects</span> pane opens between the section list and the rules: first what you configure, then for which projects, then the configuration itself. It starts on <span class="ui">All projects</span>: above the rules the heading reads "All projects" with the badge <span class="ui">Company configuration</span>, and the list shows the company's rules, whatever is selected in the tree. Each project in the pane has a ticked box and reads <span class="ui">Follows</span>. The same pane is beside <span class="ui">Alex knowledge</span>, <span class="ui">Company library</span>, <span class="ui">Catalogs</span>, <span class="ui">Pipe classes</span>, <span class="ui">Statuses</span>, <span class="ui">Workflows</span>, <span class="ui">Progress</span>, <span class="ui">Numbering</span>, <span class="ui">Purposes of issue</span>, <span class="ui">Sign-off routes</span>, <span class="ui">Sheet templates</span>, <span class="ui">Filing</span>, <span class="ui">Modules</span> and <span class="ui">Datasheets</span>.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">New rule</span>, then click a project's name in the <span class="ui">Projects</span> pane and click <span class="ui">New rule</span> again.</td><td>Under All projects, <span class="ui">For projects</span> is fixed on <em>All projects (the company library)</em>. With the project's name clicked, the heading is the project's name with the badge <span class="ui">This project</span>, the list adds the project's own rules, and <span class="ui">For projects</span> offers <em>All projects (the company library)</em> and <em>Only</em> the project. An item that exists stays where it is.</td></tr>
+      <tr><td>7</td><td>Untick a project's box in the <span class="ui">Projects</span> pane and click OK.</td><td>A message names what the hold would change (relationships, values, organization rules). After OK the project reads <span class="ui">Held at version</span> N, and <span class="ui">All projects</span> reads how many follow. Publish a change in the company library: the held project does not take it. Tick its box again and click OK: it reads <span class="ui">Follows</span> and takes everything published since.</td></tr>
+      <tr><td>8</td><td>Drag the line on the right of the section list, or of the <span class="ui">Projects</span> pane, to the right.</td><td>The list gets wider; E1 keeps the width on this computer, and a double-click on the line sets it back. When the three panes are wider than the tab, a scroll bar along the bottom moves them sideways.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/place-configuration.webp" alt="The Configuration place opened from the left rail, on the Object classes section, with the section bar along the top" width="2160" height="1350" loading="lazy"><figcaption>The Configuration place, opened on Object classes.</figcaption></figure>
@@ -144,18 +148,18 @@
 
 <section class="g-feature" id="lib-company-library">
   <h2>The company library: drafts, publishing and versions</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-08</span><span class="g-id">LIB-company-library</span><span>Roadmap 11.1</span><span>Review checks L1, L2, L3, L4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">LIB-company-library</span><span>Roadmap 11.1, 11.6</span><span>Review checks L1, L2, L3, L4</span></div>
   <p class="g-summary">The company library holds your organization's own attributes, classes and relationship types. A draft changes nothing; once you publish it, every project of the organization has it and E1 checks it like its own. A published version never changes: a new draft becomes the next version.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span></dd>
-    <dt>Who</dt><dd>Saving drafts and publishing for the company: Owner or Library administrator. For <span class="ui">This project only</span>: Project administrator.</dd>
+    <dt>Who</dt><dd>Saving drafts and publishing for the company: Owner or Library administrator. For <span class="ui">Only</span> one project: Project administrator of that project.</dd>
     <dt>Before you start</dt><dd>A project is open. Without one the section reads "Open a project first: the company library is kept on the server for every project of the organization."</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Company library</span>.</td><td>The form shows <span class="ui">Library</span> (Company (every project)), <span class="ui">New</span> (Attribute), <span class="ui">Name</span>, <span class="ui">Kind of value</span> and <span class="ui">Save draft</span>. Below: "Nothing in the company library yet." (in a new organization).</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Company library</span>.</td><td>The form shows <span class="ui">For projects</span> (All projects (the company library)), <span class="ui">New</span> (Attribute), <span class="ui">Name</span>, <span class="ui">Kind of value</span> and <span class="ui">Save draft</span>. Below: "Nothing in the company library yet." (in a new organization).</td></tr>
       <tr><td>2</td><td>Leave <span class="ui">New</span> on Attribute. Type the Name "Seal plan", set <span class="ui">Kind of value</span> to Choice and type the Choices "API 11, API 53B".</td><td>The Choices box shows the two values.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Save draft</span>.</td><td>The table "Company library items" shows Seal plan with Kind Attribute and Draft "Draft". Nothing changes in the projects.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Publish</span> on the row and confirm with OK.</td><td>The confirmation reads "Publish Seal plan? Every project of the organization gets it, and this version never changes." After OK, the Published column reads "Version 1".</td></tr>
@@ -167,14 +171,38 @@
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-company-library.webp" alt="Configuration, Company library: the explanation, the form with Library, New, Name and Kind of value, Save draft, and the message Nothing in the company library yet" width="2160" height="1350" loading="lazy"><figcaption>An empty company library with the form for a new attribute.</figcaption></figure>
-  <p class="g-note">The other kinds: <span class="ui">Attributes for a class</span> (add attributes to an existing class: <span class="ui">Class</span>, <span class="ui">Attributes</span>) and <span class="ui">Relationship type</span> (<span class="ui">Inverse name</span>, <span class="ui">From</span>, <span class="ui">To</span>). An attribute's <span class="ui">Kind of value</span> is Text, Whole number, Number, Quantity (with a <span class="ui">Unit</span>), Yes / no, Date or Choice. <span class="ui">Submit for review</span> marks a draft "In review", but a review is not required: a publisher may publish directly. <span class="ui">Withdraw</span> takes a published version back (confirm "Withdraw version n of …?").</p>
+  <p class="g-note">The add buttons of the other sections open this form with the draft started: <span class="ui">New class</span>, <span class="ui">New subclass</span> (its parent chosen), <span class="ui">Add attributes</span>, <span class="ui">New group</span> and <span class="ui">Allow a shape</span> on a class, <span class="ui">Allow a relationship</span> (the class at the From end), <span class="ui">New attribute</span>, <span class="ui">Add to classes</span> on an attribute, <span class="ui">Import from a standard</span>, <span class="ui">New relationship type</span>, and <span class="ui">Add attributes</span> on one of your own relationship types. Without an open project they are greyed out and say why.</p>
+  <p class="g-note">The other kinds: <span class="ui">Attributes or shapes for a class</span> (add to an existing class: <span class="ui">Class</span>, <span class="ui">Attributes</span>, <span class="ui">In the group</span>, <span class="ui">Shapes that may draw it</span>) and <span class="ui">Relationship type</span> (<span class="ui">Relationship type</span>: a new one or the next version of your own, <span class="ui">Inverse name</span>, <span class="ui">From</span>, <span class="ui">To</span>, <span class="ui">Attributes of the relationship</span>). An attribute's <span class="ui">Kind of value</span> is Text, Whole number, Number, Quantity (with a <span class="ui">Unit</span>), Yes / no, Date or Choice. <span class="ui">Submit for review</span> marks a draft "In review", but a review is not required: a publisher may publish directly. <span class="ui">Withdraw</span> takes a published version back (confirm "Withdraw version n of …?").</p>
   <p class="g-warn">An Engineer cannot save or publish (review check L3): the buttons are refused with the reason. An Owner without a passkey acts as a Member and is refused too.</p>
   <p class="g-related">Related: <a href="#lib-library-updates">Updates available</a> · <a href="#lib-upgrade">Upgrade with preview</a> · <a href="#lib-project-library">This project only</a> · <a href="#lib-object-classes">Object classes</a> · <a href="guide-objects.html#obj-new-object">Make a new object</a></p>
 </section>
 
+<section class="g-feature" id="lib-import-standard">
+  <h2>Import attributes from a standard</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-import-standard</span><span>Roadmap 11.6</span><span>Review check L31</span></div>
+  <p class="g-summary">A standard's attribute dictionary (ISO, ECLASS, your company's own standard) as a spreadsheet becomes drafts of the company library, each keeping the standard's name and its code.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Attributes</span> → <span class="ui">Import from a standard</span>, or <span class="ui">Company library</span> → <span class="ui">New</span> → <span class="ui">Attributes from a standard</span></dd>
+    <dt>Who</dt><dd>Owner or Library administrator (for <span class="ui">This project only</span>: Project administrator).</dd>
+    <dt>Before you start</dt><dd>A project is open, and an Excel workbook (.xlsx) or CSV file with one attribute per row and a header row: columns such as <em>Code</em>, <em>Name</em>, <em>Data type</em>, <em>Unit</em>, <em>Allowed values</em> and <em>Description</em>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Attributes</span>, click <span class="ui">Import from a standard</span>.</td><td>The company library opens on <span class="ui">Attributes from a standard</span> with <span class="ui">Standard</span> and <span class="ui">File</span>.</td></tr>
+      <tr><td>2</td><td>Type the standard's name, choose the file and click <span class="ui">Check</span>.</td><td>Every row with its kind of value and its result: <em>New draft</em>, <em>In the library already</em>, or <em>Not imported</em> with why. A number with a unit of a unit group (bar, °C, m³/h) becomes a quantity; a row with allowed values a choice. Nothing is saved yet.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Import n as drafts</span>.</td><td>The new attributes are drafts in the company library's list.</td></tr>
+      <tr><td>4</td><td>Publish them on their rows.</td><td>They are in <span class="ui">Attributes</span> with the standard's name, ready to add to classes.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">An attribute the library has already (by its code or name) is left alone, so importing the same file again adds nothing twice. Standards that come as content packages, such as CFIHOS and ISA 5.1, need no import: switch their package on in the project.</p>
+  <p class="g-related">Related: <a href="#lib-company-library">The company library</a> · <a href="#lib-attributes">Attributes</a> · <a href="#lib-content-packages">Content packages and standards</a></p>
+</section>
+
 <section class="g-feature" id="lib-library-updates">
   <h2>Updates available and Check against projects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-06</span><span class="g-id">LIB-library-updates</span><span>Roadmap 11.2</span><span>Review checks L5, L6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-11</span><span class="g-id">LIB-library-updates</span><span>Roadmap 11.2</span><span>Review checks L5, L6</span></div>
   <p class="g-summary">When a new version of a company class, attribute, convention template or catalog item is published, the company library lists what in the open project is still on the older version and what changed. Before you publish, Check against projects tells you which objects a draft would break.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span> → the region <span class="ui">Updates available in this project</span> (shown only when there is something), and the button <span class="ui">Check against projects</span> on a draft</dd>
@@ -193,6 +221,7 @@
   </table></div>
   <p class="g-note">The region also lists convention templates ("convention template version 1 → 2 (the project keeps version 1 until you apply it again)" with <span class="ui">Apply version 2</span>), catalog items with a newer version (with <span class="ui">Re-apply…</span>), withdrawn catalog items still in use, and changed attributes and relationship types ("version a → b").</p>
   <p class="g-warn">Updates available is part of the Company library section, not a screen of its own. It reads the newest company classes even for a project pinned to an older library version.</p>
+  <p>Placed modules with a newer version are in their own <span class="ui">Modules</span> box: <a href="#lib-module-updates">Updating placed modules</a>.</p>
   <p class="g-related">Related: <a href="#lib-company-library">Company library</a> · <a href="#lib-upgrade">Upgrade with preview</a> · <a href="#lib-catalog-reapply">Re-apply and Detach</a></p>
 </section>
 
@@ -221,11 +250,11 @@
 </section>
 
 <section class="g-feature" id="lib-project-library">
-  <h2>This project only: the project library</h2>
+  <h2>Only one project: the project library</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-08</span><span class="g-id">LIB-project-library</span><span>Roadmap 11.4</span><span>Review check L9</span></div>
   <p class="g-summary">A project can have classes and attributes only it uses, without touching the company library. A project library only adds: it cannot change how a company class behaves.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span> → <span class="ui">Library</span>: This project only</dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span> → click the project's name in the <span class="ui">Projects</span> pane → <span class="ui">For projects</span>: Only that project</dd>
     <dt>Who</dt><dd>Project administrator of the open project</dd>
     <dt>Before you start</dt><dd>The project is open; the organization has a second project for the last step.</dd>
   </dl>
@@ -233,7 +262,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Set <span class="ui">Library</span> to This project only, <span class="ui">New</span> to Class, type a Name and choose <span class="ui">A kind of</span>.</td><td>The form shows the class fields.</td></tr>
+      <tr><td>1</td><td>Click the project's name in the <span class="ui">Projects</span> pane, set <span class="ui">For projects</span> to Only that project, <span class="ui">New</span> to Class, type a Name and choose <span class="ui">A kind of</span>.</td><td>The form shows the class fields.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Save draft</span>, then <span class="ui">Publish</span> and OK.</td><td>The row's Kind column reads "Class · this project" and Published "Version 1".</td></tr>
       <tr><td>3</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span> and search the class.</td><td>The class is offered in this project.</td></tr>
       <tr><td>4</td><td>Open the other project and do the same.</td><td>The class is not offered there.</td></tr>
@@ -310,7 +339,7 @@
       <tr><td>8</td><td>Make a second item with the same manufacturer and ordering code; then try a flow rate in kg.</td><td>Both are refused: "KSB ETN050 is already in the catalog as …", and the unit, because it is not a flow rate ("… \"kg\" is not one of them."). Reinstating a withdrawn item while another has the same manufacturer and ordering code is refused too: "… has the same manufacturer and ordering code; withdraw it first."</td></tr>
       <tr><td>9</td><td>Click <span class="ui">Withdraw</span> on an item and OK.</td><td>The confirmation reads "Withdraw … ? It is no longer offered for new objects; objects made from it keep their values." The item shows Withdrawn; <span class="ui">Reinstate</span> brings it back.</td></tr>
       <tr><td>10</td><td>Untick <span class="ui">Show drafts and withdrawn</span>.</td><td>Only published items remain in the table.</td></tr>
-      <tr><td>11</td><td>Create a catalog with <span class="ui">For</span> This project only, add and publish an item. Open another project's Catalogs.</td><td>The catalog is listed with "· This project" in its project; the other project does not list it.</td></tr>
+      <tr><td>11</td><td>Click one project's name in the <span class="ui">Projects</span> pane, create a catalog with <span class="ui">For projects</span> Only that project, add and publish an item. Open another project's Catalogs.</td><td>The catalog is listed with "· This project" in its project; the other project does not list it.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-catalogs.webp" alt="Configuration, Catalogs: the explanation, the New catalog form with Description, For and Create catalog, and the message No catalogs yet" width="2160" height="1350" loading="lazy"><figcaption>Catalogs, before the first catalog is made.</figcaption></figure>
@@ -369,8 +398,8 @@
 
 <section class="g-feature" id="lib-content-packages">
   <h2>Content packages and standards</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">LIB-content-packages</span><span>Roadmap M1.3</span></div>
-  <p class="g-summary">Content packages bring the classes, attributes, shapes and relationship types E1 works with, often from a standard. Each project chooses the packages it uses. E1 ships four: Core (always on), Electrical foundation, Plant engineering and CFIHOS.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-12</span><span class="g-id">LIB-content-packages</span><span>Roadmap M1.3, 04.9</span></div>
+  <p class="g-summary">See the content packages Core, Electrical foundation, Plant engineering, CFIHOS, NORSOK SCD, Specification, Wire harness and Marine, and which ones a project uses.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Content and standards</span>; for one project: select it → <span class="ui">File → Project settings…</span> → <span class="ui">Content packages</span></dd>
     <dt>Who</dt><dd>Everyone may look; switching packages needs the right to configure the project (Project administrator)</dd>
@@ -380,10 +409,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Content and standards</span>.</td><td>One card per package: Core 1.4.0, Electrical foundation 1.1.0, Plant engineering 1.3.0 and CFIHOS 2.0.0, each "by e1", with what it brings, counts of Classes, Attributes, Shapes and Relationships, its standards and what it needs (for example "Needs core").</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Content and standards</span>.</td><td>One card per package: Core 1.4.0, Electrical foundation 1.1.0, Plant engineering 1.3.0 and CFIHOS 2.0.0, each "by e1", with <span class="ui">Read more</span> beside its name (it opens what the package brings; <span class="ui">Show less</span> folds it again), counts of Classes, Attributes, Shapes and Relationships, its standards and what it needs (for example "Needs core").</td></tr>
       <tr><td>2</td><td>Click the Classes count on the Plant engineering card.</td><td>The <span class="ui">Object classes</span> section opens.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Choose for a project</span>.</td><td>The <span class="ui">Project settings</span> section opens.</td></tr>
-      <tr><td>4</td><td>In the explorer, select the project and choose <span class="ui">File → Project settings…</span>.</td><td>A tab "<em>project</em> settings" opens with <span class="ui">Content packages</span>: "All content" (Core) marked <span class="ui">Always on</span>, and under Disciplines a switch per package with "version · publisher", what it needs, and "not licensed" where that applies.</td></tr>
+      <tr><td>4</td><td>In the explorer, select the project and choose <span class="ui">File → Project settings…</span>.</td><td>A tab "<em>project</em> settings" opens with <span class="ui">Content packages</span>: "All content" (Core) marked <span class="ui">Always on</span>, and under Disciplines one row per package: only its name and switch, and "Not licensed" where that applies. <span class="ui">Read more</span> beside a name opens the package's description, "version · publisher" and what it needs.</td></tr>
       <tr><td>5</td><td>Switch off Electrical foundation while Plant engineering is on.</td><td>A question reads "Switching off Electrical foundation also switches off Plant engineering, which needs it." with <span class="ui">Switch off</span> / <span class="ui">Cancel</span>. Click <span class="ui">Cancel</span>: nothing changes.</td></tr>
     </tbody>
   </table></div>
@@ -394,14 +423,63 @@
     <li><strong>Electrical foundation</strong> (needs Core): the motor and its symbol, and cables and wires as objects.</li>
     <li><strong>Plant engineering</strong> (needs Core and Electrical foundation): equipment, valves, nozzles, instrumentation and control with ISO 10628-2 symbols; from 1.2.0 the ISA 5.1 symbols, the ISA tag rule and the line list attributes.</li>
     <li><strong>CFIHOS</strong> (needs Core, Electrical foundation and Plant engineering 1.1): 847 tag classes, 759 equipment classes, 1388 properties as attributes and 367 pick lists.</li>
+    <li><strong>NORSOK SCD</strong> (needs Core, Electrical foundation and Plant engineering; off until a project switches it on): NORSOK I-005 system control diagrams: the 16 function templates with every terminal and parameter, elementary functions, references, sequence diagrams, the NORSOK function tag and the SCD check. See <a href="guide-drawing.html#draw-scd">System control diagrams</a>.</li>
   </ul>
-  <p class="g-warn">A package still in use is not switched off: E1 lists what uses it (see <a href="#lib-package-switching">Switching packages on and off</a>). <span class="ui">Add a content package</span> is greyed out; it comes with content package updates. Without the workspace server, a switch answers "Switching packages needs the workspace server."</p>
+  <p class="g-warn">A package still in use is not switched off: E1 lists what uses it (see <a href="#lib-package-switching">Switching packages on and off</a>). A partner’s package is installed with <a href="#lib-partner-packages">Install a partner package…</a>. Without the workspace server, a switch answers "Switching packages needs the workspace server."</p>
   <p class="g-related">Related: <a href="#lib-project-settings">Project settings</a> · <a href="#lib-object-classes">Object classes</a> · <a href="#lib-shapes">Shapes</a> · <a href="#lib-package-licensing">Package licensing and updates</a></p>
+</section>
+
+<section class="g-feature" id="lib-harness-marine">
+  <h2>Wire harness and Marine packages</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-harness-marine</span><span>Roadmap 04.6</span></div>
+  <p class="g-summary">Switch on Wire harness for harnesses, wires, connectors, terminals, splices, bundles, protection and fixings, or Marine for fire zones, decks, cable transits and the deck and frame of equipment; both are off until a project switches them on.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Project settings → <span class="ui">Content packages</span>; Configuration → <span class="ui">Content and standards</span></dd>
+    <dt>Who</dt><dd>A Project administrator switches them on; anyone who may edit creates their objects</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Project settings → <span class="ui">Content packages</span>.</td><td><span class="ui">Wire harness</span> (needs Electrical foundation) and <span class="ui">Marine</span> (needs Plant engineering and Wire harness) are listed, off.</td></tr>
+      <tr><td>2</td><td>Switch on <span class="ui">Marine</span>.</td><td>Wire harness is switched on with it.</td></tr>
+      <tr><td>3</td><td>Under Assets, create a <span class="ui">Harness</span>, then in it a <span class="ui">Harness wire</span>, a <span class="ui">Connector housing</span> and a <span class="ui">Splice</span>.</td><td>The wire has <span class="ui">Cross-section</span>, <span class="ui">Colour</span> (IEC 60757 codes such as GN/YE), <span class="ui">Length</span>, <span class="ui">Insulation</span>, <span class="ui">From</span> and <span class="ui">To</span>; the housing has <span class="ui">Cavities</span>, <span class="ui">Gender</span> and <span class="ui">Sealed</span>, and holds <span class="ui">Crimp terminal</span> and <span class="ui">Cavity seal</span> parts.</td></tr>
+      <tr><td>4</td><td>Under Areas, create a <span class="ui">Fire zone</span> with a <span class="ui">Deck</span>; under Assets a <span class="ui">Cable transit</span>.</td><td>The transit has its <span class="ui">Fire rating</span> (A-60 …) and <span class="ui">Watertight</span>.</td></tr>
+      <tr><td>5</td><td>Open a pump.</td><td>It has an <span class="ui">On board</span> group: <span class="ui">Deck</span>, <span class="ui">Frame</span>, <span class="ui">Side</span>, <span class="ui">Fire zone</span>, <span class="ui">Watertight compartment</span> and <span class="ui">Class approval</span>.</td></tr>
+      <tr><td>6</td><td>Open the shape palette on a wiring diagram.</td><td>The <span class="ui">Wire harness</span> group has the connector, splice and fixing shapes; <span class="ui">Marine</span> the cable transit.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-warn">Harness drawings and formboards, and the exchange formats of the automotive industry, are not built yet.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-content-packages">Content packages and standards</a>, <a href="guide-library.html#lib-package-switching">Switching packages on and off</a></p>
+</section>
+
+<section class="g-feature" id="lib-partner-packages">
+  <h2>Partner content packages</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-partner-packages</span><span>Roadmap 04.7</span></div>
+  <p class="g-summary">Install a content package a partner made and E1 reviewed and signed: it is installed for the organization, off in every project until the project switches it on, and refused when changed after E1's review.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Content and standards</span> → <span class="ui">Install a partner package…</span></dd>
+    <dt>Who</dt><dd>Publish the library (Administrator) installs and removes; a Project administrator switches it on for a project</dd>
+    <dt>Before you start</dt><dd>The package's bundle file from the partner, after E1's review (E1 signs it; a partner cannot sign one alone)</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Content and standards</span> and click <span class="ui">Install a partner package…</span>; choose the bundle file.</td><td>“Acme valves 1.0.0 is installed for the organization. Switch it on for a project in Project settings → Content packages.” Its card says <span class="ui">Partner package, reviewed by E1</span>, by its publisher, with its counts and what it needs.</td></tr>
+      <tr><td>2</td><td>Open Project settings → <span class="ui">Content packages</span> of a project.</td><td>The package is listed and off.</td></tr>
+      <tr><td>3</td><td>Switch it on.</td><td>Its classes are offered, for example <span class="ui">Acme knife gate valve</span> with its <span class="ui">Seat material</span>.</td></tr>
+      <tr><td>4</td><td>Install a file someone changed after E1's review.</td><td>Refused, with the reason: the signature no longer matches.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Remove Acme valves</span> while a project has it on.</td><td>Refused: “switch it off there first”. Once it is off everywhere, it is removed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A partner package keeps to its own names (its keys start with its own key), may build on E1's packages and add to their classes, and never replaces them. A newer version of an installed package replaces the older one for the organization.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-content-packages">Content packages and standards</a>, <a href="guide-library.html#lib-package-switching">Switching packages on and off</a></p>
 </section>
 
 <section class="g-feature" id="lib-project-settings">
   <h2>Project settings: packages, drawing and tag rules</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">LIB-project-settings</span><span>Roadmap M1.3, M1.8</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-12</span><span class="g-id">LIB-project-settings</span><span>Roadmap M1.3, M1.8</span></div>
   <p class="g-summary">Project settings say what each project uses and how it works: its content packages, how its 2D spaces are drawn, and how its objects are tagged. A project setting overrides the workspace's project defaults. In Configuration you can set several projects at once.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Project settings</span>; or select a project → <span class="ui">File → Project settings…</span> (one project)</dd>
@@ -412,8 +490,9 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Project settings</span> in Configuration.</td><td>The list "Projects" with a checkbox per project, the project's heading with the chip <span class="ui">This project</span>, "These settings apply to this project and everyone working in it.", and the links <span class="ui">Content packages</span>, <span class="ui">Drawing</span>, <span class="ui">Tag rules</span>.</td></tr>
-      <tr><td>2</td><td>With several projects, click <span class="ui">Select all</span>.</td><td>All projects are ticked. A switch that differs between them shows "On in some"; a drawing option shows "Mixed".</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Project settings</span> in Configuration.</td><td>The list "Projects" with a checkbox per project, the project's heading with the chip <span class="ui">This project</span>, "These settings apply to this project and everyone working in it.", and above the cards a bar with one button per card: <span class="ui">Content packages</span>, <span class="ui">Drawing</span>, <span class="ui">Markups</span>, <span class="ui">Units</span>, <span class="ui">Hookups</span>, <span class="ui">Wiring</span>, <span class="ui">Plant states</span>, <span class="ui">Documents</span>, <span class="ui">Folders</span>, <span class="ui">Tag rules</span> and <span class="ui">Access</span> (with sign-in).</td></tr>
+      <tr><td>1a</td><td>Scroll down, then click <span class="ui">Documents</span> in the bar.</td><td>The bar stays at the top while you scroll and marks the card you are on; the click scrolls to the Documents card.</td></tr>
+      <tr><td>2</td><td>With several projects, click <span class="ui">Select all</span>.</td><td>All projects are ticked. A switch that differs between them shows "On in some"; a drawing option shows "Mixed". The button now reads <span class="ui">Deselect all</span>: click it to go back to one project. Projects in the Bin are not listed.</td></tr>
       <tr><td>3</td><td>Switch on a package for all selected projects.</td><td>"… is switched on in N projects."</td></tr>
       <tr><td>4</td><td>Click a project's name.</td><td>Only that project is selected.</td></tr>
       <tr><td>5</td><td>Under <span class="ui">Drawing</span>, set <span class="ui">Crossing lines</span> to Arc (line jump).</td><td>It is saved at once; where pipes cross on the project's 2D spaces, one line jumps over the other instead of a gap (Gap (ISO 10628-1) is the default).</td></tr>
@@ -445,7 +524,7 @@
 
 <section class="g-feature" id="lib-alex-knowledge">
   <h2>Alex knowledge: your company's conventions</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-07</span><span class="g-id">LIB-alex-knowledge</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-12</span><span class="g-id">LIB-alex-knowledge</span></div>
   <p class="g-summary">Here your standards owner gives Alex your company's engineering documents. Alex proposes conventions from them; accepted ones Alex follows and marks <span class="ui">Company convention</span>. Team memory lets Alex learn usual values from your projects. The full guide is in <a href="guide-ai.html#ai-alex">Alex</a>.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Alex knowledge</span></dd>
@@ -456,7 +535,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Under <span class="ui">Add a document</span>, choose the file and click <span class="ui">Upload</span>.</td><td>The button reads "Reading…", then the document is listed under <span class="ui">Documents</span>.</td></tr>
+      <tr><td>1</td><td>Under <span class="ui">Add a document</span>, choose the file, choose <span class="ui">For projects</span> (<em>All projects (the whole company)</em>, or, with a project's name clicked in the <span class="ui">Projects</span> pane, <em>Only</em> that project) and click <span class="ui">Upload</span>.</td><td>The button reads "Reading…", then the document is listed under <span class="ui">Documents</span> with "For All projects" or the projects' names. Its conventions apply only to those projects. Under <span class="ui">All projects</span> the list shows the documents for every project; click a project's name to add the ones for that project.</td></tr>
       <tr><td>2</td><td>Open <span class="ui">Conventions</span> → <span class="ui">Proposed</span> and click <span class="ui">Accept</span> on one.</td><td>It moves to <span class="ui">Accepted</span>; Alex follows it and marks its cards <span class="ui">Company convention</span>.</td></tr>
     </tbody>
   </table></div>
@@ -477,7 +556,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Datasheets</span>.</td><td>The layouts are shown by tier: This project, Company library, Content packages, with <span class="ui">New layout…</span> and <span class="ui">Copy to edit…</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Datasheets</span>.</td><td>On the left, the layouts by tier with their counts: This project, All projects (company library), Content packages; <span class="ui">Filter layouts</span> narrows them. A layout you click opens on the right, with <span class="ui">Copy to edit…</span> for a content package’s. <span class="ui">New layout…</span> is next to the filter.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-datasheets.webp" alt="Configuration, Datasheets: the datasheet layouts by tier" width="2160" height="1350" loading="lazy"><figcaption>Datasheets.</figcaption></figure>
@@ -519,11 +598,11 @@
 
 <section class="g-feature" id="lib-rules">
   <h2>Rules: calculations, check rules and copy rules</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span></div>
-  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, and check rules, are available; copy rules come in a next stage.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-rules</span><span>Roadmap 12.1–12.6</span><span>Review checks P1, P2, P3, P4, P6</span></div>
+  <p class="g-summary">A rule calculates an attribute from other values: the object's own, its owners', related objects', or the project's. Once published, the values follow their inputs in every change and nobody types them. Calculations on the object, its owners and through relationships, copy rules and check rules are available, in the project, in the organization's company library and in content packages.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Rules</span>; on an object page, a calculated value shows <span class="ui">ƒ</span> and <span class="ui">Why this value?</span></dd>
-    <dt>Who</dt><dd>Making, publishing and withdrawing rules: Manage project rules (the Project administrator has it). Everyone who can view the project sees the values and why.</dd>
+    <dt>Who</dt><dd>Making, publishing and withdrawing a project's rules: Manage project rules (the Project administrator has it). An organization rule: Edit the company library to save it, Publish the company library to publish it. Everyone who can view the project sees the values and why.</dd>
   </dl>
   <h3>Make a rule</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -546,6 +625,15 @@
     </tbody>
   </table></div>
   <p class="g-note">Rules that read each other's targets in a circle are refused when saved, with the circle named (<em>Description → Short code → Description</em>).</p>
+  <h3>Make a copy rule</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In a new rule, set <span class="ui">Kind</span> to <em>Copy: a value people may change</em>. Give it an input that reads the source, for example the valve's pipeline (<em>Owner's attribute</em> of class pipeline, design pressure), a <em>Copy</em> step of it, and <span class="ui">Copies into</span> the valve's design pressure.</td><td>The preview shows each object's value now and after. A value someone changed by hand stays and says so.</td></tr>
+      <tr><td>2</td><td><span class="ui">Save draft</span>, then <span class="ui">Publish…</span>.</td><td>The values are copied in one change and show <span class="ui">⧉ copied</span>; they follow their source from then on. A new object of the class gets its copy when it is made.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A copy never writes an attribute a calculation holds: a calculation and a copy on the same attribute of the same objects are refused when saved. Alex can run a copy rule by hand on some objects (run_copy_rule), also as a step of a stored assistant.</p>
   <h3>Make a check rule</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
@@ -563,7 +651,21 @@
     <li><span class="ui">Why this value?</span> shows the rule and version, each input with its value and the object it came from, and each step's result. When an input is missing the value is empty and the reason is shown.</li>
     <li><span class="ui">Withdraw</span> pauses a rule: its values stay, as ordinary values people may change. <span class="ui">Publish…</span> again calculates them again.</li>
   </ul>
-  <p class="g-warn">Not built yet: copy rules (12.4), calculated values on drawing labels and in the API marked as calculated (12.5), and organization and content package rules (12.6).</p>
+  <h3>Organization and content package rules</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">New rule</span>, set <span class="ui">For projects</span> to <em>All projects (the company library)</em>, make the rule and click <span class="ui">Save draft</span>.</td><td>The rule is a draft in the company library; its row reads <em>From: All projects</em>. With a project's name clicked and <em>Only</em> that project, it is a draft in that project's own library.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Publish in the company library</span>.</td><td>It is published as a new company library version. No project's values change yet: the row says it reaches the project when its pin moves.</td></tr>
+      <tr><td>3</td><td>Ask Alex to pin the project to that library version, preview first.</td><td>The preview lists the rule as added, with how many values it creates and changes. Pinned, the values are written in the same change, and the row reads <em>active (version 1, at the pin)</em>.</td></tr>
+      <tr><td>4</td><td>Publish a new version of the organization rule.</td><td>The project keeps the version at its pin until the pin moves again; the pin's preview then lists the rule as changed, version 1 → 2.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>A project reading the newest company library, without a pin, uses no organization rules. A pin that takes a rule away leaves its values as ordinary values.</li>
+    <li>A content package's rules come with the E1 library version the project reads: <span class="ui">Preview package update</span> lists each rule the update adds, changes or takes away and the values it writes. They are listed with <em>From: Package</em>, read only.</li>
+    <li>One attribute has one rule: a project rule is refused on an attribute an organization rule calculates for the same objects, and a project's own rule takes the attribute from an organization or package rule that arrives later (that rule's row says so).</li>
+  </ul>
   <p class="g-related">Related: <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-library.html#lib-configuration">Configuration</a></p>
 </section>
 
@@ -688,7 +790,7 @@
 
 <section class="g-feature" id="lib-modules">
   <h2>Modules in the library</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a</span><span>Review check M1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-modules</span><span>Roadmap 32.1a, 32.3d</span><span>Review checks M1, M11</span></div>
   <p class="g-summary">A module is a part of a P&amp;ID saved for placing again, with <a href="guide-drawing.html#draw-module-save">Save as module…</a>: a control valve station, a pump with its valves, a sampling point. Modules are kept in the company library, for every project, or in one project's library, and Configuration → Modules lists them all.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> (in the Content group)</dd>
@@ -698,14 +800,18 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a project, then <span class="ui">Configuration → Modules</span>.</td><td>A list of the modules: <span class="ui">Name</span>, <span class="ui">Category</span>, <span class="ui">Library</span> (Company or Project), <span class="ui">Version</span> (the newest published, and <em>draft open</em> when there is a draft), <span class="ui">State</span> (Draft, Published or Withdrawn) and the number of <span class="ui">Members</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Configuration → Modules</span>.</td><td>A list of the modules: <span class="ui">Name</span>, <span class="ui">Category</span>, <span class="ui">Library</span> (All projects, or This project; with several projects ticked on the left, the project’s name), <span class="ui">Version</span> (the newest published, and <em>draft open</em> when there is a draft), <span class="ui">State</span> (Draft, Published or Withdrawn) and the number of <span class="ui">Members</span>.</td></tr>
       <tr><td>2</td><td>Type in <span class="ui">Search modules</span>.</td><td>Only modules whose name, key, category or keywords contain the text stay.</td></tr>
       <tr><td>3</td><td>Click a module's name.</td><td>Its details: description, library, state, versions, members by class, tie-in points (where lines connect to it: name, type, direction, size, rating) and parameters (values asked for when it is placed).</td></tr>
     </tbody>
   </table></div>
   <h3>Usually per instance</h3>
   <p>Some attributes differ from place to place, such as service, size, design pressure and temperature and set points. <span class="ui">Usually per instance</span>, below the list, holds these attribute paths, one a line. When a module is saved, E1 proposes to keep them per instance: each placed module has its own value, and an update from the module never changes it. <span class="ui">Save</span> keeps the list for the organization (managing organization policies). E1 ships with a list to start from.</p>
-  <p class="g-warn">Placing modules (<a href="guide-drawing.html#draw-module-place">the Modules tab</a>) is being built.</p>
+  <p>Placing a module: <a href="guide-drawing.html#draw-module-place">Add asset → Modules</a>.</p>
+  <h3>Save as module?</h3>
+  <p>When the same group is drawn three times or more and is in no module (two symbols of the same classes joined the same way, such as a valve and a reducer with the pipe between them), the box <span class="ui">Save as module?</span> names it, with how many times and examples. Alex finds the same groups when you ask it. Select one on its 2D space and right-click → <a href="guide-drawing.html#draw-module-save">Save as module…</a>.</p>
+  <h3>Modules in content packages</h3>
+  <p>A content package can carry modules. They are listed with the library <em>Package</em>, read only, and can be placed like the others. E1 checks each one against the library when the package is loaded and draws its preview itself; one that names something the library does not have is left out.</p>
   <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a> · <a href="#lib-configuration">The Configuration place</a> · <a href="#lib-company-library">Company library</a></p>
 </section>
 
@@ -731,29 +837,170 @@
 
 <section class="g-feature" id="lib-module-updates">
   <h2>Updating placed modules to a new version</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-module-updates</span><span>Roadmap 32.2b</span></div>
-  <p class="g-summary">When a module gets a new version, its placed instances can be updated: E1 takes what the module changed, keeps what each instance changed, and asks about each conflict.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-module-updates</span><span>Roadmap 32.2b</span><span>Review check M6</span></div>
+  <p class="g-summary">When a module gets a new version, its placed instances can be updated: E1 takes what the module changed, keeps what each instance changed, and asks about each conflict, once for a group of instances.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Not on screen yet; it will be in <span class="ui">Updates available</span>, group Modules</dd>
-    <dt>Who</dt><dd>Editing the project</dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>, the <span class="ui">Modules</span> box at the top; and with <span class="ui">Updates available</span> in <span class="ui">Company library</span></dd>
+    <dt>Who</dt><dd>Changing the objects of the project</dd>
+    <dt>Before you start</dt><dd>A newer published version of a module that the project's library version reads</dd>
   </dl>
-  <div class="g-dev"><p><strong>Planned (roadmap 32.2b "Update instances to a new module version").</strong></p></div>
-  <h3>What you will be able to do</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Modules</span>.</td><td>The <span class="ui">Modules</span> box lists each module with instances on an older version: the versions in use with their counts → the newest, its change note, and how many instances update without and with a conflict.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Update instances…</span></td><td>The update dialog: the <span class="ui">Conflicts</span>, grouped where several instances have the same one, and per instance its rows: <em>From the module</em> (old → new), <em>Changed here</em>, <em>Same on both sides</em>, <em>Added from the module</em>, <em>Removed by the module</em>, <em>Flagged: still connected outside</em>, <em>Module conflict</em>. <span class="ui">With conflicts only</span> narrows the list.</td></tr>
+      <tr><td>3</td><td>For each conflict group, choose <span class="ui">Use module for all</span> or <span class="ui">Keep mine for all</span>.</td><td><span class="ui">Apply</span> becomes available once every conflict is decided.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Apply</span>, or <span class="ui">Update without conflicts</span> to update only the instances that have none.</td><td>The instances are on the new version: the module's changes written, members it added placed with new tags, members it removed deleted (or left in place and taken out of the instance when still connected outside). Kept changes are recorded against the new version. One <span class="ui">Undo</span> takes the update back.</td></tr>
+    </tbody>
+  </table></div>
   <ul>
-    <li>See per module the versions in use, the newest, and how many instances have conflicts.</li>
-    <li>Decide conflicts once for a group of instances with <em>Use module for all</em> or <em>Keep mine for all</em>, or one by one; or <em>Update without conflicts</em>.</li>
+    <li>Per-instance values, parameters, tags and owners outside the module are never changed by an update.</li>
+    <li>If something the dialog read changed meanwhile, <span class="ui">Apply</span> asks you to look again.</li>
   </ul>
-  <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a></p>
+  <p class="g-warn">Not yet: replacing a member whose class the new version changed (decide it with Keep mine), and lines the new version adds (draw them by hand).</p>
+  <p class="g-related">Related: <a href="#lib-module-versions">Module versions</a> · <a href="guide-drawing.html#draw-module-compare">Compare an instance</a> · <a href="#lib-library-updates">Updates available</a></p>
 </section>
 
 <section class="g-feature" id="lib-module-edit">
-  <h2>Editing a module on the module sheet</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span></div>
-  <p class="g-summary">Open a module's draft on its own sheet, change members, tie-in points and parameters, and publish the next version.</p>
+  <h2>Editing a module: new versions</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span><span>Review check M7</span></div>
+  <p class="g-summary">Open a module's next version, change its details, members, tie-in points and parameters, move its members to the newest class versions, and publish it. Duplicate a module, or copy a project module to the company library.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Not on screen yet; it will be <span class="ui">New version</span> in Configuration → Modules</dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> → a module → <span class="ui">New version</span> (or <span class="ui">Edit draft</span>), <span class="ui">Duplicate…</span>, <span class="ui">Copy to company library</span></dd>
     <dt>Who</dt><dd>Editing the library the module is in</dd>
   </dl>
-  <div class="g-dev"><p><strong>Planned (roadmap 32.3a "Edit a module on the module sheet").</strong></p></div>
-  <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a></p>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click a module's name, then <span class="ui">New version</span>.</td><td>Its draft opens: the details, the <span class="ui">Members</span> (id, class, class version, the attributes kept per instance), the <span class="ui">Tie-in points</span> and the <span class="ui">Parameters</span>.</td></tr>
+      <tr><td>2</td><td>Change what the version changes: a tie-in point's size, rating, pipe class or medium, a parameter's name, kind, default or whether it is required, the attributes kept per instance. Type a <span class="ui">Change note</span>.</td><td>Member ids can be renamed until the module is first published; after that an id is fixed, and a removed member's id is never used again.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Upgrade members</span> if the members should move to the newest class versions.</td><td>It says how many moved. Without it, projects on older library versions can still place the module.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Publish</span> (or <span class="ui">Save draft</span> to finish later).</td><td>The next version, with its change note. Placed instances are offered the update (<a href="#lib-module-updates">Updating placed modules</a>).</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><span class="ui">Supplied by vendor</span>, with the vendor's document and revision, marks a vendor's package. In a project its members then take only per-instance values; any other change is refused (<em>Supplied by vendor …: change the vendor module</em>). A new vendor revision is published as a new version.</li>
+    <li><span class="ui">Duplicate…</span> makes a new module, as a draft, with the same content; its instances stay with the first.</li>
+    <li><span class="ui">Copy to company library</span> makes a company module from a published project module, checked against the company library: a project class or shape is refused and named.</li>
+    <li>To change what is drawn, place the module on a 2D space, change that instance, and use <span class="ui">Save changes to module…</span> (<a href="guide-drawing.html#draw-module-promote">Turn an instance's changes into the next version</a>).</li>
+  </ul>
+  <p class="g-related">Related: <a href="#lib-modules">Modules in the library</a> · <a href="#lib-module-versions">Module versions</a></p>
 </section>
+
+<section class="g-feature" id="lib-documents-templates">
+  <h2>Sheet templates</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-documents-templates</span><span>Roadmap 29.4</span><span>Review check E13</span></div>
+  <p class="g-summary">Configuration → Sheet templates: E1's ISO and ANSI templates, and the company's and project's own, made in the designer (page, frame, title block cells bound to the document, revision block) and published.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Documents</span> ▸ <span class="ui">Sheet templates</span></dd>
+    <dt>Who</dt><dd>Configure documents for this project's templates; the company library's editors for the company's</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Sheet templates</span>.</td><td><span class="ui">How it works</span> explains the frame, the title block and the revision block. Then the templates: Simple (border and a small title block), ISO A0 to A4 landscape, ISO A3 and A4 portrait, ANSI A to E, and the company's and this project's, each marked E1, All projects or This project, with its page and version, and <span class="ui">Copy</span> (and <span class="ui">Edit</span> on your own).</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy ISO A3 landscape</span>.</td><td>The designer: <span class="ui">Name</span>, <span class="ui">For projects</span>, <span class="ui">Page</span>, <span class="ui">Orientation</span>, the four margins, the title block's size, columns and rows, <span class="ui">Revision block rows</span>, the <span class="ui">Title block cells</span>, and a preview of the page.</td></tr>
+      <tr><td>3</td><td>Change a cell's <span class="ui">Shows</span> to <span class="ui">Client no.</span> and its label.</td><td>The preview shows it at once.</td></tr>
+      <tr><td>4</td><td>Give a cell a column outside the grid.</td><td>“Cell 3 lies outside the title block's 5 rows and 6 columns.”; <span class="ui">Save draft</span> and <span class="ui">Publish</span> are off.</td></tr>
+      <tr><td>5</td><td>Put it back and click <span class="ui">Publish</span>.</td><td>“… is published: choose it in Project settings → Documents.”</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A field shows one of: Project, Project code, Title, Document no., Unit, Discipline, Document type, Client no., Rev, Kind, Purpose, Date, Status, Description, Prepared, Checked, Approved (names, initials or dates), Sheet, Scale, Format, 2D space. A version or revision keeps the template version it was made with.</p>
+  <p class="g-warn">Logos and the zone labels' style are not set in the designer yet.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-frame">The sheet frame on the drawing</a>, <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a></p>
+</section>
+
+<section class="g-feature" id="lib-documents-signoff-routes">
+  <h2>Sign-off routes</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-documents-signoff-routes</span><span>Roadmap 29.5</span><span>Review check E14</span></div>
+  <p class="g-summary">Configuration → Sign-off routes: E1's routes and the company's and project's own, made in the designer (the steps, who signs each, whom it must not be, the days to sign) and published; Project settings → Documents chooses one per purpose of issue.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Documents</span> ▸ <span class="ui">Sign-off routes</span></dd>
+    <dt>Who</dt><dd>Configure documents for this project's routes; the company library's editors for the company's</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Sign-off routes</span>.</td><td><span class="ui">How it works</span> explains steps, who signs and four-eyes. Then the routes, each marked E1, All projects or This project, with what they are for and their steps in order (Prepared → Checked → Approved): Version, Prepared, checked, approved, Prepared, checked, approved, project engineer, Prepared, approved, and the company's and this project's.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy Prepared, checked, approved</span>.</td><td>The designer: <span class="ui">Name</span>, <span class="ui">For projects</span>, <span class="ui">For</span> (Revisions or Versions) and the <span class="ui">Steps</span>, each with its label, <span class="ui">Who signs</span>, <span class="ui">Not the one who signed</span> each step before it, and <span class="ui">Days to sign</span>.</td></tr>
+      <tr><td>3</td><td>Rename the last step “Client accepted”, set its days to 2.</td><td>The table shows it at once.</td></tr>
+      <tr><td>4</td><td>Set the last step's <span class="ui">Who signs</span> to <span class="ui">Someone who may sign</span>.</td><td>“The last step of a revision route is signed by someone with revision.issue.”; <span class="ui">Save draft</span> and <span class="ui">Publish</span> are off.</td></tr>
+      <tr><td>5</td><td>Put it back and click <span class="ui">Publish</span>.</td><td>“… is published: choose it for a purpose in Project settings → Documents.”</td></tr>
+      <tr><td>6</td><td>In Project settings → Documents → <span class="ui">Sign-off</span>, choose it for IFA, and create an IFA revision.</td><td>Its sign-off lists Prepared, Checked and Client accepted.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The first step is always Prepared by the creator. A revision keeps the route it started with: changing a route changes only revisions made afterwards.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off of a revision</a>, <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a>, <a href="guide-documents.html#doc-reassign-signer">Reassign a step of a sign-off</a></p>
+</section>
+
+<section class="g-feature" id="lib-documents-numbering">
+  <h2>Numbering schemes</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-documents-numbering</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">Configuration → Numbering: E1's revision schemes and the company's and project's own: phases with their series, start, digits, prefix and letters to skip, the version label, and the labels they give.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Documents</span> ▸ <span class="ui">Numbering</span></dd>
+    <dt>Who</dt><dd>Configure documents for this project's schemes; the company library's editors for the company's</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Numbering</span>.</td><td><span class="ui">How it works</span> explains revisions, versions and phases. Then the schemes, each marked E1, All projects or This project, with what they give, such as “A, B, C … then 0, 1, 2 …; versions A.1”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy Numeric</span>.</td><td>The designer: <span class="ui">Name</span>, <span class="ui">For projects</span>, the <span class="ui">Phases</span> table (label, series, starts at, digits, prefix, letters to skip), <span class="ui">Phases</span> (Only forward or Any order), <span class="ui">Version label</span>, <span class="ui">Versions start at</span>, <span class="ui">Restart after each revision</span>, and “Gives …”.</td></tr>
+      <tr><td>3</td><td>Set the phase's <span class="ui">Starts at</span> to 10, its digits to 3 and its prefix to R.</td><td>“Gives R010, R011, R012 …” at once.</td></tr>
+      <tr><td>4</td><td>Set <span class="ui">Version label</span> to {next}-d{n} and click <span class="ui">Publish</span>.</td><td>“… is published: choose it in Project settings → Documents.”</td></tr>
+      <tr><td>5</td><td>In Project settings → Documents → <span class="ui">Revision scheme</span> choose it, and create a revision of a new document.</td><td>It is labelled R010; a version after it R011-d1.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A version label without {n} is named and Publish stays off. A new scheme labels the next outputs only; labels already given stay.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a>, <a href="guide-library.html#lib-documents-purposes">Purposes of issue</a></p>
+</section>
+
+<section class="g-feature" id="lib-documents-purposes">
+  <h2>Purposes of issue</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-documents-purposes</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">Configuration → Purposes of issue: E1's lists and the company's and project's own: each purpose's code, text, phase, watermark, whether it is from construction or makes the document void.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Documents</span> ▸ <span class="ui">Purposes of issue</span></dd>
+    <dt>Who</dt><dd>Configure documents for this project's lists; the company library's editors for the company's</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Purposes of issue</span>.</td><td><span class="ui">How it works</span> explains code, phase, watermark, From construction and Makes void. Then EPC purposes of issue and ISO 19650 suitability with their codes, and the company's and this project's lists, each marked E1, All projects or This project.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy EPC purposes of issue</span>.</td><td>The <span class="ui">Purposes</span> table: Code, Text, Phase, Watermark, From construction, Makes void, with × on each row and <span class="ui">Add purpose</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Add purpose</span>, give it the code IFA.</td><td>“The code IFA is used twice.”; Save draft and Publish are off.</td></tr>
+      <tr><td>4</td><td>Change it to IFM with the text “Issued for manufacture” and click <span class="ui">Publish</span>.</td><td>“… is published: choose it in Project settings → Documents.”</td></tr>
+      <tr><td>5</td><td>In Project settings → Documents → <span class="ui">Purposes</span> choose it.</td><td><span class="ui">Create revision…</span> offers IFM with its text.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A purpose's phase is one of the numbering scheme's phases (letters and numbers in E1's EPC scheme, shared and published in ISO 19650) or any.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a>, <a href="guide-library.html#lib-documents-numbering">Numbering schemes</a></p>
+</section>
+
+<section class="g-feature" id="lib-documents-filing">
+  <h2>Filing rules</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIB-documents-filing</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">Configuration → Filing: where an issued PDF is filed under Documents (folders from the document's number, name and attributes), where superseded PDFs go, and the file name, with an example.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Documents</span> ▸ <span class="ui">Filing</span></dd>
+    <dt>Who</dt><dd>Configure documents for this project's rules; the company library's editors for the company's</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → <span class="ui">Filing</span>.</td><td><span class="ui">How it works</span> explains what a filing rule does, then the rules: By document, By discipline and type, By status and Flat, each marked E1, All projects or This project, with its folders in words (Discipline › Document type › …), an example path and where superseded PDFs go.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Copy By discipline and type</span>.</td><td><span class="ui">New filing rule</span>: <span class="ui">Name and projects</span>; <span class="ui">Folders under Documents</span>, one line per level, each with <span class="ui">Insert a field…</span> (Discipline, Document number, Revisions or Versions …) and what it reads; <span class="ui">Add folder</span>; <span class="ui">When a revision is superseded</span> (Stay where they are, or Move to a folder with its name); <span class="ui">File name</span>; <span class="ui">All the fields you can use</span>. Beside it, the <span class="ui">Example</span>: the folders of Rev B of P-PID-0001 as a tree with its file, where it goes once superseded, and its file name.</td></tr>
+      <tr><td>3</td><td>Type {document.owner} in a folder.</td><td>Under <span class="ui">Fix these to save</span>: “Folder 1: {document.owner} is not a token E1 knows.”; Publish is off.</td></tr>
+      <tr><td>4</td><td>Clear it, pick Discipline from <span class="ui">Insert a field…</span> and click <span class="ui">Publish</span>; choose it in Project settings → Documents → <span class="ui">Filing rule</span>.</td><td>The next issued revision is filed in its folders; a folder whose tokens are all empty is Unfiled.</td></tr>
+      <tr><td>5</td><td>Issue the next revision of the same document.</td><td>The PDF of the one before moves to Superseded.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A PDF moves only when its own output does; a rule changed later files only new outputs. A filing folder renamed by hand keeps receiving its documents' outputs.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a></p>
+</section>
+

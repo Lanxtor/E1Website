@@ -7,7 +7,7 @@
   <meta name="description" content="History and undo, comments and mentions, tasks and the Inbox, comments pinned on drawings, attachments and live updates between people.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=82">
+  <link rel="stylesheet" href="assets/css/styles.css?v=141">
   <link rel="stylesheet" href="assets/css/guides.css?v=3">
 </head>
 <body>
@@ -33,7 +33,9 @@
           <li><a href="guide-ai.html">11. AI: Alex</a></li>
           <li><a href="guide-account.html">12. Your account, Academy and website</a></li>
           <li><a href="guide-wiring.html">13. Wiring (EI&amp;C)</a></li>
-          <li><a href="guide-reviewer.html">14. E1 Reviewer for iPad</a></li>
+          <li><a href="guide-workflow.html">14. Workflow and dashboards</a></li>
+          <li><a href="guide-safety.html">15. Cause and effect, safety functions, alarms</a></li>
+          <li><a href="guide-reviewer.html">16. E1 Reviewer for iPad</a></li>
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
@@ -46,6 +48,7 @@
           <li><a href="#col-comments">Chat about an object: mentions, links, replies and likes</a></li>
           <li><a href="#col-tasks">Give someone a task</a></li>
           <li><a href="#col-inbox">The Inbox: mentions, replies and tasks</a></li>
+          <li><a href="#col-task-checklist">A task&#x27;s checklist</a></li>
           <li><a href="#col-notifications">Choose which notices come by email</a></li>
           <li><a href="#col-sheet-pins">Pin a message on a drawing: Chat here and Needs review</a></li>
           <li><a href="#col-attachments">Attach files to an object or a project</a></li>
@@ -61,7 +64,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Working together</p>
         <h1>8. Working together</h1>
         <p class="lead">History and undo, comments and mentions, tasks and the Inbox, comments pinned on drawings, attachments and live updates between people.</p>
-        <div class="g-meta"><span>15 features</span><span>10 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>16 features</span><span>12 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="collaboration-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers how people work together on one E1 project: taking back changes, reading what changed and who changed it, discussing an object in its chat, handing out tasks, following everything in the Inbox, pinning review messages on a drawing, attaching files, and what you see when two people change the project at the same time. It ends with branches, which are planned.</p>
@@ -198,7 +201,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">COL-tasks</span><span>Roadmap 07.8</span><span>Review check H4</span></div>
   <p class="g-summary">A task asks one person to do something about an object, with an optional due date. It is kept in the project's Tasks section, the object shows that it has open tasks, and the person sees it in their Inbox and marks it done there.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The object window header → <span class="ui">New task…</span>; or <span class="ui">Create task</span> under a message; or the explorer's <span class="ui">Tasks</span> section → <span class="ui">New task…</span></dd>
+    <dt>Where</dt><dd>The object window's actions, under its name → <span class="ui">New task…</span>; or <span class="ui">Create task</span> under a message; or the explorer's <span class="ui">Tasks</span> section → <span class="ui">New task…</span></dd>
     <dt>Who</dt><dd>Creating: Engineer and above. The person it is for must be able to view the object. That person may mark their own task done whatever their role.</dd>
     <dt>Before you start</dt><dd>E1 with sign-in; a colleague on the project.</dd>
   </dl>
@@ -206,7 +209,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Double-click Pump1 and click <span class="ui">New task…</span> beside <span class="ui">Export</span>.</td><td>The form <span class="ui">New task</span> opens with the fields <span class="ui">Title</span>, <span class="ui">For</span> and <span class="ui">Due</span>.</td></tr>
+      <tr><td>1</td><td>Double-click Pump1 and click <span class="ui">New task…</span>, the first action under the name.</td><td>The form <span class="ui">New task</span> opens with the fields <span class="ui">Title</span>, <span class="ui">For</span> and <span class="ui">Due</span>.</td></tr>
       <tr><td>2</td><td>Type <code>Check the seal</code> as the title. In <span class="ui">For</span> choose a colleague (or leave <span class="ui">Nobody yet</span>). Set <span class="ui">Due</span> to 2026-12-01.</td><td><span class="ui">Create task</span> becomes active once there is a title (at most 300 characters).</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Create task</span>.</td><td>The form closes. The <span class="ui">Tasks</span> section in the explorer and Pump1 show the mark <span class="ui">Open tasks: 1</span>. The colleague gets <em>assigned you a task</em> in their Inbox.</td></tr>
       <tr><td>4</td><td>Under a message on the Chat tab, click <span class="ui">Create task</span>.</td><td>The same form opens with the first 80 characters of the message as the title.</td></tr>
@@ -247,6 +250,29 @@
   <p class="g-note">Owners and Administrators also get the seat notice <span class="ui">E1 counted the seats</span> here (see <a href="guide-organization.html#org-licenses-seats">Licenses and seats</a>).</p>
   <p class="g-note">The list refreshes every 10 seconds and the badge every 15 seconds, so a new notice may take a moment to show.</p>
   <p class="g-related">Related: <a href="#col-comments">Chat</a> · <a href="#col-tasks">Tasks</a> · <a href="#col-notifications">Notification settings</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a></p>
+</section>
+
+<section class="g-feature" id="col-task-checklist">
+  <h2>A task's checklist</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">COL-task-checklist</span><span>Roadmap 27.6</span></div>
+  <p class="g-summary">A task can have a checklist: items to tick in the Inbox, the same as in E1 Reviewer on the iPad.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The bell on the left rail → Inbox → <span class="ui">Checklist</span> under a task</dd>
+    <dt>Who</dt><dd>The task's assignee or anyone who may edit it ticks; who may edit the task changes the items</dd>
+    <dt>Before you start</dt><dd>A task assigned to you.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Checklist</span> under the task.</td><td>Its items, or “No items yet.”; the button reads <span class="ui">Checklist · 0 of 0</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Edit checklist</span>, then <span class="ui">Add item</span> twice, type two items and click <span class="ui">Save</span>.</td><td>The two items, unticked: <span class="ui">Checklist · 0 of 2</span>.</td></tr>
+      <tr><td>3</td><td>Tick the first item.</td><td>It shows who ticked it and when: <span class="ui">Checklist · 1 of 2</span>. On the iPad, For me shows the same.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Edit checklist</span>, change the first item's text, <span class="ui">Remove</span> the second and click <span class="ui">Save</span>.</td><td>One item, still ticked, with its new text.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Alex reads and changes checklists too (<code>get_task_checklist</code>, <code>set_task_checklist</code>, <code>tick_checklist_item</code>).</p>
+  <p class="g-related">Related: <a href="guide-collaboration.html#col-inbox">The Inbox: mentions, replies and tasks</a>, <a href="guide-reviewer.html#ipad-for-me">For me: your tasks and checklists</a></p>
 </section>
 
 <section class="g-feature" id="col-notifications">
@@ -383,10 +409,27 @@
 
 <section class="g-feature" id="col-presence">
   <h2>See who else has a sheet open</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span>Updated 2026-11-10</span><span class="g-id">COL-presence</span><span>Roadmap 08.6</span></div>
-  <p class="g-summary">When colleagues have the same 2D space open, their avatars appear at the right of the sheet toolbar, with a pencil while they are editing it. Not built yet.</p>
-  <p class="g-dev">Planned for M4: <span class="ui">People on this sheet</span> in the sheet toolbar, a click opens <span class="ui">On this sheet</span> with each person's role, Viewing or Editing, and since when. You never see anyone's pointer or unsaved work, and nothing about who opened what is recorded. With Configuration → Privacy → Groups only, groups are shown instead of names, and <span class="ui">Show who has a sheet open</span> turns it off for the organization.</p>
-  <p class="g-related">Related: <a href="#col-live-refresh">See others' changes live</a> · <a href="#col-conflicts">When two people change the same thing</a></p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">COL-presence</span><span>Roadmap 08.6</span><span>Review checks A13</span></div>
+  <p class="g-summary">Avatars at the right of a 2D space's toolbar show who else has it open, with a pencil while they edit; a click lists them with their role, Viewing or Editing, and since when.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An open 2D space: <span class="ui">People on this sheet</span> at the right of its toolbar</dd>
+    <dt>Who</dt><dd>Everyone with a role on the project, signed in to a server</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a 2D space while a colleague has it open in another browser.</td><td>Within a few seconds their avatar (initials) shows at the right of the toolbar. Pointing at it says their name, role and <em>Viewing</em>.</td></tr>
+      <tr><td>2</td><td>Your colleague changes something on the 2D space.</td><td>A pencil shows on their avatar: <em>Editing</em>, for a minute after their last change.</td></tr>
+      <tr><td>3</td><td>Click the avatars.</td><td><span class="ui">On this sheet</span> lists each person with their role, Viewing or Editing, and since when. More than four people show as four avatars and <em>+n</em>.</td></tr>
+      <tr><td>4</td><td>Your colleague closes the 2D space or the window.</td><td>Their avatar is gone within a minute.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>You never see anyone's pointer or unsaved work, and nothing about who opened what is recorded: no history, no report.</li>
+    <li>With Configuration → Privacy → <span class="ui">Groups only</span>, the avatars show groups instead of names. <span class="ui">Show who has a sheet open</span> there turns it off for the organization.</li>
+    <li>Only people who may see the 2D space are shown, and only on a server: the desktop app on its own file shows no one.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#col-live-refresh">See others' changes live</a> · <a href="#col-conflicts">When two people change the same thing</a> · <a href="guide-organization.html#org-history-names">Groups instead of names</a></p>
 </section>
 
 <section class="g-feature" id="col-messages">

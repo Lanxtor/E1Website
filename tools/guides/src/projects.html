@@ -66,7 +66,7 @@
 
 <section class="g-feature" id="prj-sections">
   <h2>The sections of a project</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">PRJ-sections</span><span>Roadmap M1.4</span><span>Review check A1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-sections</span><span>Roadmap M1.4</span><span>Review check A1</span></div>
   <p class="g-summary">Every project has the same nine sections, always in the same order. Each section holds one kind of thing, and right-clicking a section offers exactly what can be made there. The sections cannot be added, removed or reordered.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → expand a project</dd>
@@ -92,7 +92,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Expand a project.</td><td>The nine sections in the order of the table above. There is no <span class="ui">Lines</span> section and no "Workspace" row.</td></tr>
+      <tr><td>1</td><td>Expand a project.</td><td>The nine sections in the order of the table above, except any hidden in <span class="ui">Folders</span> of <span class="ui">Project defaults</span> or <span class="ui">Project settings</span>. There is no <span class="ui">Lines</span> section and no "Workspace" row.</td></tr>
       <tr><td>2</td><td>Expand <span class="ui">Assets</span>.</td><td>The project's equipment, and at the end a group <span class="ui">Lines</span>.</td></tr>
       <tr><td>3</td><td>Right-click <span class="ui">Assets</span>.</td><td>A menu with <span class="ui">New asset…</span>, <span class="ui">New folder</span> and <span class="ui">Query</span> ▸.</td></tr>
       <tr><td>4</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span>.</td><td>A window <span class="ui">New object in Systems</span> opens. Click <span class="ui">Cancel</span>.</td></tr>
@@ -103,12 +103,46 @@
   <figure class="g-shot g-small"><img src="assets/img/guides/tree-menu-assets.webp" alt="The right-click menu of the Assets section with the items New asset…, New folder and Query with a submenu arrow." width="340" height="192" loading="lazy"><figcaption>Right-click <span class="ui">Assets</span>: what can be made in this section.</figcaption></figure>
   <p class="g-note">Marks on sections: <span class="ui">Documents</span> shows "Updated" when a document has a revision you have not seen yet; <span class="ui">Tasks</span> shows "Open tasks: N". The toolbar of the <span class="ui">Tasks</span> page has a working filter <span class="ui">All</span> / <span class="ui">Open</span> / <span class="ui">Done</span>.</p>
   <p class="g-warn">Review check A1 still lists "Workspace" and "Lines" among the sections. Since 2026-11-07 there is no Workspace row (the explorer header names the organization instead), and <span class="ui">Lines</span> is a group under <span class="ui">Assets</span>, not a section. The filter <span class="ui">All</span> / <span class="ui">Drawings</span> / <span class="ui">Lists</span> / <span class="ui">Datasheets</span> on the <span class="ui">Documents</span> page only changes its label and opens <span class="ui">Under construction</span>.</p>
-  <p class="g-related">Related: <a href="#prj-folders-sheets">Folders and 2D spaces</a> · <a href="guide-objects.html#obj-new-object">Create an object</a> · <a href="guide-documents.html#doc-new-document">New document</a> · <a href="guide-lists.html#list-new-query">New query</a> · <a href="#prj-branches">Branches</a></p>
+  <p class="g-related">Related: <a href="#prj-folders-sheets">Folders and 2D spaces</a> · <a href="guide-objects.html#obj-new-object">Create an object</a> · <a href="guide-documents.html#doc-new-document">New document</a> · <a href="guide-lists.html#list-new-query">New query</a> · <a href="#prj-branches">Branches</a> · <a href="#prj-hidden-folders">Hide a project's folders from the tree</a></p>
+</section>
+
+<section class="g-feature" id="prj-hidden-folders">
+  <h2>Hide a project's folders from the tree</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-hidden-folders</span><span>Roadmap 09.14</span></div>
+  <p class="g-summary">A project comes with nine folders: Model Space, Unit Operations, Assets, Systems, Processes, Areas, Documents, Tasks and Branches. Folders a team does not use can be hidden from the tree, for everyone or only for the members of some groups. As with the other project settings, you decide it for the whole organization in <span class="ui">Project defaults</span>, and a project can decide otherwise in its <span class="ui">Project settings</span>. Hiding a folder does not move or remove anything: its objects stay in it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Every project: <span class="ui">Configuration</span> → <span class="ui">Project defaults</span> → <span class="ui">Folders</span>. One project: <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Folders</span>, or <span class="ui">File</span> → <span class="ui">Project settings…</span> → <span class="ui">Folders</span></dd>
+    <dt>Who</dt><dd>Every project: administrators who manage the organization's policies. One project: who may configure the project (Project administrator and above)</dd>
+    <dt>Before you start</dt><dd>A project exists. To hide a folder from a group, the group exists (<span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Groups</span>).</dd>
+  </dl>
+  <h3>For every project</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration</span> and click <span class="ui">Project defaults</span> under <span class="ui">Projects</span>.</td><td>The card <span class="ui">Folders</span> lists the nine folders, each <span class="ui">Shown to everyone</span>.</td></tr>
+      <tr><td>2</td><td>For <span class="ui">Processes</span>, choose <span class="ui">Hidden from everyone</span> in <span class="ui">In the tree</span>.</td><td>“Saved. Processes is hidden from the tree for everyone in every project that follows the organization.” No project lists <span class="ui">Processes</span> in the tree any more.</td></tr>
+      <tr><td>3</td><td>For <span class="ui">Branches</span>, choose <span class="ui">Hidden from some groups</span>.</td><td>The organization's groups are listed with a tick box each; nothing is saved until a group is ticked.</td></tr>
+      <tr><td>4</td><td>Tick <span class="ui">Viewers</span>.</td><td>“Saved. Branches is hidden from the tree for the groups ticked in every project that follows the organization.” A person with a Viewer license, or in the Viewers group, no longer sees <span class="ui">Branches</span>; others still do.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>For one project</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Project settings</span>, select the project and click <span class="ui">Folders</span>.</td><td>Each folder reads <span class="ui">As the organization</span>, with the organization's choice in brackets, for example <span class="ui">As the organization (Hidden from everyone)</span>.</td></tr>
+      <tr><td>2</td><td>For <span class="ui">Processes</span>, choose <span class="ui">Shown to everyone</span>.</td><td>“Saved. Processes is shown in the tree in this project.” This project lists <span class="ui">Processes</span> again; the others still hide it.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">As the organization</span> again.</td><td>“Saved. Processes follows the organization in this project.” It is hidden again.</td></tr>
+      <tr><td>4</td><td>Search for an object in a hidden folder.</td><td>It is found and opens as before: only the tree leaves the folder out.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">With several projects ticked in <span class="ui">Project settings</span>, a change applies to all of them; a folder they differ on reads <span class="ui">Differs between the projects</span>. Someone in a group inside a ticked group is hidden from it too. Alex sets it with <code>set_organization_folder_visibility</code> and <code>set_folder_visibility</code>.</p>
+  <p class="g-warn">A hidden folder is left out of the tree only. It is not a permission: its objects can still be opened from search, links, queries, drawings and Alex by anyone who may see them. To keep values from reviewers or viewers, hide the attributes instead.</p>
+  <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-organization.html#org-groups">Groups</a></p>
 </section>
 
 <section class="g-feature" id="prj-tree-rows">
   <h2>Rows, clicks and marks in the explorer</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-tree-rows</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-tree-rows</span></div>
   <p class="g-summary">A click selects a row, a double-click opens it, and only the arrow expands or collapses it; a row you collapse stays collapsed, also after a reload. Small marks at the end of a row tell you that something needs your attention, and a parent row rolls them up.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer</dd>
@@ -124,7 +158,7 @@
       <tr><td>2D space</td><td>Its drawing</td></tr>
       <tr><td>Object</td><td>Its object window (on the data sheet when the class has one)</td></tr>
       <tr><td>Drawing shortcut under an object ("<i>2D space</i>, drawing")</td><td>That drawing with the object in view (also <kbd>Enter</kbd>)</td></tr>
-      <tr><td>Reference (a related object shown with a link mark)</td><td>The referenced object</td></tr>
+      <tr><td>Relationship (a related object shown with a link mark)</td><td>The related object</td></tr>
     </tbody>
   </table></div>
   <h3>Steps</h3>
@@ -147,6 +181,33 @@
   <p class="g-note">Keys in the tree: <kbd>F2</kbd> renames the selected project or object (not a 2D space or folder: use right-click → <span class="ui">Rename</span> for those), <kbd>Delete</kbd> or <kbd>Backspace</kbd> deletes it (see <a href="#prj-delete">Delete a project</a> and <a href="guide-objects.html#obj-delete">Delete an object</a>), and <kbd>Esc</kbd> clears projects picked with <kbd>Ctrl</kbd>-click.</p>
   <p class="g-note">Larger text in the explorer: <kbd>Ctrl</kbd> and the mouse wheel (or a pinch on a touchpad) zoom the tree from 80% to 200% in steps (80, 90, 100, 110, 125, 150, 175, 200%). With the focus in the tree, <kbd>Ctrl</kbd> and <kbd>+</kbd> or <kbd>−</kbd> do the same and <kbd>Ctrl+0</kbd> goes back to 100% (elsewhere these keys zoom the drawing). The size is remembered on this computer.</p>
   <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-collaboration.html#col-comments">Chat</a></p>
+</section>
+
+<section class="g-feature" id="prj-tree-columns">
+  <h2>Values beside the names: columns in the explorer</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">PRJ-tree-columns</span></div>
+  <p class="g-summary">Choose up to five attributes to show beside each object's name, and the explorer reads as a tree and a table: the design pressure of each vessel, the flow rate of each pump, a description. An object without a value shows nothing in that column. The attributes offered are those of the content packages switched on in your projects (<span class="ui">Project settings</span> → <span class="ui">Content packages</span>), with their sub-attributes such as <span class="ui">Mass flow / Normal</span>; an attribute of a package that is off, such as Marine, is not offered. You find them as in <span class="ui">Configuration</span> → <span class="ui">Attributes</span>: a search by name, key, CFIHOS code, unit or description, the <span class="ui">Standard</span>, <span class="ui">Category</span>, <span class="ui">Type</span>, <span class="ui">Package</span>, <span class="ui">Use</span> and <span class="ui">Pick list</span> menus, the list folded by category, and the chosen attribute's definition beside it. The columns are your own: nobody else sees them, and they stay after a reload.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → <span class="ui">…</span> (<span class="ui">More explorer actions</span>) → <span class="ui">Columns…</span>; or click a column header above the tree</dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
+    <dt>Before you start</dt><dd>A pump with a description and a flow rate, for example Pump1 with "Feed pump" and 60 m³/h.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the explorer, click <span class="ui">…</span> → <span class="ui">Columns…</span>.</td><td>The window <span class="ui">Columns in the explorer</span> opens: "No columns: the explorer shows the names only." Below it, the attributes, folded by category.</td></tr>
+      <tr><td>2</td><td>Type <kbd>Description</kbd> in <span class="ui">Find an attribute</span> and click <span class="ui">Add</span> on its row; then find <span class="ui">Flow rate</span> and add it the same way. A double-click on a row adds it too; a click shows its definition on the right, with <span class="ui">Add</span> for it and each of its sub-attributes.</td><td>Both are listed under <span class="ui">Your columns</span>, numbered 1 and 2, and their rows show <span class="ui">Column 1</span> and <span class="ui">Column 2</span>. Above the tree, headers read <span class="ui">Name</span>, <span class="ui">Description</span>, <span class="ui">Flow rate</span>; the explorer widens to fit them.</td></tr>
+      <tr><td>3</td><td>Expand <span class="ui">Assets</span>.</td><td>Pump1 shows "Feed pump" and "60 m³/h" beside its name. A valve without these values shows nothing there.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">→</span> beside <span class="ui">Description</span>.</td><td>Flow rate comes first, in the headers and in every row. <span class="ui">←</span> moves it back.</td></tr>
+      <tr><td>5</td><td>Type <kbd>marine.attr</kbd> in <span class="ui">Find an attribute</span>; then clear it and choose CFIHOS in <span class="ui">Standard</span>.</td><td>"No attribute matches these filters." while the Marine package is off in the project; with CFIHOS, only the CFIHOS attributes are listed.</td></tr>
+      <tr><td>6</td><td>Add three more attributes.</td><td>With five columns, <span class="ui">Add</span> is greyed out: "5 columns: remove one to add another". <span class="ui">×</span> beside a column removes it.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Done</span> and reload the page.</td><td>The columns are still there.</td></tr>
+      <tr><td>8</td><td>Click a column header, then <span class="ui">Remove all</span>.</td><td>The headers go; the explorer shows the names only.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A quantity shows with its unit, Yes or No for a yes/no attribute, and several choices separated by commas. Point at a value to see it in full with its attribute's name. Rows that are not objects (projects, sections, folders) leave the columns empty.</p>
+  <p class="g-related">Related: <a href="#prj-tree-rows">Rows, clicks and marks</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-lists.html#list-columns">Columns of a query</a></p>
 </section>
 
 <section class="g-feature" id="prj-folders-sheets">
@@ -316,7 +377,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click the project → <span class="ui">Delete</span>.</td><td>The browser asks: <span class="ui">Delete project "<i>name</i>"? It goes to the Bin, from where it can be restored.</span></td></tr>
-      <tr><td>2</td><td>Click <span class="ui">OK</span>.</td><td>The project is gone from the projects. A top-level row <span class="ui">Bin</span> appears after the projects.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">OK</span>.</td><td>The project is gone from the projects, and every tab of it closes. A top-level row <span class="ui">Bin</span> appears after the projects.</td></tr>
       <tr><td>3</td><td>Expand <span class="ui">Bin</span>.</td><td>The project is listed inside.</td></tr>
       <tr><td>4</td><td>Right-click the project in the Bin.</td><td>Exactly two items: <span class="ui">Restore</span> and <span class="ui">Delete permanently…</span>.</td></tr>
       <tr><td>5</td><td>Choose <span class="ui">Restore</span>.</td><td>The project is back among the projects. The <span class="ui">Bin</span> row disappears when it is empty.</td></tr>
@@ -338,7 +399,7 @@
 
 <section class="g-feature" id="prj-project-bin">
   <h2>The project Bin: Deleted bin and Voided bin</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">PRJ-project-bin</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-project-bin</span></div>
   <p class="g-summary">Inside each project, a group <span class="ui">Bin</span> collects what you deleted (<span class="ui">Deleted bin</span>) and what you voided (<span class="ui">Voided bin</span>), sorted by section. Deleted things can be restored or deleted permanently; voided things can only be unvoided.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → the project → <span class="ui">Bin</span> (shown only when something is in it)</dd>
@@ -353,21 +414,45 @@
       <tr><td>2</td><td>Expand <span class="ui">Bin</span> → <span class="ui">Deleted bin</span> → <span class="ui">Assets</span>.</td><td>V10 is listed there.</td></tr>
       <tr><td>3</td><td>Right-click V10 in the bin.</td><td>The items <span class="ui">Open</span>, <span class="ui">Restore</span> and <span class="ui">Delete permanently…</span>.</td></tr>
       <tr><td>4</td><td>Choose <span class="ui">Restore</span>.</td><td>V10 is back under Assets (and on its 2D spaces where it was drawn). The Bin disappears when it is empty.</td></tr>
-      <tr><td>5</td><td>Delete V9 and V10, then right-click <span class="ui">Deleted bin</span>.</td><td>The item <span class="ui">Empty deleted bin…</span> (disabled when the bin is empty).</td></tr>
+      <tr><td>5</td><td>Delete V9 and V10, then right-click <span class="ui">Deleted bin</span> (or the project's <span class="ui">Bin</span> row).</td><td>The item <span class="ui">Empty deleted bin…</span>. It is greyed out when the bin is empty, and without the permission Empty bins: see <a href="#prj-empty-bin">Empty a bin</a>.</td></tr>
       <tr><td>6</td><td>Choose <span class="ui">Empty deleted bin…</span>.</td><td>The browser asks "Delete the 2 items in the deleted bin permanently? They cannot be restored." After <span class="ui">OK</span> the bin is empty and the Bin row disappears.</td></tr>
       <tr><td>7</td><td>Right-click an object → <span class="ui">Void</span>, then expand <span class="ui">Bin</span> → <span class="ui">Voided bin</span> and right-click it there.</td><td>Only <span class="ui">Unvoid</span> is offered: nothing voided can be deleted.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Selecting an item in the Deleted bin and pressing <kbd>Delete</kbd> (or <kbd>Backspace</kbd>) does the same as <span class="ui">Delete permanently…</span>. For a 2D space or folder in the Deleted bin, <span class="ui">Delete permanently…</span> asks <span class="ui">Delete 2D space "<i>name</i>" permanently? It cannot be restored.</span> or <span class="ui">Delete folder "<i>name</i>" permanently with everything inside it? It cannot be restored.</span> For an object it opens a preview of what goes with it: see <a href="guide-objects.html#obj-delete">Delete an object</a>.</p>
-  <p class="g-related">Related: <a href="guide-objects.html#obj-delete">Delete an object</a> · <a href="guide-objects.html#obj-void">Void an object</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a> · <a href="#prj-delete">Delete a project</a></p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-delete">Delete an object</a> · <a href="guide-objects.html#obj-void">Void an object</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a> · <a href="#prj-delete">Delete a project</a> · <a href="#prj-empty-bin">Empty a bin</a></p>
+</section>
+
+<section class="g-feature" id="prj-empty-bin">
+  <h2>Empty a bin (the permission Empty bins)</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">PRJ-empty-bin</span></div>
+  <p class="g-summary">Emptying a bin deletes everything in it for good, at once: the objects, 2D spaces and folders in a project's <span class="ui">Deleted bin</span>, or every project in the workspace's <span class="ui">Bin</span>. Nothing emptied can be restored, so it needs a permission of its own, <span class="ui">Empty bins</span>. The <span class="ui">Voided bin</span> is never emptied: nothing voided can be deleted.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Bin</span> or <span class="ui">Deleted bin</span> → right-click → <span class="ui">Empty deleted bin…</span>; the <span class="ui">Bin</span> after the projects → right-click → <span class="ui">Empty bin…</span></dd>
+    <dt>Who</dt><dd>The permission <span class="ui">Empty bins</span> in the project (Project administrator has it; an organization can give it to a custom role). For the workspace's Bin, in every project in it, together with <span class="ui">Delete the project</span>.</dd>
+    <dt>Before you start</dt><dd>A project with valves V9 and V10 under Assets, or any objects of your own.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Delete V9 and V10 under <span class="ui">Assets</span>.</td><td>A <span class="ui">Bin</span> row appears at the end of the project.</td></tr>
+      <tr><td>2</td><td>Right-click the project's <span class="ui">Bin</span> row.</td><td>The item <span class="ui">Empty deleted bin…</span>. Without the permission Empty bins it is greyed out, and pointing at it says "Emptying a bin needs the permission Empty bins (a Project administrator has it)."</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Empty deleted bin…</span>.</td><td>The browser asks "Delete the 2 items in the deleted bin permanently? They cannot be restored." After <span class="ui">OK</span> V9 and V10 are gone for good and the Bin row disappears.</td></tr>
+      <tr><td>4</td><td>Delete a project of your own, then right-click the <span class="ui">Bin</span> after the projects.</td><td>The item <span class="ui">Empty bin…</span>.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Empty bin…</span>.</td><td>The browser lists the projects in the Bin and asks to delete them permanently. After <span class="ui">OK</span> they are gone for good and the Bin row disappears.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Without Empty bins you can still delete one item at a time with <span class="ui">Delete permanently…</span>, if your role may delete it. E1 checks the permission on the server, not only in the menu. On an installation without sign-in (the desktop app) nothing is restricted.</p>
+  <p class="g-related">Related: <a href="#prj-project-bin">The project Bin</a> · <a href="#prj-delete">Delete a project</a> · <a href="guide-objects.html#obj-delete">Delete an object</a></p>
 </section>
 
 <section class="g-feature" id="prj-sample-project">
   <h2>The sample project: Demo Plant</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-sample-project</span><span>Roadmap 31.1</span></div>
-  <p class="g-summary">E1 comes with a sample project, <span class="ui">Demo Plant (sample)</span>: the DEXPI reference P&amp;ID (DEXPI Specification 2.0, dexpi.org), imported by E1's own DEXPI import, with its pumps, heat exchangers, tank, pipelines, valves, instruments and loops and their values. Every new organization starts with it, and so does a new desktop install. It is yours to try anything on: change values, move symbols, delete objects. Delete the project when you no longer need it, and add a fresh copy whenever you like. The user guides, the E1 Guide and the training videos use it.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-13</span><span class="g-id">PRJ-sample-project</span><span>Roadmap 31.1 · 31.1b · 31.1c · 31.1d</span></div>
+  <p class="g-summary">E1 comes with a sample project, <span class="ui">Demo Plant (sample)</span>. It holds the <b>Demo Field</b>, a fictional oil and gas production facility of the fictional operator Demo Energy, drawn as plant documentation on five P&amp;IDs: production and test manifolds with the HP production separator, crude oil heating with the LP separator and export pumps, HP gas compression, the flare system and produced water treatment. Beside it is the DEXPI reference P&amp;ID (DEXPI Specification 2.0, dexpi.org). Both were brought in by E1's own DEXPI import, with their equipment, pipelines, valves, instruments, loops and values. On them the sample shows every part of E1, all with synthetic data: folders in every section; the plant broken down from the plant to its units, sections, subsystems, loops and their measurement and actuator tags (NORSOK system numbers); unit operations and flow streams with the substances they carry; start-up, shutdown and maintenance procedures; areas with modules, decks, rooms, fire zones and hazardous areas; pumps with their motors; the power system on a single line diagram, a motor starter on a circuit diagram and a process flow diagram; cables, junction boxes and cabinets with their terminations and the loop diagrams made from them; hookups; interlocks, safety instrumented functions and alarms with the cause and effect matrix and the alarm list; lists, datasheets, revisions and a HAZOP package; tasks, comments, markups and branches; and workflows with their statuses, value statuses and the <span class="ui">Demo Field status</span> dashboard. Its drawings are drawn as you draw them in E1, every line connected and every object linked across the P&amp;IDs, the process flow diagram and the electrical drawings, so you can copy what you see; a few mistakes are left in on purpose for Alex's checks to find (a connector without its counterpart, a pipeline without its ends, a spec break, alarms not yet rationalized). Every new organization starts with it, and so does a new desktop install. It is yours to try anything on: change values, move symbols, delete objects. Delete the project when you no longer need it, and add a fresh copy whenever you like. The user guides, the E1 Guide and the training videos use it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → <span class="ui">Demo Plant (sample)</span>; a new copy from <span class="ui">File</span> → <span class="ui">New project from the sample</span></dd>
+    <dt>Where</dt><dd>Explorer → <span class="ui">Demo Plant (sample)</span>; a new copy from <span class="ui">File</span> → <span class="ui">Generate DEXPI sample project…</span></dd>
     <dt>Who</dt><dd>The owner of a new organization has it as its Project administrator; adding a copy needs the permissions to create a project and to import data</dd>
     <dt>Before you start</dt><dd>Nothing: it is there when you first sign in.</dd>
   </dl>
@@ -375,16 +460,22 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Expand <span class="ui">Demo Plant (sample)</span> in the explorer, then <span class="ui">Model Space</span>.</td><td>The 2D space <span class="ui">123/A93 DEXPI example PID</span>. Its <span class="ui">Description</span> says it is a sample and where it comes from.</td></tr>
-      <tr><td>2</td><td>Double-click <span class="ui">123/A93 DEXPI example PID</span>.</td><td>The P&amp;ID opens: pumps P4711 and P4712, heat exchangers H1007 and H1008, tank T4750, their pipe runs, valves, instruments and signal lines.</td></tr>
-      <tr><td>3</td><td>Expand <span class="ui">Assets</span> and double-click <span class="ui">P4711</span>.</td><td>The pump's page: <span class="ui">Centrifugal pump</span>, with <span class="ui">Flow rate</span> 200 m³/h, <span class="ui">Head</span> 10 m and <span class="ui">Rated power</span> 60 kW on <span class="ui">Attributes</span>.</td></tr>
-      <tr><td>4</td><td>Change a value, then press <kbd>Ctrl+Z</kbd>.</td><td>The value is saved, then back as it was.</td></tr>
-      <tr><td>5</td><td>Click <span class="ui">File</span> → <span class="ui">New project from the sample</span>.</td><td>"Making the sample project (the DEXPI reference P&amp;ID)…" for a few seconds, then a new project <span class="ui">Demo Plant (sample) 2</span> is selected, as the first one was made. The other copies are left as they are.</td></tr>
-      <tr><td>6</td><td>To remove a copy, delete its project as any other.</td><td>The project and everything in it go; File → New project from the sample brings a fresh one back.</td></tr>
+      <tr><td>1</td><td>Expand <span class="ui">Demo Plant (sample)</span> in the explorer, then <span class="ui">Model Space</span>.</td><td>The folders <span class="ui">01 Process flow diagrams</span>, <span class="ui">02 Piping and instrumentation diagrams</span> (a folder per system with the P&amp;IDs <span class="ui">DF-20-P-0001</span> to <span class="ui">DF-44-P-0001</span> of the Demo Field, and <span class="ui">123/A93 DEXPI example PID</span>), <span class="ui">03 Electrical</span> (<span class="ui">Single line diagrams</span>, <span class="ui">Circuit diagrams</span>) and <span class="ui">04 Instrumentation and control</span>. The project's <span class="ui">Description</span> says it is a sample, that the plant is fictional, and where the reference P&amp;ID comes from.</td></tr>
+      <tr><td>2</td><td>Double-click <span class="ui">DF-20-P-0001</span>.</td><td>The P&amp;ID of the production and test manifolds and the HP production separator 20-VA-2001: four wells with their chokes, the headers, the separator with its gas, oil and water outlets, control loops, trips, relief valves and the blowdown valve, with its border, title block, revision block and notes.</td></tr>
+      <tr><td>3</td><td>Double-click <span class="ui">123/A93 DEXPI example PID</span>.</td><td>The P&amp;ID opens as the DEXPI reference P&amp;ID draws it: pumps P4711 and P4712, heat exchangers H1007 and H1008, tank T4750, their pipe runs, valves, instruments and signal lines, in the file's colours, with the nozzle and line labels, the equipment data tables, the border and the title block. Each instrument shows its letters and loop number inside its circle.</td></tr>
+      <tr><td>4</td><td>Expand <span class="ui">Assets</span> and double-click <span class="ui">P4711</span>.</td><td>The pump's page: <span class="ui">Centrifugal pump</span>, with <span class="ui">Flow rate</span> 200 m³/h, <span class="ui">Head</span> 10 m and <span class="ui">Rated power</span> 60 kW on <span class="ui">Attributes</span>.</td></tr>
+      <tr><td>5</td><td>Change a value, then press <kbd>Ctrl+Z</kbd>.</td><td>The value is saved, then back as it was.</td></tr>
+      <tr><td>6</td><td>Expand <span class="ui">Assets</span> ▸ <span class="ui">21 Crude oil handling and export</span> ▸ <span class="ui">Equipment</span> ▸ <span class="ui">21-PA-2101A</span>.</td><td>The pump owns its motor <span class="ui">21-EM-2101A</span>, fed from its variable frequency drive on <span class="ui">DF-80-E-0001</span>, the single line diagram.</td></tr>
+      <tr><td>7</td><td>Expand <span class="ui">Systems</span> ▸ <span class="ui">DF</span> down to a loop, for example <span class="ui">2001</span>.</td><td>Plant, unit, section, subsystem <span class="ui">20-02 HP production separation</span>, the loop, and under it its measurement tag <span class="ui">20-LT-2001</span> and actuator tag <span class="ui">20-LV-2001-A</span>.</td></tr>
+      <tr><td>8</td><td>Open <span class="ui">Unit Operations</span>, <span class="ui">Processes</span>, <span class="ui">Areas</span>, <span class="ui">Documents</span>, <span class="ui">Tasks</span> and <span class="ui">Branches</span>.</td><td>Each is filled: unit operations by section, operating and maintenance procedures with their steps, the site with its modules, decks, rooms, fire zones and hazardous areas, lists, datasheets, loop diagrams, hookup drawings, the cause and effect matrix and the alarm list, tasks by kind, and two working branches, one in review.</td></tr>
+      <tr><td>9</td><td>Open the project's dashboard <span class="ui">Demo Field status</span>.</td><td>The engineering progress, items by workflow step and status, required values filled in, value statuses, items on hold, open tasks and markups, documents by status and findings.</td></tr>
+      <tr><td>10</td><td>Click <span class="ui">File</span> → <span class="ui">Generate DEXPI sample project…</span>.</td><td>"Generating the DEXPI sample project: E1 imports the Demo Field's P&amp;IDs and the DEXPI reference P&amp;ID into a new project and builds the rest of the showcase on them. This takes a few minutes.", then a new project <span class="ui">Demo Plant (sample) 2</span> is selected, as the first one was made. The other copies are left as they are.</td></tr>
+      <tr><td>11</td><td>To remove a copy, delete its project as any other.</td><td>The project and everything in it go; File → Generate DEXPI sample project… brings a fresh one back.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/dexpi-sheet.webp" alt="The sample project's 2D space 123/A93 DEXPI example PID: the pumps P4711 and P4712, the heat exchangers H1007 and H1008, the tank T4750, their pipe runs, valves, instruments and signal lines." width="2160" height="1350" loading="lazy"><figcaption>Demo Plant (sample): the DEXPI reference P&amp;ID, DEXPI Specification 2.0 (dexpi.org).</figcaption></figure>
-  <p class="g-note">Instrumentation, electrical and the other parts of the plant will be added to the sample over time; a copy you already have keeps what it had. An E1 server's operator can leave the sample out of new organizations (setting <code>E1_SAMPLE_PROJECT=off</code>).</p>
+  <figure class="g-shot"><img src="assets/img/guides/demo-field-sheet.webp" alt="The sample project's 2D space DF-20-P-0001 of the Demo Field: four wells with chokes and check valves into the production and test headers, the HP production separator 20-VA-2001 with its gas, oil and water outlets, control valves, relief valves to flare and trips, and the border with zones, notes and title block." width="2160" height="1350" loading="lazy"><figcaption>Demo Plant (sample): DF-20-P-0001, production and test manifolds and the HP production separator of the fictional Demo Field.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/dexpi-sheet.webp" alt="The sample project's 2D space 123/A93 DEXPI example PID in the light appearance: the pumps P4711 and P4712, the heat exchangers H1007 and H1008 and the tank T4750 in dark red, olive pipe runs with their line numbers, green instrument circles, the data tables and the title block." width="2160" height="1350" loading="lazy"><figcaption>Demo Plant (sample): the DEXPI reference P&amp;ID, DEXPI Specification 2.0 (dexpi.org).</figcaption></figure>
+  <p class="g-note">A new organization's sample is built in the background in its first minutes. An E1 server's operator can leave the sample out of new organizations (setting <code>E1_SAMPLE_PROJECT=off</code>).</p>
   <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
 </section>
 
@@ -418,7 +509,7 @@
 
 <section class="g-feature" id="prj-import-dexpi">
   <h2>Import a DEXPI P&amp;ID</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-dexpi</span><span>Roadmap 31.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-import-dexpi</span><span>Roadmap 31.1 · 31.1b</span></div>
   <p class="g-summary">DEXPI is the exchange format P&amp;ID tools use. <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> reads one or more DEXPI 2.0 files, proposes how their equipment, piping and instruments map onto E1's classes and attributes, and shows every change before anything is stored. An import always imports and updates: import a revised file again and the objects already there are updated, never duplicated. A value someone changed in E1 is never overwritten without your decision.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> (for the project selected in the explorer)</dd>
@@ -443,10 +534,32 @@
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/dexpi-mapping.webp" alt="The Import DEXPI dialog on the Mapping step for the DEXPI reference P&amp;ID: the drawing 123/A93 DEXPI example PID, revision R2.2, and rows such as CentrifugalPump with the class Centrifugal pump, confidence High, the reason, and Accept and Ignore buttons." width="2160" height="1350" loading="lazy"><figcaption>Mapping: every class E1 proposes says how sure it is and why. DEXPI reference P&amp;ID, DEXPI Specification 2.0 (dexpi.org).</figcaption></figure>
   <figure class="g-shot"><img src="assets/img/guides/dexpi-differences.webp" alt="The Differences step of a revised file: 3 differences to decide, H1007A whose tag differs, and P4711 with Flow rate 200 to 250 m³/h as an update, Rated power 75 kW in E1 and 65 kW in the file, and its placement, each with Use file and Keep E1; Apply is off." width="2160" height="1350" loading="lazy"><figcaption>Differences: E1 decides nothing for you; Apply waits until every difference is decided.</figcaption></figure>
-  <figure class="g-shot"><img src="assets/img/guides/dexpi-sheet.webp" alt="The imported 2D space 123/A93 DEXPI example PID: the pumps P4711 and P4712, the heat exchangers H1007 and H1008, the tank T4750, their pipe runs, valves, instruments and signal lines." width="2160" height="1350" loading="lazy"><figcaption>The DEXPI reference P&amp;ID imported into Demo Plant.</figcaption></figure>
-  <p class="g-note">E1 reads DEXPI 2.0 today; DEXPI 1.3 and 1.4 files, and Excel, DWG and PDF files, come next. The border, the title block and DEXPI's own labels are not imported (E1 draws its own labels); the dialog lists them under "What … has that is not imported". The dialog closes when you click outside it: use <span class="ui">Cancel</span> or <span class="ui">Close</span>.</p>
+  <figure class="g-shot"><img src="assets/img/guides/dexpi-sheet.webp" alt="The imported 2D space 123/A93 DEXPI example PID, as the file draws it: the pumps, heat exchangers and tank, the pipe runs with their line numbers, the instruments, the data tables and the title block." width="2160" height="1350" loading="lazy"><figcaption>The DEXPI reference P&amp;ID imported into Demo Plant.</figcaption></figure>
+  <p class="g-note">E1 reads DEXPI 2.0 today; DEXPI 1.3 and 1.4 files, and Excel, DWG and PDF files, come next. The 2D space looks as the file draws it: the symbols take the file's places, sizes, colours and line widths, each tag sits where the file writes it, and the border, title block, data tables, nozzle, line and valve labels and flow arrows are kept as the 2D space's background. The background is drawn and plotted, but not selected or edited; the next import of the same file replaces it. A valve or fitting the file gives no tag shows none on the drawing. Each pipeline and segment flows from and to the boundaries the file gives it (a nozzle, an off-page connector, or an open end); <span class="ui">Check piping…</span> → <span class="ui">Refresh pipelines</span> writes their From and To. The dialog closes when you click outside it: use <span class="ui">Cancel</span> or <span class="ui">Close</span>.</p>
   <p class="g-warn">A tag or a placement you keep in E1 is asked again at the next import of the same file; a value you keep is not.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-import-excel">Import a tag list from Excel</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
+</section>
+
+<section class="g-feature" id="prj-export-dexpi">
+  <h2>Export a 2D space as DEXPI</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-export-dexpi</span><span>Roadmap 13.5</span><span>Review check O5</span></div>
+  <p class="g-summary">Write a 2D space's pipelines, segments, equipment, instruments and drawing as a DEXPI 2.0 file, for a 3D design tool or another P&amp;ID tool; imported again it gives the same pipelines, segments and boundaries.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → a 2D space (one click) → <span class="ui">Export DEXPI</span> on its page</dd>
+    <dt>Who</dt><dd>The <span class="ui">Export</span> permission in the project; no content package licence is needed</dd>
+    <dt>Before you start</dt><dd>The sample project's 2D space 123/A93 DEXPI example PID, or a 2D space of your own with pipelines.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the 2D space in the explorer, then <span class="ui">Export DEXPI</span>.</td><td>123-A93.xml downloads: the 2D space's drawing number names it.</td></tr>
+      <tr><td>2</td><td>Make an empty project and <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> that file; <span class="ui">Apply</span>.</td><td>11 pipelines with their segments, the pumps, tanks, valves and instruments with their values, and the drawing in the same places, colours and tags.</td></tr>
+      <tr><td>3</td><td>On the 2D space right-click empty space → <span class="ui">Check piping…</span> → <span class="ui">Refresh pipelines</span>.</td><td>Each pipeline and segment has the same From and To as in the sample project.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">In the file: each pipeline with its line number and values, its segments with their valves, fittings and off-page connectors and the pipe runs between them, where each segment starts and ends; the equipment with its nozzles, chambers and values; the instruments, loops and signals; a control valve with its actuator; the drawing with its tags and background. From and To are not in the file (DEXPI has none): the import finds them again from the boundaries. A run outside a pipeline is written as a pipeline of its own, by its line number. Alex exports a 2D space too (<code>export_dexpi</code>).</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-import-dexpi">Import a DEXPI P&amp;ID</a>, <a href="guide-documents.html#doc-sheet-pdf">PDF of a P&amp;ID 2D space</a></p>
 </section>
 
 <section class="g-feature" id="prj-import-excel">
@@ -478,7 +591,7 @@
 
 <section class="g-feature" id="prj-import-dxf">
   <h2>Import a P&amp;ID from CAD (DXF)</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-dxf</span><span>Roadmap 31.3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-import-dxf</span><span>Roadmap 31.3 · 22</span></div>
   <p class="g-summary">Many P&amp;IDs were drawn in AutoCAD or a similar CAD program. <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DXF drawing…</span> reads one or more drawings saved as DXF and makes them E1 drawings with real objects: each block (a pump, a valve, a tank) becomes an object of the class it is named for or looks like, placed where it is drawn, and the lines on each layer become pipes, signals or cables connected to the symbols they end on. As with every import, a second import of a revised drawing updates what is there, and you decide every difference.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DXF drawing…</span> (for the project selected in the explorer)</dd>
@@ -497,52 +610,218 @@
       <tr><td>6</td><td>Click <span class="ui">Next</span>, <span class="ui">Check</span>, then <span class="ui">Apply</span>.</td><td>A 2D space named after the file opens: the symbols where the blocks are, turned as they are drawn, joined by the runs. A line that ends on a symbol's side gets a nozzle there (N1, N2…). One <kbd>Ctrl+Z</kbd> takes the whole import back.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Texts that are not a block's tag, hatches, dimensions and images are not imported; the dialog lists them under "What … has that is not imported". A block referenced again in a revised drawing is found by its tag and updated; one moved on the drawing is a <span class="ui">Placement on the drawing</span> for you to decide.</p>
+  <p class="g-note">Texts that are not a block's tag, hatches, dimensions and images are not imported; the dialog lists them under "What … has that is not imported". A block referenced again in a revised drawing is found by its tag and updated; one moved on the drawing is a <span class="ui">Placement on the drawing</span> for you to decide. In a branch, the import lands in the branch: main has it once you push the branch.</p>
   <p class="g-related">Related: <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-import-excel">Import Excel workbooks</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a></p>
 </section>
 
 <section class="g-feature" id="prj-import-pdf">
   <h2>Import a P&amp;ID from a PDF</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-10</span><span class="g-id">PRJ-import-pdf</span><span>Roadmap 31.4</span></div>
-  <p class="g-summary">Often the only copy of a P&amp;ID you get is a PDF. When it was exported from CAD (a vector PDF), <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">PDF drawing…</span> makes it an E1 drawing with real objects: E1 finds the symbols among the drawing's lines, recognizes each by its look against E1's symbols, takes the text beside it as its tag, and reads solid lines as pipes and dashed lines as signals. Each page is a drawing. As with every import, you check the result and decide before anything is stored.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-import-pdf</span><span>Roadmap 31.4</span></div>
+  <p class="g-summary">Often the only copy of a P&amp;ID you get is a PDF. When it was exported from CAD (a vector PDF), <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">PDF drawing…</span> makes it an E1 drawing with real objects: E1 finds the symbols among the drawing's lines, groups the ones drawn alike, recognizes each group by its look against E1's symbols, takes the text beside a symbol as its tag, makes a pipeline from each line number, and reads solid lines as pipes and dashed lines as signals. Each page is a drawing. As with every import, you check the result and decide before anything is stored.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">PDF drawing…</span> (for the project selected in the explorer)</dd>
     <dt>Who</dt><dd>The <span class="ui">Import data</span> permission in the project (Project administrator and Lead engineer have it), and the permissions of the changes the import makes</dd>
-    <dt>Before you start</dt><dd>A PDF exported from a CAD program. A scanned drawing (an image) cannot be read; E1 says so. Up to 50 MB and 50 pages per file.</dd>
+    <dt>Before you start</dt><dd>A PDF exported from a CAD program. A scanned drawing (an image) cannot be read; E1 says so. Up to 50 MB and 50 pages per file. Import all the sheets of a P&amp;ID set together: E1 learns the shapes they share, and a tag drawn on two sheets is one object.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click the project in the explorer, then <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">PDF drawing…</span>.</td><td>The <span class="ui">Import PDF</span> dialog opens on <span class="ui">Files</span>.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Add files…</span>, pick one or more PDFs, then <span class="ui">Next</span>.</td><td>The <span class="ui">Mapping</span> step. A PDF has no blocks: each row is the shapes that look like one E1 symbol, for example <em>Looks like Centrifugal pump</em> with 2 shapes, with the <span class="ui">Class</span> proposed and how sure E1 is.</td></tr>
-      <tr><td>3</td><td>Where E1 is unsure (<span class="ui">Medium</span>), choose the class you mean, for example <span class="ui">Vertical vessel</span> for a shape that looks like a gas cylinder too.</td><td>The row says <span class="ui">Accepted</span>.</td></tr>
-      <tr><td>4</td><td>Check the line rows: <em>Solid lines</em> as <span class="ui">Pipe run</span>, <em>Dashed lines (signals)</em> as <span class="ui">Signal</span>. Then <span class="ui">Accept all high</span>, <span class="ui">Next</span>, <span class="ui">Check</span>.</td><td>The <span class="ui">Differences</span> step: each shape with the tag found beside it (P-201, XV-201).</td></tr>
-      <tr><td>5</td><td>Click <span class="ui">Apply</span>, then <span class="ui">Close</span>.</td><td>A 2D space named after the file opens: the symbols where they are, turned as drawn, connected by the lines. The border and title block are not imported. One <kbd>Ctrl+Z</kbd> takes the whole import back.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add files…</span>, pick the PDFs of the set (or one PDF with many pages), then <span class="ui">Next</span>.</td><td>The <span class="ui">Mapping</span> step. A PDF has no blocks: each row is a group of shapes drawn alike (<em>Shape 1</em>, <em>Shape 2</em>…) with its picture, how many there are, the <span class="ui">Class</span> proposed and why, for example <em>2 shapes drawn alike; they look like E1's Centrifugal pump symbol</em>. A bubble with ISA letters and a number (PT 1001) is proposed as an instrument; a box around a drawing number as an off-page connector.</td></tr>
+      <tr><td>3</td><td>Where E1 is unsure (<span class="ui">Medium</span> or <span class="ui">Low</span>), look at the picture and choose the class you mean, for example <span class="ui">Vertical vessel</span> for a shape that looks like a gas cylinder too.</td><td>The row says <span class="ui">Accepted</span>.</td></tr>
+      <tr><td>4</td><td>Check the line rows: <em>Solid lines</em> as <span class="ui">Pipe run</span>, <em>Dashed lines (signals)</em> as <span class="ui">Signal</span>. Click <span class="ui">Accept all high</span>, then <span class="ui">Ignore the rest</span>.</td><td>Every row still suggested is <span class="ui">Ignored</span>: stray marks and letters no text claimed are not imported.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Next</span>, then <span class="ui">Check</span>.</td><td>The <span class="ui">Differences</span> step: each shape with the tag found beside it (P-201, XV-201), and a pipeline for each line number written along a pipe (0200-HC-1001-A1A), with its nominal size, fluid and pipe class.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Apply</span>, then <span class="ui">Close</span>.</td><td>A 2D space per sheet opens: the symbols where they are, turned as drawn, connected by the lines. The border, title block and notes are not imported. One <kbd>Ctrl+Z</kbd> takes the whole import back.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">A PDF names nothing, so E1 knows a symbol only by its look: symbols that look alike are proposed with <span class="ui">Medium</span> confidence and the other likely classes in the list. A shape that looks like no E1 symbol, texts that are not tags, and fills are listed under "What … has that is not imported". A DXF or DEXPI file of the same drawing, where you have one, holds more: see <a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a>.</p>
+  <p class="g-note">A PDF names nothing, so E1 knows a symbol only by its look: symbols that look alike are proposed with <span class="ui">Medium</span> confidence and the other likely classes in the list. Some CAD programs export their texts as strokes only; E1 reads those strokes as letters, learning the font from the texts it can read, so a tag may be misread where the font is unusual: check the tags in the <span class="ui">Differences</span> step. A tag beside two shapes of different classes stays with the first. Import the set again for a new revision: every drawing is found again, also an object drawn twice, and only what changed is shown; a drawing that moved is yours to decide. A shape that looks like no E1 symbol, texts that are not tags, and fills are listed under "What … has that is not imported". A DXF or DEXPI file of the same drawing, where you have one, holds more: see <a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a>.</p>
   <p class="g-related">Related: <a href="#prj-import-dxf">Import a P&amp;ID from CAD (DXF)</a> · <a href="#prj-import-dexpi">Import a DEXPI P&amp;ID</a> · <a href="#prj-import-excel">Import Excel workbooks</a></p>
+</section>
+
+<section class="g-feature" id="prj-export-mapping">
+  <h2>Save an import mapping and export with it</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">PRJ-export-mapping</span><span>Roadmap 31.5</span><span>Review checks J11</span></div>
+  <p class="g-summary">Keep the mapping you reviewed in the import wizard under a name: the next workbook of the same shape maps itself, and File → Export with a saved mapping… writes the project's objects back in the same sheets, headers and units.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>File → Import → <span class="ui">Excel workbooks…</span> (Mapping step); File → <span class="ui">Export with a saved mapping…</span></dd>
+    <dt>Who</dt><dd>Saving a mapping: whoever may import into the project. Exporting: whoever may export (Viewer and above); only the objects you may see.</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Import a vendor's tag list (File → Import → <span class="ui">Excel workbooks…</span>). On the Mapping step, set the Pumps sheet to <em>Centrifugal pump</em>, type <em>Vendor tag list</em> under <span class="ui">Save mapping as</span> and click <span class="ui">Save mapping</span>.</td><td>It says the mapping is saved, and the import goes on as usual.</td></tr>
+      <tr><td>2</td><td>Import the vendor's next workbook.</td><td>On the Mapping step, <span class="ui">Saved mapping</span> offers <em>Vendor tag list</em>; choosing it maps every sheet and column it knows as before.</td></tr>
+      <tr><td>3</td><td>File → <span class="ui">Export with a saved mapping…</span>, choose <em>Vendor tag list</em> and <span class="ui">Export</span>.</td><td>A workbook downloads: a sheet per type (<em>Pumps</em>, <em>Heat exchangers</em>) with the same headers, values in the headers' units (<em>Flow rate [m³/h]</em>), and the E1 id last so it can come back.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">CSV</span> for a mapping of one type.</td><td>One CSV file with the same columns.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Excel and CSV mappings export. A DXF or PDF mapping is offered again for the next drawings; drawings are not written back. A DEXPI export is on the roadmap with the piping handover (13.5).</li>
+    <li>A project keeps up to 50 mappings; saving a name again replaces it.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#prj-import-excel">Import Excel workbooks</a> · <a href="#prj-import-dxf">Import a DXF drawing</a></p>
 </section>
 
 <section class="g-feature" id="prj-branches">
   <h2>Branches</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span class="g-id">PRJ-branches</span><span>Roadmap M8</span></div>
-  <p class="g-summary">The <span class="ui">Branches</span> section is where working branches of the plant model will live: you change a copy of part of the design and push it back when it is ready. Today the section takes folders only; its other controls open <span class="ui">Under construction</span>.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branches</span><span>Roadmap 15.1, 15.2, 15.4, 15.6, 09.6b</span><span>Review check X1</span></div>
+  <p class="g-summary">Make a working branch of part of the design, change it while main stays as it is, and push it back when it is ready.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span></dd>
-    <dt>Who</dt><dd>Everyone can see the section</dd>
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span>; or right-click objects in the explorer or on a 2D space → <span class="ui">New branch…</span> or <span class="ui">Add to branch</span></dd>
+    <dt>Who</dt><dd>Creating and working in a branch: Engineer and above; pushing to main: Lead engineer and above</dd>
+    <dt>Before you start</dt><dd>A project with a pump P-101 drawn on a 2D space.</dd>
   </dl>
-  <div class="g-dev">
-    <p><strong>Being planned (roadmap M8 Branches, not started).</strong> These controls are on screen but only open the <span class="ui">Under construction</span> tab today: right-click <span class="ui">Branches</span> → <span class="ui">New branch</span>; the section page's <span class="ui">New branch</span> button; its filter <span class="ui">All</span> / <span class="ui">Procurement</span> / <span class="ui">Construction</span>; and the green dot "Open branch" on the section row.</p>
-    <h3>What you will be able to do</h3>
-    <ul>
-      <li>Create a branch from part of the design and see it in the branch list (15.1).</li>
-      <li>Work in a branch without others seeing your changes until you push them (15.2), pull others' changes and resolve conflicts object by object, also on the drawing (15.3, 15.4).</li>
-      <li>Push the branch back and notify the others (15.5); open merge requests for a colleague to review (16.2).</li>
-      <li>Use branch types such as design or commissioning, branch packages, and automatic resolution rules (16.1, 16.3, 16.4).</li>
-      <li>Have Alex make its changes in your own branch (17.1, 17.2).</li>
-    </ul>
-  </div>
-  <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-getting-started.html#gs-under-construction">Under construction</a></p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Branches</span>.</td><td>With no branch yet, the page explains what a branch is and the two ways to start one. <span class="ui">Open</span>, <span class="ui">Closed</span> and <span class="ui">All</span> show how many branches each has.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">New branch…</span>; type a name and, in <span class="ui">Add an object to the branch</span>, <code>P-101</code>, and click it.</td><td>P-101 shows as a chip (× takes it out). The scope preview lists P-101, its nozzles (locked: they come by a built-in rule), the connected lines and the 2D space it is drawn on as Editable, its owner as Information, each with why.</td></tr>
+      <tr><td>3</td><td>Change a row to <span class="ui">Leave out</span> or <span class="ui">Information</span> where it is not locked, and click <span class="ui">Create</span>.</td><td>“Branch … created.” It shows as a card: its name, its owner, 0 changes, how many objects are in scope, and <span class="ui">Enter</span>, <span class="ui">Pull from main</span>, <span class="ui">Push to main</span> and <span class="ui">…</span>.</td></tr>
+      <tr><td>4</td><td>On the 2D space, select P-101 and a valve (or Ctrl-click them in the explorer), right-click one of them and choose <span class="ui">New branch… (2 objects)</span>.</td><td>The same window opens with both objects already in it.</td></tr>
+      <tr><td>5</td><td>Cancel, right-click another object and choose <span class="ui">Add to branch</span> ▸ the branch.</td><td>“… added to ….” with <span class="ui">Open Branches</span>. The branch's scope has the object and what comes with it.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Enter</span>.</td><td>A bar under the menu reads “In branch …: what you change here changes the branch, not main.” The tree, drawings, attributes and queries show the branch.</td></tr>
+      <tr><td>7</td><td>Change P-101's design pressure and move it on the 2D space.</td><td>The branch has it; another window, on main, still shows the old value and place.</td></tr>
+      <tr><td>8</td><td>Change an object that is not in the branch.</td><td>Refused: “… is outside in this branch: add it to the branch to change it.”</td></tr>
+      <tr><td>9</td><td>Click <span class="ui">Leave branch</span>.</td><td>This window is on main again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">In a branch, issuing a revision, the project's settings and the library are refused: they are changed in main. Tag numbers are taken centrally, so two branches never give the same number. Click a branch's name (or <span class="ui">…</span> → <span class="ui">Details</span>) for its scope and what it changed; <span class="ui">…</span> → <span class="ui">Close branch…</span> discards it without changing main. An object being changed in a branch shows Being changed in branch … in the explorer, and can be blocked in main by its branch type. Only the branch's members enter and change it; Alex sets them with <code>set_branch_members</code>. A branch never widens what you may change in main, and a role given on a branch holds only branch permissions.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a>, <a href="guide-projects.html#prj-branch-types">Branch types and resolution rules</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a>, <a href="guide-projects.html#prj-branch-packages">Branch packages</a>, <a href="guide-projects.html#prj-branch-proposals">Alex in a branch and Open as branch</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-conflicts">
+  <h2>Pull from main and resolve conflicts</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-conflicts</span><span>Roadmap 15.3, 15.4</span><span>Review check X2</span></div>
+  <p class="g-summary">Pull brings main's changes into a branch value by value; what both changed differently is a conflict you resolve, also on the drawing.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Branches</span> → a branch → <span class="ui">Pull from main</span></dd>
+    <dt>Who</dt><dd>The branch's members</dd>
+    <dt>Before you start</dt><dd>A branch where P-101's design pressure is 14; someone has set it to 11 in main and renamed P-101.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Pull from main</span>.</td><td>“Pulled: 1 conflicts to resolve.” The rename is taken (only main changed it); the pressure is a conflict. <span class="ui">Conflicts</span> opens.</td></tr>
+      <tr><td>2</td><td>Read the row.</td><td>Grouped by object: the element, its kind, Base, Main (11) and Branch (14).</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Keep mine</span> (or <span class="ui">Take theirs</span>, or type a value and <span class="ui">Use value</span>).</td><td>The row shows the choice and who made it; “Every conflict is resolved: the pull is complete.”</td></tr>
+      <tr><td>4</td><td>With a symbol both moved, open its 2D space in the branch.</td><td>It shows twice: Main in blue and Branch in orange, joined by a dashed line; click one to keep it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Keep mine for this object</span>, <span class="ui">Keep mine everywhere</span> and <span class="ui">Take theirs everywhere</span> choose many at once. A pull applies every change from main; there is no partial pull. Alex pulls from another branch too (<code>pull</code> with <code>from</code>).</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-push">
+  <h2>Push a branch to main</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-push</span><span>Roadmap 15.5</span><span>Review check X3</span></div>
+  <p class="g-summary">Push brings a branch into the project as one change that undoes as one; it waits until the branch is up to date with main.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Branches</span> → a branch → <span class="ui">Push to main</span></dd>
+    <dt>Who</dt><dd>Lead engineer and above (Push to main); your role must allow every change</dd>
+    <dt>Before you start</dt><dd>A branch with changes and no open conflicts.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Push to main</span> when main changed something in the branch since its last pull.</td><td>Refused: “Main has 1 change in this branch's scope. Pull first.” Nothing is written.</td></tr>
+      <tr><td>2</td><td><span class="ui">Pull from main</span>, resolve, then <span class="ui">Push to main</span>.</td><td>“Pushed 2 changes to main as one change.” Main has the branch's values and drawing.</td></tr>
+      <tr><td>3</td><td>Open History in main.</td><td>One change “Pushed branch …”, with <span class="ui">Undo this change</span> taking it all back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">After the push the branch stays open and counts from what it pushed, or closes when its type says so; <span class="ui">…</span> → <span class="ui">Close after the next push</span> closes it this once. A push with conflicts open is refused, and so is one of a type that needs a review before its merge request is approved.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-types">
+  <h2>Branch types and resolution rules</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-types</span><span>Roadmap 16.1, 16.3</span><span>Review checks X4, X5</span></div>
+  <p class="g-summary">The project's branch types say whether a branch needs a review before main, what happens after a push, how main's edits treat its objects, and which conflicts settle themselves.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → <span class="ui">Branch types…</span></dd>
+    <dt>Who</dt><dd>Project admin to set the types; anyone creating a branch chooses one</dd>
+    <dt>Before you start</dt><dd>A project with branches. Until a project sets its own, it has three: Working branch, Design change (reviewed) and Commissioning package.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Branch types…</span>.</td><td>A row per type: <span class="ui">Name</span>, <span class="ui">Review before main</span>, <span class="ui">Four eyes</span>, <span class="ui">After push</span> (Keep open or Close), <span class="ui">Editing in main</span> (Mark, Warn or Block) and <span class="ui">Graphical conflicts</span>.</td></tr>
+      <tr><td>2</td><td>Tick <span class="ui">Review before main</span> and <span class="ui">Four eyes</span> on Design change, set <span class="ui">Graphical conflicts</span> to <span class="ui">Keep mine</span>, and click <span class="ui">Save</span>.</td><td>The types are saved in the project, in main.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">New branch…</span> and choose the type in <span class="ui">Type</span>.</td><td>The branch shows its type in the list.</td></tr>
+      <tr><td>4</td><td>In that branch, move a symbol main moved too, and <span class="ui">Pull from main</span>.</td><td>The move is settled by the rule: listed under <span class="ui">Conflicts</span> with the rule, where you can still take theirs until the push.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A tag or validation conflict is always a person's choice: a rule other than ask on those is refused when you save. <span class="ui">Add type</span> adds one. With <span class="ui">Editing in main</span> on Block, an edit in main to an object in an open branch of that type is refused; on Warn, it is made with a warning.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-review">
+  <h2>Merge requests: Ask for review</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-review</span><span>Roadmap 16.2</span><span>Review check X4</span></div>
+  <p class="g-summary">A branch asks for review before it goes to main; a colleague approves or requests changes, and the object shows Under merge review meanwhile.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">…</span> → <span class="ui">Ask for review</span></dd>
+    <dt>Who</dt><dd>Asking: the branch's members; deciding: Lead engineer and above, not the author when the type has four eyes</dd>
+    <dt>Before you start</dt><dd>A branch of a type with <span class="ui">Review before main</span> and <span class="ui">Four eyes</span>, with a change to P-101.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Push to main</span>.</td><td>Refused: the branch needs an approved merge request first.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">…</span> → <span class="ui">Ask for review</span>.</td><td>The merge request is open; the reviewers find it in their Inbox. In the explorer, P-101 shows Under merge review in branch ….</td></tr>
+      <tr><td>3</td><td>As the author, click <span class="ui">…</span> → <span class="ui">Approve</span>.</td><td>Refused: four eyes, the author does not approve the branch.</td></tr>
+      <tr><td>4</td><td>As a colleague, click <span class="ui">…</span> → <span class="ui">Request changes…</span>, or <span class="ui">Approve</span>.</td><td>The author is told; after an approval, <span class="ui">Push to main</span> lands.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Comments on a branch are kept with it (Alex: <code>add_comment</code> with <code>branch</code>). Alex never approves or rejects a merge request: a person does. <span class="ui">Ask for review</span> again after changes opens a new round.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branch-types">Branch types and resolution rules</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-packages">
+  <h2>Branch packages</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-packages</span><span>Roadmap 16.4</span><span>Review check X5</span></div>
+  <p class="g-summary">Cut part of a branch into a package of its own that can be pushed alone, such as a commissioning package.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">…</span> → <span class="ui">Package…</span></dd>
+    <dt>Who</dt><dd>The branch's members</dd>
+    <dt>Before you start</dt><dd>A branch that created an area and two pumps P-201 and P-202, P-201 in that area.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">…</span> → <span class="ui">Package…</span>, tick P-201, type a name and click <span class="ui">Create package</span>.</td><td>Refused: “The package needs what the parent branch created: … Include them too.”</td></tr>
+      <tr><td>2</td><td>Tick the area too and click <span class="ui">Create package</span>.</td><td>A Commissioning package branch with P-201, what it owns and its drawing; its parent is the branch.</td></tr>
+      <tr><td>3</td><td>Push the package to main.</td><td>Main has P-201 and the area. The parent counts from main for them: its next pull has no conflict, and its push does not repeat them.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A package's objects become information in the parent after its push when its type says so (Commissioning package does).</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a></p>
+</section>
+
+<section class="g-feature" id="prj-branch-proposals">
+  <h2>Alex in a branch and Open as branch</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-proposals</span><span>Roadmap 17.1, 17.2, 17.3</span><span>Review check X6</span></div>
+  <p class="g-summary">In a branch, Alex and stored assistants change the branch; a held proposal can be kept as a branch with Open as branch.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The chat, in a branch; on a held proposal, <span class="ui">Open as branch</span></dd>
+    <dt>Who</dt><dd>Anyone who can work in a branch</dd>
+    <dt>Before you start</dt><dd>Chat in Review first.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex to change P-101's design pressure.</td><td>Alex's reply holds the change, with <span class="ui">Apply</span>, <span class="ui">Discard</span> and <span class="ui">Open as branch</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Open as branch</span>.</td><td>A branch of the objects it changes, with the change in it; this window is in the branch. The proposal is closed.</td></tr>
+      <tr><td>3</td><td>Ask Alex what conflicts the branch has, or run a stored assistant.</td><td>Alex reads the branch; what it changes goes into the branch, not main.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">What Alex may change in a branch is what you may: an object outside the branch is refused as it is for you.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a></p>
 </section>

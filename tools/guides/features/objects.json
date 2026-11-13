@@ -62,7 +62,7 @@
   "anchor": "obj-object-window",
   "status": "available",
   "since": "2026-11-02",
-  "updated": "2026-11-10",
+  "updated": "2026-11-12",
   "roadmap": [
    "M1.5"
   ],
@@ -264,6 +264,7 @@
   "anchor": "obj-tag-rules",
   "status": "available",
   "since": "2026-11-02",
+  "updated": "2026-11-12",
   "roadmap": [
    "M1.8"
   ],
@@ -333,7 +334,8 @@
    "OBJ-relationships",
    "OBJ-attributes",
    "OBJ-object-window",
-   "DOC-hookup-schedule"
+   "DOC-hookup-schedule",
+   "DOC-hookup-drawing"
   ],
   "roles": "A project role that may configure the project (to turn hookups on); a license and a project role that may edit objects",
   "training": {
@@ -341,7 +343,8 @@
    "level": "Intermediate",
    "minutes": 5
   },
-  "screenshots": []
+  "screenshots": [],
+  "updated": "2026-11-12"
  },
  {
   "id": "OBJ-rename",
@@ -462,23 +465,24 @@
  {
   "id": "OBJ-deep-view",
   "title": "Deep view",
-  "summary": "A graphical view of an object; today the tab and menu item show a placeholder.",
+  "summary": "See an object and every object associated with it as cards and links: open layer by layer with +, Expand all to the end of the network, highlight the route to a card, find, and choose which links to show.",
   "anchor": "obj-deep-view",
-  "status": "placeholder",
-  "updated": "2026-11-09",
+  "status": "available",
+  "since": "2026-11-11",
   "roadmap": [
-   "M4"
+   "M4.24"
   ],
   "checks": [],
   "related": [
    "OBJ-object-window",
-   "GS-under-construction"
+   "OBJ-relationships",
+   "DRAW-symbol-menu"
   ],
-  "roles": "Everyone",
+  "roles": "Anyone who can open the project",
   "training": {
-   "topic": "Deep view: what is coming",
+   "topic": "Deep view: everything an object is associated with",
    "level": "Beginner",
-   "minutes": 2
+   "minutes": 3
   },
   "screenshots": [
    "object-tab-deep-view.webp"
@@ -512,17 +516,20 @@
  {
   "id": "OBJ-calculations",
   "title": "Calculations and copy rules on attributes",
-  "summary": "A calculated attribute shows its value with ƒ, read-only, and Why this value? explains it: the rule, its inputs and where they came from, its steps. Copy rules are planned in M6 Rules.",
+  "summary": "A calculated attribute shows its value with ƒ, read-only, and Why this value? explains it. A copied value shows ⧉ copied: it follows its source until someone changes it, which asks first and marks it manually modified; Copy from source again links it back. Calculated and copied values show the same on drawing labels, in query views, in PDFs and through the integration API.",
   "anchor": "obj-calculations",
   "status": "available",
   "roadmap": [
    "12.1",
    "12.2",
-   "12.4"
+   "12.4",
+   "12.5"
   ],
   "checks": [
    "P1",
-   "P2"
+   "P2",
+   "P4",
+   "P5"
   ],
   "related": [
    "OBJ-attributes",
@@ -531,7 +538,7 @@
    "LIB-rules",
    "OBJ-checks"
   ],
-  "roles": "Everyone who can view the project",
+  "roles": "Everyone who can view the project; changing a copied value needs Change copied values (Lead engineer, Project administrator)",
   "training": {
    "topic": "Calculated values",
    "level": "Intermediate",

@@ -1,0 +1,600 @@
+[
+ {
+  "id": "WF-statuses",
+  "title": "Status sets and the project's statuses",
+  "summary": "Every object, sheet, document and task has a status from a status set: the five categories New, Active, Resolved, Closed and Removed, with sub-statuses a set adds under them. Configuration → Statuses makes a set and chooses the one each level reads.",
+  "anchor": "wf-statuses",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.1"
+  ],
+  "checks": [
+   "S1"
+  ],
+  "related": [
+   "WF-status-chip",
+   "WF-value-status",
+   "WF-hold"
+  ],
+  "roles": "Seeing statuses: everyone who can view the project. Making a project's status set and choosing the sets: Manage project workflows (Project administrator); a company set: Edit the company library",
+  "training": {
+   "topic": "Status sets",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-status-chip",
+  "title": "The status chip: set an item's status",
+  "summary": "Under an object's name the status chip shows its status (its category before it when they differ), HOLD, and No workflow. Click it to set another status of its set.",
+  "anchor": "wf-status-chip",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.1",
+   "33.2"
+  ],
+  "checks": [
+   "S1"
+  ],
+  "related": [
+   "WF-statuses",
+   "WF-hold",
+   "OBJ-attributes",
+   "WF-move"
+  ],
+  "roles": "Setting a status: Move items in their workflow (Engineer and above)",
+  "training": {
+   "topic": "The status chip",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-value-status",
+  "title": "Value statuses: Assumed, Preliminary, Confirmed, Final",
+  "summary": "A value carries a status of its own, set from its row's right-click menu and shown by a mark after its name. A Confirmed or Final value that changes becomes Preliminary again. Calculated values have none.",
+  "anchor": "wf-value-status",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.1"
+  ],
+  "checks": [
+   "S2"
+  ],
+  "related": [
+   "WF-hold",
+   "OBJ-attributes",
+   "OBJ-calculations"
+  ],
+  "roles": "Set value statuses (Engineer and above) and edit attributes",
+  "training": {
+   "topic": "Value statuses",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-hold",
+  "title": "Put an item or a value on hold",
+  "summary": "Put on hold… with a reason marks an object, a sheet, a document or one value HOLD, with who and why; Release hold takes it off. A hold never blocks editing; it is a filter and a column in the query view.",
+  "anchor": "wf-hold",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.1"
+  ],
+  "checks": [
+   "S2",
+   "S9"
+  ],
+  "related": [
+   "WF-status-chip",
+   "WF-value-status",
+   "LIST-columns",
+   "WF-status-layer"
+  ],
+  "roles": "Put on hold (Lead engineer, Project administrator)",
+  "training": {
+   "topic": "Holds",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-status-layer",
+  "title": "Statuses and holds on the drawing",
+  "summary": "Layers ▸ Status tints each symbol on a 2D space by its status, with a legend at the bottom left; Layers ▸ Show holds marks every held item HOLD. Both are off until you turn them on, for you and that 2D space only.",
+  "anchor": "wf-status-layer",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.1"
+  ],
+  "checks": [
+   "S8"
+  ],
+  "related": [
+   "WF-status-chip",
+   "WF-hold",
+   "DRAW-layers"
+  ],
+  "roles": "Everyone who can view the project",
+  "training": {
+   "topic": "The Status layer",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-workflows",
+  "title": "Workflows: steps an item moves through",
+  "summary": "A workflow is the statuses of a status set in order, its steps, with a credit, a time limit and a lock each may have. Make one from a template (Engineering deliverable, ISO 19650 deliverable, Instrument data, Diagram, Engineering object) in Configuration → Workflows.",
+  "anchor": "wf-workflows",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.2"
+  ],
+  "checks": [
+   "S3"
+  ],
+  "related": [
+   "WF-assignments",
+   "WF-move",
+   "WF-board",
+   "WF-statuses"
+  ],
+  "roles": "Making a project's workflow: Manage project workflows (Project administrator); a company workflow: Edit the company library",
+  "training": {
+   "topic": "Workflows",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-assignments",
+  "title": "Assign workflows and start them",
+  "summary": "Assignments say which workflow the project's items follow: objects by class (then their parent classes, then any class), sheets, documents, tasks. Apply starts the workflow on every item that has not started it, as one change.",
+  "anchor": "wf-assignments",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.2"
+  ],
+  "checks": [
+   "S3"
+  ],
+  "related": [
+   "WF-workflows",
+   "WF-move"
+  ],
+  "roles": "Manage project workflows (Project administrator)",
+  "training": {
+   "topic": "Assignments",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-move",
+  "title": "Move an item to another step",
+  "summary": "On the status chip an item with a workflow moves: to the next step, back to an earlier one with a reason, to Removed and back with a reason. A held item does not move forward; in a locked step its values, name and tag wait until it is moved back. In a query view, Move to… moves the selected rows' items at once.",
+  "anchor": "wf-move",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.2"
+  ],
+  "checks": [
+   "S3",
+   "S10"
+  ],
+  "related": [
+   "WF-status-chip",
+   "WF-board",
+   "WF-hold"
+  ],
+  "roles": "Move items in their workflow (Engineer and above)",
+  "training": {
+   "topic": "Moving items",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-board",
+  "title": "The workflow board",
+  "summary": "A workflow's items as cards in a column per step and Removed, with their days in the step, returns and HOLD. Drag a card to another column, or use Move to… on it, to move it.",
+  "anchor": "wf-board",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.2"
+  ],
+  "checks": [
+   "S3"
+  ],
+  "related": [
+   "WF-move",
+   "WF-workflows"
+  ],
+  "roles": "Seeing the board: everyone who can view the project; moving cards: Move items in their workflow",
+  "training": {
+   "topic": "The board",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-criteria",
+  "title": "Exit criteria: what an item needs before it moves on",
+  "summary": "A step may say what an item needs before it moves on: required values filled in, values confirmed and not on hold, related items far enough, no open errors, a revision issued, a checklist ticked, a condition. The status chip lists them with ticks and crosses; an item whose criteria all pass shows Ready to move.",
+  "anchor": "wf-criteria",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.3"
+  ],
+  "checks": [
+   "S4"
+  ],
+  "related": [
+   "WF-move",
+   "WF-override",
+   "WF-value-status"
+  ],
+  "roles": "Seeing criteria: everyone who can view the project; ticking a checklist: Move items in their workflow",
+  "training": {
+   "topic": "Exit criteria",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": [],
+  "updated": "2026-11-12"
+ },
+ {
+  "id": "WF-approvals",
+  "title": "Approvals: sign or reject a step",
+  "summary": "A step with an approval moves on only by its signatures: each sign-off step (Checked, Approved) is signed by someone who did not move the item into it, or sign an earlier step it names. A rejection with a reason sends the item back. An item changed after its approval shows Changed since Approved.",
+  "anchor": "wf-approvals",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.3"
+  ],
+  "checks": [
+   "S4"
+  ],
+  "related": [
+   "WF-criteria",
+   "WF-move"
+  ],
+  "roles": "Sign workflow approvals (Engineer and above, Reviewer), with a fresh sign-in",
+  "training": {
+   "topic": "Approvals",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-override",
+  "title": "Override failing criteria",
+  "summary": "With Override workflow checks, Override… moves an item on although a blocking criterion fails, with a reason that is kept with the item's step and in its history. An approval cannot be overridden.",
+  "anchor": "wf-override",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.3"
+  ],
+  "checks": [
+   "S4"
+  ],
+  "related": [
+   "WF-criteria",
+   "WF-move"
+  ],
+  "roles": "Override workflow checks (Lead engineer, Project administrator)",
+  "training": {
+   "topic": "Overrides",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-flow-editor",
+  "title": "The flow: paths between steps",
+  "summary": "Flow shows a workflow's steps in order with their credit, lock, criteria and approval, and its paths above them: extra moves such as Skip check (small change), each with an optional condition on the item. Add path… adds one and publishes a new version.",
+  "anchor": "wf-flow-editor",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.4"
+  ],
+  "checks": [
+   "S5"
+  ],
+  "related": [
+   "WF-workflows",
+   "WF-move",
+   "WF-versions"
+  ],
+  "roles": "Manage project workflows (Project administrator)",
+  "training": {
+   "topic": "The flow",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-versions",
+  "title": "New workflow versions in a project",
+  "summary": "A new version of a workflow reaches items from their next move. When it no longer has a status some items are in, Workflow updates lists them: map that status to a step, then Take version n moves them there as one change.",
+  "anchor": "wf-versions",
+  "status": "available",
+  "since": "2026-11-11",
+  "roadmap": [
+   "33.4"
+  ],
+  "checks": [
+   "S5"
+  ],
+  "related": [
+   "WF-flow-editor",
+   "WF-workflows"
+  ],
+  "roles": "Manage project workflows (Project administrator)",
+  "training": {
+   "topic": "Workflow versions",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-dashboards",
+  "title": "Dashboards: the project's and the environment's progress",
+  "summary": "Dashboards on the left rail shows the project's dashboards and the environment's. Project progress, Branches, Data completeness and Review and comments are there from the start; Environment overview counts every project you may open.",
+  "anchor": "wf-dashboards",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.5"
+  ],
+  "checks": [
+   "S6"
+  ],
+  "related": [
+   "WF-tiles",
+   "WF-dashboard-edit",
+   "WF-board"
+  ],
+  "roles": "Everyone who can view the project, and is in a dashboard's audience",
+  "training": {
+   "topic": "Dashboards",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [],
+  "updated": "2026-11-12"
+ },
+ {
+  "id": "WF-tiles",
+  "title": "Tiles: numbers, bars and the items behind them",
+  "summary": "A tile counts or measures the rows of a source (objects, sheets, required values, value statuses, workflow items, tasks, documents, markups, findings, projects), grouped or not. Click a number or a bar to list its items and open one.",
+  "anchor": "wf-tiles",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.5"
+  ],
+  "checks": [
+   "S6"
+  ],
+  "related": [
+   "WF-dashboards",
+   "WF-dashboard-edit"
+  ],
+  "roles": "As the dashboard",
+  "training": {
+   "topic": "Tiles",
+   "level": "Beginner",
+   "minutes": 3
+  },
+  "screenshots": [],
+  "updated": "2026-11-12"
+ },
+ {
+  "id": "WF-dashboard-edit",
+  "title": "Change a dashboard",
+  "summary": "Edit changes the name and the tiles: add one from the catalogue, remove one, Save. Each save is a version; Versions lists the last 20 and restores one.",
+  "anchor": "wf-dashboard-edit",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.5"
+  ],
+  "checks": [
+   "S6"
+  ],
+  "related": [
+   "WF-dashboards",
+   "WF-dashboard-audience"
+  ],
+  "roles": "A project dashboard: Manage project dashboards (Lead engineer, Project administrator); the organization's: Manage organization dashboards",
+  "training": {
+   "topic": "Editing dashboards",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-dashboard-audience",
+  "title": "Who sees a dashboard",
+  "summary": "Who sees it: everyone in the project, Lead engineers or Project administrators. Show in E1 Reviewer offers the dashboard on the iPad.",
+  "anchor": "wf-dashboard-audience",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.5",
+   "33.7"
+  ],
+  "checks": [
+   "S6"
+  ],
+  "related": [
+   "WF-dashboard-edit",
+   "IPAD-progress-card"
+  ],
+  "roles": "As editing the dashboard",
+  "training": {
+   "topic": "Audience",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-every-project",
+  "title": "Every-project dashboards",
+  "summary": "A dashboard the organization makes for every project shows in each project with that project's data. Copy to this project makes it the project's own; Reset to the organization's brings the shared one back.",
+  "anchor": "wf-every-project",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.5"
+  ],
+  "checks": [
+   "S6"
+  ],
+  "related": [
+   "WF-dashboards",
+   "WF-dashboard-edit"
+  ],
+  "roles": "Making one: Manage organization dashboards; copying and resetting: Manage project dashboards",
+  "training": {
+   "topic": "Every-project dashboards",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-present",
+  "title": "Present a dashboard",
+  "summary": "Present hides the controls and enlarges the tiles for a meeting; Stop presenting brings them back.",
+  "anchor": "wf-present",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.5"
+  ],
+  "checks": [
+   "S6"
+  ],
+  "related": [
+   "WF-dashboards"
+  ],
+  "roles": "As the dashboard",
+  "training": {
+   "topic": "Presenting",
+   "level": "Beginner",
+   "minutes": 1
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-progress",
+  "title": "Progress, weights and the plan",
+  "summary": "Progress is the credit of the step each item has reached, weighted by a number of your choice (or 1). Each workflow step's credit can be changed for the project. The plan gives the percentage progress should have reached by each date; the S-curve draws progress against it.",
+  "anchor": "wf-progress",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.6"
+  ],
+  "checks": [
+   "S7"
+  ],
+  "related": [
+   "WF-trends",
+   "WF-workflows",
+   "WF-dashboards"
+  ],
+  "roles": "Manage project workflows (Project administrator)",
+  "training": {
+   "topic": "Progress",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-trends",
+  "title": "Trends: S-curve, burn-up, cumulative flow",
+  "summary": "E1 records the numbers of every trend tile once a day. A trend shows one number over days, a burn-up done against total, cumulative flow the items in each step per day, and the S-curve progress by week against the plan.",
+  "anchor": "wf-trends",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.6"
+  ],
+  "checks": [
+   "S7"
+  ],
+  "related": [
+   "WF-progress",
+   "WF-tiles",
+   "WF-dashboard-edit"
+  ],
+  "roles": "As the dashboard; recording today's numbers by hand: Manage project dashboards",
+  "training": {
+   "topic": "Trends",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
+  "id": "WF-branches",
+  "title": "Statuses in branches, and the Branches dashboard",
+  "summary": "A status changed in a branch and in main is a conflict that proposes the lower status; signatures given in a branch are void after a later change there; main-only steps; the branch criterion; the Branches dashboard and a dashboard computed in one branch.",
+  "anchor": "wf-branches",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "33.8"
+  ],
+  "checks": [
+   "S12"
+  ],
+  "related": [
+   "PRJ-branch-conflicts",
+   "WF-approvals",
+   "WF-criteria",
+   "WF-dashboards"
+  ],
+  "roles": "Everyone who works in branches; Lead engineers for workflows",
+  "training": {
+   "topic": "Statuses in branches",
+   "level": "Advanced",
+   "minutes": 4
+  },
+  "screenshots": []
+ }
+]

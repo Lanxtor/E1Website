@@ -7,7 +7,7 @@
   <meta name="description" content="Log in to your LANXTOR E1 account, or sign up and start your free 30-day trial.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=118">
+  <link rel="stylesheet" href="assets/css/styles.css?v=141">
 </head>
 <body class="has-plant-bg">
   <div id="site-header"></div>
@@ -20,6 +20,18 @@
       <div class="tabs" role="tablist">
         <button type="button" role="tab" data-mode="login" aria-selected="true">Log in</button>
         <button type="button" role="tab" data-mode="signup" aria-selected="false">Sign up</button>
+      </div>
+
+      <div class="signup-kind" data-signup-kind hidden>
+        <div class="kind-switch" role="radiogroup" aria-label="Sign up for">
+          <button type="button" role="radio" aria-checked="true" data-kind="company">For my company</button>
+          <button type="button" role="radio" aria-checked="false" data-kind="university">For teaching at a university</button>
+        </div>
+        <div class="uni-check" data-uni-check hidden>
+          <label for="uni-email">Your university email address</label>
+          <input id="uni-email" type="email" autocomplete="email" inputmode="email" placeholder="name@university.edu" data-uni-email>
+          <p class="uni-result" data-uni-result aria-live="polite"></p>
+        </div>
       </div>
 
       <a class="btn btn-primary" href="#" data-auth-submit>Continue to sign in</a>
@@ -57,9 +69,24 @@
       <ul class="tp-points">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Alex, the AI co-engineer, included for the whole team</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Everyone can also work in the browser, with nothing to install</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>After 30 days nothing is lost: everything stays visible and can be exported</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>After 30 days nothing is lost: for 90 more days everything stays visible and can be exported</span></li>
       </ul>
       <p class="tp-note">The iPad app for Reviewers and Viewers, E1 Reviewer, is coming to the App Store.</p>
+    </aside>
+
+    <aside class="trial-promo uni-promo" data-uni-promo hidden aria-label="E1 for your university">
+      <span class="tp-kicker">Universities</span>
+      <h2>Free for your class.</h2>
+      <p class="tp-lead">Everyone with your university’s email address joins the same E1 organization, up to 200 people. Nobody has to manage anything.</p>
+      <ul class="uni-timeline">
+        <li><b>90 days</b><span>Editor, from the day each person joins: P&amp;ID, EI&amp;C, piping, documents and Alex, the AI co-engineer</span></li>
+        <li><b>Then 90 days</b><span>Read-only: everything stays visible and can be exported</span></li>
+      </ul>
+      <ul class="tp-points">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Each person sees their own projects and the ones they are invited to</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Once a month we ask you to confirm your university email, with one click</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>To continue or for more people, write to <a href="mailto:sales@lanxtor.com">sales@lanxtor.com</a></span></li>
+      </ul>
     </aside>
   </main>
 
@@ -67,7 +94,7 @@
   <script src="assets/js/i18n.js?v=1"></script>
   <script src="assets/js/config.js?v=4"></script>
   <script src="assets/js/e1-api.js?v=7"></script>
-  <script src="assets/js/main.js?v=38"></script>
+  <script src="assets/js/main.js?v=40"></script>
   <script src="assets/js/chat.js?v=7"></script>
 </body>
 </html>

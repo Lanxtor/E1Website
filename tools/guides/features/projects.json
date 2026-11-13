@@ -57,7 +57,7 @@
   "summary": "The nine fixed sections of every project, what each holds and what can be made in it.",
   "anchor": "prj-sections",
   "status": "available",
-  "updated": "2026-11-09",
+  "updated": "2026-11-12",
   "roadmap": [
    "M1.4"
   ],
@@ -69,7 +69,8 @@
    "OBJ-new-object",
    "DOC-new-document",
    "LIST-new-query",
-   "PRJ-branches"
+   "PRJ-branches",
+   "PRJ-hidden-folders"
   ],
   "roles": "Anyone who can open the project",
   "training": {
@@ -82,19 +83,44 @@
   ]
  },
  {
+  "id": "PRJ-hidden-folders",
+  "title": "Hide a project's folders from the tree",
+  "summary": "Hide folders such as Processes or Branches from the tree, for everyone or for the members of some groups, in every project of the organization or in one project; their objects stay where they are.",
+  "anchor": "prj-hidden-folders",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "09.14"
+  ],
+  "checks": [],
+  "related": [
+   "PRJ-sections",
+   "ORG-groups"
+  ],
+  "roles": "Every project: administrators who manage the organization's policies; one project: who may configure the project (Project administrator and above)",
+  "training": {
+   "topic": "Project folders",
+   "level": "Intermediate",
+   "minutes": 3
+  },
+  "screenshots": []
+ },
+ {
   "id": "PRJ-tree-rows",
   "title": "Rows, clicks and marks in the explorer",
   "summary": "What a click, a double-click and the arrow do on each kind of row, and what the marks at the end of a row mean.",
   "anchor": "prj-tree-rows",
   "status": "available",
-  "updated": "2026-11-10",
+  "updated": "2026-11-12",
   "roadmap": [],
   "checks": [],
   "related": [
    "PRJ-sections",
    "OBJ-object-window",
    "OBJ-tags",
-   "COL-comments"
+   "COL-comments",
+   "PRJ-tree-columns"
   ],
   "roles": "Anyone who can open the project",
   "training": {
@@ -105,6 +131,32 @@
   "screenshots": [
    "pin-needs-review.webp"
   ]
+ },
+ {
+  "id": "PRJ-tree-columns",
+  "title": "Values beside the names: columns in the explorer",
+  "summary": "Show up to five attributes beside each object's name, so the explorer reads as a tree and a table.",
+  "anchor": "prj-tree-columns",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "M1.9"
+  ],
+  "checks": [
+   "A10"
+  ],
+  "related": [
+   "PRJ-tree-rows",
+   "OBJ-object-window",
+   "LIST-columns"
+  ],
+  "roles": "Anyone who can open the project; the columns are your own",
+  "training": {
+   "topic": "Columns in the explorer",
+   "level": "Beginner",
+   "minutes": 2
+  },
+  "screenshots": []
  },
  {
   "id": "PRJ-folders-sheets",
@@ -262,7 +314,8 @@
   ],
   "related": [
    "PRJ-project-bin",
-   "PRJ-new-project"
+   "PRJ-new-project",
+   "PRJ-empty-bin"
   ],
   "roles": "A project role that may delete the project",
   "training": {
@@ -270,7 +323,8 @@
    "level": "Beginner",
    "minutes": 3
   },
-  "screenshots": []
+  "screenshots": [],
+  "updated": "2026-11-12"
  },
  {
   "id": "PRJ-project-bin",
@@ -278,14 +332,15 @@
   "summary": "Restore, delete permanently or empty what was deleted in a project, and unvoid what was voided.",
   "anchor": "prj-project-bin",
   "status": "available",
-  "updated": "2026-11-09",
+  "updated": "2026-11-12",
   "roadmap": [],
   "checks": [],
   "related": [
    "OBJ-delete",
    "OBJ-void",
    "PRJ-folders-sheets",
-   "PRJ-delete"
+   "PRJ-delete",
+   "PRJ-empty-bin"
   ],
   "roles": "A license and a project role that may edit the project",
   "training": {
@@ -296,43 +351,237 @@
   "screenshots": []
  },
  {
-  "id": "PRJ-branches",
-  "title": "Branches",
-  "summary": "The Branches section takes folders today; branches of the plant model are planned for milestone M8.",
-  "anchor": "prj-branches",
-  "status": "placeholder",
-  "roadmap": [
-   "M8",
-   "15.1",
-   "15.2",
-   "15.3",
-   "15.4",
-   "15.5",
-   "16.2"
+  "id": "PRJ-empty-bin",
+  "title": "Empty a bin (the permission Empty bins)",
+  "summary": "Delete everything in a project's Deleted bin, or every project in the workspace's Bin, for good at once; only with the permission Empty bins.",
+  "anchor": "prj-empty-bin",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [],
+  "checks": [
+   "A9"
   ],
-  "checks": [],
   "related": [
-   "PRJ-sections",
-   "GS-under-construction"
+   "PRJ-project-bin",
+   "PRJ-delete",
+   "OBJ-delete"
   ],
-  "roles": "Everyone can see the section",
+  "roles": "The permission Empty bins in the project (Project administrator has it; a custom role can be given it)",
   "training": {
-   "topic": "Branches: what is coming",
+   "topic": "Emptying bins",
    "level": "Intermediate",
    "minutes": 2
   },
   "screenshots": []
  },
  {
+  "id": "PRJ-branches",
+  "title": "Branches",
+  "summary": "Make a working branch of part of the design, change it while main stays as it is, and push it back when it is ready.",
+  "anchor": "prj-branches",
+  "status": "available",
+  "roadmap": [
+   "15.1",
+   "15.2",
+   "15.4",
+   "15.6",
+   "09.6b"
+  ],
+  "checks": [
+   "X1"
+  ],
+  "related": [
+   "PRJ-branch-conflicts",
+   "PRJ-branch-push",
+   "PRJ-branch-types",
+   "PRJ-branch-review",
+   "PRJ-branch-packages",
+   "PRJ-branch-proposals",
+   "PRJ-sections"
+  ],
+  "roles": "Creating and working in a branch: Engineer and above; pushing to main: Lead engineer and above",
+  "training": {
+   "topic": "Working in a branch",
+   "level": "Intermediate",
+   "minutes": 5
+  },
+  "screenshots": [],
+  "since": "2026-11-12",
+  "updated": "2026-11-12"
+ },
+ {
+  "id": "PRJ-branch-conflicts",
+  "title": "Pull from main and resolve conflicts",
+  "summary": "Pull brings main's changes into a branch value by value; what both changed differently is a conflict you resolve, also on the drawing.",
+  "anchor": "prj-branch-conflicts",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "15.3",
+   "15.4"
+  ],
+  "checks": [
+   "X2"
+  ],
+  "related": [
+   "PRJ-branches"
+  ],
+  "roles": "Creating and working in a branch: Engineer and above; pushing to main: Lead engineer and above",
+  "training": {
+   "topic": "Pull from main and resolve conflicts",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "id": "PRJ-branch-push",
+  "title": "Push a branch to main",
+  "summary": "Push brings a branch into the project as one change that undoes as one; it waits until the branch is up to date with main.",
+  "anchor": "prj-branch-push",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "15.5"
+  ],
+  "checks": [
+   "X3"
+  ],
+  "related": [
+   "PRJ-branches",
+   "PRJ-branch-conflicts",
+   "PRJ-branch-review"
+  ],
+  "roles": "Creating and working in a branch: Engineer and above; pushing to main: Lead engineer and above",
+  "training": {
+   "topic": "Push a branch to main",
+   "level": "Intermediate",
+   "minutes": 4
+  },
+  "screenshots": []
+ },
+ {
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roles": "Setting the types: Project admin; choosing a type: anyone creating a branch",
+  "screenshots": [],
+  "id": "PRJ-branch-types",
+  "title": "Branch types and resolution rules",
+  "summary": "The project's branch types say whether a branch needs a review before main, what happens after a push, how main's edits treat its objects, and which conflicts settle themselves.",
+  "anchor": "prj-branch-types",
+  "roadmap": [
+   "16.1",
+   "16.3"
+  ],
+  "checks": [
+   "X4",
+   "X5"
+  ],
+  "related": [
+   "PRJ-branches",
+   "PRJ-branch-review"
+  ],
+  "training": {
+   "topic": "Branch types",
+   "level": "Advanced",
+   "minutes": 4
+  }
+ },
+ {
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roles": "Asking: the branch's members; approving: Lead engineer and above, never the author with four eyes",
+  "screenshots": [],
+  "id": "PRJ-branch-review",
+  "title": "Merge requests: Ask for review",
+  "summary": "A branch asks for review before it goes to main; a colleague approves or requests changes, and the object shows Under merge review meanwhile.",
+  "anchor": "prj-branch-review",
+  "roadmap": [
+   "16.2"
+  ],
+  "checks": [
+   "X4"
+  ],
+  "related": [
+   "PRJ-branch-types",
+   "PRJ-branch-push"
+  ],
+  "training": {
+   "topic": "Merge requests",
+   "level": "Intermediate",
+   "minutes": 4
+  }
+ },
+ {
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roles": "Creating and working in a branch: Engineer and above; pushing to main: Lead engineer and above",
+  "screenshots": [],
+  "id": "PRJ-branch-packages",
+  "title": "Branch packages",
+  "summary": "Cut part of a branch into a package of its own that can be pushed alone, such as a commissioning package.",
+  "anchor": "prj-branch-packages",
+  "roadmap": [
+   "16.4"
+  ],
+  "checks": [
+   "X5"
+  ],
+  "related": [
+   "PRJ-branches",
+   "PRJ-branch-push"
+  ],
+  "training": {
+   "topic": "Branch packages",
+   "level": "Advanced",
+   "minutes": 4
+  }
+ },
+ {
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roles": "Anyone who can work in a branch",
+  "screenshots": [],
+  "id": "PRJ-branch-proposals",
+  "title": "Alex in a branch and Open as branch",
+  "summary": "In a branch, Alex and stored assistants change the branch; a held proposal can be kept as a branch with Open as branch.",
+  "anchor": "prj-branch-proposals",
+  "roadmap": [
+   "17.1",
+   "17.2",
+   "17.3"
+  ],
+  "checks": [
+   "X6"
+  ],
+  "related": [
+   "PRJ-branches"
+  ],
+  "training": {
+   "topic": "Alex in a branch",
+   "level": "Intermediate",
+   "minutes": 3
+  }
+ },
+ {
   "id": "PRJ-sample-project",
   "title": "The sample project: Demo Plant",
-  "summary": "Every new organization and every new desktop install starts with Demo Plant (sample), the DEXPI reference P&ID imported by E1, to learn and try E1 on; delete it when you no longer need it and add a fresh copy at any time.",
+  "summary": "Every new organization and every new desktop install starts with Demo Plant (sample): the Demo Field, a fictional oil and gas production facility imported by E1 with the DEXPI reference P&ID, that shows every part of E1 with synthetic data, from the plant breakdown, single line and loop diagrams to workflows, tasks, branches and the status dashboard; delete it when you no longer need it and add a fresh copy at any time.",
   "anchor": "prj-sample-project",
   "status": "available",
   "since": "2026-11-10",
-  "updated": "2026-11-10",
+  "updated": "2026-11-13",
   "roadmap": [
-   "31.1"
+   "31.1",
+   "31.1b",
+   "31.1c",
+   "31.1d"
   ],
   "checks": [],
   "related": [
@@ -343,7 +592,7 @@
   "training": {
    "topic": "Getting started on the sample project",
    "level": "Beginner",
-   "minutes": 3
+   "minutes": 5
   },
   "screenshots": [
    "dexpi-sheet.webp"
@@ -381,14 +630,16 @@
   "anchor": "prj-import-dexpi",
   "status": "available",
   "since": "2026-11-10",
-  "updated": "2026-11-10",
+  "updated": "2026-11-12",
   "roadmap": [
-   "31.1"
+   "31.1",
+   "31.1b"
   ],
   "checks": [],
   "related": [
    "LIST-import-excel",
-   "PRJ-folders-sheets"
+   "PRJ-folders-sheets",
+   "PRJ-export-dexpi"
   ],
   "roles": "The Import data permission in the project (Project administrator and Lead engineer have it) and the permissions of the changes the import makes",
   "training": {
@@ -401,6 +652,32 @@
    "dexpi-differences.webp",
    "dexpi-sheet.webp"
   ]
+ },
+ {
+  "id": "PRJ-export-dexpi",
+  "title": "Export a 2D space as DEXPI",
+  "summary": "Write a 2D space's pipelines, segments, equipment, instruments and drawing as a DEXPI 2.0 file, for a 3D design tool or another P&ID tool; imported again it gives the same pipelines, segments and boundaries.",
+  "anchor": "prj-export-dexpi",
+  "status": "available",
+  "since": "2026-11-12",
+  "updated": "2026-11-12",
+  "roadmap": [
+   "13.5"
+  ],
+  "checks": [
+   "O5"
+  ],
+  "related": [
+   "PRJ-import-dexpi",
+   "DOC-sheet-pdf"
+  ],
+  "roles": "The Export permission in the project; no content package licence is needed",
+  "training": {
+   "topic": "Handing over a P&ID as DEXPI",
+   "level": "Intermediate",
+   "minutes": 2
+  },
+  "screenshots": []
  },
  {
   "id": "PRJ-import-excel",
@@ -417,7 +694,8 @@
   "related": [
    "PRJ-import-dexpi",
    "LIST-import-excel",
-   "PRJ-sample-project"
+   "PRJ-sample-project",
+   "PRJ-export-mapping"
   ],
   "roles": "The Import data permission in the project (Project administrator and Lead engineer have it) and the permissions of the changes the import makes",
   "training": {
@@ -434,9 +712,10 @@
   "anchor": "prj-import-dxf",
   "status": "available",
   "since": "2026-11-10",
-  "updated": "2026-11-10",
+  "updated": "2026-11-12",
   "roadmap": [
-   "31.3"
+   "31.3",
+   "22"
   ],
   "checks": [],
   "related": [
@@ -455,11 +734,11 @@
  {
   "id": "PRJ-import-pdf",
   "title": "Import a P&ID from a PDF",
-  "summary": "Bring a P&ID exported from CAD as a PDF into a project: E1 finds its symbols, recognizes them by their look, takes the texts beside them as tags, and draws them connected on a 2D space.",
+  "summary": "Bring a P&ID exported from CAD as a PDF into a project: E1 finds its symbols, groups and recognizes them by their look, takes the texts beside them as tags and the line numbers as pipelines, and draws them connected on a 2D space.",
   "anchor": "prj-import-pdf",
   "status": "available",
   "since": "2026-11-10",
-  "updated": "2026-11-10",
+  "updated": "2026-11-12",
   "roadmap": [
    "31.4"
   ],
@@ -474,6 +753,31 @@
    "topic": "Importing a P&ID from a PDF",
    "level": "Intermediate",
    "minutes": 5
+  },
+  "screenshots": []
+ },
+ {
+  "id": "PRJ-export-mapping",
+  "title": "Save an import mapping and export with it",
+  "summary": "Keep the mapping you reviewed in the import wizard under a name: the next workbook of the same shape maps itself, and File → Export with a saved mapping… writes the project's objects back in the same sheets, headers and units.",
+  "anchor": "prj-export-mapping",
+  "status": "available",
+  "since": "2026-11-12",
+  "roadmap": [
+   "31.5"
+  ],
+  "checks": [
+   "J11"
+  ],
+  "related": [
+   "PRJ-import-excel",
+   "PRJ-import-dxf"
+  ],
+  "roles": "Saving a mapping: Import into the project. Exporting: Export (Viewer and above)",
+  "training": {
+   "topic": "Mappings both ways",
+   "level": "Intermediate",
+   "minutes": 3
   },
   "screenshots": []
  }

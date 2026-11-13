@@ -7,7 +7,7 @@
   <meta name="description" content="Documents and their revisions, issuing, changed since, PDF and Excel output, sheet PDF and printing, datasheets and the datasheet designer.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=82">
+  <link rel="stylesheet" href="assets/css/styles.css?v=141">
   <link rel="stylesheet" href="assets/css/guides.css?v=3">
 </head>
 <body>
@@ -33,7 +33,9 @@
           <li><a href="guide-ai.html">11. AI: Alex</a></li>
           <li><a href="guide-account.html">12. Your account, Academy and website</a></li>
           <li><a href="guide-wiring.html">13. Wiring (EI&amp;C)</a></li>
-          <li><a href="guide-reviewer.html">14. E1 Reviewer for iPad</a></li>
+          <li><a href="guide-workflow.html">14. Workflow and dashboards</a></li>
+          <li><a href="guide-safety.html">15. Cause and effect, safety functions, alarms</a></li>
+          <li><a href="guide-reviewer.html">16. E1 Reviewer for iPad</a></li>
           <li><a href="guide-features.html">All features</a></li>
           <li><a href="guide-roadmap.html">Under development and roadmap</a></li>
         </ol>
@@ -43,11 +45,23 @@
           <li><a href="#doc-revisions-section">The Documents section</a></li>
           <li><a href="#doc-new-document">New document…: list, plot, uploaded or datasheet document</a></li>
           <li><a href="#doc-list-document">List documents from a saved query, with PDF and Excel</a></li>
+          <li><a href="#doc-reports">Reports: several saved queries in one document</a></li>
+          <li><a href="#doc-pdf-package">PDF packages</a></li>
           <li><a href="#doc-upload">Uploaded documents: revise a PDF from outside</a></li>
-          <li><a href="#doc-revisions">Add revisions A, B, …</a></li>
-          <li><a href="#doc-status">Draft and In review</a></li>
+          <li><a href="#doc-revisions">Versions and revisions of a document</a></li>
+          <li><a href="#doc-status">Statuses of a version or revision</a></li>
           <li><a href="#doc-updated-mark">The Updated mark on Documents</a></li>
           <li><a href="#doc-issue">Issue a revision</a></li>
+          <li><a href="#doc-sheet-versions">Versions of a 2D space</a></li>
+          <li><a href="#doc-sheet-revisions">Revisions of a 2D space</a></li>
+          <li><a href="#doc-sign-off">Sign-off of a revision</a></li>
+          <li><a href="#doc-reassign-signer">Reassign a step of a sign-off</a></li>
+          <li><a href="#doc-audit-report">The audit report of a document</a></li>
+          <li><a href="#doc-delete-output">Delete and restore a version or revision</a></li>
+          <li><a href="#doc-document-settings">Project settings → Documents</a></li>
+          <li><a href="#doc-changes-since">Changes since a date on the drawing</a></li>
+          <li><a href="#doc-change-clouds">Clouds and the changes table in a revision&#x27;s PDF</a></li>
+          <li><a href="#doc-sheet-frame">The sheet frame on the drawing</a></li>
           <li><a href="#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></li>
           <li><a href="#doc-sheet-pdf">PDF of a P&amp;ID 2D space</a></li>
           <li><a href="#doc-print">Print… and Ctrl+P</a></li>
@@ -57,16 +71,23 @@
           <li><a href="#doc-datasheet-pdf">Datasheet PDF</a></li>
           <li><a href="#doc-datasheet-document">Datasheet documents</a></li>
           <li><a href="#doc-hookup-schedule">The hookup schedule (PDF and Excel)</a></li>
+          <li><a href="#doc-hookup-drawing">A hookup drawing</a></li>
           <li><a href="#doc-datasheet-designer">The datasheet designer</a></li>
           <li><a href="#doc-revisions-filter">Filter documents by kind</a></li>
-          <li><a href="#doc-spec-datasheets">Standard specification datasheets (ISA 20, API)</a></li>
+          <li><a href="#doc-spec-datasheets">Specification datasheets</a></li>
+          <li><a href="#doc-spec-datasheet-rows">Add row and Remove row on a datasheet</a></li>
+          <li><a href="#doc-spec-datasheet-cases">Operating cases on the datasheet</a></li>
+          <li><a href="#doc-spec-datasheet-marks">Revision marks on a datasheet</a></li>
+          <li><a href="#doc-spec-datasheet-tags">A datasheet for several tags</a></li>
+          <li><a href="#doc-spec-datasheet-templates">Datasheet templates inspired by ISA and API datasheets</a></li>
+          <li><a href="#doc-spec-datasheet-designer">Design a specification datasheet</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Documents, revisions and datasheets</p>
         <h1>7. Documents, revisions and datasheets</h1>
         <p class="lead">Documents and their revisions, issuing, changed since, PDF and Excel output, sheet PDF and printing, datasheets and the datasheet designer.</p>
-        <div class="g-meta"><span>20 features</span><span>18 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>39 features</span><span>39 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="documents-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Documents are the deliverables of a project: lists, drawings plotted to PDF, datasheets and uploaded files. Each document has revisions A, B, …; issuing a revision freezes it and its PDF, and E1 then shows what changed since. Datasheets are also the everyday screen of an object, with a designer to lay them out.</p>
@@ -119,7 +140,7 @@
       <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>.</td><td>The dialog “New object in Documents” opens. Under <span class="ui">Document</span> it lists <span class="ui">Generated document</span>, with <span class="ui">Datasheet document</span>, <span class="ui">List document</span>, <span class="ui">Plot</span>, <span class="ui">Revision</span> and <span class="ui">Version</span> under it, and <span class="ui">Uploaded document</span>; <span class="ui">Create</span> is off.</td></tr>
       <tr><td>2</td><td>Type <code>list</code> in <span class="ui">Search classes</span> and choose <span class="ui">List document</span>.</td><td><span class="ui">List document</span> is selected and <span class="ui">Create</span> turns on.</td></tr>
       <tr><td>3</td><td>Leave <span class="ui">Tag</span> empty (“Leave empty for the tag from the rule”) and type <code>Pump list</code> in <span class="ui">Name</span>.</td><td>The fields hold your values.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Create</span> (or press <kbd>Enter</kbd> in <span class="ui">Tag</span> or <span class="ui">Name</span>).</td><td>The dialog closes and the document's window opens; its Revisions panel says “No revision yet.”.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Create</span> (or press <kbd>Enter</kbd> in <span class="ui">Tag</span> or <span class="ui">Name</span>).</td><td>The dialog closes and the document's window opens; its Versions and revisions panel says “No version or revision yet.”.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small" style="max-width:528px"><img src="assets/img/guides/new-document-dialog.webp" alt="The New object in Documents dialog: Search classes; under Documents, Document with Generated document (Datasheet document, List document, Plot, Revision, Version) and Uploaded document; under Project structure, Folder; then Tag, Name, How many, Cancel and Create." width="1056" height="1180" loading="lazy"><figcaption>The document kinds.</figcaption></figure>
@@ -134,7 +155,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">DOC-list-document</span><span>Roadmap 07.3, 05.5a</span><span>Review check E1</span></div>
   <p class="g-summary">A list document shows a saved query from a starting point and prints it to PDF and Excel with a title block.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A List document's window → Revisions panel → “What this list shows”</dd>
+    <dt>Where</dt><dd>A List document's window → Versions and revisions → “What this list shows”</dd>
     <dt>Who</dt><dd>A project role that may write documents; <span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> need a role that may export. A restricted project asks you to sign in again.</dd>
     <dt>Before you start</dt><dd>A project query “Equipment list” is saved for the project, and a List document exists (see <a href="#doc-new-document">New document…</a>).</dd>
   </dl>
@@ -142,28 +163,77 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open the list document.</td><td>The Revisions panel shows “What this list shows” with <span class="ui">Lists</span> (“Choose a saved query…”) and <span class="ui">From</span> (<span class="ui">The whole project</span> or a section). <span class="ui">From</span>, <span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> stay off until a saved query is chosen.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">New revision</span>, then <span class="ui">Add revision</span>.</td><td>Revision A is listed.</td></tr>
-      <tr><td>3</td><td>Set <span class="ui">Lists</span> to “Equipment list” and <span class="ui">From</span> to <span class="ui">Assets</span>.</td><td>The choices are kept.</td></tr>
+      <tr><td>1</td><td>Open the list document.</td><td>The Versions and revisions panel shows “What this list shows”, a box with the rows <span class="ui">Lists</span> (“Choose a saved query…”), <span class="ui">From</span> (<span class="ui">The whole project</span> or a section) and <span class="ui">Print</span>, with <span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> at its end. <span class="ui">From</span>, <span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> stay off until a saved query is chosen.</td></tr>
+      <tr><td>2</td><td>Set <span class="ui">Lists</span> to “Equipment list” and <span class="ui">From</span> to <span class="ui">Assets</span>.</td><td>The choices are kept.</td></tr>
+      <tr><td>3</td><td>Create Rev A and sign it off (<a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a>).</td><td>Rev A is issued.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Export PDF</span>.</td><td>“Writing the PDF…”, then a file ending “Rev-A.pdf” downloads and the panel says “The PDF is downloaded.”.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Export Excel</span>.</td><td>“Writing the workbook…”, then a file ending “Rev-A.xlsx” downloads.</td></tr>
-      <tr><td>6</td><td>Open both files.</td><td>Both carry the project, the document, its number, the newest revision and the date. The workbook has title rows, then the table with an <span class="ui">E1 id</span> column; the PDF has no E1 id column.</td></tr>
+      <tr><td>6</td><td>Open both files.</td><td>Both carry the project, the document, its number, the current revision and the date. The workbook has title rows, then the table with an <span class="ui">E1 id</span> column; the PDF has no E1 id column.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/revision-new-form.webp" alt="A list document Pump list with the saved query Pumps chosen and the New revision form open." width="2160" height="1350" loading="lazy"><figcaption>A list document with its saved query and the New revision form.</figcaption></figure>
   <p class="g-note">With no saved queries the panel says “Save a query first (a query tab's Save): a list shows a saved query.”. The workbook can be read back with <span class="ui">Update from Excel…</span> in the query: its title rows are skipped. File names are “&lt;number or document&gt;-Rev-&lt;label&gt;.pdf” or “.xlsx”.</p>
-  <p class="g-warn"><span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> use the newest revision, whatever its status. The frozen PDF of an issued revision is its <span class="ui">PDF of &lt;label&gt;</span> link.</p>
+  <p class="g-warn"><span class="ui">Export PDF</span> and <span class="ui">Export Excel</span> print the current state with the current revision's label; they are downloads, not revisions. The frozen PDF of an issued revision is its <span class="ui">Open PDF of &lt;label&gt;</span> link.</p>
   <p class="g-warn">The window does not preview the list; open the query from the explorer to see its rows.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-revisions">Add revisions A, B, …</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a></p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-update-from-excel">Update from Excel… with Check and Apply</a></p>
+</section>
+
+<section class="g-feature" id="doc-reports">
+  <h2>Reports: several saved queries in one document</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-reports</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">Add to report… on a saved query makes a report, or adds the query as a section of one; its PDF prints every section under its heading, grouped by a column, and a revision issues it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A saved query's toolbar → <span class="ui">Add to report…</span>; the report's window → Versions and revisions → <span class="ui">Report</span></dd>
+    <dt>Who</dt><dd>Create documents (Engineer and above); its PDF and Excel need a role that may export</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a saved query, such as “Pumps”, and click <span class="ui">Add to report…</span>.</td><td>“Add to report” with <span class="ui">Report</span> (<span class="ui">New report</span> or one of the project's reports), <span class="ui">Name</span>, <span class="ui">Section title</span> and <span class="ui">Start on a new page</span>.</td></tr>
+      <tr><td>2</td><td>Keep <span class="ui">New report</span>, name it “Unit report” and click <span class="ui">Create report</span>.</td><td>A list document “Unit report” is made in Documents and its window opens; its Report shows one section, Pumps.</td></tr>
+      <tr><td>3</td><td>Open another saved query, “Motors”, click <span class="ui">Add to report…</span>, choose “Unit report” and click <span class="ui">Add to report</span>.</td><td>The report's <span class="ui">Sections</span> lists Pumps and Motors, each with where it starts and whether it starts a new page.</td></tr>
+      <tr><td>4</td><td>In the report's window set <span class="ui">Group by</span> to a column's name, such as “Area”, and tick <span class="ui">New page for each group</span>.</td><td>The settings are kept.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Export PDF</span>.</td><td>One PDF: each section under its heading, its rows under a heading per area, each area on a new page, the header repeated on every page and Page n of m in the footer.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Export Excel</span>.</td><td>A workbook with a sheet per section.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Add section…</span>, choose a saved query and click <span class="ui">Add section</span>; then use ↑, ↓ and ×.</td><td>The section is added, moved and removed.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The report's first section is also the list's own saved query (Lists and From above it). A revision of the report freezes every section's rows.</p>
+  <p class="g-warn">Columns are each section's own; there is no column width or split setting yet, and rows the person creating a revision may not see are not refused.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-list-document">List documents from a saved query, with PDF and Excel</a>, <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a></p>
+</section>
+
+<section class="g-feature" id="doc-pdf-package">
+  <h2>PDF packages</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-pdf-package</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <p class="g-summary">New PDF package in Documents binds documents into one PDF: a cover, an index, then each document's current revision, latest version or current state; a revision of the package takes current revisions only.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click Documents → <span class="ui">New PDF package</span>; the package's window → Versions and revisions → <span class="ui">PDF package</span></dd>
+    <dt>Who</dt><dd>Create documents (Engineer and above); Generate package needs a role that may export</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click Documents and choose <span class="ui">New PDF package</span>.</td><td>“PDF package” is made in Documents and opens, with the rows <span class="ui">Cover title</span> and <span class="ui">Index</span> (<span class="ui">Index after the cover</span>), “No documents yet”, and <span class="ui">Generate package</span> at the end of the row <span class="ui">Package</span>.</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Find a document</span> type part of a number or name and click <span class="ui">Add …</span> on two documents.</td><td>Both are listed with their number and title; each <span class="ui">Takes</span> <span class="ui">Current revision</span>.</td></tr>
+      <tr><td>3</td><td>Set the second one's <span class="ui">Takes</span> to <span class="ui">Current state (not issued)</span>.</td><td>The choice is kept.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Generate package</span>.</td><td>“Binding the package…”, then one PDF downloads: the cover with the project and the title, the index (Document no., Title, Revision, Purpose, Pages), then each document's pages in order; the one in its current state says Not issued in the index and NOT ISSUED across its pages.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Create revision…</span> with IFA.</td><td>Refused: a revision of a package holds only issued revisions.</td></tr>
+      <tr><td>6</td><td>Set both to <span class="ui">Current revision</span> and create the revision again.</td><td>It goes through sign-off like any revision; the issued PDF keeps which revision of each document it bound.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note"><span class="ui">Latest version</span> takes a document's newest version, for people who see versions. A document without an issued revision cannot be taken as its current revision.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-reports">Reports: several saved queries in one document</a></p>
 </section>
 
 <section class="g-feature" id="doc-upload">
   <h2>Uploaded documents: revise a PDF from outside</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">DOC-upload</span><span>Roadmap 07.2</span><span>Review check E4</span></div>
-  <p class="g-summary">Keep a PDF made elsewhere as a document and attach files to each revision.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-upload</span><span>Roadmap 07.2, 29.1</span><span>Review check E4</span></div>
+  <p class="g-summary">Keep a PDF made elsewhere as a document: attach it, then create a revision, which holds the newest attached PDF.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>An Uploaded document's window → <span class="ui">Attachments</span> tab and Revisions panel</dd>
-    <dt>Who</dt><dd>A project role that may write documents</dd>
+    <dt>Where</dt><dd>An Uploaded document's window → <span class="ui">Attachments</span> tab and <span class="ui">Versions and revisions</span></dd>
+    <dt>Who</dt><dd>A project role that may create revisions</dd>
     <dt>Before you start</dt><dd>A PDF file on your computer.</dd>
   </dl>
   <h3>Steps</h3>
@@ -172,58 +242,67 @@
     <tbody>
       <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, choose <span class="ui">Uploaded document</span>, and click <span class="ui">Create</span>.</td><td>The document's window opens.</td></tr>
       <tr><td>2</td><td>Open its <span class="ui">Attachments</span> tab, click <span class="ui">Add files…</span> and choose the PDF.</td><td>The PDF is listed with <span class="ui">Open</span> and <span class="ui">Remove</span>.</td></tr>
-      <tr><td>3</td><td>In the Revisions panel, click <span class="ui">New revision</span>.</td><td>The form lists the attachment under <span class="ui">Files</span> with a checkbox.</td></tr>
-      <tr><td>4</td><td>Tick it and click <span class="ui">Add revision</span>.</td><td>The new revision's <span class="ui">Files</span> column shows 1.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Create revision…</span>, choose a purpose, and <span class="ui">Create and send for sign-off</span>.</td><td>The revision holds the PDF as it is now and goes through <a href="guide-documents.html#doc-sign-off">sign-off</a>; its issued PDF is that file.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-warn">These steps are taken from the screen labels; no automated test covers the upload path yet.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-revisions">Add revisions A, B, …</a></p>
+  <p class="g-warn">Attachments are kept on the E1 server; the desktop app without a server keeps no uploaded PDFs.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a></p>
 </section>
 
 <section class="g-feature" id="doc-revisions">
-  <h2>Add revisions A, B, …</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">DOC-revisions</span><span>Roadmap 07.2</span><span>Review checks E1, E4</span></div>
-  <p class="g-summary">Add a revision with its label, description and files; E1 proposes the next label.</p>
+  <h2>Versions and revisions of a document</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-revisions</span><span>Roadmap 07.2, 29.1</span><span>Review checks E1, E4, E7</span></div>
+  <p class="g-summary">A document’s window shows its versions and revisions with the Document control box; Create revision… with a purpose of issue gives the next label.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A document's window → Revisions panel → <span class="ui">New revision</span></dd>
-    <dt>Who</dt><dd>A project role that may write documents (a reviewer can read but not add)</dd>
-    <dt>Before you start</dt><dd>A document is open with “No revision yet.”.</dd>
+    <dt>Where</dt><dd>A document's window → <span class="ui">Versions and revisions</span>; a 2D space's page has the same panel (<a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>)</dd>
+    <dt>Who</dt><dd>A project role that may create revisions (Engineer and above); a Reviewer reads but creates none</dd>
+    <dt>Before you start</dt><dd>A document is open with “No version or revision yet.”; a list document shows a saved query.</dd>
   </dl>
+  <h3>The panel</h3>
+  <ul>
+    <li>A row of actions: <span class="ui">Create version…</span> and <span class="ui">Create revision…</span>, then <span class="ui">Audit report (CSV)</span> and <span class="ui">Audit report (PDF)</span> (see <a href="#doc-audit-report">Audit report</a>), and <span class="ui">Reinstate…</span> for a void document.</li>
+    <li>The <span class="ui">Document control</span> box, a row each: <span class="ui">Document no.</span>, <span class="ui">Title</span>, <span class="ui">Current revision</span> and <span class="ui">Latest version</span> (<span class="ui">Issued</span> before the first one).</li>
+    <li>For a list, a plot, a datasheet or a PDF package, a box with what it prints, a row each, and its exports at the end of the row <span class="ui">Print</span> (or <span class="ui">Package</span>).</li>
+    <li>The outputs, newest first.</li>
+  </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">New revision</span>.</td><td>The form opens with <span class="ui">Rev</span> prefilled “A”, <span class="ui">Description</span>, <span class="ui">Files</span>, <span class="ui">Cancel</span> and <span class="ui">Add revision</span>.</td></tr>
-      <tr><td>2</td><td>Type <code>For review</code> in <span class="ui">Description</span> and click <span class="ui">Add revision</span>.</td><td>The revision list shows a row A with “For review”. The columns are Rev, Date, By, Status, Description, Files, Issue.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">New revision</span> again.</td><td><span class="ui">Rev</span> is prefilled “B”.</td></tr>
-      <tr><td>4</td><td>Change <span class="ui">Rev</span> to <code>A</code> and click <span class="ui">Add revision</span>.</td><td>It is refused: “The document already has revision A.”.</td></tr>
-      <tr><td>5</td><td>Set <span class="ui">Rev</span> back to <code>B</code> and click <span class="ui">Add revision</span>.</td><td>B is listed on top: the newest revision is first.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Create revision…</span>.</td><td>The form opens with <span class="ui">Purpose</span>, <span class="ui">Description</span>, <span class="ui">Cancel</span> and <span class="ui">Create and send for sign-off</span>.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">IFR — Issued for review</span>.</td><td>“This will be Rev A — Issued for review”; the description is offered as “Issued for review”.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Create and send for sign-off</span>.</td><td>The document is frozen as it is now; the sign-off panel shows Prepared signed by you, Checked open, Approved waiting.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Create revision…</span> again.</td><td>“Rev A is still in sign-off. Withdraw it or finish it first.”: one revision is open at a time.</td></tr>
+      <tr><td>5</td><td>Once A is issued, choose <span class="ui">IFC — Issued for construction</span>.</td><td>“This will be Rev 0 — Issued for construction”. After Rev 0, the purposes before construction are greyed.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/revision-new-form.webp" alt="The New revision form of the list document Pump list, with Rev, Description and Add revision." width="2160" height="1350" loading="lazy"><figcaption>The New revision form.</figcaption></figure>
-  <p class="g-note">The next label follows the last one: A → B … Z → AA, 0 → 1 … 09 → 10, 3a → 3b. A label has at most 20 characters; <span class="ui">Add revision</span> is off while it is empty.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-status">Draft and In review</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-list-document">List documents from a saved query, with PDF and Excel</a></p>
+  <p class="g-note">The labels follow the project's revision scheme (Project settings → Documents): A, B, C … skipping I, O, Q, S, X and Z, then 0, 1, 2 … from construction, by default. A withdrawn or rejected revision gives its label back; a deleted one never does.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-status">Statuses of a version or revision</a>, <a href="guide-documents.html#doc-list-document">List documents from a saved query, with PDF and Excel</a></p>
 </section>
 
 <section class="g-feature" id="doc-status">
-  <h2>Draft and In review</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span class="g-id">DOC-status</span><span>Roadmap 07.2</span><span>Review check E4</span></div>
-  <p class="g-summary">Mark a revision that is not issued yet as Draft or In review.</p>
+  <h2>Statuses of a version or revision</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-status</span><span>Roadmap 07.2, 29.1</span><span>Review checks E7, E10</span></div>
+  <p class="g-summary">In sign-off, Rendering…, Could not make the PDF, Issued, Superseded, Rejected, Withdrawn and Deleted: where a version or revision is in its life.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Revision list → <span class="ui">Status</span> column</dd>
-    <dt>Who</dt><dd>A project role that may write documents</dd>
-    <dt>Before you start</dt><dd>A document has revision B, not issued.</dd>
+    <dt>Where</dt><dd>The outputs list → <span class="ui">Status</span> column</dd>
+    <dt>Who</dt><dd>Anyone who may view the document</dd>
   </dl>
-  <h3>Steps</h3>
+  <h3>The statuses</h3>
   <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>In the row of B, set the Status dropdown (“Status of B”) to <span class="ui">In review</span>.</td><td>The row shows In review.</td></tr>
-      <tr><td>2</td><td>Reload the page.</td><td>B is still In review.</td></tr>
+      <tr><td><span class="ui">In sign-off</span></td><td>Created and frozen; waiting for the next step to sign.</td></tr>
+      <tr><td><span class="ui">Rendering…</span></td><td>The last step signed; E1 is making its PDF.</td></tr>
+      <tr><td><span class="ui">Could not make the PDF</span></td><td>The PDF failed; the signatures stay valid. <span class="ui">Retry</span> makes it again.</td></tr>
+      <tr><td><span class="ui">Issued</span></td><td>Its PDF is made and filed; for a revision, the current one.</td></tr>
+      <tr><td><span class="ui">Superseded</span></td><td>A later revision is issued. Versions are never superseded.</td></tr>
+      <tr><td><span class="ui">Rejected</span></td><td>A signer rejected it with a reason; withdraw it and create a new one.</td></tr>
+      <tr><td><span class="ui">Withdrawn</span></td><td>Taken back by its creator or someone with Issue revisions; its label goes to the next one.</td></tr>
+      <tr><td><span class="ui">Deleted</span></td><td>Shown under <span class="ui">Show</span> ▸ <span class="ui">Deleted</span> with who, when and why (<a href="guide-documents.html#doc-delete-output">Delete and restore</a>).</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The dropdown offers <span class="ui">Draft</span> and <span class="ui">In review</span>. It is shown only for revisions not yet issued, and only to people who may write; others see the status as text.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-revisions">Add revisions A, B, …</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a></p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a>, <a href="guide-documents.html#doc-sign-off">Sign-off</a></p>
 </section>
 
 <section class="g-feature" id="doc-updated-mark">
@@ -244,33 +323,255 @@
   </table></div>
   <p class="g-note">Your own new revisions do not set the mark.</p>
   <p class="g-warn">E1 remembers what you have seen in this browser only. Another browser or device shows the mark again.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-revisions-section">The Documents section</a>, <a href="guide-documents.html#doc-revisions">Add revisions A, B, …</a></p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-revisions-section">The Documents section</a>, <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a></p>
 </section>
 
 <section class="g-feature" id="doc-issue">
   <h2>Issue a revision</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-11</span><span class="g-id">DOC-issue</span><span>Roadmap 07.7, 12.3</span><span>Review checks E2, E3</span></div>
-  <p class="g-summary">Issuing freezes a revision and its PDF; an issued revision cannot change afterwards. While the revision gate is on, an open error on what the document shows refuses the issue.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-issue</span><span>Roadmap 07.7, 12.3, 29.1</span><span>Review checks E2, E3, E8</span></div>
+  <p class="g-summary">The last sign-off signature issues a revision: its PDF is made once, filed, and never changes; the revision before is superseded. While the revision gate is on, an open error on what the document shows refuses the revision when it is created.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Revision list → <span class="ui">Issue</span> column → <span class="ui">Issue A</span></dd>
-    <dt>Who</dt><dd>A Lead on the project. An Engineer is refused.</dd>
-    <dt>Before you start</dt><dd>A list document “Pump list” shows the saved query “Pumps” and has revision A, not issued.</dd>
+    <dt>Where</dt><dd>The sign-off panel → <span class="ui">Sign</span> on the last step</dd>
+    <dt>Who</dt><dd>The last step's signer: someone with Issue revisions (Lead engineer and above)</dd>
+    <dt>Before you start</dt><dd>A list document “Pump list” shows the saved query “Pumps” and has Rev A in sign-off with Prepared and Checked signed.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Issue A</span>.</td><td>The browser asks “Issue revision A? The document and its PDF are frozen as they are now and cannot change afterwards.”.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">OK</span>.</td><td>The Status of A shows <span class="ui">Issued</span> as plain text, without a dropdown. The Issue column shows the link <span class="ui">PDF of A</span>. The panel says “Nothing changed since Rev A was issued.”.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">PDF of A</span>.</td><td>The issued PDF opens. It stays byte for byte as issued, even after the model changes.</td></tr>
-      <tr><td>4</td><td>On a document that lists a pump with an open error (for example a check rule's), click <span class="ui">Issue A</span> and confirm.</td><td>It is refused, naming the errors: “A cannot be issued: 1 open error on what it shows. … Fix it, or accept it in Checks.”. Fix the pump, or accept the finding on its <a href="guide-objects.html#obj-checks">Checks</a> tab, and issue again.</td></tr>
-      <tr><td>5</td><td>On a document where B is issued but A is not, click <span class="ui">Issue A</span> and confirm.</td><td>It is refused: “A later revision is already issued; A stays as it is.”.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Sign</span> on Approved, read the sentence, and click <span class="ui">Sign</span>.</td><td>A reads <span class="ui">Issued</span>; <span class="ui">Open PDF of A</span> is in its row; the panel says “Nothing changed since Rev A was issued.”. The PDF is filed under Documents ▸ &lt;number&gt; &lt;name&gt; ▸ Revisions.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Open PDF of A</span>.</td><td>The issued PDF downloads. It stays byte for byte as issued, even after the model changes.</td></tr>
+      <tr><td>3</td><td>Create revision… on a document that lists a pump with an open error (for example a check rule's).</td><td>It is refused, naming the errors: “Rev A cannot be issued: 1 open error on what it shows. … Fix it, or accept it in Checks.”. Fix the pump, or accept the finding on its <a href="guide-objects.html#obj-checks">Checks</a> tab, and create it again.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/document-issued.webp" alt="The Pump list document after issuing A: the revision list with Rev A, its date, the signed-in user, Issued and the link PDF of A, and the note Nothing changed since Rev A was issued." width="2160" height="1350" loading="lazy"><figcaption>Revision A issued.</figcaption></figure>
-  <p class="g-note">Issuing freezes what the document shows: a list's rows, a plot's 2D space with its objects, or a datasheet's object with its children and its layout version. Any later attempt to change an issued revision is refused with “An issued revision does not change.”.</p>
-  <p class="g-warn">An issued document cannot be retagged.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-revisions">Add revisions A, B, …</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a>, <a href="guide-documents.html#doc-list-document">List documents from a saved query, with PDF and Excel</a>, <a href="guide-documents.html#doc-status">Draft and In review</a></p>
+  <p class="g-note">A revision freezes what the document shows when it is created: a list's rows, a 2D space with its objects, or a datasheet's object with its children and its layout version. Its snapshot, its signatures and its PDF cannot be changed from any surface.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a>, <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a></p>
+</section>
+
+<section class="g-feature" id="doc-sheet-versions">
+  <h2>Versions of a 2D space</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sheet-versions</span><span>Roadmap 29.1</span><span>Review check E9</span></div>
+  <p class="g-summary">Create version… on a 2D space’s page makes an internal version (C.1 after Rev B): signed as prepared, issued at once, printed INTERNAL — NOT FOR ISSUE, seen only by people who see versions.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Click a 2D space in the explorer: its page → <span class="ui">Create version…</span>; a document's window has the same button</dd>
+    <dt>Who</dt><dd>Create versions (Engineer and above); who sees them: Project settings → Documents → <span class="ui">Versions visible to</span></dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the 2D space <span class="ui">Assets</span> once in the explorer.</td><td>Its page shows the Details box (<span class="ui">Status</span>, and <span class="ui">Responsible</span> with sign-in) and, under Versions and revisions, the Document control box: “This 2D space has no versions or revisions yet. …”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Create version…</span>.</td><td>“Version A.1 of &lt;number&gt;” (after Rev B: B's next, C.1).</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Create version</span>.</td><td>A.1 is <span class="ui">Issued</span>; its PDF, printed INTERNAL — NOT FOR ISSUE, is filed under Documents ▸ &lt;number&gt; Assets ▸ Versions. The next is A.2; after the next revision is issued, the count starts again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The first version or revision gives the 2D space its document number (Project settings → Documents → Document number pattern) and fixes its printed area and scale, so every output prints the same part of the 2D space.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a></p>
+</section>
+
+<section class="g-feature" id="doc-sheet-revisions">
+  <h2>Revisions of a 2D space</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sheet-revisions</span><span>Roadmap 29.1</span><span>Review checks E7, E8</span></div>
+  <p class="g-summary">Create revision… on a 2D space’s page: the 2D space gets its document number and its printed area on its first output, and each revision goes through sign-off to an issued, filed PDF with its revision block.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A 2D space's page → <span class="ui">Create revision…</span></dd>
+    <dt>Who</dt><dd>Create revisions (Engineer and above)</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On the 2D space's page, click <span class="ui">Create revision…</span> and choose <span class="ui">IFA — Issued for approval</span>.</td><td>“This will be Rev A — Issued for approval”.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Create and send for sign-off</span>.</td><td>The card shows the document number (for example P-PID-0001) and “Open sign-off: Checked — waiting for …”. Changes you make to the 2D space now go into the next revision.</td></tr>
+      <tr><td>3</td><td>Let it be checked and approved (<a href="guide-documents.html#doc-sign-off">Sign-off</a>).</td><td>Rev A is <span class="ui">Issued</span>; its PDF has the revision block above the title block: Rev, Date, Description and the initials of who prepared, checked and approved it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-warn">A 2D space with a revision in sign-off is not deleted until the revision is finished or withdrawn. Sheet templates (frames, title blocks of your own) and clouds around changes come in the next stages.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off</a>, <a href="guide-documents.html#doc-sheet-versions">Versions of a 2D space</a>, <a href="guide-documents.html#doc-sheet-pdf">PDF of a 2D space</a></p>
+</section>
+
+<section class="g-feature" id="doc-sign-off">
+  <h2>Sign-off of a revision</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sign-off</span><span>Roadmap 29.1, 29.5</span><span>Review check E8</span></div>
+  <p class="g-summary">Every revision is signed along its purpose's route: by who prepared it, checked by someone else and approved by someone with Issue revisions (IFI and VOID: Prepared and Approved; IFC: a project engineer after Approved); each signature asks you to confirm it is you. Reject… and Withdraw… take it back.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The <span class="ui">Sign-off</span> panel of the open revision, in its document's window or its 2D space's page</dd>
+    <dt>Who</dt><dd>Checked: Sign revisions (Engineer and above); Approved: Issue revisions (Lead engineer and above). A Reviewer, a token and Alex never sign.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>As a second engineer, open the document and click <span class="ui">Sign</span>.</td><td>“I have checked revision A of P-PID-0001 (Issued for approval).” with <span class="ui">Sign</span>. E1 may ask you to confirm it is you.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Sign</span>.</td><td>“Checked — signed by … at …”; Approved is open.</td></tr>
+      <tr><td>3</td><td>As the person who prepared or checked it, try to sign Approved.</td><td>Refused: someone else signs each step.</td></tr>
+      <tr><td>4</td><td>As a Lead, click <span class="ui">Reject…</span>, give a reason, and <span class="ui">Reject</span>.</td><td>The revision is <span class="ui">Rejected</span> with the reason; <span class="ui">Withdraw…</span> takes it back, and a new revision gets the same label.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The route of each purpose is chosen in Project settings → Documents → <span class="ui">Sign-off</span>, from E1's routes and the <a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a> of the company and the project; a revision keeps the route it started with. A small team can turn off “Someone else checks and approves” in Project settings → Documents; one person may then sign every step. A signature binds to the frozen revision: if it no longer matches, signing is refused.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-reassign-signer">Reassign a step of a sign-off</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-status">Statuses of a version or revision</a></p>
+</section>
+
+<section class="g-feature" id="doc-reassign-signer">
+  <h2>Reassign a step of a sign-off</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-reassign-signer</span><span>Roadmap 29.5</span><span>Review check E14</span></div>
+  <p class="g-summary">Reassign… beside a step not signed yet gives it to one of the project's people who may sign it, or back to anyone who may; a step past its days to sign is marked Late, and its signer and the creator are told.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The <span class="ui">Sign-off</span> panel of the open revision → <span class="ui">Reassign…</span> beside a step</dd>
+    <dt>Who</dt><dd>The revision's creator, or Issue revisions (Lead engineer and above)</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In a revision in sign-off, click <span class="ui">Reassign…</span> beside <span class="ui">Checked</span>.</td><td>“Who signs Checked?” with <span class="ui">Anyone who may sign it</span> and the project's people who may sign it; whoever prepared it is not listed.</td></tr>
+      <tr><td>2</td><td>Choose a colleague and click <span class="ui">Reassign</span>.</td><td>“Checked is assigned to …”; the step reads “waiting for …” and they are told.</td></tr>
+      <tr><td>3</td><td>As someone else who may sign, open the revision.</td><td>Signing Checked is refused: it is assigned to your colleague.</td></tr>
+      <tr><td>4</td><td>Reassign it to <span class="ui">Anyone who may sign it</span>.</td><td>“Checked is open to anyone who may sign it.”</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A step not signed within its days to sign (Project settings → Documents → <span class="ui">Days to sign a step</span>, or the route's own) is marked <span class="ui">Late</span>, and its signer and the revision's creator are told once. A signer who loses the right to sign is taken off the step, which is then open to anyone who may sign it, and the creator is told. Without accounts (the desktop app) there is no one to list.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off of a revision</a>, <a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a></p>
+</section>
+
+<section class="g-feature" id="doc-audit-report">
+  <h2>The audit report of a document</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-audit-report</span><span>Roadmap 29.5</span><span>Review check E14</span></div>
+  <p class="g-summary">Audit report (CSV) and Audit report (PDF), in the row of actions above the Document control box: every version and revision with its creation, each signature or rejection with who, when, the sentence signed and the sign-in, the issue with its PDF's fingerprint, withdrawals, deletions and restores.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A document's window or a 2D space's page → Versions and revisions → the row of actions above the <span class="ui">Document control</span> box</dd>
+    <dt>Who</dt><dd>Issue revisions or Configure documents (Lead engineer and above); versions are listed only for people who see them</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a document with an issued revision and click <span class="ui">Audit report (CSV)</span>.</td><td>A file <code>&lt;number&gt;_audit.csv</code> with the columns Output, Kind, Purpose, Status, Event, Step, By, At, Meaning, Sign-in and Snapshot SHA-256.</td></tr>
+      <tr><td>2</td><td>Open it.</td><td>A line per event in time order: Created, Signed (with the sentence signed, such as “I have checked revision A of …”), Rejected, Issued (with the PDF and its fingerprint), Withdrawn, Deleted and Restored with their reasons.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Audit report (PDF)</span>.</td><td>The same as a PDF with the project and the document in its title.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sign-off">Sign-off of a revision</a>, <a href="guide-documents.html#doc-delete-output">Delete and restore a version or revision</a></p>
+</section>
+
+<section class="g-feature" id="doc-delete-output">
+  <h2>Delete and restore a version or revision</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-delete-output</span><span>Roadmap 29.1</span><span>Review check E10</span></div>
+  <p class="g-summary">Delete… with a reason takes a version or revision and its PDF out of the document; a record of who, when and why stays, its label is never used again, and Restore brings it back for the project’s kept period.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The outputs list → <span class="ui">Delete…</span> in a row; <span class="ui">Show</span> ▸ <span class="ui">Deleted</span> → <span class="ui">Restore</span></dd>
+    <dt>Who</dt><dd>Delete versions (Lead engineer and above); Delete revisions (project administrator); never a token or Alex</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Delete…</span> in the row of Rev A.</td><td>“Rev A (…) and its PDF leave the document and its folder. The label A will not be used again. …”; <span class="ui">Delete</span> is off until the reason has 10 characters.</td></tr>
+      <tr><td>2</td><td>Type the reason and click <span class="ui">Delete</span>.</td><td>A leaves the list; the revision before is current again.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Show</span> ▸ <span class="ui">Deleted</span>.</td><td>“Deleted by …, &lt;date&gt; — &lt;reason&gt;” with <span class="ui">Restore</span>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Restore</span>.</td><td>A is back, current again if it is the newest issued revision.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A deleted output is kept for the project's “Deleted outputs are kept for” (30 days by default); after that its PDF is gone and the record stays.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-status">Statuses of a version or revision</a>, <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a></p>
+</section>
+
+<section class="g-feature" id="doc-document-settings">
+  <h2>Project settings → Documents</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Roadmap 29.1, 29.5, 29.6</span><span>Review check E9</span></div>
+  <p class="g-summary">The project's revision scheme, document number pattern, purposes of issue, filing rule, who sees versions, how long deleted outputs are kept, four-eyes, the sign-off route of each purpose and the output format.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Project settings → <span class="ui">Documents</span></dd>
+    <dt>Who</dt><dd>Configure documents (Lead engineer and project administrator)</dd>
+  </dl>
+  <p>The card opens with <span class="ui">How it works</span>: Configuration → Documents makes the schemes, lists, routes, templates and rules, and here the project chooses which ones it uses. The settings are in six boxes, each saying what it decides and where to make your own: <span class="ui">Numbering</span>, <span class="ui">Purposes of issue</span>, <span class="ui">Sign-off</span>, <span class="ui">Filing</span>, <span class="ui">Printed PDFs</span> and <span class="ui">Who sees what</span>. A line under How it works says what was just saved.</p>
+  <h3>The settings</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ui">Sheet template</span></td><td>The page, frame and title block a 2D space's next version or revision prints on (<a href="guide-library.html#lib-documents-templates">Sheet templates</a>).</td></tr>
+      <tr><td><span class="ui">Revision scheme</span></td><td>Letters before construction, numbers from construction (the default); ISO 19650 (P01 … then C01 …); Numeric (01-IFR, 02-IFA …); Letters only; or the company's and project's own (<a href="guide-library.html#lib-documents-numbering">Numbering schemes</a>). The labels it gives are shown under it.</td></tr>
+      <tr><td><span class="ui">Document number pattern</span>, <span class="ui">Project code</span>, <span class="ui">Document type</span></td><td>The number a 2D space gets with its first output, for example {project.code}-{docType}-{seq:4} → P-PID-0001.</td></tr>
+      <tr><td><span class="ui">Purposes</span></td><td>EPC purposes of issue (IFR … IFC, AB, VOID), ISO 19650 suitability (S1 … S4, A1, CR), or the company's and project's own (<a href="guide-library.html#lib-documents-purposes">Purposes of issue</a>). Its codes are shown under it.</td></tr>
+      <tr><td><span class="ui">Filing rule</span></td><td>Where an issued PDF is filed under Documents: By document (the default), By discipline and type, By status, Flat, or the company's and project's own (<a href="guide-library.html#lib-documents-filing">Filing rules</a>). Under it: the folders in words (Documents › Document number Document name › Revisions or Versions), an example path, and where superseded PDFs go.</td></tr>
+      <tr><td><span class="ui">Versions visible to</span></td><td>Reviewer and above (the default), Engineer and above, or everyone who may view the document.</td></tr>
+      <tr><td><span class="ui">Deleted outputs are kept for</span></td><td>How long a deleted version or revision can be restored (30 days by default).</td></tr>
+      <tr><td><span class="ui">Someone else checks and approves</span></td><td>Four-eyes; off for a small team.</td></tr>
+      <tr><td><span class="ui">Sign-off</span>: a route per purpose, <span class="ui">Versions</span>, <span class="ui">Days to sign a step</span></td><td>A table of each purpose with its route and the route's steps (Prepared → Checked → Approved). The route each purpose's revisions follow (by default Prepared, checked, approved; Prepared, approved for IFI and VOID; with a project engineer for IFC), the route of versions, and the days before a step is late (<a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a>).</td></tr>
+      <tr><td><span class="ui">Print INTERNAL — NOT FOR ISSUE on versions</span>, <span class="ui">Page</span>, <span class="ui">Date format</span></td><td>In <span class="ui">Printed PDFs</span>, with the Sheet template.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Each setting is saved at once and applies to outputs made afterwards; outputs already made never change.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-versions">Versions of a 2D space</a>, <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a></p>
+</section>
+
+<section class="g-feature" id="doc-changes-since">
+  <h2>Changes since a date on the drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-changes-since</span><span>Roadmap 29.2</span><span>Review check E11</span></div>
+  <p class="g-summary">Changes since… on a 2D space draws a cloud around everything added, deleted, modified or moved since a day, a revision or a version, with before → after and who changed it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An open 2D space → the drawing toolbar → <span class="ui">Changes since…</span> (<kbd>Shift</kbd>+<kbd>C</kbd>)</dd>
+    <dt>Who</dt><dd>Anyone who may view the 2D space; a version is a choice only for people who see versions</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Changes since…</span>.</td><td>A box with <span class="ui">Last revision</span> and <span class="ui">Last version</span> (when the 2D space has them), <span class="ui">Yesterday</span>, <span class="ui">Last 7 days</span>, <span class="ui">Start of the project</span>, and a <span class="ui">Day</span> and <span class="ui">Time</span> with <span class="ui">Show changes</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Last 7 days</span>.</td><td>The toolbar shows “Changes since &lt;date&gt; · &lt;count&gt;”, and every change has a cloud: added green with +, deleted red and dashed with −, modified amber with ✎, moved blue with ↔ and a faint box where it was.</td></tr>
+      <tr><td>3</td><td>Click a cloud.</td><td>Its card: the element, the kind, each field before → after (for example “Design pressure / In: 16 bar(g) → 25 bar(g)”), “Changed by …, &lt;date and time&gt;”, and <span class="ui">Open the object</span>.</td></tr>
+      <tr><td>4</td><td>Click the count on the toolbar.</td><td>The <span class="ui">Changes</span> list, by kind; click one to show its card.</td></tr>
+      <tr><td>5</td><td>Change something on the 2D space.</td><td>Its cloud appears a moment later; editing stays on.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">×</span> beside the count.</td><td>The clouds are gone.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The 2D space as it was then is rebuilt from the project's history; since a revision or a version it is that output's frozen copy. Your choice is kept in this browser only and is never part of the drawing. <span class="ui">Layers</span> ▸ <span class="ui">Changes since</span> hides the clouds.</p>
+  <p class="g-warn">Where the history before a date is not kept, the list says so instead of guessing. The calendar does not mark the days with changes yet.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changed-since">Changed since Rev A, and Modified and Added marks</a></p>
+</section>
+
+<section class="g-feature" id="doc-change-clouds">
+  <h2>Clouds and the changes table in a revision's PDF</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-change-clouds</span><span>Roadmap 29.3</span><span>Review check E12</span></div>
+  <p class="g-summary">A version or revision is compared with the output before it: its PDF clouds what changed with a triangle carrying its label and lists each change beside the title block; Compare with… lists the changes between any two outputs.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A version's or revision's PDF; the outputs list → <span class="ui">Compare with…</span> and, on a 2D space, <span class="ui">Show changes on the drawing</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the document; versions for people who see them</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>With Rev A of a 2D space issued, change Pump1's design pressure and create and sign off Rev B.</td><td>Rev B's PDF has a cloud around Pump1 with a triangle reading B, and “Changes in this revision (compared with Rev A)” beside the title block: “1 Pump1: Design pressure / In from 16 bar(g) to 25 bar(g)”.</td></tr>
+      <tr><td>2</td><td>Open Rev A's PDF.</td><td>It is as it was issued: a PDF shows only its own clouds.</td></tr>
+      <tr><td>3</td><td>Create Rev C without changing anything.</td><td>Its PDF says “No changes since Rev B”.</td></tr>
+      <tr><td>4</td><td>In Rev B's row, click <span class="ui">Compare with…</span> and choose Rev A.</td><td>The changes between them, each with its fields before → after.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Show changes on the drawing</span> in Rev A's row, and open the 2D space.</td><td><a href="guide-documents.html#doc-changes-since">Changes since</a> Rev A is shown on the drawing.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A revision is compared with the revision before it, a version with the output before it. The comparison is frozen when the output is created, so a later edit never changes a PDF. A deleted element's place is clouded; a change inside the title block's area is only listed.</p>
+  <p class="g-warn">Clouds are drawn on 2D spaces; a list, datasheet or loop diagram lists its changes under Compare with… only.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-changes-since">Changes since a date on the drawing</a></p>
+</section>
+
+<section class="g-feature" id="doc-sheet-frame">
+  <h2>The sheet frame on the drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sheet-frame</span><span>Roadmap 29.4</span><span>Review check E13</span></div>
+  <p class="g-summary">A 2D space with a version or revision shows its sheet template's frame, title block and revision block in grey at its printed area and scale; Layers ▸ Sheet frame hides it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An open 2D space that has a version or revision; <span class="ui">Layers</span> ▸ <span class="ui">Sheet frame</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the 2D space</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a 2D space after its first version or revision.</td><td>The page, the frame and the title block with its current values (Title, Document no., Rev …) are drawn in grey where the PDF prints them.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Layers</span> ▸ <span class="ui">Sheet frame</span>.</td><td>The frame is hidden; choose it again to show it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The frame is never part of the drawing and cannot be selected. It follows the printed area fixed at the first output (Change printed area… by asking Alex) and the sheet template of Project settings → Documents.</p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-documents-templates">Sheet templates</a>, <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a></p>
 </section>
 
 <section class="g-feature" id="doc-changed-since">
@@ -278,7 +579,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">DOC-changed-since</span><span>Roadmap 07.7</span><span>Review check E2</span></div>
   <p class="g-summary">After an issue, the document lists what changed since, and the explorer marks each changed object.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The document's Revisions panel, and the marks in the explorer</dd>
+    <dt>Where</dt><dd>The document's Versions and revisions panel, and the marks in the explorer</dd>
     <dt>Before you start</dt><dd>Revision A of “Pump list” is issued.</dd>
   </dl>
   <h3>Steps</h3>
@@ -355,7 +656,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, search <code>plot</code>, choose <span class="ui">Plot</span>, type <code>PID 001</code> in <span class="ui">Name</span>, and click <span class="ui">Create</span>.</td><td>The plot's window opens with <span class="ui">2D space</span> (“Choose a 2D space…”), <span class="ui">Page</span> (A3), four layer checkboxes Process, Instrument, Electrical, Annotation (all ticked), <span class="ui">Export PDF</span> and <span class="ui">Print…</span>.</td></tr>
+      <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, search <code>plot</code>, choose <span class="ui">Plot</span>, type <code>PID 001</code> in <span class="ui">Name</span>, and click <span class="ui">Create</span>.</td><td>The plot's window opens with a box of rows: <span class="ui">2D space</span> (“Choose a 2D space…”), <span class="ui">Page</span> (A3), <span class="ui">Layers</span> with four checkboxes Process, Instrument, Electrical, Annotation (all ticked), and <span class="ui">Print</span> with <span class="ui">Export PDF</span> and <span class="ui">Print…</span> at its end.</td></tr>
       <tr><td>2</td><td>Look at the controls before choosing a 2D space.</td><td><span class="ui">Page</span>, the layer checkboxes, <span class="ui">Export PDF</span> and <span class="ui">Print…</span> are off until a 2D space is chosen.</td></tr>
       <tr><td>3</td><td>Set <span class="ui">2D space</span> to <span class="ui">Assets</span> and <span class="ui">Page</span> to <span class="ui">A4</span>.</td><td>The other controls turn on. The choices are kept. Page offers A4, A3, A2, A1 and A0.</td></tr>
       <tr><td>4</td><td>Untick the Annotation layer.</td><td>It is left out of the plot.</td></tr>
@@ -370,10 +671,10 @@
 
 <section class="g-feature" id="doc-datasheet">
   <h2>Open an object's datasheet</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">DOC-datasheet</span><span>Roadmap 07.4</span><span>Review check F1</span></div>
-  <p class="g-summary">Double-click an object to open its datasheet, the object's everyday screen.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-11</span><span class="g-id">DOC-datasheet</span><span>Roadmap 07.4</span><span>Review check F1</span></div>
+  <p class="g-summary">Open an object's datasheet, the screen its values are viewed and edited on and that prints: the object window's Data sheet tab, or right-click a symbol → Open datasheet.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Double-click an object in the explorer or a symbol on the 2D space; right-click a symbol → <span class="ui">Open datasheet</span>; the object window's <span class="ui">Data sheet</span> tab</dd>
+    <dt>Where</dt><dd>The object window's <span class="ui">Data sheet</span> tab (a double-click opens the window on <span class="ui">Attributes</span>); right-click a symbol → <span class="ui">Open datasheet</span></dd>
     <dt>Who</dt><dd>Anyone who may view the project, also read-only users</dd>
     <dt>Before you start</dt><dd>The project has a pump Pump1 and a valve V1 on the 2D space <span class="ui">Assets</span>.</dd>
   </dl>
@@ -381,9 +682,9 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Expand <span class="ui">Assets</span> and double-click <span class="ui">Pump1</span>.</td><td>A tab “Datasheet of Pump1” opens with the heading “Centrifugal pump datasheet”. The header shows the project and “Pump1 / Centrifugal pump”; a <span class="ui">Nozzles</span> table lists “suction”.</td></tr>
-      <tr><td>2</td><td>On the <span class="ui">Assets</span> 2D space, with the <span class="ui">Select</span> tool on, double-click the Pump1 symbol.</td><td>The same datasheet opens. With another tool on, a double-click does not open it. A double-click on an off-page connector opens the 2D space it continues on instead.</td></tr>
-      <tr><td>3</td><td>Double-click <span class="ui">V1</span> in the explorer.</td><td>A valve has no designed layout, so its object page opens on the <span class="ui">Attributes</span> tab with the heading V1.</td></tr>
+      <tr><td>1</td><td>Expand <span class="ui">Assets</span>, double-click <span class="ui">Pump1</span>, then click <span class="ui">Data sheet</span>.</td><td>Pump1's object window opens on <span class="ui">Attributes</span>, whatever tab you chose last. On <span class="ui">Data sheet</span>, “Datasheet of Pump1” shows with the heading “Centrifugal pump datasheet”. The header shows the project and “Pump1 / Centrifugal pump”; a <span class="ui">Nozzles</span> table lists “suction”.</td></tr>
+      <tr><td>2</td><td>On the <span class="ui">Assets</span> 2D space, with the <span class="ui">Select</span> tool on, double-click the Pump1 symbol.</td><td>Pump1's object window opens on the <span class="ui">Attributes</span> tab, as in the explorer. Right-click the symbol → <span class="ui">Open datasheet</span>: the tab “Datasheet of Pump1” opens with the same datasheet. With another tool on, a double-click does not open it. A double-click on an off-page connector opens the 2D space it continues on instead.</td></tr>
+      <tr><td>3</td><td>Right-click the V1 symbol → <span class="ui">Open datasheet</span>.</td><td>A valve has no designed layout, so its object window opens on the <span class="ui">Attributes</span> tab with the heading V1.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/datasheet.webp" alt="Pump1&#x27;s Centrifugal pump datasheet with the sections Identification, Operating conditions, Construction and Nozzles, and Export PDF on its bar." width="2160" height="1350" loading="lazy"><figcaption>The datasheet of Pump1.</figcaption></figure>
@@ -441,7 +742,7 @@
 
 <section class="g-feature" id="doc-datasheet-document">
   <h2>Datasheet documents</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">DOC-datasheet-document</span><span>Roadmap 07.4, 07.7</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-datasheet-document</span><span>Roadmap 07.4, 07.7</span></div>
   <p class="g-summary">A datasheet document puts an object's datasheet under revision control.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">New document…</span> → <span class="ui">Datasheet document</span></dd>
@@ -452,12 +753,13 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, choose <span class="ui">Datasheet document</span>, and click <span class="ui">Create</span>.</td><td>The document's window opens with its Revisions panel.</td></tr>
+      <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, choose <span class="ui">Datasheet document</span>, and click <span class="ui">Create</span>.</td><td>The document's window opens with its Revisions panel and <span class="ui">Tags</span>: “No object yet”.</td></tr>
+      <tr><td>2</td><td>Type <code>Pump1</code> in <span class="ui">Add a tag</span> and click <span class="ui">Pump1</span>.</td><td>“The datasheet is Pump1's.”; its <span class="ui">Data sheet</span> tab shows Pump1's datasheet.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">When a datasheet document's revision is issued, E1 records the object with its children and the layout version; its PDF is named “…-datasheet-Rev-&lt;label&gt;.pdf”.</p>
-  <p class="g-warn">The window has no picker for the object yet: the object can only be chosen by asking Alex (with its AI help) or through the API. Until then a datasheet document cannot be completed from the screen alone.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a></p>
+  <p class="g-note">Choose whose datasheet it is under <span class="ui">Tags</span> in its window: type a tag in <span class="ui">Add a tag</span> and click it. Several tags of one class make <a href="#doc-spec-datasheet-tags">a datasheet for several tags</a>.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a>, <a href="guide-documents.html#doc-spec-datasheet-tags">A datasheet for several tags</a></p>
 </section>
 
 <section class="g-feature" id="doc-hookup-schedule">
@@ -473,19 +775,44 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click <span class="ui">Assets ▸ Hookups</span> → <span class="ui">Hookup schedule</span>.</td><td>The document <span class="ui">Hookup schedule</span> opens; it is listed in <span class="ui">Revisions</span>. Its window has the revisions panel and a table of the hookups (Hookup, Type, Hookup drawing, Instruments). Doing it again opens the same document: a project has one.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">New revision</span> and then <span class="ui">Export PDF</span>.</td><td>A PDF downloads. Page 1 lists every hookup and how many instruments use it; then each hookup has a page of its own with its data, <em>Instruments that use it</em> (tag, class, description) and <em>Bill of material</em> with a column <em>Total for n instruments</em>. Every page shows the project, the revision and the date.</td></tr>
+      <tr><td>1</td><td>Right-click <span class="ui">Assets ▸ Hookups</span> → <span class="ui">Hookup schedule</span>.</td><td>The document <span class="ui">Hookup schedule</span> opens; it is listed in <span class="ui">Revisions</span>. Its window has the versions and revisions panel and a table of the hookups (Hookup, Type, Hookup drawing, Instruments). Doing it again opens the same document: a project has one.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Export PDF</span>.</td><td>A PDF downloads. Page 1 lists every hookup and how many instruments use it; then each hookup has a page of its own with its data, <em>Instruments that use it</em> (tag, class, description) and <em>Bill of material</em> with a column <em>Total for n instruments</em>. Every page shows the project, the revision and the date.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Export Excel</span>.</td><td>A workbook downloads with the project, document, revision and date on top and a row per instrument: Hookup, Hookup type, Mounting, Hookup drawing, Instrument, Instrument class, Instrument description. A hookup no instrument uses has one row of its own.</td></tr>
       <tr><td>4</td><td>Issue the revision (<a href="#doc-issue">Issue a revision</a>).</td><td>The PDF is kept with the revision as it was. The hookups and the instruments that used them are frozen with it, so <a href="#doc-changed-since">Changed since</a> shows what changed afterwards.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">The schedule is always made from the model: a new hookup or an instrument given another hookup shows in the next export without anything to update.</p>
-  <p class="g-related">Related: <a href="guide-objects.html#obj-hookups">Hookups</a> · <a href="#doc-revisions">Revisions</a> · <a href="#doc-issue">Issue a revision</a> · <a href="#doc-changed-since">Changed since</a></p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-hookups">Hookups</a> · <a href="#doc-revisions">Revisions</a> · <a href="#doc-issue">Issue a revision</a> · <a href="#doc-changed-since">Changed since</a> · <a href="#doc-hookup-drawing">A hookup drawing</a></p>
+</section>
+
+<section class="g-feature" id="doc-hookup-drawing">
+  <h2>A hookup drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-hookup-drawing</span><span>Roadmap HU</span></div>
+  <p class="g-summary">A hookup's drawing is made from the model: an arrangement sketch with a balloon per part, the hookup's bill of material, the instruments that use it and notes, on one A3 page with the title block. Each hookup has one; it is in <span class="ui">Revisions</span> and is revised and issued like any other document.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A hookup's window (<span class="ui">Assets ▸ Hookups</span>): <span class="ui">Hookup drawing</span>, <span class="ui">Fill bill of material</span>; then the drawing's window: <span class="ui">Arrangement</span>, <span class="ui">Fill bill of material</span>, <span class="ui">Export PDF</span></dd>
+    <dt>Who</dt><dd>A project role that may create documents (to make it) and edit generated drawings (to change its arrangement); filling the bill of material needs the permission to edit attributes.</dd>
+    <dt>Before you start</dt><dd>The project uses hookups and has one, with its <span class="ui">Hookup type</span> set (<a href="guide-objects.html#obj-hookups">Hookups</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a hookup and click <span class="ui">Hookup drawing</span>.</td><td>The document <em>&lt;hookup&gt; hookup drawing</em> opens; it is listed in <span class="ui">Revisions</span>. Its template follows the hookup type: Process → <span class="ui">Pressure</span>, Pneumatic → <span class="ui">Instrument air supply</span>, Electrical → <span class="ui">Cable entry</span>, Mounting and support → <span class="ui">Pipe stand</span>. Clicking it again opens the same drawing.</td></tr>
+      <tr><td>2</td><td>Under <span class="ui">Arrangement</span>, choose <span class="ui">Template</span> <span class="ui">Differential pressure</span>, <span class="ui">Service</span> <span class="ui">Steam</span> and <span class="ui">Manifold</span> <span class="ui">5-valve</span>.</td><td>The drawing below shows two tappings (H and L) with root valves and condensate pots, the impulse lines sloping down to a 5-valve manifold, and the transmitter with the tag of the first instrument that uses the hookup. With <span class="ui">Gas</span> the instrument is above the pipe and the lines slope back to the process.</td></tr>
+      <tr><td>3</td><td>Type <span class="ui">Impulse tube</span>, <span class="ui">Material</span>, <span class="ui">Impulse line length (m)</span> or <span class="ui">Process connection</span> and press Enter.</td><td>The change is saved; the notes on the drawing show it. The manifold offered fits the template: None or 2-valve for Pressure, 3-valve or 5-valve for Differential pressure.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Fill bill of material</span>.</td><td>The hookup's <span class="ui">Bill of material</span> lists the arrangement's parts with item numbers as the balloons on the drawing, sizes and materials from the options, and quantities per hookup (two root valves and twice the tube length for differential pressure). If it already has rows, E1 asks <em>Replace the n rows of the bill of material?</em> first.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Export PDF</span>.</td><td>One A3 page downloads: the sketch, <em>Bill of material</em>, <em>Instruments that use it (n)</em> and <em>Notes</em>, with the project, document, revision and <em>Not to scale</em> in the title block.</td></tr>
+      <tr><td>6</td><td>Issue a revision (<a href="#doc-issue">Issue a revision</a>).</td><td>The PDF is kept with the revision. The hookup and its instruments are frozen with it, so a changed bill of material or a new instrument shows in <a href="#doc-changed-since">Changed since</a>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The sketch is a standard arrangement, not to scale. The table on the drawing is the hookup's bill of material as it is, so rows changed by hand on the hookup's Attributes tab show too. A drawing whose hookup is deleted says <em>The hookup of this drawing is gone</em> and exports nothing.</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-hookups">Hookups</a> · <a href="#doc-hookup-schedule">The hookup schedule</a> · <a href="#doc-revisions">Revisions</a> · <a href="#doc-issue">Issue a revision</a></p>
 </section>
 
 <section class="g-feature" id="doc-datasheet-designer">
   <h2>The datasheet designer</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-07</span><span class="g-id">DOC-datasheet-designer</span><span>Roadmap 07.5</span><span>Review check F3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-datasheet-designer</span><span>Roadmap 07.5</span><span>Review check F3</span></div>
   <p class="g-summary">Copy or create a datasheet layout, add fields, preview it with an object, and publish it for a class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Datasheets</span></dd>
@@ -496,53 +823,205 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Configuration</span> in the left rail, then <span class="ui">Datasheets</span>.</td><td>Datasheet layouts shows <span class="ui">Project</span>, <span class="ui">New layout…</span>, and the layouts under This project, Company library and Content packages, each with its class and version.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Configuration</span> in the left rail, then <span class="ui">Datasheets</span>.</td><td>The <span class="ui">Projects</span> pane is between the section list and the layouts (tick the project whose layouts you want). Beside it, <span class="ui">Filter layouts</span> and <span class="ui">New layout…</span>, and the layouts under This project, All projects (company library) and Content packages, each with its count. A layout shows its class and version, and <span class="ui">Draft</span> or <span class="ui">Used here</span> when that applies. Under <span class="ui">All projects</span> a new layout is for all projects, and <span class="ui">Use for every project that follows</span> sets it in each of them; with a project's name clicked in the <span class="ui">Projects</span> pane, both are for that project.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Centrifugal pump datasheet</span>.</td><td>It reads “Content package, read only”: there is no <span class="ui">Publish</span>, and <span class="ui">Copy to edit…</span> is shown.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">New layout…</span>, search <code>Centrifugal pump</code>, set Class to <span class="ui">Centrifugal pump</span>, type <code>plant1.pump</code> as the layout key with In <span class="ui">This project</span>, and click <span class="ui">Create from the class</span>.</td><td>The new layout opens: “This project · not published”. A key in use is refused: “That key is taken.”.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">New layout…</span>. In the dialog, search <code>Centrifugal pump</code>, set Class to <span class="ui">Centrifugal pump</span>, keep For projects on <span class="ui">Only Demo Plant</span>, type <code>plant1.pump</code> as the Key, and click <span class="ui">Create from the class</span>.</td><td>The new layout opens on the right: “This project · not published”. A key in use is refused: “That key is taken.”. <span class="ui">Cancel</span> or <kbd>Esc</kbd> closes the dialog.</td></tr>
       <tr><td>4</td><td>Set <span class="ui">Name</span> to <code>Plant 1 pump datasheet</code>.</td><td>The name shows “For Centrifugal pump and its subclasses.”.</td></tr>
-      <tr><td>5</td><td>In section Identification, choose <span class="ui">Design pressure / In</span> in “Add a field to Identification” and type <code>psi</code> in its unit.</td><td>The field is added with unit psi.</td></tr>
+      <tr><td>5</td><td>In section Identification, choose <span class="ui">Design pressure / In</span> in <span class="ui">Add field…</span> and type <code>psi</code> in its Unit.</td><td>The field is added with unit psi.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Undo</span>.</td><td>The unit is empty again.</td></tr>
       <tr><td>7</td><td>Click <span class="ui">Save draft</span>.</td><td>“Draft saved.”.</td></tr>
       <tr><td>8</td><td>Click <span class="ui">Publish</span>.</td><td>“Published as version 1.”.</td></tr>
       <tr><td>9</td><td>In <span class="ui">Preview with object</span>, type <code>Pump1</code> and click <span class="ui">Pump1</span>.</td><td>The preview “Preview of Pump1” shows “Plant 1 pump datasheet”.</td></tr>
-      <tr><td>10</td><td>Double-click Pump1 in the explorer.</td><td>Its datasheet heading is “Plant 1 pump datasheet”, with a “Design pressure / In” field in Identification.</td></tr>
+      <tr><td>10</td><td>Double-click Pump1 in the explorer and click <span class="ui">Data sheet</span>.</td><td>Its datasheet heading is “Plant 1 pump datasheet”, with a “Design pressure / In” field in Identification.</td></tr>
     </tbody>
   </table></div>
   <h3>What you can change</h3>
-  <p>Pages (<span class="ui">Add page</span>, <span class="ui">Remove page</span>), sections (<span class="ui">Add section</span>, <span class="ui">Columns</span> 1–3, <span class="ui">Up</span>, <span class="ui">Down</span>, <span class="ui">Remove section</span>), groups (<span class="ui">Add group</span>, <span class="ui">Add field to group</span>), tables (<span class="ui">Add table</span>, <span class="ui">Add column</span>), and per field its label, unit, <span class="ui">read only</span> and <span class="ui">Remove</span>. Problems with fields the class lacks are listed under “Binding problems”. <span class="ui">Submit for review</span> says “Submitted for review.”; <span class="ui">Withdraw vN</span> asks “Withdraw version N? Projects pinned to it still read it.” and then says “Version N withdrawn.”; <span class="ui">Use for this project</span> says “This project uses it for the class.”.</p>
-  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/config-datasheets.webp" alt="Configuration → Datasheets: Project Demo Plant, New layout…, This project None, Company library None, and the content package layouts Centrifugal pump, Equipment, Instrument and Function datasheet, each v1." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Configuration</span> → <span class="ui">Datasheets</span>.</figcaption></figure>
+  <p>Pages (<span class="ui">Add page</span>, <span class="ui">Remove page</span>), sections (<span class="ui">Add section</span>, <span class="ui">Columns</span> 1–3, <span class="ui">Up</span>, <span class="ui">Down</span>, <span class="ui">Remove section</span>), groups (<span class="ui">Add group</span>, <span class="ui">Add field…</span> in the group, <span class="ui">Remove group</span>), tables (<span class="ui">Add table</span>, <span class="ui">Add column</span>), and each field as a row of Label, Attribute, Unit, read only and × to remove it. Problems with fields the class lacks are listed under “Binding problems”. <span class="ui">Submit for review</span> says “Submitted for review.”; <span class="ui">Withdraw vN</span> asks “Withdraw version N? Projects pinned to it still read it.” and then says “Version N withdrawn.”; <span class="ui">Use for this project</span> says “This project uses it for the class.”.</p>
+  <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/config-datasheets.webp" alt="Configuration → Datasheets: the Projects list with Demo Plant; beside it Filter layouts, New layout…, This project None, All projects (company library) None and the content package layouts; on the right Centrifugal pump datasheet, Content package, read only, with its sections and fields." width="2160" height="1350" loading="lazy"><figcaption><span class="ui">Configuration</span> → <span class="ui">Datasheets</span>.</figcaption></figure>
   <p class="g-warn"><kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) does not undo layout edits: use the designer's <span class="ui">Undo</span> button. Outside a text field, <kbd>Ctrl+Z</kbd> undoes your last saved change to the project instead.</p>
-  <p class="g-warn">One layout per class. A layout has no logo or other fixed elements yet.</p>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-documents.html#doc-datasheet-pdf">Datasheet PDF</a>, <a href="guide-library.html#lib-configuration">The Configuration place</a>, <a href="guide-library.html#lib-company-library">The company library</a></p>
+  <p class="g-warn">A layout has no logo or other fixed elements yet. For layouts of components, conditions and comparing a copy with its source, see <a href="#doc-spec-datasheet-designer">Design a specification datasheet</a>.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-documents.html#doc-datasheet-pdf">Datasheet PDF</a>, <a href="guide-library.html#lib-configuration">The Configuration place</a>, <a href="guide-library.html#lib-company-library">The company library</a>, <a href="guide-documents.html#doc-spec-datasheet-designer">Design a specification datasheet</a></p>
 </section>
 
 <section class="g-feature" id="doc-revisions-filter">
   <h2>Filter documents by kind</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span>Updated 2026-11-09</span><span class="g-id">DOC-revisions-filter</span><span>Review check E4</span></div>
-  <p class="g-summary">The All ▾ filter on the Documents page is meant to show only drawings, lists or datasheets.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-revisions-filter</span><span>Roadmap M4.25</span><span>Review check E4</span></div>
+  <p class="g-summary">The All ▾ filter on the Documents page shows only the drawings, the lists or the datasheets.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Documents section page → <span class="ui">All</span> ▾</dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
   </dl>
-  <p class="g-dev">The filter is on screen but not built: choosing <span class="ui">Drawings</span>, <span class="ui">Lists</span> or <span class="ui">Datasheets</span> only changes the button's label. It is planned for milestone M4.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Show only the drawings, the lists or the datasheets of the Documents section.</li>
-  </ul>
-  <p class="g-warn">Review check E4 (“filter documents by kind”) cannot pass yet.</p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Documents</span> under the project in the explorer.</td><td>Its page lists every document and folder; the filter reads <span class="ui">All</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">All</span> ▾ and choose <span class="ui">Drawings</span>.</td><td>Only the 2D spaces and plots are listed, with the folders. The button reads <span class="ui">Drawings</span>.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Lists</span>, then <span class="ui">Datasheets</span>.</td><td>Only the list documents, then only the datasheet documents. With none, the page reads "No lists here." or "No datasheets here."</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">All</span>, or open another section.</td><td>Everything is listed again: the filter starts at <span class="ui">All</span> each time you open the section.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Folders always stay in the list, so what is filed in them can still be opened. Uploaded documents show under <span class="ui">All</span>.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-revisions-section">The Documents section</a></p>
 </section>
 
 <section class="g-feature" id="doc-spec-datasheets">
-  <h2>Standard specification datasheets (ISA 20, API)</h2>
-  <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">DOC-spec-datasheets</span></div>
-  <p class="g-summary">Specification datasheets in the industry formats, with operating-case tables and repeated blocks.</p>
-  <p class="g-dev">Planned: the design is a draft for review (2026-11-05) and not yet a roadmap stage. Nothing of it is in the app today.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Use datasheets laid out like ISA 20 and API specification sheets.</li>
-    <li>Fill operating-case tables and repeated blocks.</li>
-  </ul>
-  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet-designer">The datasheet designer</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a></p>
+  <h2>Specification datasheets</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheets</span><span>Roadmap 24.1, 24.2</span><span>Review check V1</span></div>
+  <p class="g-summary">A datasheet of numbered lines, tables of parts that continue on continuation pages, operating cases and revision marks, the same on screen and in the PDF.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An object's <span class="ui">Data sheet</span> tab, when its class uses a specification layout (a <a href="#doc-spec-datasheet-templates">standard template</a> or one made in the <a href="#doc-spec-datasheet-designer">designer</a>)</dd>
+    <dt>Who</dt><dd>Any project role reads it; a role that may edit objects types values</dd>
+    <dt>Before you start</dt><dd>The project uses library version 24 (it has the <span class="ui">Specification</span> content package). A centrifugal pump P-101 with two nozzles, and Configuration → Datasheets → <span class="ui">Centrifugal pump specification</span> → <span class="ui">Use for this project</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Double-click P-101 in the explorer and click <span class="ui">Data sheet</span>.</td><td>The datasheet's lines are numbered 1, 2, 3 … down the page; Identification shows the tag, name and class; each line's label is the attribute's name in E1.</td></tr>
+      <tr><td>2</td><td>Type a value in a line and press <kbd>Enter</kbd>.</td><td>It is saved with its unit, as on any datasheet; a line with a second box (an extra cell, such as Outlet) saves each box on its own.</td></tr>
+      <tr><td>3</td><td>Scroll to the end.</td><td>Remarks, the revision chronicle and the foot of the page: “Inspired by API 610 datasheet”.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Export PDF</span>.</td><td>The PDF has the same lines with their numbers, the same tables and pages, and the same footer.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A list of parts longer than the rows the layout prints goes on a continuation page at the end, with its header repeated. A column repeater (one column per stage or side) prints in bands, each with the label column.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheet-rows">Add row and Remove row on a datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-cases">Operating cases on the datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-marks">Revision marks on a datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-templates">Datasheet templates inspired by ISA and API datasheets</a>, <a href="guide-documents.html#doc-spec-datasheet-designer">Design a specification datasheet</a>, <a href="guide-documents.html#doc-spec-datasheet-tags">A datasheet for several tags</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-rows">
+  <h2>Add row and Remove row on a datasheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-rows</span><span>Roadmap 24.2</span><span>Review check V1</span></div>
+  <p class="g-summary">Add and remove the parts a datasheet lists (nozzles, stages, sides) right on the datasheet.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A table of parts on a specification datasheet</dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>P-101's datasheet of <a href="#doc-spec-datasheets">Specification datasheets</a> is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Under the nozzles table, click <span class="ui">+ Add row</span>.</td><td>A nozzle owned by P-101 is added as a new row.</td></tr>
+      <tr><td>2</td><td>Click outside the fields and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The nozzle is gone again in one step.</td></tr>
+      <tr><td>3</td><td>Add it again, then click × at the end of its row and confirm.</td><td>“Remove this row? A part of the object goes to the Deleted bin; a related object only loses its link.” The row goes; the nozzle is in the Deleted bin.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The ports of the object's symbol (suction, discharge) have no ×: they belong to the symbol. In a table of related objects (a driver, a seal), × removes only the relationship. A column repeater has <span class="ui">+ Add column</span> and a × in each column's head.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-cases">
+  <h2>Operating cases on the datasheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-cases</span><span>Roadmap 24.3</span><span>Review check V2</span></div>
+  <p class="g-summary">A case table shows the object’s cases side by side: inherited values, a case’s own values, Reset and + Add case.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A case table (for example Operating conditions) on a specification datasheet</dd>
+    <dt>Who</dt><dd>A project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>P-101 has a flow and a head; its datasheet is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Under Operating conditions, click <span class="ui">+ Add case</span>.</td><td>A new case column; its cells show P-101's values, pale: they are inherited from the object (the Design column).</td></tr>
+      <tr><td>2</td><td>Type a flow in the case's column and press <kbd>Enter</kbd>.</td><td>The case has its own flow (no longer pale) and a <span class="ui">Reset</span>; P-101's own flow is unchanged.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Reset</span>.</td><td>The case inherits P-101's flow again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A case's role (maximum, rated, normal, minimum, design, start-up) is shown with its name; a template that orders roles puts the columns in that order. Alex sets a role with <code>set_case_role</code>. Cases are the object's cases, the same as everywhere in E1.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-marks">
+  <h2>Revision marks on a datasheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-marks</span><span>Roadmap 24.3</span><span>Review check V2</span></div>
+  <p class="g-summary">After a datasheet document is issued, each value changed since shows the next revision beside it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A specification datasheet whose object has a <a href="#doc-datasheet-document">datasheet document</a></dd>
+    <dt>Who</dt><dd>Any project role</dd>
+    <dt>Before you start</dt><dd>A datasheet document for P-101, issued as revision A.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Change P-101's speed on its datasheet.</td><td>That line shows a small box with B beside the value; pointing at it says “Changed since the issued revision; issued next in B”. The other lines have no mark.</td></tr>
+      <tr><td>2</td><td>Issue revision B of the datasheet document.</td><td>The marks are gone until the next change.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a>, <a href="guide-documents.html#doc-datasheet-document">Datasheet documents</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-tags">
+  <h2>A datasheet for several tags</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-tags</span><span>Roadmap 24.7</span><span>Review check V5</span></div>
+  <p class="g-summary">One datasheet document for several objects of one class: shared values once, See list for differing ones, one change sets all.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A datasheet document's window: <span class="ui">Tags</span>, and its <span class="ui">Data sheet</span> tab</dd>
+    <dt>Who</dt><dd>A project role that may write documents chooses the tags; a role that may edit objects types values</dd>
+    <dt>Before you start</dt><dd>Three pressure transmitters PT-401, PT-402 and PT-403 with the same response time; PT-403 has another dead band.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Make a datasheet document and, under <span class="ui">Tags</span>, add PT-401, PT-402 and PT-403 with <span class="ui">Add a tag</span>.</td><td>“The datasheet is for PT-401 and 2 more.” PT-401 reads (master). A tag of another class is refused: the tags of one datasheet share one class.</td></tr>
+      <tr><td>2</td><td>Open the <span class="ui">Data sheet</span> tab.</td><td>The tags are listed above the page. The response time shows once; the dead band is empty with <span class="ui">See list</span>, which lists PT-401: 0.1, PT-402: 0.1, PT-403: 0.2. The Tags table at the end has a row per tag.</td></tr>
+      <tr><td>3</td><td>Type <code>0.3</code> in the dead band and press <kbd>Enter</kbd>.</td><td>All three have 0.3 %; the field shows it once.</td></tr>
+      <tr><td>4</td><td>Click outside the fields and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>All three go back at once: See list again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The layout is the master's. Parts (nozzles, cases) are the master's; each tag keeps its own and opens its own datasheet with a double-click. Issuing a revision records every tag. Export PDF prints See list and the Tags table.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet-document">Datasheet documents</a>, <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-templates">
+  <h2>Datasheet templates inspired by ISA and API datasheets</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-templates</span><span>Roadmap 24.4, 24.5</span><span>Review check V3</span></div>
+  <p class="g-summary">Ready-made specification datasheets for instruments, pumps and exchangers, E1’s own templates inspired by ISA, API and ASME specification datasheets.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Datasheets</span> → Content packages</dd>
+    <dt>Who</dt><dd>Anyone reads them; <span class="ui">Use for this project</span> and copying need Datasheet design on the project</dd>
+    <dt>Before you start</dt><dd>The project uses library version 24.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open Configuration → Datasheets.</td><td>Under Content packages, templates such as <span class="ui">Electromagnetic flowmeter specification</span> read “inspired by ISA datasheets”, and <span class="ui">Centrifugal pump specification</span> reads “inspired by API datasheets”.</td></tr>
+      <tr><td>2</td><td>Make an Electromagnetic flowmeter FT-101 and open its <span class="ui">Data sheet</span>.</td><td>It opens in its template: its lines labelled with E1’s attribute names, and “Inspired by ISA specification datasheets” at the foot.</td></tr>
+      <tr><td>3</td><td>Open <span class="ui">Centrifugal pump specification</span> and click <span class="ui">Use for this project</span>.</td><td>“This project uses it for the class.” Every centrifugal pump's datasheet now opens in it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Only the idea comes from the ISA, API and ASME datasheets: the layout, sections, wording and line numbers are E1’s own, and no form name or number, legend, logo or copyright of theirs is used. A template is read only; <span class="ui">Copy to edit…</span> makes your own, which can later take over changes from it (<a href="#doc-spec-datasheet-designer">Design a specification datasheet</a>).</p>
+  <p class="g-dev">Instruments, valves, pumps and exchangers have templates; compressors, turbines, fans, tanks and fired heaters follow after the first release.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a>, <a href="guide-documents.html#doc-spec-datasheet-designer">Design a specification datasheet</a></p>
+</section>
+
+<section class="g-feature" id="doc-spec-datasheet-designer">
+  <h2>Design a specification datasheet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-designer</span><span>Roadmap 24.6</span><span>Review check V4</span></div>
+  <p class="g-summary">Build a layout from components, make it apply only to some objects, preview several objects, and take over changes from the layout it was copied from.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Datasheets</span></dd>
+    <dt>Who</dt><dd>Datasheet design on the project</dd>
+    <dt>Before you start</dt><dd>Two centrifugal pumps, P-101 and P-102 (material SS316).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">New layout…</span>, choose Class <span class="ui">Centrifugal pump</span>, Made of <span class="ui">Components (specification datasheet)</span>, key <code>plant1.pump-spec</code>, and click <span class="ui">Create</span>.</td><td>An empty layout opens with Page 1 and <span class="ui">Add component</span>.</td></tr>
+      <tr><td>2</td><td>In <span class="ui">Add component</span> choose <span class="ui">Field table</span>, then <span class="ui">Row list</span>.</td><td>Both are on Page 1 with their title, <span class="ui">Up</span>, <span class="ui">Down</span>, <span class="ui">Details</span> and <span class="ui">Remove</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Details</span> of the field table, add lines in the text, and click <span class="ui">Apply details</span>.</td><td>The lines are in the preview. Text that is not valid is refused with the reason.</td></tr>
+      <tr><td>4</td><td>In <span class="ui">Preview with object</span> add P-101 and P-102.</td><td>One tab per pump, each filled with its values.</td></tr>
+      <tr><td>5</td><td>Under <span class="ui">Applies when</span>, click <span class="ui">Add condition</span> and set Material is <code>SS316</code>.</td><td>P-101's tab says the layout does not apply to it; P-102's is filled.</td></tr>
+      <tr><td>6</td><td>Publish. Open a template under Content packages, click <span class="ui">Copy to edit…</span> and <span class="ui">Copy</span>.</td><td>The copy says “Copied from … version 1” with <span class="ui">Compare with source</span>.</td></tr>
+      <tr><td>7</td><td>When the source has a newer version, click <span class="ui">Compare with source</span>, tick the changes and click <span class="ui">Take over selected</span>.</td><td>Each difference reads Changed in the source, New in the source, Removed in the source or Changed in both; after taking over, “Taken over: N.”, and your own changes stay.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The components are Field table, Row list, Column repeater, Case table, Attribute grid, Option group, Notes, Text and Revision chronicle. With several conditions, all must hold. A layout without a condition applies to every object of its class; one with a condition comes first for the objects it applies to.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-datasheet-designer">The datasheet designer</a>, <a href="guide-documents.html#doc-spec-datasheet-templates">Datasheet templates inspired by ISA and API datasheets</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-lists.html">Lists and queries</a> · <a href="guide-collaboration.html">Working together</a> →</p>

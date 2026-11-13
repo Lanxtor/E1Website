@@ -85,7 +85,7 @@
       <tr><td>4</td><td>Press <kbd>Ctrl+S</kbd> (<kbd>⌘S</kbd>), also while typing in a field.</td><td>The status bar shows <span class="ui">Saved</span>.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small"><img src="assets/img/guides/menu-file.webp" alt="The open File menu: New project, New project from the sample, Save Ctrl+S, Print… Ctrl+P, Import, Project settings…, Organization…, each with its icon" width="380" height="382" loading="lazy"><figcaption>The File menu.</figcaption></figure>
+  <figure class="g-shot g-small"><img src="assets/img/guides/menu-file.webp" alt="The open File menu: New project, Generate DEXPI sample project…, New project from a template…, Save project as template…, Save Ctrl+S, Print… Ctrl+P, Import, Project settings…, Organization…, each with its icon" width="380" height="382" loading="lazy"><figcaption>The File menu.</figcaption></figure>
   <p class="g-note">The exports are where their content is: a 2D space's page has <span class="ui">Export PDF</span>, a project's page <span class="ui">Export</span> (every saved query in one workbook), and a section's page <span class="ui">Import</span> and <span class="ui">Export</span>.</p>
   <p class="g-related">Related: <a href="guide-projects.html#prj-new-project">Create a project</a> · <a href="guide-projects.html#prj-project-templates">Project templates</a> · <a href="guide-documents.html#doc-sheet-pdf">2D space PDF and printing</a> · <a href="guide-lists.html#list-excel-export">Excel export</a> · <a href="guide-organization.html#org-organization-dialog">The Organization dialog</a></p>
 </section>
@@ -153,8 +153,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Was</th><th>Now</th></tr></thead>
     <tbody>
-      <tr><td><span class="ui">Datasheet…</span></td><td>Double-click the object in the explorer or its symbol on the drawing, or right-click the symbol → <span class="ui">Open datasheet</span>.</td></tr>
-      <tr><td><span class="ui">Revisions</span></td><td>The project's <span class="ui">Documents</span> section in the explorer, and the Revisions panel in each document's window.</td></tr>
+      <tr><td><span class="ui">Datasheet…</span></td><td>Double-click the object in the explorer and click <span class="ui">Data sheet</span>, or right-click its symbol on the drawing → <span class="ui">Open datasheet</span>.</td></tr>
+      <tr><td><span class="ui">Revisions</span></td><td>The project's <span class="ui">Documents</span> section in the explorer, and the Versions and revisions panel in each document's window and 2D space's page.</td></tr>
       <tr><td><span class="ui">Import Excel…</span></td><td>A section's page → <span class="ui">Import</span>.</td></tr>
     </tbody>
   </table></div>
@@ -260,7 +260,7 @@
     <li><strong>Inbox</strong> (bell): with sign-in, the real Inbox with the heading <span class="ui">Inbox</span>: mentions, replies and tasks. Without sign-in it shows two example notifications ("A drawing was shared with you", "A review was requested").</li>
     <li><strong>Configuration</strong>: object classes, attributes, shapes, relationships, the company library, catalogs and the project settings. See the library guide.</li>
     <li><strong>Settings</strong> (gear): your own preferences. See <a href="#gs-settings">Your settings</a>.</li>
-    <li><strong>Account</strong> (your initial): with sign-in, the heading <span class="ui">Account</span>, your profile, <span class="ui">Your access</span> (license, organization role, projects), <span class="ui">Passkeys</span> and <span class="ui">Session</span> with <span class="ui">Sign out</span>. Without sign-in it is a placeholder.</li>
+    <li><strong>Account</strong> (your initial): with sign-in, the heading <span class="ui">Account</span>, your profile with <span class="ui">Sign in as someone else</span> and <span class="ui">Sign out</span> (and <span class="ui">Switch organization</span> when you belong to more than one), <span class="ui">Your access</span> (license, organization role, and your projects in a table), <span class="ui">Passkeys</span> and <span class="ui">Access tokens</span>. Without sign-in it is a placeholder.</li>
     <li><strong>History</strong> (every change in the project) and <strong>Messages</strong> have no button on the screen yet. The changes of one object are on its <a href="guide-collaboration.html#col-history">History tab</a>.</li>
   </ul>
   <h3>Steps</h3>
@@ -280,7 +280,7 @@
 
 <section class="g-feature" id="gs-tabs">
   <h2>Tabs and the path bar</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">GS-tabs</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-12</span><span class="g-id">GS-tabs</span></div>
   <p class="g-summary">Everything you open (a 2D space, an object, a list, a place) gets a tab. Under the tabs the path bar shows where the open item lives, from the organization down. E1 remembers your tabs for you.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The tab strip above the editor, and the path bar under it</dd>
@@ -291,6 +291,7 @@
   <ul>
     <li>Each tab has an icon, a name, <span class="ui">Detach</span> (to a floating window) and <span class="ui">Close</span>. Hover a tab to see its full path, for example <em>Demo Company / Demo Plant / Model Space / Assets</em>.</li>
     <li>Middle-click a tab to close it. Turn the mouse wheel over the strip to scroll it sideways.</li>
+    <li>Right-click a project in the explorer → <span class="ui">Close all tabs</span> closes every tab of that project and leaves the others open; greyed out when none is open. A project moved to the Bin closes its tabs too.</li>
     <li>With many tabs, a button <span class="ui">All open tabs (N)</span> appears at the end of the strip. It lists every tab, with a search box <span class="ui">Search tabs</span>; <kbd>↑</kbd> and <kbd>↓</kbd> move through the list.</li>
     <li>Dragging a tab floats it only once the pointer leaves the tab strip; a short drag inside the strip does nothing. Tabs cannot be dragged to a new order.</li>
     <li>The path bar shows crumbs separated by <span class="ui">/</span>. The first one is the organization. Click a crumb to select that item. Places and Under construction have no path bar.</li>
@@ -593,8 +594,6 @@
     <tbody>
       <tr><td><span class="ui">Help → Under construction</span> (opens the page without an entry)</td><td>—</td><td>—</td></tr>
       <tr><td><span class="ui">New branch</span> in the Branches section's toolbar, and right-click <span class="ui">Branches</span> → <span class="ui">New branch</span></td><td>SECT-06 New branch</td><td>M8</td></tr>
-      <tr><td>The Documents section's filter <span class="ui">All</span> / <span class="ui">Drawings</span> / <span class="ui">Lists</span> / <span class="ui">Datasheets</span> (only the button label changes)</td><td>SECT-12 Section filters</td><td>M4</td></tr>
-      <tr><td>The Branches section's filter <span class="ui">All</span> / <span class="ui">Procurement</span> / <span class="ui">Construction</span></td><td>SECT-12 Section filters</td><td>M4</td></tr>
       <tr><td>The green dot titled "Open branch" on the Branches section in the explorer</td><td>TREE-05 Open branch</td><td>M8</td></tr>
       <tr><td>An object's <span class="ui">Deep view</span> tab</td><td>ATTR-04</td><td>M4</td></tr>
     </tbody>
