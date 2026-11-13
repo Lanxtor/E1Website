@@ -599,6 +599,14 @@
       "doneOn": "2026-11-11",
       "visible": true,
       "tryIt": "Open a valve on a drawn 2D space → Deep view: its card and the pipes on its ports (\"connects to (inlet)\"). Click + on a pipe for the pump beyond, Expand all to the end of the network, then click the pump and Highlight route."
+     },
+     {
+      "id": "M4.25",
+      "title": "The Documents section's filter by kind",
+      "done": true,
+      "doneOn": "2026-11-12",
+      "visible": true,
+      "tryIt": "Click Documents in the explorer and choose Drawings in the All ▾ filter: only the 2D spaces and plots are listed, with the folders; Lists and Datasheets show theirs."
      }
     ]
    },
@@ -842,11 +850,19 @@
      },
      {
       "id": "11.5",
-      "title": "Configuration for all projects or the ticked ones",
+      "title": "Configuration for all projects or one project",
       "done": true,
       "doneOn": "2026-11-12",
       "visible": true,
-      "tryIt": "Configuration → Rules: the projects are listed on the left as in Project settings. Tick two projects, New rule, For projects: Only the ticked projects, Save draft: the rule is a draft in both. Choose All projects instead and it waits in the company library for every project."
+      "tryIt": "Configuration → Rules: the Projects pane is between the section list and the rules. Click a project's name, New rule, For projects: Only that project, Save draft: the rule is that project's own. Under All projects a new rule waits in the company library for every project."
+     },
+     {
+      "id": "11.7",
+      "title": "Projects follow the company configuration, or are held",
+      "done": true,
+      "doneOn": "2026-11-12",
+      "visible": true,
+      "tryIt": "Open Configuration with nothing selected in the tree: it starts on All projects and shows the company configuration. Untick a project in the Projects pane: after its preview it reads Held at version N and takes no later publish; tick it again to follow."
      }
     ]
    },
@@ -981,7 +997,7 @@
    {
     "id": "M9",
     "title": "EI&C: wiring and loop diagrams",
-    "summary": "Wiring design without drawing: cabinets, junction boxes, and marshalling panels with rails, cards, channels, and terminals; cables and cores; signals with segregation; wiring typicals; automatic allocation of signals to terminals and channels as a proposal, worked in Panorama EI&C; wire lists and marker export; loop diagrams generated from the real wiring; fieldbus segments. Added by the owner on 2026-11-10 (00-D14): 28.1 and 28.2 run alongside piping, the rest after the rules, all before branches.",
+    "summary": "Wiring design without drawing: cabinets, junction boxes, and marshalling panels with rails, cards, channels, and terminals; cables and cores; signals with segregation; wiring typicals; automatic allocation of signals to terminals and channels as a proposal, worked in the Wiring page; wire lists and marker export; loop diagrams generated from the real wiring; fieldbus segments. Added by the owner on 2026-11-10 (00-D14): 28.1 and 28.2 run alongside piping, the rest after the rules, all before branches.",
     "mvp": true,
     "stages": [
      {
@@ -1010,11 +1026,11 @@
      },
      {
       "id": "28.4",
-      "title": "Allocation and Panorama EI&C",
+      "title": "Allocation and the Wiring page",
       "done": true,
       "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Open a unit in Systems: Panorama EI&C lists its devices; Propose wiring places each signal on a junction box, multicore pair and channel by the rules, with why; walk the hops, send a group to another box, and Accept hop."
+      "tryIt": "Open a unit in Systems: the Wiring page lists its devices; Propose wiring places each signal on a junction box, multicore pair and channel by the rules, with why; walk the hops, send a group to another box, and Accept hop."
      },
      {
       "id": "28.5",
@@ -1311,6 +1327,14 @@
       "doneOn": "2026-11-12",
       "visible": true,
       "tryIt": "Push to main: refused with Pull first while main moved; after the pull it lands as one change, and History undoes it as one."
+     },
+     {
+      "id": "15.6",
+      "title": "Branches from the selection",
+      "done": true,
+      "doneOn": "2026-11-12",
+      "visible": true,
+      "tryIt": "Select symbols or lines on a drawing, or Ctrl-click objects in the explorer, right-click: New branch… opens with them in it, Add to branch ▸ lists the open branches. The Branches page shows each branch as a card with Enter, Pull from main, Push to main and More."
      },
      {
       "id": "16.1",
@@ -1728,6 +1752,14 @@
     "summary": "Beyond the MVP: DXF drawings converted into E1 symbols and lines through a saved mapping, also into a branch; DEXPI export of a 2D space for handover (13.5); wire harness, marine and partner content packages; message queues and more formats; a script step for stored assistants; voice input in the chat; markups as PDF comments and back; hook-up drawings; options, variants and the configurator for modules, and the built-in patterns as modules. Still open: a tested installation on a second cloud and on Alibaba Cloud (M4.16, M4.22). Not planned for now: connections and mappings to other systems (19.4).",
     "mvp": false,
     "stages": [
+     {
+      "id": "11.8",
+      "title": "Named configurations: several for an organization, one per project, Change configuration… with a preview (design 11 Following)",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Configuration → New configuration… copies the company configuration as Client X standard; Change configuration… on a project shows its preview and moves it; a new project follows the default configuration."
+     },
      {
       "id": "10.CRA",
       "title": "Cyber Resilience Act and NERC CIP review, when a customer needs it (10-Q1, moved out of the MVP by the owner, 2026-11-12)",

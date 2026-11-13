@@ -733,7 +733,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Configuration</span> in the left rail, then <span class="ui">Datasheets</span>.</td><td>The list of <span class="ui">Projects</span> is on the left (tick the project whose layouts you want). Beside it, <span class="ui">Filter layouts</span> and <span class="ui">New layout…</span>, and the layouts under This project, All projects (company library) and Content packages, each with its count. A layout shows its class and version, and <span class="ui">Draft</span> or <span class="ui">Used here</span> when that applies. With several projects ticked, a new layout's <span class="ui">For projects</span> can make it in each, and <span class="ui">Use for the ticked projects</span> sets it in each.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Configuration</span> in the left rail, then <span class="ui">Datasheets</span>.</td><td>The <span class="ui">Projects</span> pane is between the section list and the layouts (tick the project whose layouts you want). Beside it, <span class="ui">Filter layouts</span> and <span class="ui">New layout…</span>, and the layouts under This project, All projects (company library) and Content packages, each with its count. A layout shows its class and version, and <span class="ui">Draft</span> or <span class="ui">Used here</span> when that applies. Under <span class="ui">All projects</span> a new layout is for all projects, and <span class="ui">Use for every project that follows</span> sets it in each of them; with a project's name clicked in the <span class="ui">Projects</span> pane, both are for that project.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Centrifugal pump datasheet</span>.</td><td>It reads “Content package, read only”: there is no <span class="ui">Publish</span>, and <span class="ui">Copy to edit…</span> is shown.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">New layout…</span>. In the dialog, search <code>Centrifugal pump</code>, set Class to <span class="ui">Centrifugal pump</span>, keep For projects on <span class="ui">Only Demo Plant</span>, type <code>plant1.pump</code> as the Key, and click <span class="ui">Create from the class</span>.</td><td>The new layout opens on the right: “This project · not published”. A key in use is refused: “That key is taken.”. <span class="ui">Cancel</span> or <kbd>Esc</kbd> closes the dialog.</td></tr>
       <tr><td>4</td><td>Set <span class="ui">Name</span> to <code>Plant 1 pump datasheet</code>.</td><td>The name shows “For Centrifugal pump and its subclasses.”.</td></tr>
@@ -755,17 +755,23 @@
 
 <section class="g-feature" id="doc-revisions-filter">
   <h2>Filter documents by kind</h2>
-  <div class="g-meta"><span class="g-status placeholder">Placeholder</span><span>Updated 2026-11-09</span><span class="g-id">DOC-revisions-filter</span><span>Review check E4</span></div>
-  <p class="g-summary">The All ▾ filter on the Documents page is meant to show only drawings, lists or datasheets.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-revisions-filter</span><span>Roadmap M4.25</span><span>Review check E4</span></div>
+  <p class="g-summary">The All ▾ filter on the Documents page shows only the drawings, the lists or the datasheets.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Documents section page → <span class="ui">All</span> ▾</dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
   </dl>
-  <p class="g-dev">The filter is on screen but not built: choosing <span class="ui">Drawings</span>, <span class="ui">Lists</span> or <span class="ui">Datasheets</span> only changes the button's label. It is planned for milestone M4.</p>
-  <h3>What you will be able to do</h3>
-  <ul>
-    <li>Show only the drawings, the lists or the datasheets of the Documents section.</li>
-  </ul>
-  <p class="g-warn">Review check E4 (“filter documents by kind”) cannot pass yet.</p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Documents</span> under the project in the explorer.</td><td>Its page lists every document and folder; the filter reads <span class="ui">All</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">All</span> ▾ and choose <span class="ui">Drawings</span>.</td><td>Only the 2D spaces and plots are listed, with the folders. The button reads <span class="ui">Drawings</span>.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Lists</span>, then <span class="ui">Datasheets</span>.</td><td>Only the list documents, then only the datasheet documents. With none, the page reads "No lists here." or "No datasheets here."</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">All</span>, or open another section.</td><td>Everything is listed again: the filter starts at <span class="ui">All</span> each time you open the section.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Folders always stay in the list, so what is filed in them can still be opened. Uploaded documents show under <span class="ui">All</span>.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-revisions-section">The Documents section</a></p>
 </section>
 
