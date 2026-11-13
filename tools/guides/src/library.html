@@ -103,7 +103,7 @@
 
 <section class="g-feature" id="lib-shapes">
   <h2>Shapes and the Standard filter</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-08</span><span class="g-id">LIB-shapes</span><span>Roadmap M3.12, 21.2, 21.4</span><span>Review checks B7, L21, L24</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">LIB-shapes</span><span>Roadmap M3.12, 21.2, 21.4</span><span>Review checks B7, L21, L24</span></div>
   <p class="g-summary">Shapes lists every symbol E1 can draw, with the standard it follows, its ports and size, and the classes that use it. From here you also make your own: draw a new shape, import one from SVG, derive one from an existing shape, and allow a shape for a class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Shapes</span></dd>
@@ -116,11 +116,12 @@
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Shapes</span>.</td><td>The shapes are listed with <span class="ui">Find a shape</span> and the filters <span class="ui">Standard</span>, <span class="ui">Category</span>, <span class="ui">Diagram</span> and <span class="ui">Package</span>.</td></tr>
       <tr><td>2</td><td>Set <span class="ui">Standard</span> to ISA 5.1.</td><td>Only ISA 5.1 shapes remain; every instrument, valve and logic shape shows its table and number (for example Table 5.4.1 No. 6).</td></tr>
-      <tr><td>3</td><td>Click a shape.</td><td>The detail shows Category, Standard says, Licence, Diagram types, Ports, Size (mm) and Used by (the classes, with "Default shape" where it is their default). A hint reads "A project can narrow the diagram types a shape fits in Project settings → Drawing."</td></tr>
+      <tr><td>3</td><td>Set <span class="ui">Standard</span> to ISO 10628-2, then to No standard.</td><td>ISO 10628-2: 67 Plant shapes, such as Agitator, Kettle reboiler, Cyclone, Silo and Swing check valve, without a table and number. No standard: Plant's 41 basic shapes, E1's own drawings, such as Centrifugal pump, Gate valve, Vertical vessel, Shell and tube and Tray column, and the shapes of other packages that name no standard.</td></tr>
+      <tr><td>4</td><td>Click a shape.</td><td>The detail shows Category, Standard says, Licence, Diagram types, Ports, Size (mm) and Used by (the classes, with "Default shape" where it is their default). A hint reads "A project can narrow the diagram types a shape fits in Project settings → Drawing."</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-shapes.webp" alt="Configuration, Shapes: the shape list with its search box and filters" width="2160" height="1350" loading="lazy"><figcaption>Shapes.</figcaption></figure>
-  <p class="g-warn">Review check B7 describes <span class="ui">Standard</span> as a drawing standard for the project. It is only a filter of this list; it does not change how a project draws. New symbols come with the symbol designer (planned, M5), so <span class="ui">New shape</span> is greyed out.</p>
+  <p class="g-warn">Review check B7 describes <span class="ui">Standard</span> as a drawing standard for the project. It is only a filter of this list; it does not change how a project draws.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="#lib-object-classes">Object classes</a> · <a href="#lib-content-packages">Content packages</a></p>
 </section>
 
@@ -148,7 +149,7 @@
 
 <section class="g-feature" id="lib-company-library">
   <h2>The company library: drafts, publishing and versions</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">LIB-company-library</span><span>Roadmap 11.1, 11.6</span><span>Review checks L1, L2, L3, L4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-13</span><span class="g-id">LIB-company-library</span><span>Roadmap 11.1, 11.6</span><span>Review checks L1, L2, L3, L4</span></div>
   <p class="g-summary">The company library holds your organization's own attributes, classes and relationship types. A draft changes nothing; once you publish it, every project of the organization has it and E1 checks it like its own. A published version never changes: a new draft becomes the next version.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span></dd>
@@ -159,11 +160,11 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Company library</span>.</td><td>The form shows <span class="ui">For projects</span> (All projects (the company library)), <span class="ui">New</span> (Attribute), <span class="ui">Name</span>, <span class="ui">Kind of value</span> and <span class="ui">Save draft</span>. Below: "Nothing in the company library yet." (in a new organization).</td></tr>
-      <tr><td>2</td><td>Leave <span class="ui">New</span> on Attribute. Type the Name "Seal plan", set <span class="ui">Kind of value</span> to Choice and type the Choices "API 11, API 53B".</td><td>The Choices box shows the two values.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Save draft</span>.</td><td>The table "Company library items" shows Seal plan with Kind Attribute and Draft "Draft". Nothing changes in the projects.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Publish</span> on the row and confirm with OK.</td><td>The confirmation reads "Publish Seal plan? Every project of the organization gets it, and this version never changes." After OK, the Published column reads "Version 1".</td></tr>
-      <tr><td>5</td><td>Set <span class="ui">New</span> to Class. Name "Canned motor pump", <span class="ui">A kind of</span> Centrifugal pump, <span class="ui">Attributes</span> Seal plan (leave <span class="ui">Owned under</span> on Assets). Click <span class="ui">Save draft</span>, then <span class="ui">Publish</span> and OK.</td><td>The class row reads "Version 1".</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Company library</span>.</td><td>The form shows <span class="ui">For projects</span> (All projects (the company library)), <span class="ui">New</span> with a row of buttons (<span class="ui">Attribute</span>, chosen, <span class="ui">Class</span>, <span class="ui">Attributes or shapes for a class</span>, <span class="ui">Relationship type</span>, <span class="ui">Unit system</span>, <span class="ui">Attributes from a standard</span>), <span class="ui">Name</span>, <span class="ui">Kind of value</span> and <span class="ui">Save draft</span>. Below: "Nothing in the company library yet." (in a new organization).</td></tr>
+      <tr><td>2</td><td>Leave <span class="ui">Attribute</span> chosen beside <span class="ui">New</span>. Type the Name "Seal plan", set <span class="ui">Kind of value</span> to Choice and type the Choices "API 11, API 53B".</td><td>The Choices box appears once Kind of value is Choice, and shows the two values.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Save draft</span>.</td><td>Right under the form, "Saved as a draft: check it, then publish it here." with Seal plan's row: Kind Attribute, Draft "Draft", and <span class="ui">Check against projects</span>, <span class="ui">Submit for review</span> and <span class="ui">Publish</span>. The same row is in the table "Company library items" further down. Nothing changes in the projects.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Publish</span> on the row under the form and confirm with OK.</td><td>The confirmation reads "Publish Seal plan? Every project of the organization gets it, and this version never changes." After OK, the Published column reads "Version 1".</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Class</span> beside <span class="ui">New</span> (the form shows a class's fields and clears what you typed). Name "Canned motor pump", <span class="ui">A kind of</span> Centrifugal pump, <span class="ui">Attributes</span> Seal plan (leave <span class="ui">Owned under</span> on Assets). Click <span class="ui">Save draft</span>, then <span class="ui">Publish</span> and OK.</td><td>The class row reads "Version 1".</td></tr>
       <tr><td>6</td><td>Open <span class="ui">Object classes</span> and search "Canned".</td><td>Canned motor pump is found, under Centrifugal pump, with the attribute Seal plan.</td></tr>
       <tr><td>7</td><td>In the explorer, right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span> and search "canned".</td><td>Canned motor pump is offered and can be created.</td></tr>
       <tr><td>8</td><td>Try to create a Canned motor pump under <span class="ui">Systems</span>.</td><td>It is refused with the reason: the class is owned under Assets only.</td></tr>
@@ -202,7 +203,7 @@
 
 <section class="g-feature" id="lib-library-updates">
   <h2>Updates available and Check against projects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-11</span><span class="g-id">LIB-library-updates</span><span>Roadmap 11.2</span><span>Review checks L5, L6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-13</span><span class="g-id">LIB-library-updates</span><span>Roadmap 11.2</span><span>Review checks L5, L6</span></div>
   <p class="g-summary">When a new version of a company class, attribute, convention template or catalog item is published, the company library lists what in the open project is still on the older version and what changed. Before you publish, Check against projects tells you which objects a draft would break.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span> → the region <span class="ui">Updates available in this project</span> (shown only when there is something), and the button <span class="ui">Check against projects</span> on a draft</dd>
@@ -214,7 +215,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Save a draft of Seal plan whose Choices leave out API 53B.</td><td>The row shows a Draft.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Check against projects</span> on that row.</td><td>A report "Checking the draft of …" opens: "1 object would break (of N checked):" naming Pump1 and the reason. With nothing broken it reads "Nothing breaks: N objects in M projects checked."</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Check against projects</span> on that row (right under the form after <span class="ui">Save draft</span>, or in the list).</td><td>A report "Checking the draft of …" opens under the row: "1 object would break (of N checked):" naming Pump1 and the reason. With nothing broken it reads "Nothing breaks: N objects in M projects checked."</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Close</span>.</td><td>The report closes; nothing changed in the projects.</td></tr>
       <tr><td>4</td><td>Publish version 2 of a company class that has objects in the project (for example narrow it so it may no longer be owned by Systems).</td><td><span class="ui">Updates available in this project</span> appears, listing the class with "version 2 · X of Y objects on version 1" and the changes, for example "May no longer be owned by Systems", with <span class="ui">Preview upgrade</span>.</td></tr>
     </tbody>
@@ -565,8 +566,8 @@
 
 <section class="g-feature" id="lib-cloud-ai-model">
   <h2>The model for Alex’s AI help</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">LIB-cloud-ai-model</span></div>
-  <p class="g-summary">This section shows which model Alex gets help from in your installation, whether none is set up, or whether it runs on a model server in your network. People see the model in Alex's Ask, Agent and Plan but do not choose it. The full guide is in <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a>.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">LIB-cloud-ai-model</span></div>
+  <p class="g-summary">This section shows which model Alex gets help from in your installation, whether none is set up, or whether it runs on a model server in your network. People see the model in Alex's Ask, Agent and Plan under Model; only someone with an Editor license, outside a trial, may pick a premium model there instead. The full guide is in <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a>.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Alex’s AI help</span></dd>
     <dt>Who</dt><dd>Everyone may look</dd>
@@ -575,7 +576,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Alex’s AI help</span>.</td><td>The card <span class="ui">Alex’s AI help (language model)</span> with one of: "Alex’s Ask, Agent and Plan use this model for everyone in this installation; people see it there but do not choose it." with "Messages and project context are sent to …" and the models by provider (a model without a key shows "No key"); "No AI model is set up in this installation: Alex works on its own and cannot get help from one."; or "Alex gets its help from a model server in this network (…)".</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Alex’s AI help</span>.</td><td>The card <span class="ui">Alex’s AI help (language model)</span> with one of: "Alex’s Ask, Agent and Plan use this model for everyone in this installation; people see it there under Model. Only someone with an Editor license, outside a trial, may pick a premium model there instead." with "Messages and project context are sent to …" and the models by provider (a model without a key shows "No key"); "No AI model is set up in this installation: Alex works on its own and cannot get help from one."; or "Alex gets its help from a model server in this network (…)".</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-cloud-ai-model.webp" alt="Configuration, the section for Alex’s AI help: the model used by the installation" width="2160" height="1350" loading="lazy"><figcaption>Configuration → Alex’s AI help.</figcaption></figure>
@@ -817,7 +818,7 @@
 
 <section class="g-feature" id="lib-module-versions">
   <h2>Module versions, withdraw and reinstate</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-module-versions</span><span>Roadmap 32.1a</span><span>Review check M1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">LIB-module-versions</span><span>Roadmap 32.1a</span><span>Review check M1</span></div>
   <p class="g-summary">A module is a draft until it is published; each publish makes its next version, which never changes. Withdraw takes a module out of placing without touching what was placed.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>: the buttons on each row, and a module's details</dd>
@@ -826,7 +827,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>On a module with a draft open, click <span class="ui">Publish</span>.</td><td>The draft becomes the next version (v1, v2, …), with its change note. A company module reaches a project through the project's library version.</td></tr>
+      <tr><td>1</td><td>On a module with a draft open (its row has <span class="ui">Edit draft</span>), click <span class="ui">Publish</span>.</td><td>The draft becomes the next version (v1, v2, …), with its change note. A company module reaches a project through the project's library version.</td></tr>
       <tr><td>2</td><td>Click the module's name and read <span class="ui">Versions</span>.</td><td>Each version with its date, who published it and its change note, newest first. When a project reads an older company version, the details say so: newer ones are available with a library version change.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Withdraw</span>.</td><td>The state is Withdrawn: the module can no longer be placed. Its versions stay readable, and every module already placed keeps working.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Reinstate</span>.</td><td>The state is Published again.</td></tr>
@@ -863,16 +864,16 @@
 
 <section class="g-feature" id="lib-module-edit">
   <h2>Editing a module: new versions</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span><span>Review check M7</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a</span><span>Review check M7</span></div>
   <p class="g-summary">Open a module's next version, change its details, members, tie-in points and parameters, move its members to the newest class versions, and publish it. Duplicate a module, or copy a project module to the company library.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span> → a module → <span class="ui">New version</span> (or <span class="ui">Edit draft</span>), <span class="ui">Duplicate…</span>, <span class="ui">Copy to company library</span></dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>: <span class="ui">New version</span> (or <span class="ui">Edit draft</span>) on a module's row, next to <span class="ui">Publish</span> and <span class="ui">Withdraw</span>; a module's details (click its name) also have <span class="ui">Duplicate…</span> and <span class="ui">Copy to company library</span></dd>
     <dt>Who</dt><dd>Editing the library the module is in</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click a module's name, then <span class="ui">New version</span>.</td><td>Its draft opens: the details, the <span class="ui">Members</span> (id, class, class version, the attributes kept per instance), the <span class="ui">Tie-in points</span> and the <span class="ui">Parameters</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">New version</span> on a module's row (or click its name, then <span class="ui">New version</span>).</td><td>Its draft opens: the details, the <span class="ui">Members</span> (id, class, class version, the attributes kept per instance), the <span class="ui">Tie-in points</span> and the <span class="ui">Parameters</span>.</td></tr>
       <tr><td>2</td><td>Change what the version changes: a tie-in point's size, rating, pipe class or medium, a parameter's name, kind, default or whether it is required, the attributes kept per instance. Type a <span class="ui">Change note</span>.</td><td>Member ids can be renamed until the module is first published; after that an id is fixed, and a removed member's id is never used again.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Upgrade members</span> if the members should move to the newest class versions.</td><td>It says how many moved. Without it, projects on older library versions can still place the module.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Publish</span> (or <span class="ui">Save draft</span> to finish later).</td><td>The next version, with its change note. Placed instances are offered the update (<a href="#lib-module-updates">Updating placed modules</a>).</td></tr>

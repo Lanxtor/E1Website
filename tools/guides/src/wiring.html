@@ -44,7 +44,7 @@
 
 <section class="g-feature" id="wire-terminals">
   <h2>Add terminals to a strip</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-terminals</span><span>Roadmap 28.1</span><span>Review check R1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">WIRE-terminals</span><span>Roadmap 28.1</span><span>Review check R1</span></div>
   <p class="g-summary">A terminal strip gets its terminals in one step: you say how many, and E1 numbers them on from the last one. The same works for a channel of an I/O card or a barrier, an earth bar, a power supply, and an instrument's own terminals.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click a terminal strip, channel, earth bar or power supply in the explorer → <span class="ui">Add terminals…</span></dd>
@@ -55,10 +55,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click strip X1 of A3 → <span class="ui">Add terminals…</span>.</td><td>E1 asks "How many terminals? Add a first number after a space to count from it (for example "12" or "12 21")."</td></tr>
-      <tr><td>2</td><td>Type <code>12</code> and press <kbd>Enter</kbd>.</td><td>X1 has terminals 1 to 12, in order, under it in the explorer.</td></tr>
+      <tr><td>1</td><td>Right-click strip X1 of A3 → <span class="ui">Add terminals…</span>.</td><td>The window <span class="ui">Add terminals to X1</span> opens with <span class="ui">How many terminals</span> (10 to start with): "They are numbered on from the last one. Add a first number after a space to count from it, for example 12 21."</td></tr>
+      <tr><td>2</td><td>Type <code>12</code> and press <kbd>Enter</kbd> (or click <span class="ui">Add</span>).</td><td>The window closes. X1 has terminals 1 to 12, in order, under it in the explorer.</td></tr>
       <tr><td>3</td><td>Right-click X1 → <span class="ui">Add terminals…</span> again and type <code>4</code>.</td><td>Terminals 13 to 16 are added after the last.</td></tr>
-      <tr><td>4</td><td>Right-click X1 → <span class="ui">Add terminals…</span> and type <code>2 5</code>.</td><td>Refused: "The strip has terminals 5, 6 already."</td></tr>
+      <tr><td>4</td><td>Right-click X1 → <span class="ui">Add terminals…</span> and type <code>2 5</code>.</td><td>Refused in the window, which stays open: "The strip has terminals 5, 6 already."</td></tr>
       <tr><td>5</td><td>Right-click a channel of card A5 → <span class="ui">Add terminals…</span> and type <code>2</code>.</td><td>The channel has terminals 1 and 2.</td></tr>
     </tbody>
   </table></div>
@@ -69,7 +69,7 @@
 
 <section class="g-feature" id="wire-cables-cores">
   <h2>Cables, their cores, and landing a core on a terminal</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-cables-cores</span><span>Roadmap 28.1</span><span>Review check R2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">WIRE-cables-cores</span><span>Roadmap 28.1</span><span>Review check R2</span></div>
   <p class="g-summary">A cable made from a cable type in the catalog gets its cores at once: for a cable of pairs, each pair's two cores (P1-1, P1-2), the pair's screen (P1-S) when the pairs are screened, and the overall screen (OS). Each core is landed on a terminal at each end, never more.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span> → <span class="ui">Cable</span> with <span class="ui">From catalog</span>; right-click a cable → <span class="ui">Create cores</span>; right-click a core or wire → <span class="ui">Connect to terminal…</span></dd>
@@ -82,7 +82,7 @@
     <tbody>
       <tr><td>1</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span>, click <span class="ui">Cable</span>, choose <span class="ui">Multicore 12 pairs 0.75 mm², individual and overall screens</span> in <span class="ui">From catalog</span>, type <code>W-201</code> in <span class="ui">Tag</span> and click <span class="ui">Create</span>.</td><td>W-201 opens. Expanded in the explorer, it has 37 cores: P1-1, P1-2, P1-S … P12-S and OS. Each core's <span class="ui">Role</span> is <span class="ui">Conductor</span> or <span class="ui">Screen</span>.</td></tr>
       <tr><td>2</td><td>Make a cable without a catalog item, set <span class="ui">Core grouping</span> to <span class="ui">Pairs</span> and <span class="ui">Groups</span> to <code>2</code>, then right-click it → <span class="ui">Create cores</span>.</td><td>The cable has P1-1, P1-2, P2-1 and P2-2. A second <span class="ui">Create cores</span> is refused: "W-… has 4 cores already."</td></tr>
-      <tr><td>3</td><td>Right-click core P1-1 of W-201 → <span class="ui">Connect to terminal…</span>, type <code>JB-12/X1/1</code> and press <kbd>Enter</kbd>.</td><td>The core is landed on terminal 1 of strip X1 in JB-12. A path names the enclosure (or instrument) by its tag, then the strip and the terminal; a rail between them may be left out.</td></tr>
+      <tr><td>3</td><td>Right-click core P1-1 of W-201 → <span class="ui">Connect to terminal…</span>, type <code>JB-12/X1/1</code> in <span class="ui">Terminal</span> in its window and press <kbd>Enter</kbd> (or click <span class="ui">Connect</span>).</td><td>The core is landed on terminal 1 of strip X1 in JB-12. A path names the enclosure (or instrument) by its tag, then the strip and the terminal; a rail between them may be left out.</td></tr>
       <tr><td>4</td><td>Connect P1-1 again to <code>A3/X1/1</code>.</td><td>The core is now landed at both ends.</td></tr>
       <tr><td>5</td><td>Connect P1-1 a third time, to <code>A3/X1/3</code>.</td><td>Refused: "P1-1 is landed at both ends already."</td></tr>
     </tbody>
@@ -247,10 +247,10 @@
 
 <section class="g-feature" id="wire-fieldbus">
   <h2>Fieldbus segments</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-fieldbus</span><span>Roadmap 28.6</span><span>Review check R8</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">WIRE-fieldbus</span><span>Roadmap 28.6</span><span>Review check R8</span></div>
   <p class="g-summary">A fieldbus segment is one Foundation Fieldbus H1 or Profibus PA network: a power conditioner, a trunk cable, device couplers with their spur ports, and the devices on the spurs. Its limits are data the project edits: the current budget, the supply voltage and the lowest voltage a device needs, the most devices and final elements, the longest total length and spur, and the ports kept spare. A device goes on a segment only while the segment keeps within all of them.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Making a segment and placing devices: Alex in the side panel. Open the segment and click <span class="ui">Segment view</span> in the tabs at the top of its window</dd>
+    <dt>Where</dt><dd>Right-click <span class="ui">Assets</span> → <span class="ui">New fieldbus segment…</span> (also a button on the Assets page); right-click a fieldbus instrument or valve → <span class="ui">Place on segment…</span>; placing many devices at once: Alex in the side panel. Open the segment and click <span class="ui">Segment view</span> in the tabs at the top of its window</dd>
     <dt>Who</dt><dd>A license and a project role that may create objects; anyone who may view the project sees the segment view</dd>
     <dt>Before you start</dt><dd>A published segment typical (<a href="#wire-typicals">Wiring typicals</a>); each device has a signal of kind FF or PA with its fieldbus current, and a spur cable with its length.</dd>
   </dl>
@@ -258,8 +258,9 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Ask Alex to make segment SEG-1 from the segment typical "FF H1 FISCO" with trunk cable W-TR1.</td><td>SEG-1 in Assets with its limits, power conditioner PC1 and device coupler DC1 with its spur ports.</td></tr>
-      <tr><td>2</td><td>Ask Alex to place FT-01 to FT-06 on segments, first as a preview.</td><td>Five go on SEG-1, each on a free port (DC1/1 …). FT-06 is not placed, with the reason: "SEG-1: 120 mA, over the current budget of 100 mA".</td></tr>
+      <tr><td>1</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New fieldbus segment…</span>. In the window <span class="ui">New fieldbus segment</span> type <code>SEG-1</code> in <span class="ui">Tag</span>, choose "FF H1 FISCO" in <span class="ui">Segment typical</span>, type <code>W-TR1</code> in <span class="ui">Trunk cable</span> and click <span class="ui">Create</span>.</td><td>SEG-1 in Assets with its limits, power conditioner PC1 and device coupler DC1 with its spur ports; its window opens on <span class="ui">Segment view</span>. Without a segment typical (<span class="ui">None: set its limits on Attributes</span>) the segment has no couplers and no limits until you type them.</td></tr>
+      <tr><td>2</td><td>Right-click FT-01 → <span class="ui">Place on segment…</span>.</td><td>The window <span class="ui">Place FT-01 on a segment</span> with <span class="ui">Segment</span> set to <span class="ui">The first that fits</span> says "It goes on SEG-1, port DC1/1." before anything changes; a device without an FF or PA signal is refused with the reason. Click <span class="ui">Place</span>: SEG-1 opens on its Segment view with FT-01 on DC1/1.</td></tr>
+      <tr><td>2a</td><td>Ask Alex to place FT-02 to FT-06 on segments, first as a preview.</td><td>Four more go on SEG-1, each on a free port (DC1/2 …). FT-06 is not placed, with the reason: "SEG-1: 120 mA, over the current budget of 100 mA". <span class="ui">Place on segment…</span> on FT-06 says the same: "It fits on no segment: …".</td></tr>
       <tr><td>3</td><td>Make a second segment and place them again.</td><td>FT-06 goes on SEG-2. Devices already placed stay where they are; two devices of one redundancy group never share a segment.</td></tr>
       <tr><td>4</td><td>Open SEG-1 and click <span class="ui">Segment view</span> in the tabs at the top.</td><td>The <span class="ui">Segment view</span> page: devices, current, the voltage at the farthest device, trunk and spurs, the longest spur, free ports and final elements against their limits, the rules it breaks and what is missing.</td></tr>
       <tr><td>5</td><td>Generate the loop diagram of a loop with FT-01.</td><td>The segment is drawn in its own column, with the spur from the device to it. The wiring workbench says "On segment SEG-1".</td></tr>
@@ -317,7 +318,7 @@
 
 <section class="g-feature" id="wire-typicals">
   <h2>Signals and wiring typicals</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-typicals</span><span>Roadmap 28.3</span><span>Review check R5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">WIRE-typicals</span><span>Roadmap 28.3</span><span>Review check R5</span></div>
   <p class="g-summary">Most devices of a plant follow a handful of patterns: a 2-wire transmitter, a solenoid valve, a motor-operated valve. A <em>wiring typical</em> describes one pattern once: the device's signals (open command, closed limit, position …), the field cables and which pair each signal takes, options such as <em>Position feedback</em>, variants (named sets of option values) and the naming of cables and wires. Given to a device, it makes the device's I/O signals, its terminals, and its field cables with their cores landed on the device and numbered.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click an instrument, valve or motor in the explorer → <span class="ui">Wiring typical…</span>; making and publishing a typical, and giving one to many devices at once: Alex in the side panel</dd>
@@ -329,7 +330,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Ask Alex: <em>"Make a wiring typical Motor-operated valve for the project: open, close and stop commands, open and closed limits, torque fault and local/remote on an 8-pair control cable, and the position (AI, HART) on its own 1-pair cable when the option Position feedback is on; a variant Without position. Publish it."</em></td><td>Alex saves the typical as a draft, checks it (every signal on a cable, every option it names exists) and publishes it. A typical with a mistake is refused with what is wrong, for example "Signal pv is on no cable."</td></tr>
-      <tr><td>2</td><td>Right-click valve XV-101 → <span class="ui">Wiring typical…</span>, type <code>1</code> for Motor-operated valve, and leave the variant empty.</td><td>"XV-101 follows Motor-operated valve: 8 signals, 16 terminals, cables W-XV-101-1, W-XV-101-2." Under XV-101 are its I/O signals (open, close, … zt) and terminals 1 to 16; the two cables are in Assets with their cores, each core landed on its terminal and carrying its wire number (XV-101-open-1 …). XV-101's <span class="ui">Wiring</span> group shows the typical, the variant and the options.</td></tr>
+      <tr><td>2</td><td>Right-click valve XV-101 → <span class="ui">Wiring typical…</span>. In the window choose <span class="ui">Motor-operated valve</span> in <span class="ui">Typical</span>, leave <span class="ui">Variant</span> at <span class="ui">None</span> and click <span class="ui">Apply</span>.</td><td>"XV-101 follows Motor-operated valve: 8 signals, 16 terminals, cables W-XV-101-1, W-XV-101-2." Under XV-101 are its I/O signals (open, close, … zt) and terminals 1 to 16; the two cables are in Assets with their cores, each core landed on its terminal and carrying its wire number (XV-101-open-1 …). XV-101's <span class="ui">Wiring</span> group shows the typical, the variant and the options.</td></tr>
       <tr><td>3</td><td>Do the same with the variant <code>Without position</code> on XV-102.</td><td>Only the control cable is made: Position feedback is off.</td></tr>
       <tr><td>4</td><td>Ask Alex: <em>"Give XV-103 to XV-112 the Motor-operated valve typical."</em></td><td>The ten valves get their signals, terminals and cables in one step, which one <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) takes back.</td></tr>
       <tr><td>5</td><td>Run <span class="ui">Wiring typical…</span> again on XV-101.</td><td>Nothing new is made: what is there by name or tag is kept.</td></tr>

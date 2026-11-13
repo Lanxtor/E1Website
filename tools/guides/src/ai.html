@@ -70,10 +70,10 @@
     <tbody>
       <tr><td>1</td><td>Open a 2D space and click <span class="ui">Co-engineer</span> in Alex.</td><td>The header says <span class="ui">Off</span>, with the text "Alex is off. Let Alex help to have a process, automation or electrical engineer read your drawing as you work: built in, nothing leaves E1." and the button <span class="ui">Let Alex help</span>, with Alex's sparkle icon on its left.</td></tr>
       <tr><td>2</td><td>Look at the drawing toolbar.</td><td>It has no Alex button: Alex is switched on and off in the Alex tab only.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Let Alex help</span>.</td><td>The button is replaced by <span class="ui">Stop Alex</span>, next to <span class="ui">Show Alex’s marks on the drawing</span>. The panel header reads "Plant engineer · local AI, no cloud", briefly with "· reading the 2D space…".</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Let Alex help</span>.</td><td>The button is replaced by <span class="ui">Stop Alex</span>, next to <span class="ui">Show Alex’s marks on the drawing</span>, and the switch beside Alex's name reads <span class="ui">Reviewing</span>. The panel header reads "Plant engineer · local AI, no cloud", briefly with "· reading the 2D space…".</td></tr>
       <tr><td>4</td><td>Wait a few seconds.</td><td>The panel lists counts and groups such as <span class="ui">Warnings</span>, <span class="ui">Questions</span> and <span class="ui">Design suggestions</span>; marks appear on the drawing. A clean 2D space shows "Nothing to add on ‹2D space›. Looks good."</td></tr>
       <tr><td>5</td><td>Reload the page.</td><td>Alex is still on.</td></tr>
-      <tr><td>6</td><td>Click <span class="ui">Stop Alex</span>.</td><td>Alex turns off completely: the panel shows <span class="ui">Let Alex help</span> again and the marks disappear.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Stop Alex</span>.</td><td>Alex turns off completely: the panel shows <span class="ui">Let Alex help</span> again, the switch reads <span class="ui">Off</span> and the marks disappear.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: amber and blue marks on the pump train, and Co-engineer lists 1 warning, 34 questions, 1 design suggestion and 2 notes" width="2160" height="1350" loading="lazy"><figcaption>Alex on the demo 2D space: marks on the drawing, cards in Alex (Co-engineer).</figcaption></figure>
@@ -249,7 +249,7 @@
 
 <section class="g-feature" id="ai-alex-cards">
   <h2>Read and act on Alex's cards</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-09</span><span class="g-id">AI-alex-cards</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-13</span><span class="g-id">AI-alex-cards</span></div>
   <p class="g-summary">Each thing Alex notices is a card in one of the groups <span class="ui">Warnings</span>, <span class="ui">Questions</span>, <span class="ui">Design suggestions</span>, <span class="ui">Data suggestions</span>, <span class="ui">Notes</span> and, at Mentor level, <span class="ui">Tips</span>. A card says why, shows where on the drawing, and offers a fix, an answer field or a way to set it aside.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Alex</span> → <span class="ui">Co-engineer</span>, below the counts</dd>
@@ -260,7 +260,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Look at a card without opening it.</td><td>It shows its discipline (<span class="ui">Process</span>, <span class="ui">Automation</span>, <span class="ui">Electrical</span>, <span class="ui">HAZOP</span> or <span class="ui">Drawing</span>), its title and a chevron, and sometimes a badge (see the list below). A card under <span class="ui">Design suggestions</span> shows <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Reject</span> and, when an AI model is set up, <span class="ui">Ask Alex</span> even while it is closed.</td></tr>
+      <tr><td>1</td><td>Look at a card without opening it.</td><td>It shows its discipline (<span class="ui">Process</span>, <span class="ui">Automation</span>, <span class="ui">Electrical</span>, <span class="ui">HAZOP</span> or <span class="ui">Drawing</span>), its title and a chevron, sometimes a badge (see the list below), and its buttons even while it is closed: <span class="ui">Show</span>, <span class="ui">Not applicable</span> and <span class="ui">Ask Alex</span>; under <span class="ui">Design suggestions</span>, <span class="ui">Show</span>, <span class="ui">Apply</span>, <span class="ui">Reject</span> and <span class="ui">Ask Alex</span>. <span class="ui">Ask Alex</span> is greyed out when no AI model is set up.</td></tr>
       <tr><td>2</td><td>Click the chevron of a design suggestion card.</td><td>The card opens with its message and <span class="ui">Why?</span>. A design card has no <span class="ui">Not applicable</span>.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Why?</span>.</td><td>The reason appears; the button now reads <span class="ui">Hide why</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Show</span>.</td><td>The drawing shows the suggestion as ghost symbols where they would go; what it would take away is dashed in red. The button now reads <span class="ui">Hide</span>.</td></tr>
@@ -339,10 +339,10 @@
 
 <section class="g-feature" id="ai-alex-filters">
   <h2>Filter Alex's findings</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-09</span><span class="g-id">AI-alex-filters</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-13</span><span class="g-id">AI-alex-filters</span></div>
   <p class="g-summary">The count chips above the cards are filters: show only the warnings, only the questions, or only what Alex says about the symbol you selected. The marks on the drawing follow the filter.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Alex</span> → <span class="ui">Co-engineer</span> → the line "‹2D space›:" with chips such as <span class="ui">7 warnings</span>, <span class="ui">25 questions</span></dd>
+    <dt>Where</dt><dd><span class="ui">Alex</span> → <span class="ui">Co-engineer</span> → the line "‹2D space›: Show:" with chips such as <span class="ui">7 warnings</span>, <span class="ui">25 questions</span></dd>
     <dt>Who</dt><dd>Everyone</dd>
     <dt>Before you start</dt><dd>Alex is on and has findings of more than one kind.</dd>
   </dl>
@@ -350,7 +350,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click the <span class="ui">N warnings</span> chip.</td><td>The chip is pressed; only warning cards are listed and the drawing shows no "?" marks.</td></tr>
+      <tr><td>1</td><td>Click the <span class="ui">N warnings</span> chip.</td><td>The chip is pressed: filled, with a check mark before its count. Only warning cards are listed and the drawing shows no "?" marks.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Show all</span> (or the pressed chip again).</td><td>All cards and marks are back.</td></tr>
       <tr><td>3</td><td>Select Pump1 on the drawing.</td><td>An extra chip <span class="ui">About Pump1 (n)</span> appears.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">About Pump1 (n)</span>.</td><td>Only the cards about Pump1 are listed.</td></tr>
@@ -362,10 +362,10 @@
 
 <section class="g-feature" id="ai-alex-not-applicable">
   <h2>Not applicable: hide a finding, or propose it to the company</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-09</span><span class="g-id">AI-alex-not-applicable</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-13</span><span class="g-id">AI-alex-not-applicable</span></div>
   <p class="g-summary">When a finding does not apply, hide it on this 2D space. If it never applies at your company, propose that Alex stops raising it; it takes effect once an approver accepts it in Configuration.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>An open card → <span class="ui">Not applicable</span></dd>
+    <dt>Where</dt><dd>A card → <span class="ui">Not applicable</span>, under its title (open or closed)</dd>
     <dt>Who</dt><dd>Hiding: everyone. Proposing: a member who may propose waivers. Accepting: an approver of conventions (see <a href="#ai-alex-knowledge">Alex knowledge</a>).</dd>
     <dt>Before you start</dt><dd>Alex is on and shows a warning, question or suggestion.</dd>
   </dl>
@@ -373,7 +373,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a card and click <span class="ui">Not applicable</span>.</td><td>A small form opens with the field "Why does it not apply? (optional)", a check box "Propose to the company: never raise this …", and the buttons <span class="ui">Hide it here</span> and <span class="ui">Cancel</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Not applicable</span> on a card.</td><td>A small form opens with the field "Why does it not apply? (optional)", a check box "Propose to the company: never raise this …", and the buttons <span class="ui">Hide it here</span> and <span class="ui">Cancel</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Hide it here</span>.</td><td>The card is gone. A link <span class="ui">Show 1 hidden as not applicable</span> appears.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Show 1 hidden as not applicable</span>.</td><td>The card is back in the list.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Not applicable</span> again, tick "Propose to the company: never raise this on any pump", type a reason.</td><td>The button now reads <span class="ui">Hide and propose</span>.</td></tr>

@@ -95,10 +95,10 @@
 
 <section class="g-feature" id="list-new-query">
   <h2>Open a query with New query…</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">LIST-new-query</span><span>Roadmap M3.5, M3.9</span><span>Review check D1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">LIST-new-query</span><span>Roadmap M3.5, M3.9</span><span>Review check D1</span></div>
   <p class="g-summary">A query is a live table of every object below the place you start from. It opens in its own tab, keeps its columns and sort when you reload, and changes as the model changes.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → right-click a project, section, folder, 2D space or object → <span class="ui">Query</span> ▸ <span class="ui">New query…</span></dd>
+    <dt>Where</dt><dd>Explorer → right-click a project, section, folder, 2D space or object → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>; or a section's page → <span class="ui">New query…</span></dd>
     <dt>Who</dt><dd>Anyone who may view the project</dd>
     <dt>Before you start</dt><dd>A project with objects is open in the explorer.</dd>
   </dl>
@@ -108,7 +108,7 @@
     <tbody>
       <tr><td>1</td><td>In the explorer, right-click <span class="ui">Assets</span>.</td><td>A menu opens with <span class="ui">Query</span> and an arrow ▸.</td></tr>
       <tr><td>2</td><td>Hover <span class="ui">Query</span> (or click it, or press the right arrow key on it).</td><td>A submenu opens. It lists the saved templates, if any, then <span class="ui">New query…</span>. With nothing saved, <span class="ui">New query…</span> is the only item: there are no built-in lists.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">New query…</span>.</td><td>A tab <span class="ui">Query: Assets</span> opens. The bar reads “All objects below Assets · N rows”. The columns are <span class="ui">Owner</span>, <span class="ui">Name</span> and <span class="ui">Class</span>, sorted by Name ascending (▲).</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">New query…</span>.</td><td>A tab <span class="ui">Query: Assets</span> opens. The bar reads “All objects below Assets · N rows”. The columns are <span class="ui">Owner</span>, <span class="ui">Name</span> and <span class="ui">Class</span>, sorted by Name ascending (▲). Above the table, “Add columns to edit” shows until you add a column with <span class="ui">Columns</span>, the first button of the bar.</td></tr>
       <tr><td>4</td><td>Scroll down the table.</td><td>Rows load 200 at a time; a row not loaded yet shows “…” for a moment.</td></tr>
       <tr><td>5</td><td>Reload the page.</td><td>The query tab comes back with the same columns and sort.</td></tr>
       <tr><td>6</td><td>Right-click the object <span class="ui">V3</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</td><td>A second query opens; its bar reads “All objects below V3”.</td></tr>
@@ -118,6 +118,7 @@
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-view.webp" alt="The Query: Assets tab with 48 rows and the columns Owner, Name and Class; the bar holds Filter, Find and replace…, Export, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption>A new query on Assets: 48 rows, sorted by Name.</figcaption></figure>
   <p class="g-note">The Name column shows an object's tag, or its name when it has no tag. Ports and objects in the Bin are not rows. An empty result reads “No objects below &lt;start&gt;.”.</p>
   <p class="g-note">The <span class="ui">Query</span> item is not offered in the Bin, on a case or on a voided object.</p>
+  <p class="g-note">A section's page (click <span class="ui">Assets</span> once) has <span class="ui">New query…</span> and <span class="ui">From a sentence…</span> in its row of buttons, after <span class="ui">Import</span> and <span class="ui">Export</span>: one click opens the same query of everything in the section.</p>
   <p class="g-warn">A query tab whose definition is gone shows “This query is no longer open. Open it again from the explorer: right-click, Query, New query.”.</p>
   <p class="g-warn">Speed has been measured up to 20,000 objects; very large projects may be slower.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-sort">Sort by a column</a>, <a href="guide-lists.html#list-columns">Choose the columns</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-workspace-query">Query over every project of the organization</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a></p>
@@ -147,17 +148,17 @@
 
 <section class="g-feature" id="list-columns">
   <h2>Choose the columns</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-06</span><span class="g-id">LIST-columns</span><span>Roadmap M3.5, M3.9</span><span>Review checks D1, D2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">LIST-columns</span><span>Roadmap M3.5, M3.9</span><span>Review checks D1, D2</span></div>
   <p class="g-summary">Add properties, attributes and related objects as columns with the Columns picker.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Query tab → <span class="ui">Columns</span></dd>
+    <dt>Where</dt><dd>Query tab → <span class="ui">Columns</span>, at the far left of the bar</dd>
     <dt>Before you start</dt><dd>A query is open.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Columns</span>.</td><td>The Columns panel opens: <span class="ui">Properties</span> checkboxes (<span class="ui">Class</span>, <span class="ui">Tag</span>, <span class="ui">Designation</span>, <span class="ui">Owner path</span>, <span class="ui">Catalog item</span>, <span class="ui">Catalog version</span>, <span class="ui">Catalog state</span>), a <span class="ui">Related</span> dropdown “Choose a relationship…”, a <span class="ui">Search attributes</span> box and the list of attributes.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Columns</span>, the first button of the bar.</td><td>The Columns panel opens below it: <span class="ui">Properties</span> checkboxes (<span class="ui">Class</span>, <span class="ui">Tag</span>, <span class="ui">Designation</span>, <span class="ui">Owner path</span>, <span class="ui">Catalog item</span>, <span class="ui">Catalog version</span>, <span class="ui">Catalog state</span>), a <span class="ui">Related</span> dropdown “Choose a relationship…”, a <span class="ui">Search attributes</span> box and the list of attributes.</td></tr>
       <tr><td>2</td><td>Type <code>Design pressure</code> in <span class="ui">Search attributes</span>.</td><td>The attribute list narrows to matching names, for example “Design pressure / In”.</td></tr>
       <tr><td>3</td><td>Tick the first attribute in the list.</td><td>A new column with that attribute's name appears at the right of the table.</td></tr>
       <tr><td>4</td><td>Untick it.</td><td>The column goes. A sort, group or total on that column goes with it.</td></tr>
@@ -391,7 +392,7 @@
 
 <section class="g-feature" id="list-set-value">
   <h2>Select many cells and Set value…</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-07</span><span class="g-id">LIST-set-value</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">LIST-set-value</span><span>Roadmap M3.7</span><span>Review check D4</span></div>
   <p class="g-summary">Select a block of cells and give them all one value in one undoable step.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → select cells → <span class="ui">Set value…</span></dd>
@@ -402,7 +403,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click a cell, then Shift-click a cell two rows below.</td><td>A block of three cells is selected. A bar shows “3 cells selected” with <span class="ui">Set value…</span>, <span class="ui">Fill down</span> and <span class="ui">Fill right</span>.</td></tr>
+      <tr><td>1</td><td>Click a cell, then Shift-click a cell two rows below.</td><td>With the first cell, a bar above the table shows <span class="ui">Set value…</span>, <span class="ui">Fill down</span> and <span class="ui">Fill right</span> greyed out and “Shift-click or Ctrl-click to select more”. After the Shift-click a block of three cells is selected, the bar reads “3 cells selected” and its buttons are on.</td></tr>
       <tr><td>2</td><td><kbd>Ctrl</kbd> (<kbd>⌘</kbd>)-click one more cell in the column.</td><td>It is added to the selection: “4 cells selected”. <kbd>Ctrl</kbd> (<kbd>⌘</kbd>)-clicking a selected cell takes it out again.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Set value…</span>.</td><td>A dialog “Set 4 cells” opens with a box “Value for the selected cells”.</td></tr>
       <tr><td>4</td><td>Type a valid value.</td><td>The preview reads “4 cells change, as one step you can undo.”. A value that is refused shows “Nothing is applied while this problem remains:” with the reason.</td></tr>
@@ -689,10 +690,10 @@
 
 <section class="g-feature" id="list-sentence-query">
   <h2>Queries from a sentence</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span><span>Review checks L9</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span><span>Review checks L9</span></div>
   <p class="g-summary">Right-click a project, section or object and choose Query → From a sentence…: write “all pumps without a motor” and the query view opens with the matching rows, ready to adjust.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The explorer: right-click → <span class="ui">Query</span> → <span class="ui">From a sentence…</span></dd>
+    <dt>Where</dt><dd>The explorer: right-click → <span class="ui">Query</span> → <span class="ui">From a sentence…</span>; or a section's page → <span class="ui">From a sentence…</span></dd>
     <dt>Who</dt><dd>Any project role that may view the project</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
