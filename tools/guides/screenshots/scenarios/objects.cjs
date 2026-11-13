@@ -104,7 +104,7 @@ module.exports = {
     await p.mouse.click(x, y, { button: 'right' });
     const m = p.getByRole('menu').first(); await m.waitFor();
     
-    await p.getByRole('menuitem', { name: 'Chat here' }).click();
+    await p.getByRole('menuitem', { name: 'Pin a message here' }).click();
     const f = p.getByRole('form', { name: 'Pin a message' }); await f.waitFor();
     await f.getByRole('textbox', { name: 'Chat message' }).fill('Check the NPSH margin');
     await h.shot('pin-form', { clip: f, pad: 40 });
