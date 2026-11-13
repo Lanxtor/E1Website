@@ -1,19 +1,19 @@
 <section class="g-feature" id="ai-overview">
   <h2>About this guide</h2>
-  <p class="g-summary">E1 has one assistant, <strong>Alex</strong>, in the side panel on the right of the window, with one row of tabs: <span class="ui">Co-engineer</span> | <span class="ui">Ask</span> | <span class="ui">Agent</span> | <span class="ui">Plan</span> | <span class="ui">E1 Guide</span>. In <strong>Co-engineer</strong>, Alex is built into E1: it reads your drawing as you work and raises warnings, questions and suggestions, with no language model and nothing sent outside. In <strong>Ask</strong>, <strong>Agent</strong> and <strong>Plan</strong>, Alex answers questions in your own words with the help of a language model, and in Agent mode changes the project, with review and undo. <strong>E1 Guide</strong> teaches you E1 where you are.</p>
+  <p class="g-summary">E1 has one assistant, <strong>Alex</strong>, in the side panel on the right of the window, with three tabs: <span class="ui">Co-engineer</span> | <span class="ui">Agent</span> | <span class="ui">E1 Guide</span>. In <strong>Co-engineer</strong>, Alex is built into E1: it reads your drawing as you work and raises warnings, questions and suggestions, with no language model and nothing sent outside. In <strong>Agent</strong>, Alex answers questions in your own words with the help of a language model and changes the project, with review and undo; a small mode menu there switches between <strong>Agent</strong>, <strong>Ask</strong> (answers only) and <strong>Plan</strong> (proposes a change). <strong>E1 Guide</strong> teaches you E1 where you are.</p>
   <h3>The usual order</h3>
   <ol>
     <li>Find the side panel and its tabs: <a href="#ai-side-panel">The Alex panel</a>.</li>
     <li>Let Alex help and read what it finds: <a href="#ai-alex">Alex</a>, <a href="#ai-alex-skill-level">Skill and Level</a>, <a href="#ai-alex-cards">Alex's cards</a>, <a href="#ai-alex-simulation">Simulation results</a>, <a href="#ai-alex-markers">Marks on the drawing</a>, <a href="#ai-alex-filters">Filters</a>, <a href="#ai-alex-not-applicable">Not applicable</a> and <a href="#ai-alex-suggestions">Suggestions while you draw</a>.</li>
     <li>Teach Alex your company's rules: <a href="#ai-alex-knowledge">Alex knowledge</a>, <a href="#ai-alex-team-memory">Team memory</a> and <a href="#ai-alex-pipe-class">Pipe class checks</a>. Use Alex's lists: <a href="#ai-alex-instrument-index">Instrument index</a> and <a href="#ai-alex-hmb">Heat and material balance import</a>.</li>
-    <li>Ask Alex in your own words: <a href="#ai-cloud-ai">Ask, Agent and Plan</a>, <a href="#ai-chat-modes">What each of them may do</a>, <a href="#ai-review-first">Review changes first</a>, <a href="#ai-protect-arrangement">Protect the arrangement</a>, <a href="#ai-undo">Undo on a reply</a> and <a href="#ai-held-for-review">What is always held</a>.</li>
+    <li>Ask Alex in your own words: <a href="#ai-cloud-ai">The Agent tab</a>, <a href="#ai-chat-modes">Agent, Ask and Plan: what each may do</a>, <a href="#ai-review-first">Review changes first</a>, <a href="#ai-protect-arrangement">Protect the arrangement</a>, <a href="#ai-undo">Undo on a reply</a> and <a href="#ai-held-for-review">What is always held</a>.</li>
     <li>Give Alex more to work with: <a href="#ai-attachments">Attachments</a>, <a href="#ai-voice">Voice input</a>, <a href="#ai-model-menu">Which model</a>, <a href="#ai-patterns">Engineering patterns</a> and <a href="#ai-calls-alex">Alex's review behind the answer</a>.</li>
     <li>Know the limits: <a href="#ai-injection-safety">Prompt-injection safety</a>, <a href="#ai-off">Without a language model</a>, and what is <a href="#ai-stored-assistants">planned</a>.</li>
   </ol>
   <h3>Before you start</h3>
   <ul>
     <li>A project is open, with a 2D space (drawing) for Alex. See <a href="guide-drawing.html#draw-sheet-view">The 2D space view</a>.</li>
-    <li>Co-engineer and E1 Guide need no model and work in every installation. Ask, Agent and Plan need a model chosen by your administrator; without one they are greyed out and you do everything else by hand, as described in the other guides.</li>
+    <li>Co-engineer and E1 Guide need no model and work in every installation. The Agent tab needs a model chosen by your administrator; without one it is greyed out and you do everything else by hand, as described in the other guides.</li>
     <li>Changing the project, by hand or by asking Alex, needs a license and project role that may edit.</li>
   </ul>
   <p class="g-note">On the website and in the price list, "Alex, the AI co-engineer" stands for E1's AI as a whole.</p>
@@ -21,8 +21,8 @@
 
 <section class="g-feature" id="ai-side-panel">
   <h2>The Alex panel</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">AI-side-panel</span><span>Review check I9</span></div>
-  <p class="g-summary">The panel on the right of the window is Alex, E1's one assistant. Its header shows the badge <span class="ui">Built-in</span> while Alex works on its own, or the model's name in Ask, Agent and Plan. One row of tabs chooses what Alex does: <span class="ui">Co-engineer</span> | <span class="ui">Ask</span> | <span class="ui">Agent</span> | <span class="ui">Plan</span> | <span class="ui">E1 Guide</span>. You can hide the panel to get more room for the drawing and bring it back from the left rail.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">AI-side-panel</span><span>Review check I9</span></div>
+  <p class="g-summary">The panel on the right of the window is Alex, E1's one assistant. Its header shows the badge <span class="ui">Built-in</span> while Alex works on its own, or the model's name in Agent. Three tabs choose what Alex does: <span class="ui">Co-engineer</span> | <span class="ui">Agent</span> | <span class="ui">E1 Guide</span>. You can hide the panel to get more room for the drawing and bring it back from the left rail.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right side of the window; left rail → <span class="ui">Alex</span></dd>
     <dt>Who</dt><dd>Everyone who can open a project</dd>
@@ -31,9 +31,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Tab</th><th>What it shows</th><th>Language model</th></tr></thead>
     <tbody>
-      <tr><td><span class="ui">Co-engineer</span></td><td><span class="ui">Skill</span>, <span class="ui">Level</span> and Alex's findings, the cards</td><td>None: local, nothing leaves E1</td></tr>
-      <tr><td><span class="ui">Ask</span></td><td><span class="ui">Model</span>, where your messages are sent, the conversation and the text box</td><td>Yes</td></tr>
-      <tr><td><span class="ui">Agent</span>, <span class="ui">Plan</span></td><td>As Ask, with <span class="ui">Review changes first</span> and <span class="ui">Protect the arrangement</span> under the model</td><td>Yes</td></tr>
+      <tr><td><span class="ui">Co-engineer</span></td><td><span class="ui">Skill</span> and <span class="ui">Level</span>, each a small menu, and Alex's findings, the cards</td><td>None: local, nothing leaves E1</td></tr>
+      <tr><td><span class="ui">Agent</span></td><td>The mode (<span class="ui">Agent</span>, <span class="ui">Ask</span> or <span class="ui">Plan</span>) and the model, each a small menu; where your messages are sent; <span class="ui">Review changes first</span> and <span class="ui">Protect the arrangement</span>; the conversation and the text box</td><td>Yes</td></tr>
       <tr><td><span class="ui">E1 Guide</span></td><td>The lessons only</td><td>None</td></tr>
     </tbody>
   </table></div>
@@ -41,18 +40,18 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a project for the first time in this browser.</td><td>The panel's header line reads <span class="ui">Alex</span> with the badge <span class="ui">Built-in</span> and, when Alex found warnings, a red count; under it "Plant engineer · local AI, no cloud". Below, the row of tabs with <span class="ui">Co-engineer</span> chosen, then <span class="ui">Skill</span>, <span class="ui">Level</span> and the cards.</td></tr>
+      <tr><td>1</td><td>Open a project for the first time in this browser.</td><td>The panel's header line reads <span class="ui">Alex</span> with the badge <span class="ui">Built-in</span> and, when Alex found warnings, a red count; Below, the tabs with <span class="ui">Co-engineer</span> chosen, then <span class="ui">Skill</span> <span class="ui">Plant engineer</span> and <span class="ui">Level</span> <span class="ui">Normal</span>, each with a small arrow, and the cards.</td></tr>
       <tr><td>2</td><td>Point at the <span class="ui">Built-in</span> badge.</td><td>The tooltip reads "Local AI built into E1: no cloud AI, nothing leaves your E1".</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Ask</span>.</td><td>The badge reads the model's name, for example <span class="ui">+ GPT-4.1</span>, and under Alex's name "Ask · GPT-4.1". Skill, Level and the cards give way to <span class="ui">Model</span>, the line "Your messages and the project context are sent to GPT-4.1.", the conversation and the text box. See <a href="#ai-cloud-ai">Ask, Agent and Plan</a>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Agent</span>.</td><td>The badge reads the model's name, for example <span class="ui">+ GPT-4.1</span>. Skill, Level and the cards give way to the mode <span class="ui">Agent</span> and the model <span class="ui">GPT-4.1</span>, the line "Your messages and the project context are sent to GPT-4.1.", the conversation and the text box. See <a href="#ai-cloud-ai">The Agent tab</a>.</td></tr>
       <tr><td>4</td><td>Reload the page.</td><td>The same tab is chosen.</td></tr>
       <tr><td>5</td><td>Click the close button at the right of the header line (<span class="ui">Hide Alex</span>).</td><td>The panel disappears and the drawing gets the room.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Alex</span> on the left rail.</td><td>The panel is back as you left it.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/alex-co-engineer.webp" alt="The Alex panel on Co-engineer: the header line Alex with the badge Built-in and a warning count, Plant engineer · local AI, no cloud, Why “Alex”? and the close button; the row of tabs Co-engineer, Ask, Agent, Plan and E1 Guide; Skill and Level; Alex's warnings and questions" width="840" height="1760" loading="lazy"><figcaption>Co-engineer: Alex on its own, Built-in.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/alex-co-engineer.webp" alt="The Alex panel on Co-engineer: the header line Alex with the badge Built-in and a warning count, Why “Alex”? and the close button; the tabs Co-engineer, Agent and E1 Guide; Skill Plant engineer and Level Normal; Alex's warnings and questions" width="680" height="1680" loading="lazy"><figcaption>Co-engineer: Alex on its own, Built-in.</figcaption></figure>
   <figure class="g-shot"><img src="assets/img/guides/rail.webp" alt="The E1 window with the six buttons of the left rail framed and numbered: 1 Inbox (bell), 2 Explorer, 3 Alex, 4 Configuration, 5 Settings, 6 the signed-in user" width="2160" height="1350" loading="lazy"><figcaption>The left rail. Button 3 shows and hides the Alex panel.</figcaption></figure>
-  <p class="g-note">The tab you chose, and whether the panel is hidden, is remembered in this browser only. With no AI model set up in the installation, Ask, Agent and Plan are greyed out: "No AI model is set up in this installation".</p>
-  <p class="g-related">Related: <a href="guide-getting-started.html#gs-layout">The E1 window</a> · <a href="#ai-alex">Alex</a> · <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-alex-trainer">E1 Guide</a></p>
+  <p class="g-note">The tab you chose, and whether the panel is hidden, is remembered in this browser only. With no AI model set up in the installation, <span class="ui">Agent</span> is greyed out: "No AI model is set up in this installation".</p>
+  <p class="g-related">Related: <a href="guide-getting-started.html#gs-layout">The E1 window</a> · <a href="#ai-alex">Alex</a> · <a href="#ai-cloud-ai">The Agent tab</a> · <a href="#ai-alex-trainer">E1 Guide</a></p>
 </section>
 
 <section class="g-feature" id="ai-alex">
@@ -114,7 +113,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <span class="ui">Configuration</span> on the left rail, then click <span class="ui">E1 Guide</span> in Alex's row of tabs.</td><td>The header reads "E1 Guide · learn E1 where you are". Under <span class="ui">Here: Configuration → Object classes</span> the lessons of this section are listed as boxes, then the lessons under <span class="ui">Anywhere in E1</span>.</td></tr>
+      <tr><td>1</td><td>Open <span class="ui">Configuration</span> on the left rail, then click <span class="ui">E1 Guide</span> among Alex's tabs.</td><td>The header reads "E1 Guide · learn E1 where you are". Under <span class="ui">Here: Configuration → Object classes</span> the lessons of this section are listed as boxes, then the lessons under <span class="ui">Anywhere in E1</span>.</td></tr>
       <tr><td>2</td><td>Click the box <span class="ui">Add a new class</span>.</td><td><span class="ui">Company library</span> in the section bar is ringed. A bubble says "1 / 8", explains that new classes are made in the company library, and reads "Click the highlighted control to go on."</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Company library</span>.</td><td>The Company library opens and the bubble moves to <span class="ui">Library</span> ("2 / 8"). Alex now reads <span class="ui">Here: Configuration → Company library</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Learn more in the user guide ↗</span> in the bubble.</td><td>The user guide opens on its section about the project library, in a new tab (in the desktop app, in your browser).</td></tr>
@@ -133,10 +132,10 @@
 
 <section class="g-feature" id="ai-alex-skill-level">
   <h2>Choose Alex's skill and level</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">AI-alex-skill-level</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">AI-alex-skill-level</span></div>
   <p class="g-summary">The skill decides which engineer reads your drawing and so which checks run. The level decides how much Alex tells you, from warnings only to tips that explain the practice.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Alex</span> → <span class="ui">Co-engineer</span> → <span class="ui">Skill</span> and <span class="ui">Level</span></dd>
+    <dt>Where</dt><dd><span class="ui">Alex</span> → <span class="ui">Co-engineer</span> → the small menus beside <span class="ui">Skill</span> and <span class="ui">Level</span>; each choice shows what it means under its name</dd>
     <dt>Who</dt><dd>Everyone; each person's choice is kept in their own browser</dd>
     <dt>Before you start</dt><dd>Alex is on and a 2D space with pumps is open.</dd>
   </dl>
@@ -157,9 +156,9 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Set <span class="ui">Level</span> to <span class="ui">Quiet</span>.</td><td>Only the <span class="ui">Warnings</span> group is left.</td></tr>
-      <tr><td>2</td><td>Set <span class="ui">Level</span> to <span class="ui">Mentor</span>.</td><td>A <span class="ui">Tips</span> group appears below the others.</td></tr>
-      <tr><td>3</td><td>Set <span class="ui">Skill</span> to <span class="ui">Process engineer</span>.</td><td>Automation cards go; the button <span class="ui">Export instrument index (Excel)</span> disappears and <span class="ui">Import heat and material balance</span> is shown.</td></tr>
+      <tr><td>1</td><td>Click the level beside <span class="ui">Level</span> (<span class="ui">Normal</span>) and choose <span class="ui">Quiet</span>.</td><td>Only the <span class="ui">Warnings</span> group is left.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Mentor</span> the same way.</td><td>A <span class="ui">Tips</span> group appears below the others.</td></tr>
+      <tr><td>3</td><td>Click the skill beside <span class="ui">Skill</span> (<span class="ui">Plant engineer</span>) and choose <span class="ui">Process engineer</span>.</td><td>Automation cards go; the button <span class="ui">Export instrument index (Excel)</span> disappears and <span class="ui">Import heat and material balance</span> is shown.</td></tr>
       <tr><td>4</td><td>Set <span class="ui">Skill</span> to <span class="ui">Automation engineer</span>.</td><td><span class="ui">Export instrument index (Excel)</span> is shown and <span class="ui">Import heat and material balance</span> is gone.</td></tr>
       <tr><td>5</td><td>Set <span class="ui">Skill</span> to <span class="ui">Electrical engineer</span>.</td><td><span class="ui">Export load list and cable schedule (Excel)</span> is shown; the other exports and the import are gone.</td></tr>
       <tr><td>6</td><td>Set <span class="ui">Skill</span> to <span class="ui">HAZOP leader</span>.</td><td><span class="ui">Export HAZOP worksheet (Excel)</span> is shown; the other exports and the import are gone.</td></tr>
@@ -194,7 +193,7 @@
     </tbody>
   </table></div>
   <p class="g-note">Badges on a card: <span class="ui">After your change</span> (Alex's suggestion for your last change, already drawn on the 2D space; always the first design card), <span class="ui">On the drawing</span> (a design suggestion: a change to the drawing), <span class="ui">Data</span> (a data suggestion: a value for the object's data; nothing on the drawing changes), <span class="ui">Company convention</span> (from your company's standards) and <span class="ui">Usual at your company</span> (team memory).</p>
-  <p class="g-note">Cards other than design suggestions have <span class="ui">Show</span> (when they point at something on the drawing), <span class="ui">Not applicable</span> (not on tips) and <span class="ui">Ask Alex</span> (it opens the Ask tab with the card in the text box). Some fill in a value with one click; the button names the value, for example <span class="ui">Use B1</span>.</p>
+  <p class="g-note">Cards other than design suggestions have <span class="ui">Show</span> (when they point at something on the drawing), <span class="ui">Not applicable</span> (not on tips) and <span class="ui">Ask Alex</span> (it opens the Agent tab in Ask mode with the card in the text box). Some fill in a value with one click; the button names the value, for example <span class="ui">Use B1</span>.</p>
   <p class="g-note">What Alex checks: line velocity by service, pressure drop, erosional velocity and design margin; sour service and CO₂; instrument loops, tags, fail positions, interlocks with cause and effect, and anti-surge; questions about motor starting and signal types. The line checks need the line list attributes of the Plant library 1.3.0 or newer.</p>
   <p class="g-related">Related: <a href="#ai-alex-markers">Marks on the drawing</a> · <a href="#ai-alex-not-applicable">Not applicable</a> · <a href="#ai-alex-ask-cloud">Ask Alex about a card</a> · <a href="guide-objects.html#obj-attributes">Attributes</a></p>
 </section>
@@ -336,8 +335,8 @@
 
 <section class="g-feature" id="ai-alex-ask-cloud">
   <h2>Ask Alex about a card in your own words</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-09</span><span class="g-id">AI-alex-ask-cloud</span></div>
-  <p class="g-summary">When you want to discuss what Alex found, <span class="ui">Ask Alex</span> on a card opens the Ask tab with the card in your message. The question is written for you, but not sent, so you can edit it first.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-13</span><span class="g-id">AI-alex-ask-cloud</span></div>
+  <p class="g-summary">When you want to discuss what Alex found, <span class="ui">Ask Alex</span> on a card opens the Agent tab in Ask mode with the card in your message. The question is written for you, but not sent, so you can edit it first.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Co-engineer</span> → an open card → <span class="ui">Ask Alex</span></dd>
     <dt>Who</dt><dd>Everyone who may use Alex's AI help</dd>
@@ -346,13 +345,13 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a card and click <span class="ui">Ask Alex</span>.</td><td>The <span class="ui">Ask</span> tab is chosen. Under <span class="ui">Model</span>: "Your messages and the project context are sent to ‹model›." The text box starts with "Alex noted on ‹2D space›: …" and ends "What do you think, and what should I do?". Nothing is sent.</td></tr>
+      <tr><td>1</td><td>Open a card and click <span class="ui">Ask Alex</span>.</td><td>The <span class="ui">Agent</span> tab is chosen with the mode <span class="ui">Ask</span>. Under the mode and the model: "Your messages and the project context are sent to ‹model›." The text box starts with "Alex noted on ‹2D space›: …" and ends "What do you think, and what should I do?". Nothing is sent.</td></tr>
       <tr><td>2</td><td>Edit the text if you like and press <kbd>Enter</kbd>.</td><td>The message is sent and Alex answers with the model's help.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Co-engineer</span>.</td><td>The cards are back.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">For a card that follows a company convention, the text adds "This is our company convention (…)". With no AI model set up in the installation, the button is greyed out: "No AI model is set up in this installation".</p>
-  <p class="g-related">Related: <a href="#ai-alex-cards">Alex's cards</a> · <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-calls-alex">Alex's review behind the answer</a></p>
+  <p class="g-related">Related: <a href="#ai-alex-cards">Alex's cards</a> · <a href="#ai-cloud-ai">The Agent tab</a> · <a href="#ai-calls-alex">Alex's review behind the answer</a></p>
 </section>
 
 <section class="g-feature" id="ai-alex-knowledge">
@@ -478,74 +477,75 @@
 </section>
 
 <section class="g-feature" id="ai-cloud-ai">
-  <h2>Ask, Agent and Plan: talk with Alex</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">AI-cloud-ai</span><span>Roadmap 6A-6H</span><span>Review check I9</span></div>
-  <p class="g-summary">In Alex's tabs <span class="ui">Ask</span>, <span class="ui">Agent</span> and <span class="ui">Plan</span>, Alex answers questions in your own words with the help of a language model that knows your project; in Agent it changes the project, with the same commands you run by hand, and every change can be reviewed first and undone. Choosing one of these tabs is the choice to use the model; <span class="ui">Co-engineer</span> and <span class="ui">E1 Guide</span> send nothing.</p>
+  <h2>The Agent tab: talk with Alex</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">AI-cloud-ai</span><span>Roadmap 6A-6H</span><span>Review check I9</span></div>
+  <p class="g-summary">In Alex's <span class="ui">Agent</span> tab, Alex answers questions in your own words with the help of a language model that knows your project, and changes the project with the same commands you run by hand; every change can be reviewed first and undone. A small mode menu at the top switches to <span class="ui">Ask</span> (answers only) or <span class="ui">Plan</span> (proposes a change). Choosing the Agent tab is the choice to use the model; <span class="ui">Co-engineer</span> and <span class="ui">E1 Guide</span> send nothing.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Side panel → Alex's row of tabs → <span class="ui">Ask</span>, <span class="ui">Agent</span> or <span class="ui">Plan</span></dd>
+    <dt>Where</dt><dd>Side panel → Alex → <span class="ui">Agent</span></dd>
     <dt>Who</dt><dd>Everyone in an installation with an AI model. Changes need a license and project role that may edit.</dd>
-    <dt>Before you start</dt><dd>A project is open; your administrator has chosen a model (the tabs are not greyed out).</dd>
+    <dt>Before you start</dt><dd>A project is open; your administrator has chosen a model (the Agent tab is not greyed out).</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Ask</span>.</td><td>The badge in the header reads <span class="ui">+ ‹model›</span>, for example <span class="ui">+ GPT-4.1</span>, and under Alex's name "Ask · GPT-4.1". Under the tabs: <span class="ui">Model</span> with the model, and "Your messages and the project context are sent to GPT-4.1." Then the chats' tabs with a <span class="ui">New chat</span> (+) button, the conversation, and at the bottom the text box "Ask about the project".</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Agent</span>.</td><td>The badge in the header reads <span class="ui">+ ‹model›</span>, for example <span class="ui">+ GPT-4.1</span>. Under the tabs, on one line: the mode <span class="ui">Agent</span> and the model <span class="ui">GPT-4.1</span>, each with a small arrow; then "Your messages and the project context are sent to GPT-4.1.", the check boxes <span class="ui">Review changes first</span> and <span class="ui">Protect the arrangement</span>, the chats' tabs with a <span class="ui">New chat</span> (+) button, the conversation, and at the bottom the text box "Ask or change the project".</td></tr>
       <tr><td>2</td><td>Click <span class="ui">New chat</span>.</td><td>A new chat tab is selected and shows "No messages yet. Ask Alex in your own words below."</td></tr>
       <tr><td>3</td><td>Type "What is on this 2D space?" and press <kbd>Enter</kbd>.</td><td>Your message appears under <span class="ui">You</span> with the time, then "Alex is replying…", then the answer under <span class="ui">Alex</span>.</td></tr>
       <tr><td>4</td><td>Type a line, press <kbd>Shift+Enter</kbd>, type another line.</td><td>The text box has two lines; nothing is sent.</td></tr>
-      <tr><td>5</td><td>Click <span class="ui">Co-engineer</span>, then <span class="ui">Ask</span> again.</td><td>Your unsent draft is still there; drafts are also kept per chat.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Co-engineer</span>, then <span class="ui">Agent</span> again.</td><td>Your unsent draft is still there; drafts are also kept per chat.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Detach</span> on a chat tab (or drag the tab away).</td><td>The chat opens in a floating window, with its own mode chip and check boxes under its text box.</td></tr>
       <tr><td>7</td><td>Click <span class="ui">Close</span> on a chat tab (or middle-click it).</td><td>The tab disappears.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/alex-agent.webp" alt="Alex on the Agent tab: the header Alex + GPT-4.1, Agent · GPT-4.1; the row of tabs with Agent chosen; Model GPT-4.1 and the line Your messages and the project context are sent to GPT-4.1.; the check boxes Review changes first and Protect the arrangement; the chat tabs, the conversation and the text box Ask or change the project" width="840" height="1760" loading="lazy"><figcaption>Agent: the model, where messages go, the two options, then the conversation.</figcaption></figure>
-  <p class="g-note">In Ask, Agent and Plan your messages and the project context are sent to the model named under the tabs; in Co-engineer and E1 Guide nothing is. The tab you chose is kept in this browser.</p>
+  <figure class="g-shot"><img src="assets/img/guides/alex-agent.webp" alt="Alex on the Agent tab: the header Alex + GPT-4.1; the tabs with Agent chosen; the mode Agent and the model GPT-4.1, each with a small arrow, and the line Your messages and the project context are sent to GPT-4.1.; the check boxes Review changes first and Protect the arrangement; the chat tabs, the conversation and the text box Ask or change the project" width="680" height="1680" loading="lazy"><figcaption>Agent: the mode and the model, where messages go, the two options, then the conversation.</figcaption></figure>
+  <p class="g-note">In the Agent tab, whatever the mode, your messages and the project context are sent to the model named under the tabs; in Co-engineer and E1 Guide nothing is. The tab and the mode you chose are kept in this browser.</p>
   <p class="g-note">You can have at most 2 replies running at once. A third message gets <span class="ui">You already have 2 co-engineer replies running. Wait for one to finish, then send this again.</span> When too many replies run in the whole organization: <span class="ui">This organization has N co-engineer replies running. Wait a moment, then send this again.</span></p>
-  <p class="g-related">Related: <a href="#ai-chat-modes">What Ask, Agent and Plan may do</a> · <a href="#ai-model-menu">Which model</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-undo">Undo on a reply</a> · <a href="#ai-off">Without a language model</a></p>
+  <p class="g-related">Related: <a href="#ai-chat-modes">Agent, Ask and Plan: what each may do</a> · <a href="#ai-model-menu">Which model</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-undo">Undo on a reply</a> · <a href="#ai-off">Without a language model</a></p>
 </section>
 
 <section class="g-feature" id="ai-chat-modes">
-  <h2>Ask, Agent and Plan: what each may do</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-09</span><span class="g-id">AI-chat-modes</span><span>Roadmap 02.3</span><span>Review check I1</span></div>
-  <p class="g-summary">The tab decides what Alex may do with your next message: <strong>Ask</strong> only answers and never changes anything, <strong>Agent</strong> edits the project, and <strong>Plan</strong> proposes a change that waits for you to apply it.</p>
+  <h2>Agent, Ask and Plan: what each may do</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-13</span><span class="g-id">AI-chat-modes</span><span>Roadmap 02.3</span><span>Review check I1</span></div>
+  <p class="g-summary">In the Agent tab, the mode decides what Alex may do with your next message: <strong>Agent</strong> (the default) edits the project, <strong>Ask</strong> only answers and never changes anything, and <strong>Plan</strong> proposes a change, writes out its plan, and waits for you to apply it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Alex's row of tabs: <span class="ui">Co-engineer</span> | <span class="ui">Ask</span> | <span class="ui">Agent</span> | <span class="ui">Plan</span> | <span class="ui">E1 Guide</span></dd>
+    <dt>Where</dt><dd>Alex → <span class="ui">Agent</span> → the mode at the top left (<span class="ui">Agent</span>, with a small arrow)</dd>
     <dt>Who</dt><dd>Everyone who may use Alex's AI help. If your organization allows answers only, every message runs as Ask.</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>Tab</th><th>Its tooltip</th><th>Text box placeholder</th><th>Under the model</th></tr></thead>
+    <thead><tr><th>Mode</th><th>Under its name in the menu</th><th>Text box placeholder</th><th>Check boxes</th></tr></thead>
     <tbody>
-      <tr><td><span class="ui">Ask</span></td><td>Answers only, never changes anything</td><td>Ask about the project</td><td>Nothing more</td></tr>
       <tr><td><span class="ui">Agent</span></td><td>Edits the project</td><td>Ask or change the project</td><td><span class="ui">Review changes first</span>, <span class="ui">Protect the arrangement</span></td></tr>
-      <tr><td><span class="ui">Plan</span></td><td>Proposes a change; nothing changes until you Apply</td><td>Describe the change to plan</td><td><span class="ui">Review changes first</span>, <span class="ui">Protect the arrangement</span></td></tr>
+      <tr><td><span class="ui">Ask</span></td><td>Answers only, never changes anything</td><td>Ask about the project</td><td>None</td></tr>
+      <tr><td><span class="ui">Plan</span></td><td>Proposes a change; nothing changes until you Apply</td><td>Describe the change to plan</td><td><span class="ui">Protect the arrangement</span> (Plan always waits for Apply)</td></tr>
     </tbody>
   </table></div>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Ask</span>.</td><td><span class="ui">Ask</span> is highlighted, the placeholder is "Ask about the project", the word Ask stands beside the Send button, and there are no check boxes.</td></tr>
-      <tr><td>2</td><td>Type "What is on this 2D space?" and click <span class="ui">Send</span>.</td><td>An answer arrives, nothing in the project changes, and your message carries a small label <span class="ui">Ask</span>.</td></tr>
-      <tr><td>3</td><td>Still in Ask, ask "Delete Pump1".</td><td>Nothing is deleted; Alex explains it cannot change the project in Ask mode ("Ask mode only answers. Switch the chat to Agent or Plan to change the project.").</td></tr>
-      <tr><td>4</td><td>Reload the page.</td><td><span class="ui">Ask</span> is still chosen; the old message still shows <span class="ui">Ask</span>.</td></tr>
-      <tr><td>5</td><td>Click <span class="ui">Plan</span> and ask "Add a note".</td><td><span class="ui">Review changes first</span> and <span class="ui">Protect the arrangement</span> appear under the model. The reply starts with a numbered plan and has a <span class="ui">Review change</span> group: "Plan mode: nothing is changed until you choose Apply." with <span class="ui">Apply</span> and <span class="ui">Discard</span>. The 2D space is unchanged.</td></tr>
-      <tr><td>6</td><td>Click <span class="ui">Agent</span>.</td><td>The check boxes stay; new messages carry no mode label.</td></tr>
+      <tr><td>1</td><td>Click the mode <span class="ui">Agent</span> at the top left of the Agent tab.</td><td>A small menu lists <span class="ui">Agent</span> (ticked), <span class="ui">Ask</span> and <span class="ui">Plan</span>, each with what it does under its name.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Ask</span>.</td><td>The mode reads <span class="ui">Ask</span>, the placeholder is "Ask about the project", and there are no check boxes.</td></tr>
+      <tr><td>3</td><td>Type "What is on this 2D space?" and click <span class="ui">Send</span>.</td><td>An answer arrives, nothing in the project changes, and your message carries a small label <span class="ui">Ask</span>.</td></tr>
+      <tr><td>4</td><td>Still in Ask, ask "Delete Pump1".</td><td>Nothing is deleted; Alex explains it cannot change the project in Ask mode ("Ask mode only answers. Switch the chat to Agent or Plan to change the project.").</td></tr>
+      <tr><td>5</td><td>Reload the page.</td><td>The mode still reads <span class="ui">Ask</span>; the old message still shows <span class="ui">Ask</span>.</td></tr>
+      <tr><td>6</td><td>Choose <span class="ui">Plan</span> and ask "Add a note".</td><td><span class="ui">Protect the arrangement</span> is shown. The reply starts with a numbered plan and has a <span class="ui">Review change</span> group: "Plan mode: nothing is changed until you choose Apply." with <span class="ui">Apply</span> and <span class="ui">Discard</span>. The 2D space is unchanged.</td></tr>
+      <tr><td>7</td><td>Choose <span class="ui">Agent</span>.</td><td><span class="ui">Review changes first</span> is back; new messages carry no mode label.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/alex-agent.webp" alt="Alex's row of tabs with Agent chosen, and under it the model GPT-4.1 with Review changes first and Protect the arrangement" width="840" height="1760" loading="lazy"><figcaption>The tab is the mode of the next message.</figcaption></figure>
-  <p class="g-note">The tab is remembered in this browser and applies to the next message you send. A chat in a floating window chooses its mode with the chip under its text box.</p>
-  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-undo">Undo on a reply</a></p>
+  <figure class="g-shot"><img src="assets/img/guides/alex-agent.webp" alt="Alex's Agent tab: the mode Agent and the model GPT-4.1 at the top, with Review changes first and Protect the arrangement under them" width="680" height="1680" loading="lazy"><figcaption>The mode at the top left is the mode of the next message.</figcaption></figure>
+  <p class="g-note">The mode is remembered in this browser and applies to the next message you send. On Editor Basic, <span class="ui">Agent</span> and <span class="ui">Plan</span> are greyed out in the menu with <span class="ui">Pro</span> and the chat answers in Ask. A chat in a floating window chooses its mode with the chip under its text box.</p>
+  <p class="g-related">Related: <a href="#ai-cloud-ai">The Agent tab</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-undo">Undo on a reply</a></p>
 </section>
 
 <section class="g-feature" id="ai-review-first">
   <h2>Review changes first: Apply or Discard</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">AI-review-first</span><span>Roadmap 6A-6H</span><span>Review checks I3, J6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-13</span><span class="g-id">AI-review-first</span><span>Roadmap 6A-6H</span><span>Review checks I3, J6</span></div>
   <p class="g-summary">With <span class="ui">Review changes first</span> ticked, Alex works on a draft: nothing is stored until you look at the summary and click <span class="ui">Apply</span>.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Alex → <span class="ui">Agent</span> or <span class="ui">Plan</span> → under <span class="ui">Model</span> → <span class="ui">Review changes first</span>; also Settings → <span class="ui">Alex’s AI help</span> → "Changes Alex makes with AI help": <span class="ui">Apply directly</span> / <span class="ui">Review first</span></dd>
+    <dt>Where</dt><dd>Alex → <span class="ui">Agent</span>, mode <span class="ui">Agent</span> → under the mode and the model → <span class="ui">Review changes first</span>; also Settings → <span class="ui">Alex’s AI help</span> → "Changes Alex makes with AI help": <span class="ui">Apply directly</span> / <span class="ui">Review first</span></dd>
     <dt>Who</dt><dd>Anyone who may let Alex edit with its AI help</dd>
-    <dt>Before you start</dt><dd>The chat is in <span class="ui">Agent</span> mode (the box is hidden in Ask).</dd>
+    <dt>Before you start</dt><dd>The mode is <span class="ui">Agent</span>. The box is hidden in Ask, which changes nothing, and in Plan, which always waits for Apply.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -557,17 +557,17 @@
       <tr><td>4</td><td>Ask again, then click <span class="ui">Discard</span>.</td><td>Nothing changes; the buttons go away.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/alex-agent.webp" alt="Alex on Agent: under Model, the check boxes Review changes first (unticked) and Protect the arrangement (ticked)" width="840" height="1760" loading="lazy"><figcaption>The two check boxes under the model, in Agent and Plan.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/alex-agent.webp" alt="Alex on Agent: under the mode and the model, the check boxes Review changes first (unticked) and Protect the arrangement (ticked)" width="680" height="1680" loading="lazy"><figcaption>The two check boxes under the mode and the model, in Agent mode.</figcaption></figure>
   <p class="g-note">A change waiting for review is kept even if the E1 server restarts.</p>
   <p class="g-related">Related: <a href="#ai-chat-modes">Agent, Ask and Plan</a> · <a href="#ai-held-for-review">What is always held</a> · <a href="#ai-undo">Undo on a reply</a></p>
 </section>
 
 <section class="g-feature" id="ai-protect-arrangement">
   <h2>Protect the arrangement</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">AI-protect-arrangement</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">AI-protect-arrangement</span></div>
   <p class="g-summary">On by default, this keeps your layout safe: Alex may add symbols, lines and notes, but does not move, resize or reroute what is already drawn.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Alex → <span class="ui">Agent</span> or <span class="ui">Plan</span> → beside <span class="ui">Review changes first</span> → <span class="ui">Protect the arrangement</span>; also Settings → <span class="ui">Alex’s AI help</span> → "What is already drawn": <span class="ui">Protect the arrangement</span> / <span class="ui">May be rearranged</span></dd>
+    <dt>Where</dt><dd>Alex → <span class="ui">Agent</span>, mode <span class="ui">Agent</span> or <span class="ui">Plan</span> → <span class="ui">Protect the arrangement</span>; also Settings → <span class="ui">Alex’s AI help</span> → "What is already drawn": <span class="ui">Protect the arrangement</span> / <span class="ui">May be rearranged</span></dd>
     <dt>Who</dt><dd>Anyone who may let Alex edit with its AI help</dd>
     <dt>Before you start</dt><dd>Agent or Plan mode (hidden in Ask).</dd>
   </dl>
@@ -652,7 +652,7 @@
     </tbody>
   </table></div>
   <p class="g-warn">PDF text is read, but not scans. A chip that says "not readable" sends no text. Images reach the model only where the installation's model may see images.</p>
-  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-injection-safety">Prompt-injection safety</a></p>
+  <p class="g-related">Related: <a href="#ai-cloud-ai">The Agent tab</a> · <a href="#ai-injection-safety">Prompt-injection safety</a></p>
 </section>
 
 <section class="g-feature" id="ai-voice">
@@ -676,15 +676,15 @@
   </table></div>
   <p class="g-note">The audio goes through the E1 server to a speech-to-text service, not to your browser's own recognition. Other messages you may see: "No microphone was found.", "The microphone is in use by another application.", "Nothing was recorded.", "No speech was recognized."</p>
   <p class="g-warn">When the installation has no speech-to-text service the button is disabled. With no AI model at all there is no text box, so no microphone either ("Voice input needs an AI model, and none is set up in this installation").</p>
-  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="guide-account.html#web-assistant">Alex on the website</a> (which works differently)</p>
+  <p class="g-related">Related: <a href="#ai-cloud-ai">The Agent tab</a> · <a href="guide-account.html#web-assistant">Alex on the website</a> (which works differently)</p>
 </section>
 
 <section class="g-feature" id="ai-model-menu">
-  <h2>Which model: the model under Ask, Agent and Plan</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">AI-model-menu</span></div>
-  <p class="g-summary">In Ask, Agent and Plan, <span class="ui">Model</span> shows the language model Alex uses and where it runs, with the line "Your messages and the project context are sent to ‹model›." Your administrator sets the default; people with an Editor license (outside a trial) may pick a premium model for their own conversations.</p>
+  <h2>Which model: the model in the Agent tab</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">AI-model-menu</span></div>
+  <p class="g-summary">In the Agent tab, the model beside the mode shows the language model Alex uses and where it runs, with the line "Your messages and the project context are sent to ‹model›." Your administrator sets the default; people with an Editor license (outside a trial) may pick a premium model for their own conversations.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Alex → <span class="ui">Ask</span>, <span class="ui">Agent</span> or <span class="ui">Plan</span> → <span class="ui">Model</span> → menu <span class="ui">Model</span></dd>
+    <dt>Where</dt><dd>Alex → <span class="ui">Agent</span> → the model beside the mode (with a small arrow) → menu <span class="ui">Model</span></dd>
     <dt>Who</dt><dd>Everyone sees it. Premium models (Claude Opus and above): Editor license, not on a trial.</dd>
     <dt>Before you start</dt><dd>An installation with more than one model (the menu shows just one otherwise).</dd>
   </dl>
@@ -692,17 +692,17 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Point at the model beside <span class="ui">Model</span>.</td><td>It shows the model's name, for example <span class="ui">GPT-4.1 Azure Europe</span>. The tooltip says where it runs, that in Ask, Agent and Plan your messages and project context are sent there, and "Chosen by your administrator in Configuration."</td></tr>
-      <tr><td>2</td><td>With an Editor license, not on a trial, click it and pick <span class="ui">Claude Opus 5.5 Azure Global</span>.</td><td>It shows that model; the tooltip says "chosen by you for your conversations"; the badge in the header, the line under Alex's name and the line under the model name it; the next reply comes from it.</td></tr>
+      <tr><td>1</td><td>Point at the model beside the mode.</td><td>It shows the model's name, for example <span class="ui">GPT-4.1 Azure Europe</span>. The tooltip says where it runs, that in Alex's Agent tab your messages and project context are sent there, and "Chosen by your administrator in Configuration."</td></tr>
+      <tr><td>2</td><td>With an Editor license, not on a trial, click it and pick <span class="ui">Claude Opus 5.5 Azure Global</span>.</td><td>It shows that model; the tooltip says "chosen by you for your conversations"; the badge in the header, and the line under the model name it; the next reply comes from it.</td></tr>
       <tr><td>3</td><td>As a Reviewer, or on a trial, open the menu.</td><td>Claude Opus 5.5 is listed but greyed out, with "Not included in a trial." or "Included with an Editor license; yours is Reviewer." under it.</td></tr>
-      <tr><td>4</td><td>In an installation with no AI model.</td><td><span class="ui">Ask</span>, <span class="ui">Agent</span> and <span class="ui">Plan</span> are greyed out; their tooltip reads "No AI model is set up in this installation".</td></tr>
+      <tr><td>4</td><td>In an installation with no AI model.</td><td>The <span class="ui">Agent</span> tab is greyed out; its tooltip reads "No AI model is set up in this installation".</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-cloud-ai-model.webp" alt="Configuration, the section for Alex's AI help: the models grouped by provider with a radio button each" width="2160" height="1350" loading="lazy"><figcaption>The administrator's choice in Configuration → Alex’s AI help sets everyone's default.</figcaption></figure>
   <p class="g-note">On app.lanxtor.com, everyone's default is <span class="ui">GPT-4.1 Azure Europe</span> (Azure OpenAI in Sweden Central). <span class="ui">Claude Opus 5.5 Azure Global</span> is offered to Editor licenses outside a trial once it is deployed. If a model cannot answer, the reply carries a short note naming the model that answered instead.</p>
   <p class="g-note">The installation's default is checked like any premium model. If the default is premium and it is not for you (a trial, or a license other than Editor), another model answers and the reply says so, for example <span class="ui">Claude Opus 5.5 Azure Global: Included with an Editor license; yours is Reviewer. GPT-4.1 Azure Europe answered.</span></p>
   <p class="g-note">Your pick is kept in this browser and checked by the server on every message.</p>
-  <p class="g-related">Related: <a href="#ai-model-admin">Choose the installation's model</a> · <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="guide-account.html#web-licenses">Licenses on your account page</a></p>
+  <p class="g-related">Related: <a href="#ai-model-admin">Choose the installation's model</a> · <a href="#ai-cloud-ai">The Agent tab</a> · <a href="guide-account.html#web-licenses">Licenses on your account page</a></p>
 </section>
 
 <section class="g-feature" id="ai-model-admin">
@@ -717,8 +717,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open Configuration and click <span class="ui">Alex’s AI help</span>.</td><td>The models are listed by provider; the current one is selected. A provider without a key shows "No key" and cannot be chosen. The card is headed <span class="ui">Alex’s AI help (language model)</span>; the note reads "Alex’s Ask, Agent and Plan use this model for everyone in this installation; people see it there but do not choose it. …"</td></tr>
-      <tr><td>2</td><td>Choose <span class="ui">Claude Sonnet 5.5</span>.</td><td>Its radio button is selected, and the model under Alex's Ask, Agent and Plan changes to <span class="ui">Claude Sonnet 5.5</span>.</td></tr>
+      <tr><td>1</td><td>Open Configuration and click <span class="ui">Alex’s AI help</span>.</td><td>The models are listed by provider; the current one is selected. A provider without a key shows "No key" and cannot be chosen. The card is headed <span class="ui">Alex’s AI help (language model)</span>; the note reads "Alex’s Agent tab uses this model for everyone in this installation; people see it there but do not choose it. …"</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Claude Sonnet 5.5</span>.</td><td>Its radio button is selected, and the model in Alex's Agent tab changes to <span class="ui">Claude Sonnet 5.5</span>.</td></tr>
       <tr><td>3</td><td>Sign in as someone who is not an installation operator and open <span class="ui">Alex’s AI help</span>.</td><td>The note reads <span class="ui">Only the installation’s operators can change the model.</span> and every model is greyed out.</td></tr>
     </tbody>
   </table></div>
@@ -746,7 +746,7 @@
     </tbody>
   </table></div>
   <p class="g-note">If something could not be repaired, the reply says "‹pattern›: still to check: …".</p>
-  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
+  <p class="g-related">Related: <a href="#ai-cloud-ai">The Agent tab</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
 </section>
 
 <section class="g-feature" id="ai-calls-alex">
@@ -790,17 +790,17 @@
 
 <section class="g-feature" id="ai-off">
   <h2>Without a language model: Co-engineer, everything by hand</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-10</span><span class="g-id">AI-off</span></div>
-  <p class="g-summary">An installation may have no AI model, an organization may switch Alex's AI help off, and the AI credits may be used up. Everything else goes on: whatever Alex would do in Ask, Agent and Plan, you can do yourself with the menus, the toolbars and the right-click menus, and Alex keeps working in Co-engineer because its review uses no model.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">AI-off</span></div>
+  <p class="g-summary">An installation may have no AI model, an organization may switch Alex's AI help off, and the AI credits may be used up. Everything else goes on: whatever Alex would do in its Agent tab, you can do yourself with the menus, the toolbars and the right-click menus, and Alex keeps working in Co-engineer because its review uses no model.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Alex's row of tabs: <span class="ui">Ask</span>, <span class="ui">Agent</span> and <span class="ui">Plan</span> are greyed out</dd>
+    <dt>Where</dt><dd>Alex's tabs: <span class="ui">Agent</span> is greyed out</dd>
     <dt>Who</dt><dd>Everyone</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>In an installation with no AI model, point at <span class="ui">Ask</span>.</td><td>It is greyed out, with the tooltip "No AI model is set up in this installation"; so are <span class="ui">Agent</span> and <span class="ui">Plan</span>. Alex shows <span class="ui">Co-engineer</span>, with the badge <span class="ui">Built-in</span>; there is no text box, so no <span class="ui">Attach</span> or <span class="ui">Voice input</span>.</td></tr>
+      <tr><td>1</td><td>In an installation with no AI model, point at <span class="ui">Agent</span>.</td><td>It is greyed out, with the tooltip "No AI model is set up in this installation". Alex shows <span class="ui">Co-engineer</span>, with the badge <span class="ui">Built-in</span>; there is no text box, so no <span class="ui">Attach</span> or <span class="ui">Voice input</span>.</td></tr>
       <tr><td>2</td><td>In the explorer, right-click <span class="ui">Assets</span> → <span class="ui">New asset…</span> and create a pump.</td><td>The pump is created and the status bar says <span class="ui">Saved</span>: editing by hand works without a model.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Let Alex help</span>.</td><td>Alex reads the drawing as usual.</td></tr>
     </tbody>
@@ -897,7 +897,7 @@
   <p class="g-note">If a step fails (a value it cannot set, a permission you lack), the run stops and nothing of it is kept; the report names the step and why.</p>
   <p class="g-note">An assistant whose steps use a class, attribute or relationship type the project's library no longer has (after its library pin or content packages change) shows <span class="ui">Needs update</span>; open it for the reasons. Record it again with what the library has now.</p>
   <p class="g-warn">Not built yet: assistants in content packages and from the API (18.5), a script step (18.6), and running in a branch (17.3). There is no command palette yet; assistants run from the Assistants place and through Alex.</p>
-  <p class="g-related">Related: <a href="#ai-cloud-ai">Ask, Agent and Plan</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
+  <p class="g-related">Related: <a href="#ai-cloud-ai">The Agent tab</a> · <a href="#ai-undo">Undo everything a reply changed</a> · <a href="#ai-review-first">Review changes first</a> · <a href="#ai-branch">Alex in your branch</a></p>
 </section>
 
 <section class="g-feature" id="ai-package-assistants">
@@ -961,7 +961,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">AI-query-sentence</span><span>Roadmap 05.5b</span></div>
   <p class="g-summary">Ask Alex for “all pumps without a motor”: Alex turns the sentence into a query (query_from_sentence), runs it (run_query) and answers with the rows; the integration API offers the same.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Alex (Ask, Agent, Plan); the integration API</dd>
+    <dt>Where</dt><dd>Alex → <span class="ui">Agent</span> (any mode); the integration API</dd>
     <dt>Who</dt><dd>Any project role that may view the project</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
@@ -972,5 +972,5 @@
       <tr><td>3</td><td>With an API token, <code>POST /api/v1/projects/{id}/queries/from-sentence</code> with <code>{ "text": "all pumps without a motor" }</code>, then <code>POST /api/v1/projects/{id}/query</code> with the definition.</td><td>The definition with its filter in words, then its rows. <code>GET /api/v1/projects/{id}/queries</code> lists the saved queries.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="guide-lists.html#list-sentence-query">Queries from a sentence in the explorer</a> · <a href="guide-lists.html#list-new-query">New query</a> · <a href="#ai-cloud-ai">Ask, Agent and Plan</a></p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-sentence-query">Queries from a sentence in the explorer</a> · <a href="guide-lists.html#list-new-query">New query</a> · <a href="#ai-cloud-ai">The Agent tab</a></p>
 </section>
