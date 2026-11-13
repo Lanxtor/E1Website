@@ -15,4 +15,19 @@ module.exports = {
     await go(h, 'download.html', 'web-download');
     await go(h, 'academy.html', 'web-academy');
   },
+  // Alex on the website after "What does E1 cost?". The answer is written by a language model on the
+  // E1 server; here it is a fixed answer from the website's own prices, so the picture needs no server.
+  async assistant(h) {
+    const p = h.page;
+    const reply = 'E1 is licensed per user, per month (US dollars, excluding VAT, billed yearly):\n\n'
+      + '- **Viewer** $19: open, search and export\n- **Reviewer** $99: also comments, approvals and Alex\n'
+      + '- **Editor Basic** $349 or **Editor** $795: also editing, with 300 or 2,000 AI credits\n\n'
+      + 'For teaching, a University organization costs $29 per Editor and $9 per Viewer a month. See [licenses and prices](download.html#pricing).';
+    await p.route('**/api/site/assistant', (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ reply }) }));
+    await p.goto(B + 'index.html'); await p.waitForTimeout(1200); await p.getByRole('button', { name: 'OK', exact: true }).first().click().catch(() => console.log('no banner'));
+    await p.goto(B + 'academy.html'); await p.waitForTimeout(1500);
+    await p.getByRole('button', { name: 'Ask Alex' }).first().click(); await p.waitForTimeout(600);
+    await p.getByRole('button', { name: 'What does E1 cost?', exact: true }).click(); await p.waitForTimeout(1500);
+    await h.shot('web-assistant');
+  },
 };
