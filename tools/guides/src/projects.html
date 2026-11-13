@@ -425,7 +425,7 @@
 
 <section class="g-feature" id="prj-empty-bin">
   <h2>Empty a bin (the permission Empty bins)</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">PRJ-empty-bin</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">PRJ-empty-bin</span></div>
   <p class="g-summary">Emptying a bin deletes everything in it for good, at once: the objects, 2D spaces and folders in a project's <span class="ui">Deleted bin</span>, or every project in the workspace's <span class="ui">Bin</span>. Nothing emptied can be restored, so it needs a permission of its own, <span class="ui">Empty bins</span>. The <span class="ui">Voided bin</span> is never emptied: nothing voided can be deleted.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → the project → <span class="ui">Bin</span> or <span class="ui">Deleted bin</span> → right-click → <span class="ui">Empty deleted bin…</span>; the <span class="ui">Bin</span> after the projects → right-click → <span class="ui">Empty bin…</span></dd>
@@ -439,8 +439,8 @@
       <tr><td>1</td><td>Delete V9 and V10 under <span class="ui">Assets</span>.</td><td>A <span class="ui">Bin</span> row appears at the end of the project.</td></tr>
       <tr><td>2</td><td>Right-click the project's <span class="ui">Bin</span> row.</td><td>The item <span class="ui">Empty deleted bin…</span>. Without the permission Empty bins it is greyed out, and pointing at it says "Emptying a bin needs the permission Empty bins (a Project administrator has it)."</td></tr>
       <tr><td>3</td><td>Choose <span class="ui">Empty deleted bin…</span>.</td><td>The browser asks "Delete the 2 items in the deleted bin permanently? They cannot be restored." After <span class="ui">OK</span> V9 and V10 are gone for good and the Bin row disappears.</td></tr>
-      <tr><td>4</td><td>Delete a project of your own, then right-click the <span class="ui">Bin</span> after the projects.</td><td>The item <span class="ui">Empty bin…</span>.</td></tr>
-      <tr><td>5</td><td>Choose <span class="ui">Empty bin…</span>.</td><td>The browser lists the projects in the Bin and asks to delete them permanently. After <span class="ui">OK</span> they are gone for good and the Bin row disappears.</td></tr>
+      <tr><td>4</td><td>Delete a project of your own, then right-click the <span class="ui">Bin</span> after the projects.</td><td>The item <span class="ui">Empty bin…</span>. While E1 is still checking your permission the item can already be chosen; the server checks it.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Empty bin…</span>.</td><td>The browser lists the projects in the Bin and asks to delete them permanently. If you signed in more than 15 minutes ago, <a href="guide-access.html#acc-step-up">Confirm it is you</a> opens first: <span class="ui">Use passkey</span>, or <span class="ui">Sign in again</span> (you come back, E1 asks once more and carries on). After <span class="ui">OK</span> they are gone for good and the Bin row disappears.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Without Empty bins you can still delete one item at a time with <span class="ui">Delete permanently…</span>, if your role may delete it. E1 checks the permission on the server, not only in the menu. On an installation without sign-in (the desktop app) nothing is restricted.</p>
