@@ -3,6 +3,20 @@ const toSheet = async (p) => { await p.getByRole('tablist', { name: 'Open tabs' 
 const conf = async (p, section) => { await p.getByRole('navigation', { name: 'Application' }).getByRole('button', { name: 'Configuration' }).click(); await p.waitForTimeout(800); if (section) { await p.getByRole('navigation', { name: 'Configuration sections' }).getByRole('button', { name: new RegExp('^' + section) }).click(); await p.waitForTimeout(1000); } };
 async function sym(p, name) { const s = p.locator(`[data-pick="symbol"][aria-label="${name}"]`); await s.waitFor(); const b = await s.boundingBox(); return { x: b.x + b.width / 2, y: b.y + b.height / 2 }; }
 module.exports = {
+  // Configuration → Catalogs: a company catalog with a published and a draft item, open beside the content package's Wiring.
+  async catalogs(h) {
+    const p = h.page; await h.open();
+    const call = async (name, input) => { const r = await p.request.post(new URL('/api/commands/' + name, p.url()).href, { data: { input: { project: 'project', ...input } } }); if (!r.ok()) throw new Error(name + ': ' + await r.text()); };
+    await call('catalog.create', { key: 'company.catalog.pumps', name: 'Approved pumps', description: 'Centrifugal pumps the process team approves for new plants.' });
+    await call('catalog.create_item', { catalog: 'company.catalog.pumps', key: 'company.catalog.pumps.ksb-etanorm-050', class: 'plant.class.equipment.pump.centrifugal', manufacturer: 'KSB', model: 'Etanorm 050', orderingCode: 'ETN050', values: { 'plant.attr.flow-rate': { value: 50, unit: 'm³/h' } } });
+    await call('catalog.publish_items', { keys: ['company.catalog.pumps.ksb-etanorm-050'] });
+    await call('catalog.create_item', { catalog: 'company.catalog.pumps', key: 'company.catalog.pumps.grundfos-nb-50-160', class: 'plant.class.equipment.pump.centrifugal', manufacturer: 'Grundfos', model: 'NB 50-160', orderingCode: 'NB50160', values: {} });
+    await conf(p, 'Catalogs');
+    const hide = p.getByRole('button', { name: 'Hide Alex', exact: true }); if (await hide.count()) await hide.first().click();
+    await p.getByRole('navigation', { name: 'Catalog list' }).getByRole('button', { name: /Approved pumps/ }).click();
+    await p.getByRole('table', { name: 'Catalog items' }).waitFor();
+    await h.shot('config-catalogs');
+  },
   async drawing(h) {
     const p = h.page; await h.open(); await toSheet(p);
     const tb = p.getByRole('toolbar', { name: 'Drawing' });
