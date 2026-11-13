@@ -99,7 +99,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Double-click <span class="ui">Pump1</span> in the explorer.</td><td>A tab "Pump1" opens with the heading "Pump1" and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span>, <span class="ui">Deep view</span>, <span class="ui">Data sheet</span>, <span class="ui">Chat</span>, <span class="ui">History</span>, <span class="ui">Attachments</span>, in this order. <span class="ui">Attributes</span> is shown, whatever tab you chose last; <span class="ui">Data sheet</span> shows "Datasheet of Pump1".</td></tr>
+      <tr><td>1</td><td>Double-click <span class="ui">Pump1</span> in the explorer.</td><td>A tab "Pump1" opens with the heading "Pump1" and the tabs <span class="ui">Attributes</span>, <span class="ui">Relationships</span>, <span class="ui">Deep view</span>, <span class="ui">Diagrams</span>, <span class="ui">Data sheet</span>, <span class="ui">Chat</span>, <span class="ui">History</span>, <span class="ui">Attachments</span>, in this order. <span class="ui">Attributes</span> is shown, whatever tab you chose last; <span class="ui">Data sheet</span> shows "Datasheet of Pump1".</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Attributes</span>, then press the <kbd>→</kbd> key.</td><td><span class="ui">Relationships</span> is selected. <kbd>←</kbd>, <kbd>Home</kbd> and <kbd>End</kbd> also move between tabs: <kbd>Home</kbd> goes to <span class="ui">Attributes</span>, <kbd>End</kbd> to <span class="ui">Attachments</span>, the last tab.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Attachments</span>, then right-click <span class="ui">Pump2</span> in the explorer → <span class="ui">Open</span>.</td><td>Pump2 opens on <span class="ui">Attributes</span>: <span class="ui">Open</span>, a double-click and a symbol's <span class="ui">Object properties</span> always open the window there, whatever tab you chose last.</td></tr>
       <tr><td>4</td><td>Click in <span class="ui">Name</span>, type a new name and press <kbd>Esc</kbd>.</td><td>The old name is back; nothing is saved.</td></tr>
@@ -109,7 +109,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/object-page.webp" alt="The object window of Pump1: the header with class, Tag and Name, the buttons, and the tab row with the Data sheet tab selected showing the pump's datasheet." width="2160" height="1350" loading="lazy"><figcaption>Pump1 in its object window, on the <span class="ui">Data sheet</span> tab.</figcaption></figure>
-  <p class="g-note">The tabs are described in their own guides: <a href="#obj-attributes">Attributes</a>, <a href="#obj-relationships">Relationships</a>, <a href="#obj-deep-view">Deep view</a>, <a href="guide-documents.html#doc-datasheet">Data sheet</a>, <a href="guide-collaboration.html#col-comments">Chat</a> and <a href="guide-collaboration.html#col-history">History</a>. On <span class="ui">Attachments</span> you add files with <span class="ui">Add files…</span> or by dropping them on the tab; each file has <span class="ui">Open</span> and <span class="ui">Remove</span>, and a PDF is previewed in the tab.</p>
+  <p class="g-note">The tabs are described in their own guides: <a href="#obj-attributes">Attributes</a>, <a href="#obj-relationships">Relationships</a>, <a href="#obj-deep-view">Deep view</a>, <a href="#obj-diagrams">Diagrams</a>, <a href="guide-documents.html#doc-datasheet">Data sheet</a>, <a href="guide-collaboration.html#col-comments">Chat</a> and <a href="guide-collaboration.html#col-history">History</a>. On <span class="ui">Attachments</span> you add files with <span class="ui">Add files…</span> or by dropping them on the tab; each file has <span class="ui">Open</span> and <span class="ui">Remove</span>, and a PDF is previewed in the tab.</p>
   <p class="g-note">Larger text in the object window: <kbd>Ctrl</kbd> and the mouse wheel (or a pinch on a touchpad) zoom it from 80% to 200% in steps; with the focus in the window, <kbd>Ctrl</kbd> and <kbd>+</kbd> or <kbd>−</kbd> do the same and <kbd>Ctrl+0</kbd> goes back to 100%. The explorer has its own size, set the same way.</p>
   <p class="g-related">Related: <a href="#obj-attributes">Attributes</a> · <a href="#obj-relationships">Relationships</a> · <a href="guide-documents.html#doc-datasheet">Datasheet</a> · <a href="guide-collaboration.html#col-history">History</a> · <a href="guide-collaboration.html#col-comments">Chat</a> · <a href="guide-collaboration.html#col-tasks">Tasks</a></p>
 </section>
@@ -548,6 +548,26 @@
   <p class="g-note">Moving around: the mouse wheel moves the view, Ctrl (⌘ on a Mac) and the wheel zoom it, and you can drag the background. Zoom out, zoom in and <span class="ui">Fit</span> at the bottom right of the view size it. After you open or close cards the network is fitted to the view, never smaller than 50% so it stays readable; once you have moved or zoomed the view yourself, the card you opened stays where it was. A double-click on a card opens its object window. With the keyboard: Tab to a card, Enter or Space chooses it, + and − open and close it.</p>
   <p class="g-note">A project, folder or 2D space that is not an object of a class has no associations, and its Deep view tab says so.</p>
   <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-relationships">Relate objects</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol menu</a></p>
+</section>
+
+<section class="g-feature" id="obj-diagrams">
+  <h2>Diagrams of an object</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-13</span><span>Updated 2026-11-13</span><span class="g-id">OBJ-diagrams</span><span>Roadmap M4.26</span></div>
+  <p class="g-summary">The <span class="ui">Diagrams</span> tab shows a small picture of every diagram (2D space) the object is drawn on, in a grid. Each picture is the diagram's lines and symbols without names or labels, big enough to recognize the diagram, with the object in blue and ringed. Below it are the diagram's name and its full path from the project down. Double-click a picture to open the diagram with the object selected and in view.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Object window → <span class="ui">Diagrams</span></dd>
+    <dt>Who</dt><dd>Anyone who can open the project</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Double-click <span class="ui">V3</span> under Assets in the explorer, and click the <span class="ui">Diagrams</span> tab.</td><td>"Drawn on 1 diagram · double-click one to open it", and a picture of the diagram with V3 ringed in blue. Below it the diagram's name and its path, starting with the project.</td></tr>
+      <tr><td>2</td><td>Double-click the picture.</td><td>The diagram opens in its own tab with V3 selected and in view.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The tab reads nothing until you open it, and each picture is drawn only when it scrolls into view, so an object on many diagrams opens quickly. With the keyboard: Tab to a picture and press Enter to open it. An object that is not drawn yet says so. A project, a folder or a 2D space is not drawn on a diagram, and its Diagrams tab says so.</p>
+  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="#obj-deep-view">Deep view</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol menu</a></p>
 </section>
 
 <section class="g-feature" id="obj-units">
