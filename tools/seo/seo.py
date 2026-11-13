@@ -25,7 +25,6 @@ ORGANIZATION = {
     "url": SITE + "/",
     "logo": SITE + "/assets/img/logo-512.png",
     "email": "info@lanxtor.com",
-    "telephone": "+1-949-400-1129",
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "7545 Irvine Center Drive, Suite 200",
@@ -36,8 +35,7 @@ ORGANIZATION = {
     },
     "sameAs": [LINKEDIN],
     "contactPoint": [
-        {"@type": "ContactPoint", "contactType": "sales", "email": "sales@lanxtor.com",
-         "telephone": "+1-949-400-1129", "availableLanguage": ["en", "de", "fr", "es", "no"]},
+        {"@type": "ContactPoint", "contactType": "sales", "email": "sales@lanxtor.com", "availableLanguage": ["en", "de", "fr", "es", "no"]},
         {"@type": "ContactPoint", "contactType": "technical support", "email": "support@lanxtor.com",
          "availableLanguage": ["en", "de", "fr", "es", "no"]},
     ],
