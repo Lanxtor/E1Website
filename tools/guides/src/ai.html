@@ -735,8 +735,8 @@
 
 <section class="g-feature" id="ai-voice">
   <h2>Voice input</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">AI-voice</span><span>Roadmap 02.4</span></div>
-  <p class="g-summary">Speak instead of typing. Your speech is turned into text in the text box, and you edit it before you send; it is never sent by itself.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-13</span><span class="g-id">AI-voice</span><span>Roadmap 02.4</span></div>
+  <p class="g-summary">Speak instead of typing. Your words appear in the text box while you speak, and you edit them before you send; nothing is ever sent by itself.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The microphone <span class="ui">Voice input</span> under the text box</dd>
     <dt>Who</dt><dd>Everyone who may use Alex's AI help, in an installation with speech-to-text</dd>
@@ -747,12 +747,13 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Voice input</span> and allow the microphone.</td><td>"Starting the microphone…", then the button is shown pressed and the status reads "Listening… 0:0x. Press the microphone to stop, Esc to cancel."</td></tr>
-      <tr><td>2</td><td>Speak, then click the microphone again.</td><td>"Turning speech into text…"; then the text appears in the text box, which has focus. Nothing is sent.</td></tr>
-      <tr><td>3</td><td>Start again and press <kbd>Esc</kbd>.</td><td>The recording is thrown away and the text box is unchanged.</td></tr>
-      <tr><td>4</td><td>Block the microphone in the browser and click <span class="ui">Voice input</span>.</td><td>"Microphone access was refused. Allow it for E1 and try again." Your draft is kept.</td></tr>
+      <tr><td>2</td><td>Speak.</td><td>Your words appear in the text box as you say them; at each pause they settle, and the box cannot be typed in until you stop.</td></tr>
+      <tr><td>3</td><td>Click the microphone again.</td><td>"Writing the last words…" for a moment; then the whole text is in the text box, which has focus. Nothing is sent.</td></tr>
+      <tr><td>4</td><td>Start again, say something and press <kbd>Esc</kbd>.</td><td>Listening stops; the words still being heard are thrown away, the ones already settled stay.</td></tr>
+      <tr><td>5</td><td>Block the microphone in the browser and click <span class="ui">Voice input</span>.</td><td>"Microphone access was refused. Allow it for E1 and try again." Your draft is kept.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The audio goes through the E1 server to a speech-to-text service, not to your browser's own recognition. Other messages you may see: "No microphone was found.", "The microphone is in use by another application.", "Nothing was recorded.", "No speech was recognized."</p>
+  <p class="g-note">The audio goes through the E1 server to a speech-to-text service, not to your browser's own recognition. When the installation's speech-to-text service cannot show words live (a local Whisper server), the words come after you stop: "Turning speech into text…", then the text appears. Other messages you may see: "No microphone was found.", "The microphone is in use by another application.", "Nothing was recorded.", "No speech was recognized."</p>
   <p class="g-warn">When the installation has no speech-to-text service the button is disabled. With no AI model at all there is no text box, so no microphone either ("Voice input needs an AI model, and none is set up in this installation").</p>
   <p class="g-related">Related: <a href="#ai-cloud-ai">The Agent tab</a> · <a href="guide-account.html#web-assistant">Alex on the website</a> (which works differently)</p>
 </section>
