@@ -22,10 +22,10 @@
 
 <section class="g-feature" id="org-organization-dialog">
   <h2>The Organization dialog</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-12</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1, 09.6a, 09.7</span><span>Review checks J4, J7, J8</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-13</span><span class="g-id">ORG-organization-dialog</span><span>Roadmap M2.4, PR1, 09.6a, 09.7</span><span>Review checks J4, J7, J8</span></div>
   <p class="g-summary">One dialog holds your organization: its plan, its members with their licenses and roles, open invitations, access, connections to other systems, the audit log and the export. Each section says what it is for, and the top of the dialog shows who is signed in, with <span class="ui">Switch organization</span> and <span class="ui">Sign out</span>.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span></dd>
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span>, or <span class="ui">Organization…</span> beside <span class="ui">Sign out</span> on your Account page</dd>
     <dt>Who</dt><dd>Owner or Administrator of the organization, with a passkey. Listing members, licenses, groups and the audit each need their own permission; the Administrator license gives only these organization permissions.</dd>
     <dt>Before you start</dt><dd>E1 with sign-in; you have added a passkey (<a href="#org-roles-passkey">passkey rule</a>).</dd>
   </dl>
@@ -33,8 +33,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with your organization's name under the title and, on the right, you (name and email) with <span class="ui">Switch organization</span> when you belong to more than one, <span class="ui">Sign out</span> and a close cross. On the left the sections, each with a short line under its name: <strong>People</strong>: <span class="ui">Members</span>, <span class="ui">Access</span> (see <a href="#org-access-history">Access history</a>); <strong>Content</strong>: <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>); <strong>Connections</strong>: <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Sign-on</span> (see <a href="#org-sso">Company single sign-on</a>); <strong>Records</strong>: <span class="ui">Audit</span>, <span class="ui">Export</span>. <span class="ui">Members</span> is shown.</td></tr>
-      <tr><td>2</td><td>Click a section on the left.</td><td>It opens on the right under its name and a sentence saying what it is for. <span class="ui">Access</span> has its own row: <span class="ui">Roles</span>, <span class="ui">Groups</span>, <span class="ui">Assignments</span>, <span class="ui">History</span>, <span class="ui">Reviews</span>, <span class="ui">Emergency</span>, <span class="ui">E1 support</span> and <span class="ui">Shared projects</span>, each explained under the row.</td></tr>
+      <tr><td>1</td><td>Choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>A dialog <span class="ui">Organization</span> with your organization's name under the title and, on the right, you (name and email) with <span class="ui">Switch organization</span> when you belong to more than one, <span class="ui">Sign out</span> and a close cross. On the left the sections, each with a short line under its name: <strong>People</strong>: <span class="ui">Members</span>, <span class="ui">Shared projects</span> (see <a href="#org-shared-projects">Share a project with another organization</a>), <span class="ui">Access</span> (see <a href="#org-custom-roles">Custom roles</a> and <a href="#org-access-history">Access history</a>); <strong>Content</strong>: <span class="ui">Content packages</span> (see <a href="guide-library.html#lib-package-licensing">Content package licensing</a>); <strong>Connections</strong>: <span class="ui">Service accounts</span> (see <a href="#org-tokens">Tokens and service accounts</a>), <span class="ui">Webhooks</span> (see <a href="#org-webhooks">Webhooks and the change feed</a>), <span class="ui">Sign-on</span> (see <a href="#org-sso">Company single sign-on</a>); <strong>Records</strong>: <span class="ui">Audit</span>, <span class="ui">Export</span>. <span class="ui">Members</span> is shown.</td></tr>
+      <tr><td>2</td><td>Click a section on the left.</td><td>It opens on the right under its name and a sentence saying what it is for. <span class="ui">Access</span> has its own tabs at the top, in two groups: <strong>Roles and groups</strong> (<span class="ui">Roles</span>, <span class="ui">Groups</span>, <span class="ui">Assignments</span>) and <strong>Records</strong> (<span class="ui">History</span>, <span class="ui">Reviews</span>, <span class="ui">Emergency</span>, <span class="ui">E1 support</span>); the chosen tab is explained under them.</td></tr>
       <tr><td>3</td><td>Read the cards at the top of <span class="ui">Members</span>.</td><td>The plan, for example <span class="ui">Plan: Standard. Every Editor has the Editor license.</span> with <span class="ui">See plans</span> (see <a href="#org-plan">Your organization's plan</a>). For a trial: <span class="ui">Trial until &lt;date&gt;.</span> Then <span class="ui">AI credits this month: X of Y. They start again on &lt;date&gt;.</span> with a bar, <span class="ui">Files: x GB of y GB used.</span>, and the seats, one license per line, for example <span class="ui">Editor 1 of 10</span>, <span class="ui">Reviewer 0 of 10</span>, <span class="ui">Viewer 0 (unlimited)</span>, <span class="ui">Administrator 0 of 5</span>. A license your organization has no seats for, such as Student, is not listed.</td></tr>
       <tr><td>4</td><td>Look at <span class="ui">People</span>.</td><td>Columns <span class="ui">Person</span>, <span class="ui">License</span> and <span class="ui">Role</span>. Each person has a License list, a Role list (<span class="ui">Owner</span>, <span class="ui">Administrator</span>, <span class="ui">Member</span>) with any other organization role written under it, and a <span class="ui">Remove</span> button. Your own row is marked <span class="ui">You</span> and has no <span class="ui">Remove</span>. A license or role chosen in its list is saved at once. See <a href="#org-administrators">Who administers the organization</a>.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Remove</span> on another member.</td><td>E1 asks: <span class="ui">Remove &lt;name&gt; from the organization? They lose their license and every role here.</span> OK removes them; removing the only Owner is refused: <span class="ui">An organization always keeps at least one owner.</span></td></tr>
@@ -297,7 +297,7 @@
 
 <section class="g-feature" id="org-project-members">
   <h2>Project members and roles</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-12</span><span class="g-id">ORG-project-members</span><span>Roadmap M2.5, 09.6a</span><span>Review check J3, J10</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-13</span><span class="g-id">ORG-project-members</span><span>Roadmap M2.5, 09.6a</span><span>Review check J3, J10</span></div>
   <p class="g-summary">A role on a project decides what a person may do in it. The Project administrator admits people or groups to the project with a <em>maximum role</em> (the most they may hold anywhere in it) and gives them roles, in the project's Members or in Project settings → Access. Whoever creates a project becomes its Project administrator.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Select the project in the explorer; on the project's page click <span class="ui">Members</span>. The same is in <span class="ui">File</span> → <span class="ui">Project settings…</span> → <span class="ui">Access</span>.</dd>
@@ -328,12 +328,13 @@
   <p class="g-note">A role on the project counts as being a member at that level. An explicit maximum is needed to give someone more on a section, folder or drawing than on the whole project (for example Viewer on the project, Engineer on the Electrical folder, at most Engineer). Nobody who is not a member can be given a role inside the project. <span class="ui">Until (optional)</span> ends a role on a day you choose.</p>
   <p class="g-note">Groups are shown in the list as <em>&lt;name&gt; (group)</em>. Only an administrator sees the whole organization in <span class="ui">Person or group</span>; others see only the people already on the project.</p>
   <p class="g-note">Without a passkey, a Project administrator acts as a Lead engineer and cannot give roles (see <a href="#org-roles-passkey">the passkey rule</a>).</p>
+  <p class="g-note">On E1 without a server with sign-in, Project settings → <span class="ui">Access</span> holds one line: <span class="ui">Members and roles need E1 on a server with sign-in.</span> On a server, someone who may not see the members reads the reason there instead.</p>
   <p class="g-related">Related: <a href="#org-drawing-roles">Roles on a drawing</a> · <a href="#org-refusals">Why a change is refused</a> · <a href="guide-projects.html#prj-new-project">Create a project</a></p>
 </section>
 
 <section class="g-feature" id="org-drawing-roles">
   <h2>Roles on a single drawing: Share and Mark as read-only</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-09</span><span class="g-id">ORG-drawing-roles</span><span>Roadmap M2.5, 09.6s, 09.6a</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-03</span><span>Updated 2026-11-13</span><span class="g-id">ORG-drawing-roles</span><span>Roadmap M2.5, 09.6s, 09.6a</span></div>
   <p class="g-summary">You can give someone a role on one drawing only, for example to let a subcontractor edit one 2D space, or to keep others from changing a finished 2D space by giving them Reviewer or Viewer on it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The 2D space's page toolbar: <span class="ui">Share</span> and <span class="ui">Mark as read-only</span> (beside <span class="ui">Open</span> and <span class="ui">Export PDF</span>)</dd>
@@ -344,13 +345,14 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open the 2D space's page (the one with the toolbar <span class="ui">Open</span>, <span class="ui">Share</span>, <span class="ui">Export PDF</span>, <span class="ui">Mark as read-only</span>) and click <span class="ui">Share</span>.</td><td>The Members dialog for the 2D space, with the hint <span class="ui">Give a person or a group a role on this drawing only. They must be a member of the project first; their maximum role limits what you can give them here.</span> Roles above the chosen person's maximum are greyed out with the reason.</td></tr>
+      <tr><td>1</td><td>Click the 2D space once in the explorer: its page opens, with the toolbar <span class="ui">Open</span>, <span class="ui">Share</span>, <span class="ui">Mark as read-only</span>, <span class="ui">Export PDF</span> and <span class="ui">Export DEXPI</span>, and under it the line <span class="ui">Double-click it in the explorer, or Open, to draw.</span> Click <span class="ui">Share</span>.</td><td>The Members dialog for the 2D space, with the hint <span class="ui">Give a person or a group a role on this drawing only. They must be a member of the project first; their maximum role limits what you can give them here.</span> Roles above the chosen person's maximum are greyed out with the reason.</td></tr>
       <tr><td>2</td><td>Choose a person and the role <span class="ui">Engineer</span>, then <span class="ui">Give role</span>.</td><td>The list shows the person with <em>Engineer on object</em>.</td></tr>
       <tr><td>3</td><td>Close it and click <span class="ui">Mark as read-only</span>.</td><td>The dialog with the hint <span class="ui">To keep others from editing this drawing, give them Reviewer or Viewer on it: they can look and comment, not change it.</span> <span class="ui">Reviewer</span> is preselected.</td></tr>
       <tr><td>4</td><td>Give a colleague Reviewer here, then, signed in as them, try to move a symbol on that 2D space.</td><td><span class="ui">Change refused</span> with the permission named.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Since 2026-11-07 a role on a drawing works inside what the person may do on the project: it no longer shows the project to someone without a role there, and it never includes managing the project. <span class="ui">Project administrator</span> is given on the whole project only, in <a href="#org-project-members">Members</a>. Sharing a drawing with someone who has no other role in the project comes back with project membership (<a href="#org-custom-roles">Permission categories and custom roles</a>).</p>
+  <p class="g-note">A role on a drawing works inside what the person may do on the project: it does not show the project to someone without a role there, and it never includes managing the project. <span class="ui">Project administrator</span> is given on the whole project only, in <a href="#org-project-members">Members</a>. To share a drawing with someone who has no role in the project, <a href="#org-project-members">admit them to the project</a> first.</p>
+  <p class="g-note">A click on a 2D space in the explorer opens its page (its record, versions and revisions); a double-click, or <span class="ui">Open</span> on that page, opens the drawing.</p>
   <p class="g-warn">E1 can also hold a role on a section or on one object, but the app has no place to give one yet: only the project (<span class="ui">Members</span>) and a 2D space (<span class="ui">Share</span>, <span class="ui">Mark as read-only</span>) can be reached.</p>
   <p class="g-related">Related: <a href="#org-project-members">Project members and roles</a> · <a href="#org-responsibility">Assign to…</a> · <a href="guide-drawing.html#draw-sheet-view">The 2D space view</a></p>
 </section>
@@ -540,7 +542,7 @@
 
 <section class="g-feature" id="org-custom-roles">
   <h2>Permission categories and custom roles</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-09</span><span class="g-id">ORG-custom-roles</span><span>Roadmap 09.6a</span><span>Review check J10</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-13</span><span class="g-id">ORG-custom-roles</span><span>Roadmap 09.6a</span><span>Review check J10</span></div>
   <p class="g-summary">Every permission in plain words, grouped by category, and roles of your own: for example an Engineer who may not delete drawings. A custom role is given like a built-in one, to a person or a group.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Roles</span></dd>
@@ -553,7 +555,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <span class="ui">File</span> → <span class="ui">Organization…</span> and click <span class="ui">Access</span>.</td><td>The tabs <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span>; <span class="ui">Roles</span> lists every built-in and custom role, with how often each is given.</td></tr>
+      <tr><td>1</td><td>Open <span class="ui">File</span> → <span class="ui">Organization…</span> and click <span class="ui">Access</span>.</td><td>The tabs at the top, under <strong>Roles and groups</strong>: <span class="ui">Roles</span>, <span class="ui">Groups</span> and <span class="ui">Assignments</span> (and under <strong>Records</strong> the history, reviews, emergency and E1 support). <span class="ui">Roles</span> lists every built-in and custom role, with how often each is given. If you may not see the roles, the reason shows there instead, with <span class="ui">Try again</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Engineer</span>.</td><td>Its permissions as ticked boxes by category, read only. Each category says how many of its permissions are ticked, for example <span class="ui">Drawings 4 of 4</span>.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Copy to custom role</span>, untick <span class="ui">Delete diagrams</span>, name it "Engineer (no deleting)" and click <span class="ui">Save role</span>.</td><td>The role is in the list as <em>custom · project</em>.</td></tr>
       <tr><td>4</td><td>In a project's <span class="ui">Members</span>, admit a group with <span class="ui">at most</span> "Engineer (no deleting)" and the same role on the project. As a member of the group, delete a 2D space.</td><td><span class="ui">Change refused</span> naming <span class="ui">drawing.delete</span>; drawing on the 2D space still works.</td></tr>
@@ -615,10 +617,10 @@
 
 <section class="g-feature" id="org-access-history">
   <h2>Access history and audit export</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span class="g-id">ORG-access-history</span><span>Roadmap 09.6h</span><span>Review checks N6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-13</span><span class="g-id">ORG-access-history</span><span>Roadmap 09.6h</span><span>Review checks N6</span></div>
   <p class="g-summary">See every change to who may do what, with before and after; see who had access on any earlier date; export it for an audit; let someone review a project's access; and give an emergency way in when the usual administrators cannot be reached.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">File → Organization… → Access → History</span>, <span class="ui">Reviews</span>, <span class="ui">Emergency</span></dd>
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Access</span>, the tabs under <strong>Records</strong>: <span class="ui">History</span>, <span class="ui">Reviews</span>, <span class="ui">Emergency</span> (and <span class="ui">E1 support</span>, see <a href="#org-support-access">E1 support access</a>)</dd>
     <dt>Who</dt><dd>Owners and Administrators (View the audit). A reviewer answers their own review; the people named for emergency access take and review it.</dd>
   </dl>
   <h3>The history and access on a date</h3>
@@ -644,16 +646,16 @@
     <li><span class="ui">End</span> stops it early. Another named person clicks <span class="ui">Review</span> and notes what they checked.</li>
   </ul>
   <p class="g-note">The audit log cannot be changed or deleted by anyone, E1 included. Every privileged grant, every change of a project member's maximum role or of a ceiling, and every emergency access is told to the owners.</p>
-  <p class="g-warn">Not built yet: a project's own history under Project settings → Access, reviews on a schedule, the alerts by email (they are in the Inbox), and E1 support access requested and approved by you.</p>
+  <p class="g-warn">Not built yet: a project's own history under Project settings → Access, reviews on a schedule, and the alerts by email (they are in the Inbox).</p>
   <p class="g-related">Related: <a href="#org-audit">Audit</a> · <a href="#org-custom-roles">Custom roles</a> · <a href="#org-responsibility">Assign to…</a></p>
 </section>
 
 <section class="g-feature" id="org-support-access">
   <h2>E1 support access</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-support-access</span><span>Roadmap 09.6</span><span>Review check J13</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">ORG-support-access</span><span>Roadmap 09.6</span><span>Review check J13</span></div>
   <p class="g-summary">E1 support has no access to your data. When you ask for help, E1 support may ask for access for a few hours; nothing is given until an owner or administrator approves it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">E1 support</span></dd>
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">E1 support</span> (under <strong>Records</strong>)</dd>
     <dt>Who</dt><dd>Owner or Administrator with a passkey.</dd>
     <dt>Before you start</dt><dd>E1 with sign-in, and a request from E1 support.</dd>
   </dl>
@@ -672,10 +674,10 @@
 
 <section class="g-feature" id="org-shared-projects">
   <h2>Share a project with another organization</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">ORG-shared-projects</span><span>Roadmap 09.12</span><span>Review check J14</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">ORG-shared-projects</span><span>Roadmap 09.12</span><span>Review check J14</span></div>
   <p class="g-summary">An owner company and its contractor work on the same project, each managing its own people. The project stays with the organization that shares it; the other organization's people use their own licenses, not your seats.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Project settings</span> → <span class="ui">Access</span> → <span class="ui">Shared with organizations</span> (sharing); <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Shared projects</span> (accepting)</dd>
+    <dt>Where</dt><dd><span class="ui">Project settings</span> → <span class="ui">Access</span> → <span class="ui">Shared with organizations</span> (sharing); <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Shared projects</span>, below <span class="ui">Members</span> (accepting)</dd>
     <dt>Who</dt><dd>A Project administrator shares; the other organization's Owner or Administrator accepts and chooses the people.</dd>
     <dt>Before you start</dt><dd>E1 with sign-in; both organizations with Editor.</dd>
   </dl>
@@ -684,7 +686,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>In the project's <span class="ui">Access</span>, choose <span class="ui">At most Engineer</span> and click <span class="ui">Share with another organization…</span>.</td><td>A code, shown only now, with <span class="ui">Copy code</span>. Send it to the other organization's administrator; it is valid for 14 days.</td></tr>
-      <tr><td>2</td><td>In the other organization, <span class="ui">Access</span> → <span class="ui">Shared projects</span>: enter the code and click <span class="ui">Accept</span>.</td><td>The project with its organization and <em>at most Engineer</em>, and a role choice for each member.</td></tr>
+      <tr><td>2</td><td>In the other organization, <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Shared projects</span>: enter the code and click <span class="ui">Accept</span>.</td><td>The project with its organization and <em>at most Engineer</em>, and a role choice for each member.</td></tr>
       <tr><td>3</td><td>Set a member to <span class="ui">Engineer</span> and click <span class="ui">Save people</span>.</td><td>The member can switch to the sharing organization (<span class="ui">Switch organization</span> on the workspace's right-click menu) and work on that project only. History shows their organization after their name.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">End</span>, on either side.</td><td>The other organization's people lose the project at once.</td></tr>
     </tbody>

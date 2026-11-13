@@ -36,7 +36,7 @@
 
 <section class="g-feature" id="doc-new-document">
   <h2>New document…: list, plot, uploaded or datasheet document</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-09</span><span class="g-id">DOC-new-document</span><span>Roadmap 07.2</span><span>Review checks E1, E4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-13</span><span class="g-id">DOC-new-document</span><span>Roadmap 07.2</span><span>Review checks E1, E4</span></div>
   <p class="g-summary">Make a document in the Documents section by choosing its kind.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, or the section toolbar's <span class="ui">New document…</span></dd>
@@ -54,7 +54,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/new-document-dialog.webp" alt="The New object in Documents dialog: Search classes; under Documents, Document with Generated document (Datasheet document, List document, Plot, Revision, Version) and Uploaded document; under Project structure, Folder; then Tag, Name, How many, Cancel and Create." width="1056" height="1180" loading="lazy"><figcaption>The document kinds.</figcaption></figure>
-  <p class="g-note">A double-click on a kind under <span class="ui">Recent</span> creates the document at once; a double-click in the search list only chooses the kind. <kbd>Esc</kbd> does not close the dialog; click <span class="ui">Cancel</span> or outside it.</p>
+  <p class="g-note">A double-click on a kind, in the list of kinds or under <span class="ui">Recent</span>, creates the document at once; a single click only chooses it. <kbd>Esc</kbd> does not close the dialog; click <span class="ui">Cancel</span> or outside it.</p>
   <p class="g-note">The document number is its tag, made by the project's tag rules. A <span class="ui">Generated document</span> is a loop diagram, made from the drawing (see <a href="guide-drawing.html#draw-loop-diagram">Loop diagrams</a>).</p>
   <p class="g-warn"><span class="ui">Revision</span> and <span class="ui">Version</span> are new kinds of generated document. You can make one, but E1 does not generate their content yet.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-revisions-section">The Documents section</a>, <a href="guide-documents.html#doc-list-document">List documents from a saved query, with PDF and Excel</a>, <a href="guide-documents.html#doc-plot">Plot documents: 2D space, page format and layers</a>, <a href="guide-documents.html#doc-upload">Uploaded documents: revise a PDF from outside</a>, <a href="guide-documents.html#doc-datasheet-document">Datasheet documents</a>, <a href="guide-objects.html#obj-tag-rules">Tag rules</a></p>
@@ -89,10 +89,10 @@
 
 <section class="g-feature" id="doc-reports">
   <h2>Reports: several saved queries in one document</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-reports</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">DOC-reports</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
   <p class="g-summary">Add to report… on a saved query makes a report, or adds the query as a section of one; its PDF prints every section under its heading, grouped by a column, and a revision issues it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A saved query's toolbar → <span class="ui">Add to report…</span>; the report's window → Versions and revisions → <span class="ui">Report</span></dd>
+    <dt>Where</dt><dd>A saved query's toolbar → <span class="ui">Add to report…</span> (greyed out until the query is saved: point at it to read "Save the query first"); the report's window → Versions and revisions → <span class="ui">Report</span></dd>
     <dt>Who</dt><dd>Create documents (Engineer and above); its PDF and Excel need a role that may export</dd>
   </dl>
   <h3>Steps</h3>
@@ -161,7 +161,7 @@
 
 <section class="g-feature" id="doc-revisions">
   <h2>Versions and revisions of a document</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-revisions</span><span>Roadmap 07.2, 29.1</span><span>Review checks E1, E4, E7</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-13</span><span class="g-id">DOC-revisions</span><span>Roadmap 07.2, 29.1</span><span>Review checks E1, E4, E7</span></div>
   <p class="g-summary">A document’s window shows its versions and revisions with the Document control box; Create revision… with a purpose of issue gives the next label.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A document's window → <span class="ui">Versions and revisions</span>; a 2D space's page has the same panel (<a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>)</dd>
@@ -170,7 +170,7 @@
   </dl>
   <h3>The panel</h3>
   <ul>
-    <li>A row of actions: <span class="ui">Create version…</span> and <span class="ui">Create revision…</span>, then <span class="ui">Audit report (CSV)</span> and <span class="ui">Audit report (PDF)</span> (see <a href="#doc-audit-report">Audit report</a>), and <span class="ui">Reinstate…</span> for a void document.</li>
+    <li>A row of actions: <span class="ui">Create version…</span> and <span class="ui">Create revision…</span>, then <span class="ui">Audit report (CSV)</span> and <span class="ui">Audit report (PDF)</span> (see <a href="#doc-audit-report">Audit report</a>), and <span class="ui">Reinstate…</span> for a void document. A 2D space's page has the same row; its toolbar at the top also has <span class="ui">Create version…</span> and <span class="ui">Create revision…</span>.</li>
     <li>The <span class="ui">Document control</span> box, a row each: <span class="ui">Document no.</span>, <span class="ui">Title</span>, <span class="ui">Current revision</span> and <span class="ui">Latest version</span> (<span class="ui">Issued</span> before the first one).</li>
     <li>For a list, a plot, a datasheet or a PDF package, a box with what it prints, a row each, and its exports at the end of the row <span class="ui">Print</span> (or <span class="ui">Package</span>).</li>
     <li>The outputs, newest first.</li>
@@ -260,10 +260,10 @@
 
 <section class="g-feature" id="doc-sheet-versions">
   <h2>Versions of a 2D space</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sheet-versions</span><span>Roadmap 29.1</span><span>Review check E9</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">DOC-sheet-versions</span><span>Roadmap 29.1</span><span>Review check E9</span></div>
   <p class="g-summary">Create version… on a 2D space’s page makes an internal version (C.1 after Rev B): signed as prepared, issued at once, printed INTERNAL — NOT FOR ISSUE, seen only by people who see versions.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Click a 2D space in the explorer: its page → <span class="ui">Create version…</span>; a document's window has the same button</dd>
+    <dt>Where</dt><dd>Click a 2D space in the explorer: its page → <span class="ui">Versions and revisions</span> → <span class="ui">Create version…</span> (also in the page's toolbar at the top); a document's window has the same button in the same place</dd>
     <dt>Who</dt><dd>Create versions (Engineer and above); who sees them: Project settings → Documents → <span class="ui">Versions visible to</span></dd>
   </dl>
   <h3>Steps</h3>
@@ -281,10 +281,10 @@
 
 <section class="g-feature" id="doc-sheet-revisions">
   <h2>Revisions of a 2D space</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-sheet-revisions</span><span>Roadmap 29.1</span><span>Review checks E7, E8</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">DOC-sheet-revisions</span><span>Roadmap 29.1</span><span>Review checks E7, E8</span></div>
   <p class="g-summary">Create revision… on a 2D space’s page: the 2D space gets its document number and its printed area on its first output, and each revision goes through sign-off to an issued, filed PDF with its revision block.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A 2D space's page → <span class="ui">Create revision…</span></dd>
+    <dt>Where</dt><dd>A 2D space's page → <span class="ui">Versions and revisions</span> → <span class="ui">Create revision…</span> (also in the page's toolbar at the top)</dd>
     <dt>Who</dt><dd>Create revisions (Engineer and above)</dd>
   </dl>
   <h3>Steps</h3>
@@ -417,7 +417,7 @@
 
 <section class="g-feature" id="doc-changes-since">
   <h2>Changes since a date on the drawing</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-changes-since</span><span>Roadmap 29.2</span><span>Review check E11</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">DOC-changes-since</span><span>Roadmap 29.2</span><span>Review check E11</span></div>
   <p class="g-summary">Changes since… on a 2D space draws a cloud around everything added, deleted, modified or moved since a day, a revision or a version, with before → after and who changed it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>An open 2D space → the drawing toolbar → <span class="ui">Changes since…</span> (<kbd>Shift</kbd>+<kbd>C</kbd>)</dd>
@@ -427,7 +427,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Changes since…</span>.</td><td>A box with <span class="ui">Last revision</span> and <span class="ui">Last version</span> (when the 2D space has them), <span class="ui">Yesterday</span>, <span class="ui">Last 7 days</span>, <span class="ui">Start of the project</span>, and a <span class="ui">Day</span> and <span class="ui">Time</span> with <span class="ui">Show changes</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Changes since…</span>.</td><td>A box headed “Click one to show the changes” with <span class="ui">Last revision</span> and <span class="ui">Last version</span> (when the 2D space has them), <span class="ui">Yesterday</span>, <span class="ui">Last 7 days</span> and <span class="ui">Start of the project</span>, each applied at once; under “Or a day and a time”, a <span class="ui">Day</span> and <span class="ui">Time</span> applied with <span class="ui">Show changes</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Last 7 days</span>.</td><td>The toolbar shows “Changes since &lt;date&gt; · &lt;count&gt;”, and every change has a cloud: added green with +, deleted red and dashed with −, modified amber with ✎, moved blue with ↔ and a faint box where it was.</td></tr>
       <tr><td>3</td><td>Click a cloud.</td><td>Its card: the element, the kind, each field before → after (for example “Design pressure / In: 16 bar(g) → 25 bar(g)”), “Changed by …, &lt;date and time&gt;”, and <span class="ui">Open the object</span>.</td></tr>
       <tr><td>4</td><td>Click the count on the toolbar.</td><td>The <span class="ui">Changes</span> list, by kind; click one to show its card.</td></tr>

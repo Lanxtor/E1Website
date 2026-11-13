@@ -33,7 +33,7 @@
       <tr><td>3</td><td>Click <span class="ui">Centrifugal pump</span>.</td><td>The class is highlighted and "Creating Centrifugal pump" shows under the tree. On the right, the class is described: its place in the tree, name, package, standard and CFIHOS code, its description, and a row <span class="ui">Source</span>, <span class="ui">Attributes</span>, <span class="ui">Shapes</span>, <span class="ui">Relationships</span>, <span class="ui">Contains</span> with counts; click one to jump to it. Below: <span class="ui">Where it comes from</span> (package, standard, CFIHOS class, synonyms, tag number format, parent classes, key), the attributes in their groups with type, Required and default ("More attributes of your own can be added to the object after it is created."), the shapes that draw it with the Default one marked, its relationship types with their limits, and what it may own and its subclasses. If the class has published catalog items, a drop-down <span class="ui">From catalog</span> appears, starting with "No catalog item". A double-click on a class chooses it and creates the object at once.</td></tr>
       <tr><td>4</td><td>Leave <span class="ui">Tag</span> ("Leave empty for the tag from the rule") and <span class="ui">Name</span> ("Optional; can be changed at any time") empty.</td><td>No change yet.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Create</span> (or press <kbd>Enter</kbd> in Tag or Name).</td><td>The window closes. The new pump opens in its object window with its tag, for example <span class="ui">P-001</span>, as the heading. It appears under <span class="ui">Assets</span> in the explorer.</td></tr>
-      <tr><td>6</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span> and search <code>centrifugal pump</code>.</td><td>The window <span class="ui">New object in Systems</span> offers "Centrifugal pump tag", not the pump itself: a section only offers the classes that may live in it.</td></tr>
+      <tr><td>6</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span> and search <code>centrifugal pump</code>.</td><td>The window <span class="ui">New object in Systems</span> offers "Centrifugal pump tag", not the pump itself: a section only offers the classes that may live in it. With the search empty, a row <span class="ui">For a unit or loop</span> above the tree offers <span class="ui">Function</span>, <span class="ui">Loop control</span> and <span class="ui">Plant</span>, the classes a unit, a loop or a plant is made of, out of some thirty kinds of function.</td></tr>
       <tr><td>7</td><td>Click <span class="ui">Cancel</span> (or click outside the window).</td><td>The window closes and nothing is created. <kbd>Esc</kbd> does not close it.</td></tr>
       <tr><td>8</td><td>Right-click a system under <span class="ui">Systems</span> → <span class="ui">New system…</span>, and create one.</td><td>The window is <span class="ui">New object in</span> followed by that system's tag or name, and lists only the classes it may hold. The new system shows inside the one you right-clicked. Right-click the new one for the next level: there is no limit to the depth. A process holds processes, an area areas, a pipeline its piping segments, a cable its cores. An object that can hold nothing (a task, a flow stream) has no <span class="ui">New …</span> item.</td></tr>
       <tr><td>9</td><td>Open <span class="ui">New asset…</span> again and double-click <span class="ui">Centrifugal pump</span> under <span class="ui">Recent</span>.</td><td>The pump is created at once, with the tag from the rule, and opens. A double-click on a class in the tree, also while searching, creates it at once in the same way; in the flat list below the tree (<span class="ui">Other classes</span>), a double-click only chooses the class, so click <span class="ui">Create</span> after it.</td></tr>
@@ -92,7 +92,7 @@
     <li><span class="ui">Status</span>: the status chip, for example "New", and "No workflow".</li>
     <li><span class="ui">Responsible</span>: who changes the object ("nobody" when no one), with <span class="ui">Take it</span> and <span class="ui">Assign to…</span> (see <a href="guide-organization.html#org-responsibility">Responsibility</a>; shown with sign-in).</li>
     <li><span class="ui">Cases</span>: the object's cases, or "none yet", with <span class="ui">New case</span> (see <a href="#obj-cases">Cases</a>).</li>
-    <li><span class="ui">Tag source</span>: where the tag comes from, for example "Tag from the rule" or "Manual tag", with <span class="ui">Tag…</span> (see <a href="#obj-tag-dialog">Tag…</a>).</li>
+    <li><span class="ui">Tag source</span>: where the tag comes from, for example "Tag from the rule", "Manual tag" or "Typed tag: no tag rule gives it" ("No tag yet" without one), with <span class="ui">Tag…</span> (see <a href="#obj-tag-dialog">Tag…</a>). Every object has this row except a hookup, which has a name and no tag, and a case, which has its object's tag.</li>
     <li><span class="ui">In other systems</span>: the object's ids in other systems, for example "erp 10004711".</li>
   </ul>
   <h3>Steps</h3>
@@ -116,7 +116,7 @@
 
 <section class="g-feature" id="obj-attributes">
   <h2>Fill in attributes: values, units, pick lists and required values</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-07</span><span class="g-id">OBJ-attributes</span><span>Roadmap M1.5</span><span>Review checks C1, C2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-13</span><span class="g-id">OBJ-attributes</span><span>Roadmap M1.5</span><span>Review checks C1, C2</span></div>
   <p class="g-summary">The <span class="ui">Attributes</span> tab lists everything the object's class says about it, grouped in sections. You type numbers with their unit, choose from pick lists, and see at once which required values are still missing.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Object window → <span class="ui">Attributes</span></dd>
@@ -125,7 +125,7 @@
   </dl>
   <h3>What is on the tab</h3>
   <ul>
-    <li>A box <span class="ui">Filter attributes</span> (<kbd>Esc</kbd> clears it; with no match: "No attribute matches."), a drop-down with <span class="ui">All attributes</span>, <span class="ui">With a value</span>, <span class="ui">Without a value</span> and <span class="ui">Required, missing</span>, and the buttons <span class="ui">Expand all</span> and <span class="ui">Collapse all</span>.</li>
+    <li>A box <span class="ui">Filter attributes</span> (<kbd>Esc</kbd> clears it; with no match: "No attribute matches."), a drop-down with <span class="ui">All attributes</span>, <span class="ui">With a value</span>, <span class="ui">Without a value</span> and <span class="ui">Required, missing</span>, and the buttons <span class="ui">Expand all</span> and <span class="ui">Collapse all</span>. On a narrow window, where the list of sections at the side has no room, a drop-down <span class="ui">Sections</span> takes its place here: choosing a section (with its number of attributes) opens it and scrolls to it.</li>
     <li>A count such as "148 attributes · 0 with a value · 2 required missing".</li>
     <li>One collapsible section per group of the class (for example <span class="ui">General</span>, <span class="ui">Process</span>), each with its count and "N missing", then a section <span class="ui">Attributes of this object</span>. The first section is open; others with more than 12 attributes start collapsed.</li>
     <li>The columns <span class="ui">Attribute</span>, <span class="ui">Value</span>, <span class="ui">Unit</span> and <span class="ui">Comment</span>.</li>
@@ -256,10 +256,10 @@
 
 <section class="g-feature" id="obj-retag">
   <h2>Retag… with preview</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span class="g-id">OBJ-retag</span><span>Roadmap M1.7</span><span>Review check C4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-13</span><span class="g-id">OBJ-retag</span><span>Roadmap M1.7</span><span>Review check C4</span></div>
   <p class="g-summary"><span class="ui">Retag…</span> gives objects the tags their rules give now. It shows every old and new tag first, and changes nothing until you click <span class="ui">Retag</span>.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer header → <span class="ui">More explorer actions</span> (…) → <span class="ui">Retag…</span> (for the selected project, or the first one)</dd>
+    <dt>Where</dt><dd>Right-click a project → <span class="ui">Retag…</span>; or the explorer header → <span class="ui">More explorer actions</span> (…) → <span class="ui">Retag</span> followed by the project's name, such as <span class="ui">Retag Demo Plant…</span> (the selected project, or the first one)</dd>
     <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
     <dt>Before you start</dt><dd>A pump whose tag is out of date (change its <span class="ui">Short code</span>, see <a href="#obj-tags">Automatic tags</a>).</dd>
   </dl>
@@ -267,7 +267,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select the project, click <span class="ui">More explorer actions</span> → <span class="ui">Retag…</span>.</td><td>A dialog "Retag" with <span class="ui">Scope</span> "All objects", a check box <span class="ui">Include manual tags</span>, and the line "<i>n</i> of <i>m</i> change; <i>k</i> keep their tag."</td></tr>
+      <tr><td>1</td><td>Right-click the project → <span class="ui">Retag…</span> (or select it and click <span class="ui">More explorer actions</span> → <span class="ui">Retag</span> with its name, such as <span class="ui">Retag Demo Plant…</span>).</td><td>A dialog "Retag" with <span class="ui">Scope</span> "All objects", a check box <span class="ui">Include manual tags</span>, and the line "<i>n</i> of <i>m</i> change; <i>k</i> keep their tag."</td></tr>
       <tr><td>2</td><td>Read the table "Retag preview".</td><td>The columns Now, New and Class; the out-of-date pump is listed with its old and new tag. Nothing has changed in the explorer yet.</td></tr>
       <tr><td>3</td><td>Set <span class="ui">Scope</span> to "One class" and type <code>Pump</code> in <span class="ui">Class</span>.</td><td>The preview only lists pumps.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Retag</span>.</td><td>The dialog closes and the tags in the explorer change as previewed.</td></tr>
@@ -334,7 +334,7 @@
 
 <section class="g-feature" id="obj-relationships">
   <h2>Relate objects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-13</span><span class="g-id">OBJ-relationships</span><span>Roadmap M1.6</span><span>Review check C5</span></div>
   <p class="g-summary">Relationships connect objects across sections, for example a function under Systems that "is implemented by" a pump under Assets. You pick the other object in a tree that shows only what fits the relationship, or you drag one object onto the other in the explorer with the right mouse button. A relationship shows from both sides, and removing it leaves both objects in place.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Object window → <span class="ui">Relationships</span>; or the explorer, dragging with the right mouse button</dd>
@@ -347,8 +347,8 @@
     <tbody>
       <tr><td>1</td><td>Right-click <span class="ui">Systems</span> → <span class="ui">New system…</span> and click <span class="ui">Function</span> in the class tree.</td><td>Its description ("What something does…") shows under the tree.</td></tr>
       <tr><td>2</td><td>Type <code>TIC-101</code> in <span class="ui">Tag</span> and click <span class="ui">Create</span>.</td><td>TIC-101 opens in its object window.</td></tr>
-      <tr><td>3</td><td>Click the <span class="ui">Relationships</span> tab.</td><td>"No relationships yet." with a drop-down <span class="ui">Add a relationship…</span> and <span class="ui">Add</span>. The drop-down lists only the types a function takes part in.</td></tr>
-      <tr><td>4</td><td>Choose <span class="ui">is implemented by</span>.</td><td>A tree opens under it with a line that says how many objects fit "is implemented by", a box <span class="ui">Filter by tag or name</span> and the sections and folders that hold equipment, valves, instruments, motors or parts. Functions, areas and everything else are not in it, and neither is what is in a bin.</td></tr>
+      <tr><td>3</td><td>Click the <span class="ui">Relationships</span> tab.</td><td>"No relationships yet." with a drop-down <span class="ui">Add a relationship…</span> and <span class="ui">Add</span>. The drop-down lists only the types a function takes part in, each with how many objects of the project fit it, such as <span class="ui">is implemented by (1)</span>; the types no object fits come last, and choosing one says so.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">is implemented by</span> (with its count).</td><td>A tree opens under it with a line that says how many objects fit "is implemented by", a box <span class="ui">Filter by tag or name</span> and the sections and folders that hold equipment, valves, instruments, motors or parts. Functions, areas and everything else are not in it, and neither is what is in a bin.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Pump1</span> in the tree, then <span class="ui">Add</span>.</td><td>A group "is implemented by" with the count 1, holding a link <span class="ui">Pump1</span> and a <span class="ui">Remove</span> button. A double-click on Pump1 in the tree adds it at once, without <span class="ui">Add</span>.</td></tr>
       <tr><td>6</td><td>In the explorer, expand TIC-101 under Systems.</td><td>Pump1 shows under it as a reference row with a link mark. Pump1 is still under Assets.</td></tr>
       <tr><td>7</td><td>Click the link <span class="ui">Pump1</span> on the tab, then open its <span class="ui">Relationships</span> tab.</td><td>Pump1 opens; the relationship shows from its side, with the inverse name and TIC-101.</td></tr>
@@ -373,10 +373,10 @@
 
 <section class="g-feature" id="obj-hookups">
   <h2>Hookups: how instruments are fixed and connected</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-12</span><span class="g-id">OBJ-hookups</span><span>Roadmap 30.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-13</span><span class="g-id">OBJ-hookups</span><span>Roadmap 30.1</span></div>
   <p class="g-summary">A hookup shows how an instrument is fixed and connected: its process connection, its pneumatic or electrical connection, or its mounting on a pipe stand, wall or panel. You draw a hookup once and every instrument installed the same way uses it. E1 keeps a project's hookups in a folder of their own, <span class="ui">Assets ▸ Hookups</span>, lets you choose on every instrument which hookup it uses, and shows on every hookup the instruments that use it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Hookups</span> (also <em>File → Project settings…</em>); the explorer: right-click <span class="ui">Assets ▸ Hookups</span>; an instrument's window: <span class="ui">Hookup</span>; a hookup's window: <span class="ui">Used by</span></dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Hookups</span> (also <em>File → Project settings…</em>); <span class="ui">New hookup…</span> on that card, on the <span class="ui">Assets</span> page and in the right-click menu of <span class="ui">Assets ▸ Hookups</span>; an instrument's window: <span class="ui">Hookup</span>; a hookup's window: <span class="ui">Used by</span></dd>
     <dt>Who</dt><dd>Turning hookups on needs a project role that may configure the project. Making hookups and choosing an instrument's hookup need a license and a project role that may edit objects.</dd>
     <dt>Before you start</dt><dd>A project is open and has an instrument in <span class="ui">Assets</span>.</dd>
   </dl>
@@ -385,8 +385,8 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Open <span class="ui">Configuration</span> → <span class="ui">Project settings</span> and go to the <span class="ui">Hookups</span> card.</td><td>The card says how hookups work; <span class="ui">Use hookups</span> is not ticked.</td></tr>
-      <tr><td>2</td><td>Tick <span class="ui">Use hookups</span>.</td><td>The card says "Assets ▸ Hookups is shown." In the explorer, <span class="ui">Assets</span> now has a folder <span class="ui">Hookups</span> after its folders and equipment.</td></tr>
-      <tr><td>3</td><td>Right-click <span class="ui">Hookups</span> → <span class="ui">New hookup…</span>, type <code>HU-01 Pressure on pipe stand</code> and press <kbd>Enter</kbd>.</td><td>The hookup opens in its window and is listed in <span class="ui">Hookups</span>. Its window says "Used by 0 instruments". A name already used by another hookup is refused: "There is already a hookup …".</td></tr>
+      <tr><td>2</td><td>Tick <span class="ui">Use hookups</span>.</td><td>The card says "Assets ▸ Hookups is shown." and has a button <span class="ui">New hookup…</span>. In the explorer, <span class="ui">Assets</span> now has a folder <span class="ui">Hookups</span> after its folders and equipment, and the <span class="ui">Assets</span> page a button <span class="ui">New hookup…</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">New hookup…</span> on the card (or right-click <span class="ui">Hookups</span> → <span class="ui">New hookup…</span>), type <code>HU-01 Pressure on pipe stand</code> in <span class="ui">Name</span> in the window <span class="ui">New hookup</span> and click <span class="ui">Create</span>.</td><td>The window closes, the hookup opens in its window and is listed in <span class="ui">Hookups</span>. Its window says "Used by 0 instruments". A name already used by another hookup is refused: "There is already a hookup …".</td></tr>
       <tr><td>4</td><td>On its <span class="ui">Attributes</span> tab, choose <span class="ui">Hookup type</span> <code>Process</code> and <span class="ui">Mounting</span> <code>Pipe stand</code>, type the <span class="ui">Hookup drawing</span> number, and fill the <span class="ui">Bill of material</span> table (Item, Description, Size, Material, Quantity).</td><td>Each value is saved at once. The bill of material is the material of one installation; the hookup schedule totals it for the instruments that use the hookup.</td></tr>
       <tr><td>5</td><td>Double-click an instrument in <span class="ui">Assets</span>.</td><td>Its window shows <span class="ui">Hookup</span> under the header, set to <span class="ui">None</span>.</td></tr>
       <tr><td>6</td><td>Choose <code>HU-01 Pressure on pipe stand</code> in <span class="ui">Hookup</span>.</td><td>It is saved at once and <span class="ui">Open HU-01 Pressure on pipe stand</span> appears beside it. An instrument uses one hookup: choosing another replaces it, <span class="ui">None</span> takes it off.</td></tr>
@@ -395,7 +395,7 @@
       <tr><td>9</td><td>Untick <span class="ui">Use hookups</span> in <span class="ui">Project settings</span>.</td><td><span class="ui">Assets ▸ Hookups</span> and the <span class="ui">Hookup</span> line of the instruments are hidden. The hookups and which instrument uses which are kept and come back when you tick it again.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">A hookup has a name, not a tag, and is not drawn on a 2D space, so its right-click menu has no <span class="ui">Tag…</span> or <span class="ui">Place on drawing…</span>. Add its hookup drawing as a file on its <span class="ui">Attachments</span> tab. <span class="ui">New object…</span> on Assets does not offer the Hookup class: hookups are made in <span class="ui">Hookups</span>.</p>
+  <p class="g-note">A hookup has a name, not a tag, and is not drawn on a 2D space, so its right-click menu has no <span class="ui">Tag…</span> or <span class="ui">Place on drawing…</span>. Add its hookup drawing as a file on its <span class="ui">Attachments</span> tab. <span class="ui">New asset…</span> does not offer the Hookup class: hookups are made with <span class="ui">New hookup…</span>. A refusal, such as a name already used, is shown in the window, which stays open.</p>
   <p class="g-note">Alex and the API use <code>set_hookups</code>, <code>create_hookup</code>, <code>assign_hookup</code> (several instruments at once) and <code>describe_hookups</code>.</p>
   <p class="g-warn">Hookups come with the newest E1 content (Plant 1.5.0). A project that stays on an earlier content version cannot tick <span class="ui">Use hookups</span>; the card says so. Choose the newest version in <span class="ui">Content packages</span> first.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-hookup-schedule">The hookup schedule</a> · <a href="#obj-relationships">Relate objects</a> · <a href="#obj-attributes">Attributes</a> · <a href="#obj-object-window">The object window</a></p>
@@ -527,6 +527,7 @@
     <li><strong>Links.</strong> Every relationship, in both directions, named from the card it starts at: <i>connects to (inlet)</i>, <i>measures</i>, <i>is located in</i>. A pipe, wire or cable core that ends on a port (a nozzle, a connection point) is linked to the port's object, and the port's name is in brackets. An owner and its parts (a strip and its terminals, a cable and its cores) are linked by <i>has part</i>, drawn with a diamond at the owner.</li>
     <li><strong>+ and −.</strong> The <span class="ui">+n</span> on a card is how many objects it links to that are not shown. Click it for the next layer: a card linked to more than 30 objects shows 30 at a time. <span class="ui">−</span> closes what that card opened.</li>
     <li><strong>The toolbar</strong> above the view has <span class="ui">Expand all</span>, <span class="ui">Collapse all</span>, <span class="ui">Highlight route</span>, <span class="ui">Attributes</span> and <span class="ui">Find in view</span>. Under it, <span class="ui">Links</span> has a chip for each kind of link.</li>
+    <li><strong>Details.</strong> At the side, "Click a card to see its details." until a card is chosen; then that card's values and links with <span class="ui">Open</span>, <span class="ui">Show in tree</span> and <span class="ui">Deep view of this</span>.</li>
     <li><strong>The bar under the view</strong> counts the objects, links and levels shown, and the cards with more to show. At its bottom right, as on diagrams, are zoom out, the zoom, zoom in and <span class="ui">Fit</span>.</li>
   </ul>
   <h3>Steps</h3>

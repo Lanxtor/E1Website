@@ -80,13 +80,13 @@
     <tbody>
       <tr><td><span class="ui">Model Space</span></td><td>The drawings: 2D spaces and their folders</td><td><span class="ui">New 2D space</span></td></tr>
       <tr><td><span class="ui">Unit Operations</span></td><td>Process steps</td><td><span class="ui">New unit operation…</span></td></tr>
-      <tr><td><span class="ui">Assets</span></td><td>Equipment, instruments and their connections. Every drawn pipe run, cable, wire and signal is an object in one of the folders E1 keeps: <span class="ui">Pipelines</span> (each drawn pipe run), <span class="ui">Cables and wires</span> and <span class="ui">Signal lines</span>. They have a filled folder icon; a folder you make is outlined.</td><td><span class="ui">New asset…</span></td></tr>
-      <tr><td><span class="ui">Systems</span></td><td>The functional breakdown: systems and functions</td><td><span class="ui">New system…</span></td></tr>
+      <tr><td><span class="ui">Assets</span></td><td>Equipment, instruments and their connections. Every drawn pipe run, cable, wire and signal is an object in one of the folders E1 keeps: <span class="ui">Pipelines</span> (each drawn pipe run), <span class="ui">Cables and wires</span> and <span class="ui">Signal lines</span>. They have a filled folder icon; a folder you make is outlined.</td><td><span class="ui">New asset…</span>, <span class="ui">New fieldbus segment…</span></td></tr>
+      <tr><td><span class="ui">Systems</span></td><td>The functional breakdown: systems and functions</td><td><span class="ui">New system…</span>, <span class="ui">Cause and effect…</span></td></tr>
       <tr><td><span class="ui">Processes</span></td><td>Steps, fluids and operating cases</td><td><span class="ui">New process…</span></td></tr>
       <tr><td><span class="ui">Areas</span></td><td>Site, plant, unit, room, cabinet</td><td><span class="ui">New area…</span></td></tr>
       <tr><td><span class="ui">Documents</span></td><td>Drawings, lists and datasheets as issued documents</td><td><span class="ui">New document…</span></td></tr>
       <tr><td><span class="ui">Tasks</span></td><td>Engineering work tied to objects</td><td><span class="ui">New task…</span></td></tr>
-      <tr><td><span class="ui">Branches</span></td><td>Working branches of the plant model (planned)</td><td><span class="ui">New branch</span> (opens <span class="ui">Under construction</span>)</td></tr>
+      <tr><td><span class="ui">Branches</span></td><td>Working branches of part of the plant model</td><td><span class="ui">New branch…</span> on its page and in the project's right-click menu</td></tr>
     </tbody>
   </table></div>
   <h3>Steps</h3>
@@ -218,7 +218,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">PRJ-folders-sheets</span><span>Review check A2</span></div>
   <p class="g-summary">Every section takes folders, and folders nest as deep as you like. In <span class="ui">Model Space</span> you make the 2D spaces you draw on. Folders and 2D spaces are renamed in place, and deleting them moves them to the project's Bin, from where they can be restored.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click a section or a folder → <span class="ui">New folder</span>; right-click <span class="ui">Model Space</span> or a folder in it → <span class="ui">New 2D space</span></dd>
+    <dt>Where</dt><dd>Right-click a section or a folder → <span class="ui">New folder</span>; right-click <span class="ui">Model Space</span> or a folder in it → <span class="ui">New 2D space</span>; or the same buttons on the section's or folder's page</dd>
     <dt>Who</dt><dd>A license and a project role that may edit the project</dd>
     <dt>Before you start</dt><dd>A project is expanded in the explorer.</dd>
   </dl>
@@ -293,7 +293,7 @@
 
 <section class="g-feature" id="prj-explorer-header">
   <h2>The explorer header: expand, collapse and more</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-07</span><span class="g-id">PRJ-explorer-header</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">PRJ-explorer-header</span></div>
   <p class="g-summary">The header at the top of the explorer names your organization and carries the buttons for the whole tree: new project, delete, search, a menu with more actions, and hide.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The top of the explorer</dd>
@@ -305,13 +305,13 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">More explorer actions</span> (…).</td><td>A menu with <span class="ui">New project</span>, <span class="ui">Expand all</span>, <span class="ui">Collapse all</span>, <span class="ui">Retag…</span> and <span class="ui">Delete project</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">More explorer actions</span> (…).</td><td>A menu with <span class="ui">New project</span>, <span class="ui">Expand all</span>, <span class="ui">Collapse all</span>, <span class="ui">Columns…</span>, <span class="ui">Retag</span> followed by the selected project's name (such as <span class="ui">Retag Demo Plant…</span>; the first project when none is selected) and <span class="ui">Delete project</span>.</td></tr>
       <tr><td>2</td><td>Choose <span class="ui">Collapse all</span>.</td><td>Only the project rows remain.</td></tr>
       <tr><td>3</td><td>Open the menu again and choose <span class="ui">Expand all</span>.</td><td>Everything is expanded again; objects such as Pump1 are visible.</td></tr>
       <tr><td>4</td><td>Click × <span class="ui">Hide explorer</span>.</td><td>The explorer is hidden. Click the tree icon <span class="ui">Explorer</span> on the left rail to bring it back.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note"><span class="ui">Retag…</span> is described in <a href="guide-objects.html#obj-retag">Retag with preview</a>.</p>
+  <p class="g-note"><span class="ui">Retag…</span> is described in <a href="guide-objects.html#obj-retag">Retag with preview</a>; a project's right-click menu has it too.</p>
   <p class="g-related">Related: <a href="#prj-organization-menu">Organization menu</a> · <a href="#prj-search">Search the explorer</a> · <a href="guide-objects.html#obj-retag">Retag…</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a></p>
 </section>
 
@@ -344,7 +344,7 @@
 
 <section class="g-feature" id="prj-arrange">
   <h2>Arrange projects in folders, Move up and Move down</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span class="g-id">PRJ-arrange</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-13</span><span class="g-id">PRJ-arrange</span></div>
   <p class="g-summary">Put your projects in folders and in the order you like. The arrangement is your own: it is saved with your view, it changes nothing in the projects and nothing for anyone else.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Organization menu → <span class="ui">New folder</span>; right-click a project → <span class="ui">Move up</span> / <span class="ui">Move down</span>; right-click a project folder</dd>
@@ -358,7 +358,7 @@
       <tr><td>1</td><td>Click the organization name in the explorer header → <span class="ui">New folder</span>.</td><td>A row "New folder" appears in rename mode.</td></tr>
       <tr><td>2</td><td>Type "Clients" and press <kbd>Enter</kbd>.</td><td>A project folder "Clients" at the top level.</td></tr>
       <tr><td>3</td><td>Right-click the third project → <span class="ui">Move up</span>.</td><td>It swaps places with the project above it.</td></tr>
-      <tr><td>4</td><td>Right-click the first project.</td><td>The menu shows <span class="ui">Query</span> ▸, <span class="ui">Move up</span> (disabled), <span class="ui">Move down</span> and <span class="ui">Delete</span>. Choose <span class="ui">Move down</span>: it moves one place down.</td></tr>
+      <tr><td>4</td><td>Right-click the first project.</td><td>The menu shows <span class="ui">Query</span> ▸, <span class="ui">Retag…</span>, <span class="ui">New branch…</span>, <span class="ui">Save as template…</span>, <span class="ui">Close all tabs</span>, <span class="ui">Move up</span> (disabled), <span class="ui">Move down</span> and <span class="ui">Delete</span>. Choose <span class="ui">Move down</span>: it moves one place down.</td></tr>
       <tr><td>5</td><td>Drag a project onto "Clients".</td><td>It moves into the folder (expand "Clients" to see it).</td></tr>
       <tr><td>6</td><td>Right-click "Clients" → <span class="ui">New folder</span>, name it "Archive".</td><td>A sub-folder "Archive" inside Clients.</td></tr>
       <tr><td>7</td><td>Wait a second and reload the page.</td><td>The same order and folders.</td></tr>
@@ -699,7 +699,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">PRJ-branches</span><span>Roadmap 15.1, 15.2, 15.4, 15.6, 09.6b</span><span>Review check X1</span></div>
   <p class="g-summary">Make a working branch of part of the design, change it while main stays as it is, and push it back when it is ready.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span>; or right-click objects in the explorer or on a 2D space → <span class="ui">Branch</span> ▸ <span class="ui">New branch…</span> or <span class="ui">Branch</span> ▸ <span class="ui">Add to branch</span> ▸</dd>
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span>; right-click the project → <span class="ui">New branch…</span>; or right-click objects in the explorer or on a 2D space → <span class="ui">Branch</span> ▸ <span class="ui">New branch…</span> or <span class="ui">Branch</span> ▸ <span class="ui">Add to branch</span> ▸</dd>
     <dt>Who</dt><dd>Creating and working in a branch: Engineer and above; pushing to main: Lead engineer and above</dd>
     <dt>Before you start</dt><dd>A project with a pump P-101 drawn on a 2D space.</dd>
   </dl>
