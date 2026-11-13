@@ -52,10 +52,26 @@ module.exports = {
     await p.waitForTimeout(4000);
     await h.shot('alex-on');
   },
+  // Alex's panel on its own: Co-engineer, then Agent. The installation's model is stood in for
+  // (GPT-4.1, as on app.lanxtor.com) so the Agent tab is on; nothing is sent to a model.
+  async alexPanels(h) {
+    const p = h.page;
+    await p.route('**/api/ai/status', (r) => r.fulfill({ json: { mode: 'hosted', label: 'Assistant: GPT-4.1', model: 'GPT-4.1', modelLabel: 'GPT-4.1', modelId: 'azure:gpt-4.1', providerLabel: 'Azure OpenAI', host: 'api.example.com', voice: true, attach: true, images: false } }));
+    await p.route('**/api/ai/choices', (r) => r.fulfill({ json: { selected: 'azure:gpt-4.1', models: [{ id: 'azure:gpt-4.1', label: 'GPT-4.1', providerLabel: 'Azure OpenAI', allowed: true }] } }));
+    await h.open();
+    await p.getByRole('tablist', { name: 'Open tabs' }).getByRole('tab', { name: /Assets/ }).click();
+    await p.getByRole('button', { name: 'Let Alex help' }).click();
+    await p.waitForTimeout(4000);
+    const side = p.locator('aside.side-panel');
+    await h.shot('alex-co-engineer', { clip: side, pad: 0 });
+    await p.locator('[data-tour="alex-mode-agent"]').click();
+    await p.waitForTimeout(800);
+    await h.shot('alex-agent', { clip: side, pad: 0 });
+  },
   async cloudAi(h) {
     const p = h.page; await h.open();
     await p.getByRole('tablist', { name: 'Open tabs' }).getByRole('tab', { name: /Assets/ }).click();
-    await p.locator('[data-tour="alex-mode-ask"]').click();
+    await p.locator('[data-tour="alex-mode-agent"]').click();
     await p.waitForTimeout(1000);
     await h.shot('cloud-ai');
   },
