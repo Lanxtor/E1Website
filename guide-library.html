@@ -45,7 +45,7 @@
           <li><a href="#lib-configuration">The Configuration place</a></li>
           <li><a href="#lib-object-classes">Look up object classes</a></li>
           <li><a href="#lib-attributes">Attributes and a project&#x27;s pick lists</a></li>
-          <li><a href="#lib-shapes">Shapes and the Standard filter</a></li>
+          <li><a href="#lib-shapes">Shapes and their filters</a></li>
           <li><a href="#lib-relationships">Relationship types</a></li>
           <li><a href="#lib-company-library">The company library: drafts, publishing and versions</a></li>
           <li><a href="#lib-import-standard">Import attributes from a standard</a></li>
@@ -191,9 +191,9 @@
 </section>
 
 <section class="g-feature" id="lib-shapes">
-  <h2>Shapes and the Standard filter</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-08</span><span class="g-id">LIB-shapes</span><span>Roadmap M3.12, 21.2, 21.4</span><span>Review checks B7, L21, L24</span></div>
-  <p class="g-summary">Shapes lists every symbol E1 can draw, with the standard it follows, its ports and size, and the classes that use it. From here you also make your own: draw a new shape, import one from SVG, derive one from an existing shape, and allow a shape for a class.</p>
+  <h2>Shapes and their filters</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">LIB-shapes</span><span>Roadmap M3.12, 21.2, 21.4</span><span>Review checks B7, L21, L24</span></div>
+  <p class="g-summary">Shapes lists every symbol E1 can draw, with its ports and size, and the classes that use it. From here you also make your own: draw a new shape, import one from SVG, derive one from an existing shape, and allow a shape for a class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Shapes</span></dd>
     <dt>Who</dt><dd>Everyone may read. New shape, Import SVG…, Derive and Publish in the company library: Library administrator; a project's own shapes: Project administrator.</dd>
@@ -204,7 +204,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Shapes</span>.</td><td>The shapes are listed with <span class="ui">Find a shape</span> and the filters <span class="ui">Standard</span>, <span class="ui">Category</span>, <span class="ui">Diagram</span> and <span class="ui">Package</span>.</td></tr>
-      <tr><td>2</td><td>Set <span class="ui">Standard</span> to ISA 5.1.</td><td>Only ISA 5.1 shapes remain; every instrument, valve and logic shape shows its table and number (for example Table 5.4.1 No. 6).</td></tr>
+      <tr><td>2</td><td>Set <span class="ui">Category</span> to an instrument category, or search for <code>valve</code>.</td><td>Only those shapes remain. <span class="ui">Standard</span> lists only third-party packages (NORSOK SCD); E1’s own shapes name no standard.</td></tr>
       <tr><td>3</td><td>Click a shape.</td><td>The detail shows Category, Standard says, Licence, Diagram types, Ports, Size (mm) and Used by (the classes, with "Default shape" where it is their default). A hint reads "A project can narrow the diagram types a shape fits in Project settings → Drawing."</td></tr>
     </tbody>
   </table></div>
@@ -285,7 +285,7 @@
       <tr><td>4</td><td>Publish them on their rows.</td><td>They are in <span class="ui">Attributes</span> with the standard's name, ready to add to classes.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">An attribute the library has already (by its code or name) is left alone, so importing the same file again adds nothing twice. Standards that come as content packages, such as CFIHOS and ISA 5.1, need no import: switch their package on in the project.</p>
+  <p class="g-note">An attribute the library has already (by its code or name) is left alone, so importing the same file again adds nothing twice. Standards that come as content packages, such as CFIHOS, need no import: switch their package on in the project.</p>
   <p class="g-related">Related: <a href="#lib-company-library">The company library</a> · <a href="#lib-attributes">Attributes</a> · <a href="#lib-content-packages">Content packages and standards</a></p>
 </section>
 
@@ -510,7 +510,7 @@
   <ul>
     <li><strong>Core</strong> (always on): projects, documents and 2D spaces, functions, areas, tasks, ports and the off-page connector, the general attributes and first relationship types, the catalog attributes, and the default tag rule template. From 1.4.0, off-page connectors can "continue on" each other.</li>
     <li><strong>Electrical foundation</strong> (needs Core): the motor and its symbol, and cables and wires as objects.</li>
-    <li><strong>Plant engineering</strong> (needs Core and Electrical foundation): equipment, valves, nozzles, instrumentation and control with ISO 10628-2 symbols; from 1.2.0 the ISA 5.1 symbols, the ISA tag rule and the line list attributes.</li>
+    <li><strong>Plant engineering</strong> (needs Core and Electrical foundation): equipment, valves, nozzles, instrumentation and control with E1’s own symbols, the instrument tag rule and the line list attributes.</li>
     <li><strong>CFIHOS</strong> (needs Core, Electrical foundation and Plant engineering 1.1): 847 tag classes, 759 equipment classes, 1388 properties as attributes and 367 pick lists.</li>
     <li><strong>NORSOK SCD</strong> (needs Core, Electrical foundation and Plant engineering; off until a project switches it on): NORSOK I-005 system control diagrams: the 16 function templates with every terminal and parameter, elementary functions, references, sequence diagrams, the NORSOK function tag and the SCD check. See <a href="guide-drawing.html#draw-scd">System control diagrams</a>.</li>
   </ul>
@@ -584,7 +584,7 @@
       <tr><td>2</td><td>With several projects, click <span class="ui">Select all</span>.</td><td>All projects are ticked. A switch that differs between them shows "On in some"; a drawing option shows "Mixed". The button now reads <span class="ui">Deselect all</span>: click it to go back to one project. Projects in the Bin are not listed.</td></tr>
       <tr><td>3</td><td>Switch on a package for all selected projects.</td><td>"… is switched on in N projects."</td></tr>
       <tr><td>4</td><td>Click a project's name.</td><td>Only that project is selected.</td></tr>
-      <tr><td>5</td><td>Under <span class="ui">Drawing</span>, set <span class="ui">Crossing lines</span> to Arc (line jump).</td><td>It is saved at once; where pipes cross on the project's 2D spaces, one line jumps over the other instead of a gap (Gap (ISO 10628-1) is the default).</td></tr>
+      <tr><td>5</td><td>Under <span class="ui">Drawing</span>, set <span class="ui">Crossing lines</span> to Arc (line jump).</td><td>It is saved at once; where pipes cross on the project's 2D spaces, one line jumps over the other instead of a gap (Gap is the default).</td></tr>
       <tr><td>6</td><td>Open <span class="ui">Tag rules</span>.</td><td>The tag rules editor of the project (see <a href="guide-objects.html#obj-tag-rules">Tag rules</a>). With several projects selected: "Tag rules are set one project at a time. Select a single project to edit them."</td></tr>
     </tbody>
   </table></div>

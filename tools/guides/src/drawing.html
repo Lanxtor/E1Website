@@ -150,7 +150,7 @@
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/asset-window.webp" alt="The Add asset window: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add asset window, opened from the Object button.</figcaption></figure>
   <p class="g-note">The tags come from your project's tag rules (<a href="guide-objects.html#obj-tag-rules">Tag rules</a>). To place an object that already exists, drag it from the explorer or use <span class="ui">Place on drawing…</span> (<a href="guide-drawing.html#draw-drop-from-explorer">Place from the explorer</a>).</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-object-types">Object types</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-standards">ISA 5.1 and ISO 10628 symbols</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-new-object">Create an object</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-object-types">Object types</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-standards">Process and instrument symbols</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-new-object">Create an object</a></p>
 </section>
 
 <section class="g-feature" id="draw-object-types">
@@ -421,7 +421,7 @@
       <tr><td>1</td><td>Look at a pipe into a vessel.</td><td>A filled arrow sits at the vessel's inlet. A pump inlet gets no arrow. Cables, wires and logic lines have no arrows.</td></tr>
       <tr><td>2</td><td>Select the pipe and press <kbd>F</kbd>.</td><td>The pipe's flow direction turns round; its arrows point the other way.</td></tr>
       <tr><td>3</td><td>Select two pipes, right-click one → <span class="ui">Flip direction of selected lines</span>.</td><td>Both turn round.</td></tr>
-      <tr><td>4</td><td>Choose <span class="ui">File → Project settings…</span>, go to <span class="ui">Drawing</span>, and set <span class="ui">Crossing lines</span> to "Arc (line jump)".</td><td>The choice saves at once. Every open 2D space redraws: crossings show an arc instead of a gap ("Gap (ISO 10628-1)").</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">File → Project settings…</span>, go to <span class="ui">Drawing</span>, and set <span class="ui">Crossing lines</span> to "Arc (line jump)".</td><td>The choice saves at once. Every open 2D space redraws: crossings show an arc instead of a gap ("Gap").</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">With several projects selected in the settings, a value that differs between them reads "Mixed".</p>
@@ -590,11 +590,11 @@
 </section>
 
 <section class="g-feature" id="draw-standards">
-  <h2>ISA 5.1 and ISO 10628 symbols</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-standards</span><span>Roadmap M3.12</span><span>Review checks B7, B2</span></div>
-  <p class="g-summary">The shapes follow ISO 10628-2 for process equipment and ISA 5.1 for instruments, valves and logic. In Configuration → Shapes you browse the shapes by standard and see each shape's ISA table and number.</p>
+  <h2>Process and instrument symbols</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-standards</span><span>Roadmap M3.12</span><span>Review checks B7, B2</span></div>
+  <p class="g-summary">E1 draws its own symbols for process equipment, valves and fittings, and for instruments, control valves and logic, in the conventions process engineers know. In Configuration → Shapes you browse and search them.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Shapes</span>; the <span class="ui">Standard</span> filter is also in the Add asset window</dd>
+    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Shapes</span>; the same search and filters are in the Add asset window</dd>
     <dt>Who</dt><dd>Everyone can browse</dd>
     <dt>Before you start</dt><dd>A project is open.</dd>
   </dl>
@@ -603,12 +603,12 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Configuration</span> on the left rail, then <span class="ui">Shapes</span>.</td><td>The shape list with the filters <span class="ui">Standard</span>, <span class="ui">Category</span>, <span class="ui">Diagram</span> and <span class="ui">Package</span>, the search "Find a shape by name or key" and <span class="ui">Clear filters</span>.</td></tr>
-      <tr><td>2</td><td>Set <span class="ui">Standard</span> to ISA 5.1.</td><td>Only ISA 5.1 shapes are listed; each instrument, valve and logic shape shows its ISA table and number, for example Table 5.4.1 No. 6.</td></tr>
-      <tr><td>3</td><td>On a 2D space, open the Add asset window, filter <span class="ui">Standard</span> to ISA 5.1, and place a <span class="ui">Pressure gauge</span>.</td><td>The gauge is placed and tagged PG-001 (with the default tag rules).</td></tr>
+      <tr><td>2</td><td>Type <code>gauge</code> in the search.</td><td>Only the matching shapes are listed: pressure gauge, level gauge and the other gauges, each with its category and the classes that use it.</td></tr>
+      <tr><td>3</td><td>On a 2D space, open the Add asset window, search for <code>gauge</code>, and place a <span class="ui">Pressure gauge</span>.</td><td>The gauge is placed and tagged PG-001 (with the default tag rules).</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-shapes.webp" alt="The Shapes section of the Configuration place with its filters and the list of shapes" width="2160" height="1350" loading="lazy"><figcaption>Configuration → Shapes, where shapes are browsed and filtered.</figcaption></figure>
-  <p class="g-warn">The <span class="ui">Standard</span> setting in Configuration → Shapes only filters the shape list. It is not a drawing standard for the project, and it does not change the symbols on your 2D spaces. Manual-review check B7 reads as if it were a project-wide switch. <span class="ui">New shape</span> is shown as a planned action (the symbol designer).</p>
+  <p class="g-warn">The filters in Configuration → Shapes only filter the shape list; they do not change the symbols on your 2D spaces. <span class="ui">Standard</span> is filled only for shapes of a third-party package (NORSOK SCD); E1’s own shapes name none.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-library.html#lib-configuration">Configuration</a> · <a href="guide-drawing.html#draw-symbol-designer">Symbol designer</a></p>
 </section>
 
@@ -760,7 +760,7 @@
     </tbody>
   </table></div>
   <p class="g-note">Delete removes the selected shape, connection point or label; Esc stops drawing. The designer draws lines, circles, arcs and texts; other kinds of E1's own art are kept, moved and deleted. Modify shape… is on the 2D space's menu; the explorer's comes later.</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-attribute-labels">Attribute labels</a> · <a href="guide-drawing.html#draw-symbol-menu">Right-click menus</a> · <a href="guide-drawing.html#draw-standards">ISA 5.1 and ISO 10628 symbols</a> · <a href="guide-drawing.html#draw-svg-import">SVG import</a> · <a href="guide-drawing.html#draw-symbol-versions">Symbol versions</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-attribute-labels">Attribute labels</a> · <a href="guide-drawing.html#draw-symbol-menu">Right-click menus</a> · <a href="guide-drawing.html#draw-standards">Process and instrument symbols</a> · <a href="guide-drawing.html#draw-svg-import">SVG import</a> · <a href="guide-drawing.html#draw-symbol-versions">Symbol versions</a> · <a href="guide-library.html#lib-company-library">Company library</a></p>
 </section>
 
 <section class="g-feature" id="draw-attribute-labels">
