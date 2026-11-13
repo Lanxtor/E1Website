@@ -177,7 +177,7 @@ Once a week, and whenever a change a user can see reaches `main` of `Lanxtor/E1`
 
 Found while writing the guides; each is noted in its guide.
 
-- Manual-review checks that no longer match the app: A1 (there is no *Workspace* row since 2026-11-07; Lines is a group under Assets), C7 (Delete moves an object to the Bin; the preview of what goes with it is at *Delete permanently…*), D5 (*Update from Excel…* changes existing rows only; new rows need *Data → Import Excel…*), E4 (the Revisions filter is a placeholder), G4 (framing a region of a sheet is only possible through Cloud AI or the API), B7 (*Configuration → Shapes → Standard* filters the shape list; it is not a drawing standard for the project).
+- Manual-review checks that no longer match the app: A1 (there is no *Workspace* row since 2026-11-07; the drawn runs are in Assets ▸ Pipelines, Cables and wires and Signal lines), C7 (Delete moves an object to the Bin; the preview of what goes with it is at *Delete permanently…*), D5 (*Update from Excel…* changes existing rows only; new rows need *Data → Import Excel…*), E4 (the Revisions filter is a placeholder), G4 (framing a region of a sheet is only possible through Cloud AI or the API), B7 (*Configuration → Shapes → Standard* filters the shape list; it is not a drawing standard for the project).
 - *File → New project* shows <kbd>Ctrl+N</kbd>, but the key does nothing.
 - *Insert → Asset…* does nothing: no part of the sheet view handles it (checked in `SheetView2D.jsx`, 2026-11-07). The toolbar's *Object* button with *Asset* places symbols.
 - Website: the installers, the billing portal, the Academy courses and certificates, and the support phone number are not live yet.
