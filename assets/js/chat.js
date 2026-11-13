@@ -82,7 +82,7 @@
     academy: ["What is the E1 Academy?", "academy", ["courses", "academyPrice", "certificate", "students"]],
     courses: ["Which courses are there?", "academy", ["certificate", "academyPrice", "academy", "trial"]],
     certificate: ["Do I get a certificate?", "academy", ["courses", "academyPrice", "academy", "students"]],
-    students: ["Is E1 free for students and universities?", "academy", ["university", "academy", "cost", "courses"]],
+    students: ["What does E1 cost for students and universities?", "academy", ["university", "academy", "cost", "courses"]],
     university: ["How can a university use E1 in a course?", "academy", ["students", "courses", "sales", "academy"]],
 
     start: ["How do I get started?", "next", ["download", "trial", "courses", "sales"]],

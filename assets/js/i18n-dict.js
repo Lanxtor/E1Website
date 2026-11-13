@@ -93,7 +93,6 @@ window.E1_I18N_DICT = {
   "What is the E1 Academy?": "Was ist die E1 Academy?",
   "Which courses are there?": "Welche Kurse gibt es?",
   "Do I get a certificate?": "Bekomme ich ein Zertifikat?",
-  "Is E1 free for students and universities?": "Ist E1 für Studierende und Hochschulen kostenlos?",
   "How can a university use E1 in a course?": "Wie kann eine Hochschule E1 in einem Kurs nutzen?",
   "How do I get started?": "Wie fange ich an?",
   "How can I talk to sales?": "Wie erreiche ich den Vertrieb?",
@@ -107,7 +106,8 @@ window.E1_I18N_DICT = {
   "Per user / month, billed yearly": "Pro Benutzer / Monat, jährliche Abrechnung",
   "Per user / month, billed monthly": "Pro Benutzer / Monat, monatliche Abrechnung",
   "No yearly commitment": "Keine jährliche Bindung",
-  "per user a year": "pro Benutzer und Jahr"
+  "per user a year": "pro Benutzer und Jahr",
+  "What does E1 cost for students and universities?": "Was kostet E1 für Studierende und Hochschulen?"
  },
  "fr": {
   "Home": "Accueil",
@@ -201,7 +201,6 @@ window.E1_I18N_DICT = {
   "What is the E1 Academy?": "Qu'est-ce que l'E1 Academy ?",
   "Which courses are there?": "Quels cours sont proposés ?",
   "Do I get a certificate?": "Est-ce que j'obtiens un certificat ?",
-  "Is E1 free for students and universities?": "E1 est-il gratuit pour les étudiants et les universités ?",
   "How can a university use E1 in a course?": "Comment une université peut-elle utiliser E1 dans un cours ?",
   "How do I get started?": "Comment démarrer ?",
   "How can I talk to sales?": "Comment contacter l'équipe commerciale ?",
@@ -215,7 +214,8 @@ window.E1_I18N_DICT = {
   "Per user / month, billed yearly": "Par utilisateur / mois, facturation annuelle",
   "Per user / month, billed monthly": "Par utilisateur / mois, facturation mensuelle",
   "No yearly commitment": "Sans engagement annuel",
-  "per user a year": "par utilisateur et par an"
+  "per user a year": "par utilisateur et par an",
+  "What does E1 cost for students and universities?": "Combien coûte E1 pour les étudiants et les universités ?"
  },
  "es": {
   "Home": "Inicio",
@@ -309,7 +309,6 @@ window.E1_I18N_DICT = {
   "What is the E1 Academy?": "¿Qué es la E1 Academy?",
   "Which courses are there?": "¿Qué cursos hay?",
   "Do I get a certificate?": "¿Obtengo un certificado?",
-  "Is E1 free for students and universities?": "¿Es E1 gratis para estudiantes y universidades?",
   "How can a university use E1 in a course?": "¿Cómo puede una universidad usar E1 en un curso?",
   "How do I get started?": "¿Cómo empiezo?",
   "How can I talk to sales?": "¿Cómo hablo con ventas?",
@@ -323,7 +322,8 @@ window.E1_I18N_DICT = {
   "Per user / month, billed yearly": "Por usuario / mes, facturación anual",
   "Per user / month, billed monthly": "Por usuario / mes, facturación mensual",
   "No yearly commitment": "Sin compromiso anual",
-  "per user a year": "por usuario al año"
+  "per user a year": "por usuario al año",
+  "What does E1 cost for students and universities?": "¿Cuánto cuesta E1 para estudiantes y universidades?"
  },
  "no": {
   "Home": "Hjem",
@@ -417,7 +417,6 @@ window.E1_I18N_DICT = {
   "What is the E1 Academy?": "Hva er E1 Academy?",
   "Which courses are there?": "Hvilke kurs finnes?",
   "Do I get a certificate?": "Får jeg et sertifikat?",
-  "Is E1 free for students and universities?": "Er E1 gratis for studenter og universiteter?",
   "How can a university use E1 in a course?": "Hvordan kan et universitet bruke E1 i et kurs?",
   "How do I get started?": "Hvordan kommer jeg i gang?",
   "How can I talk to sales?": "Hvordan kan jeg snakke med salg?",
@@ -431,6 +430,7 @@ window.E1_I18N_DICT = {
   "Per user / month, billed yearly": "Per bruker / måned, fakturert årlig",
   "Per user / month, billed monthly": "Per bruker / måned, fakturert månedlig",
   "No yearly commitment": "Ingen årlig binding",
-  "per user a year": "per bruker i året"
+  "per user a year": "per bruker i året",
+  "What does E1 cost for students and universities?": "Hva koster E1 for studenter og universiteter?"
  }
 };

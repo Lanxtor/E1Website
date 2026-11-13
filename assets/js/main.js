@@ -385,7 +385,7 @@
       lead.textContent = !signup
         ? T("Sign in to see your licenses, usage, projects and downloads.")
         : uni
-          ? T("Free for teaching: 90 days as Editor from the day you join, then 90 days read-only.")
+          ? T("For teaching, US$29 per student a month: 90 days as Editor from the day you join, then 90 days read-only.")
           : T("Create your account and start your free 30-day trial, for you and your team.");
       submit.textContent = !signup ? T("Continue to sign in") : uni ? T("Continue with your university email") : T("Start your free 30-day trial");
       // Sign up: the panel next to the form, for a trial or for a university.
@@ -406,7 +406,7 @@
         if (email) url += "&login_hint=" + encodeURIComponent(email);
       }
       submit.setAttribute("href", url || "account.html?demo=1");
-      var blocked = uni && verdict && ["full", "rejected", "public-mail"].indexOf(verdict) >= 0;
+      var blocked = uni && verdict && ["rejected", "public-mail"].indexOf(verdict) >= 0;
       submit.classList.toggle("is-disabled", Boolean(blocked));
       submit.setAttribute("aria-disabled", blocked ? "true" : "false");
     }
@@ -435,7 +435,6 @@
           var where = u.name ? u.name + (u.country ? ", " + u.country : "") : domain;
           if (r.state === "new") say(T("✓ {where}. You open E1 for your university: everyone with your university’s email joins you.", { where: where }), "ok");
           else if (r.state === "open") say(T("✓ {where} uses E1 already. You join it.", { where: where }), "ok");
-          else if (r.state === "full") say(T("{where} has reached its number of people in E1. Write to sales@lanxtor.com for more.", { where: where }), "bad");
           else if (r.state === "pending") say(T("We are checking {domain}. You get an email as soon as it is approved.", { domain: domain }), "wait");
           else if (r.state === "rejected") say(T("We could not confirm {domain} as a university. Write to sales@lanxtor.com if this is a mistake.", { domain: domain }), "bad");
           else if (r.state === "unknown") say(T("{domain} is not on our list of universities yet. Continue, and LANXTOR checks it, usually within one working day.", { domain: domain }), "wait");
