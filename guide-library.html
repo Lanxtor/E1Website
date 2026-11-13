@@ -953,33 +953,23 @@
 
 <section class="g-feature" id="lib-module-edit">
   <h2>Editing a module: new versions</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a, 32.3f</span><span>Review check M7</span></div>
-  <p class="g-summary">Open a module's next version, change its details, members, tie-in points and parameters, move its members to the newest class versions, and publish it. Duplicate a module, or copy a project module to the company library.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">LIB-module-edit</span><span>Roadmap 32.3a, 32.3f, 32.3g</span><span>Review check M7</span></div>
+  <p class="g-summary">Open a module in its workspace: its drawing on a sheet and its data model in the tree. Change both as in any project, set the module's properties, and save its next version. Duplicate a module, or copy a project module to the company library.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>: <span class="ui">New version</span> (or <span class="ui">Edit draft</span>) on a module's row; a module → <span class="ui">Edit on a sheet</span>, <span class="ui">New version</span> (or <span class="ui">Edit draft</span>), <span class="ui">Duplicate…</span>, <span class="ui">Copy to company library</span></dd>
-    <dt>Who</dt><dd>Editing the library the module is in</dd>
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Modules</span>: <span class="ui">New version</span> (or <span class="ui">Edit draft</span>) on a module's row, or a module → <span class="ui">New version</span>, <span class="ui">Duplicate…</span>, <span class="ui">Copy to company library</span></dd>
+    <dt>Who</dt><dd>Editing the library the module is in, and creating projects</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">New version</span> on a module's row (or click its name, then <span class="ui">New version</span>).</td><td>Its draft opens: the details, the <span class="ui">Members</span> (id, class, class version, the attributes kept per instance), the <span class="ui">Tie-in points</span> and the <span class="ui">Parameters</span>.</td></tr>
-      <tr><td>2</td><td>Change what the version changes: a tie-in point's size, rating, pipe class or medium, a parameter's name, kind, default or whether it is required, the attributes kept per instance. Type a <span class="ui">Change note</span>.</td><td>Member ids can be renamed until the module is first published; after that an id is fixed, and a removed member's id is never used again.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Upgrade members</span> if the members should move to the newest class versions.</td><td>It says how many moved. Without it, projects on older library versions can still place the module.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Publish</span> (or <span class="ui">Save draft</span> to finish later).</td><td>The next version, with its change note. Placed instances are offered the update (<a href="#lib-module-updates">Updating placed modules</a>).</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">New version</span> on a module's row (or click its name, then <span class="ui">New version</span>).</td><td>The module opens in its workspace, <em>Module:</em> and its name, in the explorer: its sheet draws the module, and its tree shows only <span class="ui">Unit Operations</span>, <span class="ui">Assets</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span> and <span class="ui">Areas</span>. Opened again, the same workspace opens.</td></tr>
+      <tr><td>2</td><td>Change the drawing as on any sheet: add assets, connect them, move and change them. Build the module's data model in the tree: a system, an area, a process and what belongs to them, with their relationships.</td><td>Everything in the workspace is the module.</td></tr>
+      <tr><td>3</td><td>In the bar, click <span class="ui">Module properties…</span>.</td><td>The module's own attributes: name, description, category, standard, vendor; for each member what it keeps per instance and the option it is only there with; its tie-in points, parameters, options and variants. <span class="ui">Upgrade members</span> moves the members to the newest class versions. <span class="ui">Save draft</span> keeps them.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Save as new version…</span>, type a <span class="ui">Change note</span> and click <span class="ui">Save and publish</span> (untick <span class="ui">Publish it now</span> to keep a draft).</td><td>The bar says <em>Saved as version n</em>. Objects placed from the module keep their member ids, so its placed copies are offered the update (<a href="#lib-module-updates">Updating placed modules</a>).</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Close</span> and confirm.</td><td>The workspace is deleted; the module keeps its versions. What was not saved is lost.</td></tr>
     </tbody>
   </table></div>
-  <h3>Edit on a sheet</h3>
-  <p>To change what a module draws (its symbols, their places and the lines between them) where you can see it:</p>
-  <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
-    <tbody>
-      <tr><td>1</td><td>Click a published module's name, then <span class="ui">Edit on a sheet</span>.</td><td>A temporary 2D space, <em>Edit module:</em> and the module's name, opens in the Model Space with the module placed and selected (its objects get tags from the rules). Opened again, the same sheet opens. A bar on top says the sheet is temporary.</td></tr>
-      <tr><td>2</td><td>Change the module's objects on the sheet: values, symbols, lines, objects added to the instance.</td><td>The changes are this instance's, as on any sheet.</td></tr>
-      <tr><td>3</td><td>In the bar, click <span class="ui">Save changes to module…</span>, tick the changes, type a <span class="ui">Change note</span> and click <span class="ui">Publish</span>.</td><td>The module's next version holds them; the other instances are offered the update.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Close sheet</span> and confirm.</td><td>The sheet and the objects drawn only on it are deleted. If changes were not saved to the module, closing asks first and they are lost.</td></tr>
-    </tbody>
-  </table></div>
-  <p class="g-note">A module that comes with E1 is read only and has no Edit on a sheet.</p>
+  <p class="g-note">Placed in a project, a module's objects go to <span class="ui">Copy temp</span> of each section (Assets, Systems, Areas, …) until you move them where they belong. A module that comes with E1 gets its next version in the company library.</p>
   <ul>
     <li><span class="ui">Supplied by vendor</span>, with the vendor's document and revision, marks a vendor's package. In a project its members then take only per-instance values; any other change is refused (<em>Supplied by vendor …: change the vendor module</em>). A new vendor revision is published as a new version.</li>
     <li><span class="ui">Duplicate…</span> makes a new module, as a draft, with the same content; its instances stay with the first.</li>
