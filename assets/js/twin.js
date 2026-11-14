@@ -30,7 +30,7 @@
   });
   /* The part after which each engineer joins (the class of a .tw-part). */
   var JOIN_AFTER = { process: "tw-cellar", instrumentation: "tw-modules", automation: "tw-stacks", electrical: "tw-crane2", maintenance: "tw-bridge" };
-  var PART_MS = 420, JOIN_MS = 2800;
+  var PART_MS = 250, JOIN_MS = 1700;
   var NS = "http://www.w3.org/2000/svg";
 
   /* Headline: the part after the comma in the cobalt-to-teal ink (any language). */
@@ -81,7 +81,7 @@
      engineer's mark, and each engineer already there sees "Updated" as it
      passes them. Nothing goes through a centre. */
   var waves = twin.querySelector(".tw-waves");
-  var WAVE_MS = 2600;
+  var WAVE_MS = 1600;
   function centre(el) {
     var b = canvas.getBoundingClientRect(), r = el.getBoundingClientRect();
     return [r.left + r.width / 2 - b.left, r.top + r.height / 2 - b.top];
@@ -118,7 +118,7 @@
       var k = Math.min(1, d / reach), at = WAVE_MS * (1 - Math.sqrt(1 - k));
       later(function () {
         x.classList.remove("is-upd"); void x.offsetWidth; x.classList.add("is-upd");
-        later(function () { x.classList.remove("is-upd"); }, 1700);
+        later(function () { x.classList.remove("is-upd"); }, 1100);
       }, at);
     });
   }
@@ -126,7 +126,7 @@
     who.forEach(function (x) { x.classList.remove("is-cur"); });
     w.classList.add("is-on", "is-cur");
     if (w._line) w._line.setAttribute("class", "is-on");
-    later(function () { wave(w); }, 650);
+    later(function () { wave(w); }, 400);
   }
 
   function cycle() {
@@ -136,11 +136,11 @@
     var t = 120, running = false;
     parts.forEach(function (p) {
       later(function () { p.classList.add("is-up"); }, t);
-      later(function () { p.classList.add("is-set"); }, t + 900);
+      later(function () { p.classList.add("is-set"); }, t + 550);
       t += PART_MS;
       who.forEach(function (w) {
         if (!p.classList.contains(JOIN_AFTER[w.getAttribute("data-d")])) return;
-        t += 500;
+        t += 300;
         later(function () {
           if (!running) { running = true; state("is-built is-run"); drawLeads(); }
           join(w);
@@ -155,9 +155,9 @@
       later(function () { state("is-built is-run"); drawLeads(); join(w); }, t);
       t += JOIN_MS;
     });
-    t += 1200;
+    t += 800;
     later(function () { who.forEach(function (x) { x.classList.remove("is-cur"); }); }, t);
-    later(cycle, t + 5500);
+    later(cycle, t + 4000);
   }
 
   window.addEventListener("resize", drawLeads);
