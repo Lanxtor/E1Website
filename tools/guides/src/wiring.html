@@ -211,10 +211,34 @@
   <p class="g-related">Related: <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-allocation">Allocation</a> · <a href="#wire-strip-designer">The strip designer</a></p>
 </section>
 
+<section class="g-feature" id="wire-cabinet-contents">
+  <h2>Racks, cards and strips in a cabinet</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">WIRE-cabinet-contents</span><span>Roadmap 38.0</span><span>Review check R11</span></div>
+  <p class="g-summary">A cabinet's <span class="ui">Contents</span> page shows what is inside it as a tree: each rack with its control system and every slot, a free slot greyed <em>Free</em>, the card in each slot with its channels and the transmitter landed on each; and each terminal strip with its terminals and what is landed on them. A rack owns its cards: the card's owner says which rack, its <span class="ui">Slot</span> where in it. Drag a card onto a free slot to move it; its cross-wires follow.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Open an enclosure (a cabinet, junction box or panel) and click <span class="ui">Contents</span> in the tabs at the top of its window; the same tree is on the enclosure in its <span class="ui">Wiring</span> page</dd>
+    <dt>Who</dt><dd>Anyone who may view the project; moving a card or adding a rack needs a license and a project role that may edit objects</dd>
+    <dt>Before you start</dt><dd>The cabinet has a rack: <span class="ui">Add ▾</span> → <span class="ui">Rack…</span>, or right-click the cabinet under <span class="ui">Assets</span> → <span class="ui">New part…</span> → <span class="ui">Rack</span>. On the rack's <span class="ui">Attributes</span> tab give its <span class="ui">Slots</span>, <span class="ui">First slot</span> (0 or 1) and <span class="ui">Control system</span>; a card in it has its <span class="ui">Slot</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the sample, double-click marshalling cabinet 76-CM-001 under <span class="ui">Assets</span> and click <span class="ui">Contents</span>.</td><td>76-CM-001 ▸ RK1 (PCS, 7 of 8 slots free) ▸ Slot 1 to Slot 8; Slot 5 holds card A5 (10 of 16 channels used), its channels A5-1 to A5-10 each with its transmitter (A5-1 LIT 2001), A5-11 to A5-16 <em>Free</em>. Below, the terminal strips X1 and X2 with what is landed on each terminal, for example 76-W-2001:P1-1.</td></tr>
+      <tr><td>2</td><td>Drag A5 onto Slot 2.</td><td>"A5 moved from RK1 slot 5 to RK1 slot 2; its connections follow." Its channels keep their transmitters, and <span class="ui">Export I/O list</span> shows Rack RK1, Slot 2. One undo puts it back.</td></tr>
+      <tr><td>3</td><td>Drag a card whose connections are issued for construction.</td><td>Refused: "A5 has connections Issued (terminal 1): after issue for construction it is changed with the wire move list, not moved." A taken slot, or a rack of another control system than the card, is refused with the reason too.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Add ▾</span> → <span class="ui">Rack…</span>.</td><td><span class="ui">New part…</span> opens with only <span class="ui">Rack</span>, and the catalog's <em>I/O rack, 8 slots</em> to choose from. The new rack shows in the tree; the page stays open.</td></tr>
+      <tr><td>5</td><td>On the <span class="ui">Wiring</span> page of a unit whose new transmitters have more signals than A5 has free channels, click <span class="ui">Propose wiring</span> and accept.</td><td>A5's free channels are used first; then a new card A1, like A5, in the first free slot of the PCS rack: "a new card in RK1 slot 1, like A5". <span class="ui">Contents</span> shows A1 in Slot 1 with its transmitters.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The checks (the <span class="ui">Checks</span> tab of the <span class="ui">Wiring</span> page, and at the top of <span class="ui">Contents</span>) find a rack with more cards than slots, two cards in one slot or a card in a slot the rack does not have (<span class="ui">Rack slots</span>), and a card of another control system than its rack, or a rack of another one than its cabinet (<span class="ui">Rack of another control system</span>). Ask Alex "what is in 76-CM-001's racks?" or "move A1 to slot 3 of RK1".</p>
+  <p class="g-related">Related: <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-allocation">Allocation</a> · <a href="#wire-fill-heat">Cabinet fill and heat balance</a> · <a href="#wire-io-list">The I/O list</a></p>
+</section>
+
 <section class="g-feature" id="wire-io-list">
   <h2>Exchange the I/O list with the control-system vendor</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">WIRE-io-list</span><span>Roadmap 28.5</span><span>Review check R7</span></div>
-  <p class="g-summary">The I/O list goes to the control-system vendor with every signal, its kind, segregation class, control system and HART, and the cabinet, card, channel and terminals its circuit reaches. The vendor often assigns channels themselves. When their list comes back, a channel they kept is fixed, a channel they changed is a finding, and you decide whether E1 moves the cross-wires to it.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-14</span><span class="g-id">WIRE-io-list</span><span>Roadmap 28.5, 38.0</span><span>Review check R7</span></div>
+  <p class="g-summary">The I/O list goes to the control-system vendor with every signal, its kind, segregation class, control system and HART, and the cabinet, rack, slot, card, channel and terminals its circuit reaches. The vendor often assigns channels themselves. When their list comes back, a channel they kept is fixed, a channel they changed is a finding, and you decide whether E1 moves the cross-wires to it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A cabinet's window → the <span class="ui">Fill and heat</span> tab at the top → <span class="ui">Export I/O list</span>; for a unit and for importing, Alex in the side panel</dd>
     <dt>Who</dt><dd>Exporting: anyone who may view the project. Importing: a license and a project role that may edit relationships</dd>
@@ -223,7 +247,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Export I/O list</span> on cabinet S1.</td><td>A CSV file "S1 I-O list.csv" downloads with the columns Tag, Signal, Kind, Description, Segregation, Control system, HART, Cabinet, Card, Channel, Terminals.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Export I/O list</span> on cabinet S1.</td><td>A CSV file "S1 I-O list.csv" downloads with the columns Tag, Signal, Kind, Description, Segregation, Control system, HART, Cabinet, Rack, Slot, Card, Channel, Terminals. Rack and Slot are empty for a card in no rack (see <a href="#wire-cabinet-contents">Racks, cards and strips in a cabinet</a>).</td></tr>
       <tr><td>2</td><td>Attach the vendor's list in the side panel and ask Alex to import it for S1, as a preview.</td><td>A row with the same card and channel will be fixed. A changed row is a finding: "FT-1 pv: the vendor has card A5 channel 2, E1 has card A5 channel 1. Apply to move to it." A channel that is taken or of another kind says so.</td></tr>
       <tr><td>3</td><td>Ask Alex to apply it.</td><td>The cross-wires of FT-1 move to channel 2, fixed and in vendor scope; the next export shows channel 2.</td></tr>
     </tbody>
@@ -393,7 +417,7 @@
 
 <section class="g-feature" id="wire-allocation">
   <h2>Allocation: propose and accept the wiring</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">WIRE-allocation</span><span>Roadmap 28.4, 28.7</span><span>Review check R6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-14</span><span class="g-id">WIRE-allocation</span><span>Roadmap 28.4, 28.7, 38.0</span><span>Review check R6</span></div>
   <p class="g-summary">E1 proposes where every signal of a group of devices lands: its field cable on a junction box strip, a free pair of a multicore to the marshalling cabinet, and two cross-wires to a free channel of its kind. It never breaks a hard rule: the control system, the project's segregation matrix and each strip's segregation class, redundancy groups apart (2oo3 on three junction boxes and three cards), the channel's type and HART, fixed and reserved terminals, and the spare percentage. Every choice says why, and every junction box it did not take says which rule it breaks. The same devices give the same proposal every time.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The <span class="ui">Wiring</span> page → <span class="ui">Signals</span> → <span class="ui">Propose wiring</span> (right-click a unit or loop in <span class="ui">Systems</span> → <span class="ui">View</span> ▸ <span class="ui">Wiring</span>, or click <span class="ui">Wiring</span> in the tabs at the top of its window)</dd>
@@ -415,7 +439,8 @@
     </tbody>
   </table></div>
   <p class="g-note">A ✕ cell (<span class="ui">Cannot place</span>) says why when you hover or click it, and what would help, for example "Add an I/O card with a free channel of this kind." A junction box with I/O cards in it (remote I/O) takes the signal on one of its own channels: <span class="ui">Multicore</span> and <span class="ui">Marshalling</span> stay empty. A person may let the allocation use the spare capacity (ask Alex to propose with spares).</p>
-  <p class="g-warn">Allocation takes junction boxes, multicores and channels that exist; it does not add new ones.</p>
+  <p class="g-note">When every card of the marshalling cabinet is full, the <span class="ui">I/O channel</span> is proposed on a new card in the first free slot of a rack of the signal's control system, made like the cabinet's card of that kind: "76-CM-001 card A1 channel 1 (a new card in RK1 slot 1, like A5)". Accepting makes the card with its channels. With no free slot the cell is ✕: "76-CM-001: no free slot for an AI HART card in a PCS rack" (see <a href="#wire-cabinet-contents">Racks, cards and strips in a cabinet</a>).</p>
+  <p class="g-warn">Allocation takes junction boxes, multicores and channels that exist, and adds only I/O cards, into free rack slots; for new junction boxes and multicores, see <a href="#wire-propose-cables">Propose cables</a>.</p>
   <p class="g-related">Related: <a href="#wire-signals">The Wiring page</a> · <a href="#wire-typicals">Signals and wiring typicals</a> · <a href="#wire-segregation-matrix">The segregation matrix</a> · <a href="#wire-wire-moves">Changes after issue</a> · <a href="#wire-circuit-checks">Entity check and voltage budget</a></p>
 </section>
 
