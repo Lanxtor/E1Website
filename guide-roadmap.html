@@ -53,6 +53,7 @@
           <li><a href="#app-m10">E1 app · M10 Modules: modular P&amp;ID design</a></li>
           <li><a href="#app-m12">E1 app · M12 Cause and effect, safety functions, alarms</a></li>
           <li><a href="#app-m11">E1 app · M11 Workflow and dashboards</a></li>
+          <li><a href="#app-m13">E1 app · M13 From PFD to cabinet: P&amp;ID from a PFD, circuit diagrams, cabinets in 3D</a></li>
           <li><a href="#app-m8">E1 app · M8 Branches</a></li>
           <li><a href="#app-p">E1 app · P In parallel: integration API, company sign-on, access, chat modes</a></li>
           <li><a href="#app-ipad">E1 app · iPad E1 Reviewer for iPad</a></li>
@@ -67,7 +68,7 @@
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Roadmap</p>
         <h1>Under development and roadmap</h1>
-        <p class="lead">What is built, what is being built, and what comes next, stage by stage. Taken from the build roadmap of the app (updated 2026-11-13) and of the website (updated 2026-11-05).</p>
+        <p class="lead">What is built, what is being built, and what comes next, stage by stage. Taken from the build roadmap of the app (updated 2026-11-14) and of the website (updated 2026-11-05).</p>
         <section class="g-feature" id="app-m0">
           <h2>M0 Foundation — E1 app</h2>
           <div class="g-meta"><span>6 of 6 stages done</span></div>
@@ -310,6 +311,24 @@
             <tr><td>33.6</td><td>Progress and trends</td><td><span class="g-status available">Done 2026-11-12</span></td><td>In Configuration → Progress type a plan (a date and a percentage per line). On a dashboard add Progress against the plan, Burn-up and Items by step over time: E1 records their numbers once a day, and the lines grow day by day.</td></tr>
             <tr><td>33.7</td><td>Dashboards in E1 Reviewer (the Progress card on the iPad)</td><td><span class="g-status available">Done 2026-11-12</span></td><td>In Dashboards → Edit, tick Show in E1 Reviewer and choose each tile&#x27;s Size on the iPad (Small, Medium, Wide). In E1 Reviewer, Customize → Add Progress: the card shows the dashboard&#x27;s numbers; tap it for the dashboard read-only, tap a number or a group for its items, and an item to open it.</td></tr>
             <tr><td>33.8</td><td>Statuses in branches and branch tiles</td><td><span class="g-status available">Done 2026-11-12</span></td><td>Set a status in a branch and another in main, then Pull from main: the conflict proposes the lower status. Dashboards → Branches shows branches open, in review and merged, with their age.</td></tr>
+          </tbody></table></div>
+        </section>
+        <section class="g-feature" id="app-m13">
+          <h2>M13 From PFD to cabinet: P&amp;ID from a PFD, circuit diagrams, cabinets in 3D — E1 app</h2>
+          <div class="g-meta"><span>0 of 11 stages done</span><span>MVP</span></div>
+          <p class="g-summary">Asked for by the owner on 2026-11-14 (00-D20), so that one plant runs as one story from the PFD to the wires in the cabinet: Alex makes a P&amp;ID from a PFD with the same objects and proposes its detail; circuit diagrams in the way of the established electrical design tools, with devices and their functions, cross-references, contact images, wire numbers, terminals, cables, PLC boxes, circuit typicals, and generated terminal and cable diagrams and lists; and cabinet layouts in 3D, with devices placed on rails, wires routed through ducts, and the mounting layout drawing made from the 3D layout.</p>
+          <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
+            <tr><td>36.1</td><td>A P&amp;ID from a PFD: Alex redraws the PFD on a new P&amp;ID sheet</td><td><span class="g-status planned">Planned</span></td><td>On the sample&#x27;s PFD DF-00-F-0001 choose Make P&amp;ID from this PFD…: a new P&amp;ID sheet draws the same equipment with the same tags (not copies), each stream as a pipe between the same nozzles, the control valves on their pipes.</td></tr>
+            <tr><td>36.2</td><td>P&amp;ID detail for the whole sheet, with its tests</td><td><span class="g-status planned">Planned</span></td><td>After the redraw, the Alex tab lists the P&amp;ID detail by object (isolation, check valves, control valve stations, reliefs, drains, vents): Apply all. Ask Alex in the chat to make a P&amp;ID from this PFD: it runs the same command.</td></tr>
+            <tr><td>37.1</td><td>Circuit diagrams: devices with their functions, column grid, automatic connections</td><td><span class="g-status planned">Planned</span></td><td>On a circuit diagram place a coil for a new contactor -K1, choose its catalog item: its contacts appear under Not placed; drag one onto another page. Symbols on one line connect by themselves.</td></tr>
+            <tr><td>37.2</td><td>Circuit diagrams: cross-references, contact images, continuations</td><td><span class="g-status planned">Planned</span></td><td>Under the coil of -K1 its contact image lists each contact with /page.column; click a reference to open that page. A continuation arrow named 24V DC references its partners.</td></tr>
+            <tr><td>37.3</td><td>Circuit diagrams: terminals, cables, potentials, and wire numbers</td><td><span class="g-status planned">Planned</span></td><td>Place terminal -X1:5 of an MCC strip and draw a cable line across three wires: they become cores of the cable. Number wires numbers them by the project&#x27;s rule; join two potentials and see the short-circuit finding.</td></tr>
+            <tr><td>37.4</td><td>Circuit diagrams: PLC boxes and circuit typicals</td><td><span class="g-status planned">Planned</span></td><td>Draw a PLC box of an I/O card with its channels beside the field devices. Place circuit typical… → DOL starter for motor 43-EM-4301B: its breaker, contactor, overload, terminals and cable, sized from the motor.</td></tr>
+            <tr><td>37.5</td><td>Circuit diagrams: terminal diagrams, cable diagrams, and lists</td><td><span class="g-status planned">Planned</span></td><td>Make the terminal diagram of -X1, the cable diagram of a motor cable, the wire list, the device list and the parts list; change the drawing and see the next revision clouded.</td></tr>
+            <tr><td>38.1</td><td>Cabinet design in 3D: the 3D view and the cabinet frame</td><td><span class="g-status planned">Planned</span></td><td>Open marshalling cabinet 76-CM-001 → Layout: the 3D view of the enclosure with its mounting plate and door; draw rails and ducts, or apply a layout template; switch to the Front and Plate views.</td></tr>
+            <tr><td>38.2</td><td>Cabinet design in 3D: placing devices from To place</td><td><span class="g-status planned">Planned</span></td><td>Drag terminal strips, I/O cards and barriers from To place onto the rails: overlaps are refused, IS separation and spare space are checked, and the heat balance uses the real layout.</td></tr>
+            <tr><td>38.3</td><td>Cabinet design in 3D: wire routing through the ducts</td><td><span class="g-status planned">Planned</span></td><td>Route wires: every core, jumper and wire runs through the ducts; read each wire&#x27;s length and each duct&#x27;s fill, and see a duct over its limit.</td></tr>
+            <tr><td>38.4</td><td>Cabinet design in 3D: Arrange cabinet and the outputs</td><td><span class="g-status planned">Planned</span></td><td>Arrange cabinet… proposes a whole layout by rows with reasons; apply it, then make the mounting layout drawing, the cut-out and drilling list, and the wire list for manufacture.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m8">

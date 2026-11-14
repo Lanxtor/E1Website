@@ -1,6 +1,6 @@
 {
  "app": {
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "milestones": [
    {
     "id": "M0",
@@ -1375,6 +1375,102 @@
       "doneOn": "2026-11-12",
       "visible": true,
       "tryIt": "Set a status in a branch and another in main, then Pull from main: the conflict proposes the lower status. Dashboards → Branches shows branches open, in review and merged, with their age."
+     }
+    ]
+   },
+   {
+    "id": "M13",
+    "title": "From PFD to cabinet: P&ID from a PFD, circuit diagrams, cabinets in 3D",
+    "summary": "Asked for by the owner on 2026-11-14 (00-D20), so that one plant runs as one story from the PFD to the wires in the cabinet: Alex makes a P&ID from a PFD with the same objects and proposes its detail; circuit diagrams in the way of the established electrical design tools, with devices and their functions, cross-references, contact images, wire numbers, terminals, cables, PLC boxes, circuit typicals, and generated terminal and cable diagrams and lists; and cabinet layouts in 3D, with devices placed on rails, wires routed through ducts, and the mounting layout drawing made from the 3D layout.",
+    "mvp": true,
+    "stages": [
+     {
+      "id": "36.1",
+      "title": "A P&ID from a PFD: Alex redraws the PFD on a new P&ID sheet",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "On the sample's PFD DF-00-F-0001 choose Make P&ID from this PFD…: a new P&ID sheet draws the same equipment with the same tags (not copies), each stream as a pipe between the same nozzles, the control valves on their pipes."
+     },
+     {
+      "id": "36.2",
+      "title": "P&ID detail for the whole sheet, with its tests",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "After the redraw, the Alex tab lists the P&ID detail by object (isolation, check valves, control valve stations, reliefs, drains, vents): Apply all. Ask Alex in the chat to make a P&ID from this PFD: it runs the same command."
+     },
+     {
+      "id": "37.1",
+      "title": "Circuit diagrams: devices with their functions, column grid, automatic connections",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "On a circuit diagram place a coil for a new contactor -K1, choose its catalog item: its contacts appear under Not placed; drag one onto another page. Symbols on one line connect by themselves."
+     },
+     {
+      "id": "37.2",
+      "title": "Circuit diagrams: cross-references, contact images, continuations",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Under the coil of -K1 its contact image lists each contact with /page.column; click a reference to open that page. A continuation arrow named 24V DC references its partners."
+     },
+     {
+      "id": "37.3",
+      "title": "Circuit diagrams: terminals, cables, potentials, and wire numbers",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Place terminal -X1:5 of an MCC strip and draw a cable line across three wires: they become cores of the cable. Number wires numbers them by the project's rule; join two potentials and see the short-circuit finding."
+     },
+     {
+      "id": "37.4",
+      "title": "Circuit diagrams: PLC boxes and circuit typicals",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Draw a PLC box of an I/O card with its channels beside the field devices. Place circuit typical… → DOL starter for motor 43-EM-4301B: its breaker, contactor, overload, terminals and cable, sized from the motor."
+     },
+     {
+      "id": "37.5",
+      "title": "Circuit diagrams: terminal diagrams, cable diagrams, and lists",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Make the terminal diagram of -X1, the cable diagram of a motor cable, the wire list, the device list and the parts list; change the drawing and see the next revision clouded."
+     },
+     {
+      "id": "38.1",
+      "title": "Cabinet design in 3D: the 3D view and the cabinet frame",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Open marshalling cabinet 76-CM-001 → Layout: the 3D view of the enclosure with its mounting plate and door; draw rails and ducts, or apply a layout template; switch to the Front and Plate views."
+     },
+     {
+      "id": "38.2",
+      "title": "Cabinet design in 3D: placing devices from To place",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Drag terminal strips, I/O cards and barriers from To place onto the rails: overlaps are refused, IS separation and spare space are checked, and the heat balance uses the real layout."
+     },
+     {
+      "id": "38.3",
+      "title": "Cabinet design in 3D: wire routing through the ducts",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Route wires: every core, jumper and wire runs through the ducts; read each wire's length and each duct's fill, and see a duct over its limit."
+     },
+     {
+      "id": "38.4",
+      "title": "Cabinet design in 3D: Arrange cabinet and the outputs",
+      "done": false,
+      "doneOn": null,
+      "visible": true,
+      "tryIt": "Arrange cabinet… proposes a whole layout by rows with reasons; apply it, then make the mounting layout drawing, the cut-out and drilling list, and the wire list for manufacture."
      }
     ]
    },
