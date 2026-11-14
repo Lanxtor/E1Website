@@ -1408,3 +1408,29 @@
   <p class="g-note">Nothing in a table is typed: it shows the line list every time the 2D space is read, printed or issued. A value that is missing or cannot be shown in the chosen unit shows as –. Click a table and press Delete, or <span class="ui">Remove</span>, to take it off. Alex places and formats tables with <code>place_balance_table</code> and <code>format_balance_table</code>, and exports the report with <code>export_balance_report</code>.</p>
   <p class="g-related">Related: <a href="guide-ai.html#ai-alex-hmb">Import a heat and material balance</a></p>
 </section>
+
+<section class="g-feature" id="draw-animate-flow">
+  <h2>Animate flow: the flow and the current in motion</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">DRAW-animate-flow</span><span>Roadmap 41.1</span></div>
+  <p class="g-summary">One button sets a sheet in motion. On a PFD or P&amp;ID the flow moves through the pipes the way it goes and as fast as it goes, tanks fill and empty, pumps turn. On a single line, circuit, wiring or loop diagram the current runs from the supply to the loads. Click a valve, pump, breaker or motor to change it and see what the plant does; Alex works out the velocities, currents and voltage drops from the values in the model and says what is wrong. Nothing in the model changes.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Animate flow</span> (on electrical sheets <span class="ui">Animate current</span>)</dd>
+    <dt>Who</dt><dd>Everyone who can view the project</dd>
+    <dt>Before you start</dt><dd>A sheet with pipes or cables is open, for example Sample E1's P&amp;ID 123/A93 or its single line diagram DF-80-E-0001. The more values the pipe runs and cables have (flow, size, density; cable size, length, the load's rating), the more Alex can tell.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Animate flow</span>.</td><td>The drawn lines step back and coloured dashes move along the pipes in the flow direction, faster where the velocity is higher. The button reads <span class="ui">Stop animation</span>; the control bar shows at the bottom and the panel <span class="ui">Flow</span> at the top right with how many lines are flowing, blocked or empty.</td></tr>
+      <tr><td>2</td><td>Hold the pointer on a moving line.</td><td>Its card: the tag, the state, and the fluid, phase, flow, pressure, temperature, size with its inside diameter, velocity, Reynolds number and friction loss. A value that could not be worked out is named with what is missing.</td></tr>
+      <tr><td>3</td><td>Click the chip <span class="ui">Running</span> above a pump.</td><td>It reads <span class="ui">Stopped</span> in red, its rotor stops, the lines after it turn to grey dots (<em>empty</em>) and those before it pulse (<em>blocked</em>). Click again to start it.</td></tr>
+      <tr><td>4</td><td>Click the chip <span class="ui">Open</span> above a valve on a pump's outlet.</td><td>A red cross on the valve, the flow after it stops, and Alex's notes show <em>… is dead-headed</em> in red. A tank whose outlet is shut fills: its chip shows ▲ and the level, red <em>LAHH</em> at 90 %.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Colour by</span> → <span class="ui">Velocity check</span>.</td><td>Lines in their usual velocity range are green, slow ones amber, fast or erosional ones red; the legend in the panel says so. <span class="ui">Temperature</span> and <span class="ui">Pressure</span> colour by those values.</td></tr>
+      <tr><td>6</td><td>Open a single line diagram and click <span class="ui">Animate current</span>; click <span class="ui">Closed</span> above a breaker feeding a motor.</td><td>The current runs from the transformers or generators through the switchboard to the motors, coloured by voltage level. The breaker reads <span class="ui">Open</span>, its cable turns dead, the motor's chip reads <em>No supply</em> and Alex notes that it has no supply.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Reset</span>, then <span class="ui">Stop</span>.</td><td>Every valve, pump and switch is back as drawn; Stop ends the animation.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Alex judges with the same tables as its review: the usual velocity ranges (liquid 0.6–3 m/s, gas 5–25 m/s, steam 15–40 m/s), the erosional velocity of API RP 14E, cable ratings of IEC 60364-5-52 and a voltage drop of 3 % for lighting and 5 % for other uses. Speed changes how fast it runs (0.5× to 4×); <span class="ui">Values</span> shows the velocity or the current and voltage drop on each line. On sheets with 4–20 mA signals, <span class="ui">Process value</span> in the panel sets the loop current. With your system's reduced motion on, the animation starts paused. Flow follows the drawn direction of the pipes: check piping finds lines drawn the wrong way.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
+</section>
