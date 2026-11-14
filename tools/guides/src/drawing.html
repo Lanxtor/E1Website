@@ -1358,3 +1358,29 @@
   <p class="g-note">A part of the sentence no module matches is listed. A variant or option the sentence names (with standby) is chosen. The pipe runs square from the one port to the other; a tie-in point at a line end is joined by hand. Alex proposes with <code>propose_module_arrangement</code> and arranges with <code>arrange_modules</code>, choosing modules, variants and joins itself; in Review first the arrangement is a proposal you apply.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-module-place">Place a module from the Modules tab</a>, <a href="guide-drawing.html#draw-module-variants">Module options and variants</a></p>
 </section>
+<section class="g-feature" id="draw-balance-tables">
+  <h2>Heat and material balance on the PFD</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">DRAW-balance-tables</span><span>Roadmap 40.1</span></div>
+  <p class="g-summary">Place the mass balance (bird cage) and the heat balance of a process flow diagram on the drawing, made from the line list; format them the way your customer wants and export the balance report.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Process flow diagram</span>: the balance bar at the top right of the drawing</dd>
+    <dt>Who</dt><dd>Engineer and above</dd>
+    <dt>Before you start</dt><dd>Streams drawn as process lines, with their values in the line list: typed, imported with <span class="ui">Import heat and material balance</span>, or written by Alex from a solved balance.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Select the 2D space in the explorer, set <span class="ui">Diagram type</span> to <span class="ui">Process flow diagram</span> and open it.</td><td>The balance bar shows <span class="ui">Place mass balance</span>, <span class="ui">Place heat balance</span>, <span class="ui">Export balance (Excel)</span> and <span class="ui">Export balance (PDF)</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Place mass balance</span>.</td><td>The table appears in view: one column per stream with Stream, Line number, From, To, Phase, Temperature, Pressure, flows, Density, Molar mass and the composition. Each line shows its stream number in a diamond.</td></tr>
+      <tr><td>3</td><td>Drag the table to where it belongs.</td><td>It stays there; the next print and revision show it there.</td></tr>
+      <tr><td>4</td><td>Double-click the table (or click it, then <span class="ui">Format…</span>).</td><td><span class="ui">Format mass balance</span> opens with presets across the top.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Streams</span> → <span class="ui">One row per stream</span> and <span class="ui">Composition</span> → <span class="ui">Left of the properties</span>, untick a property, give Pressure a unit, then <span class="ui">Apply</span>.</td><td>The table redraws in that layout. <span class="ui">Streams shown</span> and <span class="ui">Components shown</span> are ticked in lists.</td></tr>
+      <tr><td>6</td><td>Change a temperature in the line list.</td><td>The table shows the new value.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Place heat balance</span>.</td><td>One row per heater, cooler, exchanger, pump and compressor with its service, duty and power, and the totals of heating, cooling, exchange and shaft power.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Export balance (Excel)</span>.</td><td>A workbook downloads with the sheets Mass balance, Heat balance and Overall balance (feeds and products, mass in and out, closure).</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Nothing in a table is typed: it shows the line list every time the 2D space is read, printed or issued. A value that is missing or cannot be shown in the chosen unit shows as –. Click a table and press Delete, or <span class="ui">Remove</span>, to take it off. Alex places and formats tables with <code>place_balance_table</code> and <code>format_balance_table</code>, and exports the report with <code>export_balance_report</code>.</p>
+  <p class="g-related">Related: <a href="guide-ai.html#ai-alex-hmb">Import a heat and material balance</a></p>
+</section>
