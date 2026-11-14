@@ -73,13 +73,14 @@
           <li><a href="#wire-routes">Cable routes: trays, conduits and fill</a></li>
           <li><a href="#wire-field-view">The field view of the wire moves</a></li>
           <li><a href="#wire-compare">Compare wiring with a revision</a></li>
+          <li><a href="#wire-single-line">Draw the cable network on a single line diagram</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Wiring (EI&amp;C)</p>
         <h1>13. Wiring (EI&amp;C)</h1>
         <p class="lead">Cabinets and junction boxes in their locations, rails, terminal strips and terminals, I/O cards and channels, cables and their cores landed on terminals, tracing a circuit from the field to the I/O channel, construction status, and cable lengths.</p>
-        <div class="g-meta"><span>31 features</span><span>31 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>32 features</span><span>32 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="wiring-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 wiring is data, not a drawing. A cabinet or junction box has a location and an enclosure; the enclosure holds rails, terminal strips and I/O cards; cables have their cores, and each core is landed on a terminal at both ends. From that data E1 traces every circuit from the field device to its I/O channel.</p>
@@ -857,6 +858,33 @@
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="#wire-wire-moves">The wire move list</a> · <a href="#wire-loop-diagram">Loop diagrams from the wiring</a></p>
+</section>
+
+<section class="g-feature" id="wire-single-line">
+  <h2>Draw the cable network on a single line diagram</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">WIRE-single-line</span><span>Roadmap 39.1</span><span>Review check R9</span></div>
+  <p class="g-summary">The single line diagram is where the cable network is designed before the wires: which junction box each field device goes to, and which multicore runs to which cabinet. Field devices, junction boxes and cabinets are the objects of the model, drawn with their single line shapes. Every line drawn between them with <span class="ui">Cable</span> is a real cable, the same one the cable schedule and the wiring show, with its tag, the default cable type for its two ends and its cores.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Single line diagram</span>; drawing toolbar → <span class="ui">Connector type</span> → <span class="ui">Cable</span>; <em>File → Project settings…</em> → <span class="ui">Wiring</span> → <span class="ui">Default cable types</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may edit drawings and objects. The default cable types: a project role that may configure the project.</dd>
+    <dt>Before you start</dt><dd>The transmitters, the junction boxes and the cabinets exist in <span class="ui">Assets</span> (see <a href="#wire-enclosures">Cabinets and junction boxes</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <em>File → Project settings…</em> and go to the <span class="ui">Wiring</span> card. Under <span class="ui">Default cable types</span>, open the wiring catalog in <span class="ui">Field cable</span> and choose <span class="ui">Instrument cable 1 pair 0.75 mm², overall screen</span>; in <span class="ui">Multicore</span> choose the 12 pair multicore.</td><td>Each choice is saved at once. <span class="ui">Cabinet to cabinet</span> and <span class="ui">Feeder</span> stay at <span class="ui">None</span>.</td></tr>
+      <tr><td>2</td><td>Make a new 2D space and set its <span class="ui">Diagram type</span> to <span class="ui">Single line diagram</span>.</td><td>The sheet now draws objects with their single line shapes.</td></tr>
+      <tr><td>3</td><td>Drag junction box JB-1, a marshalling cabinet and three transmitters from <span class="ui">Assets</span> onto the sheet.</td><td>The junction box is a box marked JB, the marshalling cabinet a box marked MC, each transmitter its tag in a circle.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">Cable</span> in <span class="ui">Connector type</span> and draw from the first transmitter to JB-1. Do the same for the other two.</td><td>Three cables appear in <span class="ui">Assets</span>, tagged by the project's rules (for example W-001, W-002, W-003), each of type 1PR 0.75 OS with its pair and screen, <span class="ui">From</span> the transmitter and <span class="ui">To</span> JB-1. Each ends on a point of its own on the junction box.</td></tr>
+      <tr><td>5</td><td>Draw a cable from JB-1 to the marshalling cabinet.</td><td>A multicore of the 12 pair type, with its 12 pairs, from JB-1 to the cabinet.</td></tr>
+      <tr><td>6</td><td>Click the first cable to select it, drag the round grip at its junction box end onto another junction box and let go.</td><td>The line now ends at the other junction box. It is the same cable, with the same tag, type and cores; its <span class="ui">To</span> is now that junction box.</td></tr>
+      <tr><td>7</td><td>Draw a cable between two transmitters.</td><td>The cable is made without a type: no default applies between two field devices. The <a href="#wire-checks">Checks</a> list it under <span class="ui">Cable without a type</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Which default type a cable gets is decided by its two ends: a field device and a junction box or cabinet take the <span class="ui">Field cable</span>; a junction box and a marshalling or system cabinet the <span class="ui">Multicore</span>; two cabinets <span class="ui">Cabinet to cabinet</span>; a switchboard, MCC or distribution board and what it feeds the <span class="ui">Feeder</span>. Change a cable's type afterwards in its properties. A junction box located in another area than a field device cabled to it is listed under <span class="ui">Junction box in another area</span>.</p>
+  <p class="g-warn">A cable whose cores are landed on terminals is not moved on the drawing: E1 says so, and the device is moved in the wiring with <span class="ui">Move to another junction box</span>, which re-lands its cores (after issue for construction, with the wire move list). Drawing the whole network from the model in one go and proposing the cables for new devices are planned.</p>
+  <p class="g-related">Related: <a href="#wire-cables-cores">Cables and their cores</a> · <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-cable-schedule">The cable schedule</a> · <a href="#wire-checks">Checks</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-account.html">Your account, Academy and website</a> · <a href="guide-workflow.html">Workflow and dashboards</a> →</p>
