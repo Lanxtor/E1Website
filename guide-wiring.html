@@ -74,13 +74,14 @@
           <li><a href="#wire-field-view">The field view of the wire moves</a></li>
           <li><a href="#wire-compare">Compare wiring with a revision</a></li>
           <li><a href="#wire-single-line">Draw the cable network on a single line diagram</a></li>
+          <li><a href="#wire-propose-cables">Propose cables on a single line diagram</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Wiring (EI&amp;C)</p>
         <h1>13. Wiring (EI&amp;C)</h1>
         <p class="lead">Cabinets and junction boxes in their locations, rails, terminal strips and terminals, I/O cards and channels, cables and their cores landed on terminals, tracing a circuit from the field to the I/O channel, construction status, and cable lengths.</p>
-        <div class="g-meta"><span>32 features</span><span>32 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>33 features</span><span>33 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="wiring-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 wiring is data, not a drawing. A cabinet or junction box has a location and an enclosure; the enclosure holds rails, terminal strips and I/O cards; cables have their cores, and each core is landed on a terminal at both ends. From that data E1 traces every circuit from the field device to its I/O channel.</p>
@@ -886,8 +887,31 @@
   </table></div>
   <p class="g-note">Which default type a cable gets is decided by its two ends: a field device and a junction box or cabinet take the <span class="ui">Field cable</span>; a junction box and a marshalling or system cabinet the <span class="ui">Multicore</span>; two cabinets <span class="ui">Cabinet to cabinet</span>; a switchboard, MCC or distribution board and what it feeds the <span class="ui">Feeder</span>. Change a cable's type afterwards in its properties. A junction box located in another area than a field device cabled to it is listed under <span class="ui">Junction box in another area</span>.</p>
   <p class="g-note"><span class="ui">Draw single line diagram</span> is also on the right-click menu of an area (its devices and enclosures) and of a cabinet (the cabinet and every item one cable away). A scope with both power cables (from a switchboard, MCC or distribution board) and instrument cables gets two sheets, <em>… – power</em> and <em>… – instrument and control</em>. A cable already drawn on another sheet is left out, and E1 names it.</p>
-  <p class="g-warn">A cable whose cores are landed on terminals is not moved on the drawing: E1 says so, and the device is moved in the wiring with <span class="ui">Move to another junction box</span>, which re-lands its cores (after issue for construction, with the wire move list). Proposing the cables for new devices is planned.</p>
+  <p class="g-warn">A cable whose cores are landed on terminals is not moved on the drawing: E1 says so, and the device is moved in the wiring with <span class="ui">Move to another junction box</span>, which re-lands its cores (after issue for construction, with the wire move list). To cable new devices at once, see <a href="#wire-propose-cables">Propose cables</a>.</p>
   <p class="g-related">Related: <a href="#wire-cables-cores">Cables and their cores</a> · <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-cable-schedule">The cable schedule</a> · <a href="#wire-checks">Checks</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
+</section>
+
+<section class="g-feature" id="wire-propose-cables">
+  <h2>Propose cables on a single line diagram</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">WIRE-propose-cables</span><span>Roadmap 39.3</span><span>Review check R10</span></div>
+  <p class="g-summary">New transmitters on a single line diagram get their cable network in one step. For every field device on the sheet that has signals and no field cable, E1 proposes a field cable to the nearest junction box of its area and segregation class that has room on a strip of that class; the free pairs of the multicores already running from that junction box to a cabinet are used first, and a new multicore is proposed where none fits. An area with no junction box that fits gets a new one, with a terminal strip of the class. Nothing changes until you choose <span class="ui">Apply</span>.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Single line diagram</span>; drawing toolbar → <span class="ui">Propose cables</span></dd>
+    <dt>Who</dt><dd>A license and a project role that may create objects and edit relationships.</dd>
+    <dt>Before you start</dt><dd>The devices have their signals (see <a href="#wire-allocation">Allocation: propose and accept the wiring</a> and wiring typicals) and are located in their areas. <em>File → Project settings…</em> → <span class="ui">Wiring</span> → <span class="ui">Default cable types</span> gives the type of a new field cable (unless the device's wiring typical names one) and of a new multicore (see <a href="#wire-single-line">Draw the cable network on a single line diagram</a>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a single line diagram with new transmitters on it, and click <span class="ui">Propose cables</span> in the drawing toolbar.</td><td>A dashed line runs from each transmitter to its junction box, and a dashed box stands for each new junction box. The <span class="ui">Propose cables</span> card lists one line per device, for example "LIT-2002 → JB-20-01, new field cable: nearest junction box in F-20, IS", one per multicore ("JB-20-01 → 76-CM-001 on 76-W-2001: 4 free pairs used") and one per new junction box.</td></tr>
+      <tr><td>2</td><td>Read the cards and click <span class="ui">Apply</span>.</td><td>The field cables, the new junction boxes with their strip X1 and the new multicores are made and drawn on the sheet, every line the cable itself. One undo removes them all. A device's own cable from its wiring typical keeps its tag and gets its <span class="ui">To</span>.</td></tr>
+      <tr><td>3</td><td>Or click <span class="ui">Discard</span>.</td><td>Nothing changes.</td></tr>
+      <tr><td>4</td><td>Open the wiring of the unit and click <span class="ui">Propose wiring</span>.</td><td>Each signal lands on its new field cable at its junction box, then on a pair of the multicore and on a channel in the cabinet.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">When someone changes one of the devices, junction boxes or cabinets between the proposal and <span class="ui">Apply</span>, <span class="ui">Apply</span> is refused: click <span class="ui">Propose cables</span> again. A junction box with no cabinet to run a multicore to is named on the card: draw the cabinet, then propose again. In the chat, ask Alex to "cable the new transmitters": the same proposal, with <span class="ui">Apply</span> and <span class="ui">Discard</span>.</p>
+  <p class="g-related">Related: <a href="#wire-single-line">Draw the cable network on a single line diagram</a> · <a href="#wire-allocation">Allocation: propose and accept the wiring</a> · <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-cables-cores">Cables and their cores</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-account.html">Your account, Academy and website</a> · <a href="guide-workflow.html">Workflow and dashboards</a> →</p>
