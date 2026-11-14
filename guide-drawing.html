@@ -640,8 +640,8 @@
 
 <section class="g-feature" id="draw-pid-from-pfd">
   <h2>Make a P&amp;ID from a PFD</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">DRAW-pid-from-pfd</span><span>Roadmap 36.1</span><span>Review check B10</span></div>
-  <p class="g-summary">A new P&amp;ID that draws the PFD's own equipment (the same objects with the same tags, not copies) with their P&amp;ID shapes, and each stream as a pipe between the same equipment. Nothing already drawn on a P&amp;ID of that PFD is drawn twice.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">DRAW-pid-from-pfd</span><span>Roadmap 36.1, 36.2</span><span>Review checks B10, B11</span></div>
+  <p class="g-summary">A new P&amp;ID that draws the PFD's own equipment (the same objects with the same tags, not copies) with their P&amp;ID shapes, and each stream as a pipe between the same equipment. Nothing already drawn on a P&amp;ID of that PFD is drawn twice. Alex then suggests what each object usually has on a P&amp;ID (Suggested additions), and Update from PFD draws what is added to the PFD later.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>In the explorer, right-click a 2D space of diagram type PFD → <span class="ui">Make P&amp;ID from this PFD…</span></dd>
     <dt>Who</dt><dd>Engineer and above (who may create drawings)</dd>
@@ -658,7 +658,35 @@
       <tr><td>5</td><td>Make P&amp;ID from this PFD… a third time.</td><td>Refused: <span class="ui">Already on DF-00-P-0001, DF-00-P-0001 (2): nothing new to draw.</span></td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Each P&amp;ID is one change: one Undo takes it back and leaves the PFD as it was. A P&amp;ID remembers the PFD it was made from. Alex makes one with <code>make_pid_from_pfd</code>; <code>pid_from_pfd_state</code> says what it would draw.</p>
+  <h3>Suggested additions</h3>
+  <p>The new P&amp;ID opens with a summary card (<span class="ui">Made from DF-00-F-0001</span>: objects, pipes, what was not drawn and why) and Alex on <span class="ui">Design suggestions</span>, headed <span class="ui">Suggested additions</span>: what each object usually has on a P&amp;ID.</p>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Object</th><th>Suggested additions</th></tr></thead>
+    <tbody>
+      <tr><td>Centrifugal pump</td><td>Suction and discharge isolation, a discharge check valve, a suction strainer, a discharge pressure gauge</td></tr>
+      <tr><td>Vessel, drum, column</td><td>A relief valve, a drain, a vent, a level transmitter and gauge, a pressure transmitter</td></tr>
+      <tr><td>Tank</td><td>A level transmitter, a vent, a drain</td></tr>
+      <tr><td>Heat exchanger</td><td>Temperature indicators in and out, a vent and a drain; isolation on each side when your company requires it</td></tr>
+      <tr><td>Compressor</td><td>A suction scrubber if there is none, a recycle (anti-surge) valve, a discharge check valve</td></tr>
+      <tr><td>Strainer or filter in a line</td><td>Isolation before and after</td></tr>
+      <tr><td>Control valve, PD pump</td><td>Block valves and a bypass around the control valve, a PD pump's discharge relief: when your company requires them; otherwise Alex asks at the Mentor level</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><span class="ui">Required by your conventions</span> comes first: the additions an accepted company convention of type <span class="ui">Required item</span> requires (<span class="ui">Configuration → Alex knowledge</span>, or the <span class="ui">Required items</span> sheet of the convention workbook). <span class="ui">Apply all</span> applies them in one change, one Undo, each checked again on the drawing first; one that no longer fits is skipped with the reason (<span class="ui">Changed: 21-PA-2101A already has a discharge check valve</span>).</li>
+    <li><span class="ui">Suggestions</span> follow. Each card has <span class="ui">Show</span> (drawn on the P&amp;ID), <span class="ui">Apply</span> (what it builds on first: the isolation of a new check valve applies the check valve first) and <span class="ui">Reject</span>.</li>
+    <li>A rejected card stays off this P&amp;ID, with the cards that build on it; <span class="ui">Show N hidden</span> brings them back.</li>
+    <li>The added valves and instruments get their tags from the tag rules. Run again, Alex proposes nothing already drawn.</li>
+  </ul>
+  <h3>Update from PFD</h3>
+  <p>Above a P&amp;ID made from a PFD, <span class="ui">Made from</span> links its PFD (also in the sheet's properties). When objects or streams are added to the PFD later, <span class="ui">Update from PFD (n)</span> appears: it opens the same dialog with only the new ones ticked, and <span class="ui">Update P&amp;ID</span> draws them beside what is already drawn. An object taken off the PFD stays on the P&amp;ID; the checks list it.</p>
+  <h3>Checks</h3>
+  <ul>
+    <li><span class="ui">Stream not piped</span> (warning): a stream of the PFD between two drawn objects has no pipe on any P&amp;ID made from it, with the reason (for example no free nozzle).</li>
+    <li><span class="ui">Not on the source PFD</span> (info): drawn on the P&amp;ID, no longer on its PFD.</li>
+    <li><span class="ui">Source PFD missing</span> (warning): the PFD is in the bin.</li>
+  </ul>
+  <p class="g-note">Each P&amp;ID is one change: one Undo takes it back and leaves the PFD as it was. A P&amp;ID remembers the PFD it was made from. Asked in the chat (<em>make a P&amp;ID from this PFD</em>), Alex makes it with <code>make_pid_from_pfd</code> as a proposal: <span class="ui">Apply</span> or <span class="ui">Discard</span>; Apply is refused when the PFD changed since (<span class="ui">Changed since proposed: run again</span>). <code>pid_from_pfd_state</code> says what it would draw; <code>apply_design_suggestions</code> applies suggested additions.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-off-page">Off-page connectors</a>, <a href="guide-drawing.html#draw-drop-from-explorer">Place an object from the explorer</a></p>
 </section>
 
