@@ -61,6 +61,7 @@
           <li><a href="#draw-layers">Layers</a></li>
           <li><a href="#draw-frames">System and area frames</a></li>
           <li><a href="#draw-off-page">Off-page connectors and Continue on 2D space</a></li>
+          <li><a href="#draw-pid-from-pfd">Make a P&amp;ID from a PFD</a></li>
           <li><a href="#draw-symbol-menu">The right-click menus on the 2D space, and Replace</a></li>
           <li><a href="#draw-comment-here">Pin a message here, on the drawing</a></li>
           <li><a href="#draw-standards">Process and instrument symbols</a></li>
@@ -98,7 +99,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>50 features</span><span>48 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>51 features</span><span>49 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -633,6 +634,30 @@
   <p class="g-note">Two connectors that are linked to nothing pair by name. A linked connector never pairs by name: it goes only where its links go. <span class="ui">Highlight flow</span> (<a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a>) follows the links onto the other 2D spaces, and so does Alex. The link is the relationship "continues on" between the two connectors; Alex, with its AI help, makes and removes it with the <code>relate</code> and <code>unrelate</code> tools and draws a linked connector on another 2D space with <code>continue_on_sheet</code>.</p>
   <p class="g-warn">The links need project library version 8 or later. With an older project library, <span class="ui">Connect to off-page connector…</span> and <span class="ui">Continue on 2D space</span> are greyed out; the first reads "Connect to off-page connector… (update the project library to version 8)". Update the library first (<a href="guide-library.html#lib-company-library">Company library</a>). <span class="ui">Continue on 2D space</span> is also greyed out when the connector is already on every 2D space of the project.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-objects.html#obj-tag-rules">Tag rules</a> · <a href="guide-objects.html#obj-relationships">Relationships</a> · <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a> · <a href="guide-drawing.html#draw-pipelines">Pipelines (planned)</a></p>
+</section>
+
+<section class="g-feature" id="draw-pid-from-pfd">
+  <h2>Make a P&amp;ID from a PFD</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">DRAW-pid-from-pfd</span><span>Roadmap 36.1</span><span>Review check B10</span></div>
+  <p class="g-summary">A new P&amp;ID that draws the PFD's own equipment (the same objects with the same tags, not copies) with their P&amp;ID shapes, and each stream as a pipe between the same equipment. Nothing already drawn on a P&amp;ID of that PFD is drawn twice.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>In the explorer, right-click a 2D space of diagram type PFD → <span class="ui">Make P&amp;ID from this PFD…</span></dd>
+    <dt>Who</dt><dd>Engineer and above (who may create drawings)</dd>
+    <dt>Before you start</dt><dd>A PFD with equipment and the streams between them, for example the sample's <span class="ui">DF-00-F-0001</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">DF-00-F-0001</span> in the explorer → <span class="ui">Make P&amp;ID from this PFD…</span>.</td><td>The dialog <span class="ui">Make P&amp;ID from DF-00-F-0001</span>: 11 objects, 10 streams into its folder.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Options ▸</span>.</td><td>The PFD's objects by Assets folder, all ticked; an object with no P&amp;ID shape, or already on a P&amp;ID of this PFD, is greyed with the reason. Below them the <span class="ui">Folder</span> and the <span class="ui">Title</span>.</td></tr>
+      <tr><td>3</td><td>Untick <span class="ui">21-PA-2101A</span> and click <span class="ui">Make P&amp;ID</span>.</td><td>The new P&amp;ID <span class="ui">DF-00-P-0001</span> opens with the other equipment at the PFD's places, each stream a pipe between the same equipment carrying the same stream. The stream to 21-PA-2101A ends at an off-page connector named 21-PA-2101A.</td></tr>
+      <tr><td>4</td><td>Make P&amp;ID from this PFD… again with the defaults.</td><td>A second P&amp;ID draws only 21-PA-2101A; its off-page connector continues on the first P&amp;ID's.</td></tr>
+      <tr><td>5</td><td>Make P&amp;ID from this PFD… a third time.</td><td>Refused: <span class="ui">Already on DF-00-P-0001, DF-00-P-0001 (2): nothing new to draw.</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Each P&amp;ID is one change: one Undo takes it back and leaves the PFD as it was. A P&amp;ID remembers the PFD it was made from. Alex makes one with <code>make_pid_from_pfd</code>; <code>pid_from_pfd_state</code> says what it would draw.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-off-page">Off-page connectors</a>, <a href="guide-drawing.html#draw-drop-from-explorer">Place an object from the explorer</a></p>
 </section>
 
 <section class="g-feature" id="draw-symbol-menu">
