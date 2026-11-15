@@ -881,3 +881,27 @@
   <p class="g-note">Nothing connects while you drag a symbol: wires are made when it is dropped, and only on circuit diagrams. A P&amp;ID, a single line diagram or a wiring diagram never connects by itself. A wire made this way is owned by the cabinet that owns the devices at both its ends.</p>
   <p class="g-related">Related: <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-single-line">Draw the cable network on a single line diagram</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-library.html#lib-catalogs">Catalogs</a></p>
 </section>
+
+<section class="g-feature" id="wire-circuit-references">
+  <h2>Circuit diagrams: cross-references and contact images</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-15</span><span>Updated 2026-11-15</span><span class="g-id">WIRE-circuit-references</span><span>Roadmap 37.2</span><span>Review check R13</span></div>
+  <p class="g-summary">On a circuit diagram every drawn function of a device has an address: the page of its sheet and the column of its first connection point, <span class="ui">/1.4</span> for page 1, column 4. The coil of a contactor shows its <b>contact image</b>: each contact with its points and where it is drawn. Each contact shows the coil's address. E1 works these out from the drawings, so they are never out of date. A click on an address opens that page with the symbol selected.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Circuit diagram</span>; its attributes → <span class="ui">Page number</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the drawing. Setting the page number needs a project role that may edit attributes.</dd>
+    <dt>Before you start</dt><dd>Draw devices with their functions (see <a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a>). The sample's DF-80-E-0101 is page 1 and shows a contact image under 43-EM-4301A-K1.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the attributes of a circuit diagram, set <span class="ui">Page number</span> (1, 2, …).</td><td>Its addresses read <span class="ui">/&lt;page&gt;.&lt;column&gt;</span>. The frame's columns are numbered 0 to 9 along the top and the bottom. A sheet with no page number reads <span class="ui">/?</span> and is listed by the findings.</td></tr>
+      <tr><td>2</td><td>Look under the coil of a contactor whose contacts are drawn.</td><td>The contact image: the columns <span class="ui">Make</span>, <span class="ui">Break</span> and <span class="ui">Main</span>, each contact with its points (13 14) and its address. A function of the device drawn nowhere is grey: spare.</td></tr>
+      <tr><td>3</td><td>Look under a contact.</td><td>In small text the addresses of the device's other drawn functions, the coil's first. A page of another document shows that document's number first: <span class="ui">DF-80-E-0102/2.3</span>.</td></tr>
+      <tr><td>4</td><td>Click an address.</td><td>That page opens with the symbol selected. Back returns.</td></tr>
+      <tr><td>5</td><td>Draw off-page connectors with the same name (for example L1) on two circuit diagrams.</td><td>They continue on each other: under each, the other's address, a link. Connectors linked with <span class="ui">Connect to off-page connector…</span> pair too.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The findings check circuit diagrams: a function drawn twice and a contact or point beyond the device's catalog item are errors; contacts drawn without their coil, an off-page connector that continues nowhere, and a circuit diagram with no page number are warnings. Addresses use the circuit diagram frame, A3 landscape with ten columns numbered from 0; a sheet's document is the drawing number its name starts with.</p>
+  <p class="g-related">Related: <a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
+</section>
