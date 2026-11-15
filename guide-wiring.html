@@ -238,7 +238,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">WIRE-cable-lengths</span><span>Roadmap 28.1, 28.7</span><span>Review check R3</span></div>
   <p class="g-summary">A cable has a <span class="ui">Length (by hand)</span> and a <span class="ui">Length from 3D</span> (written by the 3D model's script through E1's API). E1 fills <span class="ui">Length used</span> itself: the length by hand when there is one, else the one from 3D. When the two differ by more than the project's tolerance, that is a finding.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A cable's <span class="ui">Attributes</span> tab, group <span class="ui">Line</span>; <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Wiring</span> (also <em>File → Project settings…</em>)</dd>
+    <dt>Where</dt><dd>A cable's <span class="ui">Attributes</span> tab, group <span class="ui">Line</span>; <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Wiring</span> (also <em>Settings → Project settings</em>)</dd>
     <dt>Who</dt><dd>Lengths: a license and a project role that may edit objects. Settings: a project role that may configure the project.</dd>
     <dt>Before you start</dt><dd>A cable exists.</dd>
   </dl>
@@ -900,7 +900,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">WIRE-single-line</span><span>Roadmap 39.1, 39.2</span><span>Review check R9</span></div>
   <p class="g-summary">The single line diagram is where the cable network is designed before the wires: which junction box each field device goes to, and which multicore runs to which cabinet. Field devices, junction boxes and cabinets are the objects of the model, drawn with their single line shapes. Every line drawn between them with <span class="ui">Cable</span> is a real cable, the same one the cable schedule and the wiring show, with its tag, the default cable type for its two ends and its cores.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Single line diagram</span>; drawing toolbar → <span class="ui">Connector type</span> → <span class="ui">Cable</span>; <em>File → Project settings…</em> → <span class="ui">Wiring</span> → <span class="ui">Default cable types</span></dd>
+    <dt>Where</dt><dd>A 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Single line diagram</span>; drawing toolbar → <span class="ui">Connector type</span> → <span class="ui">Cable</span>; <em>Settings → Project settings</em> → <span class="ui">Wiring</span> → <span class="ui">Default cable types</span></dd>
     <dt>Who</dt><dd>A license and a project role that may edit drawings and objects. The default cable types: a project role that may configure the project.</dd>
     <dt>Before you start</dt><dd>The transmitters, the junction boxes and the cabinets exist in <span class="ui">Assets</span> (see <a href="#wire-enclosures">Cabinets and junction boxes</a>).</dd>
   </dl>
@@ -908,7 +908,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <em>File → Project settings…</em> and go to the <span class="ui">Wiring</span> card. Under <span class="ui">Default cable types</span>, open the wiring catalog in <span class="ui">Field cable</span> and choose <span class="ui">Instrument cable 1 pair 0.75 mm², overall screen</span>; in <span class="ui">Multicore</span> choose the 12 pair multicore.</td><td>Each choice is saved at once. <span class="ui">Cabinet to cabinet</span> and <span class="ui">Feeder</span> stay at <span class="ui">None</span>.</td></tr>
+      <tr><td>1</td><td>Open <em>Settings → Project settings</em> and go to the <span class="ui">Wiring</span> card. Under <span class="ui">Default cable types</span>, open the wiring catalog in <span class="ui">Field cable</span> and choose <span class="ui">Instrument cable 1 pair 0.75 mm², overall screen</span>; in <span class="ui">Multicore</span> choose the 12 pair multicore.</td><td>Each choice is saved at once. <span class="ui">Cabinet to cabinet</span> and <span class="ui">Feeder</span> stay at <span class="ui">None</span>.</td></tr>
       <tr><td>2</td><td>Make a new 2D space and set its <span class="ui">Diagram type</span> to <span class="ui">Single line diagram</span>.</td><td>The sheet now draws objects with their single line shapes.</td></tr>
       <tr><td>3</td><td>Drag junction box JB-1, a marshalling cabinet and three transmitters from <span class="ui">Assets</span> onto the sheet.</td><td>The junction box is a box marked JB, the marshalling cabinet a box marked MC, each transmitter its tag in a circle.</td></tr>
       <tr><td>4</td><td>Choose <span class="ui">Cable</span> in <span class="ui">Connector type</span> and draw from the first transmitter to JB-1. Do the same for the other two.</td><td>Three cables appear in <span class="ui">Assets</span>, tagged by the project's rules (for example W-001, W-002, W-003), each of type 1PR 0.75 OS with its pair and screen, <span class="ui">From</span> the transmitter and <span class="ui">To</span> JB-1. Each ends on a point of its own on the junction box.</td></tr>
@@ -932,7 +932,7 @@
   <dl class="g-facts">
     <dt>Where</dt><dd>A 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Single line diagram</span>; drawing toolbar → <span class="ui">Propose cables</span></dd>
     <dt>Who</dt><dd>A license and a project role that may create objects and edit relationships.</dd>
-    <dt>Before you start</dt><dd>The devices have their signals (see <a href="#wire-allocation">Allocation: propose and accept the wiring</a> and wiring typicals) and are located in their areas. <em>File → Project settings…</em> → <span class="ui">Wiring</span> → <span class="ui">Default cable types</span> gives the type of a new field cable (unless the device's wiring typical names one) and of a new multicore (see <a href="#wire-single-line">Draw the cable network on a single line diagram</a>).</dd>
+    <dt>Before you start</dt><dd>The devices have their signals (see <a href="#wire-allocation">Allocation: propose and accept the wiring</a> and wiring typicals) and are located in their areas. <em>Settings → Project settings</em> → <span class="ui">Wiring</span> → <span class="ui">Default cable types</span> gives the type of a new field cable (unless the device's wiring typical names one) and of a new multicore (see <a href="#wire-single-line">Draw the cable network on a single line diagram</a>).</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
