@@ -776,6 +776,29 @@
   <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></p>
 </section>
 
+<section class="g-feature" id="prj-push-protocols">
+  <h2>Push protocols</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-15</span><span>Updated 2026-11-15</span><span class="g-id">PRJ-push-protocols</span><span>Roadmap 15.9</span></div>
+  <p class="g-summary">Every push of a branch or a commissioning package to main leaves a protocol: its date, who pushed, and every change it made, each field before and after.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → the project → double-click <span class="ui">Branches</span>; or <span class="ui">Branches</span> → <span class="ui">Push protocols</span></dd>
+    <dt>Who</dt><dd>Everyone who sees the project; a private branch's protocols only for those who see it</dd>
+    <dt>Before you start</dt><dd>A branch or commissioning package that was pushed to main.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Push a branch with <span class="ui">Push to main</span>.</td><td>The push lands in main as one change.</td></tr>
+      <tr><td>2</td><td>Double-click <span class="ui">Branches</span> in the explorer.</td><td>Branches opens on <span class="ui">Push protocols</span>: one row per push, newest first, with its date, the branch or commissioning package, who pushed and how many changes.</td></tr>
+      <tr><td>3</td><td>Click a row.</td><td>It opens with every object it created, changed or deleted, and for each changed field its value before and after.</td></tr>
+      <tr><td>4</td><td>Push a commissioning package, then open <span class="ui">Push protocols</span> again.</td><td>A new row on top reads “Commissioning package of …”, with its own changes.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A protocol is written by the push itself and never changes. <span class="ui">Branches</span> at the top of the page goes back to the branch cards.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branch-push">Push a branch to main</a>, <a href="guide-projects.html#prj-branch-packages">Branch packages</a>, <a href="guide-projects.html#prj-branches">Branches</a></p>
+</section>
+
 <section class="g-feature" id="prj-branch-types">
   <h2>Branch types and resolution rules</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-branch-types</span><span>Roadmap 16.1, 16.3</span><span>Review checks X4, X5</span></div>
