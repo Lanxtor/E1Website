@@ -79,13 +79,15 @@
           <li><a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a></li>
           <li><a href="#wire-circuit-references">Circuit diagrams: cross-references and contact images</a></li>
           <li><a href="#wire-circuit-cables">Circuit diagrams: terminals, cables, potentials and wire numbers</a></li>
+          <li><a href="#wire-circuit-starters">Circuit diagrams: starter circuits</a></li>
+          <li><a href="#wire-circuit-plc-boxes">Circuit diagrams: PLC boxes</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Wiring (EI&amp;C)</p>
         <h1>13. Wiring (EI&amp;C)</h1>
         <p class="lead">Cabinets and junction boxes in their locations, rails, terminal strips and terminals, I/O cards and channels, cables and their cores landed on terminals, tracing a circuit from the field to the I/O channel, construction status, and cable lengths.</p>
-        <div class="g-meta"><span>37 features</span><span>37 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>39 features</span><span>39 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="wiring-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 wiring is data, not a drawing. A cabinet or junction box has a location and an enclosure; the enclosure holds rails, terminal strips and I/O cards; cables have their cores, and each core is landed on a terminal at both ends. From that data E1 traces every circuit from the field device to its I/O channel.</p>
@@ -320,7 +322,7 @@
     </tbody>
   </table></div>
   <p class="g-note">The checks (the <span class="ui">Checks</span> tab of the <span class="ui">Wiring</span> page, and at the top of <span class="ui">Contents</span>) find a rack with more cards than slots, two cards in one slot or a card in a slot the rack does not have (<span class="ui">Rack slots</span>), and a card of another control system than its rack, or a rack of another one than its cabinet (<span class="ui">Rack of another control system</span>). Ask Alex "what is in 76-CM-001's racks?" or "move A1 to slot 3 of RK1".</p>
-  <p class="g-related">Related: <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-allocation">Allocation</a> · <a href="#wire-fill-heat">Cabinet fill and heat balance</a> · <a href="#wire-io-list">The I/O list</a></p>
+  <p class="g-related">Related: <a href="#wire-enclosures">Cabinets and junction boxes</a> · <a href="#wire-allocation">Allocation</a> · <a href="#wire-fill-heat">Cabinet fill and heat balance</a> · <a href="#wire-io-list">Exchange the I/O list with the control-system vendor</a></p>
 </section>
 
 <section class="g-feature" id="wire-io-list">
@@ -1020,6 +1022,52 @@
   </table></div>
   <p class="g-note">The wire number pattern (Project settings → Wiring) takes alternatives separated by <span class="ui">|</span>; the first whose values all exist is used. The default <span class="ui">{device}-{signal}-{n}|{potential}|{page}.{column}.{n}</span> numbers field cores by device and signal, power and control wires by potential, and the rest by page and column. Two potentials joined by a wire (through terminals, Ts and off-page connectors of the same name) are a short circuit: an error in the checks, and Renumber waits until it is cleared. A connection point of a drawn function with no wire is <span class="ui">Open point</span>, a wire with no size or colour <span class="ui">Wire data</span>; a drawn terminal with more wires on a side than it takes is listed as on the Wiring page.</p>
   <p class="g-related">Related: <a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a> · <a href="#wire-circuit-references">Circuit diagrams: cross-references and contact images</a> · <a href="#wire-strip-designer">The strip designer</a> · <a href="#wire-cables-cores">Cables, their cores, and landing a core on a terminal</a></p>
+</section>
+
+<section class="g-feature" id="wire-circuit-starters">
+  <h2>Circuit diagrams: starter circuits</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-15</span><span>Updated 2026-11-15</span><span class="g-id">WIRE-circuit-starters</span><span>Roadmap 37.4</span><span>Review check R15</span></div>
+  <p class="g-summary"><b>Make starter circuit</b> draws a motor's starter on a new page of its cabinet's circuit document: the motor protection breaker, the contactor and the overload relay in the three phases, the control circuit with its fuse, Stop, Start, the overload contact, the coil and the pilot lights, the motor's terminals, its windings, and its power cable. The breaker, contactor and overload relay are the catalog's smallest that take the motor's current. Pick several motors to make all their starters at once, a page each.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The right-click menu of a motor in Assets: <span class="ui">Make starter circuit…</span></dd>
+    <dt>Who</dt><dd>Anyone who may create drawings and objects and edit drawings.</dd>
+    <dt>Before you start</dt><dd>The motor has its rated output or current (in the sample 43-EM-4301B: 22 kW, 38 A). Its <span class="ui">Fed from</span> names the cabinet that holds the starter, or you choose it in the dialog.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">43-EM-4301B</span> in Assets (under 43-PA-4301B) → <span class="ui">Make starter circuit…</span>. To make several, pick the motors with Ctrl or Cmd first.</td><td>One row per motor: the typical of its starting method (<span class="ui">DOL starter</span>), its rated power, voltage and current, the enclosure, and the breaker <span class="ui">-Q1</span>, contactor <span class="ui">-K1</span> and overload relay <span class="ui">-F2</span> chosen for its current.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Choose…</span> in the row and pick <span class="ui">80-EN-8001</span> in the tree.</td><td>The row shows the page it will be: the next page of the cabinet's circuit document (<span class="ui">DF-80-E-0101 sheet 2</span>).</td></tr>
+      <tr><td>3</td><td>Choose the <span class="ui">Control voltage</span> (230 V AC or 24 V DC).</td><td>The contactor's coil and the pilot lights follow it; the contactor may change to the next size that has that coil.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Place</span>.</td><td>The new page opens. Its devices are tagged after the motor (<span class="ui">43-EM-4301B-K1</span>) and belong to the cabinet; the motor's terminals are a strip of the cabinet (<span class="ui">43-EM-4301B-X1</span>); the motor's power cable (<span class="ui">80-P-022</span>) is a cable line whose cores land on the terminals and the motor's windings. A motor with no cable gets a new one. One Undo takes the whole page back.</td></tr>
+      <tr><td>5</td><td>Right-click the same motor → <span class="ui">Make starter circuit…</span> again.</td><td>The row is grey: <span class="ui">Has DOL starter 43-EM-4301B-Q1</span>. A motor whose devices exist already, or whose starting method has no typical yet (a VFD-fed motor), is grey with the reason too.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The starter is the circuit typical <span class="ui">DOL starter</span> of the Electrical package, a module whose parts are chosen from the motor: the breaker, contactor and overload relay by its rated current (from its rated output when it has none), the coil and lamps by the control voltage. A motor too large for the catalog's sizes is grey with the size it needs. The page's open points (the supply L1, L2, L3, the control supply and neutral) are where it meets the rest of the cabinet. Star-delta starters and VSD feeders are not built yet.</p>
+  <p class="g-related">Related: <a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a> · <a href="#wire-circuit-cables">Circuit diagrams: terminals, cables, potentials and wire numbers</a> · <a href="#wire-circuit-plc-boxes">Circuit diagrams: PLC boxes</a> · <a href="guide-library.html#lib-catalogs">Catalogs</a></p>
+</section>
+
+<section class="g-feature" id="wire-circuit-plc-boxes">
+  <h2>Circuit diagrams: PLC boxes</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-15</span><span>Updated 2026-11-15</span><span class="g-id">WIRE-circuit-plc-boxes</span><span>Roadmap 37.4</span><span>Review check R15</span></div>
+  <p class="g-summary">An I/O card of a cabinet is drawn on a circuit diagram as a <b>PLC box</b>: a box with the card's tag whose connection points are its channels' terminals, named as the I/O list names them. A contact or lamp in line with one is wired to the channel's terminal at once.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Circuit diagram</span>: the drawing toolbar's <span class="ui">PLC cards</span></dd>
+    <dt>Who</dt><dd>Anyone who may edit the drawing.</dd>
+    <dt>Before you start</dt><dd>The card has its channels and their terminals (in the sample the card A5 in the rack of 76-CM-001 has 16).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">PLC cards</span> on the drawing toolbar.</td><td>A tree of the enclosures, their cards (<span class="ui">-A5</span>) and each card's channels (<span class="ui">-A5:3</span>) with the signal traced to them. A channel drawn on a circuit diagram already is grey with where.</td></tr>
+      <tr><td>2</td><td>Drag <span class="ui">-A5</span> onto the page.</td><td>A dashed box with the card's tag; down its side a point for each terminal of its channels not drawn yet, named <span class="ui">-A5:1.1</span>, <span class="ui">-A5:1.2</span>, ….</td></tr>
+      <tr><td>3</td><td>Draw a contact or lamp to the left of a point, in line with it.</td><td>A wire joins them at once and lands on the channel's terminal, so the wire list and I/O list show it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A channel is drawn on one circuit diagram only: a card whose channels are all drawn is grey, <span class="ui">All channels drawn</span>. PLC addresses are not shown yet.</p>
+  <p class="g-related">Related: <a href="#wire-circuit-starters">Circuit diagrams: starter circuits</a> · <a href="#wire-circuit-cables">Circuit diagrams: terminals, cables, potentials and wire numbers</a> · <a href="#wire-io-list">Exchange the I/O list with the control-system vendor</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-account.html">Your account, Academy and website</a> · <a href="guide-workflow.html">Workflow and dashboards</a> →</p>
