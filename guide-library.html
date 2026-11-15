@@ -478,7 +478,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Open the pump and click <span class="ui">Re-apply…</span> in its catalog note.</td><td>The panel "Re-applying …: what would happen" lists "version 1 → 2" and per value "<em>attribute</em>: old → new", and "kept 60 m³/h (changed by hand; the catalog says …)". The box "Overwrite values changed by hand" has a checkbox per value.</td></tr>
-      <tr><td>2</td><td>Leave the boxes unticked and click <span class="ui">Apply to 1</span>.</td><td>"1 values written on 1 objects". The note shows v2; the flow rate stays 60.</td></tr>
+      <tr><td>2</td><td>Leave the boxes unticked and click <span class="ui">Apply to 1 object(s)</span>.</td><td>"1 values written on 1 objects". The note shows v2; the flow rate stays 60.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Edit → Undo</span>.</td><td>The values and "From catalog: …, v1" come back together.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Detach</span>.</td><td>The catalog note disappears; every value stays.</td></tr>
     </tbody>
@@ -669,7 +669,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Alex’s AI help</span>.</td><td>The card <span class="ui">Alex’s AI help (language model)</span> with one of: "Alex’s Agent tab uses this model for everyone in this installation; people see it there under Model. Only someone with an Editor license, outside a trial, may pick a premium model there instead." with "Messages and project context are sent to …" and the models by provider (a model without a key shows "No key"); "No AI model is set up in this installation: Alex works on its own and cannot get help from one."; or "Alex gets its help from a model server in this network (…)".</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Alex’s AI help</span>.</td><td>The section <span class="ui">Alex’s AI help</span> (“The language model Alex asks for help, for everyone in this installation.”) with the card <span class="ui">Language model</span> and one of: "Alex’s Agent tab uses this model for everyone in this installation; people see it there under Model. Only someone with an Editor license, outside a trial, may pick a premium model there instead." with "Messages and project context are sent to …" and the models by provider (a model without a key shows "No key"); "No AI model is set up in this installation: Alex works on its own and cannot get help from one."; or "Alex gets its help from a model server in this network (…)".</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/config-cloud-ai-model.webp" alt="Configuration, the section for Alex’s AI help: the model used by the installation" width="2160" height="1350" loading="lazy"><figcaption>Configuration → Alex’s AI help.</figcaption></figure>
@@ -698,7 +698,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <span class="ui">Configuration → Rules</span> and click <span class="ui">New rule</span>. Type its name.</td><td>The editor opens in three columns: Sources, Action, Target.</td></tr>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Rules</span> and click <span class="ui">New rule</span> (top right). Type its name.</td><td>The editor opens in three columns: Sources, Action, Target.</td></tr>
       <tr><td>2</td><td>Sources: <span class="ui">Applies to</span> a class (its subclasses too). Add inputs, each with a name: <em>This object's attribute</em>, <em>This object's name</em>, <em>Owner's attribute</em> (the nearest owner, or the nearest of a class you type), <em>Related object's attribute</em>, <em>Project attribute</em>, or a <em>Constant</em>.</td><td>—</td></tr>
       <tr><td>3</td><td>Action: add steps, each with a name for its result. <em>Compose</em> joins text (<code>{area}-{letter}{nr:3}</code> pads the number to 3 digits); <em>Map</em> looks a value up in its table (<code>Temperature = T</code>); <em>Calculate</em> runs a formula (<code>power / (sqrt(3) * voltage * pf)</code>) with the unit of each quantity (<code>power = W</code>) and of the result (<code>A</code>); <em>Choose</em> picks by conditions (<code>fluid is Steam =&gt; Insulated</code>); <em>Aggregate</em> counts, sums, takes the minimum or maximum of, or joins a list, or says whether any or all of it matches; <em>Format</em> changes case or pads; <em>Copy</em> takes a value as it is.</td><td>The <span class="ui">Preview</span> shows sample objects with their value now and after, or what is wrong: a unit of the wrong kind, adding a length to a pressure, a name not defined.</td></tr>
       <tr><td>4</td><td>Target: the attribute it calculates. Click <span class="ui">Save draft</span>.</td><td>The draft changes no value. A second rule on the same attribute of the same objects is refused.</td></tr>
