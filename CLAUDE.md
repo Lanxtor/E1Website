@@ -2,7 +2,7 @@
 
 ## Pre-launch: no history before day zero (owner's standing rule)
 
-E1 (app), the E1 website and E1 Reviewer for iPad (`Lanxtor/E1`, `Lanxtor/E1Website`, `Lanxtor/E1iPad`) go live together at the **end of February 2027**. Until then everything is under construction and the website is a preview.
+E1 (app), the E1 website, E1 Reviewer for iPad and E1 Mobile for iPhone and Android (`Lanxtor/E1`, `Lanxtor/E1Website`, `Lanxtor/E1iPad`, `Lanxtor/E1Phone`) go live together at the **end of February 2027**. Until then everything is under construction and the website is a preview.
 
 - **Day zero is 1 March 2027.** From a user's point of view, nothing existed before it and nothing has a history.
 - **Record no history before then:** no release notes, changelogs, "what's new", "new in version …", "previously …", migration notes or deprecation notices, and no version numbers that suggest earlier releases. Rename, move or remove things freely; leave no trace of the old form in anything a user sees.
