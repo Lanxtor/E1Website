@@ -541,20 +541,24 @@
 
 <section class="g-feature" id="obj-void">
   <h2>Void an object</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-09</span><span class="g-id">OBJ-void</span></div>
-  <p class="g-summary">Voiding takes an object out of use without deleting it, so that its record is kept. Voided objects go to the project's <span class="ui">Voided bin</span>, where the only action is <span class="ui">Unvoid</span>.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-15</span><span class="g-id">OBJ-void</span></div>
+  <p class="g-summary">Voiding takes an object out of use without deleting it, so that its record is kept. Voided objects go to the project's <span class="ui">Voided bin</span>, where you can <span class="ui">Unvoid</span> them.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click an object (or a 2D space or folder) → <span class="ui">Void</span></dd>
-    <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
+    <dt>Who</dt><dd>A license and a project role that may edit objects. Deleting what is voided needs the permission <span class="ui">Delete voided objects</span>, which no built-in role has: an administrator gives it in a custom role.</dd>
     <dt>Before you start</dt><dd>An object you can void, for example a valve.</dd>
   </dl>
+  <h3>Tagged objects can only be voided</h3>
+  <p>Once a person gives an object a tag (<span class="ui">Tag…</span>, <span class="ui">Retag</span>, or a tag the object was imported or pasted with), the object belongs to the project. It cannot be deleted any more, in main or in any branch: <span class="ui">Delete</span> is greyed in its menu, and a folder that holds it cannot be deleted either. Void it instead. The tag E1 gives a new object by itself from the tag rules does not count. Removing a tagged object from a drawing only removes the symbol; the object stays in the model.</p>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click V2 → <span class="ui">Void</span>.</td><td>V2 is gone from Assets. A <span class="ui">Bin</span> row appears in the project.</td></tr>
-      <tr><td>2</td><td>Expand <span class="ui">Bin</span> → <span class="ui">Voided bin</span> → <span class="ui">Assets</span> and right-click V2.</td><td>Only <span class="ui">Unvoid</span> is offered. Nothing voided can be deleted.</td></tr>
-      <tr><td>3</td><td>Choose <span class="ui">Unvoid</span>.</td><td>V2 is back under Assets.</td></tr>
+      <tr><td>1</td><td>Right-click V2 → <span class="ui">Tag…</span>, give it the tag V-102 and save. Right-click V2 again.</td><td><span class="ui">Delete</span> is greyed: hovering it says the object can only be voided.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Void</span>.</td><td>V2 is gone from Assets. A <span class="ui">Bin</span> row appears in the project.</td></tr>
+      <tr><td>3</td><td>Expand <span class="ui">Bin</span> → <span class="ui">Voided bin</span> → <span class="ui">Assets</span> and right-click V2.</td><td><span class="ui">Unvoid</span> is offered, and <span class="ui">Delete permanently…</span>, greyed unless you have the permission Delete voided objects.</td></tr>
+      <tr><td>4</td><td>Choose <span class="ui">Unvoid</span>.</td><td>V2 is back under Assets.</td></tr>
+      <tr><td>5</td><td>With the permission Delete voided objects: void V2 again, right-click it in the Voided bin → <span class="ui">Delete permanently…</span> and confirm.</td><td>V2 is deleted for good, with its parts, relationships and placements. It cannot be restored.</td></tr>
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="#obj-delete">Delete an object</a> · <a href="guide-projects.html#prj-project-bin">The project Bin</a></p>
@@ -563,7 +567,7 @@
 <section class="g-feature" id="obj-delete">
   <h2>Delete an object, restore it, or delete it permanently</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-02</span><span>Updated 2026-11-13</span><span class="g-id">OBJ-delete</span><span>Roadmap M1.4</span><span>Review checks C7, A3</span></div>
-  <p class="g-summary">Delete moves an object to the project's Deleted bin at once, from where <span class="ui">Restore</span> brings it back and draws it again where it was. <span class="ui">Delete permanently…</span> in the bin first shows everything that goes with it.</p>
+  <p class="g-summary">Delete moves an object to the project's Deleted bin at once (an object a person has tagged can only be voided: <a href="#obj-void">Void an object</a>), from where <span class="ui">Restore</span> brings it back and draws it again where it was. <span class="ui">Delete permanently…</span> in the bin first shows everything that goes with it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click the object → <span class="ui">Delete</span>, or select it and press <kbd>Delete</kbd>; in the bin, right-click → <span class="ui">Restore</span> or <span class="ui">Delete permanently…</span></dd>
     <dt>Who</dt><dd>A license and a project role that may delete objects</dd>
