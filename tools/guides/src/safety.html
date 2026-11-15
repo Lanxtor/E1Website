@@ -14,8 +14,8 @@
 
 <section class="g-feature" id="safe-cause-effect">
   <h2>The cause and effect matrix: causes, devices and cells</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">SAFE-cause-effect</span><span>Roadmap 34.1, 34.4</span><span>Review check T1</span></div>
-  <p class="g-summary">On any unit or loop in Systems, fill the cause and effect matrix as you would in Excel: type the tags of the causes, add the devices as columns, set each cell with a click or a key, group the causes that vote, and read the narrative E1 writes from them.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-15</span><span class="g-id">SAFE-cause-effect</span><span>Roadmap 34.1, 34.4</span><span>Review check T1</span></div>
+  <p class="g-summary">On any unit or loop in Systems, fill the cause and effect matrix as you would in Excel: choose the causes and the devices from lists of the project's instruments, interlocks and devices, set each cell with a click or a key, group the causes that vote, and read the narrative E1 writes from them.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click <span class="ui">Systems</span> (or its page) → <span class="ui">Cause and effect…</span> and choose the unit; or right-click a unit or loop in <span class="ui">Systems</span> → <span class="ui">Cause and effect</span>, or open it and click <span class="ui">Cause and effect</span> in the tabs at the top of its window: the <span class="ui">Cause and effect</span> page, tab <span class="ui">Matrix</span></dd>
     <dt>Who</dt><dd>Editor, and a project role that may edit objects</dd>
@@ -26,9 +26,9 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click UNIT-100 → <span class="ui">View</span> ▸ <span class="ui">Cause and effect</span>.</td><td>The unit's window opens on its <span class="ui">Cause and effect</span> page, beside the unit's own page (the tab named UNIT-100), with the tabs <span class="ui">Matrix</span>, <span class="ui">Safety functions</span> and <span class="ui">Alarms</span>. It shows everything in the unit's part of the tree.</td></tr>
-      <tr><td>2</td><td>In the last row, <span class="ui">Type a tag to add a cause…</span>: type PT-101A and pick it. Do the same for PT-101B and PT-101C.</td><td>Three rows, each with its own interlock: I-PT-101A, I-PT-101B, I-PT-101C, condition <em>High-high</em>.</td></tr>
+      <tr><td>2</td><td>In the last row, click <span class="ui">+ Cause…</span>: a list opens with every candidate in two folders, <em>Instruments</em> and <em>Interlocks</em>. Click PT-101A under Instruments. Do the same for PT-101B and PT-101C.</td><td>Three rows, each with its own interlock: I-PT-101A, I-PT-101B, I-PT-101C, condition <em>High-high</em>.</td></tr>
       <tr><td>3</td><td>In each row type the <span class="ui">Setting</span> 12 bar(g) and press Enter.</td><td>The setting is saved; the narrative under the matrix says <em>above 12 bar(g)</em>.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">+ Device</span>, type XV-101 and pick it.</td><td>A column XV-101, its tag written upwards.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">+ Device</span> and click XV-101 in the list (the valves, motors and equipment, in folders by class; <span class="ui">Filter the list</span> narrows it).</td><td>A column XV-101, its tag written upwards. In the list, a device that is a column already is greyed "Already a column".</td></tr>
       <tr><td>5</td><td>Tick the three rows and choose <span class="ui">Group ▾</span> → <em>2 of 3</em>.</td><td>One interlock I-PT-101A with the vote <em>2oo3</em>: its tag, its vote and each of its cells span the three rows.</td></tr>
       <tr><td>6</td><td>Click I-PT-101A's cell under XV-101 and choose <em>C Close</em>; type 5 in <span class="ui">Delay</span> first to make it close 5 s later.</td><td>The cell reads <em>C</em> (with <em>5 s</em> under it).</td></tr>
       <tr><td>7</td><td>Click the interlock's tag, rename it I-101 and choose <span class="ui">Reset</span> <em>Manual reset</em>.</td><td>The matrix and the narrative follow.</td></tr>
@@ -43,7 +43,7 @@
   </ul>
   <ul>
     <li><span class="ui">Delay</span> in a row is how long the condition must last before the cause trips; a delay in a cell is how long after the trip the device acts. <span class="ui">Bypass</span> says the cause may be bypassed for maintenance, with the hours after which the bypass ends; without them it is a warning in <span class="ui">Checks</span>.</li>
-    <li>Type an interlock's tag in the last row to make a cause that is that interlock tripping: one matrix cascades into the next. An interlock that trips itself that way is an error.</li>
+    <li>Choose an interlock under <em>Interlocks</em> in <span class="ui">+ Cause…</span> to make a cause that is that interlock tripping: one matrix cascades into the next. An interlock that trips itself that way is an error.</li>
     <li><span class="ui">Ungroup</span> moves a ticked cause back into an interlock of its own, with a copy of the cells. Change the vote in the <span class="ui">Vote</span> cell.</li>
     <li>The same instrument can start several interlocks at different settings: each row is its own trip.</li>
     <li>An interlock without causes or effects, or with a vote higher than its causes, has a warning mark by its tag; its finding is listed under the narrative and in <span class="ui">Checks</span>.</li>

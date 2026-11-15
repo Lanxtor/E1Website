@@ -89,7 +89,7 @@
 
 <section class="g-feature" id="doc-reports">
   <h2>Reports: several saved queries in one document</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">DOC-reports</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-15</span><span class="g-id">DOC-reports</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
   <p class="g-summary">Add to report… on a saved query makes a report, or adds the query as a section of one; its PDF prints every section under its heading, grouped by a column, and a revision issues it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A saved query's toolbar → <span class="ui">Add to report…</span> (greyed out until the query is saved: point at it to read "Save the query first"); the report's window → Versions and revisions → <span class="ui">Report</span></dd>
@@ -102,7 +102,7 @@
       <tr><td>1</td><td>Open a saved query, such as “Pumps”, and click <span class="ui">Add to report…</span>.</td><td>“Add to report” with <span class="ui">Report</span> (<span class="ui">New report</span> or one of the project's reports), <span class="ui">Name</span>, <span class="ui">Section title</span> and <span class="ui">Start on a new page</span>.</td></tr>
       <tr><td>2</td><td>Keep <span class="ui">New report</span>, name it “Unit report” and click <span class="ui">Create report</span>.</td><td>A list document “Unit report” is made in Documents and its window opens; its Report shows one section, Pumps.</td></tr>
       <tr><td>3</td><td>Open another saved query, “Motors”, click <span class="ui">Add to report…</span>, choose “Unit report” and click <span class="ui">Add to report</span>.</td><td>The report's <span class="ui">Sections</span> lists Pumps and Motors, each with where it starts and whether it starts a new page.</td></tr>
-      <tr><td>4</td><td>In the report's window set <span class="ui">Group by</span> to a column's name, such as “Area”, and tick <span class="ui">New page for each group</span>.</td><td>The settings are kept.</td></tr>
+      <tr><td>4</td><td>In the report's window choose a column in the <span class="ui">Group by</span> list, such as “Area” (the list holds the columns of the report's sections; <span class="ui">No grouping</span> groups nothing), and tick <span class="ui">New page for each group</span>.</td><td>The settings are kept.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Export PDF</span>.</td><td>One PDF: each section under its heading, its rows under a heading per area, each area on a new page, the header repeated on every page and Page n of m in the footer.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Export Excel</span>.</td><td>A workbook with a sheet per section.</td></tr>
       <tr><td>7</td><td>Click <span class="ui">Add section…</span>, choose a saved query and click <span class="ui">Add section</span>; then use ↑, ↓ and ×.</td><td>The section is added, moved and removed.</td></tr>
@@ -115,7 +115,7 @@
 
 <section class="g-feature" id="doc-pdf-package">
   <h2>PDF packages</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-pdf-package</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-15</span><span class="g-id">DOC-pdf-package</span><span>Roadmap 29.6</span><span>Review check E15</span></div>
   <p class="g-summary">New PDF package in Documents binds documents into one PDF: a cover, an index, then each document's current revision, latest version or current state; a revision of the package takes current revisions only.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click Documents → <span class="ui">New PDF package</span>; the package's window → Versions and revisions → <span class="ui">PDF package</span></dd>
@@ -126,7 +126,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click Documents and choose <span class="ui">New PDF package</span>.</td><td>“PDF package” is made in Documents and opens, with the rows <span class="ui">Cover title</span> and <span class="ui">Index</span> (<span class="ui">Index after the cover</span>), “No documents yet”, and <span class="ui">Generate package</span> at the end of the row <span class="ui">Package</span>.</td></tr>
-      <tr><td>2</td><td>In <span class="ui">Find a document</span> type part of a number or name and click <span class="ui">Add …</span> on two documents.</td><td>Both are listed with their number and title; each <span class="ui">Takes</span> <span class="ui">Current revision</span>.</td></tr>
+      <tr><td>2</td><td>In the tree <span class="ui">Documents to add</span> (the project's documents, as in the explorer; <span class="ui">Filter the list</span> narrows it), click two documents.</td><td>Both are listed with their number and title; each <span class="ui">Takes</span> <span class="ui">Current revision</span>. In the tree a document already in the package is greyed "Already in the package", and the package itself "This package".</td></tr>
       <tr><td>3</td><td>Set the second one's <span class="ui">Takes</span> to <span class="ui">Current state (not issued)</span>.</td><td>The choice is kept.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Generate package</span>.</td><td>“Binding the package…”, then one PDF downloads: the cover with the project and the title, the index (Document no., Title, Revision, Purpose, Pages), then each document's pages in order; the one in its current state says Not issued in the index and NOT ISSUED across its pages.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Create revision…</span> with IFA.</td><td>Refused: a revision of a package holds only issued revisions.</td></tr>
@@ -652,7 +652,7 @@
 
 <section class="g-feature" id="doc-datasheet-document">
   <h2>Datasheet documents</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-datasheet-document</span><span>Roadmap 07.4, 07.7</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-15</span><span class="g-id">DOC-datasheet-document</span><span>Roadmap 07.4, 07.7</span></div>
   <p class="g-summary">A datasheet document puts an object's datasheet under revision control.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">New document…</span> → <span class="ui">Datasheet document</span></dd>
@@ -664,11 +664,11 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span>, choose <span class="ui">Datasheet document</span>, and click <span class="ui">Create</span>.</td><td>The document's window opens with its Revisions panel and <span class="ui">Tags</span>: “No object yet”.</td></tr>
-      <tr><td>2</td><td>Type <code>Pump1</code> in <span class="ui">Add a tag</span> and click <span class="ui">Pump1</span>.</td><td>“The datasheet is Pump1's.”; its <span class="ui">Data sheet</span> tab shows Pump1's datasheet.</td></tr>
+      <tr><td>2</td><td>In the tree <span class="ui">Add a tag</span> (the project's sections and folders, as in the explorer), open Assets and click <span class="ui">Pump1</span>.</td><td>“The datasheet is Pump1's.”; its <span class="ui">Data sheet</span> tab shows Pump1's datasheet.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">When a datasheet document's revision is issued, E1 records the object with its children and the layout version; its PDF is named “…-datasheet-Rev-&lt;label&gt;.pdf”.</p>
-  <p class="g-note">Choose whose datasheet it is under <span class="ui">Tags</span> in its window: type a tag in <span class="ui">Add a tag</span> and click it. Several tags of one class make <a href="#doc-spec-datasheet-tags">a datasheet for several tags</a>.</p>
+  <p class="g-note">Choose whose datasheet it is under <span class="ui">Tags</span> in its window: click the object in the <span class="ui">Add a tag</span> tree. Several tags of one class make <a href="#doc-spec-datasheet-tags">a datasheet for several tags</a>.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-datasheet">Open an object's datasheet</a>, <a href="guide-ai.html#ai-cloud-ai">Asking Alex in your own words</a>, <a href="guide-documents.html#doc-spec-datasheet-tags">A datasheet for several tags</a></p>
 </section>
 
@@ -722,7 +722,7 @@
 
 <section class="g-feature" id="doc-datasheet-designer">
   <h2>The datasheet designer</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-datasheet-designer</span><span>Roadmap 07.5</span><span>Review check F3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-15</span><span class="g-id">DOC-datasheet-designer</span><span>Roadmap 07.5</span><span>Review check F3</span></div>
   <p class="g-summary">Copy or create a datasheet layout, add fields, preview it with an object, and publish it for a class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Datasheets</span></dd>
@@ -735,13 +735,13 @@
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Configuration</span> in the left rail, then <span class="ui">Datasheets</span>.</td><td>The <span class="ui">Projects</span> pane is between the section list and the layouts (tick the project whose layouts you want). Beside it, <span class="ui">Filter layouts</span> and <span class="ui">New layout…</span>, and the layouts under This project, All projects (company library) and Content packages, each with its count. A layout shows its class and version, and <span class="ui">Draft</span> or <span class="ui">Used here</span> when that applies. Under <span class="ui">All projects</span> a new layout is for all projects, and <span class="ui">Use for every project that follows</span> sets it in each of them; with a project's name clicked in the <span class="ui">Projects</span> pane, both are for that project.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Centrifugal pump datasheet</span>.</td><td>It reads “Content package, read only”: there is no <span class="ui">Publish</span>, and <span class="ui">Copy to edit…</span> is shown.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">New layout…</span>. In the dialog, search <code>Centrifugal pump</code>, set Class to <span class="ui">Centrifugal pump</span>, keep For projects on <span class="ui">Only Demo Plant</span>, type <code>plant1.pump</code> as the Key, and click <span class="ui">Create from the class</span>.</td><td>The new layout opens on the right: “This project · not published”. A key in use is refused: “That key is taken.”. <span class="ui">Cancel</span> or <kbd>Esc</kbd> closes the dialog.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">New layout…</span>. In the dialog, click <span class="ui">Class</span>, click <span class="ui">Centrifugal pump</span> in the class tree (<span class="ui">Filter the list</span> narrows it; a fixed class is greyed "A fixed class: it has no datasheet of its own") and click <span class="ui">Choose</span>; keep For projects on <span class="ui">Only Demo Plant</span>, type <code>plant1.pump</code> as the Key, and click <span class="ui">Create from the class</span>.</td><td>The new layout opens on the right: “This project · not published”. A key in use is refused: “That key is taken.”. <span class="ui">Cancel</span> or <kbd>Esc</kbd> closes the dialog.</td></tr>
       <tr><td>4</td><td>Set <span class="ui">Name</span> to <code>Plant 1 pump datasheet</code>.</td><td>The name shows “For Centrifugal pump and its subclasses.”.</td></tr>
       <tr><td>5</td><td>In section Identification, choose <span class="ui">Design pressure / In</span> in <span class="ui">Add field…</span> and type <code>psi</code> in its Unit.</td><td>The field is added with unit psi.</td></tr>
       <tr><td>6</td><td>Click <span class="ui">Undo</span>.</td><td>The unit is empty again.</td></tr>
       <tr><td>7</td><td>Click <span class="ui">Save draft</span>.</td><td>“Draft saved.”.</td></tr>
       <tr><td>8</td><td>Click <span class="ui">Publish</span>.</td><td>“Published as version 1.”.</td></tr>
-      <tr><td>9</td><td>In <span class="ui">Preview with object</span>, type <code>Pump1</code> and click <span class="ui">Pump1</span>.</td><td>The preview “Preview of Pump1” shows “Plant 1 pump datasheet”.</td></tr>
+      <tr><td>9</td><td>In the tree <span class="ui">Preview with object</span> (the project's objects, as in the explorer), click <span class="ui">Pump1</span>.</td><td>The preview “Preview of Pump1” shows “Plant 1 pump datasheet”. In the tree an object of another class is greyed “Not a Centrifugal pump”, one already shown “In the preview”, and all of them once six are shown.</td></tr>
       <tr><td>10</td><td>Double-click Pump1 in the explorer and click <span class="ui">Data sheet</span>.</td><td>Its datasheet heading is “Plant 1 pump datasheet”, with a “Design pressure / In” field in Identification.</td></tr>
     </tbody>
   </table></div>
@@ -800,7 +800,7 @@
 
 <section class="g-feature" id="doc-spec-datasheet-rows">
   <h2>Add row and Remove row on a datasheet</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-rows</span><span>Roadmap 24.2</span><span>Review check V1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-15</span><span class="g-id">DOC-spec-datasheet-rows</span><span>Roadmap 24.2</span><span>Review check V1</span></div>
   <p class="g-summary">Add and remove the parts a datasheet lists (nozzles, stages, sides) right on the datasheet.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A table of parts on a specification datasheet</dd>
@@ -813,7 +813,7 @@
     <tbody>
       <tr><td>1</td><td>Under the nozzles table, click <span class="ui">+ Add row</span>.</td><td>A nozzle owned by P-101 is added as a new row.</td></tr>
       <tr><td>2</td><td>Click outside the fields and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The nozzle is gone again in one step.</td></tr>
-      <tr><td>3</td><td>Add it again, then click × at the end of its row and confirm.</td><td>“Remove this row? A part of the object goes to the Deleted bin; a related object only loses its link.” The row goes; the nozzle is in the Deleted bin.</td></tr>
+      <tr><td>3</td><td>Add it again, then click × at the end of its row and <span class="ui">Remove</span> in E1's dialog.</td><td>The dialog <em>Remove row?</em> reads “Remove this row? A part of the object goes to the Deleted bin; a related object only loses its link.” After <span class="ui">Remove</span> the row goes; the nozzle is in the Deleted bin.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">The ports of the object's symbol (suction, discharge) have no ×: they belong to the symbol. In a table of related objects (a driver, a seal), × removes only the relationship. A column repeater has <span class="ui">+ Add column</span> and a × in each column's head.</p>
@@ -864,7 +864,7 @@
 
 <section class="g-feature" id="doc-spec-datasheet-tags">
   <h2>A datasheet for several tags</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-tags</span><span>Roadmap 24.7</span><span>Review check V5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-15</span><span class="g-id">DOC-spec-datasheet-tags</span><span>Roadmap 24.7</span><span>Review check V5</span></div>
   <p class="g-summary">One datasheet document for several objects of one class: shared values once, See list for differing ones, one change sets all.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A datasheet document's window: <span class="ui">Tags</span>, and its <span class="ui">Data sheet</span> tab</dd>
@@ -875,7 +875,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Make a datasheet document and, under <span class="ui">Tags</span>, add PT-401, PT-402 and PT-403 with <span class="ui">Add a tag</span>.</td><td>“The datasheet is for PT-401 and 2 more.” PT-401 reads (master). A tag of another class is refused: the tags of one datasheet share one class.</td></tr>
+      <tr><td>1</td><td>Make a datasheet document and, under <span class="ui">Tags</span>, click PT-401, PT-402 and PT-403 in the <span class="ui">Add a tag</span> tree.</td><td>“The datasheet is for PT-401 and 2 more.” PT-401 reads (master). Once there is a master, an object of another class is greyed in the tree (“Not of the class of PT-401”), and one already on it “Already on the datasheet”: the tags of one datasheet share one class.</td></tr>
       <tr><td>2</td><td>Open the <span class="ui">Data sheet</span> tab.</td><td>The tags are listed above the page. The response time shows once; the dead band is empty with <span class="ui">See list</span>, which lists PT-401: 0.1, PT-402: 0.1, PT-403: 0.2. The Tags table at the end has a row per tag.</td></tr>
       <tr><td>3</td><td>Type <code>0.3</code> in the dead band and press <kbd>Enter</kbd>.</td><td>All three have 0.3 %; the field shows it once.</td></tr>
       <tr><td>4</td><td>Click outside the fields and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>All three go back at once: See list again.</td></tr>
@@ -910,7 +910,7 @@
 
 <section class="g-feature" id="doc-spec-datasheet-designer">
   <h2>Design a specification datasheet</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-designer</span><span>Roadmap 24.6</span><span>Review check V4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-15</span><span class="g-id">DOC-spec-datasheet-designer</span><span>Roadmap 24.6</span><span>Review check V4</span></div>
   <p class="g-summary">Build a layout from components, make it apply only to some objects, preview several objects, and take over changes from the layout it was copied from.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Datasheets</span></dd>
@@ -921,10 +921,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">New layout…</span>, choose Class <span class="ui">Centrifugal pump</span>, Made of <span class="ui">Components (specification datasheet)</span>, key <code>plant1.pump-spec</code>, and click <span class="ui">Create</span>.</td><td>An empty layout opens with Page 1 and <span class="ui">Add component</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">New layout…</span>, choose Class <span class="ui">Centrifugal pump</span> in the class tree, Made of <span class="ui">Components (specification datasheet)</span>, key <code>plant1.pump-spec</code>, and click <span class="ui">Create</span>.</td><td>An empty layout opens with Page 1 and <span class="ui">Add component</span>.</td></tr>
       <tr><td>2</td><td>In <span class="ui">Add component</span> choose <span class="ui">Field table</span>, then <span class="ui">Row list</span>.</td><td>Both are on Page 1 with their title, <span class="ui">Up</span>, <span class="ui">Down</span>, <span class="ui">Details</span> and <span class="ui">Remove</span>.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Details</span> of the field table, add lines in the text, and click <span class="ui">Apply details</span>.</td><td>The lines are in the preview. Text that is not valid is refused with the reason.</td></tr>
-      <tr><td>4</td><td>In <span class="ui">Preview with object</span> add P-101 and P-102.</td><td>One tab per pump, each filled with its values.</td></tr>
+      <tr><td>4</td><td>In the <span class="ui">Preview with object</span> tree click P-101 and P-102.</td><td>One tab per pump, each filled with its values.</td></tr>
       <tr><td>5</td><td>Under <span class="ui">Applies when</span>, click <span class="ui">Add condition</span> and set Material is <code>SS316</code>.</td><td>P-101's tab says the layout does not apply to it; P-102's is filled.</td></tr>
       <tr><td>6</td><td>Publish. Open a template under Content packages, click <span class="ui">Copy to edit…</span> and <span class="ui">Copy</span>.</td><td>The copy says “Copied from … version 1” with <span class="ui">Compare with source</span>.</td></tr>
       <tr><td>7</td><td>When the source has a newer version, click <span class="ui">Compare with source</span>, tick the changes and click <span class="ui">Take over selected</span>.</td><td>Each difference reads Changed in the source, New in the source, Removed in the source or Changed in both; after taking over, “Taken over: N.”, and your own changes stay.</td></tr>

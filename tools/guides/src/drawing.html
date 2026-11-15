@@ -481,7 +481,7 @@
 
 <section class="g-feature" id="draw-frames">
   <h2>System and area frames</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-frames</span><span>Roadmap M3.11</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-15</span><span class="g-id">DRAW-frames</span><span>Roadmap M3.11</span></div>
   <p class="g-summary">A frame drawn around symbols makes them belong to a system or an area. The framed symbols then show under that system or area in the explorer.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The frame tools on the drawing toolbar. They appear only while a system or area is picked in the explorer, or right after you made an area with the Object button.</dd>
@@ -494,7 +494,7 @@
     <tbody>
       <tr><td>1</td><td>With the 2D space open, click TIC-101 in the explorer.</td><td>The toolbar shows the frame tools <span class="ui">Rectangle frame for system TIC-101</span>, <span class="ui">Circle frame for system TIC-101</span> and <span class="ui">Freehand frame for system TIC-101</span>.</td></tr>
       <tr><td>2</td><td>Click the rectangle frame tool.</td><td>The hint reads "Drag from corner to corner to draw the rectangle. The symbols inside belong to the system or area. Esc ends."</td></tr>
-      <tr><td>3</td><td>Drag across some symbols. If the browser asks to confirm, confirm.</td><td>A frame labelled TIC-101 is drawn.</td></tr>
+      <tr><td>3</td><td>Drag across some symbols. If E1 asks a question, click its action button.</td><td>A frame labelled TIC-101 is drawn.</td></tr>
       <tr><td>4</td><td>Expand TIC-101 in the explorer.</td><td>The framed symbols are listed under it as references.</td></tr>
       <tr><td>5</td><td>Click the frame's edge and drag it.</td><td>The frame is selected and moves.</td></tr>
       <tr><td>6</td><td>Press <kbd>Delete</kbd>.</td><td>The frame is removed.</td></tr>
@@ -895,7 +895,7 @@
 
 <section class="g-feature" id="draw-pipelines">
   <h2>Pipelines and completeness checks</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-15</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
   <p class="g-summary">A pipeline is a line of the line list: the pipe runs, valves and fittings from one end (an equipment nozzle, or an open end of pipe) to the other. It holds them in piping segments, carries the line number, and names where it comes from and where it goes.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space: right-click equipment → <span class="ui">Define pipeline from here</span>, under <span class="ui">Highlight flow</span> (a click starts at the outlet; ▸ beside it lists the other nozzles, such as <span class="ui">Inlet</span>); in the explorer: <span class="ui">Assets → Piping</span></dd>
@@ -906,7 +906,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click the tank and click <span class="ui">Define pipeline from here</span>. (To start at another nozzle, point at it and choose one in the list beside it, such as <span class="ui">Inlet</span>.)</td><td>A bar says "Click the equipment the pipeline goes to, from T-100 (outlet). Esc cancels."</td></tr>
-      <tr><td>2</td><td>Click the pump.</td><td>E1 follows the drawn pipe through the valves and fittings (never through other equipment) and makes the pipeline; its page opens. If a bypass gives two ways, E1 asks which.</td></tr>
+      <tr><td>2</td><td>Click the pump.</td><td>E1 follows the drawn pipe through the valves and fittings (never through other equipment) and makes the pipeline; its page opens. If a bypass gives two ways, the dialog <em>Which path?</em> lists each path with what it runs through (<em>Path 1: through …</em>): click the one the pipeline follows, or <span class="ui">Cancel</span>.</td></tr>
       <tr><td>3</td><td>Look in the explorer under <span class="ui">Assets → Piping</span>.</td><td>The pipeline with <em>Segment 1</em> and, after a reducer, <em>Segment 2</em>; each holds its pipe runs, valves and fittings in flow order.</td></tr>
       <tr><td>4</td><td>Double-click a line of the pipeline on the 2D space.</td><td>The whole pipeline is selected. Double-click again: only the segment that line is in.</td></tr>
     </tbody>
@@ -1013,7 +1013,7 @@
 
 <section class="g-feature" id="draw-pipe-classes">
   <h2>Pipe classes</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-pipe-classes</span><span>Roadmap 13.3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-15</span><span class="g-id">DRAW-pipe-classes</span><span>Roadmap 13.3</span></div>
   <p class="g-summary">A pipe class (piping specification) says what a line in it is made of and what it may carry: its rating, material, pressure–temperature envelope, sizes with their schedule, and the valves and fittings it allows. A pipeline names it by its code; its segments then show the schedule, material and rating, and the piping check holds them to the class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration → Pipe classes</span>; on a pipeline or segment, the attribute <span class="ui">Pipe class</span></dd>
@@ -1024,8 +1024,9 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Open <span class="ui">Configuration → Pipe classes</span> and click <span class="ui">New pipe class…</span> (top right).</td><td>The editor opens.</td></tr>
-      <tr><td>2</td><td>Type the code (A1A), description, rating (ASME 150 or PN 16), material; the envelope as lines <em>38 °C | 19.6 bar(g)</em>; the sizes as lines <em>6" | SCH 40</em>; the allowed components one a line (<em>valve.gate</em>). Choose <span class="ui">For</span>: the company or this project only.</td><td><span class="ui">Save draft</span> keeps it a draft. A second class with the same code in the same library is refused.</td></tr>
+      <tr><td>2</td><td>Type the code (A1A), description, rating (ASME 150 or PN 16), material; the envelope as lines <em>38 °C | 19.6 bar(g)</em>; the sizes as lines <em>6" | SCH 40</em>. Under <span class="ui">Allowed components (none ticked: every one)</span>, tick the valves and fittings it allows in the class tree (for example Gate valve; <span class="ui">Filter the list</span> narrows it). Choose <span class="ui">For</span>: the company or this project only.</td><td>The ticked classes show above the tree, each with × to take it off; with none ticked, every valve and fitting is allowed. <span class="ui">Save draft</span> keeps it a draft. A second class with the same code in the same library is refused.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Publish</span> on its row.</td><td>The row reads <em>Published v1</em>. That version never changes; projects read it through their library version.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Withdraw</span> on a published pipe class.</td><td>E1 asks first: <em>Withdraw pipe class?</em>, "Withdraw version 1 of pipe class A1A? Projects no longer get it; pipelines that name it keep their values.", with <span class="ui">Cancel</span> and <span class="ui">Withdraw</span>.</td></tr>
     </tbody>
   </table></div>
   <h3>Import pipe classes from a spreadsheet</h3>
@@ -1050,7 +1051,7 @@
 
 <section class="g-feature" id="draw-line-list">
   <h2>Pipe schedule (line list)</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-line-list</span><span>Roadmap 13.4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-15</span><span class="g-id">DRAW-line-list</span><span>Roadmap 13.4</span></div>
   <p class="g-summary">The pipe schedule is a query you build on the project's pipelines and save. E1 ships no fixed line list: you choose its rows and columns, and it stays live with the drawing.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>In the explorer: right-click <span class="ui">Assets → Piping</span> or the project → <span class="ui">Query ▸ New query…</span></dd>
@@ -1061,7 +1062,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click <span class="ui">Assets → Piping</span> → <span class="ui">Query ▸ New query…</span>.</td><td>A query tab lists the pipelines, their segments, runs, valves and fittings.</td></tr>
-      <tr><td>2</td><td><span class="ui">Filter</span>: Class is Pipeline.</td><td>One row per pipeline; its name is the line number. Add Piping segment for a row per segment.</td></tr>
+      <tr><td>2</td><td><span class="ui">Filter</span>: choose Class in <span class="ui">Field</span> and <em>is</em>, then click <span class="ui">Value</span> (<span class="ui">Choose a class…</span>) and click Pipeline in the class tree (<span class="ui">Filter the classes</span> narrows it).</td><td>One row per pipeline; its name is the line number. Add Piping segment for a row per segment.</td></tr>
       <tr><td>3</td><td><span class="ui">Columns</span>: From, To, Nominal size, Fluid, Pipe class, Design pressure, Design temperature, Insulation, Test pressure; under Properties <span class="ui">2D spaces</span>.</td><td>From and To read <em>T-100 / outlet</em> and <em>P-101 / suction</em>; 2D spaces lists the P&amp;IDs the pipeline is drawn on. On segment rows, Schedule, Material and Rating come from the pipe class.</td></tr>
       <tr><td>4</td><td><span class="ui">Save</span>, name it <em>Pipe schedule</em>, for the project.</td><td>It is in every <span class="ui">Query ▸</span> menu of the project from then on.</td></tr>
     </tbody>
@@ -1133,7 +1134,7 @@
 
 <section class="g-feature" id="draw-markup-status">
   <h2>Answer a markup: accept, reject, answer, incorporate, close</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DRAW-markup-status</span><span>Roadmap 23.2</span><span>Review check U2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-15</span><span class="g-id">DRAW-markup-status</span><span>Roadmap 23.2</span><span>Review check U2</span></div>
   <p class="g-summary">Set a markup's status with a response; every change is written in its discussion and tells its author.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The markup's card → <span class="ui">Set status</span></dd>
@@ -1145,7 +1146,7 @@
       <tr><td>Open</td><td>Accept</td><td>an optional response</td></tr>
       <tr><td>Open</td><td>Reject</td><td>a response saying why</td></tr>
       <tr><td>Open</td><td>Answer</td><td>a response; only for remarks, questions and stamps</td></tr>
-      <tr><td>Accepted</td><td>Incorporated</td><td>the change that did it (its group in History)</td></tr>
+      <tr><td>Accepted</td><td>Incorporated</td><td>the changes that did it: tick them in the list <em>The changes that did it (from History)</em>, the project's recent changes, newest first, each with who made it and when</td></tr>
       <tr><td>Rejected, Answered, Incorporated</td><td>Close, or Reopen</td><td>closing: nothing; reopening: a reply saying why</td></tr>
       <tr><td>Open</td><td>Close</td><td>a markup manager, with a reply</td></tr>
     </tbody>
@@ -1299,7 +1300,7 @@
 
 <section class="g-feature" id="draw-module-instance">
   <h2>A placed module on its objects</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span class="g-id">DRAW-module-instance</span><span>Roadmap 32.1d, 32.2d</span><span>Review checks M4, M12</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-15</span><span class="g-id">DRAW-module-instance</span><span>Roadmap 32.1d, 32.2d</span><span>Review checks M4, M12</span></div>
   <p class="g-summary">A placed module's objects stay ordinary objects, each in its usual place in the tree with its own tag. Each one's properties say which module and version it is part of; the Module menu selects the whole instance or detaches it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The object's properties, under the class: <span class="ui">Part of module</span> and <span class="ui">Module ▾</span>; and the <span class="ui">Save as module</span> dialog after <span class="ui">Publish</span></dd>
@@ -1310,7 +1311,7 @@
     <tbody>
       <tr><td>1</td><td>Open the properties of an object of a placed module.</td><td>Under the class: <em>Part of module</em> <strong>the module's name</strong> <em>(v1)</em>. <span class="ui">Module update</span> shows when this project reads a newer version of the module.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Module ▾</span> → <span class="ui">Select module instance</span>.</td><td>Every member of the instance on its 2D space is selected.</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Module ▾</span> → <span class="ui">Detach module instance…</span> and confirm.</td><td>The objects stay as they are, as ordinary objects: the line is gone, and later versions of the module no longer reach them. <span class="ui">Undo</span> takes it back.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Module ▾</span> → <span class="ui">Detach module instance…</span>, then <span class="ui">Detach</span> in E1's dialog <em>Detach instance?</em>.</td><td>The objects stay as they are, as ordinary objects: the line is gone, and later versions of the module no longer reach them. <span class="ui">Undo</span> takes it back.</td></tr>
     </tbody>
   </table></div>
   <h3>The objects you saved from</h3>

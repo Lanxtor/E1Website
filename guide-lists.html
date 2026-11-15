@@ -220,7 +220,7 @@
 
 <section class="g-feature" id="list-filter">
   <h2>Filter rows with AND, OR and NOT</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">LIST-filter</span><span>Roadmap M3.6</span><span>Review check D3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-15</span><span class="g-id">LIST-filter</span><span>Roadmap M3.6</span><span>Review check D3</span></div>
   <p class="g-summary">Build a filter from conditions joined by AND or OR, each one optionally negated with NOT.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → <span class="ui">Filter</span>, or right-click a Name, Class or attribute header</dd>
@@ -234,7 +234,7 @@
       <tr><td>2</td><td>Click <span class="ui">Add condition</span>.</td><td>“Condition 1” appears with <span class="ui">NOT</span>, <span class="ui">Field</span>, <span class="ui">Operator</span>, <span class="ui">Value</span>, <span class="ui">Ask when opened</span> and ×.</td></tr>
       <tr><td>3</td><td>Set <span class="ui">Field</span> to <span class="ui">Name</span>, <span class="ui">Operator</span> to <span class="ui">contains</span>, type <code>pump</code> in <span class="ui">Value</span>, and click <span class="ui">Apply</span>.</td><td>The panel closes. Below the bar the filter in words reads “Name contains pump”. The row count drops and every Name contains “pump”.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Filter</span>, tick <span class="ui">NOT</span> on Condition 1, and click <span class="ui">Apply</span>.</td><td>The summary contains “NOT”. The count equals all rows minus the pumps.</td></tr>
-      <tr><td>5</td><td>Click <span class="ui">Filter</span>, add a second condition with <span class="ui">Field</span> <span class="ui">Class</span> and <span class="ui">Operator</span> <span class="ui">is</span>, and type part of a class name in <span class="ui">Value</span>.</td><td>A list of matching classes appears (“Type to find a class”); you pick the class from it, never type its key.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Filter</span>, add a second condition with <span class="ui">Field</span> <span class="ui">Class</span> and <span class="ui">Operator</span> <span class="ui">is</span>, and click <span class="ui">Value</span> (<span class="ui">Choose a class…</span>).</td><td>The class tree opens under it, with every class; <span class="ui">Filter the classes</span> only narrows it. Click a class: the tree closes and <span class="ui">Value</span> shows the class's name.</td></tr>
       <tr><td>6</td><td>Set <span class="ui">Match</span> to <span class="ui">any of these (OR)</span> and click <span class="ui">Apply</span>.</td><td>Rows that match either condition are shown; the summary joins the conditions with OR.</td></tr>
       <tr><td>7</td><td>Right-click the <span class="ui">Class</span> header.</td><td>The Filter panel opens with a new condition on Class.</td></tr>
     </tbody>
@@ -269,7 +269,7 @@
 
 <section class="g-feature" id="list-parameters">
   <h2>Ask when opened: one query for many values</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span class="g-id">LIST-parameters</span><span>Roadmap M3.6</span><span>Review check D3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-15</span><span class="g-id">LIST-parameters</span><span>Roadmap M3.6</span><span>Review check D3</span></div>
   <p class="g-summary">Leave a filter value out so whoever opens the query types it in each time.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Filter panel → a condition → <span class="ui">Ask when opened</span></dd>
@@ -284,7 +284,7 @@
       <tr><td>3</td><td>Type <code>pump</code> and click <span class="ui">Show rows</span>.</td><td>The same rows appear as with “Name contains pump”.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">For a Class condition the form has a <span class="ui">Class</span> box: type “PUMP”, pick “Pump” from the list, and the box reads “Pump”.</p>
+  <p class="g-note">For a Class condition the form has a <span class="ui">Class</span> button, <span class="ui">Choose a class…</span>: click it, click “Pump” in the class tree (<span class="ui">Filter the classes</span> narrows it), and the button reads “Pump”.</p>
   <p class="g-note">The values you type are kept while the tab is open. <span class="ui">Apply</span> and <span class="ui">Clear filter</span> reset them.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a></p>
 </section>
@@ -541,7 +541,7 @@
 
 <section class="g-feature" id="list-owner-cell">
   <h2>Owner cell: open the object, or move it with F2</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-11</span><span class="g-id">LIST-owner-cell</span><span>Roadmap M3.9</span><span>Review checks D2, D4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-15</span><span class="g-id">LIST-owner-cell</span><span>Roadmap M3.9</span><span>Review checks D2, D4</span></div>
   <p class="g-summary">Double-click an Owner cell to open the object; press F2 to move it to another owner.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Query tab → an <span class="ui">Owner</span> cell</dd>
@@ -554,9 +554,9 @@
     <tbody>
       <tr><td>1</td><td>Hover an Owner cell.</td><td>The hover text reads “Double-click opens the object; F2 moves it to another owner”.</td></tr>
       <tr><td>2</td><td>Double-click the Owner cell of Pump1.</td><td>Pump1 opens in a tab named after it, on <span class="ui">Attributes</span>.</td></tr>
-      <tr><td>3</td><td>Back in the query, click Pump1's Owner cell (“Assets”) and press <kbd>F2</kbd>.</td><td>A box “Move to owner” appears, offering the owner and object names of the loaded rows.</td></tr>
-      <tr><td>4</td><td>Type <code>Systems</code> and press <kbd>Enter</kbd>.</td><td>An alert says “A Centrifugal pump cannot be owned by Systems. It may be owned by Assets or a folder in Assets.”.</td></tr>
-      <tr><td>5</td><td>Type <code>Feed pumps</code> and press <kbd>Enter</kbd>.</td><td>The cell shows “Feed pumps”.</td></tr>
+      <tr><td>3</td><td>Back in the query, click Pump1's Owner cell (“Assets”) and press <kbd>F2</kbd>.</td><td>“Move to owner” opens under the cell: the project's sections, folders and objects, shaped like the explorer. Assets (its owner now) and Pump1 itself are greyed.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Systems</span>.</td><td>Refused, under the tree: “A Centrifugal pump cannot be owned by Systems. It may be owned by Assets or a folder in Assets.”</td></tr>
+      <tr><td>5</td><td>Open <span class="ui">Assets</span> in the tree and click <span class="ui">Feed pumps</span>.</td><td>The tree closes and the cell shows “Feed pumps”. <kbd>Esc</kbd> instead closes the tree and changes nothing.</td></tr>
       <tr><td>6</td><td>Click the table and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The owner is “Assets” again.</td></tr>
     </tbody>
   </table></div>
