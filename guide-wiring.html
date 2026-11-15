@@ -80,6 +80,7 @@
           <li><a href="#wire-circuit-references">Circuit diagrams: cross-references and contact images</a></li>
           <li><a href="#wire-circuit-cables">Circuit diagrams: terminals, cables, potentials and wire numbers</a></li>
           <li><a href="#wire-circuit-starters">Circuit diagrams: starter circuits</a></li>
+          <li><a href="#wire-circuit-documents">Circuit diagrams: making the documents</a></li>
           <li><a href="#wire-circuit-plc-boxes">Circuit diagrams: PLC boxes</a></li>
         </ol>
       </nav>
@@ -87,7 +88,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Wiring (EI&amp;C)</p>
         <h1>13. Wiring (EI&amp;C)</h1>
         <p class="lead">Cabinets and junction boxes in their locations, rails, terminal strips and terminals, I/O cards and channels, cables and their cores landed on terminals, tracing a circuit from the field to the I/O channel, construction status, and cable lengths.</p>
-        <div class="g-meta"><span>39 features</span><span>39 available</span><span>Guide updated 2026-11-11</span></div>
+        <div class="g-meta"><span>40 features</span><span>40 available</span><span>Guide updated 2026-11-11</span></div>
 <section class="g-feature" id="wiring-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 wiring is data, not a drawing. A cabinet or junction box has a location and an enclosure; the enclosure holds rails, terminal strips and I/O cards; cables have their cores, and each core is landed on a terminal at both ends. From that data E1 traces every circuit from the field device to its I/O channel.</p>
@@ -1046,6 +1047,31 @@
   </table></div>
   <p class="g-note">The starter is the circuit typical <span class="ui">DOL starter</span> of the Electrical package, a module whose parts are chosen from the motor: the breaker, contactor and overload relay by its rated current (from its rated output when it has none), the coil and lamps by the control voltage. A motor too large for the catalog's sizes is grey with the size it needs. The page's open points (the supply L1, L2, L3, the control supply and neutral) are where it meets the rest of the cabinet. Star-delta starters and VSD feeders are not built yet.</p>
   <p class="g-related">Related: <a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a> · <a href="#wire-circuit-cables">Circuit diagrams: terminals, cables, potentials and wire numbers</a> · <a href="#wire-circuit-plc-boxes">Circuit diagrams: PLC boxes</a> · <a href="guide-library.html#lib-catalogs">Catalogs</a></p>
+</section>
+
+<section class="g-feature" id="wire-circuit-documents">
+  <h2>Circuit diagrams: making the documents</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-15</span><span>Updated 2026-11-15</span><span class="g-id">WIRE-circuit-documents</span><span>Roadmap 37.5</span><span>Review check R16</span></div>
+  <p class="g-summary"><b>Make documents</b> makes the documents of a cabinet, of the project or of a folder of drawings in one go: the terminal strip diagrams, the cable block diagram, a cable diagram per cable, the wire list, the I/O list, the device list, the parts list and the table of contents, and for the project the potential overview. They go to Documents, where you revise and issue them as any document.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The right-click menu of an enclosure in Assets, of the project, or of a folder in Model Space: <span class="ui">Make documents</span> ▸ <span class="ui">Make documents…</span>, or one kind alone below it.</dd>
+    <dt>Who</dt><dd>Anyone who may create documents.</dd>
+    <dt>Before you start</dt><dd>The cabinet's devices are drawn on circuit diagrams (in the sample, 80-EN-8001 on DF-80-E-0101).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">80-EN-8001</span> in Assets → <span class="ui">Make documents</span> ▸ <span class="ui">Make documents…</span>.</td><td>The kinds that fit, all ticked, each with how many documents it makes and which are there already. A kind with nothing to make is grey with the reason (<span class="ui">None in 80-EN-8001</span>).</td></tr>
+      <tr><td>2</td><td>Untick what you do not want and click <span class="ui">Make</span>.</td><td>The documents are made in Documents in one change, named after the cabinet (<span class="ui">Device list 80-EN-8001</span>), and the table of contents opens.</td></tr>
+      <tr><td>3</td><td>Export the device list to Excel or PDF.</td><td>Each device with its designation, class, catalog item, its functions with their points (<span class="ui">Coil A1-A2, Make 13-14</span>), where they are drawn (<span class="ui">DF-80-E-0101 /1</span>) and its enclosure.</td></tr>
+      <tr><td>4</td><td>Export the parts list and the table of contents.</td><td>The parts list sums the catalog items with their quantity, the cables' length and what uses each, and the terminal accessories and jumpers by kind. The table of contents lists the pages by drawing number and page, with their title, diagram type and revision, and the documents made beside it.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Make documents…</span> again.</td><td>Every kind is there already; <span class="ui">Make</span> makes nothing new.</td></tr>
+      <tr><td>6</td><td>Issue the device list, then make a starter circuit for another motor of the cabinet.</td><td>The device list's Revisions panel says <span class="ui">Changed since Rev A</span> and lists the new devices; its export shows them on their new page.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The documents hold no copy of the data: each is made from the model whenever it is opened or exported, so it is never out of date and has no Update button. An issued revision keeps what it showed, so Changed since compares the model with it. A cable diagram lists the cable's type, cores, screens, length and both ends, and each core with its wire number, the terminal at each end, signal and status. A folder of drawings gets its device list (the devices drawn on its sheets), parts list and table of contents.</p>
+  <p class="g-related">Related: <a href="#wire-strip-diagram">Terminal strip and cable block diagrams</a> · <a href="#wire-lists">Wire list, termination list, cable schedule and I/O list</a> · <a href="#wire-potentials">Potentials and the net view</a> · <a href="#wire-circuit-starters">Circuit diagrams: starter circuits</a> · <a href="guide-documents.html#doc-changed-since">Changed since</a></p>
 </section>
 
 <section class="g-feature" id="wire-circuit-plc-boxes">
