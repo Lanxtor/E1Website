@@ -905,3 +905,29 @@
   <p class="g-note">The findings check circuit diagrams: a function drawn twice and a contact or point beyond the device's catalog item are errors; contacts drawn without their coil, an off-page connector that continues nowhere, and a circuit diagram with no page number are warnings. Addresses use the circuit diagram frame, A3 landscape with ten columns numbered from 0; a sheet's document is the drawing number its name starts with.</p>
   <p class="g-related">Related: <a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
 </section>
+
+<section class="g-feature" id="wire-circuit-cables">
+  <h2>Circuit diagrams: terminals, cables, potentials and wire numbers</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-15</span><span>Updated 2026-11-15</span><span class="g-id">WIRE-circuit-cables</span><span>Roadmap 37.3</span><span>Review check R14</span></div>
+  <p class="g-summary">A circuit diagram draws the wiring of your cabinets too: a terminal of a strip, <span class="ui">-X1:5</span>, with its wires landed on it, and a <b>cable line</b> across wires that makes them the cores of a cable. Every new wire gets its number when it is made, and <span class="ui">Renumber</span> numbers the page again. E1 finds two potentials joined (a short circuit), more wires across a cable than it has cores, contact points with no wire, and wires with no size or colour.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Circuit diagram</span>: the drawing toolbar's <span class="ui">Terminals</span>, <span class="ui">Cable line</span> and <span class="ui">Renumber</span></dd>
+    <dt>Who</dt><dd>Anyone who may edit the drawing. Renumber needs a project role that may edit objects.</dd>
+    <dt>Before you start</dt><dd>Draw devices with their functions (see <a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a>). In the sample the MCC 80-EN-8001 has the terminal strip X1, and 43-EM-4301A-W2 is a 7-core control cable.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Terminals</span> on the drawing toolbar.</td><td>A tree of the enclosures, their strips and each terminal (<span class="ui">-X1:5</span>). A terminal with two wires, or drawn on a circuit diagram already, is grey with the reason. <span class="ui">New terminal</span> adds one at the end of a strip.</td></tr>
+      <tr><td>2</td><td>Open <span class="ui">80-EN-8001</span> → <span class="ui">X1</span> and drag <span class="ui">-X1:5</span> onto the page, in line with a free point of a contact or a lamp.</td><td>The terminal is drawn as a small circle with <span class="ui">-X1:5</span>. A wire joins it to the point at once and lands on the terminal itself; a wire on its other side lands on it too.</td></tr>
+      <tr><td>3</td><td>Look at the new wires.</td><td>Each has its number already: the potential of a terminal it lands on (for example <span class="ui">L1</span>), else page, column and the next free number (<span class="ui">1.4.1</span>). A wire drawn from a T on another wire takes that wire's number. Moving a wire never changes its number.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Cable line</span>, then where the line starts and where it ends, across three wires.</td><td>A list of the project's cables opens, each with its free cores; a cable with none is grey, <span class="ui">No free core</span>.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">43-EM-4301A-W2</span> (or <span class="ui">New cable</span>; tick <span class="ui">Shield</span> for the cable's screen).</td><td>The three wires become cores 1, 2 and 3 of the cable at once, in order along the line, with their ends and numbers. The line shows the cable's tag. Wires beyond the cable's free cores stay wires and the check <span class="ui">Cable overuse</span> lists them.</td></tr>
+      <tr><td>6</td><td>Click the cable line's tag, then <span class="ui">Delete cable line</span>.</td><td>The cores are plain wires again, where they were. Undo takes either back.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Renumber</span>.</td><td>Every wire of the page is numbered again from the wire number pattern, in the order page, column, top to bottom, left to right. The wires of one node share a number; locked numbers and numbers past Designed stay.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The wire number pattern (Project settings → Wiring) takes alternatives separated by <span class="ui">|</span>; the first whose values all exist is used. The default <span class="ui">{device}-{signal}-{n}|{potential}|{page}.{column}.{n}</span> numbers field cores by device and signal, power and control wires by potential, and the rest by page and column. Two potentials joined by a wire (through terminals, Ts and off-page connectors of the same name) are a short circuit: an error in the checks, and Renumber waits until it is cleared. A connection point of a drawn function with no wire is <span class="ui">Open point</span>, a wire with no size or colour <span class="ui">Wire data</span>; a drawn terminal with more wires on a side than it takes is listed as on the Wiring page.</p>
+  <p class="g-related">Related: <a href="#wire-circuit-devices">Circuit diagrams: devices with their functions</a> · <a href="#wire-circuit-references">Circuit diagrams: cross-references and contact images</a> · <a href="#wire-strip-designer">The strip designer</a> · <a href="#wire-cables-cores">Cables, their cores, and landing a core on a terminal</a></p>
+</section>
