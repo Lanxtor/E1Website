@@ -157,7 +157,7 @@ Notes kept for the day the site goes live and for when E1 gets separate dev and 
 | What | Expires | Where it is used | Renew |
 |---|---|---|---|
 | SAS token `E1_DOWNLOADS_SAS` (write to `e1downloads/releases`) | 2027-11-09 | GitHub secret in `Lanxtor/E1`, used by the desktop build (macOS and Windows) | Container `releases` → Shared access tokens (Read, Add, Create, Write), then update the secret |
-| Developer ID Application certificate, Lanxtor, LLC (6M7JTM78L2) | 2027-12-09 | Login keychain of the build Mac | developer.apple.com → Certificates, new CSR; already installed apps keep working |
+| Developer ID Application certificate, Lanxtor LLC (6M7JTM78L2) | 2027-12-09 | Login keychain of the build Mac | developer.apple.com → Certificates, new CSR; already installed apps keep working |
 | Azure Artifact Signing identity validation, Lanxtor LLC (account `lanxtor-signing`) | yearly; the portal shows the date once approved | Signing the Windows installer (job `windows` of the desktop build) | `lanxtor-signing` → Identity validation → Renew, before it expires |
 | App Store Connect API key *E1 Notarization* (44LS7N994S) | does not expire | notarytool profile `E1-notary` on the build Mac | Revoke and recreate only if it leaks |
 

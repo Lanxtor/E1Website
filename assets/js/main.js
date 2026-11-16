@@ -220,7 +220,7 @@
       '<li><a href="https://www.linkedin.com/company/lanxtor/" target="_blank" rel="noopener">LinkedIn</a></li>' +
       "</ul></div>" +
       "</div>" +
-      '<div class="footer-bottom"><span>&copy; ' + year + " Lanxtor Inc. " + T("All rights reserved.") + "</span>" +
+      '<div class="footer-bottom"><span>&copy; ' + year + " Lanxtor LLC. " + T("All rights reserved.") + "</span>" +
       '<nav class="footer-legal" aria-label="' + T("Legal") + '">' +
       '<a href="' + H("legal.html") + '">' + T("Legal notice") + "</a>" +
       '<a href="' + H("privacy.html") + '">' + T("Privacy policy") + "</a>" +

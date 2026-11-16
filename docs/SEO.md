@@ -13,7 +13,7 @@ What the website has, and what is done outside it.
   preview image `assets/img/og-image.png`, 1200×630). The `hreflang` links between the languages
   (with `x-default`) come from the same build.
 - **The home page and the coming-soon page**: structured data (JSON-LD) for the company
-  (Lanxtor Inc., logo, address, phone, emails, LinkedIn), the website and the product (LANXTOR E1,
+  (Lanxtor LLC, logo, address, phone, emails, LinkedIn), the website and the product (LANXTOR E1,
   with its price range).
 - **`sitemap.xml`**: the 50 public pages with their languages and the date each last changed.
 - **`noindex`** on pages that are personal or not public: account, login, training, certificate,
@@ -40,7 +40,7 @@ for LANXTOR finds it. Icons and the manifest live under `/assets/`, which stays 
    *Request indexing* for the home page on launch day.
 3. **Bing Webmaster Tools** (bing.com/webmasters): *Import from Google Search Console* (also covers
    DuckDuckGo, Yahoo and the search behind ChatGPT and Copilot).
-4. **Google Business Profile** (business.google.com) for Lanxtor Inc. in Irvine, so the company
+4. **Google Business Profile** (business.google.com) for Lanxtor LLC in Irvine, so the company
    shows with address, phone and website.
 5. **LinkedIn company page**: website `https://www.lanxtor.com`, the same logo and description.
 6. **Links from elsewhere**: partners, universities, directories (for example G2, Capterra) linking

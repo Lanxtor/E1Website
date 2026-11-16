@@ -23,7 +23,7 @@ TEMPLATE_HEAD = (ROOT / "security.html").read_text(encoding="utf-8").split("<bod
 def page(data):
     head = TEMPLATE_HEAD
     head = head.replace("Security and vulnerability reports — LANXTOR", "Sub-processors of E1 Cloud — LANXTOR")
-    head = head.replace("How to report a security vulnerability in E1, the E1 desktop and iPad apps, the E1 Cloud or this website, and how Lanxtor Inc. handles and discloses it.",
+    head = head.replace("How to report a security vulnerability in E1, the E1 desktop and iPad apps, the E1 Cloud or this website, and how Lanxtor LLC handles and discloses it.",
                         "The companies that process personal data for E1 Cloud, what for, which data and where.")
     head = head.replace("security.html", "sub-processors.html")
     # English only for now: no language alternates.

@@ -20,7 +20,7 @@ LINKEDIN = "https://www.linkedin.com/company/lanxtor/"
 ORGANIZATION = {
     "@type": "Organization",
     "@id": SITE + "/#organization",
-    "name": "Lanxtor Inc.",
+    "name": "Lanxtor LLC",
     "alternateName": "LANXTOR",
     "url": SITE + "/",
     "logo": SITE + "/assets/img/logo-512.png",
