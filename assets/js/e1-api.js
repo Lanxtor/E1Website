@@ -134,18 +134,20 @@
   /** A photo of any usual size, scaled in the browser to at most 512 px a side (WebP, or JPEG where the browser cannot write WebP), so it fits E1's 256 KB. */
   function fitPicture(file) {
     if (/^image\/(png|jpeg|gif|webp)$/.test(file.type) && file.size <= PICTURE_MAX_BYTES) return Promise.resolve(file);
-    return new Promise(function (resolve, reject) {
-      var url = URL.createObjectURL(file), img = new Image();
-      img.onload = function () {
-        URL.revokeObjectURL(url);
-        var scale = Math.min(1, PICTURE_MAX_SIDE / Math.max(img.naturalWidth, img.naturalHeight));
-        var canvas = document.createElement("canvas");
-        canvas.width = Math.max(1, Math.round(img.naturalWidth * scale));
-        canvas.height = Math.max(1, Math.round(img.naturalHeight * scale));
-        var ctx = canvas.getContext("2d");
-        ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        var tries = [["image/webp", 0.85], ["image/jpeg", 0.85], ["image/jpeg", 0.7], ["image/jpeg", 0.5]];
+    var unreadable = new ApiError(400, "invalid", "This file could not be read as a picture. Choose a PNG, JPEG, GIF or WebP photo.");
+    return decodePicture(file).then(function (img) {
+      var w = img.naturalWidth || img.width, h = img.naturalHeight || img.height;
+      if (!w || !h) throw unreadable;
+      var scale = Math.min(1, PICTURE_MAX_SIDE / Math.max(w, h));
+      var canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(w * scale));
+      canvas.height = Math.max(1, Math.round(h * scale));
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      if (img.close) img.close();
+      var tries = [["image/webp", 0.85], ["image/jpeg", 0.85], ["image/jpeg", 0.7], ["image/jpeg", 0.5]];
+      return new Promise(function (resolve, reject) {
         (function next(i) {
           if (i >= tries.length) return reject(new ApiError(413, "invalid", "This picture could not be made small enough. Choose another one."));
           canvas.toBlob(function (blob) {
@@ -153,10 +155,27 @@
             else next(i + 1);
           }, tries[i][0], tries[i][1]);
         })(0);
-      };
-      img.onerror = function () { URL.revokeObjectURL(url); reject(new ApiError(400, "invalid", "This file could not be read as a picture. Choose a PNG, JPEG, GIF or WebP photo.")); };
-      img.src = url;
-    });
+      });
+    }, function () { throw unreadable; });
+  }
+
+  /** The file decoded without a blob: URL, which the site's Content-Security-Policy (img-src 'self' data:) refuses. */
+  function decodePicture(file) {
+    var viaDataUrl = function () {
+      return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          var img = new Image();
+          img.onload = function () { resolve(img); };
+          img.onerror = reject;
+          img.src = reader.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    };
+    if (typeof createImageBitmap === "function") return createImageBitmap(file).catch(viaDataUrl);
+    return viaDataUrl();
   }
 
   /** POST /api/account/picture: a new picture (any usual photo; scaled down here to fit E1's 256 KB) → { picture }. */

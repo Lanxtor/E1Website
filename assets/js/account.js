@@ -106,6 +106,7 @@
     $("[data-profile-family]").value = u.familyName || (u.givenName ? "" : String(u.name || "").split(/\s+/).slice(1).join(" "));
     $("[data-picture-remove]").hidden = !u.picture;
     $("[data-picture-label]").textContent = u.picture ? "Change picture" : "Upload picture";
+    $("[data-picture-upload]").title = u.picture ? "Change picture" : "Upload picture";
   }
 
   function renderHead(d) {

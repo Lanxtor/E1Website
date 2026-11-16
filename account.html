@@ -87,15 +87,18 @@
             <p class="section-note">Your name and picture, as E1, E1 Reviewer for iPad and E1 Mobile show them: next to your changes, comments, tasks and assignments.</p>
             <div class="profile-form">
               <div class="profile-picture">
-                <span class="account-avatar profile-avatar" data-profile-avatar aria-hidden="true"></span>
-                <div class="profile-picture-actions">
-                  <label class="btn btn-ghost btn-sm">
-                    <span data-picture-label>Upload picture</span>
+                <div class="profile-picture-row">
+                  <label class="icon-btn" title="Upload picture" data-picture-upload>
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m6 10 6-6 6 6"/><path d="M4 20h16"/></svg>
+                    <span class="visually-hidden" data-picture-label>Upload picture</span>
                     <input type="file" accept="image/*" data-picture-input class="visually-hidden" />
                   </label>
-                  <button class="btn btn-ghost btn-sm" type="button" data-picture-remove hidden>Remove picture</button>
-                  <p class="muted profile-hint">Any photo, PNG, JPEG, GIF or WebP, up to 30 MB. E1 makes it smaller for you.</p>
+                  <span class="account-avatar profile-avatar" data-profile-avatar aria-hidden="true"></span>
+                  <button class="icon-btn icon-btn-danger" type="button" title="Remove picture" aria-label="Remove picture" data-picture-remove hidden>
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg>
+                  </button>
                 </div>
+                <p class="muted profile-hint">Any photo up to 30 MB</p>
               </div>
               <form class="profile-names" data-profile-form>
                 <div class="field">
