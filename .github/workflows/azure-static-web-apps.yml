@@ -1,6 +1,8 @@
 # Publishes the website to Azure Static Web Apps (docs/AZURE-INTEGRATION.md).
 #
-# Every push to main publishes two versions of the same files:
+# Once a day (not on pushes: GitHub minutes cost money) and by hand
+# (Actions → Website on Azure → Run workflow), main is published as two
+# versions of the same files:
 #   - the full site to the second Static Web App, e1-website-preview
 #     (preview.lanxtor.com, password-protected in the portal: Configuration →
 #     Password protection), with the secret AZURE_STATIC_WEB_APPS_PREVIEW_TOKEN;
@@ -18,16 +20,14 @@
 name: Website on Azure
 
 on:
-  push:
-    branches: [main]
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches: [main]
   workflow_dispatch:
-  # Every working day after the European Central Bank publishes its rates,
-  # so the prices in EUR, GBP and NOK follow the day's exchange rate.
+  # Once a day, after the European Central Bank publishes its rates (working
+  # days), so the prices in EUR, GBP and NOK follow the day's exchange rate.
   schedule:
-    - cron: "35 15 * * 1-5"
+    - cron: "35 15 * * *"
 
 permissions:
   contents: read

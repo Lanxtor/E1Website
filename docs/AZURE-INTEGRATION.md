@@ -28,7 +28,7 @@ How the LANXTOR E1 website (this repository) moves from Netlify to Azure and con
    ```bash
    az staticwebapp create --name e1-website --resource-group e1-prod --location westeurope --sku Free
    ```
-2. **Connect this repository.** Copy the deployment token (*Manage deployment token*) into the GitHub repository secret `AZURE_STATIC_WEB_APPS_API_TOKEN`. `.github/workflows/azure-static-web-apps.yml` then publishes every push to `main`, and a preview address for each pull request. `staticwebapp.config.json` sets the security headers and short URLs (`/account`, `/login`, `/download`).
+2. **Connect this repository.** Copy the deployment token (*Manage deployment token*) into the GitHub repository secret `AZURE_STATIC_WEB_APPS_API_TOKEN`. `.github/workflows/azure-static-web-apps.yml` then publishes `main` once a day (15:35 UTC) and on Run workflow, and a preview address for each pull request. `staticwebapp.config.json` sets the security headers and short URLs (`/account`, `/login`, `/download`).
 3. **Check it on the Azure address** (`https://<name>.azurestaticapps.net`): every page, the clips, the download page. (The account page needs step 5 and the custom domain.)
 4. **Move lanxtor.com's DNS from Netlify DNS to Azure DNS, then the website.** The domain stays registered at GoDaddy. Today GoDaddy delegates the domain to Netlify's nameservers, and Netlify DNS holds its 7 records, among them Google Workspace mail. Two phases, so that neither mail nor the site goes down:
 
