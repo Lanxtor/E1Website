@@ -365,8 +365,8 @@
 
 <section class="g-feature" id="wf-dashboard-edit">
   <h2>Change a dashboard</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-dashboard-edit</span><span>Roadmap 33.5</span><span>Review checks S6</span></div>
-  <p class="g-summary">Edit changes the name and the tiles: add one from the catalogue, remove one, Save. Each save is a version; Versions lists the last 20 and restores one.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-dashboard-edit</span><span>Roadmap 33.5, 33.9</span><span>Review checks S6</span></div>
+  <p class="g-summary">Edit changes the name and the tiles on the grid itself: drag a tile by its handle to move it and by its corner to resize it, rename it on its bar, × removes it, and + in an empty place adds one from the tile gallery there. Save: each save is a version; Versions lists the last 20 and restores one.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The left rail → <span class="ui">Dashboards</span> → <span class="ui">Edit</span></dd>
     <dt>Who</dt><dd>A project dashboard: Manage project dashboards (Lead engineer, Project administrator); the organization's: Manage organization dashboards</dd>
@@ -374,8 +374,11 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Edit</span>, choose <em>Days in step</em> in <span class="ui">Add a tile</span>, and <span class="ui">Save</span>.</td><td>“Saved as version 1.” The tile is below the others. A standard dashboard saved becomes the project's own.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Versions</span> and <span class="ui">Restore</span> on an earlier one.</td><td>It is restored as the newest version.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Edit</span>, then <span class="ui">+</span> in an empty place on the grid (or <span class="ui">+ Add a tile</span> under the tiles).</td><td>The tile gallery opens: the groups on the left (All tiles, Progress and workflow, Objects, Data completeness, Tasks, markups and documents, Branches, Across projects, Over time, Text), each tile with a picture of what it draws. Tiles that cannot go on this dashboard are greyed with the reason.</td></tr>
+      <tr><td>2</td><td>Choose <em>Days in step</em>.</td><td>The tile is where you clicked; tiles in its way move down.</td></tr>
+      <tr><td>3</td><td>Drag the tile by its handle (the dots left of its title) to another place, and drag its bottom-right corner to make it wider. On the keyboard: the arrow keys on the handle or on the corner.</td><td>It snaps to the grid; tiles never overlap.</td></tr>
+      <tr><td>4</td><td>Click its title and type a new one; add a <em>Note</em> and type its text. Click <span class="ui">Save</span>.</td><td>“Saved as version 1.” A standard dashboard saved becomes the project's own.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Versions</span> and <span class="ui">Restore</span> on an earlier one.</td><td>It is restored as the newest version.</td></tr>
     </tbody>
   </table></div>
   <p class="g-related">Related:  <a href="#wf-dashboards">Dashboards</a> · <a href="#wf-dashboard-audience">Who sees it</a></p>
