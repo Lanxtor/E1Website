@@ -42,7 +42,7 @@
   <figure class="g-shot"><img src="assets/img/guides/query-view.webp" alt="The Query: Assets tab with 48 rows and the columns Owner, Name and Class; the bar holds Filter, Find and replace…, Export, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption>A new query on Assets: 48 rows, sorted by Name.</figcaption></figure>
   <p class="g-note">The Name column shows an object's tag, or its name when it has no tag. Ports and objects in the Bin are not rows. An empty result reads “No objects below &lt;start&gt;.”.</p>
   <p class="g-note">The <span class="ui">Query</span> item is not offered in the Bin, on a case or on a voided object.</p>
-  <p class="g-note">A section's page (click <span class="ui">Assets</span> once) has <span class="ui">New query…</span> and <span class="ui">From a sentence…</span> in its row of buttons, after <span class="ui">Import</span> and <span class="ui">Export</span>: one click opens the same query of everything in the section.</p>
+  <p class="g-note">A section's page (click <span class="ui">Assets</span> once) has <span class="ui">New query…</span> and <span class="ui">Query in words…</span> in its row of buttons, after <span class="ui">Import</span> and <span class="ui">Export</span>: one click opens the same query of everything in the section. The <span class="ui">Tasks</span> section has its <span class="ui">All</span> filter instead.</p>
   <p class="g-warn">A query tab whose definition is gone shows “This query is no longer open. Open it again from the explorer: right-click, Query, New query.”.</p>
   <p class="g-warn">Speed has been measured up to 20,000 objects; very large projects may be slower.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-sort">Sort by a column</a>, <a href="guide-lists.html#list-columns">Choose the columns</a>, <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-workspace-query">Query over every project of the organization</a>, <a href="guide-projects.html#prj-sections">The sections of a project</a></p>
@@ -614,16 +614,16 @@
 
 <section class="g-feature" id="list-sentence-query">
   <h2>Queries from a sentence</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span><span>Review checks L9</span></div>
-  <p class="g-summary">Right-click a project, section or object and choose Query → From a sentence…: write “all pumps without a motor” and the query view opens with the matching rows, ready to adjust.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-16</span><span class="g-id">LIST-sentence-query</span><span>Roadmap 05.5b</span><span>Review checks L9</span></div>
+  <p class="g-summary">Right-click a project, section or object and choose Query → Query in words…: write “all pumps without a motor” and the query view opens with the matching rows, ready to adjust.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The explorer: right-click → <span class="ui">Query</span> → <span class="ui">From a sentence…</span>; or a section's page → <span class="ui">From a sentence…</span></dd>
+    <dt>Where</dt><dd>The explorer: right-click → <span class="ui">Query</span> → <span class="ui">Query in words…</span>; or a section's page → <span class="ui">Query in words…</span></dd>
     <dt>Who</dt><dd>Any project role that may view the project</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click <em>Assets</em> and choose <span class="ui">Query</span> → <span class="ui">From a sentence…</span>.</td><td><span class="ui">Query from a sentence</span> asks what the list should show, with examples.</td></tr>
+      <tr><td>1</td><td>Right-click <em>Assets</em> and choose <span class="ui">Query</span> → <span class="ui">Query in words…</span>.</td><td><span class="ui">Query in words</span> asks which objects to list, with examples under the box that fill it with one click.</td></tr>
       <tr><td>2</td><td>Write <em>all pumps without a motor</em> and choose <span class="ui">Make the list</span>.</td><td>A query view opens: the pumps below Assets that no motor drives. Its filter in words says <em>Has no related Motor (with subclasses)</em>.</td></tr>
       <tr><td>3</td><td>Try <em>valves with a design pressure over 10 bar</em>.</td><td>The valves over 10 bar(g) or its equal in other units, with a <em>Design pressure</em> column.</td></tr>
       <tr><td>4</td><td>Write <em>pumps painted blue</em>.</td><td>E1 says what it understood (<em>Pump</em>) and what not (<em>painted blue</em>); <span class="ui">Open anyway</span> opens the list without it.</td></tr>
