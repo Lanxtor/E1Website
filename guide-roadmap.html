@@ -7,7 +7,7 @@
   <meta name="description" content="The E1 build roadmap.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=144">
+  <link rel="stylesheet" href="assets/css/styles.css?v=145">
   <link rel="stylesheet" href="assets/css/guides.css?v=3">
 </head>
 <body>
@@ -85,7 +85,7 @@
         </section>
         <section class="g-feature" id="app-m1">
           <h2>M1 Object model — E1 app</h2>
-          <div class="g-meta"><span>15 of 15 stages done</span><span>MVP</span></div>
+          <div class="g-meta"><span>16 of 16 stages done</span><span>MVP</span></div>
           <p class="g-summary">Every engineering thing becomes one object with one owner, a class from a versioned library, attributes with sub-attributes and units, and typed relationships to other objects across sections. The library defines how objects behave (where they may live, what they may contain and relate to), and every tool follows the same rules. Tags come from the project&#x27;s own naming rules. Today&#x27;s symbols move into signed content packages as records, and every command works object by object, ready for the database of M2.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>M1.0</td><td>Parity, enforcement, and the evaluation set</td><td><span class="g-status available">Done 2026-11-02</span></td><td>Parity checks and the AI evaluation set. Nothing new on screen.</td></tr>
@@ -103,6 +103,7 @@
             <tr><td>M1.10</td><td>Place on drawing: a drawing picker, and Pick the spot</td><td><span class="g-status available">Done 2026-11-13</span></td><td>Right-click an instrument under Assets → Place on drawing…: find a P&amp;ID by number, title or folder (drawings with no fitting shape are left out), then Pick the spot and click where it goes, into a pipe when on one. Ctrl-click several objects first to place them in turn.</td></tr>
             <tr><td>M1.11</td><td>New … at every level of the explorer, and icons for what E1 keeps</td><td><span class="g-status available">Done 2026-11-13</span></td><td>Right-click a system → New system…, then right-click the new one for the next level: each shows inside the one above. Under Assets, the folders E1 keeps (Pipelines, Cables and wires, Signal lines, Hookups) are filled, your own outlined; cables, pipelines and streams have icons of their own.</td></tr>
             <tr><td>M1.12</td><td>Projects: every project as a card, only yours in the explorer</td><td><span class="g-status available">Done 2026-11-13</span></td><td>Click Projects on the left rail: every project is a card with a picture of a sheet. Remove from Explorer on one card (or right-click a project in the tree): it leaves the tree, and a link below the tree counts it. Add to Explorer, Open, or a new project brings one in.</td></tr>
+            <tr><td>M1.13</td><td>Projects: tiles or a list, pins, and every action on a project</td><td><span class="g-status available">Done 2026-11-16</span></td><td>In Projects, switch Tiles and List: the list has a row per project with small icon buttons at its end. Pin, Duplicate, Download, Make read-only, drag to rearrange or Delete a project; &quot;…&quot; and right-click list every action.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m2">
@@ -144,7 +145,7 @@
         </section>
         <section class="g-feature" id="app-m4">
           <h2>M4 Documents — E1 app</h2>
-          <div class="g-meta"><span>39 of 41 stages done</span><span>MVP</span></div>
+          <div class="g-meta"><span>38 of 40 stages done</span><span>MVP</span></div>
           <p class="g-summary">Datasheets designed by the users: each object has its datasheet, where values are viewed and edited, and the same layout prints. Documents with revisions and issues, PDF of 2D spaces, lists, and datasheets with a title block, Excel import, search, object history, comments, tasks, generated loop diagrams, Alex&#x27;s engineering patterns, redlining (markups on a 2D space, review rounds, marked-up prints), specification attributes for instruments, and document control (versions and revisions on the sheet, changes since a date, clouds in outputs). Everyone sees who else has the same sheet open (presence; no live pointers). M4 ends with pilot readiness: access control first (permissions by category, custom roles, who sees what, objects assigned to a person or group, an exportable access history), then a second cloud, billing, a signed desktop app, passkeys, and the security and legal reviews a pilot partner needs.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>07.1</td><td>Object history and search</td><td><span class="g-status available">Done 2026-11-05</span></td><td>Rename a pump, open it, and see the change on its History tab with the name before and after; Undo this change takes it back. Search the explorer for a tag, a name, or a line number.</td></tr>
@@ -166,7 +167,6 @@
             <tr><td>23.3</td><td>Redlining: markups on revisions, and marked-up prints</td><td><span class="g-status available">Done 2026-11-12</span></td><td>Mark up B beside a plot document&#x27;s revision, move a marked valve and see Δ on its markup, then Markups list → Marked-up print: the PDF has the markups, a legend and the watermark; issuing ignores them.</td></tr>
             <tr><td>24.1</td><td>Specification attributes and classes for instruments</td><td><span class="g-status available">Done 2026-11-12</span></td><td>Make an Electromagnetic flowmeter or a pressure transmitter: its Attributes tab has the specification data of its datasheet (ranges, output signal, wetted materials, enclosure), and its process connection port its size and rating. Pumps and exchangers have their API data too.</td></tr>
             <tr><td>PR1</td><td>Pilot readiness: organization export, seat notices, customer-cloud path</td><td><span class="g-status available">Done 2026-11-05</span></td><td>As an owner, Organization… → Export → Export everything…, confirm with your passkey: the archive of the whole organization downloads. Assigning the license that fills 80 % or 100 % of the seats puts a notice in the Inbox of every owner and administrator.</td></tr>
-            <tr><td>PR4</td><td>Pilot readiness: signed license files for customer installations</td><td><span class="g-status available">Done 2026-11-16</span></td><td>On E1 in your own Azure, as the Owner: File → Organization… → Members → Load license file…, choose the .e1license file from LANXTOR. The License line shows the plan, seats, valid until and Valid, Expires in N days, or Read-only.</td></tr>
             <tr><td>09.6s</td><td>Access control: hardening of the permission checks</td><td><span class="g-status available">Done 2026-11-07</span></td><td>A sheet&#x27;s Share no longer offers Project administrator, and a role there needs a role on the project to open it. Behind it: no grant reaches another project, and nobody grants more than they hold.</td></tr>
             <tr><td>09.6a</td><td>Access control: permissions by category, ceilings, and custom roles</td><td><span class="g-status available">Done 2026-11-07</span></td><td>Organization… → Access → Roles: copy Engineer, untick Delete diagrams, save, and give it to a group in Members: a member is refused deleting a sheet. Admit a colleague with at most Engineer: higher roles are greyed out.</td></tr>
             <tr><td>09.6v</td><td>Access control: who sees what (reviewers and viewers)</td><td><span class="g-status available">Done 2026-11-10</span></td><td>Project settings → Access → Visible to: Editors only hides the project from reviewers and viewers. Right-click an attribute row on an object → Hide from viewers: signed in as a viewer, the row is not there.</td></tr>

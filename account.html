@@ -6,7 +6,7 @@
   <title>Your account — LANXTOR E1</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=144">
+  <link rel="stylesheet" href="assets/css/styles.css?v=145">
 </head>
 <body class="has-plant-bg">
   <div id="site-header"></div>
@@ -87,15 +87,18 @@
             <p class="section-note">Your name and picture, as E1, E1 Reviewer for iPad and E1 Mobile show them: next to your changes, comments, tasks and assignments.</p>
             <div class="profile-form">
               <div class="profile-picture">
-                <span class="account-avatar profile-avatar" data-profile-avatar aria-hidden="true"></span>
-                <div class="profile-picture-actions">
-                  <label class="btn btn-ghost btn-sm">
-                    <span data-picture-label>Upload picture</span>
-                    <input type="file" accept="image/png,image/jpeg,image/gif,image/webp" data-picture-input class="visually-hidden" />
+                <div class="profile-picture-row">
+                  <label class="icon-btn" title="Upload picture" data-picture-upload>
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m6 10 6-6 6 6"/><path d="M4 20h16"/></svg>
+                    <span class="visually-hidden" data-picture-label>Upload picture</span>
+                    <input type="file" accept="image/*" data-picture-input class="visually-hidden" />
                   </label>
-                  <button class="btn btn-ghost btn-sm" type="button" data-picture-remove hidden>Remove picture</button>
-                  <p class="muted profile-hint">PNG, JPEG, GIF or WebP, at most 256 KB.</p>
+                  <span class="account-avatar profile-avatar" data-profile-avatar aria-hidden="true"></span>
+                  <button class="icon-btn icon-btn-danger" type="button" title="Remove picture" aria-label="Remove picture" data-picture-remove hidden>
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg>
+                  </button>
                 </div>
+                <p class="muted profile-hint">Any photo up to 30 MB</p>
               </div>
               <form class="profile-names" data-profile-form>
                 <div class="field">
@@ -273,8 +276,8 @@
 
           <section id="downloads" class="account-section">
             <h2>Downloads</h2>
-            <p class="section-note">Install E1 on your computer, then sign in with this account. You can also use E1 in the browser without installing anything.</p>
-            <div class="grid grid-3" data-downloads></div>
+            <p class="section-note">Install E1 on your computer, E1 Reviewer on your iPad and E1 Mobile on your phone, then sign in with this account. You can also use E1 in the browser without installing anything.</p>
+            <div class="grid grid-4" data-downloads></div>
             <p class="meta-line" data-release-line></p>
           </section>
         </div>
@@ -289,7 +292,7 @@
   <script src="assets/js/e1-api.js?v=7"></script>
   <script src="assets/js/main.js?v=41"></script>
   <script src="assets/js/chat.js?v=7"></script>
-  <script src="assets/js/downloads.js?v=8"></script>
+  <script src="assets/js/downloads.js?v=9"></script>
   <script src="assets/js/account.js?v=7"></script>
 </body>
 </html>

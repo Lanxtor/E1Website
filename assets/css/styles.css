@@ -632,10 +632,11 @@ body.has-plant-bg::before {
 }
 
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 
-@media (max-width: 960px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .grid-3, .grid-4, .grid-2 { grid-template-columns: 1fr; } }
 
 .card {
   padding: 0;
@@ -2174,9 +2175,16 @@ code {
 .profile-form { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; align-items: start; }
 .profile-picture { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .profile-avatar { width: 96px; height: 96px; font-size: 1.8rem; }
-.profile-picture-actions { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.profile-picture-actions label.btn { cursor: pointer; position: relative; }
-.profile-picture-actions label.btn:focus-within { outline: 2px solid var(--brand); outline-offset: 2px; }
+.profile-picture-row { display: grid; grid-template-columns: 36px auto 36px; align-items: center; gap: 10px; }
+.profile-picture-row [data-picture-upload] { grid-column: 1; }
+.profile-picture-row .profile-avatar { grid-column: 2; }
+.profile-picture-row [data-picture-remove] { grid-column: 3; }
+.icon-btn { width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); background: var(--bg); color: var(--brand); cursor: pointer; position: relative; padding: 0; }
+.icon-btn:hover { border-color: var(--brand); }
+.icon-btn:focus-visible, .icon-btn:focus-within { outline: 2px solid var(--brand); outline-offset: 2px; }
+.icon-btn-danger { color: #c62828; }
+.icon-btn-danger:hover { border-color: #c62828; }
+.icon-btn[hidden] { display: none; }
 .profile-hint { font-size: 0.8rem; text-align: center; max-width: 160px; }
 .profile-names { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; max-width: 560px; }
 .profile-names .field input { border-color: var(--line); background: var(--bg); }
