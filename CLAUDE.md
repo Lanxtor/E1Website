@@ -18,3 +18,7 @@ The user guides (`tools/guides/`, rules in `docs/USER-GUIDES.md`) describe every
 - Never rename or remove a feature id, and keep its `anchor` stable. If one must change, update the E1 Guide's lessons in the same week.
 - After changing the guides: `python3 tools/guides/build.py --check`, then in `Lanxtor/E1` run `node scripts/sync-guide-links.mjs` and its check (`npx vitest run tests/client/trainerKnowledge.test.mjs`).
 - A new guide feature for something on screen gets an E1 Guide step too.
+
+## Published apps are updated everywhere at once (owner's rule)
+
+When an app is published (desktop installer, E1 Reviewer for iPad, E1 Mobile), every place on the website that offers it changes in the same change: the buttons at the top of Get E1 (`download.html`), the cards under Downloads on the account page (`account.html`), the release manifest (`assets/data/releases.json` here and E1's seed `deploy/downloads/releases.json`) and the user guide. Details: `docs/AZURE-INTEGRATION.md` ("Downloads").
