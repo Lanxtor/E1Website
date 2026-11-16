@@ -115,6 +115,46 @@
     });
   };
 
+  /**
+   * POST /api/account/profile: the person's first and last name (the profile E1, E1
+   * Reviewer for iPad and E1 Mobile show, with their picture). The full name is
+   * the two together, so every place that shows the person shows them.
+   */
+  E1.saveProfile = function (givenName, familyName) {
+    var given = String(givenName || "").trim(), family = String(familyName || "").trim();
+    if (E1.isDemo()) {
+      DEMO.user.givenName = given; DEMO.user.familyName = family; DEMO.user.name = [given, family].filter(Boolean).join(" ");
+      return later({ ok: true, user: DEMO.user });
+    }
+    return request("POST", "/api/account/profile", { givenName: given, familyName: family });
+  };
+
+  /** POST /api/account/picture: a new picture (PNG, JPEG, GIF or WebP, at most 256 KB) → { picture }. */
+  E1.uploadPicture = function (file) {
+    if (!file || !/^image\/(png|jpeg|gif|webp)$/.test(file.type)) return Promise.reject(new ApiError(400, "invalid", "Choose a PNG, JPEG, GIF or WebP picture."));
+    if (file.size > 256 * 1024) return Promise.reject(new ApiError(413, "invalid", "The picture is larger than 256 KB. Choose a smaller one."));
+    if (E1.isDemo()) {
+      DEMO.user.picture = URL.createObjectURL(file);
+      return later({ ok: true, picture: DEMO.user.picture });
+    }
+    var headers = { Accept: "application/json", "Content-Type": file.type };
+    if (csrf) headers["X-E1-CSRF"] = csrf;
+    return fetch(base + "/api/account/picture", { method: "POST", credentials: "include", headers: headers, body: file }).then(function (res) {
+      return res.json().catch(function () { return null; }).then(function (data) {
+        if (!res.ok) throw new ApiError(res.status, (data && data.error && data.error.code) || "http_" + res.status, (data && data.error && data.error.message) || "The picture could not be saved.");
+        return data;
+      });
+    }, function () {
+      throw new ApiError(0, "unreachable", "The E1 cloud could not be reached. Check your connection and try again.");
+    });
+  };
+
+  /** DELETE /api/account/picture: no picture (the sign-in provider's comes back at the next sign-in). */
+  E1.removePicture = function () {
+    if (E1.isDemo()) { DEMO.user.picture = null; return later({ ok: true }); }
+    return request("DELETE", "/api/account/picture");
+  };
+
   /** POST /auth/switch: work in another organization. */
   E1.switchOrg = function (orgId) {
     if (E1.isDemo()) {
@@ -304,7 +344,7 @@
    */
   var DEMO = {
     csrf: "",
-    user: { id: "u-demo", email: "alex.morgan@example.com", name: "Alex Morgan", locale: "en", timeZone: "Europe/Berlin" },
+    user: { id: "u-demo", email: "alex.morgan@example.com", name: "Alex Morgan", givenName: "Alex", familyName: "Morgan", picture: null, locale: "en", timeZone: "Europe/Berlin" },
     org: { id: "org-acme", name: "Acme Process Engineering" },
     orgs: [
       { id: "org-acme", name: "Acme Process Engineering", role: "admin", license: "editor" },

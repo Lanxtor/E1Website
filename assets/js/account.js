@@ -78,9 +78,40 @@
 
   /* ---------- sections ---------- */
 
+  /** The person's name: first and last name, else the full name, else the email. */
+  function fullName(u) {
+    return [u.givenName, u.familyName].filter(Boolean).join(" ") || u.name || u.email || "";
+  }
+
+  /** A round picture, or the initials when there is none. */
+  function paintAvatar(el, u) {
+    el.innerHTML = "";
+    if (u.picture) {
+      var img = document.createElement("img");
+      img.src = /^blob:/.test(u.picture) ? u.picture : safeUrl(u.picture);
+      img.alt = "";
+      img.onerror = function () { el.textContent = initials(fullName(u), u.email); };
+      el.appendChild(img);
+    } else {
+      el.textContent = initials(fullName(u), u.email);
+    }
+  }
+
+  var current = null;
+
+  function renderProfile(d) {
+    var u = d.user;
+    paintAvatar($("[data-profile-avatar]"), u);
+    $("[data-profile-given]").value = u.givenName || (u.familyName ? "" : String(u.name || "").split(/\s+/)[0] || "");
+    $("[data-profile-family]").value = u.familyName || (u.givenName ? "" : String(u.name || "").split(/\s+/).slice(1).join(" "));
+    $("[data-picture-remove]").hidden = !u.picture;
+    $("[data-picture-label]").textContent = u.picture ? "Change picture" : "Upload picture";
+  }
+
   function renderHead(d) {
-    $("[data-avatar]").textContent = initials(d.user.name, d.user.email);
-    $("[data-user-name]").textContent = d.user.name || d.user.email;
+    current = d;
+    paintAvatar($("[data-avatar]"), d.user);
+    $("[data-user-name]").textContent = fullName(d.user);
     $("[data-user-email]").textContent = d.user.email;
     $all("[data-org-name]").forEach(function (el) { el.textContent = d.org ? d.org.name : "your organization"; });
 
@@ -434,6 +465,7 @@
   function render(d) {
     $("[data-demo-banner]").hidden = !E1.isDemo();
     renderHead(d);
+    renderProfile(d);
     renderOverview(d);
     renderAcademy(d);
     renderLicenses(d);
@@ -479,8 +511,18 @@
   }
 
   root.addEventListener("click", function (e) {
-    var t = e.target.closest("[data-switch],[data-logout],[data-retry],[data-billing-portal]");
+    var t = e.target.closest("[data-switch],[data-logout],[data-retry],[data-billing-portal],[data-picture-remove]");
     if (!t) return;
+    if (t.hasAttribute("data-picture-remove")) {
+      t.disabled = true;
+      E1.removePicture().then(function () {
+        t.disabled = false;
+        current.user.picture = null;
+        profileChanged();
+        profileStatus("Picture removed.");
+      }, function (err) { t.disabled = false; profileStatus(err.message); });
+      return;
+    }
     if (t.hasAttribute("data-switch")) switchOrg(t.getAttribute("data-switch"));
     if (t.hasAttribute("data-retry")) load();
     if (t.hasAttribute("data-logout")) {
@@ -496,7 +538,42 @@
     }
   });
 
+  function profileStatus(text) { $("[data-profile-status]").textContent = text; }
+
+  function profileChanged() {
+    renderHead(current);
+    renderProfile(current);
+  }
+
+  root.addEventListener("submit", function (e) {
+    if (!e.target.matches("[data-profile-form]")) return;
+    e.preventDefault();
+    var given = $("[data-profile-given]").value.trim(), family = $("[data-profile-family]").value.trim();
+    if (!given && !family) { profileStatus("Type your first name, your last name or both."); return; }
+    var button = $("[data-profile-save]");
+    button.disabled = true;
+    profileStatus("Saving…");
+    E1.saveProfile(given, family).then(function () {
+      button.disabled = false;
+      current.user.givenName = given; current.user.familyName = family; current.user.name = [given, family].filter(Boolean).join(" ");
+      profileChanged();
+      profileStatus("Saved.");
+    }, function (err) { button.disabled = false; profileStatus(err.message); });
+  });
+
   root.addEventListener("change", function (e) {
+    if (e.target.matches("[data-picture-input]")) {
+      var file = e.target.files && e.target.files[0];
+      e.target.value = "";
+      if (!file) return;
+      profileStatus("Uploading the picture…");
+      E1.uploadPicture(file).then(function (r) {
+        current.user.picture = (r && r.picture) || current.user.picture;
+        profileChanged();
+        profileStatus("Picture saved.");
+      }, function (err) { profileStatus(err.message); });
+      return;
+    }
     if (e.target.matches("[data-org-select]")) switchOrg(e.target.value);
   });
 

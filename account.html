@@ -62,6 +62,7 @@
       <div class="account-layout">
         <nav class="account-nav" aria-label="Account">
           <a href="#overview">Overview</a>
+          <a href="#profile">Profile</a>
           <a href="#academy">Academy</a>
           <a class="account-nav-sub" href="#academy-courses">Courses</a>
           <a class="account-nav-sub" href="#academy-guides">User guides</a>
@@ -79,6 +80,38 @@
           <section id="overview" class="account-section">
             <h2>Overview</h2>
             <div class="stat-grid" data-overview></div>
+          </section>
+
+          <section id="profile" class="account-section">
+            <h2>Profile</h2>
+            <p class="section-note">Your name and picture, as E1, E1 Reviewer for iPad and E1 Mobile show them: next to your changes, comments, tasks and assignments.</p>
+            <div class="profile-form">
+              <div class="profile-picture">
+                <span class="account-avatar profile-avatar" data-profile-avatar aria-hidden="true"></span>
+                <div class="profile-picture-actions">
+                  <label class="btn btn-ghost btn-sm">
+                    <span data-picture-label>Upload picture</span>
+                    <input type="file" accept="image/png,image/jpeg,image/gif,image/webp" data-picture-input class="visually-hidden" />
+                  </label>
+                  <button class="btn btn-ghost btn-sm" type="button" data-picture-remove hidden>Remove picture</button>
+                  <p class="muted profile-hint">PNG, JPEG, GIF or WebP, at most 256 KB.</p>
+                </div>
+              </div>
+              <form class="profile-names" data-profile-form>
+                <div class="field">
+                  <label for="profile-given">First name</label>
+                  <input id="profile-given" name="givenName" autocomplete="given-name" maxlength="200" data-profile-given />
+                </div>
+                <div class="field">
+                  <label for="profile-family">Last name</label>
+                  <input id="profile-family" name="familyName" autocomplete="family-name" maxlength="200" data-profile-family />
+                </div>
+                <div class="profile-save">
+                  <button class="btn btn-primary btn-sm" type="submit" data-profile-save>Save</button>
+                  <span class="muted" role="status" data-profile-status></span>
+                </div>
+              </form>
+            </div>
           </section>
 
           <section id="academy" class="account-section">
