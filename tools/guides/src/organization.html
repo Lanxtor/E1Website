@@ -134,6 +134,34 @@
   <p class="g-related">Related: <a href="#org-pro-features">Pro features in an Editor Basic organization</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="guide-account.html#web-pricing">Licenses, prices, currencies and the trial</a></p>
 </section>
 
+<section class="g-feature" id="org-license-file">
+  <h2>The license file of E1 in your own Azure</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span>Updated 2026-11-16</span><span class="g-id">ORG-license-file</span><span>Roadmap PR4</span></div>
+  <p class="g-summary">When your company runs E1 in its own Microsoft Azure, LANXTOR sends a <strong>license file</strong> (<code>&lt;your company&gt;.e1license</code>). It states your plan, the seats of each license, the content packages and the dates it is valid, and it is signed by LANXTOR, so E1 checks it on its own, offline. The Owner loads it once, and again each time LANXTOR sends a renewed one. E1 from LANXTOR (the cloud) has no license file: there the subscription is billed.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>, the <span class="ui">License</span> line under the plan</dd>
+    <dt>Who</dt><dd>The Owner (the permission <span class="ui">Manage billing</span>). Owners and Administrators get the notices in their Inbox.</dd>
+    <dt>Before you start</dt><dd>E1 installed in your own Azure, and the license file from LANXTOR for its address (for example <code>e1.your-company.com</code>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>As the Owner, choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>Under the plan, <span class="ui">Members</span> reads <span class="ui">License: No license file loaded. Your contract with LANXTOR says what is licensed until you load the license file.</span> with <span class="ui">Load license file…</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Load license file…</span> and choose the <code>.e1license</code> file from LANXTOR.</td><td>The line reads, for example, <span class="ui">License: Valid. Your company, plan Enterprise, valid until 28 February 2028.</span> and <span class="ui">Seats: 12 Editor, 4 Reviewer, 2 Administrator.</span> The plan, the seats and the content packages of the file apply at once, and loading it is in the audit log.</td></tr>
+      <tr><td>3</td><td>When LANXTOR sends a renewed file, click <span class="ui">Load license file…</span> again and choose it.</td><td>E1 asks first: <span class="ui">Replace the license file … with …? The plan, the seats and the dates of the new file apply at once.</span> Click <span class="ui">Replace</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>When it ends</h3>
+  <ul>
+    <li><strong>30 days before</strong> the end, the line reads <span class="ui">Expires in N days</span>, and every Owner and Administrator gets a notice in the Inbox.</li>
+    <li><strong>After the end</strong> comes a grace period (30 days unless your contract says otherwise): everything still works, and the line reads <span class="ui">Expired — read-only in N days</span>.</li>
+    <li><strong>After the grace period</strong> the line reads <span class="ui">Read-only</span>: everyone can still open, view and export everything, but nobody can change anything, until the Owner loads a renewed file. E1 is never locked.</li>
+  </ul>
+  <p class="g-note">E1 refuses a file that was changed after LANXTOR signed it, a file for another address, a file that is not valid yet and one whose grace period is over, and says why. Nothing is changed then.</p>
+  <p class="g-related">Related: <a href="#org-plan">Your organization's plan</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-audit">The audit log</a></p>
+</section>
+
 <section class="g-feature" id="org-logo">
   <h2>Your organization's name and logo</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-13</span><span>Updated 2026-11-13</span><span class="g-id">ORG-logo</span><span>Roadmap 09.21</span></div>
