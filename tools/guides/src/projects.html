@@ -138,8 +138,41 @@
   </table></div>
   <p class="g-note">With several projects ticked in <span class="ui">Project settings</span>, a change applies to all of them; a folder they differ on reads <span class="ui">Differs between the projects</span>. Someone in a group inside a ticked group is hidden from it too. Alex sets it with <code>set_organization_folder_visibility</code> and <code>set_folder_visibility</code>.</p>
   <p class="g-warn">A hidden folder is left out of the tree only. It is not a permission: its objects can still be opened from search, links, queries, drawings and Alex by anyone who may see them. To keep values from reviewers or viewers, hide the attributes instead.</p>
-  <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-organization.html#org-groups">Groups</a></p>
+  <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="guide-organization.html#org-groups">Groups</a> · <a href="#prj-tree-names">Choose what the tree shows as a name</a></p>
 </section>
+
+<section class="g-feature" id="prj-tree-names">
+  <h2>Choose what the tree shows as a name</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span>Updated 2026-11-16</span><span class="g-id">PRJ-tree-names</span><span>Roadmap 09.22</span></div>
+  <p class="g-summary">Each object's row in the tree shows one name. <span class="ui">Names in the tree</span> decides which: a list of fields tried from the top, and the first that has text is shown. E1 starts with <span class="ui">Tag</span>, then <span class="ui">Name</span>. You can put <span class="ui">Name</span> first, remove a field, or add attributes such as <span class="ui">Description</span>. The object class is always last, so no row is empty. Tasks, branches and commissioning packages have no tag, so they skip <span class="ui">Tag</span>.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Every project: <span class="ui">Configuration</span> → <span class="ui">Project defaults</span> → <span class="ui">Names in the tree</span>. One project: <span class="ui">Configuration</span> → <span class="ui">Project settings</span> → <span class="ui">Names in the tree</span>, or <span class="ui">Settings</span> (the gear) → <span class="ui">Project settings</span> → <span class="ui">Names in the tree</span></dd>
+    <dt>Who</dt><dd>Every project: administrators who manage the organization's policies. One project: who may configure the project (Project administrator and above)</dd>
+    <dt>Before you start</dt><dd>A project exists with objects in it.</dd>
+  </dl>
+  <h3>For every project</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration</span> and click <span class="ui">Project defaults</span> under <span class="ui">Projects</span>.</td><td>The card <span class="ui">Names in the tree</span> lists <span class="ui">Tag</span>, <span class="ui">Name</span> and, last, <span class="ui">Object class</span> (<span class="ui">Always last</span>).</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Up</span> beside <span class="ui">Name</span>.</td><td>“Saved. Name moved up in every project that follows the organization.” An object with a name shows its name in the tree; one without shows its tag; one with neither shows its class.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Add attribute…</span>, choose <span class="ui">Description</span> and click <span class="ui">Choose</span>.</td><td><span class="ui">Description</span> is listed after <span class="ui">Tag</span>. An object with no name and no tag shows its description.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Remove</span> beside <span class="ui">Description</span>, then <span class="ui">Use E1's order</span>.</td><td>The list is <span class="ui">Tag</span>, <span class="ui">Name</span> again.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>For one project</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Project settings</span>, select the project and click <span class="ui">Names in the tree</span>.</td><td><span class="ui">Order</span> reads <span class="ui">As the organization</span>, with the organization's order in brackets.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">This project's own</span>.</td><td>“Saved. Names in the tree has its own order in this project.” <span class="ui">Up</span>, <span class="ui">Down</span>, <span class="ui">Remove</span> and the add buttons appear; changes apply to this project only.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">As the organization</span> again.</td><td>The project follows <span class="ui">Project defaults</span> again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Only the name in the tree changes: the object, its tag and its name stay as they are. A pending tag (such as <code>P-???</code>) gives way to any later field with text. With several projects ticked, a change applies to all of them; an order they differ on reads <span class="ui">Differs between the projects</span>. Alex sets it with <code>set_organization_tree_names</code> and <code>set_tree_names</code>.</p>
+  <p class="g-related">Related: <a href="#prj-sections">The sections of a project</a> · <a href="#prj-hidden-folders">Hide a project's folders from the tree</a> · <a href="#prj-tree-rows">Rows, clicks and marks in the explorer</a></p>
+</section>
+
 
 <section class="g-feature" id="prj-tree-rows">
   <h2>Rows, clicks and marks in the explorer</h2>
