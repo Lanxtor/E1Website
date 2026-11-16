@@ -163,19 +163,19 @@
 <section class="g-feature" id="org-license-file">
   <h2>The license file of E1 in your own Azure</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span>Updated 2026-11-16</span><span class="g-id">ORG-license-file</span><span>Roadmap PR4</span></div>
-  <p class="g-summary">When your company runs E1 in its own Microsoft Azure, LANXTOR sends a <strong>license file</strong> (<code>&lt;your company&gt;.e1license</code>). It states your plan, the seats of each license, the content packages and the dates it is valid, and it is signed by LANXTOR, so E1 checks it on its own, offline. The Owner loads it once, and again each time LANXTOR sends a renewed one. E1 from LANXTOR (the cloud) has no license file: there the subscription is billed.</p>
+  <p class="g-summary">When your company runs E1 in its own Microsoft Azure, LANXTOR issues a <strong>license file</strong> (<code>&lt;your company&gt;.e1license</code>), which your Owners and Administrators download from their Account in E1 cloud (<a href="#org-own-license-file">Downloading the license file</a>). It states your plan, the seats of each license, the content packages and the dates it is valid, and it is signed by LANXTOR, so E1 checks it on its own, offline. The Owner loads it once, and again each time LANXTOR sends a renewed one. E1 from LANXTOR (the cloud) has no license file: there the subscription is billed.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span>, the <span class="ui">License</span> line under the plan</dd>
     <dt>Who</dt><dd>The Owner (the permission <span class="ui">Manage billing</span>). Owners and Administrators get the notices in their Inbox.</dd>
-    <dt>Before you start</dt><dd>E1 installed in your own Azure, and the license file from LANXTOR for its address (for example <code>e1.your-company.com</code>).</dd>
+    <dt>Before you start</dt><dd>E1 installed in your own Azure, and its license file, downloaded from <span class="ui">Account</span> → <span class="ui">Own installation</span> in E1 cloud, for its address (for example <code>e1.your-company.com</code>).</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>As the Owner, choose <span class="ui">File</span> → <span class="ui">Organization…</span>.</td><td>Under the plan, <span class="ui">Members</span> reads <span class="ui">License: No license file loaded. Your contract with LANXTOR says what is licensed until you load the license file.</span> with <span class="ui">Load license file…</span>.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Load license file…</span> and choose the <code>.e1license</code> file from LANXTOR.</td><td>The line reads, for example, <span class="ui">License: Valid. Your company, plan Enterprise, valid until 28 February 2028.</span> and <span class="ui">Seats: 12 Editor, 4 Reviewer, 2 Administrator.</span> The plan, the seats and the content packages of the file apply at once, and loading it is in the audit log.</td></tr>
-      <tr><td>3</td><td>When LANXTOR sends a renewed file, click <span class="ui">Load license file…</span> again and choose it.</td><td>E1 asks first: <span class="ui">Replace the license file … with …? The plan, the seats and the dates of the new file apply at once.</span> Click <span class="ui">Replace</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Load license file…</span> and choose the <code>.e1license</code> file you downloaded.</td><td>The line reads, for example, <span class="ui">License: Valid. Your company, plan Enterprise, valid until 28 February 2028.</span> and <span class="ui">Seats: 12 Editor, 4 Reviewer, 2 Administrator.</span> The plan, the seats and the content packages of the file apply at once, and loading it is in the audit log.</td></tr>
+      <tr><td>3</td><td>When LANXTOR issues a renewed file (you get an Inbox notice and an email in E1 cloud), download it and click <span class="ui">Load license file…</span> again and choose it.</td><td>E1 asks first: <span class="ui">Replace the license file … with …? The plan, the seats and the dates of the new file apply at once.</span> Click <span class="ui">Replace</span>.</td></tr>
     </tbody>
   </table></div>
   <h3>When it ends</h3>
@@ -185,7 +185,53 @@
     <li><strong>After the grace period</strong> the line reads <span class="ui">Read-only</span>: everyone can still open, view and export everything, but nobody can change anything, until the Owner loads a renewed file. E1 is never locked.</li>
   </ul>
   <p class="g-note">E1 refuses a file that was changed after LANXTOR signed it, a file for another address, a file that is not valid yet and one whose grace period is over, and says why. Nothing is changed then.</p>
-  <p class="g-related">Related: <a href="#org-plan">Your organization's plan</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-audit">The audit log</a></p>
+  <p class="g-related">Related: <a href="#org-plan">Your organization's plan</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-audit">The audit log</a> · <a href="#org-own-license-file">Downloading the license file</a></p>
+</section>
+
+<section class="g-feature" id="org-own-installation">
+  <h2>E1 in your own Azure: the installation package</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span>Updated 2026-11-16</span><span class="g-id">ORG-own-installation</span><span>Roadmap PR5</span></div>
+  <p class="g-summary">When your organization runs E1 in its own Microsoft Azure (your IT runs it, or LANXTOR runs it in your Azure), you get everything to install it from your profile in E1 cloud, in two separate downloads: the <strong>installation package</strong> once, and the <strong>license file</strong> each time LANXTOR issues one (<a href="#org-own-license-file">Downloading the license file</a>). The package is the newest release of E1, your access to E1's releases and a short <em>Start here</em>, in one zip.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>E1 cloud (app.lanxtor.com): <span class="ui">Account</span> → <span class="ui">Own installation</span></dd>
+    <dt>Who</dt><dd>The Owners and Administrators of the organization, once LANXTOR has turned Own installation on for it. Nobody else sees it.</dd>
+    <dt>Before you start</dt><dd>A passkey on your account, or be ready to sign in again: each download asks you to confirm it is you.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In E1 cloud, click your picture or initials at the bottom of the rail to open <span class="ui">Account</span>.</td><td>Under <span class="ui">Your access</span> is <span class="ui">Own installation</span>, which says who runs it, for example <span class="ui">Your IT runs it</span>.</td></tr>
+      <tr><td>2</td><td>Under <span class="ui">Installation package</span>, click <span class="ui">Download installation package</span>.</td><td><span class="ui">Confirm it is you</span> opens. Until LANXTOR has given your installation access to E1's releases, the button is greyed with the reason: <span class="ui">LANXTOR has not given your installation access to E1’s releases yet. You can download the package once it has.</span></td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Use passkey</span> and confirm with your screen lock (or <span class="ui">Sign in again</span>).</td><td><code>e1-installation-&lt;version&gt;.zip</code> downloads and <span class="ui">Installation package downloaded.</span> shows. It holds the release bundle <code>e1-azure-&lt;version&gt;.zip</code>, <code>e1-settings.env</code> (the version, the registry, its user and password, and your email as the owner of the new E1, unless you set another) and <code>START-HERE.txt</code>. The download is in your organization's audit log.</td></tr>
+      <tr><td>4</td><td>Give the zip to your IT. In Azure Cloud Shell they unzip it, unzip the bundle, run <code>source ../e1-settings.env</code> and follow <em>Install</em> in <code>deploy/azure/customer/README.md</code>.</td><td>Your own E1 is created in your Azure subscription and prints its address.</td></tr>
+      <tr><td>5</td><td>Under <span class="ui">Your E1’s address</span>, type the web address of your E1, for example <code>https://e1.your-company.com</code>, and click <span class="ui">Save address</span>.</td><td><span class="ui">Address saved. LANXTOR binds your license file to it.</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Keep <code>e1-settings.env</code> secret: it holds the password to E1's releases. The line under the button says until when your registry access is valid; LANXTOR renews it before then, and you download the package again for the new password.</p>
+  <p class="g-related">Related: <a href="#org-own-license-file">Downloading the license file</a> · <a href="#org-license-file">The license file of E1 in your own Azure</a> · <a href="guide-access.html#acc-passkeys">Passkeys</a></p>
+</section>
+
+<section class="g-feature" id="org-own-license-file">
+  <h2>E1 in your own Azure: downloading the license file</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span>Updated 2026-11-16</span><span class="g-id">ORG-own-license-file</span><span>Roadmap PR5</span></div>
+  <p class="g-summary">The license file of your own E1 is issued by LANXTOR and downloaded from your profile in E1 cloud, separately from the installation package. Each time LANXTOR issues one, for example a renewal, your Owners and Administrators get an Inbox notice and an email. Then you load it in your own E1 (<a href="#org-license-file">The license file of E1 in your own Azure</a>).</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>E1 cloud (app.lanxtor.com): <span class="ui">Account</span> → <span class="ui">Own installation</span> → <span class="ui">License file</span></dd>
+    <dt>Who</dt><dd>The Owners and Administrators of the organization, once LANXTOR has turned Own installation on for it.</dd>
+    <dt>Before you start</dt><dd>LANXTOR has issued a license file. Until then the button is greyed with the reason: <span class="ui">LANXTOR has not issued a license file for your installation yet. You get an Inbox notice and an email when it is ready.</span></dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Account</span> → <span class="ui">Own installation</span>.</td><td>Under <span class="ui">License file</span>: the plan, the seats, <span class="ui">valid until</span> and the state, for example <span class="ui">Enterprise · 25 Editor, 10 Reviewer · valid until 29 February 2028 · Valid</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Download license file</span> and confirm it is you.</td><td><code>&lt;your organization&gt;.e1license</code> downloads and <span class="ui">License file downloaded.</span> shows. The download is in your organization's audit log.</td></tr>
+      <tr><td>3</td><td>In your own E1, choose <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span> → <span class="ui">Load license file…</span> and choose the file.</td><td>The <span class="ui">License</span> line shows the plan, the seats and <span class="ui">valid until</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Earlier license files are listed under <span class="ui">Earlier license files</span>, each with <span class="ui">Download</span>. A license file is bound to the address under <span class="ui">Your E1’s address</span>: when the address of your E1 changes, type the new one and ask LANXTOR for a new file.</p>
+  <p class="g-related">Related: <a href="#org-license-file">The license file of E1 in your own Azure</a> · <a href="#org-own-installation">The installation package</a> · <a href="guide-access.html#acc-passkeys">Passkeys</a></p>
 </section>
 
 <section class="g-feature" id="org-logo">
