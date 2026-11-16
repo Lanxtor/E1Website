@@ -137,6 +137,32 @@
   <p class="g-related">Related: <a href="guide-documents.html#doc-revisions">Versions and revisions of a document</a>, <a href="guide-documents.html#doc-issue">Issue a revision</a>, <a href="guide-documents.html#doc-reports">Reports: several saved queries in one document</a></p>
 </section>
 
+<section class="g-feature" id="doc-deliverables">
+  <h2>Deliverables: preview and issue the project's document set</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span class="g-id">DOC-deliverables</span><span>Roadmap 29.8</span></div>
+  <p class="g-summary">The Documents section's page has <span class="ui">Deliverables</span>: the set the project hands over. It binds the chosen drawings with the profile's reports and datasheets into one PDF, with a cover, an index and page numbers, shows it right on the page, and issues it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Click <span class="ui">Documents</span> in the explorer → <span class="ui">Deliverables</span></dd>
+    <dt>Who</dt><dd>Configure documents to change the set; create revisions to issue it</dd>
+    <dt>Before you start</dt><dd>The project has at least one 2D space. The profile's page sizes, reports and datasheets are set in Configuration → <span class="ui">Deliverable profiles</span>.</dd>
+  </dl>
+  <h3>How it works</h3>
+  <p>What many projects share is made once in Configuration (the <strong>deliverable profile</strong>: page size per kind of document, page numbers, where reports and datasheets go). Project settings → Documents chooses the profile and the project's numbering. This page makes the set: which drawings, reports and datasheets, then preview and issue.</p>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Documents</span> in the explorer.</td><td>The page shows <span class="ui">Deliverables</span> with the <span class="ui">Deliverable profile</span>, links <span class="ui">Project settings</span> and <span class="ui">Edit in Configuration</span>, the drawings tree, <span class="ui">Reports and datasheets</span> and the buttons.</td></tr>
+      <tr><td>2</td><td>Untick one 2D space in the drawings tree.</td><td>The heading reads Drawings: n of m with one fewer; the choice is saved.</td></tr>
+      <tr><td>3</td><td>Tick a report under <span class="ui">Reports and datasheets</span>.</td><td>It is in the set, at the place the profile gives it.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Preview PDF</span>.</td><td>“Writing the PDF…”, then the whole set opens in the viewer on the page, marked DRAFT: cover, index, drawings, reports and datasheets, with page numbers.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Issue…</span>, choose a <span class="ui">Purpose of issue</span> and click <span class="ui">Issue the set</span>.</td><td>The set is issued with the next revision of the project's numbering; it is listed under <span class="ui">Issued sets</span> and filed as a document in Documents.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">View</span> on an issued set.</td><td>Its PDF opens in the viewer; <span class="ui">Open in a new tab</span> opens it full size.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-library.html#lib-documents-deliverable-profiles">Deliverable profiles</a>, <a href="guide-documents.html#doc-pdf-package">PDF packages</a></p>
+</section>
+
 <section class="g-feature" id="doc-upload">
   <h2>Uploaded documents: revise a PDF from outside</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-12</span><span class="g-id">DOC-upload</span><span>Roadmap 07.2, 29.1</span><span>Review check E4</span></div>
@@ -436,18 +462,18 @@
 
 <section class="g-feature" id="doc-document-settings">
   <h2>Project settings → Documents</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Roadmap 29.1, 29.5, 29.6</span><span>Review check E9</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Updated 2026-11-16</span><span>Roadmap 29.1, 29.5, 29.6, 29.8</span><span>Review check E9</span></div>
   <p class="g-summary">The project's revision scheme, document number pattern, purposes of issue, filing rule, who sees versions, how long deleted outputs are kept, four-eyes, the sign-off route of each purpose and the output format.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Project settings → <span class="ui">Documents</span></dd>
     <dt>Who</dt><dd>Configure documents (Lead engineer and project administrator)</dd>
   </dl>
-  <p>The card opens with <span class="ui">How it works</span>: Configuration → Documents makes the schemes, lists, routes, templates and rules, and here the project chooses which ones it uses. The settings are in six boxes, each saying what it decides and where to make your own: <span class="ui">Numbering</span>, <span class="ui">Purposes of issue</span>, <span class="ui">Sign-off</span>, <span class="ui">Filing</span>, <span class="ui">Printed PDFs</span> and <span class="ui">Who sees what</span>. A line under How it works says what was just saved.</p>
+  <p>The card opens with <span class="ui">How it works</span>: Configuration → Documents makes the schemes, lists, routes, templates and rules, and here the project chooses which ones it uses. The settings are in six boxes, each saying what it decides and where to make your own: <span class="ui">Numbering</span>, <span class="ui">Purposes of issue</span>, <span class="ui">Sign-off</span>, <span class="ui">Filing</span>, <span class="ui">Deliverables</span> and <span class="ui">Who sees what</span>. A line under How it works says what was just saved.</p>
   <h3>The settings</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
     <tbody>
-      <tr><td><span class="ui">Sheet template</span></td><td>The page, frame and title block a 2D space's next version or revision prints on (<a href="guide-library.html#lib-documents-templates">Sheet templates</a>).</td></tr>
+      <tr><td><span class="ui">Deliverable profile</span></td><td>How each kind of document prints: the sheet template of Drawings and Loop diagrams, the page of Reports and Datasheets, page numbers, and the reports and datasheets of the set; shown under it (<a href="guide-library.html#lib-documents-deliverable-profiles">Deliverable profiles</a>).</td></tr>
       <tr><td><span class="ui">Revision scheme</span></td><td>Letters before construction, numbers from construction (the default); ISO 19650 (P01 … then C01 …); Numeric (01-IFR, 02-IFA …); Letters only; or the company's and project's own (<a href="guide-library.html#lib-documents-numbering">Numbering schemes</a>). The labels it gives are shown under it.</td></tr>
       <tr><td><span class="ui">Document number pattern</span>, <span class="ui">Project code</span>, <span class="ui">Document type</span></td><td>The number a 2D space gets with its first output, for example {project.code}-{docType}-{seq:4} → P-PID-0001.</td></tr>
       <tr><td><span class="ui">Purposes</span></td><td>EPC purposes of issue (IFR … IFC, AB, VOID), ISO 19650 suitability (S1 … S4, A1, CR), or the company's and project's own (<a href="guide-library.html#lib-documents-purposes">Purposes of issue</a>). Its codes are shown under it.</td></tr>
@@ -456,7 +482,7 @@
       <tr><td><span class="ui">Deleted outputs are kept for</span></td><td>How long a deleted version or revision can be restored (30 days by default).</td></tr>
       <tr><td><span class="ui">Someone else checks and approves</span></td><td>Four-eyes; off for a small team.</td></tr>
       <tr><td><span class="ui">Sign-off</span>: a route per purpose, <span class="ui">Versions</span>, <span class="ui">Days to sign a step</span></td><td>A table of each purpose with its route and the route's steps (Prepared → Checked → Approved). The route each purpose's revisions follow (by default Prepared, checked, approved; Prepared, approved for IFI and VOID; with a project engineer for IFC), the route of versions, and the days before a step is late (<a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a>).</td></tr>
-      <tr><td><span class="ui">Print INTERNAL — NOT FOR ISSUE on versions</span>, <span class="ui">Page</span>, <span class="ui">Date format</span></td><td>In <span class="ui">Printed PDFs</span>, with the Sheet template.</td></tr>
+      <tr><td><span class="ui">Print INTERNAL — NOT FOR ISSUE on versions</span>, <span class="ui">Date format</span></td><td>In <span class="ui">Deliverables</span>, with the Deliverable profile.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Each setting is saved at once and applies to outputs made afterwards; outputs already made never change.</p>
