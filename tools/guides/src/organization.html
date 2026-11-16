@@ -73,8 +73,34 @@
   <p class="g-note">A free seat is checked when you invite and again when the colleague accepts. When all seats of the chosen license are taken: <span class="ui">All N Editor seats are taken.</span> If the last seat went in between, accepting is refused with <span class="ui">All N Editor seats are taken. Ask the person who invited you to free a seat or add seats, then open the invitation again.</span>; the invitation stays open and the colleague opens the link again once a seat is free. For a blocked address: <span class="ui">E1 cannot be offered to this email address.</span> (see <a href="#org-blocked-domains">Blocked email domains</a>).</p>
   <p class="g-note">An invitation that gives an organization role can only give a role whose permissions you hold yourself; Administrator or Library administrator also asks you to <a href="guide-access.html#acc-step-up">confirm it is you</a>. The dialog's invitations make the person a Member.</p>
   <p class="g-warn">The seat message is shown on the sign-in screen. Someone who is already signed in to E1 lands in E1 without seeing it; the invitation is then still under <span class="ui">Open invitations</span>.</p>
-  <p class="g-related">Related: <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-trials">Trials</a></p>
+  <p class="g-related">Related: <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-invite-list">Invite many from Excel</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-trials">Trials</a></p>
 </section>
+
+<section class="g-feature" id="org-invite-list">
+  <h2>Invite many from Excel</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span>Updated 2026-11-16</span><span class="g-id">ORG-invite-list</span><span>Roadmap M2.11</span><span>Review check J4</span></div>
+  <p class="g-summary">Invite a whole team in one go from an Excel list: one person per row with four columns, <span class="ui">First name</span>, <span class="ui">Last name</span>, <span class="ui">Email</span> and <span class="ui">License</span>. E1 checks every row before anything is sent, and each person gets the same invitation email as in <a href="#org-invitations">Invite a colleague</a>, greeted by their first name.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Members</span> → <span class="ui">Invite many from Excel</span></dd>
+    <dt>Who</dt><dd>Owner or Administrator with a passkey</dd>
+    <dt>Before you start</dt><dd>Enough free seats of the licenses in the list. At most 500 people per list.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Download template</span>.</td><td>The file <span class="ui">E1 invitation list.xlsx</span> is saved: a sheet <span class="ui">People</span> with the columns First name, Last name, Email and License and two example rows.</td></tr>
+      <tr><td>2</td><td>Replace the example rows with your people, one per row. In <span class="ui">License</span> write Editor, Reviewer, Viewer, Student or Administrator; an empty cell means Editor.</td><td>The list is ready. A CSV file with the same columns works too.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Upload list…</span> and choose the file.</td><td>The table <span class="ui">People in the list</span> shows every row with its row number and <span class="ui">Ready</span>, or what is wrong with it: <span class="ui">No email address</span>, <span class="ui">… is not an email address</span>, <span class="ui">Already in the list</span> or <span class="ui">… is not a license</span>. Rows with a problem are not invited.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Invite N people</span> and confirm with <span class="ui">Invite</span>.</td><td>Each person is sent an invitation. <span class="ui">Status</span> reads <span class="ui">Invited</span>, or why one was refused (for example <span class="ui">All N Editor seats are taken.</span>). The invitations are listed under <span class="ui">Open invitations</span> with the person's name.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Done</span>.</td><td>The list is cleared.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The header row is found by its column names, so a title row above it, other columns and another column order are fine. Empty rows are skipped.</p>
+  <p class="g-note">Everyone in the list is invited as a Member. Seats, personal and blocked addresses are checked for each person as for a single invitation; a refused person does not stop the others.</p>
+  <p class="g-related">Related: <a href="#org-invitations">Invite a colleague</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-blocked-domains">Blocked email domains</a></p>
+</section>
+
 
 <section class="g-feature" id="org-licenses-seats">
   <h2>Licenses and seats</h2>
