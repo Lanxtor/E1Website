@@ -80,6 +80,7 @@
           <li><a href="#ai-stored-assistants">Stored assistants</a></li>
           <li><a href="#ai-package-assistants">Assistants from content packages, other assistants and the API</a></li>
           <li><a href="#ai-assistant-script">A script step in a stored assistant</a></li>
+          <li><a href="#ai-automated-assistants">Automated assistants</a></li>
           <li><a href="#ai-branch">Alex in your branch</a></li>
           <li><a href="#ai-query-sentence">Queries from a sentence</a></li>
         </ol>
@@ -88,7 +89,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / AI: Alex</p>
         <h1>11. AI: Alex</h1>
         <p class="lead">Alex, the built-in engineering co-worker that reviews your drawing and, with help from a language model when you tick it, answers in your own words and changes the project with review and undo.</p>
-        <div class="g-meta"><span>40 features</span><span>39 available</span><span>Guide updated 2026-11-07</span></div>
+        <div class="g-meta"><span>41 features</span><span>40 available</span><span>Guide updated 2026-11-07</span></div>
 <section class="g-feature" id="ai-overview">
   <h2>About this guide</h2>
   <p class="g-summary">E1 has one assistant, <strong>Alex</strong>, in the side panel on the right of the window, with three tabs: <span class="ui">Co-engineer</span> | <span class="ui">Agent</span> | <span class="ui">E1 Guide</span>. In <strong>Co-engineer</strong>, Alex is built into E1: it reads your drawing as you work and raises warnings, questions and suggestions, with no language model and nothing sent outside. In <strong>Agent</strong>, Alex answers questions in your own words with the help of a language model and changes the project, with review and undo; a small mode menu there switches between <strong>Agent</strong>, <strong>Ask</strong> (answers only) and <strong>Plan</strong> (proposes a change). <strong>E1 Guide</strong> teaches you E1 where you are.</p>
@@ -1117,6 +1118,30 @@
   </table></div>
   <p class="g-note">A script uses the steps of a calculation rule: Compose, Copy, Map, Calculate (+ − × ÷, powers, sqrt, min, max, round, each quantity in the unit you name), Choose, Format and Compare. It only calculates: it reads and writes nothing, so a run with a value that is not a number stops at the script with the reason and keeps nothing.</p>
   <p class="g-related">Related: <a href="guide-ai.html#ai-package-assistants">Assistants from content packages, other assistants and the API</a></p>
+</section>
+
+<section class="g-feature" id="ai-automated-assistants">
+  <h2>Automated assistants</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span class="g-id">AI-automated-assistants</span><span>Roadmap 18.7</span></div>
+  <p class="g-summary">Assistants that are always on in a project: when someone makes a change (an object renamed, added, deleted, its values or status changed), an automated assistant notifies the people you chose in their Inbox, or runs one of your recorded assistants on the changed objects, by itself. It acts as the person who switched it on; changes made by assistants and by Alex never start one.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Assistants</span> on the left rail → <span class="ui">Automated assistants</span>, with a project open</dd>
+    <dt>Who</dt><dd>Making, switching and deleting one needs Share assistants in the project (Lead engineer and above); everyone in the project sees them</dd>
+    <dt>Before you start</dt><dd>E1 on the server, a project with a pump, and a colleague in the project (here Puria).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Assistants</span> and click <span class="ui">New automated assistant…</span>.</td><td>A form with Name, <span class="ui">When</span>, <span class="ui">Only if the object is a</span>, <span class="ui">Then notify</span> and <span class="ui">And run the assistant</span>.</td></tr>
+      <tr><td>2</td><td>Name it <em>Tell Puria about renames</em>, choose <span class="ui">When</span> <em>An object is renamed</em>, tick <em>Centrifugal pump</em> under Only if and <em>Puria</em> under Then notify, then click <span class="ui">Save</span>.</td><td>It is listed as <em>On</em>: <em>When: An object is renamed (only Centrifugal pump). Then: notify Puria.</em> It acts as you. People who cannot see the project are greyed, with the reason.</td></tr>
+      <tr><td>3</td><td>Rename pump <em>P-101</em> to <em>P-102</em>.</td><td>Within seconds Puria's Inbox has <em>Tell Puria about renames: … renamed P-101 to P-102.</em>; clicking it opens the pump. The automated assistant lists the run under its last runs.</td></tr>
+      <tr><td>4</td><td>Rename a valve, or change the pump's description.</td><td>Nothing: the valve is not a centrifugal pump, and a value change is not a rename.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Edit…</span>, choose one of your recorded assistants under <span class="ui">And run the assistant</span> (for example one that sets a description on the selection) and <span class="ui">Save</span>; rename a pump again.</td><td>The assistant runs on the renamed pump as its selection: one change, with one undo, which history shows as run by the automated assistant for you. That change does not start an automated assistant again. Assistants that ask for a value when they run, and instruction assistants, are greyed with the reason.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Switch off</span>, rename a pump, then <span class="ui">Switch on</span>.</td><td>Nothing while it is off, and nothing for what happened while it was off. On again, it acts as you.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="#ai-stored-assistants">Stored assistants</a> · <a href="#ai-package-assistants">Assistants from content packages, other assistants and the API</a></p>
 </section>
 
 <section class="g-feature" id="ai-branch">
