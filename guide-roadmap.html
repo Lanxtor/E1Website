@@ -107,7 +107,7 @@
         </section>
         <section class="g-feature" id="app-m2">
           <h2>M2 Platform — E1 app</h2>
-          <div class="g-meta"><span>10 of 10 stages done</span><span>MVP</span></div>
+          <div class="g-meta"><span>9 of 9 stages done</span><span>MVP</span></div>
           <p class="g-summary">E1 moves onto PostgreSQL and into the vendor&#x27;s cloud. People sign in, belong to organizations, and are invited to projects with roles down to a single section or drawing. Two engineers can work in the same project at the same time without overwriting each other, Alex&#x27;s proposals are kept safely on the server, and the technical security baseline is in place.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>M2.1</td><td>PostgreSQL store with the object and history tables</td><td><span class="g-status available">Done 2026-11-03</span></td><td>Behind the scenes: with npm run db:up, db:migrate, and db:seed, then E1_STORE=postgres, projects open and edit as before, stored in PostgreSQL tables that keep each organization apart.</td></tr>
@@ -119,7 +119,6 @@
             <tr><td>M2.7</td><td>File storage</td><td><span class="g-status available">Done 2026-11-03</span></td><td>On the server, attach a file to a chat message or upload one to a project, reload the page, and open it again; signed in as someone without a role in the project, it is not found.</td></tr>
             <tr><td>M2.8</td><td>Reference cloud deployment</td><td><span class="g-status available">Done 2026-11-06</span></td><td>Open https://app.lanxtor.com in a normal browser, without installing anything, and sign in: the status bar (bottom right) says Microsoft Azure.</td></tr>
             <tr><td>M2.9</td><td>Technical security baseline and the M2 gate</td><td><span class="g-status available">Done 2026-11-04</span></td><td>Mostly under the hood: security settings and checks. You may notice session timeouts and stricter sign-in rules.</td></tr>
-            <tr><td>M2.10</td><td>Your name and picture, from the website, everywhere you are shown</td><td><span class="g-status available">Done 2026-11-16</span></td><td>On the website&#x27;s account page, Profile: type your first and last name, Save, and upload a picture. Back in E1 (reload): your picture is on the rail and in Account, and next to your changes in History, your comments, the tasks assigned to you, Responsible, the Inbox, the people on a sheet and Organization → Members.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m3">
@@ -427,7 +426,7 @@
         </section>
         <section class="g-feature" id="app-ipad">
           <h2>iPad E1 Reviewer for iPad — E1 app</h2>
-          <div class="g-meta"><span>12 of 14 stages done</span></div>
+          <div class="g-meta"><span>11 of 13 stages done</span></div>
           <p class="g-summary">E1&#x27;s iPad app for reviewing away from the desk (Lanxtor/E1iPad, design 27), served by E1 at /reviewer/ and laid out as E1 (the rail and the explorer): search, a dashboard of cards, projects and their 2D spaces, an object&#x27;s attributes, history, chat and files, photos and voice notes, redlines, tasks and checklists, and Alex in Ask mode. It obeys the same roles and edits no drawings. Not counted in the MVP progress.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>27.1</td><td>Sign-in, dashboard, projects, and search</td><td><span class="g-status available">Done 2026-11-09</span></td><td>On an iPad open https://app.lanxtor.com/reviewer/ in Safari, sign in, and Share → Add to Home Screen; arrange the dashboard cards and project tiles, and search for a tag.</td></tr>
@@ -443,13 +442,12 @@
             <tr><td>27.12</td><td>E1&#x27;s layout on the iPad: the rail, the explorer, and Projects to start</td><td><span class="g-status available">Done 2026-11-15</span></td><td>Open E1 Reviewer: it starts on Projects, a search field above the tiles, with E1&#x27;s rail. In the explorer open a project, Model Space and a 2D space, then tap an object under Assets: its panel opens beside the 2D space. Touch and hold a 2D space to pin it.</td></tr>
             <tr><td>27.13</td><td>Push notifications on the iPad</td><td><span class="g-status available">Done 2026-11-16</span></td><td>Sign in to E1 Reviewer on the iPad and allow notifications. Have a colleague mention you on an object or assign you a task in E1: the notification shows on the iPad with the unread count on the icon, and tapping it opens the object or the task.</td></tr>
             <tr><td>27.14</td><td>E1 Reviewer on the App Store</td><td><span class="g-status planned">Planned</span></td><td>Find Lanxtor E1 Reviewer on the App Store on an iPad and install it. Before the first submission: the demo organization and account for Apple&#x27;s reviewer are created, as in docs/APP-STORE.md of Lanxtor/E1iPad.</td></tr>
-            <tr><td>27.15</td><td>Names and pictures of the organization&#x27;s people in the reviewer</td><td><span class="g-status available">Done 2026-11-16</span></td><td>In E1 Reviewer, open an object: under History and Chat each person is shown with the picture they uploaded on the website&#x27;s account page (else their initials) and their first and last name. Profile shows your own.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-phone">
           <h2>Phone E1 Mobile for iPhone and Android — E1 app</h2>
-          <div class="g-meta"><span>9 of 10 stages done</span></div>
-          <p class="g-summary">E1&#x27;s phone app (Lanxtor/E1Phone, design 42), one codebase for iPhone and Android (Android after the MVP), launched with E1 Reviewer for iPad: your messages (E1&#x27;s comments where you are mentioned or answered), your projects, and Alex in Ask mode; open a project and Messages and Alex are limited to it. Not counted in the MVP progress.</p>
+          <div class="g-meta"><span>10 of 11 stages done</span></div>
+          <p class="g-summary">E1&#x27;s phone app (Lanxtor/E1Phone, design 42), one codebase for iPhone and Android (Android after the MVP), launched with E1 Reviewer for iPad: your messages (E1&#x27;s comments where you are mentioned or answered), your projects and their tasks, and Alex in Ask mode; open a project and Messages and Alex are limited to it. Not counted in the MVP progress.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>42.1</td><td>Sign-in, messages, projects, and Alex on the phone</td><td><span class="g-status available">Done 2026-11-15</span></td><td>In E1 Mobile, Try the demo: open a conversation under Messages and answer; under Projects open Tank farm north, where Messages and Alex show only that project; New message → choose a 2D space and send. In E1 the message is on the 2D space&#x27;s Comments tab.</td></tr>
             <tr><td>42.2</td><td>Native sign-in and use on a real iPhone</td><td><span class="g-status available">Done 2026-11-16</span></td><td>Install E1 Mobile from TestFlight and sign in with your E1 account: E1 opens in the phone&#x27;s sign-in sheet, the app comes back signed in after a restart, and a message you send is in E1.</td></tr>
@@ -460,7 +458,8 @@
             <tr><td>42.5</td><td>Mention a colleague from a list on the phone</td><td><span class="g-status available">Done 2026-11-16</span></td><td>In E1 Mobile open a conversation or write a new message and type @: the list shows the people who may view that place (type a few letters to narrow it). Tap one: @Name is in the box, and once sent they get the mention in E1&#x27;s Inbox.</td></tr>
             <tr><td>42.10</td><td>E1 Mobile on the App Store</td><td><span class="g-status planned">Planned</span></td><td>Find Lanxtor E1 Mobile on the App Store on an iPhone and install it. Before the first submission: the demo account for Apple&#x27;s reviewer is created, as in docs/APP-STORE.md of Lanxtor/E1iPad.</td></tr>
             <tr><td>42.9</td><td>Lanxtor E1 and the organization&#x27;s logo on the phone, a floating tab bar, the message box above the keyboard</td><td><span class="g-status available">Done 2026-11-16</span></td><td>In E1 Mobile on an iPhone: Lanxtor E1 is at the top of Messages, Projects and Alex, and under the title the organization with the logo its owner added in E1. Projects lists no module workspaces or binned projects, and Alex&#x27;s question box stays above the keyboard.</td></tr>
-            <tr><td>42.11</td><td>Names and pictures of the organization&#x27;s people on the phone</td><td><span class="g-status available">Done 2026-11-16</span></td><td>In E1 Mobile, Messages: each message shows the picture its author uploaded on the website&#x27;s account page (else their initials) and their first and last name. Account shows your own.</td></tr>
+            <tr><td>42.11</td><td>Tasks on the phone: the project&#x27;s tasks and New task</td><td><span class="g-status available">Done 2026-11-16</span></td><td>In E1 Mobile open a project → Tasks: its tasks, open first, with what each is about, whom it is for and when it is due. New task → a title, About (the project or a 2D space), Assign to (a person or a group), a due date, Create task: it is in the list at once, in E1&#x27;s Tasks section, and the assignee is told.</td></tr>
+            <tr><td>42.12</td><td>A faster phone: screens show what they loaded at once, pull to refresh everywhere</td><td><span class="g-status available">Done 2026-11-16</span></td><td>In E1 Mobile switch between Messages and Projects, or go back from a conversation: the list is there at once and updates behind it. Pull down on a conversation or a project&#x27;s tasks to load it again; coming back to the app loads the open place afresh.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-after">
