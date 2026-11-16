@@ -390,7 +390,7 @@
 
 <section class="g-feature" id="ai-alex-suggestions">
   <h2>Suggestions while you draw: Apply or Reject</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-10</span><span class="g-id">AI-alex-suggestions</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-16</span><span class="g-id">AI-alex-suggestions</span></div>
   <p class="g-summary">While Alex is on, placing or changing something can bring an offer of what usually comes next, for example the valves around a new pump. It is drawn as ghost symbols on the 2D space and listed as the first card, <span class="ui">After your change</span>, under <span class="ui">Design suggestions</span> in Alex (Co-engineer). There is no suggestion bar on the 2D space.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Ghost symbols on the 2D space; <span class="ui">Alex</span> → <span class="ui">Co-engineer</span> → <span class="ui">Design suggestions</span> → the card <span class="ui">After your change</span></dd>
@@ -407,9 +407,13 @@
       <tr><td>4</td><td>Click <span class="ui">Apply</span>.</td><td>The suggested objects are placed and connected.</td></tr>
       <tr><td>5</td><td>Place another pump and click <span class="ui">Reject</span> on the new card.</td><td>The offer is gone and nothing is added.</td></tr>
       <tr><td>6</td><td>Place another pump, click <span class="ui">Show</span> on its card, then click the 2D space and press <kbd>Esc</kbd> twice.</td><td>The first <kbd>Esc</kbd> takes the shown suggestion off the 2D space; the second drops the offer.</td></tr>
+      <tr><td>7</td><td>Look under the new pump in the explorer, then at <span class="ui">Suggested additions</span> → <span class="ui">Suggestions</span> in Alex.</td><td>Placing the pump added no motor. Alex suggests it: the card "P-001: add a motor", with the badge <span class="ui">In the model</span> (nothing is drawn).</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Apply</span> on "P-001: add a motor".</td><td>The pump owns a new motor named "Motor of P-001", tagged by the project's tag rules, and the card is gone. One undo takes the motor back.</td></tr>
+      <tr><td>9</td><td>Place another pump and click <span class="ui">Reject</span> on its "add a motor" card.</td><td>The card goes and stays away on this 2D space; <span class="ui">Show 1 hidden</span> brings it back.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Alex follows the design your project repeats. Where there is none, it uses starter rules: isolation on a pump's suction and a check valve on its discharge, a motor for driven machines, isolation around control valves, and transmitters on vessels and exchangers. Changing the skill clears the offer.</p>
+  <p class="g-note">Alex follows the design your project repeats. Where there is none, it uses starter rules: isolation on a pump's suction and a check valve on its discharge, isolation around control valves, and transmitters on vessels and exchangers. Changing the skill clears the offer.</p>
+  <p class="g-note">E1 never adds what a piece of equipment needs by itself: Alex suggests it and you apply or reject it. "Add a motor" shows on any 2D space for a pump, compressor, fan or blower, agitator or conveyor that has no motor of its own and nothing that drives it (a turbine linked as its driver, or a driver drawn with it); an ejector never gets one. It is a <span class="ui">Suggestion</span>, or under <span class="ui">Required by your conventions</span> when your company's accepted Required items convention asks for the motor (for example "Centrifugal pump: electric motor" on the workbook's Required items sheet).</p>
   <p class="g-related">Related: <a href="#ai-alex">Alex</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
 </section>
 
