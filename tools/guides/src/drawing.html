@@ -765,28 +765,27 @@
 </section>
 
 <section class="g-feature" id="draw-loop-diagram">
-  <h2>Generated loop diagrams</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-loop-diagram</span><span>Roadmap 06.4</span><span>Review checks E5, E6</span></div>
-  <p class="g-summary">E1 draws the loop diagram of a control function from the model: the instruments that implement it and the devices it controls, in signal order. You can move symbols by hand; Regenerate brings in model changes and keeps your moves.</p>
+  <h2>Loop diagrams: preview, PDF, version and revision</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-16</span><span class="g-id">DRAW-loop-diagram</span><span>Roadmap 06.4, 28.9</span><span>Review checks E5, E6</span></div>
+  <p class="g-summary">E1 draws the loop diagram of a control function from the model whenever you look at it: the instruments that implement it and the devices it controls, in signal order, with their wiring. Nothing is stored while you preview. Export a PDF to send it to someone, or create a version or a revision: only then is it stored in <span class="ui">Documents</span>, where you can move symbols by hand and Regenerate keeps your moves.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click a function in the explorer → <span class="ui">Loop diagrams</span> ▸ <span class="ui">Generate loop diagram</span></dd>
-    <dt>Who</dt><dd>Editor license and a project role that may edit the project</dd>
-    <dt>Before you start</dt><dd>A function TIC-101 under <span class="ui">Systems</span>; a transmitter TT-101 and a controller TC-101 that implement it, and a valve TV-101 it controls (<a href="guide-objects.html#obj-relationships">Relationships</a>).</dd>
+    <dt>Where</dt><dd>Right-click a function in the explorer → <span class="ui">Preview loop diagram</span>, or the function's Properties → <span class="ui">Preview loop diagram</span></dd>
+    <dt>Who</dt><dd>Anyone who may view the project previews; Export PDF needs a role that may export; Create version… and Create revision… need a role that may make documents</dd>
+    <dt>Before you start</dt><dd>A function TIC-101 under <span class="ui">Systems</span>; a transmitter TT-101 that implements it (<a href="guide-objects.html#obj-relationships">Relationships</a>), wired through to an I/O channel (<a href="guide-wiring.html#wire-loop-diagram">Loop diagrams from the wiring</a>).</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click TIC-101 → <span class="ui">Loop diagrams</span> ▸ <span class="ui">Generate loop diagram</span>.</td><td>The loop diagram opens with the panel "Loop diagram": "Generated from TIC-101" (a link), <span class="ui">Regenerate</span>, <span class="ui">Export PDF</span>, and a line such as "3 devices, 1 lines, in signal order." The transmitter, controller and valve are drawn from left to right.</td></tr>
-      <tr><td>2</td><td>Drag the transmitter to a new place.</td><td>The panel reads "Moved by hand: TT-101".</td></tr>
-      <tr><td>3</td><td>Relate one more instrument to TIC-101 (implements), then click <span class="ui">Regenerate</span>.</td><td>The panel reads "4 devices…"; the new instrument appears and the transmitter stays where you put it.</td></tr>
-      <tr><td>4</td><td>Draw a line from the transmitter to the controller.</td><td>It becomes a signal in the model. A line not drawn between two devices is refused with "Draw the line from one device of the loop to another."</td></tr>
-      <tr><td>5</td><td>Delete a device you moved, then click <span class="ui">Regenerate</span>.</td><td>A warning reads "One override names an object the loop no longer reaches.", with <span class="ui">Remove</span> and <span class="ui">Re-apply</span>.</td></tr>
-      <tr><td>6</td><td>Expand TIC-101 in the explorer.</td><td>The loop diagram is listed under it as a reference.</td></tr>
+      <tr><td>1</td><td>Right-click TIC-101 → <span class="ui">Preview loop diagram</span>.</td><td>The window "Loop diagram TIC-101" opens: "Preview, generated from the model now; nothing is stored.", with <span class="ui">Export PDF</span>, <span class="ui">Create version…</span> and <span class="ui">Create revision…</span>. The devices are drawn from left to right in signal order.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Export PDF</span>.</td><td>The PDF is made and downloaded. Nothing is added to <span class="ui">Documents</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Create revision…</span>, choose the purpose <code>IFA</code> and click <span class="ui">Create and send for sign-off</span>.</td><td>The loop diagram is stored in <span class="ui">Documents</span> and listed under TIC-101; its revision is in sign-off: "The revision is in sign-off: open its versions and revisions to sign it." <span class="ui">Open its versions and revisions</span> opens it (<a href="guide-documents.html#doc-sign-off">Sign-off</a>).</td></tr>
+      <tr><td>4</td><td>In the stored loop diagram, drag the transmitter to a new place and click <span class="ui">Regenerate</span>.</td><td>The panel reads "Moved by hand: TT-101"; the move stays.</td></tr>
+      <tr><td>5</td><td>Pick TIC-101 and FIC-102 with <kbd>Ctrl</kbd> (<kbd>Cmd</kbd> on a Mac), right-click → <span class="ui">Preview loop diagrams (2)</span>.</td><td>The preview pages through both with <span class="ui">Previous</span> and <span class="ui">Next</span>; <span class="ui">Create revisions for all 2…</span> creates their revisions with one sign-off.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">With nothing related, the panel says "Nothing implements this function yet: relate its instruments to it (implements), then regenerate." Other edits are refused with "A loop diagram is generated: move its symbols, draw a line between two devices, or change the model and regenerate."</p>
-  <p class="g-related">Related: <a href="guide-objects.html#obj-relationships">Relationships</a> · <a href="guide-objects.html#obj-new-object">Create an object</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-documents.html#doc-sheet-pdf">2D space PDF</a></p>
+  <p class="g-note">The preview is read-only: "This is a preview: nothing on it can change." Until the loop's wiring is complete, <span class="ui">Preview loop diagram</span> is greyed and says what is missing. A function nothing implements has no loop diagram. In a stored loop diagram a line drawn between two devices becomes a signal in the model.</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-relationships">Relationships</a> · <a href="guide-wiring.html#wire-loop-diagram">Loop diagrams from the wiring</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-documents.html#doc-sheet-pdf">2D space PDF</a></p>
 </section>
 
 <section class="g-feature" id="draw-symbol-designer">
