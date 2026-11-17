@@ -97,6 +97,8 @@
           <li><a href="#lib-relationships">Relationship types</a></li>
           <li><a href="#lib-company-library">The company library: drafts, publishing and versions</a></li>
           <li><a href="#lib-import-standard">Import attributes from a standard</a></li>
+          <li><a href="#lib-where-used">Where used: what uses a library item</a></li>
+          <li><a href="#lib-dependent-picklists">Pick lists that depend on another value</a></li>
           <li><a href="#lib-library-updates">Updates available and Check against projects</a></li>
           <li><a href="#lib-upgrade">Upgrade objects to a new class version</a></li>
           <li><a href="#lib-project-library">Only one project: the project library</a></li>
@@ -136,7 +138,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Configuration, library and catalogs</p>
         <h1>10. Configuration, library and catalogs</h1>
         <p class="lead">The Configuration place: classes, attributes, shapes, the company library with drafts, publishing and upgrades, catalogs, content packages and project settings.</p>
-        <div class="g-meta"><span>40 features</span><span>39 available</span></div>
+        <div class="g-meta"><span>42 features</span><span>41 available</span></div>
 <section class="g-feature" id="library-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the shared set-up of E1: the <span class="ui">Configuration</span> place with its object classes, attributes, shapes and relationships, the company library where your organization adds its own classes and attributes, catalogs of approved products, the content packages a project uses, and the project settings. A change made here applies to everyone, not only to you; your own preferences are in <span class="ui">Settings</span>.</p>
@@ -145,7 +147,7 @@
     <li>Open the place and find your way around its sections: <a href="#lib-configuration">The Configuration place</a>.</li>
     <li>Look up what E1 already knows: <a href="#lib-object-classes">Object classes</a>, <a href="#lib-attributes">Attributes and pick lists</a>, <a href="#lib-shapes">Shapes</a>, <a href="#lib-relationships">Relationships</a>.</li>
     <li>See which content packages bring that content and which ones your project uses: <a href="#lib-content-packages">Content packages</a> and <a href="#lib-project-settings">Project settings</a>.</li>
-    <li>Add your company's own attributes and classes, publish them and keep projects up to date: <a href="#lib-company-library">Company library</a>, <a href="#lib-library-updates">Updates available</a>, <a href="#lib-upgrade">Upgrade with preview</a>, <a href="#lib-project-library">This project only</a>, <a href="#lib-convention-templates">Convention templates</a>, <a href="#lib-pin-version">Pin a library version</a>.</li>
+    <li>Add your company's own attributes and classes, publish them and keep projects up to date: <a href="#lib-company-library">Company library</a>, <a href="#lib-library-updates">Updates available</a>, <a href="#lib-where-used">Where used</a>, <a href="#lib-dependent-picklists">Pick lists that depend on another value</a>, <a href="#lib-upgrade">Upgrade with preview</a>, <a href="#lib-project-library">This project only</a>, <a href="#lib-convention-templates">Convention templates</a>, <a href="#lib-pin-version">Pin a library version</a>.</li>
     <li>Keep approved products in catalogs and make objects from them: <a href="#lib-catalogs">Catalogs</a>, <a href="#lib-from-catalog">From catalog</a>, <a href="#lib-catalog-reapply">Re-apply and Detach</a>, <a href="#lib-catalog-import">Catalog import</a>.</li>
     <li>The other sections in brief: <a href="#lib-alex-knowledge">Alex knowledge</a>, <a href="#lib-datasheets">Datasheets</a>, <a href="#lib-project-defaults">Project defaults and E1’s project defaults</a>, <a href="#lib-cloud-ai-model">Alex’s AI help</a>.</li>
     <li>What comes next: <a href="#lib-rules">Rules</a>, <a href="#lib-units">Units of measurement</a>, <a href="#lib-package-switching">Switching packages on and off</a> and <a href="#lib-package-licensing">Package licensing and updates</a>.</li>
@@ -341,6 +343,55 @@
   </table></div>
   <p class="g-note">An attribute the library has already (by its code or name) is left alone, so importing the same file again adds nothing twice. Standards that come as content packages, such as CFIHOS, need no import: switch their package on in the project.</p>
   <p class="g-related">Related: <a href="#lib-company-library">The company library</a> · <a href="#lib-attributes">Attributes</a> · <a href="#lib-content-packages">Content packages and standards</a></p>
+</section>
+
+<section class="g-feature" id="lib-where-used">
+  <h2>Where used: what uses a library item</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">LIB-where-used</span><span>Roadmap 11.9</span></div>
+  <p class="g-summary">Before you change or withdraw a library item, see what uses it: the objects of a class (and its subclasses), the objects holding a value of an attribute, the placements of a shape with their drawing, the relationships of a type, the pipelines naming a pipe class, and the objects made from a catalog item, module or wiring typical. Grouped by project, each object opens.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span>: <span class="ui">Where used</span> on a published item's row, or on its right-click menu; <span class="ui">Object classes</span> and <span class="ui">Attributes</span>: <span class="ui">Where used</span> on the chosen class or attribute</dd>
+    <dt>Who</dt><dd>Everyone who can open a project. Only the projects you can open are listed; the others are only counted.</dd>
+    <dt>Before you start</dt><dd>A project is open, and the item is published (a draft is used by nothing yet).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Company library</span>, right-click a published item's row in the list and click <span class="ui">Where used</span> (or click <span class="ui">Where used</span> on the row).</td><td>A panel <em>Where <em>name</em> is used</em> opens above the list. It reads the count, for example “2 uses in 1 project, and 3 in a project you cannot open.”, or “Not used in a project you can open.”</td></tr>
+      <tr><td>2</td><td>Look at the projects under it.</td><td>Each project you can open, with its count, the largest first; under it the objects, each with its class. A shape's placement names its drawing (<em>placed on</em> …); a relationship type's names the object at its other end. A project whose configuration names the item (a template, a numbering scheme, a sign-off route) says so. At most 200 objects show per project, then “and N more”.</td></tr>
+      <tr><td>3</td><td>Click an object's name.</td><td>Its page opens in a tab.</td></tr>
+      <tr><td>4</td><td>In <span class="ui">Object classes</span>, choose a class and click <span class="ui">Where used</span>; in <span class="ui">Attributes</span>, the same on an attribute.</td><td>The same panel, for a class of a content package too.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Close</span>.</td><td>The panel closes.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Nothing of a project you cannot open is shown: not its name, not its objects, only how many uses it has. Alex answers “where is this used?” with the same command.</p>
+  <p class="g-related">Related: <a href="#lib-company-library">The company library</a> · <a href="#lib-object-classes">Object classes</a> · <a href="#lib-attributes">Attributes</a> · <a href="#lib-library-updates">Check against projects</a></p>
+</section>
+
+<section class="g-feature" id="lib-dependent-picklists">
+  <h2>Pick lists that depend on another value</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">LIB-dependent-picklists</span><span>Roadmap 11.10</span></div>
+  <p class="g-summary">A choice attribute can offer values that depend on another attribute of the same object: Manufacturer → Model, Equipment type → Size. Only the values allowed for the other value are offered; a value no longer allowed is never cleared, it is kept and shown as a check finding.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span> → <span class="ui">New</span> → <span class="ui">Attribute</span>, <span class="ui">Kind of value</span> <em>Choice</em> → <span class="ui">Values depend on</span></dd>
+    <dt>Who</dt><dd>Owner or Library administrator to set it up (Project administrator for <span class="ui">This project only</span>); everyone sees the narrowed choices.</dd>
+    <dt>Before you start</dt><dd>The attribute it depends on is in the library with a list of values (a choice, or a pick list), for example <em>Pump maker</em> with <em>Acme</em> and <em>Borg</em>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Make an attribute <em>Pump model</em>, <span class="ui">Kind of value</span> <em>Choice</em>, <span class="ui">Choices</span> <em>A-100, A-200, B-7</em>.</td><td>Below <span class="ui">Choices</span> is <span class="ui">Values depend on</span> with <span class="ui">Depends on attribute</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Depends on attribute</span>, choose <em>Pump maker</em> in the attribute list and click <span class="ui">Choose</span>.</td><td>An attribute without a list of values is greyed with “Has no list of values to depend on”. A table appears with the columns <span class="ui">When Pump maker is</span> and <span class="ui">Offer</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Add a row</span>, keep <em>Acme</em> and tick <em>A-100</em> and <em>A-200</em>; add a row for <em>Borg</em> and tick <em>B-7</em>.</td><td>Each value of Pump maker has at most one row; once each has one, <span class="ui">Add a row</span> is greyed. A value without a row offers every choice.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Save draft</span>, then <span class="ui">Publish</span>, and add both attributes to a class.</td><td>A row naming a value the other attribute does not have, or a value that is not one of the choices, is refused with the reason.</td></tr>
+      <tr><td>5</td><td>Open a pump of that class, set <span class="ui">Pump maker</span> to <em>Acme</em> and open the <span class="ui">Pump model</span> drop-down.</td><td>Only <em>A-100</em> and <em>A-200</em> are offered. The datasheet offers the same, and a query view's cell suggests the same when the Pump maker column is shown.</td></tr>
+      <tr><td>6</td><td>Choose <em>A-200</em>, then set <span class="ui">Pump maker</span> to <em>Borg</em>.</td><td>Pump model stays <em>A-200</em>, shown as “A-200 (not offered when Pump maker is Borg)”, and <em>B-7</em> is offered. The project's findings list the warning <em>Value not offered for another value</em> on the pump.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">An Excel import keeps a value its row's other value does not allow and lists it in the import report, so it can be fixed after the import; nothing is cleared.</p>
+  <p class="g-related">Related: <a href="#lib-company-library">The company library</a> · <a href="#lib-attributes">Attributes</a> · <a href="#lib-where-used">Where used</a></p>
 </section>
 
 <section class="g-feature" id="lib-library-updates">
