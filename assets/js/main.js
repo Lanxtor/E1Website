@@ -210,6 +210,7 @@
       '<li><a href="' + H("academy.html") + '">' + T("Academy") + "</a></li>" +
       '<li><a href="' + H("download.html") + '">' + T("Get E1") + "</a></li>" +
       '<li><a href="' + H("download.html#pricing") + '">' + T("Pricing") + "</a></li>" +
+      '<li><a href="guide.html">' + T("User guide") + "</a></li>" +
       "</ul></div>" +
       "<div><h2 class=\"footer-h\">" + T("Company") + "</h2><ul>" +
       '<li><a href="' + H("about.html") + '">' + T("About us") + "</a></li>" +

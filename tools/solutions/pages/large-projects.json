@@ -1,0 +1,99 @@
+{
+  "id": "large-projects",
+  "file": "solution-large-projects.html",
+  "title": "Large project performance for plant engineering",
+  "description": "E1 is load-tested on a refinery-size project: 498,000 objects, 1,300 dense P&amp;IDs and 50 engineers at once on one server, with changes shared in about a second.",
+  "kicker": "Collaboration",
+  "h1": "Built for refinery-size projects.",
+  "lead": "In E1, a project the size of a refinery stays fast for the whole team. E1 is load-tested every night and every week on a project with 498,000 objects, 1,300 dense sheets and 50 engineers working at once on one server: the project opens in under 2 seconds, a typical edit is saved in a few tenths of a second, and every change reaches the rest of the team in about a second.",
+  "glance": [
+    {"value": "498,000", "label": "Objects in the test project"},
+    {"value": "140–180 ms", "label": "To open it, for one engineer"},
+    {"value": "about 1 s", "label": "Until the team sees another engineer's change"},
+    {"value": "530 ms", "label": "To open a P&amp;ID with 3,000 symbols in the browser"}
+  ],
+  "sections": [
+    {
+      "id": "measured",
+      "kicker": "Measured",
+      "h2": "Large project performance, measured",
+      "intro": "In E1, performance is measured on a project the size of a refinery, not on a small sample.",
+      "paragraphs": [
+        "The test project holds 498,000 objects: equipment, valves, instruments, lines, cables, wires, signals and ports, drawn on 1,300 dense sheets. It is the order of size of a grassroots refinery, a petrochemical complex or an offshore platform. E1 opens it, edits it and searches it on every nightly run.",
+        "For one engineer working on this project, these are the measured times. They are the times of the server answering, so they show what E1 itself costs, before your connection is added."
+      ],
+      "bullets": [
+        "Open the project: 140–180 ms.",
+        "Open an object: 3 ms.",
+        "Edit a value: 110–130 ms. Rename: 15 ms.",
+        "Move a symbol on a dense P&amp;ID: 290–380 ms.",
+        "First page of a filtered list: 50 ms.",
+        "Search by tag, name or value, across all projects: 10 ms.",
+        "Errors in any run: 0."
+      ]
+    },
+    {
+      "id": "team",
+      "kicker": "Team",
+      "h2": "50 engineers at once on one project",
+      "intro": "In E1, a whole project team works in the same project at the same time, and each engineer sees the others' changes without reloading.",
+      "paragraphs": [
+        "The load test runs 50 engineers at once on the same 498,000-object project and records the slowest 5 % of every action (p95). With all 50 editing, opening the project takes 1.0–1.9 s, opening a drawing 0.9–1.8 s, editing a value 0.7–1.5 s and opening an object 300–500 ms. Late in a project most of the team only looks: with 45 engineers looking and 5 editing, opening the project takes 470 ms, a drawing 380 ms and an object 70 ms.",
+        "A change by one engineer reaches everyone who has the project open in about a second, pushed by the server, in the explorer, on 2D spaces, in object windows and in lists. Your own changes that are still being saved are kept while others' arrive.",
+        "E1 saves each object on its own, so engineers working on different symbols of one busy P&amp;ID do not get in each other's way. When two people change the same object at the same moment, the first change is kept, the second is refused with a clear message, and that person's copy is reloaded so they see the current state."
+      ]
+    },
+    {
+      "id": "drawings",
+      "kicker": "Drawings",
+      "h2": "Dense P&amp;IDs that open in the browser",
+      "intro": "In E1, a P&amp;ID with thousands of symbols opens and responds in the browser in well under a second.",
+      "paragraphs": [
+        "Large plants have large drawings. Measured in Chromium, a P&amp;ID with 1,000 symbols opens in 260–320 ms and selects a symbol in 30 ms. A P&amp;ID with 3,000 symbols opens in 530 ms and selects a symbol in 140–150 ms. Nothing needs to be split up or simplified to keep a sheet usable.",
+        "On a busy sheet several disciplines often work at once: a process engineer, an instrument engineer and a checker. Avatars at the right of a 2D space's toolbar show who else has it open, with a pencil while they edit, so you know who is changing what. E1 never shows anyone's pointer or unsaved work, and records nothing about who opened what."
+      ]
+    },
+    {
+      "id": "navigate",
+      "kicker": "Navigate",
+      "h2": "Finding your way through 500,000 objects",
+      "intro": "In E1, the explorer, the search and the lists are built so that a large project stays easy to read and quick to change in bulk.",
+      "paragraphs": [
+        "The explorer search filters the tree as you type and finds objects by tag, name, line number or any value, also as a quantity: <code>24 volt</code> finds every value of 24 V in any unit. Projects lists every project you can see, and the explorer shows only the ones you add, so the tree stays short. Up to five columns beside each name, such as class, status or any attribute, make the explorer read as a tree and a table, and folders a team does not use can be hidden.",
+        "Lists are live queries of the model. Filter them with AND, OR and NOT, group them with totals, and run one query over every project of your organization. Work in bulk as in Excel: paste a block copied from Excel with a preview of every change first, give many cells one value with Set value…, fill down, and undo it as one step. Every query exports to Excel, CSV or JSON and reads back with Update from Excel….",
+        "Existing projects come in at scale. Import Excel tag lists and data sheets, DEXPI P&amp;IDs, and P&amp;IDs from CAD as DXF or as PDF; import again later to update what is there, deciding every difference yourself."
+      ]
+    },
+    {
+      "id": "scope",
+      "kicker": "Ownership",
+      "h2": "Clear scopes in a big team",
+      "intro": "In E1, each engineer and each group keeps ownership of their scope while the whole team works in one project.",
+      "paragraphs": [
+        "Project roles go from Viewer and Reviewer to Engineer, Lead engineer and Project administrator, given to people or to groups. With Assign to…, one person or group becomes responsible for an object, a folder, a sheet or a whole section: only they change it and everything in it, while everyone else still views and comments. A custom role can change the attributes of one discipline only, so electrical engineers edit a pump's motor data and process engineers its process data.",
+        "Dashboards show where a large project stands: Project progress, Data completeness, Review and comments and Branches are there from the start, and trends such as the S-curve show progress by week against the plan. Click a number or a bar to list the items behind it."
+      ]
+    },
+    {
+      "id": "tested",
+      "kicker": "Tested",
+      "h2": "Tested every night against fixed budgets",
+      "intro": "In E1, performance is part of every build: a change that makes E1 slower fails before it reaches a customer.",
+      "paragraphs": [
+        "Every change to E1 is timed against fixed budgets, and a slower build fails. Every week a stress test runs 100 engineers at once, twice the design load of 50, and a one-hour soak test checks that E1 stays fast over time.",
+        "In the E1 Cloud, the E1 server adds capacity when it is busy and is always running, so there is no cold start. Health checks every few seconds replace a server that stops answering. The figures on this page are measured in our load tests; times in the E1 Cloud depend on the size of your project, how many people work at once and your connection. The full results are in the <a href=\"cloud-specifications.html\">cloud specifications</a>."
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "How large a project can E1 handle?", "a": "E1 is tested every night on a project with 498,000 objects and 1,300 dense sheets, with 50 engineers working at once, and every week with 100 engineers at once. That is the size of a refinery, a petrochemical complex or an offshore platform."},
+    {"q": "How fast does a large project open?", "a": "For one engineer, the 498,000-object test project opens in 140–180 ms on the server. With 50 engineers all editing at once, the slowest 5 % of openings take 1.0–1.9 s."},
+    {"q": "Do engineers see each other's changes?", "a": "Yes. A change by one engineer reaches everyone who has the project open in about a second, pushed by the server, without reloading."},
+    {"q": "What happens when two engineers change the same object?", "a": "E1 saves each object on its own. The first change is kept, the second is refused with a clear message, and the second person's copy is reloaded so they see the current state."},
+    {"q": "Can I search across all my projects?", "a": "Yes. The search finds objects by tag, name or any value, also as a quantity such as 24 volt, across all your projects; on the test project it answers in about 10 ms. A query can also list the objects of every project of your organization."},
+    {"q": "Are these times guaranteed in the E1 Cloud?", "a": "They are measured in our load tests. Times in the E1 Cloud depend on the size of your project, how many people work at once and your connection. See the <a href=\"cloud-specifications.html\">cloud specifications</a> for the full results."},
+    {"q": "How do I bring an existing large project into E1?", "a": "Import Excel tag lists and data sheets, DEXPI P&amp;IDs, and P&amp;IDs from CAD as DXF or PDF. Each import can be run again later to update what is there, and you decide every difference."}
+  ],
+  "guides": ["COL-live-refresh", "COL-conflicts", "COL-presence", "PRJ-search", "PRJ-projects-place", "LIST-workspace-query", "ORG-responsibility", "PRJ-import-excel"],
+  "related": ["discipline-collab", "single-model", "cloud-workspace", "enterprise-deploy"]
+}

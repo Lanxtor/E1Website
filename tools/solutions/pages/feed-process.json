@@ -1,0 +1,83 @@
+{
+  "id": "feed-process",
+  "file": "solution-feed-process-engineering.html",
+  "title": "FEED and process engineering software",
+  "description": "FEED and process engineering in E1: PFDs with real equipment and streams, heat and material balance tables, P&amp;IDs made from the PFD and a live line list.",
+  "kicker": "FEED &amp; process engineering",
+  "h1": "FEED and process engineering on one plant model.",
+  "lead": "In E1, the process flow diagram, the heat and material balance, the P&amp;IDs and the line list are views of one plant model. Equipment and streams are objects with tags and values, not lines on a sheet. Instrumentation, piping, electrical and automation engineers work on the same objects, so the FEED deliverables they inherit are never retyped.",
+  "glance": [
+    {"value": "0", "label": "copies: a P&amp;ID made from a PFD draws the PFD's own equipment"},
+    {"value": "3", "label": "balance sheets in one export: mass, heat and overall"},
+    {"value": "DEXPI 2.0", "label": "P&amp;ID import and export"}
+  ],
+  "sections": [
+    {
+      "id": "pfd",
+      "kicker": "PFD",
+      "h2": "Process flow diagrams made of real objects",
+      "intro": "In E1, a process flow diagram is a 2D space whose diagram type is Process flow diagram. Every symbol on it is an object in the project.",
+      "paragraphs": [
+        "You place equipment from the Add asset window, and each symbol becomes a new object with the next free tag from the project's tag rules, such as P-001 and P-002 for pumps. Streams are drawn as process lines with the Connector tool, and every line is an object that connects what it touches. Unit operations, systems, processes and areas are made from the drawing toolbar while you draw.",
+        "Because the drawing and the data are the same thing, the PFD answers questions directly. Highlight flow traces where a stream goes, from an open end through valves to the next equipment, and on through pumps and compressors and across off-page connectors to other 2D spaces. Animate flow sets the sheet in motion: the flow moves through the pipes the way it goes, tanks fill and empty, and Alex works out velocities from the values in the model without changing anything.",
+        "E1 draws its own symbols for process equipment, valves and fittings in the conventions process engineers know. You browse and search them in Configuration → Shapes."
+      ]
+    },
+    {
+      "id": "balance",
+      "kicker": "Balance",
+      "h2": "Heat and material balance from the line list",
+      "intro": "In E1, the heat and material balance tables on a PFD are made from the line list. Nothing in a table is typed.",
+      "paragraphs": [
+        "Stream values come into the line list in three ways: typed, imported from your simulator, or written by Alex from a solved balance. <b>Import heat and material balance</b> in Alex reads the stream table of HYSYS, Aspen Plus, DWSIM or a similar simulator as .xlsx, .xls, .csv or .txt. Alex matches streams to lines by name or by the middle of the line number, you check each match, and only then are the values written. Alex then asks only for what is still missing.",
+        "On the PFD, <b>Place mass balance</b> draws the bird cage: one column per stream with line number, From, To, phase, temperature, pressure, flows, density, molar mass and composition. <b>Place heat balance</b> lists every heater, cooler, exchanger, pump and compressor with its service, duty and power, and the totals. Format presets set the layout your customer expects, and a changed temperature in the line list shows in the table at once."
+      ],
+      "bullets": [
+        "<b>Export balance (Excel)</b>: the sheets Mass balance, Heat balance and Overall balance, with feeds and products, mass in and out, and closure.",
+        "<b>Export balance (PDF)</b> for the balance report.",
+        "A value that is missing, or cannot be shown in the chosen unit, shows as – rather than a guess."
+      ]
+    },
+    {
+      "id": "pid",
+      "kicker": "P&amp;ID",
+      "h2": "Make the P&amp;ID from the PFD",
+      "intro": "In E1, Make P&amp;ID from this PFD… draws a new P&amp;ID with the PFD's own equipment: the same objects with the same tags, not copies.",
+      "paragraphs": [
+        "Each stream becomes a pipe between the same equipment, carrying the same stream. You choose which objects to draw; one already on a P&amp;ID of that PFD, or with no P&amp;ID shape, is greyed with the reason. Equipment you leave for a second P&amp;ID ends at an off-page connector that continues there. Nothing is drawn twice.",
+        "When objects or streams are added to the PFD later, <b>Update from PFD</b> offers only the new ones. The new P&amp;ID opens with Alex's <b>Suggested additions</b>: what each object usually has on a P&amp;ID. A centrifugal pump gets suction and discharge isolation, a discharge check valve, a suction strainer and a discharge pressure gauge; a vessel gets a relief valve, a drain, a vent, level and pressure instruments. Additions your company's conventions require come first, and <b>Apply all</b> is one change with one Undo."
+      ]
+    },
+    {
+      "id": "line-list",
+      "kicker": "Line list",
+      "h2": "Pipelines, pipe classes and a live line list",
+      "intro": "In E1, a pipeline is a line of the line list: the pipe runs, valves and fittings from one equipment nozzle to another, with its line number, From and To.",
+      "paragraphs": [
+        "You define a pipeline on the drawing from one item of equipment to the next, and E1 follows the drawn pipe through valves and fittings to make it, split into segments at reducers. A pipeline names its pipe class. Pipe classes hold your piping specifications: rating, material, pressure–temperature envelope, sizes with their schedule, and the valves and fittings allowed. They are kept in the company or project library, published as versions, and can be imported from a spreadsheet.",
+        "<b>Check piping…</b> finds a pump turned the wrong way, flow that meets head-on, branches with only inflow, and pipelines that are no longer whole. It offers fixes and never applies one on its own. With pipe classes loaded, Alex checks each line's pressure and temperature against its class and flags sour service in a class not rated for it.",
+        "E1 ships no fixed line list. The pipe schedule is a query you build and save on the project's pipelines: line number, From and To, size, fluid, pipe class, design conditions and the P&amp;IDs each line is drawn on. It stays live with the drawing and exports to Excel or CSV, or becomes a list document with revisions."
+      ]
+    },
+    {
+      "id": "deliverables",
+      "kicker": "Deliverables",
+      "h2": "FEED deliverables that downstream disciplines inherit",
+      "intro": "In E1, datasheets, lists and drawings are generated from the same objects, so the FEED package and the detailed design never drift apart.",
+      "paragraphs": [
+        "Specification datasheets for pumps and exchangers come as ready-made templates, E1's own layouts inspired by API and ASME datasheets. Operating cases sit side by side on the datasheet: maximum, rated, normal, minimum, design or start-up, each inheriting the object's values until you give it its own. After a datasheet is issued, every value changed since shows the next revision beside it.",
+        "Documents → Deliverables binds the chosen drawings with the reports and datasheets of the deliverable profile into one PDF, with a cover, an index and page numbers, and issues it. Process data also leaves E1 as data: any query exports to Excel, CSV or JSON, a 2D space exports as DEXPI 2.0 for a 3D design tool or another P&amp;ID tool, and existing P&amp;IDs come in from DEXPI, DXF or a vector PDF. See <a href=\"solution-revisions-datasheets.html\">revisions, datasheets and reports</a>."
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Does E1 replace a process simulator?", "a": "No. E1 keeps the results of your simulator in the plant model. Import heat and material balance reads a stream table from HYSYS, Aspen Plus, DWSIM or a similar tool into the line list, and the balance tables on the PFD are made from it."},
+    {"q": "Is the P&amp;ID a copy of the PFD?", "a": "No. Make P&amp;ID from this PFD… draws the PFD's own equipment objects with their P&amp;ID shapes, with the same tags. A change to a pump's data is the same change on both drawings."},
+    {"q": "What happens when the PFD changes after the P&amp;ID is made?", "a": "Update from PFD appears on the P&amp;ID with only the new objects and streams ticked. What is already drawn is not drawn twice."},
+    {"q": "Can I format the mass balance the way my customer wants?", "a": "Yes. Format mass balance has presets, one row or one column per stream, the composition left of or below the properties, and a unit per property. The table always shows the line list's current values."},
+    {"q": "Does E1 come with a fixed line list?", "a": "No. You build the pipe schedule as a saved query with the rows and columns you need, and it is offered in every Query menu of the project. It exports to Excel or CSV, or becomes a revised list document."},
+    {"q": "Can I bring existing P&amp;IDs into E1?", "a": "Yes: DEXPI 2.0 files, DXF from CAD and vector PDFs exported from CAD become drawings with real objects. You check the result before anything is stored. A scanned image cannot be read."}
+  ],
+  "guides": ["DRAW-pid-from-pfd", "DRAW-balance-tables", "AI-alex-hmb", "DRAW-pipelines", "DRAW-pipe-classes", "DRAW-line-list", "DOC-spec-datasheet-cases", "PRJ-import-dexpi"],
+  "related": ["instrumentation", "single-model", "simulate-validate", "revisions-datasheets"]
+}

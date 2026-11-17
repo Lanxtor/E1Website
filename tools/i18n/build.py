@@ -39,6 +39,17 @@ HERE = os.path.join(ROOT, "tools", "i18n")
 PAGES = ["index.html", "solutions.html", "academy.html", "download.html", "cloud-specifications.html",
          "about.html", "contact-sales.html", "shape-e1.html",
          "legal.html", "privacy.html", "terms.html", "security.html"]
+# The solution pages (tools/solutions/build.py) are translated like the others.
+try:
+    with open(os.path.join(ROOT, "tools", "solutions", "order.json"), encoding="utf-8") as _f:
+        _ORDER = json.load(_f)
+    _SOL = []
+    for _id in _ORDER:
+        with open(os.path.join(ROOT, "tools", "solutions", "pages", _id + ".json"), encoding="utf-8") as _f:
+            _SOL.append(json.load(_f)["file"])
+except (OSError, ValueError):
+    _SOL = []
+PAGES = PAGES + _SOL
 LANGS = {"de": "de", "fr": "fr", "es": "es", "no": "nb"}  # folder: html lang
 SITE = "https://www.lanxtor.com"
 
@@ -269,6 +280,23 @@ def last_changed(path):
     return out or datetime.date.today().isoformat()
 
 
+def _h1(src):
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", src, re.S)
+    return re.sub(r"\.$", "", re.sub(r"<[^>]+>", "", m.group(1)).strip()) if m else ""
+
+
+def crumbs_of(src, name, folder):
+    """The page's place in the site, in its language: solution pages sit under Solutions."""
+    url = "%s/%s%s" % (SITE, folder, name)
+    if name in _SOL:
+        back = re.search(r'class="cs-back[^"]*"[^>]*>.*?<span>(.*?)</span>', src, re.S)
+        return [(back.group(1) if back else "Solutions", "%s/%ssolutions.html" % (SITE, folder)), (_h1(src), url)]
+    return [(_h1(src), url)]
+
+
+GUIDE_NOINDEX = ("guide-features.html", "guide-roadmap.html")
+
+
 def seo():
     urls = []
     for name in PAGES:
@@ -279,11 +307,18 @@ def seo():
             path = os.path.join(ROOT, folder, name)
             src = open(path, encoding="utf-8").read()
             url = "%s/%s%s" % (SITE, folder, name)
-            block = SEO.head_block(src, url, lang, home=(name == "index.html"))
+            block = SEO.head_block(src, url, lang, home=(name == "index.html"), crumbs=crumbs_of(src, name, folder),
+                                   product=(name in ("download.html", "solutions.html")))
             open(path, "w", encoding="utf-8").write(SEO.put_block(src, block))
             urls.append((url, alts, when))
-    # The user guide pages (guide*.html) are noindex by design (tools/guides/build.py), so they are
-    # not in the sitemap: a sitemap lists only pages search engines may show.
+    # The user guide pages (tools/guides/build.py, English only) are public: all but the feature
+    # table and the roadmap are in the sitemap.
+    import glob
+    for path in sorted(glob.glob(os.path.join(ROOT, "guide*.html"))):
+        name = os.path.basename(path)
+        if name in GUIDE_NOINDEX:
+            continue
+        urls.append(("%s/%s" % (SITE, name), [], last_changed(name)))
     # The coming-soon page is what www.lanxtor.com shows before launch (SITE_MODE is not "live"):
     # indexable, with the home page's address and the company data, so a search for LANXTOR finds it.
     path = os.path.join(ROOT, "coming-soon.html")
@@ -316,6 +351,7 @@ def main():
         src = open(path, encoding="utf-8").read()
         # hreflang block in the English page (kept up to date, idempotent)
         src = re.sub(r"  <!-- i18n:alternates -->.*?<!-- /i18n:alternates -->\n", "", src, flags=re.S)
+        src = SEO.put_site_links(src)  # the site's links as plain HTML, for crawlers without scripts
         src = src.replace("</head>", alternates(name) + "</head>", 1)
         open(path, "w", encoding="utf-8").write(src)
         sources[name] = src

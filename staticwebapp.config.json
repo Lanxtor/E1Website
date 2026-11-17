@@ -9,6 +9,24 @@
   },
   "routes": [
     {
+      "route": "/assets/img/*",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "route": "/assets/clips/*",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "route": "/assets/fonts/*",
+      "headers": {
+        "Cache-Control": "public, max-age=2592000"
+      }
+    },
+    {
       "route": "/.well-known/security.txt",
       "headers": {
         "Content-Type": "text/plain; charset=utf-8",

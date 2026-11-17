@@ -1,0 +1,85 @@
+{
+  "id": "cloud-workspace",
+  "file": "solution-cloud-workspace.html",
+  "title": "Cloud plant engineering software (SaaS)",
+  "description": "E1 Cloud is plant engineering software as a service: sign in, invite your team and work on shared projects, hosted by LANXTOR on Microsoft Azure in the EU.",
+  "kicker": "Cloud workspace",
+  "h1": "Cloud plant engineering software, with nothing to install on servers.",
+  "lead": "E1 Cloud is LANXTOR's software as a service for plant engineering. Your organization's projects, data and team are in one place at app.lanxtor.com, hosted on Microsoft Azure in the European Union. You create an account, invite your colleagues and start engineering the same day, in the browser or in the desktop app. LANXTOR runs the servers, the backups and the updates.",
+  "glance": [
+    {"value": "EU", "label": "Microsoft Azure, North Europe (Ireland)"},
+    {"value": "140 ms", "label": "To open a project with 498,000 objects, in our load tests"},
+    {"value": "7 days", "label": "Restore the database to any point in time"},
+    {"value": "30 days", "label": "Free trial for your team"}
+  ],
+  "sections": [
+    {
+      "id": "start",
+      "kicker": "Start",
+      "h2": "Sign in, open the plant, keep going",
+      "intro": "In E1 Cloud, you open app.lanxtor.com in the browser or start the desktop app, sign in, and your projects are there. Nothing is installed on a server.",
+      "paragraphs": [
+        "You sign in with your E1 account or with your company's Microsoft account. The first sign-in creates your account. A passkey signs you in with your screen lock or a security key, and Owners and Administrators need one before their rights take effect. A sign-in lasts 12 hours.",
+        "Your changes are saved on the server as you make them, and your tabs, selection and open rows come back after a reload. The status bar names where your projects are kept; on E1 Cloud it reads Microsoft Azure. E1 Cloud is always on the latest version of E1: when the server is updated, a bar tells you a new version is ready and you choose when to restart into it.",
+        "To try it, start a <a href=\"download.html#trial\">free 30-day trial</a>: an organization of your own with 5 Editors, 5 Reviewers and unlimited Viewers invited as guests. The sample project Sample E1 gives you a complete fictional plant to explore. After a trial the organization is read-only for 90 more days, and everything can still be viewed and exported."
+      ]
+    },
+    {
+      "id": "workspace",
+      "kicker": "Workspace",
+      "h2": "Projects, data and teams in one organization",
+      "intro": "In E1, everything belongs to an organization: its members, their licenses, its projects and its company library. The plan and the invoice belong to the organization too.",
+      "paragraphs": [
+        "Owners and Administrators invite colleagues by email with a license, or many at once from Excel. Each person has one license, Editor, Reviewer or Viewer, which caps what their roles may do. Roles are given on the organization, on a project, on a section or on a single object, to a person or to a group, and an organization can make roles of its own.",
+        "Projects are arranged in the explorer, and one query can run over the objects of every project you may view. Contractors and clients work on a shared project with their own people and licenses, up to the role you allow. Guests invited to a project view it for free."
+      ]
+    },
+    {
+      "id": "together",
+      "kicker": "Teamwork",
+      "h2": "Work on the same plant at the same time",
+      "intro": "In E1 Cloud, several engineers work on one project at once and see each other's changes within seconds, pushed by the server, without reloading.",
+      "paragraphs": [
+        "Avatars on a 2D space's toolbar show who else has it open and who is editing. When two people change the same thing, the first change is kept and the second is refused with a clear message, so nothing is overwritten unseen. Every object keeps its history, with who changed what, before and after.",
+        "Conversations stay with the work: comment on an object with mentions and replies, pin a message on a drawing, and give someone a task. The Inbox collects your mentions, replies and tasks, and you choose which notices come by email. Alex, the AI co-engineer, works in the same projects with your permissions and never more."
+      ]
+    },
+    {
+      "id": "hosting",
+      "kicker": "Hosting",
+      "h2": "Where your data is, and how it is protected",
+      "intro": "E1 Cloud runs in one Microsoft Azure region in the European Union, North Europe in Ireland. Your projects, drawings, documents and their backups stay in Azure data centres in the EU.",
+      "paragraphs": [
+        "Every record in the database belongs to one organization, and PostgreSQL row-level security lets E1 read only the rows of the organization you work in. The database has no public address. Traffic is HTTPS only, and the database, files and backups are encrypted at rest with AES-256. E1 keeps no passwords.",
+        "The database can be restored to any minute of the last 7 days, and deleted files can be brought back for 14 days. Files are stored in three separate data centres of the region, and issued revisions are never removed. Owners and Administrators export the whole organization at any time, as open JSON lines and the original files. The full details are on <a href=\"cloud-specifications.html\">E1 Cloud specifications</a>."
+      ],
+      "bullets": [
+        "<b>Region</b>: EU, Microsoft Azure North Europe (Ireland); a US region, Amazon Web Services and Google Cloud are coming.",
+        "<b>Recovery</b>: at most 1 hour of work lost (RPO), service restored within 8 hours (RTO).",
+        "<b>Audit</b>: sign-ins, members, licenses, roles and exports are recorded for administrators.",
+        "<b>Support</b>: LANXTOR support sees account and billing data, not your projects, drawings or documents."
+      ]
+    },
+    {
+      "id": "plans",
+      "kicker": "Plans",
+      "h2": "Pay per user, per month",
+      "intro": "E1 Cloud is licensed per user and per month, with updates included. The plan belongs to the organization: up to 20 Editors on Essentials or Standard, and more on Enterprise.",
+      "paragraphs": [
+        "Editors build the design, Reviewers review and approve, and Viewers see everything in E1 itself, read-only, not a PDF. AI credits are shared by the organization; more can be bought in packs, or your organization can use its own model key. Prices, plans and what each includes are on <a href=\"download.html#pricing\">Plans and prices</a>.",
+        "If your data must stay in your own cloud subscription or data centre, the same E1 runs as an <a href=\"solution-enterprise-deployment.html\">enterprise installation</a>."
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "What is E1 Cloud?", "a": "E1 Cloud is LANXTOR's hosted E1 at app.lanxtor.com: plant engineering software as a service. LANXTOR runs the servers, backups and updates on Microsoft Azure in the EU; you sign in and work in the browser or the desktop app."},
+    {"q": "Where is our data stored?", "a": "In Microsoft Azure's North Europe region in Ireland. Database backups have a second copy in Azure's paired EU region, West Europe (the Netherlands). Projects, files and backups stay in the EU."},
+    {"q": "Do we need to install anything?", "a": "No. E1 runs in the browser with nothing to install. The desktop app for Windows and macOS is optional and connects to E1 Cloud with one click: Use E1 Cloud."},
+    {"q": "How do updates work?", "a": "E1 Cloud is always on the latest version, with updates included. When the server is updated, an open E1 tells you a new version is ready; Restart now opens it, and your work is already saved on the server."},
+    {"q": "Can LANXTOR employees open our drawings?", "a": "No. LANXTOR support sees your account and billing data so it can help with licenses and seats, not your projects, objects, drawings or documents. Access for a support case is given only when an Owner or Administrator approves it, and everything support does is in your audit log."},
+    {"q": "How do we get our data out?", "a": "An Owner or Administrator chooses File → Organization… → Export → Export everything…: one archive with every table as open JSON lines and every file, up to 4 GB."},
+    {"q": "What happens when the trial ends?", "a": "The organization becomes read-only for 90 more days. Everything stays visible and can be exported; nothing is lost."}
+  ],
+  "guides": ["ACC-cloud-deployment", "ACC-sign-in", "ORG-invitations", "ORG-licenses-seats", "COL-live-refresh", "ACC-new-version", "ORG-export", "ACC-trial"],
+  "related": ["enterprise-deploy", "cross-platform", "discipline-collab", "cross-company"]
+}

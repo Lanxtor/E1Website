@@ -1,0 +1,89 @@
+{
+  "id": "single-model",
+  "file": "solution-single-data-model.html",
+  "title": "Single source of truth for plant engineering",
+  "description": "E1 keeps process, instrumentation, electrical and automation data in one plant data model: one object per pump, shown on every drawing, list and datasheet.",
+  "kicker": "One central model",
+  "h1": "One plant data model, a single source of truth.",
+  "lead": "In E1, process, instrumentation, electrical and automation engineering work on one shared plant data model, from FEED to modifications. A pump is one object: the P&amp;ID, the datasheet, the line list, the wiring and the cause and effect matrix all show that same object, so a value changed in one place is changed everywhere.",
+  "glance": [
+    {"value": "9", "label": "Fixed sections in every project, from Model Space to Branches"},
+    {"value": "140 ms", "label": "To open a project with 498,000 objects in our load tests"},
+    {"value": "About 1 s", "label": "For a change to reach everyone who has the project open"},
+    {"value": "DEXPI 2.0", "label": "Import and export of P&amp;ID data"}
+  ],
+  "sections": [
+    {
+      "id": "one-object",
+      "kicker": "One object",
+      "h2": "One object, every view: what a single source of truth means in E1",
+      "intro": "In E1, every pump, valve, instrument, cable and function is one object in the project's data model, stored once on the E1 server.",
+      "paragraphs": [
+        "A drawing in E1 does not hold its own copy of the data. A symbol on a P&amp;ID is a placement of an object, and the same object can be drawn on several 2D spaces. The object's <b>Diagrams</b> tab shows a small picture of every diagram it is drawn on, with the diagram's full path; a double-click opens that diagram with the object selected and in view.",
+        "Everything else about the object is in its own window, opened from the explorer, a list or the drawing: its attributes, relationships, deep view, diagrams, datasheet, chat, history and files. An object made in a list or in the explorer is placed on a drawing later, by dragging it from the explorer or with <b>Place on drawing…</b>, and keeps everything it already has.",
+        "Because there is one record, there is nothing to keep in step. Attribute labels on a symbol, such as a design pressure with its unit, always show the current value: change it in a list or on the datasheet, and every 2D space and its PDF show the new value. No label text is stored.",
+        "The same holds between diagram types. <b>Make P&amp;ID from this PFD…</b> draws the PFD's own equipment on a new P&amp;ID: the same objects with the same tags, not copies, and each stream as a pipe between the same equipment. What is added to the PFD later is drawn with <b>Update from PFD</b>."
+      ]
+    },
+    {
+      "id": "structure",
+      "kicker": "Structure",
+      "h2": "A plant data model with nine sections",
+      "intro": "In E1, every project has the same nine sections in the same order: Model Space, Unit Operations, Assets, Systems, Processes, Areas, Documents, Tasks and Branches.",
+      "paragraphs": [
+        "Each section holds one kind of thing. Model Space holds the drawings. Assets holds the equipment and instruments, and every drawn pipe run, cable, wire and signal is an object there too. Systems holds the functional breakdown, Processes the steps, fluids and operating cases, and Areas the site, plant, unit, room and cabinet. Right-clicking a section offers exactly what can be made in it.",
+        "Relationships connect objects across sections: a function under Systems “is implemented by” a pump under Assets, a transmitter “measures” the pump, a cabinet “is located in” a room. You pick the other object in a tree that shows only what fits the relationship, and every relationship shows from both sides.",
+        "<b>Deep view</b> shows an object and everything linked to it as cards and links, like an object diagram rather than a drawing. From a valve you follow the pipes on its ports to the pump, the transmitter that measures it, its terminals, the cable core landed on them and the junction box at the other end of the cable.",
+        "What an object can hold comes from the library: object classes, attributes, relationship types and shapes. Content packages such as Core, Electrical foundation, Plant engineering, CFIHOS and NORSOK SCD bring them ready-made, and your organization adds its own classes and attributes in the company library and publishes them to every project. Every quantity is stored with its value and its unit."
+      ]
+    },
+    {
+      "id": "disciplines",
+      "kicker": "Disciplines",
+      "h2": "Process, instrumentation, electrical and automation data on the same objects",
+      "intro": "In E1, each discipline adds its data to the same objects instead of keeping its own copy of the plant.",
+      "paragraphs": [
+        "A centrifugal pump carries process data (operating and design conditions, fluid, performance), mechanical data, piping data, electrical data for its motor and hazardous area, and instrumentation data for its signals, alarms and trips. Each group is a section of the same datasheet, and each discipline fills in its own.",
+        "The pipe schedule is a query on the project's pipelines with line number, From and To, size, pipe class and design conditions, live with the drawing. A loop diagram is drawn from the model whenever you look at it, from the instruments that implement a control function and their wiring. The Wiring page shows every signal with its whole path, from the field cable to its I/O channel. The cause and effect matrix is filled on a unit in Systems, with causes and devices chosen from the model.",
+        "Because all of this reads the same objects, renaming a pump, changing its motor rating or moving a transmitter to another junction box is one change that every discipline sees. See <a href=\"solution-multidiscipline-collaboration.html\">work across disciplines</a> for how teams share one project at the same time."
+      ]
+    },
+    {
+      "id": "lists",
+      "kicker": "Lists",
+      "h2": "Lists, datasheets and calculated values that follow the model",
+      "intro": "In E1, a list is a live query of the model, not an exported spreadsheet that goes out of date.",
+      "paragraphs": [
+        "<b>New query…</b> opens a live table of every object below a project, section, folder, 2D space or object. You choose the columns, filter and group the rows, and edit cells like in Excel; a block pasted from Excel is previewed before anything changes. One query can also run over every project of the organization you may view.",
+        "Data still moves in and out as engineers expect. A query exports to Excel, CSV or JSON with an E1 id column, and <b>Update from Excel…</b> reads the file back with Check and Apply. Tag lists and data sheets are imported from Excel, P&amp;IDs from DEXPI 2.0, DXF or PDF, and a 2D space is exported as DEXPI 2.0 for a 3D design tool or another P&amp;ID tool.",
+        "Rules keep derived values right. A calculation rule fills an attribute from the object's own values, its owners, related objects or the project; the value follows its inputs in the same change, and <b>Why this value?</b> shows the rule, each input and where it came from. Nobody types a calculated value."
+      ]
+    },
+    {
+      "id": "history",
+      "kicker": "History",
+      "h2": "Every change recorded, every change reversible",
+      "intro": "In E1, every saved change is recorded on the object it touched, with when, who, and the value before and after.",
+      "paragraphs": [
+        "The History tab of an object lists its changes as a person reads them, and <b>Undo this change</b> takes one back, even an older one, as long as nobody has changed the object since. A change made by Alex, a stored assistant or an import is recorded the same way and can be undone as a group.",
+        "The E1 server is the only writer to the model and checks the permission of every change, whoever or whatever asks for it. That is what lets a whole team, and Alex, the AI co-engineer, work on one source of truth without losing track of who changed what."
+      ],
+      "bullets": [
+        "One object per item of the plant, drawn on as many 2D spaces as it needs",
+        "Lists, datasheets, loop diagrams and wiring read from the same objects",
+        "Calculated values that follow their inputs, with the reason shown",
+        "A history with before and after on every object"
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "What is a single source of truth in plant engineering?", "a": "It means every item of the plant is stored once and every drawing, list and document shows that one record. In E1, a pump is one object; the P&amp;ID, the datasheet, the line list and the wiring all read it, so there are no copies to reconcile."},
+    {"q": "Can one object be drawn on several drawings?", "a": "Yes. An object can be placed on several 2D spaces, and its Diagrams tab lists every diagram it is on. A PFD and the P&amp;ID made from it draw the same equipment objects, with the same tags."},
+    {"q": "Do I still get Excel lists?", "a": "Yes. Any query exports to Excel, CSV or JSON, and Update from Excel… reads changes back with a check before anything is applied. The list in E1 itself stays live with the model."},
+    {"q": "Which content packages and standards does the data model use?", "a": "E1 comes with content packages such as Core, Electrical foundation, Plant engineering, CFIHOS, NORSOK SCD, Specification, Wire harness and Marine. Your organization can add its own classes and attributes in the company library."},
+    {"q": "Can I bring in P&amp;IDs from other tools?", "a": "Yes. E1 imports DEXPI 2.0 files, P&amp;IDs from CAD as DXF, P&amp;IDs exported as PDF, and tag lists and data sheets from Excel. A DEXPI import run again updates what is there instead of duplicating it."},
+    {"q": "How large can one model be?", "a": "Our load tests run on a refinery-size project with 498,000 objects and 1,300 dense sheets. See <a href=\"solution-large-projects.html\">built for refinery-size projects</a> and the <a href=\"cloud-specifications.html\">E1 Cloud specifications</a> for the measured times."}
+  ],
+  "guides": ["PRJ-sections", "OBJ-object-window", "OBJ-relationships", "OBJ-deep-view", "OBJ-diagrams", "DRAW-pid-from-pfd", "LIST-new-query", "LIB-rules"],
+  "related": ["discipline-collab", "feed-process", "revisions-datasheets", "large-projects"]
+}

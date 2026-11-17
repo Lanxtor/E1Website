@@ -42,31 +42,71 @@ ORGANIZATION = {
 }
 
 
+PRODUCT = {
+    "@type": "SoftwareApplication", "@id": SITE + "/#product", "name": "LANXTOR E1",
+    "applicationCategory": "BusinessApplication", "applicationSubCategory": "Plant engineering software",
+    "operatingSystem": "Windows, macOS, web browser",
+    "description": "Plant engineering software: FEED, process, P&IDs, instrumentation, electrical, "
+                   "automation and maintenance on one data model, with Alex, the AI co-engineer.",
+    "url": SITE + "/solutions.html",
+    "publisher": {"@id": SITE + "/#organization"},
+    "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "0", "highPrice": "795",
+               "offerCount": "5", "url": SITE + "/download.html#pricing"}}
+
+
+def _text(s):
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", s)).split())
+
+
+def faq_of(src):
+    """The questions of a page (<div class="cs-faq"> with <details><summary>…</summary><p>…</p>)."""
+    m = re.search(r'<div class="cs-faq[^"]*">(.*?)\n        </div>', src, re.S)
+    if not m:
+        return []
+    return [(_text(q), _text(a)) for q, a in
+            re.findall(r"<summary>(.*?)</summary>\s*<p>(.*?)</p>\s*</details>", m.group(1), re.S)]
+
+
+def _ld(graph):
+    data = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=1)
+    return '<script type="application/ld+json">\n' + data.replace("</", "<\\/") + "\n  </script>"
+
+
+def _page_graph(src, url, lang, crumbs, product):
+    """Structured data of an ordinary page: its place in the site (breadcrumbs), its questions
+    (FAQPage) and, where E1 is offered, the product."""
+    graph = []
+    if crumbs:
+        items = [{"@type": "ListItem", "position": 1, "name": "LANXTOR", "item": SITE + "/"}]
+        for i, (name, href) in enumerate(crumbs):
+            items.append({"@type": "ListItem", "position": i + 2, "name": _text(name), "item": href})
+        graph.append({"@type": "BreadcrumbList", "itemListElement": items})
+    faq = faq_of(src)
+    if faq:
+        graph.append({"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]})
+    if product:
+        graph.append(dict(PRODUCT, publisher={"@type": "Organization", "@id": SITE + "/#organization",
+                                              "name": "Lanxtor LLC", "url": SITE + "/"}))
+    return _ld(graph) if graph else ""
+
+
 def _structured(lang):
     graph = [
         ORGANIZATION,
         {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "LANXTOR",
          "publisher": {"@id": SITE + "/#organization"},
          "inLanguage": ["en", "de", "fr", "es", "nb"]},
-        {"@type": "SoftwareApplication", "name": "LANXTOR E1",
-         "applicationCategory": "BusinessApplication", "applicationSubCategory": "Plant engineering software",
-         "operatingSystem": "Windows, macOS, web browser",
-         "description": "Plant engineering software: FEED, process, P&IDs, instrumentation, electrical, "
-                        "automation and maintenance on one data model, with Alex, the AI co-engineer.",
-         "url": SITE + "/solutions.html",
-         "publisher": {"@id": SITE + "/#organization"},
-         "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "0", "highPrice": "795",
-                    "offerCount": "5", "url": SITE + "/download.html#pricing"}},
+        PRODUCT,
     ]
-    data = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=1)
-    return '<script type="application/ld+json">\n' + data.replace("</", "<\\/") + "\n  </script>"
+    return _ld(graph)
 
 
 def _attr(v):
     return html.escape(html.unescape(v), quote=True)
 
 
-def head_block(src, url, lang="en", home=False):
+def head_block(src, url, lang="en", home=False, crumbs=None, product=False):
     t = re.search(r"<title>(.*?)</title>", src, re.S)
     d = re.search(r'<meta name="description" content="([^"]*)"', src)
     title = _attr(t.group(1).strip()) if t else "LANXTOR"
@@ -92,9 +132,59 @@ def head_block(src, url, lang="en", home=False):
     ]
     if home:
         tags.append(_structured(lang))
+    else:
+        ld = _page_graph(src, url, lang, crumbs, product)
+        if ld:
+            tags.append(ld)
     return "  <!-- seo -->\n  " + "\n  ".join(tags) + "\n  <!-- /seo -->\n"
 
 
 def put_block(src, block):
     src = re.sub(r"  <!-- seo -->.*?<!-- /seo -->\n", "", src, flags=re.S)
     return src.replace("</head>", block + "</head>", 1)
+
+
+# Links for crawlers that do not run scripts (most AI crawlers): the header and footer are drawn
+# by assets/js/main.js, so every page also carries the site's main links as plain HTML inside
+# <div id="site-footer">, which main.js replaces with the footer.
+SITE_LINKS = [
+    ("index.html", "Home"), ("solutions.html", "Solutions"), ("download.html", "Get E1"),
+    ("download.html#pricing", "Pricing"), ("cloud-specifications.html", "E1 Cloud specifications"),
+    ("academy.html", "Academy"), ("guide.html", "User guide"), ("security.html", "Security"),
+    ("about.html", "About us"), ("shape-e1.html", "Contact us"), ("contact-sales.html", "Contact sales"),
+]
+
+
+def site_links_html(solutions=()):
+    """solutions: [(file, name)] of the solution pages."""
+    def ul(links):
+        return "<ul>" + "".join('<li><a href="%s">%s</a></li>' % (h, t) for h, t in links) + "</ul>"
+    out = '<nav class="site-links" aria-label="Site">' + ul(SITE_LINKS)
+    if solutions:
+        out += ul(solutions)
+    return out + "</nav>"
+
+
+def solution_links():
+    """[(file, name)] of the solution pages, in the catalog's order (tools/solutions)."""
+    import os
+    here = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "solutions")
+    try:
+        order = json.load(open(os.path.join(here, "order.json"), encoding="utf-8"))
+    except OSError:
+        return []
+    out = []
+    for pid in order:
+        try:
+            p = json.load(open(os.path.join(here, "pages", pid + ".json"), encoding="utf-8"))
+        except OSError:
+            continue
+        out.append((p["file"], p["h1"].rstrip(".")))
+    return out
+
+
+def put_site_links(src, solutions=None):
+    if solutions is None:
+        solutions = solution_links()
+    return re.sub(r'<div id="site-footer">.*?</div>', '<div id="site-footer">%s</div>' % site_links_html(solutions),
+                  src, count=1, flags=re.S)

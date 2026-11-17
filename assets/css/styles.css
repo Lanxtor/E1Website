@@ -4089,3 +4089,23 @@ code {
 .uni-timeline span { color: rgba(255, 255, 255, 0.72); font-size: 0.84rem; line-height: 1.4; }
 .uni-promo a { color: #fff; text-decoration: underline; }
 @media (max-width: 640px) { .uni-timeline { grid-template-columns: 1fr; } }
+
+/* Solution pages (tools/solutions/build.py) and the catalog's "Read more" */
+.catalog-copy { display: grid; gap: 12px; align-content: start; }
+.catalog-more { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-size: 0.92rem; font-weight: 600; }
+.catalog-more:hover { text-decoration: underline; }
+.sol-page .cs-hero .saas-kicker { margin-bottom: 14px; }
+.sol-prose { max-width: 780px; display: grid; gap: 16px; font-size: 1.02rem; line-height: 1.7; color: var(--text-title); }
+.sol-prose ul { display: grid; gap: 10px; padding-left: 1.2em; list-style: disc; }
+.sol-prose a, .cs-faq a { color: var(--accent); text-decoration: underline; }
+.sol-more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.sol-more h2 { font-size: 1.4rem; }
+.sol-links { margin-top: 14px; display: grid; gap: 4px; }
+.sol-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 500; }
+.sol-links a:hover { text-decoration: underline; }
+.sol-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; }
+@media (max-width: 760px) { .sol-more { grid-template-columns: 1fr; gap: 24px; } }
+
+/* The site's links as plain HTML for crawlers without scripts; main.js replaces them with the footer */
+.site-links { padding: 32px 24px; font-size: 0.9rem; }
+.site-links ul { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 12px; }

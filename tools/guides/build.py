@@ -101,7 +101,39 @@ def load():
     return cats, features, roadmap
 
 
-def page(title, description, body, toc, crumbs):
+# The guide pages are public and indexed: they are the fullest description of what E1 does.
+# Only the feature table and the roadmap (statuses and dates that change every week) stay out
+# of search engines.
+sys.path.insert(0, os.path.join(ROOT, "tools", "seo"))
+import seo as SEO  # noqa: E402
+
+NOINDEX = ("guide-features.html", "guide-roadmap.html")
+
+
+def _main_js_version():
+    try:
+        found = re.search(r"main\.js\?v=(\d+)", read(os.path.join(ROOT, "index.html")))
+        return found.group(1) if found else "1"
+    except OSError:
+        return "1"
+
+
+MAIN_V = _main_js_version()
+
+
+def page(title, description, body, toc, crumbs, path):
+    out = page_html(title, description, body, toc, crumbs)
+    if path in NOINDEX:
+        out = out.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n  <meta name="robots" content="noindex">', 1)
+        return out
+    trail = [("User guide", SEO.SITE + "/guide.html")]
+    if path != "guide.html":
+        trail.append((title, SEO.SITE + "/" + path))
+    out = SEO.put_block(out, SEO.head_block(out, SEO.SITE + "/" + path, "en", crumbs=trail))
+    return SEO.put_site_links(out)
+
+
+def page_html(title, description, body, toc, crumbs):
     return """<!doctype html>
 <html lang="en">
 <head>
@@ -109,7 +141,6 @@ def page(title, description, body, toc, crumbs):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title} — E1 user guide</title>
   <meta name="description" content="{desc}">
-  <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css?v={styles}">
   <link rel="stylesheet" href="assets/css/guides.css?v={css}">
@@ -135,12 +166,12 @@ def page(title, description, body, toc, crumbs):
   <script src="assets/js/i18n.js?v=1"></script>
   <script src="assets/js/config.js?v=4"></script>
   <script src="assets/js/e1-api.js?v=7"></script>
-  <script src="assets/js/main.js?v=32"></script>
+  <script src="assets/js/main.js?v={mainv}"></script>
   <script src="assets/js/chat.js?v=7"></script>
   <script src="assets/js/guides.js?v=1"></script>
 </body>
 </html>
-""".format(title=esc(title), desc=esc(description), css=CSS_V, styles=STYLES_V, toc=toc, crumbs=crumbs, body=body)
+""".format(title=esc(title), desc=esc(description), css=CSS_V, styles=STYLES_V, toc=toc, crumbs=crumbs, body=body, mainv=MAIN_V)
 
 
 def nav_toc(cats, current, sections=None):
@@ -221,7 +252,7 @@ def build():
         if nxt:
             pager += '<a href="guide-%s.html">%s</a> →' % (nxt["id"], esc(nxt["title"]))
         pager += "</p>\n"
-        write("guide-%s.html" % c["id"], page(c["title"], c["summary"], head + frag + pager, nav_toc(cats, "guide-%s.html" % c["id"], sections), crumbs(esc(c["title"]))))
+        write("guide-%s.html" % c["id"], page(c["title"], c["summary"], head + frag + pager, nav_toc(cats, "guide-%s.html" % c["id"], sections), crumbs(esc(c["title"])), "guide-%s.html" % c["id"]))
 
     # Hub
     cards = []
@@ -280,7 +311,7 @@ def build():
            cards="\n".join(cards), news=news, dev=devlist,
            s_av=status_badge("available"), s_ud=status_badge("under-development"), s_pl=status_badge("planned"),
            s_ph=status_badge("placeholder"), s_pr=status_badge("preview"), s_pk=status_badge("parked"))
-    write("guide.html", page("Overview", meta["intro"], hub, nav_toc(cats, "guide.html", [("whats-new", "What's new"), ("under-development", "Under development"), ("statuses", "What the statuses mean")]), crumbs()))
+    write("guide.html", page("Overview", meta["intro"], hub, nav_toc(cats, "guide.html", [("whats-new", "What's new"), ("under-development", "Under development"), ("statuses", "What the statuses mean")]), crumbs(), "guide.html"))
 
     # Catalog
     rows = []
@@ -311,7 +342,7 @@ def build():
         </div>
         <p class="g-related">The same list as data: <a href="assets/data/user-guide-features.json">user-guide-features.json</a>.</p>
 """.format(opts=opts, sopts=sopts, n=len(features), rows="\n".join(rows))
-    write("guide-features.html", page("All features", "Every E1 feature with status and dates.", catalog, nav_toc(cats, "guide-features.html"), crumbs("All features")))
+    write("guide-features.html", page("All features", "Every E1 feature with status and dates.", catalog, nav_toc(cats, "guide-features.html"), crumbs("All features"), "guide-features.html"))
 
     # Roadmap
     if roadmap:
@@ -333,7 +364,7 @@ def build():
                     badge = '<span class="g-status %s">%s</span>' % (st, esc(lab or STATUS[st]))
                     parts.append("            <tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (esc(s["id"]), esc(s["title"]), badge, esc(s["tryIt"])))
                 parts.append("          </tbody></table></div>\n        </section>")
-        write("guide-roadmap.html", page("Under development and roadmap", "The E1 build roadmap.", "\n".join(parts) + "\n", nav_toc(cats, "guide-roadmap.html", sections), crumbs("Roadmap")))
+        write("guide-roadmap.html", page("Under development and roadmap", "The E1 build roadmap.", "\n".join(parts) + "\n", nav_toc(cats, "guide-roadmap.html", sections), crumbs("Roadmap"), "guide-roadmap.html"))
 
     # The account page's User guides cards
     acc = read(os.path.join(ROOT, "account.html"))
@@ -383,7 +414,7 @@ def check(features):
                     problems.append("%s: link to missing page %s" % (name, href))
                 elif anchor and anchor not in anchors[target]:
                     problems.append("%s: link to missing anchor %s" % (name, href))
-            elif not os.path.exists(os.path.join(ROOT, target)):
+            elif not os.path.exists(os.path.join(ROOT, target.lstrip("/"))):
                 problems.append("%s: link to missing file %s" % (name, href))
         for src in re.findall(r'<img[^>]+src="([^"]+)"', text):
             if not os.path.exists(os.path.join(ROOT, src)):
