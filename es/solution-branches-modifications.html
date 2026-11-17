@@ -1,0 +1,330 @@
+﻿<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering branches and modification packages | LANXTOR E1</title>
+  <meta name="description" content="Branches in E1: change part of a design while main stays as it is, resolve conflicts, review it, push it back as one change, or split commissioning packages.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=147">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/solution-branches-modifications.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/solution-branches-modifications.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/solution-branches-modifications.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/solution-branches-modifications.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/solution-branches-modifications.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/solution-branches-modifications.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/es/solution-branches-modifications.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="Engineering branches and modification packages | LANXTOR E1">
+  <meta property="og:description" content="Branches in E1: change part of a design while main stays as it is, resolve conflicts, review it, push it back as one change, or split commissioning packages.">
+  <meta property="og:url" content="https://www.lanxtor.com/es/solution-branches-modifications.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Solutions",
+     "item": "https://www.lanxtor.com/es/solutions.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Branches for scenarios and modifications",
+     "item": "https://www.lanxtor.com/es/solution-branches-modifications.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "es",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is a branch in E1?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A working copy of part of a project's design. You change it while main stays as it is, pull main's changes in, and push it back to main as one change when it is ready."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What can I use branches for?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "What-if scenarios, design changes that need a review, modification packages and commissioning scopes. Each project starts with the branch types Working branch, Design change (reviewed) and Commissioning package."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens when main and a branch change the same value?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pull from main lists it as a conflict with Base, Main and Branch side by side. You choose Keep mine, Take theirs or type a value. A symbol both moved is shown twice on the drawing so you can click the one to keep."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who can push a branch to main?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A Lead engineer or above, whose role allows every change in the branch. A push is refused while main has unpulled changes in its scope, while conflicts are open, or while a required review is not approved."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I undo a push?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. A push lands in main's history as one change, and Undo this change takes it all back. Its push protocol keeps every change it made, each field before and after."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I issue a revision inside a branch?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Issuing revisions, the project's settings and the library are changed in main. Push the branch first, then issue the revision there."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is a commissioning package?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A part of a branch collected by drawing around it or by right-click, with its dates, lead and description. Once marked ready and reviewed, it is pushed to main on its own."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <!-- Generated by tools/solutions/build.py from tools/solutions/pages/branches.json. Do not edit this file. -->
+  <div id="site-header"></div>
+
+  <main class="cs-page sol-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="es/solutions.html#branches"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Solutions</span></a>
+        <span class="saas-kicker reveal">Colaboración</span>
+        <h1 class="reveal">Branches for scenarios and modifications.</h1>
+        <p class="lead reveal">In E1, a branch is a working copy of part of a project's design. Engineers change it while main stays as it is, pull main's changes in value by value, resolve conflicts on the data and on the drawing, and push the branch back to main as one change that undoes as one. Use branches for what-ifs, design changes, modification packages and commissioning scopes.</p>
+        <div class="cs-glance reveal" aria-label="At a glance">
+          <div class="cs-stat"><b>3</b><span>Branch types every project starts with</span></div>
+          <div class="cs-stat"><b>1</b><span>Change in main for each push, undone as one</span></div>
+          <div class="cs-stat"><b>4</b><span>Branch statuses: In progress, On hold, Ready, Blocked</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="En esta página">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="es/solution-branches-modifications.html#branch">Branches</a>
+          <a href="es/solution-branches-modifications.html#pull">Conflicts</a>
+          <a href="es/solution-branches-modifications.html#review">Review</a>
+          <a href="es/solution-branches-modifications.html#push">Push</a>
+          <a href="es/solution-branches-modifications.html#packages">Commissioning</a>
+          <a href="es/solution-branches-modifications.html#oversight">Oversight</a>
+          <a href="es/solution-branches-modifications.html#faq">Questions</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section section-tight cs-section sol-section" id="branch">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Ramas</span>
+          <h2>Change part of the design while main stays as it is</h2>
+          <p>In E1, a branch holds a chosen scope of the plant model; what you change in it changes the branch, not the project's main design.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Start a branch from the project's Branches page, from the project's right-click menu, or by selecting objects in the explorer or on a 2D space and choosing Branch ▸ New branch…. A scope preview lists what comes with your choice and why: a pump brings its nozzles, its connected lines and the 2D space it is drawn on as Editable, and its owner as Information. Change a row to Leave out or Information where it is not locked, and create the branch.</p>
+          <p>Enter the branch and the whole project shows the branch's content, with a bar that says you are in it. The branch icon marks every object and 2D space it changes. Objects outside the branch are grey and cannot be changed there. On a drawing, Show main lays main's current version on top in pink, so you see exactly what the branch draws differently, and Branches on this drawing shows every open branch that changes a 2D space, each in its colour.</p>
+          <p>Some things always belong to main: issuing a revision, the project's settings and the library are refused in a branch. Tag numbers are taken centrally, so two branches never give the same number. A branch never widens what you may change in main.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="pull">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Conflicts</span>
+          <h2>Pull from main and resolve conflicts, value by value</h2>
+          <p>In E1, Pull from main brings main's changes into a branch value by value; only what both sides changed differently is a conflict.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>When someone changes main in the branch's scope, a bell rings on the branch's card and lists what changed and who changed it. Pull from main takes everything main changed that the branch did not. A value both changed differently is listed under Conflicts, grouped by object, with Base, Main and Branch side by side: choose Keep mine, Take theirs, or type a value and Use value. Keep mine everywhere and Take theirs everywhere settle many at once.</p>
+          <p>Conflicts are resolved on the drawing too. A symbol both sides moved shows twice, Main in blue and Branch in orange, joined by a dashed line: click the one to keep. Statuses follow the same rule: where main and the branch both changed a status, E1 proposes the lower one, and a signature given in a branch is void after a later change there.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="review">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Review</span>
+          <h2>Review before main: branch types and merge requests</h2>
+          <p>In E1, each branch has a type that says whether it needs a review before it reaches main, and how its conflicts and main's edits are handled.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Every project starts with three branch types: Working branch, Design change (reviewed) and Commissioning package. A Project administrator sets for each type Review before main, Four eyes, what happens After push, how Editing in main treats the branch's objects (Mark, Warn or Block) and a rule for graphical conflicts. A tag or validation conflict is always a person's choice.</p>
+          <p>A branch that needs a review asks for one with Ask for review. The reviewers find the merge request in their Inbox, and the objects show Under merge review meanwhile. A Lead engineer approves or clicks Request changes… with what should change; with four eyes the author cannot approve their own branch. Alex never approves or rejects a merge request: a person does.</p>
+          <p>For plants that run a management of change (MOC) process, a reviewed branch keeps each modification separate from the design of record until a second engineer has approved it, and leaves a protocol of everything it changed. The MOC procedure itself stays your company's.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="push">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Push</span>
+          <h2>Push to main as one change, with a protocol</h2>
+          <p>In E1, Push to main brings a branch into the project as one change, and every push leaves a protocol of what it changed.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>A Lead engineer or above pushes, and their role must allow every change in the branch. E1 refuses a push while main has changes in the branch's scope that were not pulled yet, while conflicts are open, or while a required review is not approved, so nothing in main is overwritten unseen. The push lands as one change, Pushed branch…, in main's history, and Undo this change takes it all back.</p>
+          <p>Every push of a branch or a commissioning package writes a push protocol: its date, who pushed, and every object it created, changed or deleted, with each field before and after. A protocol is written by the push itself and never changes. After the push, the branch stays open and counts from what it pushed, or closes when its type says so.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="packages">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Commissioning</span>
+          <h2>Commissioning packages cut from a branch</h2>
+          <p>In E1, finished parts of a branch become commissioning packages that go to main on their own, each with its dates, lead and description.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>On a branch's card, New commissioning package makes a package. Inside the branch, draw around the work on a drawing with Package boundary (lasso, rectangle or ellipse) and add it, or right-click objects and choose Branch ▸ Add to commissioning package. A pipe that leaves the boundary is marked where it crosses it, and the package lists what it still needs, such as an area the branch created.</p>
+          <p>Give the package its description, priority, planned commissioning date, commissioning lead and who accepts it. Mark ready cuts it from the branch as it is, then it is reviewed and pushed to main alone. The branch then counts from main for those objects, so its next pull has no conflict and its push does not repeat them. Set Commissioned on once the plant it holds is commissioned. Branches and packages are objects of the library classes Branch and Commissioning package, so they carry your own attributes and appear in queries.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="oversight">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Oversight</span>
+          <h2>Branches on the dashboard, and Alex in a branch</h2>
+          <p>In E1, the Branches dashboard and each object's Branches tab show what is being changed where.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Dashboards → Branches shows open branches, those in review, their average age, open conflicts and branches by status and owner. An object's Branches tab lists the open branches that may change it, with what each has changed so far. Owners, an owner group and an assignee make clear who is responsible for each branch, and Access and sharing can limit a branch to the people who should see it.</p>
+          <p>In a branch, Alex and stored assistants change the branch, never main, and only what you may change. A change Alex proposes can be kept as a branch with Open as branch, to review it before anything reaches the design of record.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Preguntas</span>
+          <h2>Questions engineers ask.</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>What is a branch in E1?</summary>
+            <p>A working copy of part of a project's design. You change it while main stays as it is, pull main's changes in, and push it back to main as one change when it is ready.</p>
+          </details>
+          <details>
+            <summary>What can I use branches for?</summary>
+            <p>What-if scenarios, design changes that need a review, modification packages and commissioning scopes. Each project starts with the branch types Working branch, Design change (reviewed) and Commissioning package.</p>
+          </details>
+          <details>
+            <summary>What happens when main and a branch change the same value?</summary>
+            <p>Pull from main lists it as a conflict with Base, Main and Branch side by side. You choose Keep mine, Take theirs or type a value. A symbol both moved is shown twice on the drawing so you can click the one to keep.</p>
+          </details>
+          <details>
+            <summary>Who can push a branch to main?</summary>
+            <p>A Lead engineer or above, whose role allows every change in the branch. A push is refused while main has unpulled changes in its scope, while conflicts are open, or while a required review is not approved.</p>
+          </details>
+          <details>
+            <summary>Can I undo a push?</summary>
+            <p>Yes. A push lands in main's history as one change, and Undo this change takes it all back. Its push protocol keeps every change it made, each field before and after.</p>
+          </details>
+          <details>
+            <summary>Can I issue a revision inside a branch?</summary>
+            <p>No. Issuing revisions, the project's settings and the library are changed in main. Push the branch first, then issue the revision there.</p>
+          </details>
+          <details>
+            <summary>What is a commissioning package?</summary>
+            <p>A part of a branch collected by drawing around it or by right-click, with its dates, lead and description. Once marked ready and reviewed, it is pushed to main on its own.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="more">
+      <div class="container sol-more">
+        <div class="reveal">
+          <h2>In the user guide</h2>
+          <ul class="sol-links">
+            <li><a href="guide-projects.html#prj-branches">Branches</a></li>
+            <li><a href="guide-projects.html#prj-branch-conflicts">Pull from main and resolve conflicts</a></li>
+            <li><a href="guide-projects.html#prj-branch-push">Push a branch to main</a></li>
+            <li><a href="guide-projects.html#prj-push-protocols">Push protocols</a></li>
+            <li><a href="guide-projects.html#prj-branch-types">Branch types and resolution rules</a></li>
+            <li><a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></li>
+            <li><a href="guide-projects.html#prj-branch-packages">Branch packages</a></li>
+            <li><a href="guide-projects.html#prj-branch-proposals">Alex in a branch and Open as branch</a></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>Related solutions</h2>
+          <ul class="sol-links">
+            <li><a href="es/solution-maintenance-brownfield.html">Brownfield engineering and plant modifications, on the plant you already have</a></li>
+            <li><a href="es/solution-multidiscipline-collaboration.html">Work across disciplines on one project</a></li>
+            <li><a href="es/solution-revisions-datasheets-reports.html">Revisions, datasheets and reports</a></li>
+            <li><a href="es/solution-cross-company-projects.html">Across companies on one project</a></li>
+            <li><a href="es/solutions.html">All solutions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container sol-cta reveal">
+        <a class="btn btn-primary" href="es/download.html">Get E1</a>
+        <a class="btn btn-ghost" href="es/contact-sales.html">Contact sales</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="Site"><ul><li><a href="es/index.html">Home</a></li><li><a href="es/solutions.html">Solutions</a></li><li><a href="es/download.html">Get E1</a></li><li><a href="es/download.html#pricing">Pricing</a></li><li><a href="es/cloud-specifications.html">E1 Cloud specifications</a></li><li><a href="es/academy.html">Academy</a></li><li><a href="guide.html">User guide</a></li><li><a href="es/security.html">Security</a></li><li><a href="es/about.html">About us</a></li><li><a href="es/shape-e1.html">Contact us</a></li><li><a href="es/contact-sales.html">Contact sales</a></li></ul><ul><li><a href="es/solution-feed-process-engineering.html">FEED and process engineering on one plant model</a></li><li><a href="es/solution-pid-instrumentation.html">P&amp;IDs and instrumentation, connected to the process</a></li><li><a href="es/solution-electrical-design.html">Electrical design on the same plant model</a></li><li><a href="es/solution-automation-control.html">Automation and control, from the same plant model</a></li><li><a href="es/solution-single-data-model.html">One plant data model, a single source of truth</a></li><li><a href="es/solution-ai-predictive-engineering.html">Predictive engineering with Alex, the AI co-engineer</a></li><li><a href="es/solution-simulate-validate.html">Simulate, validate and explore your design</a></li><li><a href="es/solution-multidiscipline-collaboration.html">Work across disciplines on one project</a></li><li><a href="es/solution-large-projects.html">Built for refinery-size projects</a></li><li><a href="es/solution-cross-company-projects.html">Across companies on one project</a></li><li><a href="es/solution-branches-modifications.html">Branches for scenarios and modifications</a></li><li><a href="es/solution-revisions-datasheets-reports.html">Revisions, datasheets and reports</a></li><li><a href="es/solution-maintenance-brownfield.html">Brownfield engineering and plant modifications, on the plant you already have</a></li><li><a href="es/solution-cloud-workspace.html">Cloud plant engineering software, with nothing to install on servers</a></li><li><a href="es/solution-enterprise-deployment.html">Your data, your deployment: E1 in your own cloud or data centre</a></li><li><a href="es/solution-desktop-browser-tablet.html">Windows and macOS desktop app, browser and tablet: one project everywhere</a></li></ul></nav></div>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=7"></script>
+  <script src="assets/js/main.js?v=42"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>

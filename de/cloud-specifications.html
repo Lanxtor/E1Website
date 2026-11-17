@@ -7,7 +7,7 @@
   <title>Spezifikationen der E1 Cloud — LANXTOR</title>
   <meta name="description" content="Wo Ihre Daten in der E1 Cloud liegen, wie schnell E1 ist, wie es abgesichert ist, wer was sieht und wie Backups und Wiederherstellungen funktionieren: die Fakten hinter der E1 Cloud auf Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=146">
+  <link rel="stylesheet" href="assets/css/styles.css?v=147">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
@@ -34,6 +34,84 @@
   <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
   <meta property="og:locale" content="de_DE">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Spezifikationen der E1 Cloud",
+     "item": "https://www.lanxtor.com/de/cloud-specifications.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "de",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Können Mitarbeitende von LANXTOR meine Zeichnungen öffnen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nein. Der LANXTOR-Support sieht Ihre Konto- und Abrechnungsdaten, damit wir bei Lizenzen und Plätzen helfen können. Die Datenbank gewährt dem Support keinen Zugriff auf Ihre Projekte, Objekte, Zeichnungen oder Dokumente, und jede Änderung durch den Support wird in Ihrem Audit-Protokoll angezeigt."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Verlassen meine Daten die EU?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ihre Projekte, Dateien und Backups bleiben in Azure-Rechenzentren in der EU. Das Standardmodell von Alex, GPT-4.1, läuft in Sweden Central in der EU. Nur wenn ein Editor im Chat Claude Opus 5.5 wählt, können diese Anfragen außerhalb der EU verarbeitet werden. Ihre Organisation kann Alex abschalten."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Was passiert, wenn ein Azure-Rechenzentrum ausfällt?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Dateien werden in drei getrennten Rechenzentren der Region gespeichert, sodass der Ausfall eines davon sie nicht betrifft. Die Datenbank-Backups werden zusätzlich in die gepaarte Azure-Region in der EU kopiert. Unser Ziel ist, den Dienst innerhalb von 8 Stunden wiederherzustellen, mit höchstens 1 Stunde verlorener Arbeit."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Wie bekomme ich meine Daten heraus, wenn wir gehen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ein Inhaber oder Administrator exportiert die gesamte Organisation jederzeit unter Organisation → Alles exportieren, in offenen Formaten: JSON Lines für die Daten und die Originaldateien. Bitten Sie uns anschließend unter support@lanxtor.com , die Organisation zu löschen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Können wir eine andere Region oder unsere eigene Cloud wählen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Eine US-Region für die E1 Cloud folgt. Wenn Ihre Daten an einem bestimmten Ort oder nach Ihren eigenen Regeln liegen müssen, betreiben Sie E1 als Enterprise-Installation auf Microsoft Azure, Amazon Web Services, Google Cloud, Alibaba Cloud (folgt, für Festlandchina) oder Ihren eigenen Servern, mit Ihrer eigenen PostgreSQL-Datenbank."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Können wir Single Sign-on nutzen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Personen mit einem geschäftlichen Microsoft-Konto können sich schon heute damit anmelden. Single Sign-on mit SAML und Benutzerbereitstellung mit SCIM sind für Enterprise-Kunden geplant; Vertrieb kontaktieren ."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
   <!-- /seo -->
 </head>
 <body class="has-plant-bg">
@@ -488,12 +566,12 @@
     </section>
   </main>
 
-  <div id="site-footer"></div>
+  <div id="site-footer"><nav class="site-links" aria-label="Site"><ul><li><a href="de/index.html">Home</a></li><li><a href="de/solutions.html">Solutions</a></li><li><a href="de/download.html">Get E1</a></li><li><a href="de/download.html#pricing">Pricing</a></li><li><a href="de/cloud-specifications.html">E1 Cloud specifications</a></li><li><a href="de/academy.html">Academy</a></li><li><a href="guide.html">User guide</a></li><li><a href="de/security.html">Security</a></li><li><a href="de/about.html">About us</a></li><li><a href="de/shape-e1.html">Contact us</a></li><li><a href="de/contact-sales.html">Contact sales</a></li></ul><ul><li><a href="de/solution-feed-process-engineering.html">FEED and process engineering on one plant model</a></li><li><a href="de/solution-pid-instrumentation.html">P&amp;IDs and instrumentation, connected to the process</a></li><li><a href="de/solution-electrical-design.html">Electrical design on the same plant model</a></li><li><a href="de/solution-automation-control.html">Automation and control, from the same plant model</a></li><li><a href="de/solution-single-data-model.html">One plant data model, a single source of truth</a></li><li><a href="de/solution-ai-predictive-engineering.html">Predictive engineering with Alex, the AI co-engineer</a></li><li><a href="de/solution-simulate-validate.html">Simulate, validate and explore your design</a></li><li><a href="de/solution-multidiscipline-collaboration.html">Work across disciplines on one project</a></li><li><a href="de/solution-large-projects.html">Built for refinery-size projects</a></li><li><a href="de/solution-cross-company-projects.html">Across companies on one project</a></li><li><a href="de/solution-branches-modifications.html">Branches for scenarios and modifications</a></li><li><a href="de/solution-revisions-datasheets-reports.html">Revisions, datasheets and reports</a></li><li><a href="de/solution-maintenance-brownfield.html">Brownfield engineering and plant modifications, on the plant you already have</a></li><li><a href="de/solution-cloud-workspace.html">Cloud plant engineering software, with nothing to install on servers</a></li><li><a href="de/solution-enterprise-deployment.html">Your data, your deployment: E1 in your own cloud or data centre</a></li><li><a href="de/solution-desktop-browser-tablet.html">Windows and macOS desktop app, browser and tablet: one project everywhere</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=1"></script>
   <script src="assets/js/config.js?v=4"></script>
   <script src="assets/js/e1-api.js?v=7"></script>
-  <script src="assets/js/main.js?v=41"></script>
+  <script src="assets/js/main.js?v=42"></script>
   <script src="assets/js/chat.js?v=7"></script>
 </body>
 </html>

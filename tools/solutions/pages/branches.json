@@ -1,89 +1,129 @@
 {
-  "id": "branches",
-  "file": "solution-branches-modifications.html",
-  "title": "Engineering branches and modification packages",
-  "description": "Branches in E1: change part of a design while main stays as it is, resolve conflicts, review it, push it back as one change, or split commissioning packages.",
-  "kicker": "Collaboration",
-  "h1": "Branches for scenarios and modifications.",
-  "lead": "In E1, a branch is a working copy of part of a project's design. Engineers change it while main stays as it is, pull main's changes in value by value, resolve conflicts on the data and on the drawing, and push the branch back to main as one change that undoes as one. Use branches for what-ifs, design changes, modification packages and commissioning scopes.",
-  "glance": [
-    {"value": "3", "label": "Branch types every project starts with"},
-    {"value": "1", "label": "Change in main for each push, undone as one"},
-    {"value": "4", "label": "Branch statuses: In progress, On hold, Ready, Blocked"}
-  ],
-  "sections": [
-    {
-      "id": "branch",
-      "kicker": "Branches",
-      "h2": "Change part of the design while main stays as it is",
-      "intro": "In E1, a branch holds a chosen scope of the plant model; what you change in it changes the branch, not the project's main design.",
-      "paragraphs": [
-        "Start a branch from the project's Branches page, from the project's right-click menu, or by selecting objects in the explorer or on a 2D space and choosing Branch ▸ New branch…. A scope preview lists what comes with your choice and why: a pump brings its nozzles, its connected lines and the 2D space it is drawn on as Editable, and its owner as Information. Change a row to Leave out or Information where it is not locked, and create the branch.",
-        "Enter the branch and the whole project shows the branch's content, with a bar that says you are in it. The branch icon marks every object and 2D space it changes. Objects outside the branch are grey and cannot be changed there. On a drawing, Show main lays main's current version on top in pink, so you see exactly what the branch draws differently, and Branches on this drawing shows every open branch that changes a 2D space, each in its colour.",
-        "Some things always belong to main: issuing a revision, the project's settings and the library are refused in a branch. Tag numbers are taken centrally, so two branches never give the same number. A branch never widens what you may change in main."
-      ]
-    },
-    {
-      "id": "pull",
-      "kicker": "Conflicts",
-      "h2": "Pull from main and resolve conflicts, value by value",
-      "intro": "In E1, Pull from main brings main's changes into a branch value by value; only what both sides changed differently is a conflict.",
-      "paragraphs": [
-        "When someone changes main in the branch's scope, a bell rings on the branch's card and lists what changed and who changed it. Pull from main takes everything main changed that the branch did not. A value both changed differently is listed under Conflicts, grouped by object, with Base, Main and Branch side by side: choose Keep mine, Take theirs, or type a value and Use value. Keep mine everywhere and Take theirs everywhere settle many at once.",
-        "Conflicts are resolved on the drawing too. A symbol both sides moved shows twice, Main in blue and Branch in orange, joined by a dashed line: click the one to keep. Statuses follow the same rule: where main and the branch both changed a status, E1 proposes the lower one, and a signature given in a branch is void after a later change there."
-      ]
-    },
-    {
-      "id": "review",
-      "kicker": "Review",
-      "h2": "Review before main: branch types and merge requests",
-      "intro": "In E1, each branch has a type that says whether it needs a review before it reaches main, and how its conflicts and main's edits are handled.",
-      "paragraphs": [
-        "Every project starts with three branch types: Working branch, Design change (reviewed) and Commissioning package. A Project administrator sets for each type Review before main, Four eyes, what happens After push, how Editing in main treats the branch's objects (Mark, Warn or Block) and a rule for graphical conflicts. A tag or validation conflict is always a person's choice.",
-        "A branch that needs a review asks for one with Ask for review. The reviewers find the merge request in their Inbox, and the objects show Under merge review meanwhile. A Lead engineer approves or clicks Request changes… with what should change; with four eyes the author cannot approve their own branch. Alex never approves or rejects a merge request: a person does.",
-        "For plants that run a management of change (MOC) process, a reviewed branch keeps each modification separate from the design of record until a second engineer has approved it, and leaves a protocol of everything it changed. The MOC procedure itself stays your company's."
-      ]
-    },
-    {
-      "id": "push",
-      "kicker": "Push",
-      "h2": "Push to main as one change, with a protocol",
-      "intro": "In E1, Push to main brings a branch into the project as one change, and every push leaves a protocol of what it changed.",
-      "paragraphs": [
-        "A Lead engineer or above pushes, and their role must allow every change in the branch. E1 refuses a push while main has changes in the branch's scope that were not pulled yet, while conflicts are open, or while a required review is not approved, so nothing in main is overwritten unseen. The push lands as one change, Pushed branch…, in main's history, and Undo this change takes it all back.",
-        "Every push of a branch or a commissioning package writes a push protocol: its date, who pushed, and every object it created, changed or deleted, with each field before and after. A protocol is written by the push itself and never changes. After the push, the branch stays open and counts from what it pushed, or closes when its type says so."
-      ]
-    },
-    {
-      "id": "packages",
-      "kicker": "Commissioning",
-      "h2": "Commissioning packages cut from a branch",
-      "intro": "In E1, finished parts of a branch become commissioning packages that go to main on their own, each with its dates, lead and description.",
-      "paragraphs": [
-        "On a branch's card, New commissioning package makes a package. Inside the branch, draw around the work on a drawing with Package boundary (lasso, rectangle or ellipse) and add it, or right-click objects and choose Branch ▸ Add to commissioning package. A pipe that leaves the boundary is marked where it crosses it, and the package lists what it still needs, such as an area the branch created.",
-        "Give the package its description, priority, planned commissioning date, commissioning lead and who accepts it. Mark ready cuts it from the branch as it is, then it is reviewed and pushed to main alone. The branch then counts from main for those objects, so its next pull has no conflict and its push does not repeat them. Set Commissioned on once the plant it holds is commissioned. Branches and packages are objects of the library classes Branch and Commissioning package, so they carry your own attributes and appear in queries."
-      ]
-    },
-    {
-      "id": "oversight",
-      "kicker": "Oversight",
-      "h2": "Branches on the dashboard, and Alex in a branch",
-      "intro": "In E1, the Branches dashboard and each object's Branches tab show what is being changed where.",
-      "paragraphs": [
-        "Dashboards → Branches shows open branches, those in review, their average age, open conflicts and branches by status and owner. An object's Branches tab lists the open branches that may change it, with what each has changed so far. Owners, an owner group and an assignee make clear who is responsible for each branch, and Access and sharing can limit a branch to the people who should see it.",
-        "In a branch, Alex and stored assistants change the branch, never main, and only what you may change. A change Alex proposes can be kept as a branch with Open as branch, to review it before anything reaches the design of record."
-      ]
-    }
-  ],
-  "faq": [
-    {"q": "What is a branch in E1?", "a": "A working copy of part of a project's design. You change it while main stays as it is, pull main's changes in, and push it back to main as one change when it is ready."},
-    {"q": "What can I use branches for?", "a": "What-if scenarios, design changes that need a review, modification packages and commissioning scopes. Each project starts with the branch types Working branch, Design change (reviewed) and Commissioning package."},
-    {"q": "What happens when main and a branch change the same value?", "a": "Pull from main lists it as a conflict with Base, Main and Branch side by side. You choose Keep mine, Take theirs or type a value. A symbol both moved is shown twice on the drawing so you can click the one to keep."},
-    {"q": "Who can push a branch to main?", "a": "A Lead engineer or above, whose role allows every change in the branch. A push is refused while main has unpulled changes in its scope, while conflicts are open, or while a required review is not approved."},
-    {"q": "Can I undo a push?", "a": "Yes. A push lands in main's history as one change, and Undo this change takes it all back. Its push protocol keeps every change it made, each field before and after."},
-    {"q": "Can I issue a revision inside a branch?", "a": "No. Issuing revisions, the project's settings and the library are changed in main. Push the branch first, then issue the revision there."},
-    {"q": "What is a commissioning package?", "a": "A part of a branch collected by drawing around it or by right-click, with its dates, lead and description. Once marked ready and reviewed, it is pushed to main on its own."}
-  ],
-  "guides": ["PRJ-branches", "PRJ-branch-conflicts", "PRJ-branch-push", "PRJ-push-protocols", "PRJ-branch-types", "PRJ-branch-review", "PRJ-branch-packages", "PRJ-branch-proposals"],
-  "related": ["maintenance-mods", "discipline-collab", "revisions-datasheets", "cross-company"]
+ "id": "branches",
+ "file": "solution-branches-modifications.html",
+ "title": "Engineering branches and modification packages",
+ "description": "Branches in E1: change part of a design while main stays as it is, resolve conflicts, review it, push it back as one change, or split commissioning packages.",
+ "kicker": "Collaboration",
+ "h1": "Branches for scenarios and modifications.",
+ "lead": "In E1, a branch is a working copy of part of a project's design. Engineers change it while main stays as it is, pull main's changes in value by value, resolve conflicts on the data and on the drawing, and push the branch back to main as one change that undoes as one. Use branches for what-ifs, design changes, modification packages and commissioning scopes.",
+ "glance": [
+  {
+   "value": "3",
+   "label": "Branch types every project starts with"
+  },
+  {
+   "value": "4",
+   "label": "Branch statuses: In progress, On hold, Ready, Blocked"
+  }
+ ],
+ "sections": [
+  {
+   "id": "branch",
+   "kicker": "Branches",
+   "h2": "Change part of the design while main stays as it is",
+   "intro": "In E1, a branch holds a chosen scope of the plant model; what you change in it changes the branch, not the project's main design.",
+   "paragraphs": [
+    "Start a branch from the project's Branches page, from the project's right-click menu, or by selecting objects in the explorer or on a 2D space and choosing Branch ▸ New branch…. A scope preview lists what comes with your choice and why: a pump brings its nozzles, its connected lines and the 2D space it is drawn on as Editable, and its owner as Information. Change a row to Leave out or Information where it is not locked, and create the branch.",
+    "Enter the branch and the whole project shows the branch's content, with a bar that says you are in it. The branch icon marks every object and 2D space it changes. Objects outside the branch are grey and cannot be changed there. On a drawing, Show main lays main's current version on top in pink, so you see exactly what the branch draws differently, and Branches on this drawing shows every open branch that changes a 2D space, each in its colour.",
+    "Some things always belong to main: issuing a revision, the project's settings and the library are refused in a branch. Tag numbers are taken centrally, so two branches never give the same number. A branch never widens what you may change in main."
+   ]
+  },
+  {
+   "id": "pull",
+   "kicker": "Conflicts",
+   "h2": "Pull from main and resolve conflicts, value by value",
+   "intro": "In E1, Pull from main brings main's changes into a branch value by value; only what both sides changed differently is a conflict.",
+   "paragraphs": [
+    "When someone changes main in the branch's scope, a bell rings on the branch's card and lists what changed and who changed it. Pull from main takes everything main changed that the branch did not. A value both changed differently is listed under Conflicts, grouped by object, with Base, Main and Branch side by side: choose Keep mine, Take theirs, or type a value and Use value. Keep mine everywhere and Take theirs everywhere settle many at once.",
+    "Conflicts are resolved on the drawing too. A symbol both sides moved shows twice, Main in blue and Branch in orange, joined by a dashed line: click the one to keep. Statuses follow the same rule: where main and the branch both changed a status, E1 proposes the lower one, and a signature given in a branch is void after a later change there."
+   ]
+  },
+  {
+   "id": "review",
+   "kicker": "Review",
+   "h2": "Review before main: branch types and merge requests",
+   "intro": "In E1, each branch has a type that says whether it needs a review before it reaches main, and how its conflicts and main's edits are handled.",
+   "paragraphs": [
+    "Every project starts with three branch types: Working branch, Design change (reviewed) and Commissioning package. A Project administrator sets for each type Review before main, Four eyes, what happens After push, how Editing in main treats the branch's objects (Mark, Warn or Block) and a rule for graphical conflicts. A tag or validation conflict is always a person's choice.",
+    "A branch that needs a review asks for one with Ask for review. The reviewers find the merge request in their Inbox, and the objects show Under merge review meanwhile. A Lead engineer approves or clicks Request changes… with what should change; with four eyes the author cannot approve their own branch. Alex never approves or rejects a merge request: a person does.",
+    "For plants that run a management of change (MOC) process, a reviewed branch keeps each modification separate from the design of record until a second engineer has approved it, and leaves a protocol of everything it changed. The MOC procedure itself stays your company's."
+   ]
+  },
+  {
+   "id": "push",
+   "kicker": "Push",
+   "h2": "Push to main as one change, with a protocol",
+   "intro": "In E1, Push to main brings a branch into the project as one change, and every push leaves a protocol of what it changed.",
+   "paragraphs": [
+    "A Lead engineer or above pushes, and their role must allow every change in the branch. E1 refuses a push while main has changes in the branch's scope that were not pulled yet, while conflicts are open, or while a required review is not approved, so nothing in main is overwritten unseen. The push lands as one change, Pushed branch…, in main's history, and Undo this change takes it all back.",
+    "Every push of a branch or a commissioning package writes a push protocol: its date, who pushed, and every object it created, changed or deleted, with each field before and after. A protocol is written by the push itself and never changes. After the push, the branch stays open and counts from what it pushed, or closes when its type says so."
+   ]
+  },
+  {
+   "id": "packages",
+   "kicker": "Commissioning",
+   "h2": "Commissioning packages cut from a branch",
+   "intro": "In E1, finished parts of a branch become commissioning packages that go to main on their own, each with its dates, lead and description.",
+   "paragraphs": [
+    "On a branch's card, New commissioning package makes a package. Inside the branch, draw around the work on a drawing with Package boundary (lasso, rectangle or ellipse) and add it, or right-click objects and choose Branch ▸ Add to commissioning package. A pipe that leaves the boundary is marked where it crosses it, and the package lists what it still needs, such as an area the branch created.",
+    "Give the package its description, priority, planned commissioning date, commissioning lead and who accepts it. Mark ready cuts it from the branch as it is, then it is reviewed and pushed to main alone. The branch then counts from main for those objects, so its next pull has no conflict and its push does not repeat them. Set Commissioned on once the plant it holds is commissioned. Branches and packages are objects of the library classes Branch and Commissioning package, so they carry your own attributes and appear in queries."
+   ]
+  },
+  {
+   "id": "oversight",
+   "kicker": "Oversight",
+   "h2": "Branches on the dashboard, and Alex in a branch",
+   "intro": "In E1, the Branches dashboard and each object's Branches tab show what is being changed where.",
+   "paragraphs": [
+    "Dashboards → Branches shows open branches, those in review, their average age, open conflicts and branches by status and owner. An object's Branches tab lists the open branches that may change it, with what each has changed so far. Owners, an owner group and an assignee make clear who is responsible for each branch, and Access and sharing can limit a branch to the people who should see it.",
+    "In a branch, Alex and stored assistants change the branch, never main, and only what you may change. A change Alex proposes can be kept as a branch with Open as branch, to review it before anything reaches the design of record."
+   ]
+  }
+ ],
+ "faq": [
+  {
+   "q": "What is a branch in E1?",
+   "a": "A working copy of part of a project's design. You change it while main stays as it is, pull main's changes in, and push it back to main as one change when it is ready."
+  },
+  {
+   "q": "What can I use branches for?",
+   "a": "What-if scenarios, design changes that need a review, modification packages and commissioning scopes. Each project starts with the branch types Working branch, Design change (reviewed) and Commissioning package."
+  },
+  {
+   "q": "What happens when main and a branch change the same value?",
+   "a": "Pull from main lists it as a conflict with Base, Main and Branch side by side. You choose Keep mine, Take theirs or type a value. A symbol both moved is shown twice on the drawing so you can click the one to keep."
+  },
+  {
+   "q": "Who can push a branch to main?",
+   "a": "A Lead engineer or above, whose role allows every change in the branch. A push is refused while main has unpulled changes in its scope, while conflicts are open, or while a required review is not approved."
+  },
+  {
+   "q": "Can I undo a push?",
+   "a": "Yes. A push lands in main's history as one change, and Undo this change takes it all back. Its push protocol keeps every change it made, each field before and after."
+  },
+  {
+   "q": "Can I issue a revision inside a branch?",
+   "a": "No. Issuing revisions, the project's settings and the library are changed in main. Push the branch first, then issue the revision there."
+  },
+  {
+   "q": "What is a commissioning package?",
+   "a": "A part of a branch collected by drawing around it or by right-click, with its dates, lead and description. Once marked ready and reviewed, it is pushed to main on its own."
+  }
+ ],
+ "guides": [
+  "PRJ-branches",
+  "PRJ-branch-conflicts",
+  "PRJ-branch-push",
+  "PRJ-push-protocols",
+  "PRJ-branch-types",
+  "PRJ-branch-review",
+  "PRJ-branch-packages",
+  "PRJ-branch-proposals"
+ ],
+ "related": [
+  "maintenance-mods",
+  "discipline-collab",
+  "revisions-datasheets",
+  "cross-company"
+ ]
 }

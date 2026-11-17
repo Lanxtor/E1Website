@@ -7,10 +7,22 @@
   "h1": "One plant data model, a single source of truth.",
   "lead": "In E1, process, instrumentation, electrical and automation engineering work on one shared plant data model, from FEED to modifications. A pump is one object: the P&amp;ID, the datasheet, the line list, the wiring and the cause and effect matrix all show that same object, so a value changed in one place is changed everywhere.",
   "glance": [
-    {"value": "9", "label": "Fixed sections in every project, from Model Space to Branches"},
-    {"value": "140 ms", "label": "To open a project with 498,000 objects in our load tests"},
-    {"value": "About 1 s", "label": "For a change to reach everyone who has the project open"},
-    {"value": "DEXPI 2.0", "label": "Import and export of P&amp;ID data"}
+    {
+      "value": "9",
+      "label": "Fixed sections in every project, from Model Space to Branches"
+    },
+    {
+      "value": "140 ms",
+      "label": "To open a project with 498,000 objects in our load tests"
+    },
+    {
+      "value": "About 1 s",
+      "label": "For a change to reach everyone who has the project open"
+    },
+    {
+      "value": "DEXPI 2.0",
+      "label": "Import and export of P&amp;ID data"
+    }
   ],
   "sections": [
     {
@@ -67,23 +79,49 @@
       "paragraphs": [
         "The History tab of an object lists its changes as a person reads them, and <b>Undo this change</b> takes one back, even an older one, as long as nobody has changed the object since. A change made by Alex, a stored assistant or an import is recorded the same way and can be undone as a group.",
         "The E1 server is the only writer to the model and checks the permission of every change, whoever or whatever asks for it. That is what lets a whole team, and Alex, the AI co-engineer, work on one source of truth without losing track of who changed what."
-      ],
-      "bullets": [
-        "One object per item of the plant, drawn on as many 2D spaces as it needs",
-        "Lists, datasheets, loop diagrams and wiring read from the same objects",
-        "Calculated values that follow their inputs, with the reason shown",
-        "A history with before and after on every object"
       ]
     }
   ],
   "faq": [
-    {"q": "What is a single source of truth in plant engineering?", "a": "It means every item of the plant is stored once and every drawing, list and document shows that one record. In E1, a pump is one object; the P&amp;ID, the datasheet, the line list and the wiring all read it, so there are no copies to reconcile."},
-    {"q": "Can one object be drawn on several drawings?", "a": "Yes. An object can be placed on several 2D spaces, and its Diagrams tab lists every diagram it is on. A PFD and the P&amp;ID made from it draw the same equipment objects, with the same tags."},
-    {"q": "Do I still get Excel lists?", "a": "Yes. Any query exports to Excel, CSV or JSON, and Update from Excel… reads changes back with a check before anything is applied. The list in E1 itself stays live with the model."},
-    {"q": "Which content packages and standards does the data model use?", "a": "E1 comes with content packages such as Core, Electrical foundation, Plant engineering, CFIHOS, NORSOK SCD, Specification, Wire harness and Marine. Your organization can add its own classes and attributes in the company library."},
-    {"q": "Can I bring in P&amp;IDs from other tools?", "a": "Yes. E1 imports DEXPI 2.0 files, P&amp;IDs from CAD as DXF, P&amp;IDs exported as PDF, and tag lists and data sheets from Excel. A DEXPI import run again updates what is there instead of duplicating it."},
-    {"q": "How large can one model be?", "a": "Our load tests run on a refinery-size project with 498,000 objects and 1,300 dense sheets. See <a href=\"solution-large-projects.html\">built for refinery-size projects</a> and the <a href=\"cloud-specifications.html\">E1 Cloud specifications</a> for the measured times."}
+    {
+      "q": "What is a single source of truth in plant engineering?",
+      "a": "It means every item of the plant is stored once and every drawing, list and document shows that one record. In E1, a pump is one object; the P&amp;ID, the datasheet, the line list and the wiring all read it, so there are no copies to reconcile."
+    },
+    {
+      "q": "Can one object be drawn on several drawings?",
+      "a": "Yes. An object can be placed on several 2D spaces, and its Diagrams tab lists every diagram it is on. A PFD and the P&amp;ID made from it draw the same equipment objects, with the same tags."
+    },
+    {
+      "q": "Do I still get Excel lists?",
+      "a": "Yes. Any query exports to Excel, CSV or JSON, and Update from Excel… reads changes back with a check before anything is applied. The list in E1 itself stays live with the model."
+    },
+    {
+      "q": "Which content packages and standards does the data model use?",
+      "a": "E1 comes with content packages such as Core, Electrical foundation, Plant engineering, CFIHOS, NORSOK SCD, Specification, Wire harness and Marine. Your organization can add its own classes and attributes in the company library."
+    },
+    {
+      "q": "Can I bring in P&amp;IDs from other tools?",
+      "a": "Yes. E1 imports DEXPI 2.0 files, P&amp;IDs from CAD as DXF, P&amp;IDs exported as PDF, and tag lists and data sheets from Excel. A DEXPI import run again updates what is there instead of duplicating it."
+    },
+    {
+      "q": "How large can one model be?",
+      "a": "Our load tests run on a refinery-size project with 498,000 objects and 1,300 dense sheets. See <a href=\"solution-large-projects.html\">built for refinery-size projects</a> and the <a href=\"cloud-specifications.html\">E1 Cloud specifications</a> for the measured times."
+    }
   ],
-  "guides": ["PRJ-sections", "OBJ-object-window", "OBJ-relationships", "OBJ-deep-view", "OBJ-diagrams", "DRAW-pid-from-pfd", "LIST-new-query", "LIB-rules"],
-  "related": ["discipline-collab", "feed-process", "revisions-datasheets", "large-projects"]
+  "guides": [
+    "PRJ-sections",
+    "OBJ-object-window",
+    "OBJ-relationships",
+    "OBJ-deep-view",
+    "OBJ-diagrams",
+    "DRAW-pid-from-pfd",
+    "LIST-new-query",
+    "LIB-rules"
+  ],
+  "related": [
+    "discipline-collab",
+    "feed-process",
+    "revisions-datasheets",
+    "large-projects"
+  ]
 }

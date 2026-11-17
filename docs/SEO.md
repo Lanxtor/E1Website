@@ -15,14 +15,33 @@ What the website has, and what is done outside it.
 - **The home page and the coming-soon page**: structured data (JSON-LD) for the company
   (Lanxtor LLC, logo, address, phone, emails, LinkedIn), the website and the product (LANXTOR E1,
   with its price range).
-- **`sitemap.xml`**: the 50 public pages with their languages and the date each last changed.
+- **Every other public page**: structured data from the same block: breadcrumbs (`BreadcrumbList`),
+  the page's questions (`FAQPage`, read from its `<div class="cs-faq">`) and, on Get E1 and
+  Solutions, the product with its price range.
+- **The solution pages** (`solution-*.html`, one per item of the Solutions catalog, which links to
+  each with "Read more"): written as JSON in `tools/solutions/pages/`, built by
+  `python3 tools/solutions/build.py`, then translated by the i18n build like every other page.
+  The same build writes `llms-full.txt` (llms.txt plus the full text of the solution pages).
+- **The user guide** (`guide.html`, `guide-<category>.html`, English only): indexed, with canonical,
+  Open Graph and breadcrumbs (`tools/guides/build.py`). Only the feature table and the roadmap
+  (`guide-features.html`, `guide-roadmap.html`) stay `noindex`.
+- **The site's links as plain HTML** inside `<div id="site-footer">` on every page (`seo.put_site_links`):
+  the header and footer are drawn by `main.js`, which most AI crawlers do not run.
+- **`sitemap.xml`**: every public page with its languages, and the user guide pages, with the date each
+  last changed.
 - **`noindex`** on pages that are personal or not public: account, login, training, certificate,
-  pricing (a redirect), industries, 404, and the user guide pages (`tools/guides/build.py`).
+  pricing (a redirect), industries, 404.
+
+Order of the builds after a change: `tools/solutions/build.py`, `tools/guides/build.py`,
+`tools/i18n/build.py` (translations, SEO blocks, sitemap), then `python3 tools/seo/check.py`, which
+the deployment also runs: it fails on a page in the sitemap without title, description, canonical
+or one `<h1>`, on invalid structured data, on links to missing pages and on a public page missing
+from the sitemap.
 
 By hand:
 
-- `robots.txt` (everything allowed, points to the sitemap), `llms.txt` (a short summary of LANXTOR
-  and E1 for AI assistants and AI search), `404.html` (served with status 404 by
+- `robots.txt` (everything allowed, AI search crawlers named, points to the sitemap), `llms.txt` (a short summary of LANXTOR
+  and E1 for AI assistants and AI search, with the solution pages and the user guide), `404.html` (served with status 404 by
   `staticwebapp.config.json`), `assets/site.webmanifest`, the icons in `assets/img/`
   (`favicon.ico`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`, `logo-512.png`).
 

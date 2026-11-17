@@ -1,0 +1,86 @@
+{
+  "id": "discipline-collab",
+  "file": "solution-multidiscipline-collaboration.html",
+  "title": "Multidiscipline engineering collaboration",
+  "description": "In E1, process, I&amp;C, electrical and automation engineers work on one project at the same time, see each other's changes live and keep ownership of their scope.",
+  "kicker": "Work across disciplines",
+  "h1": "Work across disciplines on one project.",
+  "lead": "In E1, process, instrumentation, electrical and automation engineers share one project and one plant data model. Each discipline works on the same objects at the same time and sees the others' changes within seconds, while the objects you are responsible for are changed only by you or your group.",
+  "glance": [
+    {"value": "About 1 s", "label": "For a change to reach everyone who has the project open"},
+    {"value": "50", "label": "Engineers working at once in our weekly load tests, 100 at peak"},
+    {"value": "5", "label": "Disciplines for attribute permissions: process, mechanical, piping, electrical, instrumentation"}
+  ],
+  "sections": [
+    {
+      "id": "one-project",
+      "kicker": "One project",
+      "h2": "Multidiscipline engineering collaboration on one model",
+      "intro": "In E1, every discipline works in the same project, on the same objects, instead of exchanging files between separate tools.",
+      "paragraphs": [
+        "A pump is one object in E1. The process engineer gives it its operating and design conditions, the instrumentation engineer the transmitter that measures it and its trips, the electrical engineer its motor and hazardous area, and the automation engineer the interlock in the cause and effect matrix. Each group of values is a section of the same datasheet, and every drawing, list and loop diagram reads the same object.",
+        "So there is no handover file to wait for and no copy to reconcile. When the process engineer renames a pump or changes a line, the wiring, the lists and every drawing of the pump show it at once. See <a href=\"solution-single-data-model.html\">one plant data model</a> for how the model is built."
+      ]
+    },
+    {
+      "id": "concurrent",
+      "kicker": "Concurrent",
+      "h2": "Concurrent engineering, live",
+      "intro": "In E1, when several people have the same project open, each one sees the others' changes within seconds, without reloading.",
+      "paragraphs": [
+        "The server pushes every change to everyone who has the project open: the explorer, the 2D spaces, the object windows and the lists. In our load tests a change reaches the rest of the team in about a second, with 50 engineers working at once on a project of 498,000 objects.",
+        "Avatars at the right of a 2D space's toolbar show who else has it open, with a pencil while they edit; a click lists each person with their role, Viewing or Editing, and since when. You never see anyone's pointer or unsaved work, and nothing about who opened what is recorded.",
+        "E1 saves each object on its own, so two engineers can work on the same drawing at the same time. If two people change the same object at the same moment, the first change is kept, the second is refused with a clear message, and the second person's copy is reloaded so they see the current state. Nothing is overwritten unseen."
+      ]
+    },
+    {
+      "id": "ownership",
+      "kicker": "Ownership",
+      "h2": "Keep ownership of your scope",
+      "intro": "In E1, one person or one group can be made responsible for an object, a folder, a sheet or a whole section, and only they then change it and everything in it.",
+      "paragraphs": [
+        "On an object's page, <b>Take it</b> makes you responsible for something nobody owns yet, and a lead engineer uses <b>Assign to…</b> to give it to a person or a group, such as Mechanical. Everyone else still sees it and comments on it; a colleague who tries to change it is refused with your name and asked to contact you. Project settings → Access lists every responsibility with <b>Release</b>.",
+        "Permissions can follow the disciplines too. A custom role may change the attributes of one discipline only: process engineers a pump's process data, electrical engineers its motor and hazardous area data. The disciplines are process, mechanical, piping, electrical and instrumentation.",
+        "Roles are given on the organization, a project, a section or a single object. A project administrator can share one drawing with a subcontractor as Engineer, or mark a finished drawing as read-only by giving others Reviewer or Viewer on it."
+      ]
+    },
+    {
+      "id": "communicate",
+      "kicker": "Communicate",
+      "h2": "Discuss the design where it is",
+      "intro": "In E1, every object, project, folder and 2D space has a Chat tab where colleagues discuss it, with @mentions, #links to other objects, replies and resolved threads.",
+      "paragraphs": [
+        "During a drawing review, pin a message right where the question is. The pin is numbered on the 2D space, and the object shows <b>Needs review</b> in the explorer until the message is resolved.",
+        "A task asks a person or a group to do something, with a type, a due date, a description, a screenshot and a checklist, once or repeating. The people it is for see it in their Inbox, together with the messages that mention them, and can choose which notices also come by email.",
+        "Automated assistants keep the other disciplines informed: when an object of a chosen class is renamed, a revision is rejected or an item moves to another workflow step, the people you chose are notified or given a task."
+      ]
+    },
+    {
+      "id": "integrate",
+      "kicker": "Integrate",
+      "h2": "Work apart, then bring it together with branches and review",
+      "intro": "In E1, a discipline can work on a branch of part of the design while main stays as it is, then push it back as one change after review.",
+      "paragraphs": [
+        "<b>Pull from main</b> brings main's changes into the branch value by value; what both changed differently is a conflict you resolve, also on the drawing. A branch type can require a review before main, with four eyes: a colleague approves or requests changes, and the author does not approve their own branch. Every push leaves a protocol with who pushed and every field before and after.",
+        "Workflows add the sign-offs between disciplines. Each approval step, such as Checked or Approved, is signed by someone who did not move the item into it, and an item changed after its approval shows <b>Changed since Approved</b>. See <a href=\"solution-branches-modifications.html\">branches and modifications</a>, and <a href=\"solution-cross-company-projects.html\">projects across companies</a> for an owner and its contractors on one shared project."
+      ],
+      "bullets": [
+        "Live changes for everyone in the project, about a second after they are saved",
+        "Responsibility for objects, folders, sheets and sections",
+        "Permissions per discipline's attributes",
+        "Chat, pins, tasks and an Inbox on the objects themselves",
+        "Branches with merge review and push protocols"
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Can two engineers work on the same P&amp;ID at the same time?", "a": "Yes. E1 saves each object on its own and pushes every change to everyone who has the drawing open. Avatars on the toolbar show who else is viewing or editing it."},
+    {"q": "What happens when two people change the same object?", "a": "The first change is kept. The second is refused with a clear message, and that person's copy is reloaded with the current state, so nothing is overwritten without anyone noticing."},
+    {"q": "How do I stop others from changing my part of the design?", "a": "Take responsibility for the object, folder, sheet or section, or have a lead engineer assign it to your group. Only you or your group can then change it; everyone else can still see it and comment."},
+    {"q": "Can electrical engineers change only electrical data?", "a": "Yes. A custom role can be limited to the attributes of one discipline, such as a pump's motor and hazardous area data, while the process data stays with the process engineers."},
+    {"q": "How do we review another discipline's work?", "a": "Pin messages on the drawing, give tasks with a checklist, and use branches with a merge review before changes reach main. A workflow approval is signed by someone who did not move the item into that step."},
+    {"q": "Can our contractors work in the same project?", "a": "Yes. A project can be shared with another organization: the owner company and its contractor work on the same project, each managing its own people and licenses."}
+  ],
+  "guides": ["COL-live-refresh", "COL-conflicts", "COL-presence", "ORG-responsibility", "ORG-discipline-permissions", "COL-comments", "COL-tasks", "PRJ-branch-review"],
+  "related": ["single-model", "branches", "cross-company", "large-projects"]
+}

@@ -7,7 +7,7 @@
   <title>Spesifikasjoner for E1 Cloud – LANXTOR</title>
   <meta name="description" content="Hvor dataene dine i E1 Cloud er, hvor rask E1 er, hvordan den er sikret, hvem som ser hva, og hvordan sikkerhetskopiering og gjenoppretting fungerer: fakta om E1 Cloud på Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=146">
+  <link rel="stylesheet" href="assets/css/styles.css?v=147">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
@@ -34,6 +34,84 @@
   <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
   <meta property="og:locale" content="nb_NO">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Spesifikasjoner for E1 Cloud",
+     "item": "https://www.lanxtor.com/no/cloud-specifications.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "nb",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Kan ansatte i LANXTOR åpne tegningene mine?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nei. LANXTOR-brukerstøtte ser konto- og faktureringsdataene dine, slik at vi kan hjelpe med lisenser og plasser. Databasen gir ikke brukerstøtte tilgang til prosjektene, objektene, tegningene eller dokumentene dine, og hver endring brukerstøtte gjør, vises i revisjonsloggen din."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Forlater dataene mine EU?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Prosjektene, filene og sikkerhetskopiene dine blir værende i Azure-datasentre i EU. Standardmodellen til Alex, GPT-4.1, kjører i Sweden Central i EU. Bare hvis en Editor velger Claude Opus 5.5 i chatten, kan disse forespørslene behandles utenfor EU. Organisasjonen din kan slå av Alex."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hva skjer hvis et Azure-datasenter faller ut?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Filene lagres i tre separate datasentre i regionen, så bortfall av ett av dem påvirker dem ikke. Sikkerhetskopiene av databasen kopieres også til Azures sammenkoblede region i EU. Målet vårt er å gjenopprette tjenesten innen 8 timer, med høyst 1 time tapt arbeid."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hvordan får jeg ut dataene mine hvis vi slutter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "En eier eller administrator eksporterer hele organisasjonen når som helst under Organization → Export everything, i åpne formater: JSON-linjer for dataene og de originale filene. Be oss på support@lanxtor.com om å slette organisasjonen etterpå."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Kan vi velge en annen region eller vår egen sky?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "En region i USA kommer til E1 Cloud. Hvis dataene dine må ligge på et bestemt sted eller under dine egne regler, kan du kjøre E1 som en bedriftsinstallasjon på Microsoft Azure, Amazon Web Services, Google Cloud, Alibaba Cloud (kommer, for fastlands-Kina) eller dine egne servere, med din egen PostgreSQL-database."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Kan vi bruke enkel pålogging (SSO)?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Personer med en Microsoft-konto fra jobben kan allerede logge inn med den. Enkel pålogging med SAML og brukerklargjøring med SCIM er planlagt for bedriftskunder; kontakt salg ."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
   <!-- /seo -->
 </head>
 <body class="has-plant-bg">
@@ -488,12 +566,12 @@
     </section>
   </main>
 
-  <div id="site-footer"></div>
+  <div id="site-footer"><nav class="site-links" aria-label="Site"><ul><li><a href="no/index.html">Home</a></li><li><a href="no/solutions.html">Solutions</a></li><li><a href="no/download.html">Get E1</a></li><li><a href="no/download.html#pricing">Pricing</a></li><li><a href="no/cloud-specifications.html">E1 Cloud specifications</a></li><li><a href="no/academy.html">Academy</a></li><li><a href="guide.html">User guide</a></li><li><a href="no/security.html">Security</a></li><li><a href="no/about.html">About us</a></li><li><a href="no/shape-e1.html">Contact us</a></li><li><a href="no/contact-sales.html">Contact sales</a></li></ul><ul><li><a href="no/solution-feed-process-engineering.html">FEED and process engineering on one plant model</a></li><li><a href="no/solution-pid-instrumentation.html">P&amp;IDs and instrumentation, connected to the process</a></li><li><a href="no/solution-electrical-design.html">Electrical design on the same plant model</a></li><li><a href="no/solution-automation-control.html">Automation and control, from the same plant model</a></li><li><a href="no/solution-single-data-model.html">One plant data model, a single source of truth</a></li><li><a href="no/solution-ai-predictive-engineering.html">Predictive engineering with Alex, the AI co-engineer</a></li><li><a href="no/solution-simulate-validate.html">Simulate, validate and explore your design</a></li><li><a href="no/solution-multidiscipline-collaboration.html">Work across disciplines on one project</a></li><li><a href="no/solution-large-projects.html">Built for refinery-size projects</a></li><li><a href="no/solution-cross-company-projects.html">Across companies on one project</a></li><li><a href="no/solution-branches-modifications.html">Branches for scenarios and modifications</a></li><li><a href="no/solution-revisions-datasheets-reports.html">Revisions, datasheets and reports</a></li><li><a href="no/solution-maintenance-brownfield.html">Brownfield engineering and plant modifications, on the plant you already have</a></li><li><a href="no/solution-cloud-workspace.html">Cloud plant engineering software, with nothing to install on servers</a></li><li><a href="no/solution-enterprise-deployment.html">Your data, your deployment: E1 in your own cloud or data centre</a></li><li><a href="no/solution-desktop-browser-tablet.html">Windows and macOS desktop app, browser and tablet: one project everywhere</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=1"></script>
   <script src="assets/js/config.js?v=4"></script>
   <script src="assets/js/e1-api.js?v=7"></script>
-  <script src="assets/js/main.js?v=41"></script>
+  <script src="assets/js/main.js?v=42"></script>
   <script src="assets/js/chat.js?v=7"></script>
 </body>
 </html>

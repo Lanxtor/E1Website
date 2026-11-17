@@ -68,6 +68,9 @@ jobs:
       - name: Website knowledge for the Alex assistant (assets/data/assistant-knowledge.txt)
         run: python3 tools/chat/build_knowledge.py
 
+      - name: Search engines and AI assistants (titles, canonicals, structured data, sitemap, links)
+        run: python3 tools/seo/check.py
+
       - name: No deployment token yet
         if: env.TOKEN == ''
         run: echo "::notice::AZURE_STATIC_WEB_APPS_API_TOKEN is not set; nothing deployed. See docs/AZURE-INTEGRATION.md."

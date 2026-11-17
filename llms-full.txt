@@ -1,0 +1,1170 @@
+# LANXTOR E1
+
+> E1 by Lanxtor LLC is plant engineering software for production and power plants: FEED, process, P&IDs, instrumentation, electrical, automation and maintenance on one data model (a single source of truth), cloud native and AI native, with Alex, the AI co-engineer.
+
+Lanxtor LLC, 7545 Irvine Center Drive, Suite 200, Irvine, California 92618, USA. Email info@lanxtor.com, sales sales@lanxtor.com and support support@lanxtor.com. LinkedIn: https://www.linkedin.com/company/lanxtor/
+
+## Pages
+
+- [Home](https://www.lanxtor.com/index.html): what E1 is, how every discipline works on one data model, and Alex.
+- [Solutions](https://www.lanxtor.com/solutions.html): every feature of E1, by discipline.
+- [Get E1](https://www.lanxtor.com/download.html): the desktop app for macOS and Windows, E1 Cloud or an enterprise installation, licenses and prices, the 30-day trial.
+- [E1 Cloud specifications](https://www.lanxtor.com/cloud-specifications.html): where E1 Cloud data is kept (Microsoft Azure North Europe, Ireland), measured performance, security, who can see what, backups and recovery, standards, apps and limits.
+- [Academy](https://www.lanxtor.com/academy.html): the E1 Academy training and certificates; USD 750 per person, included with the annual E1 Editor subscription.
+- [Contact sales](https://www.lanxtor.com/contact-sales.html): licensing, trials, demos and enterprise deployment.
+- [Contact us](https://www.lanxtor.com/shape-e1.html): sales, support, feature requests and joining the team.
+- [About us](https://www.lanxtor.com/about.html): the company, the founder and the team.
+
+## Solutions
+
+One page per area of E1, with what it does, how and questions engineers ask:
+
+- [FEED and process engineering on one plant model](https://www.lanxtor.com/solution-feed-process-engineering.html): FEED and process engineering in E1: PFDs with real equipment and streams, heat and material balance tables, P&IDs made from the PFD and a live line list.
+- [P&IDs and instrumentation, connected to the process](https://www.lanxtor.com/solution-pid-instrumentation.html): P&ID software for instrumentation engineers: instruments as tagged objects, an instrument index from the drawing, loop diagrams, datasheets and hookups.
+- [Electrical design on the same plant model](https://www.lanxtor.com/solution-electrical-design.html): Electrical design in E1: single line diagrams with real cables, circuit diagrams, motor starters, cable schedule, cable routes, cabinet heat and a load list.
+- [Automation and control, from the same plant model](https://www.lanxtor.com/solution-automation-control.html): Automation engineering in E1: signals from wiring typicals, I/O allocation, the I/O list for the DCS or PLC vendor, cause and effect, SIL and alarms.
+- [One plant data model, a single source of truth](https://www.lanxtor.com/solution-single-data-model.html): E1 keeps process, instrumentation, electrical and automation data in one plant data model: one object per pump, shown on every drawing, list and datasheet.
+- [Predictive engineering with Alex, the AI co-engineer](https://www.lanxtor.com/solution-ai-predictive-engineering.html): Alex, E1's AI co-engineer, reviews your P&ID as you draw, suggests the next symbols and learns your company's conventions. Local, and always under your control.
+- [Simulate, validate and explore your design](https://www.lanxtor.com/solution-simulate-validate.html): E1 simulates process lines and electrical networks on the drawing, checks every object as you work and lets you compare design options before you issue them.
+- [Work across disciplines on one project](https://www.lanxtor.com/solution-multidiscipline-collaboration.html): In E1, process, I&C, electrical and automation engineers work on one project at the same time, see each other's changes live and keep ownership of their scope.
+- [Built for refinery-size projects](https://www.lanxtor.com/solution-large-projects.html): E1 is load-tested on a refinery-size project: 498,000 objects, 1,300 dense P&IDs and 50 engineers at once on one server, with changes shared in about a second.
+- [Across companies on one project](https://www.lanxtor.com/solution-cross-company-projects.html): Share a live E1 project between owner, EPC contractor and specialists: each company manages its own people and licenses, within the roles and data you allow.
+- [Branches for scenarios and modifications](https://www.lanxtor.com/solution-branches-modifications.html): Branches in E1: change part of a design while main stays as it is, resolve conflicts, review it, push it back as one change, or split commissioning packages.
+- [Revisions, datasheets and reports](https://www.lanxtor.com/solution-revisions-datasheets-reports.html): E1 makes lists, reports, instrument datasheets and drawings from the model, with revision control, sign-off, change clouds and issued PDFs that never change.
+- [Brownfield engineering and plant modifications, on the plant you already have](https://www.lanxtor.com/solution-maintenance-brownfield.html): Brownfield engineering in E1: import legacy P&IDs from DXF, PDF, DEXPI and Excel, record as-built wiring, and run plant modifications in branches.
+- [Cloud plant engineering software, with nothing to install on servers](https://www.lanxtor.com/solution-cloud-workspace.html): E1 Cloud is plant engineering software as a service: sign in, invite your team and work on shared projects, hosted by LANXTOR on Microsoft Azure in the EU.
+- [Your data, your deployment: E1 in your own cloud or data centre](https://www.lanxtor.com/solution-enterprise-deployment.html): Run E1 in your own Microsoft Azure or on-premises on your own servers, with your own PostgreSQL database, company sign-on and an offline-checked license file.
+- [Windows and macOS desktop app, browser and tablet: one project everywhere](https://www.lanxtor.com/solution-desktop-browser-tablet.html): Engineer in E1's desktop app for Windows and macOS or in the browser, and review on a laptop or tablet: the same project, the same account, nothing to sync.
+
+## User guide
+
+- [E1 user guide](https://www.lanxtor.com/guide.html): every feature of E1, step by step, with its status (available, under development, planned).
+
+## Full text
+
+- [llms-full.txt](https://www.lanxtor.com/llms-full.txt): this file followed by the full text of every solution page.
+
+## Languages
+
+Every page is also in German (/de/), French (/fr/), Spanish (/es/) and Norwegian (/no/).
+
+# Solutions in full
+
+## FEED and process engineering on one plant model
+
+https://www.lanxtor.com/solution-feed-process-engineering.html
+
+In E1, the process flow diagram, the heat and material balance, the P&IDs and the line list are views of one plant model. Equipment and streams are objects with tags and values, not lines on a sheet. Instrumentation, piping, electrical and automation engineers work on the same objects, so the FEED deliverables they inherit are never retyped.
+
+### Process flow diagrams made of real objects
+
+In E1, a process flow diagram is a 2D space whose diagram type is Process flow diagram. Every symbol on it is an object in the project.
+
+You place equipment from the Add asset window, and each symbol becomes a new object with the next free tag from the project's tag rules, such as P-001 and P-002 for pumps. Streams are drawn as process lines with the Connector tool, and every line is an object that connects what it touches. Unit operations, systems, processes and areas are made from the drawing toolbar while you draw.
+
+Because the drawing and the data are the same thing, the PFD answers questions directly. Highlight flow traces where a stream goes, from an open end through valves to the next equipment, and on through pumps and compressors and across off-page connectors to other 2D spaces. Animate flow sets the sheet in motion: the flow moves through the pipes the way it goes, tanks fill and empty, and Alex works out velocities from the values in the model without changing anything.
+
+E1 draws its own symbols for process equipment, valves and fittings in the conventions process engineers know. You browse and search them in Configuration → Shapes.
+
+### Heat and material balance from the line list
+
+In E1, the heat and material balance tables on a PFD are made from the line list. Nothing in a table is typed.
+
+Stream values come into the line list in three ways: typed, imported from your simulator, or written by Alex from a solved balance. Import heat and material balance in Alex reads the stream table of HYSYS, Aspen Plus, DWSIM or a similar simulator as .xlsx, .xls, .csv or .txt. Alex matches streams to lines by name or by the middle of the line number, you check each match, and only then are the values written. Alex then asks only for what is still missing.
+
+On the PFD, Place mass balance draws the bird cage: one column per stream with line number, From, To, phase, temperature, pressure, flows, density, molar mass and composition. Place heat balance lists every heater, cooler, exchanger, pump and compressor with its service, duty and power, and the totals. Format presets set the layout your customer expects, and a changed temperature in the line list shows in the table at once.
+
+- Export balance (Excel): the sheets Mass balance, Heat balance and Overall balance, with feeds and products, mass in and out, and closure.
+- Export balance (PDF) for the balance report.
+- A value that is missing, or cannot be shown in the chosen unit, shows as – rather than a guess.
+
+### Make the P&ID from the PFD
+
+In E1, Make P&ID from this PFD… draws a new P&ID with the PFD's own equipment: the same objects with the same tags, not copies.
+
+Each stream becomes a pipe between the same equipment, carrying the same stream. You choose which objects to draw; one already on a P&ID of that PFD, or with no P&ID shape, is greyed with the reason. Equipment you leave for a second P&ID ends at an off-page connector that continues there. Nothing is drawn twice.
+
+When objects or streams are added to the PFD later, Update from PFD offers only the new ones. The new P&ID opens with Alex's Suggested additions: what each object usually has on a P&ID. A centrifugal pump gets suction and discharge isolation, a discharge check valve, a suction strainer and a discharge pressure gauge; a vessel gets a relief valve, a drain, a vent, level and pressure instruments. Additions your company's conventions require come first, and Apply all is one change with one Undo.
+
+### Pipelines, pipe classes and a live line list
+
+In E1, a pipeline is a line of the line list: the pipe runs, valves and fittings from one equipment nozzle to another, with its line number, From and To.
+
+You define a pipeline on the drawing from one item of equipment to the next, and E1 follows the drawn pipe through valves and fittings to make it, split into segments at reducers. A pipeline names its pipe class. Pipe classes hold your piping specifications: rating, material, pressure–temperature envelope, sizes with their schedule, and the valves and fittings allowed. They are kept in the company or project library, published as versions, and can be imported from a spreadsheet.
+
+Check piping… finds a pump turned the wrong way, flow that meets head-on, branches with only inflow, and pipelines that are no longer whole. It offers fixes and never applies one on its own. With pipe classes loaded, Alex checks each line's pressure and temperature against its class and flags sour service in a class not rated for it.
+
+E1 ships no fixed line list. The pipe schedule is a query you build and save on the project's pipelines: line number, From and To, size, fluid, pipe class, design conditions and the P&IDs each line is drawn on. It stays live with the drawing and exports to Excel or CSV, or becomes a list document with revisions.
+
+### FEED deliverables that downstream disciplines inherit
+
+In E1, datasheets, lists and drawings are generated from the same objects, so the FEED package and the detailed design never drift apart.
+
+Specification datasheets for pumps and exchangers come as ready-made templates, E1's own layouts inspired by API and ASME datasheets. Operating cases sit side by side on the datasheet: maximum, rated, normal, minimum, design or start-up, each inheriting the object's values until you give it its own. After a datasheet is issued, every value changed since shows the next revision beside it.
+
+Documents → Deliverables binds the chosen drawings with the reports and datasheets of the deliverable profile into one PDF, with a cover, an index and page numbers, and issues it. Process data also leaves E1 as data: any query exports to Excel, CSV or JSON, a 2D space exports as DEXPI 2.0 for a 3D design tool or another P&ID tool, and existing P&IDs come in from DEXPI, DXF or a vector PDF.
+
+### Questions
+
+**Does E1 replace a process simulator?** No. E1 keeps the results of your simulator in the plant model. Import heat and material balance reads a stream table from HYSYS, Aspen Plus, DWSIM or a similar tool into the line list, and the balance tables on the PFD are made from it.
+
+**Is the P&ID a copy of the PFD?** No. Make P&ID from this PFD… draws the PFD's own equipment objects with their P&ID shapes, with the same tags. A change to a pump's data is the same change on both drawings.
+
+**What happens when the PFD changes after the P&ID is made?** Update from PFD appears on the P&ID with only the new objects and streams ticked. What is already drawn is not drawn twice.
+
+**Can I format the mass balance the way my customer wants?** Yes. Format mass balance has presets, one row or one column per stream, the composition left of or below the properties, and a unit per property. The table always shows the line list's current values.
+
+**Does E1 come with a fixed line list?** No. You build the pipe schedule as a saved query with the rows and columns you need, and it is offered in every Query menu of the project. It exports to Excel or CSV, or becomes a revised list document.
+
+**Can I bring existing P&IDs into E1?** Yes: DEXPI 2.0 files, DXF from CAD and vector PDFs exported from CAD become drawings with real objects. You check the result before anything is stored. A scanned image cannot be read.
+
+## P&IDs and instrumentation, connected to the process
+
+https://www.lanxtor.com/solution-pid-instrumentation.html
+
+In E1, every instrument on a P&ID is an object in the plant model with its tag, its values and its relationships. The instrument index, the loop diagrams, the instrument datasheets and the hookups are made from those objects. Change an instrument once and the drawing, the lists and the documents agree.
+
+### P&ID software where every symbol is an object
+
+In E1, placing an instrument, valve or item of equipment on a P&ID creates an object in the project with the next free tag from the project's tag rules.
+
+E1 draws its own symbols for instruments, control valves and logic as well as for equipment, valves and fittings. You find them in the Add asset window by name, type, class or diagram type, and two clicks set a symbol's inlet and outlet as you place it. The Connector tool draws pipes, signal lines and cables point by point, and each line connects what it touches. Symbols show their tags and pipe runs their line numbers.
+
+Tags follow the project's rules, with reference designations. When an input of a rule changes, the tag is marked out of date instead of changing behind your back, and Retag… shows every old and new tag before it applies them. While Alex is on, placing a pump brings an offer of what usually comes next, drawn as ghost symbols you apply or reject.
+
+- Engineering patterns draw a control valve station or an instrument tap at once, placed, routed and checked (with an AI model set up for Alex).
+- Existing P&IDs come in from DEXPI 2.0, DXF or a vector PDF as real objects, checked by you before anything is stored.
+
+### An instrument index that is never out of date
+
+In E1, the instrument index is read from the model, so it lists exactly the instruments that are on the drawings and in the project.
+
+Alex's Export instrument index (Excel) reads the instruments, signals and motors on a 2D space and writes the instrument index, the I/O list, the cause and effect and the motor list into one workbook, one sheet per list. If your company uploaded its list column templates in Alex knowledge, the columns follow them.
+
+For the project as a whole, an instrument list is a saved query with the columns you choose. It exports to Excel, CSV or JSON with an E1 id column. Update from Excel… reads an edited file back: Check lists every change row by row, and Apply makes them in one undoable step. An instrument list from another tool comes in with Import Excel…: matching rows are updated and the others become new objects. Up to 100 instruments of one class are made in one go from the New object window.
+
+### Loop diagrams generated from the model
+
+In E1, a loop diagram is drawn from the model whenever you look at it: the instruments that implement a control function and the devices it controls, in signal order, with their wiring.
+
+Right-click a function such as TIC-101 and choose Preview loop diagram, or pick several to preview them on one temporary sheet. Nothing is stored while you preview. Export a PDF to send it, or create a version or a revision: only then is each loop stored in Documents, where you can move symbols by hand and Regenerate keeps your moves.
+
+The loop diagram follows each circuit from the device through the junction boxes, cables, marshalling and barriers to the I/O channel, with the barrier's power feed and the screens to their earth bar. Every terminal is drawn in a column by zone: junction box, marshalling field side, interposing, marshalling system side, I/O, and supply and earth. Wiring that is still under way is shown as far as it goes, so loop diagrams are useful from the first day of detailed design.
+
+### Instrument datasheets on the same objects
+
+In E1, an instrument datasheet is a view of the instrument's own values: type into the datasheet and the object changes.
+
+Ready-made specification datasheets for instruments and valves are E1's own templates inspired by ISA datasheets, such as the electromagnetic flowmeter specification. Lines are numbered, tables of parts continue on continuation pages, units are added and checked, and the PDF looks the same as the screen. The datasheet designer copies a template into your own layout, which can later take over changes from it.
+
+One datasheet document can cover several tags of one class. Shared values show once, values that differ show See list, and one change sets all of them. After a datasheet document is issued, every value changed since shows the next revision beside it, so the next issue is easy to review.
+
+### Hookups, hookup drawings and the hookup schedule
+
+In E1, a hookup shows how an instrument is fixed and connected, and every instrument installed the same way uses the same hookup.
+
+Turn hookups on for a project and they get a folder of their own, Assets ▸ Hookups, with their type, mounting, drawing and bill of material. On every instrument you choose the hookup it uses, and every hookup shows the instruments that use it.
+
+A hookup drawing is made from the model: an arrangement sketch with a balloon per part, the bill of material, the instruments that use it and notes, on one A3 page with the title block. The hookup schedule lists every hookup with its instruments and the material they need in total, exported to PDF and Excel and revised and issued like any other document.
+
+### Questions
+
+**Is the instrument index a separate database from the P&ID?** No. The instrument on the P&ID and the row in the instrument index are the same object. The index is read from the model each time you export it.
+
+**Do loop diagrams need finished wiring?** No. A loop diagram shows the wiring that is there. As cores are landed on junction boxes, marshalling and I/O channels, the next preview shows them.
+
+**Are the datasheet templates copies of ISA forms?** No. Only the idea comes from ISA, API and ASME specification datasheets. The layout, sections, wording and line numbers are E1's own, with no form names, numbers or logos of theirs.
+
+**Can I use my company's own datasheet layout?** Yes. Copy a template, or build a layout from components in the datasheet designer, preview it with several objects and publish it for a class.
+
+**Can I import an existing instrument list?** Yes. Import Excel… brings an Excel or CSV tag list into a section: matching rows are updated and the others become new objects, after a preview.
+
+**How are tags given to new instruments?** From the project's tag rules, built from segments, lookup tables and options. A manual tag can be set with Tag…, and Retag… brings out-of-date tags back in line after a preview.
+
+## Electrical design on the same plant model
+
+https://www.lanxtor.com/solution-electrical-design.html
+
+In E1, the electrical engineer works on the same objects as process and instrumentation: the motor of a pump, the cabinet in an equipment room, the cable between them. Single line diagrams, circuit diagrams, the cable schedule and the electrical documents are made from that model, so plant power is not a separate island of tools.
+
+### Single line diagrams where every line is a real cable
+
+In E1, a single line diagram is a 2D space whose diagram type is Single line diagram. Field devices, junction boxes and cabinets are objects of the model, and every line drawn between them with Cable is a real cable.
+
+Each cable you draw has its tag, the project's default cable type for its two ends and its cores. It is the same cable the cable schedule and the wiring show. Default cable types are set once in the project's wiring settings: field cable, multicore, cabinet to cabinet and feeder.
+
+Propose cables designs the cable network for new devices in one step. For every field device on the sheet that has signals and no field cable, E1 proposes a field cable to the nearest junction box of its area and segregation class with room on a strip. Free pairs of existing multicores are used first; a new multicore or junction box is proposed only where none fits. Nothing changes until you choose Apply.
+
+Animate current sets a single line diagram in motion: the current runs from the transformers or generators through the switchboard to the motors, coloured by voltage level. Open a breaker and its cable turns dead and the motor reads No supply. Nothing in the model changes.
+
+### Circuit diagrams and motor starter circuits
+
+In E1, each symbol on a circuit diagram is one function of a device: a contactor's coil, its contacts and main poles, a pushbutton's contact, a pilot light's lamp.
+
+The device is one object owned by its cabinet, and its catalog item gives its functions with their terminal markings (A1 A2, 13 14, 21 22). Every drawn function has an address by page and column, such as /1.4. Under a contactor's coil E1 shows the contact image: each contact with its points and where it is drawn. E1 works these out from the drawings, so they are never out of date.
+
+Right-click a motor and choose Make starter circuit…: E1 draws the starter on a new page of its cabinet's circuit document, with the motor protection breaker, contactor and overload relay in the three phases, the control circuit with its fuse, Stop, Start and pilot lights, the motor's terminals and its power cable. The breaker, contactor and overload relay are the catalog's smallest that take the motor's current. Pick several motors to make all their starters at once.
+
+Terminals, cables and wire numbers are drawn on the same pages. E1 finds two potentials joined by a wire (a short circuit), more wires across a cable than it has cores, and contact points with no wire.
+
+### Cable schedule, cable routes and lengths
+
+In E1, a cable made from a cable type in the catalog gets its cores at once, and each core is landed on a terminal chosen from a tree, never typed.
+
+The cable schedule is the Cables tab of the Wiring page: one row per cable with its type, its two ends, the cores used and spare, its length and its status. It exports to Excel or PDF with the wire list, termination list, junction box schedule and I/O list, all made from the model when you ask for them.
+
+Route segments are cable trays, ladders, conduits, ducts and trenches with their capacity and fill limit. A cable is routed through segments in order; each segment's fill adds up its cables' cross-sections and the cable's routed length adds up the segments. A cable has a length by hand and a length from 3D, and E1 reports when they differ by more than the project's tolerance.
+
+- Wire numbers from the project's pattern, with a preview of every change.
+- Construction status on every core and terminal: Designed, Issued for construction, Installed, Terminated, Loop-checked, As-built or To be removed.
+- After issue, a change becomes a wire move list of what to lift and what to land, terminal by terminal.
+
+### Cabinets, MCCs, potentials and heat balance
+
+In E1, a cabinet is two objects: its location in Areas and the enclosure in Assets, which holds rails, terminal strips, cards, interposing devices, power supplies, earth bars and cable entries. An MCC and a distribution board are enclosures too.
+
+The Potentials tab lists every net such as +24V across enclosures, with its terminals, fuses and the supply's load against its rated current. The net view shows each fused terminal with its rating and the load it feeds; a missing value shows as ?, never as zero.
+
+A cabinet's Fill and heat page shows each strip as a bar of used, spare and free terminals, and the heat balance from physics: the heat its devices give off at their load against what its free walls, a fan and a cooling unit take away. The result is the inside temperature, the temperature at the top, the margin to the cabinet's limit and the cooling still missing. Markers for wires, terminals and cables export for the printer's software.
+
+### Electrical load list and electrical documents
+
+In E1, Alex with the Electrical engineer skill writes the electrical load list, the cable schedule and the Ex equipment list of a 2D space into one Excel workbook.
+
+Export load list and cable schedule (Excel) gives the load list with the maximum demand, the cable schedule with capacity and voltage drop, and the Ex equipment list. Alex judges cables with the ratings of IEC 60364-5-52 and a voltage drop of 3 % for lighting and 5 % for other uses. When a simulator in Alex has run an electrical load flow, short circuit, motor start or arc flash on the open 2D space, its results appear as cards with the method, inputs, assumptions and result tables.
+
+Make documents… on a cabinet, a folder or the project makes the electrical document set in one change: terminal strip diagrams, the cable block diagram, a cable diagram per cable, the wire list, the I/O list, the device list, the parts list and the table of contents, and for the project the potential overview. They are revised and issued like any document.
+
+### Questions
+
+**Is a cable on the single line diagram the same as in the cable schedule?** Yes. Every line drawn with Cable on a single line diagram is the cable object itself, with its tag, type and cores. The cable schedule and the wiring show the same cable.
+
+**How does E1 choose the starter components for a motor?** From the motor's rated output or current: the breaker, contactor and overload relay are the catalog's smallest that take that current. You choose the cabinet and the control voltage in the dialog.
+
+**Can E1 work out cable lengths from a 3D model?** A cable keeps a length by hand and a length from 3D, written through E1's API. E1 uses the length by hand when there is one and reports when the two differ by more than the project's tolerance.
+
+**Can I import the wiring of an existing plant or a vendor panel?** Yes. A termination list in CSV or Excel is imported through Alex with a preview first. The cores come in as fixed, so the new design is made around them.
+
+**Does E1 calculate cabinet heat dissipation?** Yes. The Fill and heat page works out the inside and top temperature from the devices' heat loss, the free walls, a fan and a cooling unit, and says how much cooling is missing.
+
+**Which electrical documents can E1 make?** Terminal strip diagrams, cable block and cable diagrams, wire list, I/O list, device list, parts list, table of contents and the potential overview, plus the cable schedule and the other wiring lists in Excel and PDF.
+
+## Automation and control, from the same plant model
+
+https://www.lanxtor.com/solution-automation-control.html
+
+In E1, signals, I/O channels, control system cabinets, the cause and effect matrix and the alarms belong to the same plant model as the P&IDs and the instruments. Automation work starts from the engineering data itself, not from a spreadsheet export, and what goes to the control-system vendor comes back into the same model.
+
+### Signals from wiring typicals
+
+In E1, a wiring typical describes one kind of device once, such as a 2-wire transmitter, a solenoid valve or a motor-operated valve, and gives every device that uses it its I/O signals, terminals and field cables.
+
+A typical holds the device's signals (open command, closed limit, position and so on), its field cables and the pair each signal takes, options such as position feedback, variants, and the naming of cables and wires. Set it on many devices at once and E1 makes their signals and cables with cores landed on the device and numbered.
+
+The Wiring page of a unit, loop, cabinet, cable or device shows every signal in one row with its whole path: field cable, junction box, multicore, marshalling and I/O channel. A dash is a place not reached yet. Trace circuit follows a circuit through cores, jumpers, barriers and isolators to the I/O channel, the power supply and the earth bar, and names every terminal by its reference designation, such as +CR1-A3-X1:5.
+
+### Wiring allocation that keeps the rules
+
+In E1, Propose wiring fills each signal's empty places: a junction box strip, a free multicore pair to the marshalling cabinet, and cross-wires to a free channel of its kind.
+
+The proposal never breaks a hard rule. It keeps the control system, the project's segregation matrix and each strip's segregation class, keeps redundancy groups apart (a 2oo3 group on three junction boxes and three cards), matches the channel's type and HART, leaves fixed and reserved terminals alone, and keeps the spare percentage. Every choice says why, and every junction box it did not take says which rule it breaks. The same devices give the same proposal every time.
+
+Nothing changes until you accept. You accept one cell, a row, a column or everything, and a hop is never accepted without the one before it, so no core is left landed at one end. When every card of the marshalling cabinet is full, the channel is proposed on a new card in the first free slot of a rack of the signal's control system.
+
+### Racks, cards and the I/O list for the DCS or PLC vendor
+
+In E1, a cabinet's Contents page shows each rack with its control system and every slot, the card in each slot with its channels, and the transmitter landed on each channel.
+
+Drag a card onto a free slot to move it; its cross-wires follow. Export I/O list gives the control-system vendor every signal with its kind, segregation class, control system and HART, and the cabinet, rack, slot, card, channel and terminals its circuit reaches. Vendors often assign channels themselves. When their list comes back, Alex imports it as a preview: a channel they kept becomes fixed, and a channel they changed is a finding, where you decide whether E1 moves the cross-wires.
+
+On a circuit diagram, an I/O card is drawn as a PLC box whose connection points are its channels' terminals, named as the I/O list names them. A contact or lamp drawn in line with one is wired to the channel at once, so the wire list and the I/O list show it.
+
+- Fieldbus segments for Foundation Fieldbus H1 and Profibus PA, with current budget, voltages, device counts and lengths as limits a device must keep within.
+- The entity check for intrinsically safe loops and the voltage budget at 20 mA, with missing values reported as missing, never as zero.
+
+### Cause and effect, safety instrumented functions and alarms
+
+In E1, the cause and effect matrix of a unit or loop is filled like a spreadsheet, with causes and devices chosen from lists of the project's instruments, interlocks and devices.
+
+Each cell is set with a click or a key (C Close, O Open, S Stop, R Start), with an optional delay. Causes that vote are grouped, such as 2 of 3, and E1 writes the narrative from the matrix: when two of PT-101A, PT-101B, PT-101C read high-high above 12 bar(g), close XV-101 after 5 s. The matrix exports to the Excel workbook engineers hand over and reads back with a preview, and it is compared with any version or revision of its document.
+
+An interlock becomes a safety instrumented function with its required SIL. Given failure rates and the proof test interval, E1 shows the PFD with the simplified low-demand equations of IEC 61508-6, the hardware fault tolerance, and whether the achieved SIL meets the requirement. Alarms are rationalized from severity and time to respond, and E1 proposes the priority after EEMUA 191 and ISA-18.2. Each plant state, such as Start-up or Shutdown, shows which alarms it suppresses.
+
+### System control diagrams to NORSOK I-005
+
+In E1, the NORSOK SCD content package draws system control diagrams with the function templates of NORSOK I-005, every terminal of the standard named on the block.
+
+The package brings the function templates such as MA, CA, LB and SBV, the non-standard function, the elementary functions, references, and sequence diagrams with steps, transitions and actions. Every parameter of a function is an attribute, and every process shape that fits a P&ID fits a system control diagram too.
+
+Check SCD… reports signals that join two outputs, an analogue output wired to a binary input, and other breaches of the standard's rules, with Show to open the place on the drawing. Function tags follow NORSOK Z-DP-002, for example 43LIC0001.
+
+### Questions
+
+**Does E1 program the PLC or DCS?** No. E1 prepares the engineering the control system is built from: signals, I/O allocation, the I/O list, cause and effect, safety functions and alarms. The I/O list goes to the control-system vendor and their list comes back into E1.
+
+**What happens when the vendor changes channel assignments?** When their I/O list is imported, a kept channel becomes fixed and a changed one is a finding. You decide whether E1 moves the cross-wires to the vendor's channel.
+
+**Is the wiring proposal repeatable?** Yes. The same devices give the same proposal every time, every choice explains why, and nothing is changed until you accept it.
+
+**Can I keep working on the cause and effect matrix in Excel?** Yes. Export it as a workbook with its legend and narratives, edit it, and import it back: E1 lists what it will add, change and remove before anything changes, and one Undo takes the import back.
+
+**Does the SIL calculation replace a SIL verification?** It gives the PFD, hardware fault tolerance and achieved SIL from the simplified equations of IEC 61508-6. Diagnostics, repair time and partial stroke tests are not counted, so follow your project's verification rules.
+
+**Is NORSOK SCD switched on in every project?** No. It is off in a new project. A project administrator switches it on in Project settings → Content packages, and it switches Plant engineering and Electrical foundation on with it.
+
+## One plant data model, a single source of truth
+
+https://www.lanxtor.com/solution-single-data-model.html
+
+In E1, process, instrumentation, electrical and automation engineering work on one shared plant data model, from FEED to modifications. A pump is one object: the P&ID, the datasheet, the line list, the wiring and the cause and effect matrix all show that same object, so a value changed in one place is changed everywhere.
+
+### One object, every view: what a single source of truth means in E1
+
+In E1, every pump, valve, instrument, cable and function is one object in the project's data model, stored once on the E1 server.
+
+A drawing in E1 does not hold its own copy of the data. A symbol on a P&ID is a placement of an object, and the same object can be drawn on several 2D spaces. The object's Diagrams tab shows a small picture of every diagram it is drawn on, with the diagram's full path; a double-click opens that diagram with the object selected and in view.
+
+Everything else about the object is in its own window, opened from the explorer, a list or the drawing: its attributes, relationships, deep view, diagrams, datasheet, chat, history and files. An object made in a list or in the explorer is placed on a drawing later, by dragging it from the explorer or with Place on drawing…, and keeps everything it already has.
+
+Because there is one record, there is nothing to keep in step. Attribute labels on a symbol, such as a design pressure with its unit, always show the current value: change it in a list or on the datasheet, and every 2D space and its PDF show the new value. No label text is stored.
+
+The same holds between diagram types. Make P&ID from this PFD… draws the PFD's own equipment on a new P&ID: the same objects with the same tags, not copies, and each stream as a pipe between the same equipment. What is added to the PFD later is drawn with Update from PFD.
+
+### A plant data model with nine sections
+
+In E1, every project has the same nine sections in the same order: Model Space, Unit Operations, Assets, Systems, Processes, Areas, Documents, Tasks and Branches.
+
+Each section holds one kind of thing. Model Space holds the drawings. Assets holds the equipment and instruments, and every drawn pipe run, cable, wire and signal is an object there too. Systems holds the functional breakdown, Processes the steps, fluids and operating cases, and Areas the site, plant, unit, room and cabinet. Right-clicking a section offers exactly what can be made in it.
+
+Relationships connect objects across sections: a function under Systems “is implemented by” a pump under Assets, a transmitter “measures” the pump, a cabinet “is located in” a room. You pick the other object in a tree that shows only what fits the relationship, and every relationship shows from both sides.
+
+Deep view shows an object and everything linked to it as cards and links, like an object diagram rather than a drawing. From a valve you follow the pipes on its ports to the pump, the transmitter that measures it, its terminals, the cable core landed on them and the junction box at the other end of the cable.
+
+What an object can hold comes from the library: object classes, attributes, relationship types and shapes. Content packages such as Core, Electrical foundation, Plant engineering, CFIHOS and NORSOK SCD bring them ready-made, and your organization adds its own classes and attributes in the company library and publishes them to every project. Every quantity is stored with its value and its unit.
+
+### Process, instrumentation, electrical and automation data on the same objects
+
+In E1, each discipline adds its data to the same objects instead of keeping its own copy of the plant.
+
+A centrifugal pump carries process data (operating and design conditions, fluid, performance), mechanical data, piping data, electrical data for its motor and hazardous area, and instrumentation data for its signals, alarms and trips. Each group is a section of the same datasheet, and each discipline fills in its own.
+
+The pipe schedule is a query on the project's pipelines with line number, From and To, size, pipe class and design conditions, live with the drawing. A loop diagram is drawn from the model whenever you look at it, from the instruments that implement a control function and their wiring. The Wiring page shows every signal with its whole path, from the field cable to its I/O channel. The cause and effect matrix is filled on a unit in Systems, with causes and devices chosen from the model.
+
+Because all of this reads the same objects, renaming a pump, changing its motor rating or moving a transmitter to another junction box is one change that every discipline sees. See work across disciplines for how teams share one project at the same time.
+
+### Lists, datasheets and calculated values that follow the model
+
+In E1, a list is a live query of the model, not an exported spreadsheet that goes out of date.
+
+New query… opens a live table of every object below a project, section, folder, 2D space or object. You choose the columns, filter and group the rows, and edit cells like in Excel; a block pasted from Excel is previewed before anything changes. One query can also run over every project of the organization you may view.
+
+Data still moves in and out as engineers expect. A query exports to Excel, CSV or JSON with an E1 id column, and Update from Excel… reads the file back with Check and Apply. Tag lists and data sheets are imported from Excel, P&IDs from DEXPI 2.0, DXF or PDF, and a 2D space is exported as DEXPI 2.0 for a 3D design tool or another P&ID tool.
+
+Rules keep derived values right. A calculation rule fills an attribute from the object's own values, its owners, related objects or the project; the value follows its inputs in the same change, and Why this value? shows the rule, each input and where it came from. Nobody types a calculated value.
+
+### Every change recorded, every change reversible
+
+In E1, every saved change is recorded on the object it touched, with when, who, and the value before and after.
+
+The History tab of an object lists its changes as a person reads them, and Undo this change takes one back, even an older one, as long as nobody has changed the object since. A change made by Alex, a stored assistant or an import is recorded the same way and can be undone as a group.
+
+The E1 server is the only writer to the model and checks the permission of every change, whoever or whatever asks for it. That is what lets a whole team, and Alex, the AI co-engineer, work on one source of truth without losing track of who changed what.
+
+### Questions
+
+**What is a single source of truth in plant engineering?** It means every item of the plant is stored once and every drawing, list and document shows that one record. In E1, a pump is one object; the P&ID, the datasheet, the line list and the wiring all read it, so there are no copies to reconcile.
+
+**Can one object be drawn on several drawings?** Yes. An object can be placed on several 2D spaces, and its Diagrams tab lists every diagram it is on. A PFD and the P&ID made from it draw the same equipment objects, with the same tags.
+
+**Do I still get Excel lists?** Yes. Any query exports to Excel, CSV or JSON, and Update from Excel… reads changes back with a check before anything is applied. The list in E1 itself stays live with the model.
+
+**Which content packages and standards does the data model use?** E1 comes with content packages such as Core, Electrical foundation, Plant engineering, CFIHOS, NORSOK SCD, Specification, Wire harness and Marine. Your organization can add its own classes and attributes in the company library.
+
+**Can I bring in P&IDs from other tools?** Yes. E1 imports DEXPI 2.0 files, P&IDs from CAD as DXF, P&IDs exported as PDF, and tag lists and data sheets from Excel. A DEXPI import run again updates what is there instead of duplicating it.
+
+**How large can one model be?** Our load tests run on a refinery-size project with 498,000 objects and 1,300 dense sheets. See built for refinery-size projects and the E1 Cloud specifications for the measured times.
+
+## Predictive engineering with Alex, the AI co-engineer
+
+https://www.lanxtor.com/solution-ai-predictive-engineering.html
+
+In E1, Alex reads the drawing as you work, the way a process, automation or electrical engineer beside you would, and suggests what usually comes next. Alex's review runs locally, with no language model and nothing sent outside E1. Every suggestion waits for you to apply or reject it.
+
+### Alex, the AI co-engineer built into E1
+
+In E1, Alex is one assistant in the panel on the right of the window, with three tabs: Co-engineer, Agent and E1 Guide.
+
+In Co-engineer, Alex is built into E1. It reads the open 2D space and lists warnings, questions and suggestions. It calls no language model and sends nothing outside E1, so it works in every installation. Alex is off until you click Let Alex help, and Stop Alex switches it off again.
+
+In Agent, Alex answers in your own words with the help of a language model and can change the project, with review and undo. E1 Guide teaches E1 where you are, with bubbles on the real buttons. The name comes from Hero of Alexandria, the first-century engineer often called the father of automation.
+
+Alex reads the drawing when you open it and about half a second after a change of yours settles, never while you are dragging. Its marks sit on the drawing, an amber ! for a warning and a blue ? for a question, linked both ways to its cards.
+
+### Predictive mode: the next move, suggested while you draw
+
+In E1, while Alex is on, placing or changing something brings an offer of what usually comes next, drawn as ghost symbols on the 2D space.
+
+Place a centrifugal pump and ghost valves appear around it. The offer is also the first card under Design suggestions, with the badge After your change and the buttons Show, Apply and Reject. Apply places the symbols as real, connected objects; Reject drops the offer and nothing is added. One undo takes an applied suggestion back.
+
+Alex follows the design your project repeats. Where there is none yet, it uses starter rules: isolation on a pump's suction and a check valve on its discharge, isolation around control valves, and transmitters on vessels and exchangers. A pump, compressor, fan, agitator or conveyor with nothing to drive it gets the suggestion to add a motor, which is made in the model and tagged by the project's tag rules.
+
+E1 never adds what a piece of equipment needs by itself: Alex suggests it and you decide. The same holds for a P&ID made from a PFD, which opens with Suggested additions: what each object usually has on a P&ID, for you to apply or reject.
+
+### A design review as you work: warnings, questions and suggestions
+
+In E1, Alex's findings are cards that say why, show where on the drawing, and offer a fix, an answer field or a way to set them aside.
+
+The skill decides which engineer reads the drawing: Plant engineer (every discipline), Process engineer, Automation engineer, Electrical engineer or HAZOP leader. The level decides how much Alex tells you, from warnings only at Quiet to tips that explain the practice at Mentor.
+
+Alex checks line velocity by service, pressure drop, erosional velocity and design margin, sour service and CO₂, instrument loops, tags, fail positions, interlocks against the cause and effect matrix, and anti-surge, and asks about motor starting and signal types. A question card writes your answer straight into the object. A finding that does not apply is hidden with Not applicable, or proposed to your company so Alex stops raising it once an approver accepts.
+
+Each skill also writes its lists from the drawing into Excel: the instrument index, I/O list, cause and effect and motor list for automation; the load list, cable schedule and Ex equipment list for electrical; a prepared HAZOP worksheet with LOPA scenarios for the HAZOP leader.
+
+### Alex learns your company's engineering conventions
+
+In E1, Alex learns from your own standards and projects, and a rule it finds applies only after a person accepts it.
+
+In Configuration → Alex knowledge, upload a standard as PDF, Word, Excel or text. Alex reads it locally and proposes the conventions it finds, such as a velocity limit for pump suction lines or a fail position for fuel gas control valves. Once an approver accepts one, Alex checks every drawing against it and its card quotes the clause. A language model reads the document only if you tick that option, and nothing is trained on your documents.
+
+Team memory learns which values are usual at your company, such as the pipe class most cooling water lines get, from the projects you choose. It is off until someone with the permission switches it on, and confidential projects can be left out. With your pipe classes loaded, Alex also checks each line's pressure, temperature, class and sour service against them.
+
+### Agent, Ask and Plan: AI for engineering design, with review and undo
+
+In E1, Alex's Agent tab answers questions in your own words and changes the project with the same commands you run by hand.
+
+The mode decides what Alex may do: Agent edits the project, Ask only answers and never changes anything, and Plan writes out a plan and waits for Apply. With Review changes first, Alex works on a draft that is stored only when you apply it. Protect the arrangement, on by default, lets Alex add symbols, lines and notes but not move, resize or reroute what is drawn. Undo change takes back everything one reply changed.
+
+Some changes always wait for you: a turn that would delete more than 10 objects, and commands marked to always ask. When you ask whether a design is right, Alex's own review runs first with your accepted conventions, and the answer rests on its findings. Alex also draws engineering patterns such as a redundant pump train, answers queries such as “all pumps without a motor”, and reads attached lists, specifications and screenshots.
+
+### Safe and secure: you and your organization stay in control
+
+In E1, Alex works with the permissions of the person who asks, never more, and your organization sets Alex's AI help to on, answer only, or off.
+
+Co-engineer and E1 Guide send nothing. In the Agent tab, your messages and the project context go to the model named under the tabs. In the E1 Cloud the default is GPT-4.1 on Azure OpenAI in Sweden Central, in the EU; see E1 Cloud specifications. In your own installation, the operators choose OpenAI, Anthropic, Azure OpenAI, Microsoft Foundry or a local model server.
+
+Restricted values are removed before anything is sent to a model, and every call to the AI is logged with its model and size, without the text of your messages. Names, notes and attached files are treated as data, never as instructions. Without a model, Alex keeps reviewing in Co-engineer and you do the rest by hand. See Security.
+
+### Questions
+
+**What is predictive engineering in E1?** While Alex is on, E1 offers what usually comes next after a change, such as the valves around a new pump, as ghost symbols on the drawing. You apply or reject each offer; nothing is added without you.
+
+**Is Alex a local AI?** Alex's review in Co-engineer and the E1 Guide run inside E1, with no language model, and send nothing outside. Only the Agent tab uses a language model, and it says which one your messages go to.
+
+**Does Alex change my drawing on its own?** No. Suggestions wait for Apply. In the Agent tab, Ask never changes anything, Plan waits for Apply, and Agent can work on a draft you review. Large deletions are always held, and one click undoes a reply.
+
+**Which language model does Alex use?** In the E1 Cloud, GPT-4.1 on Azure OpenAI in Sweden Central is the default. An Editor may choose Claude Opus 5.5 for their own conversations; those requests may be processed outside the EU. Your own installation can use a local model server.
+
+**Is our data used to train a model?** No. Standards you give Alex knowledge are not used for training; their matching clauses are sent with a question only in the Agent tab. Team memory is off until you switch it on, and you choose the projects it learns from.
+
+**Can our organization switch Alex off?** Yes. The organization sets Alex's AI help to on, answer only or off. Without it, E1 works fully by hand, and Alex's local review in Co-engineer still runs.
+
+**Does Alex replace the engineer?** No. Alex points at what an experienced colleague would notice and drafts routine work. The engineer decides what is applied, and every change Alex makes is recorded and can be undone.
+
+## Simulate, validate and explore your design
+
+https://www.lanxtor.com/solution-simulate-validate.html
+
+In E1, the design is checked while you work on it. Alex simulates process lines and electrical networks from the values in the model, Animate flow shows what the plant does when a pump stops or a valve closes, and every object carries its own findings. Issues are found on the drawing, early, instead of in a review months later.
+
+### Process and electrical simulation on the drawing
+
+In E1, Alex simulates the open 2D space from the values in the model and shows each result as a Simulation results card with the method, the inputs, the assumptions, any warnings and the result tables.
+
+For process engineers, a line whose line list has a composition, a pressure and a temperature gets a flash with the Peng-Robinson method: its phases, their amounts and compositions, density, Z, enthalpy, Cp and viscosity. When lines carry a composition, Alex solves the heat and material balance along the drawing through valves, pumps, compressors, heaters and coolers, exchangers, mixers, splitters and separators. Each unit needs its specification on its attributes; Alex asks for what is missing and never assumes it.
+
+For electrical engineers, on a single line diagram, Alex works out load flow and the IEC 60909 short-circuit current at every board, motor starting, arc flash to IEEE 1584-2018, earth faults, harmonics to IEEE 519-2014, protection coordination from the relay, trip unit and fuse settings you entered, and battery sizing and UPS autonomy to IEEE 485 and IEEE 1115.
+
+Every assumption a simulation makes is listed on its card, and a red Not converged says the numbers are not reliable. Export results (Excel) writes a summary sheet and one sheet per table. A calculated stream is written to the line list only when you press Write to the line list. Stream tables from HYSYS, Aspen Plus, DWSIM or a similar simulator are imported into the line list, matched to lines and checked by you.
+
+### Animate flow: see what the plant does
+
+In E1, one button sets a sheet in motion: on a PFD or P&ID the flow moves through the pipes the way it goes and as fast as it goes, tanks fill and empty and pumps turn.
+
+Click a pump to stop it, or a valve to close it, and see what happens downstream. The lines after a stopped pump empty, the ones before it pulse as blocked, and a pump with a closed outlet valve is reported as dead-headed. A tank whose outlet is shut fills, with its level alarms LAH and LAHH, and a trend window draws every tank's level over the last ten minutes with the alarm limits.
+
+Hold the pointer on a moving line to read its fluid, phase, flow, pressure, temperature, size, velocity, Reynolds number and friction loss. Color by → Velocity check colours lines green, amber or red against the usual velocity ranges and the erosional velocity of API RP 14E. On single line, circuit, wiring and loop diagrams, Animate current runs the current from the supply to the loads, checks cable loading against IEC 60364-5-52 ratings and voltage drop, and shows which motor loses its supply when a breaker opens.
+
+Nothing in the model changes. Reset puts every valve, pump and switch back as drawn.
+
+### Design validation: checks that run as you work
+
+In E1, everything soft about an object is a finding with a severity, error, warning or information, listed on the object's Checks tab and for the whole project.
+
+Findings come from a required value that is missing, a relationship minimum not reached, a tag that is pending or out of date, an object that breaks its class's behavior, a check rule your organization wrote, a calculation with a missing input, and the piping check. An open error blocks issuing a revision of a document that shows it, until it is fixed or accepted with a comment by a lead engineer.
+
+Check piping… follows the flow through every pipe on a 2D space and finds a pump turned the wrong way, pipe that meets head-on and pipelines that are no longer whole. It offers fixes and never applies one on its own. For wiring, E1 runs the entity check of intrinsically safe loops and the voltage budget of each loop at 20 mA; a value it needs and does not have is reported as missing, never taken as zero.
+
+Safety and progress are checked the same way. A safety instrumented function shows its PFD, achieved SIL and hardware fault tolerance against the required SIL. A workflow step can require values confirmed, no open errors or a revision issued before an item moves on.
+
+### A full-context AI agent to pressure-test the design
+
+In E1, when you ask Alex whether a design is right or complete, Alex's own review of the 2D space runs first, with your company's accepted conventions, and the answer is based on its findings.
+
+Ask in the Agent tab, in Ask mode if you want answers only: “Is the design of this 2D space right? What is missing?” The answer cites what Alex observed and, where they apply, your company's conventions, with the clause they come from. The review changes nothing in the project.
+
+Alex's checks cover line velocity, pressure drop, erosional velocity and design margin, sour service, instrument loops, fail positions, interlocks against the cause and effect matrix, and anti-surge. As HAZOP leader, Alex prepares a HAZOP worksheet from the drawing with nodes, deviations, causes, consequences, safeguards, a LOPA per scenario, the API 521 relief cases and the risk matrix, for your team to work through. See predictive engineering with Alex.
+
+### Explore and compare design options
+
+In E1, design options are kept side by side as cases, module variants or branches, and compared with what was issued.
+
+A case is a variant of an object, for example another operating condition of a pump: it takes over the object's values until you type its own, so you only enter what differs. On a specification datasheet, the operating cases stand side by side. A module can have options and named variants, and a placed module switches to another variant.
+
+For a larger alternative, make a branch of part of the design and change it while main stays as it is; push it back when it is ready, or close it. See branches and modifications.
+
+To see what changed, Changes since… draws a cloud on a 2D space around everything added, deleted, modified or moved since a day, a revision or a version. The cause and effect matrix and the wiring are compared with an issued revision the same way.
+
+- Simulation results with method, inputs and assumptions on every card
+- Flow and current animated on the drawing, with nothing changed in the model
+- Findings on every object, and a revision gate for open errors
+- Cases, variants and branches to compare options
+
+### Questions
+
+**Does E1 replace a process simulator?** E1 flashes lines and solves a heat and material balance along the drawing, from the values in the model. For a rigorous process model, keep your simulator and import its stream table from HYSYS, Aspen Plus, DWSIM or similar into E1's line list.
+
+**Does a simulation or the flow animation change my design?** No. Simulation results are cards, and the animation changes nothing in the model. A calculated value is written to the line list only when you press Write to the line list.
+
+**What happens when data is missing?** Alex asks for what a simulation needs and lists every assumption it makes on the result card. The wiring checks report a missing value as missing, never as zero.
+
+**Which electrical calculations are available?** On a single line diagram: load flow, IEC 60909 short circuit and earth faults, motor starting, IEEE 1584-2018 arc flash, IEEE 519-2014 harmonics, protection coordination, and IEEE 485 and IEEE 1115 battery and UPS sizing.
+
+**Can a failed check stop a drawing from being issued?** Yes. While the project's revision gate is on, a revision is refused while the document shows an object with an open error. A lead engineer can accept the finding with a comment instead.
+
+**How do I compare two design options?** Use cases for different operating conditions of one object, module variants for typical arrangements, and branches for a larger alternative. Changes since… shows what changed against a revision or a date.
+
+## Work across disciplines on one project
+
+https://www.lanxtor.com/solution-multidiscipline-collaboration.html
+
+In E1, process, instrumentation, electrical and automation engineers share one project and one plant data model. Each discipline works on the same objects at the same time and sees the others' changes within seconds, while the objects you are responsible for are changed only by you or your group.
+
+### Multidiscipline engineering collaboration on one model
+
+In E1, every discipline works in the same project, on the same objects, instead of exchanging files between separate tools.
+
+A pump is one object in E1. The process engineer gives it its operating and design conditions, the instrumentation engineer the transmitter that measures it and its trips, the electrical engineer its motor and hazardous area, and the automation engineer the interlock in the cause and effect matrix. Each group of values is a section of the same datasheet, and every drawing, list and loop diagram reads the same object.
+
+So there is no handover file to wait for and no copy to reconcile. When the process engineer renames a pump or changes a line, the wiring, the lists and every drawing of the pump show it at once. See one plant data model for how the model is built.
+
+### Concurrent engineering, live
+
+In E1, when several people have the same project open, each one sees the others' changes within seconds, without reloading.
+
+The server pushes every change to everyone who has the project open: the explorer, the 2D spaces, the object windows and the lists. In our load tests a change reaches the rest of the team in about a second, with 50 engineers working at once on a project of 498,000 objects.
+
+Avatars at the right of a 2D space's toolbar show who else has it open, with a pencil while they edit; a click lists each person with their role, Viewing or Editing, and since when. You never see anyone's pointer or unsaved work, and nothing about who opened what is recorded.
+
+E1 saves each object on its own, so two engineers can work on the same drawing at the same time. If two people change the same object at the same moment, the first change is kept, the second is refused with a clear message, and the second person's copy is reloaded so they see the current state. Nothing is overwritten unseen.
+
+### Keep ownership of your scope
+
+In E1, one person or one group can be made responsible for an object, a folder, a sheet or a whole section, and only they then change it and everything in it.
+
+On an object's page, Take it makes you responsible for something nobody owns yet, and a lead engineer uses Assign to… to give it to a person or a group, such as Mechanical. Everyone else still sees it and comments on it; a colleague who tries to change it is refused with your name and asked to contact you. Project settings → Access lists every responsibility with Release.
+
+Permissions can follow the disciplines too. A custom role may change the attributes of one discipline only: process engineers a pump's process data, electrical engineers its motor and hazardous area data. The disciplines are process, mechanical, piping, electrical and instrumentation.
+
+Roles are given on the organization, a project, a section or a single object. A project administrator can share one drawing with a subcontractor as Engineer, or mark a finished drawing as read-only by giving others Reviewer or Viewer on it.
+
+### Discuss the design where it is
+
+In E1, every object, project, folder and 2D space has a Chat tab where colleagues discuss it, with @mentions, #links to other objects, replies and resolved threads.
+
+During a drawing review, pin a message right where the question is. The pin is numbered on the 2D space, and the object shows Needs review in the explorer until the message is resolved.
+
+A task asks a person or a group to do something, with a type, a due date, a description, a screenshot and a checklist, once or repeating. The people it is for see it in their Inbox, together with the messages that mention them, and can choose which notices also come by email.
+
+Automated assistants keep the other disciplines informed: when an object of a chosen class is renamed, a revision is rejected or an item moves to another workflow step, the people you chose are notified or given a task.
+
+### Work apart, then bring it together with branches and review
+
+In E1, a discipline can work on a branch of part of the design while main stays as it is, then push it back as one change after review.
+
+Pull from main brings main's changes into the branch value by value; what both changed differently is a conflict you resolve, also on the drawing. A branch type can require a review before main, with four eyes: a colleague approves or requests changes, and the author does not approve their own branch. Every push leaves a protocol with who pushed and every field before and after.
+
+Workflows add the sign-offs between disciplines. Each approval step, such as Checked or Approved, is signed by someone who did not move the item into it, and an item changed after its approval shows Changed since Approved. See branches and modifications, and projects across companies for an owner and its contractors on one shared project.
+
+- Live changes for everyone in the project, about a second after they are saved
+- Responsibility for objects, folders, sheets and sections
+- Permissions per discipline's attributes
+- Chat, pins, tasks and an Inbox on the objects themselves
+- Branches with merge review and push protocols
+
+### Questions
+
+**Can two engineers work on the same P&ID at the same time?** Yes. E1 saves each object on its own and pushes every change to everyone who has the drawing open. Avatars on the toolbar show who else is viewing or editing it.
+
+**What happens when two people change the same object?** The first change is kept. The second is refused with a clear message, and that person's copy is reloaded with the current state, so nothing is overwritten without anyone noticing.
+
+**How do I stop others from changing my part of the design?** Take responsibility for the object, folder, sheet or section, or have a lead engineer assign it to your group. Only you or your group can then change it; everyone else can still see it and comment.
+
+**Can electrical engineers change only electrical data?** Yes. A custom role can be limited to the attributes of one discipline, such as a pump's motor and hazardous area data, while the process data stays with the process engineers.
+
+**How do we review another discipline's work?** Pin messages on the drawing, give tasks with a checklist, and use branches with a merge review before changes reach main. A workflow approval is signed by someone who did not move the item into that step.
+
+**Can our contractors work in the same project?** Yes. A project can be shared with another organization: the owner company and its contractor work on the same project, each managing its own people and licenses.
+
+## Built for refinery-size projects
+
+https://www.lanxtor.com/solution-large-projects.html
+
+In E1, a project the size of a refinery stays fast for the whole team. E1 is load-tested every night and every week on a project with 498,000 objects, 1,300 dense sheets and 50 engineers working at once on one server: the project opens in under 2 seconds, a typical edit is saved in a few tenths of a second, and every change reaches the rest of the team in about a second.
+
+### Large project performance, measured
+
+In E1, performance is measured on a project the size of a refinery, not on a small sample.
+
+The test project holds 498,000 objects: equipment, valves, instruments, lines, cables, wires, signals and ports, drawn on 1,300 dense sheets. It is the order of size of a grassroots refinery, a petrochemical complex or an offshore platform. E1 opens it, edits it and searches it on every nightly run.
+
+For one engineer working on this project, these are the measured times. They are the times of the server answering, so they show what E1 itself costs, before your connection is added.
+
+- Open the project: 140–180 ms.
+- Open an object: 3 ms.
+- Edit a value: 110–130 ms. Rename: 15 ms.
+- Move a symbol on a dense P&ID: 290–380 ms.
+- First page of a filtered list: 50 ms.
+- Search by tag, name or value, across all projects: 10 ms.
+- Errors in any run: 0.
+
+### 50 engineers at once on one project
+
+In E1, a whole project team works in the same project at the same time, and each engineer sees the others' changes without reloading.
+
+The load test runs 50 engineers at once on the same 498,000-object project and records the slowest 5 % of every action (p95). With all 50 editing, opening the project takes 1.0–1.9 s, opening a drawing 0.9–1.8 s, editing a value 0.7–1.5 s and opening an object 300–500 ms. Late in a project most of the team only looks: with 45 engineers looking and 5 editing, opening the project takes 470 ms, a drawing 380 ms and an object 70 ms.
+
+A change by one engineer reaches everyone who has the project open in about a second, pushed by the server, in the explorer, on 2D spaces, in object windows and in lists. Your own changes that are still being saved are kept while others' arrive.
+
+E1 saves each object on its own, so engineers working on different symbols of one busy P&ID do not get in each other's way. When two people change the same object at the same moment, the first change is kept, the second is refused with a clear message, and that person's copy is reloaded so they see the current state.
+
+### Dense P&IDs that open in the browser
+
+In E1, a P&ID with thousands of symbols opens and responds in the browser in well under a second.
+
+Large plants have large drawings. Measured in Chromium, a P&ID with 1,000 symbols opens in 260–320 ms and selects a symbol in 30 ms. A P&ID with 3,000 symbols opens in 530 ms and selects a symbol in 140–150 ms. Nothing needs to be split up or simplified to keep a sheet usable.
+
+On a busy sheet several disciplines often work at once: a process engineer, an instrument engineer and a checker. Avatars at the right of a 2D space's toolbar show who else has it open, with a pencil while they edit, so you know who is changing what. E1 never shows anyone's pointer or unsaved work, and records nothing about who opened what.
+
+### Finding your way through 500,000 objects
+
+In E1, the explorer, the search and the lists are built so that a large project stays easy to read and quick to change in bulk.
+
+The explorer search filters the tree as you type and finds objects by tag, name, line number or any value, also as a quantity: 24 volt finds every value of 24 V in any unit. Projects lists every project you can see, and the explorer shows only the ones you add, so the tree stays short. Up to five columns beside each name, such as class, status or any attribute, make the explorer read as a tree and a table, and folders a team does not use can be hidden.
+
+Lists are live queries of the model. Filter them with AND, OR and NOT, group them with totals, and run one query over every project of your organization. Work in bulk as in Excel: paste a block copied from Excel with a preview of every change first, give many cells one value with Set value…, fill down, and undo it as one step. Every query exports to Excel, CSV or JSON and reads back with Update from Excel….
+
+Existing projects come in at scale. Import Excel tag lists and data sheets, DEXPI P&IDs, and P&IDs from CAD as DXF or as PDF; import again later to update what is there, deciding every difference yourself.
+
+### Clear scopes in a big team
+
+In E1, each engineer and each group keeps ownership of their scope while the whole team works in one project.
+
+Project roles go from Viewer and Reviewer to Engineer, Lead engineer and Project administrator, given to people or to groups. With Assign to…, one person or group becomes responsible for an object, a folder, a sheet or a whole section: only they change it and everything in it, while everyone else still views and comments. A custom role can change the attributes of one discipline only, so electrical engineers edit a pump's motor data and process engineers its process data.
+
+Dashboards show where a large project stands: Project progress, Data completeness, Review and comments and Branches are there from the start, and trends such as the S-curve show progress by week against the plan. Click a number or a bar to list the items behind it.
+
+### Tested every night against fixed budgets
+
+In E1, performance is part of every build: a change that makes E1 slower fails before it reaches a customer.
+
+Every change to E1 is timed against fixed budgets, and a slower build fails. Every week a stress test runs 100 engineers at once, twice the design load of 50, and a one-hour soak test checks that E1 stays fast over time.
+
+In the E1 Cloud, the E1 server adds capacity when it is busy and is always running, so there is no cold start. Health checks every few seconds replace a server that stops answering. The figures on this page are measured in our load tests; times in the E1 Cloud depend on the size of your project, how many people work at once and your connection. The full results are in the cloud specifications.
+
+### Questions
+
+**How large a project can E1 handle?** E1 is tested every night on a project with 498,000 objects and 1,300 dense sheets, with 50 engineers working at once, and every week with 100 engineers at once. That is the size of a refinery, a petrochemical complex or an offshore platform.
+
+**How fast does a large project open?** For one engineer, the 498,000-object test project opens in 140–180 ms on the server. With 50 engineers all editing at once, the slowest 5 % of openings take 1.0–1.9 s.
+
+**Do engineers see each other's changes?** Yes. A change by one engineer reaches everyone who has the project open in about a second, pushed by the server, without reloading.
+
+**What happens when two engineers change the same object?** E1 saves each object on its own. The first change is kept, the second is refused with a clear message, and the second person's copy is reloaded so they see the current state.
+
+**Can I search across all my projects?** Yes. The search finds objects by tag, name or any value, also as a quantity such as 24 volt, across all your projects; on the test project it answers in about 10 ms. A query can also list the objects of every project of your organization.
+
+**Are these times guaranteed in the E1 Cloud?** They are measured in our load tests. Times in the E1 Cloud depend on the size of your project, how many people work at once and your connection. See the cloud specifications for the full results.
+
+**How do I bring an existing large project into E1?** Import Excel tag lists and data sheets, DEXPI P&IDs, and P&IDs from CAD as DXF or PDF. Each import can be run again later to update what is there, and you decide every difference.
+
+## Across companies on one project
+
+https://www.lanxtor.com/solution-cross-company-projects.html
+
+In E1, an owner company, its EPC contractor and specialist firms work in the same live project instead of emailing the latest ZIP. The project stays with the organization that shares it; each other organization chooses its own people, uses its own licenses, and works up to the highest role the sharing organization allows.
+
+### Share a live project with another organization
+
+In E1, a Project administrator shares a project with another organization, and that organization's administrator decides which of its own people work on it.
+
+Owner-operator and EPC collaboration usually means copies: a model exported, zipped, emailed, changed and sent back, with nobody quite sure which file is current. In E1 there is one project. The client, the contractor and the specialists open the same objects, drawings, lists and documents, and see each other's changes within seconds.
+
+Sharing takes two steps. In the project's Project settings → Access, the Project administrator chooses the highest role the other organization may give, for example at most Engineer, and clicks Share with another organization…. E1 shows a code once, valid for 14 days, to send to the other organization's administrator. There, under File → Organization… → Shared projects, the Owner or an Administrator enters the code, clicks Accept and gives each of their members a role on the project.
+
+Their members then switch to the sharing organization and work on that project only. History shows their organization after their name, so every change says which company made it. Either side clicks End to stop: the other organization's people lose the project at once.
+
+### Clear boundaries between companies
+
+In E1, the people of a partner organization are guests: they work within the role you allow and manage nothing of yours.
+
+Whatever role a guest holds on the shared project, they manage nothing in your organization and have no integration access. The highest role you set when sharing caps what their administrator can give. The project roles are Viewer (views and exports), Reviewer (views and comments), Engineer (creates and edits objects, attributes, relations and drawings), Lead engineer (also issues revisions and approves branches) and Project administrator.
+
+Inside the project, scopes are as clear as between disciplines. With Assign to…, a contractor's group becomes responsible for a section, a folder, a sheet or an object: only that group changes it, while everyone else views and comments. A responsibility never gives anyone a permission they do not have, and the same rule holds for Alex, imports and the API. Custom roles can limit a firm to one discipline's attributes, such as electrical or instrumentation.
+
+A contractor's people use their own organization's licenses, not your seats. Guests invited to a project to view, such as clients and contractors, view for free.
+
+### Decide what reviewers and viewers see
+
+In E1, everything in a project is open to its members until you hide it: a whole project from viewers, or one attribute on a class or on one object.
+
+Reviewers and viewers are often people outside your company: the client, a contractor, an inspector. A person with a Reviewer license is in the built-in group Reviewers, one with a Viewer license in Viewers, and you can tick anyone else into these groups, for example a contractor with an Editor license, so they see only what that group sees.
+
+Set a project's Visible to so that viewers do not see it at all. Mark an attribute Editors only on a class, so that no reviewer or viewer sees, for example, the flow rate of any pump. Hide one value from viewers on one object. Hidden values are left out on the server, so they are missing everywhere for that circle: the object page, lists and their Excel exports, datasheets and their PDFs, history, Alex's context and the API.
+
+### One record instead of the latest ZIP
+
+In E1, questions, tasks and decisions between companies are kept on the objects they are about.
+
+Discuss an object on its Chat tab: @mention a colleague from either company, #link another object, reply and resolve. Give a person or a group a task with a type, a due date and a screenshot; they find it in their Inbox and mark it done. Keep PDFs, spreadsheets and drawings with an object or the project as attachments.
+
+Deliverables between owner and contractor go through E1's document control: each revision is signed along its purpose's route and issued as a PDF that never changes, with what changed since the revision before (see revisions, datasheets and reports). Larger changes can be prepared in a branch and reviewed before they reach main (see branches).
+
+### Every step on the record
+
+In E1, sharing a project, accepting it, giving roles and ending it are written to the audit logs of both organizations.
+
+Owners and Administrators see every change to members, licenses, groups, roles and responsibilities with its before and after, see who had access on any earlier date, and export the history to Excel or CSV for an audit. An access review sends a project's access to a reviewer, who keeps or removes each line.
+
+Where a company's privacy rules do not allow names, Configuration → Privacy makes history show only the groups people are in. E1 support has no access to your data. More on protection and data location is on the security page.
+
+### Questions
+
+**Who owns a project that is shared with another company?** The organization that shares it. The other organization's people work on it as guests, and the project stays with you when the sharing ends.
+
+**Does a contractor use our licenses?** No. The other organization's people use their own licenses, not your seats. Guests invited to view a project, such as clients and contractors, view for free.
+
+**How does the other company join the project?** Your Project administrator clicks Share with another organization… in the project's Access settings and sends the code, valid for 14 days. Their Owner or Administrator accepts it under File → Organization… → Shared projects and chooses their people and roles.
+
+**Can a contractor see everything in our project?** Only what you leave open. Hide a project from viewers, an attribute on a class from reviewers and viewers, or one value on one object. Hidden values are left out on the server, also in exports, PDFs, history and the API.
+
+**Can a contractor administer our organization?** No. Guests manage nothing and have no integration access, whatever role they hold on the project, and their roles are capped by the highest role you allowed.
+
+**How do we stop sharing?** Either organization clicks End. The other organization's people lose the project at once, and the step is in both audit logs.
+
+## Branches for scenarios and modifications
+
+https://www.lanxtor.com/solution-branches-modifications.html
+
+In E1, a branch is a working copy of part of a project's design. Engineers change it while main stays as it is, pull main's changes in value by value, resolve conflicts on the data and on the drawing, and push the branch back to main as one change that undoes as one. Use branches for what-ifs, design changes, modification packages and commissioning scopes.
+
+### Change part of the design while main stays as it is
+
+In E1, a branch holds a chosen scope of the plant model; what you change in it changes the branch, not the project's main design.
+
+Start a branch from the project's Branches page, from the project's right-click menu, or by selecting objects in the explorer or on a 2D space and choosing Branch ▸ New branch…. A scope preview lists what comes with your choice and why: a pump brings its nozzles, its connected lines and the 2D space it is drawn on as Editable, and its owner as Information. Change a row to Leave out or Information where it is not locked, and create the branch.
+
+Enter the branch and the whole project shows the branch's content, with a bar that says you are in it. The branch icon marks every object and 2D space it changes. Objects outside the branch are grey and cannot be changed there. On a drawing, Show main lays main's current version on top in pink, so you see exactly what the branch draws differently, and Branches on this drawing shows every open branch that changes a 2D space, each in its colour.
+
+Some things always belong to main: issuing a revision, the project's settings and the library are refused in a branch. Tag numbers are taken centrally, so two branches never give the same number. A branch never widens what you may change in main.
+
+### Pull from main and resolve conflicts, value by value
+
+In E1, Pull from main brings main's changes into a branch value by value; only what both sides changed differently is a conflict.
+
+When someone changes main in the branch's scope, a bell rings on the branch's card and lists what changed and who changed it. Pull from main takes everything main changed that the branch did not. A value both changed differently is listed under Conflicts, grouped by object, with Base, Main and Branch side by side: choose Keep mine, Take theirs, or type a value and Use value. Keep mine everywhere and Take theirs everywhere settle many at once.
+
+Conflicts are resolved on the drawing too. A symbol both sides moved shows twice, Main in blue and Branch in orange, joined by a dashed line: click the one to keep. Statuses follow the same rule: where main and the branch both changed a status, E1 proposes the lower one, and a signature given in a branch is void after a later change there.
+
+### Review before main: branch types and merge requests
+
+In E1, each branch has a type that says whether it needs a review before it reaches main, and how its conflicts and main's edits are handled.
+
+Every project starts with three branch types: Working branch, Design change (reviewed) and Commissioning package. A Project administrator sets for each type Review before main, Four eyes, what happens After push, how Editing in main treats the branch's objects (Mark, Warn or Block) and a rule for graphical conflicts. A tag or validation conflict is always a person's choice.
+
+A branch that needs a review asks for one with Ask for review. The reviewers find the merge request in their Inbox, and the objects show Under merge review meanwhile. A Lead engineer approves or clicks Request changes… with what should change; with four eyes the author cannot approve their own branch. Alex never approves or rejects a merge request: a person does.
+
+For plants that run a management of change (MOC) process, a reviewed branch keeps each modification separate from the design of record until a second engineer has approved it, and leaves a protocol of everything it changed. The MOC procedure itself stays your company's.
+
+### Push to main as one change, with a protocol
+
+In E1, Push to main brings a branch into the project as one change, and every push leaves a protocol of what it changed.
+
+A Lead engineer or above pushes, and their role must allow every change in the branch. E1 refuses a push while main has changes in the branch's scope that were not pulled yet, while conflicts are open, or while a required review is not approved, so nothing in main is overwritten unseen. The push lands as one change, Pushed branch…, in main's history, and Undo this change takes it all back.
+
+Every push of a branch or a commissioning package writes a push protocol: its date, who pushed, and every object it created, changed or deleted, with each field before and after. A protocol is written by the push itself and never changes. After the push, the branch stays open and counts from what it pushed, or closes when its type says so.
+
+### Commissioning packages cut from a branch
+
+In E1, finished parts of a branch become commissioning packages that go to main on their own, each with its dates, lead and description.
+
+On a branch's card, New commissioning package makes a package. Inside the branch, draw around the work on a drawing with Package boundary (lasso, rectangle or ellipse) and add it, or right-click objects and choose Branch ▸ Add to commissioning package. A pipe that leaves the boundary is marked where it crosses it, and the package lists what it still needs, such as an area the branch created.
+
+Give the package its description, priority, planned commissioning date, commissioning lead and who accepts it. Mark ready cuts it from the branch as it is, then it is reviewed and pushed to main alone. The branch then counts from main for those objects, so its next pull has no conflict and its push does not repeat them. Set Commissioned on once the plant it holds is commissioned. Branches and packages are objects of the library classes Branch and Commissioning package, so they carry your own attributes and appear in queries.
+
+### Branches on the dashboard, and Alex in a branch
+
+In E1, the Branches dashboard and each object's Branches tab show what is being changed where.
+
+Dashboards → Branches shows open branches, those in review, their average age, open conflicts and branches by status and owner. An object's Branches tab lists the open branches that may change it, with what each has changed so far. Owners, an owner group and an assignee make clear who is responsible for each branch, and Access and sharing can limit a branch to the people who should see it.
+
+In a branch, Alex and stored assistants change the branch, never main, and only what you may change. A change Alex proposes can be kept as a branch with Open as branch, to review it before anything reaches the design of record.
+
+### Questions
+
+**What is a branch in E1?** A working copy of part of a project's design. You change it while main stays as it is, pull main's changes in, and push it back to main as one change when it is ready.
+
+**What can I use branches for?** What-if scenarios, design changes that need a review, modification packages and commissioning scopes. Each project starts with the branch types Working branch, Design change (reviewed) and Commissioning package.
+
+**What happens when main and a branch change the same value?** Pull from main lists it as a conflict with Base, Main and Branch side by side. You choose Keep mine, Take theirs or type a value. A symbol both moved is shown twice on the drawing so you can click the one to keep.
+
+**Who can push a branch to main?** A Lead engineer or above, whose role allows every change in the branch. A push is refused while main has unpulled changes in its scope, while conflicts are open, or while a required review is not approved.
+
+**Can I undo a push?** Yes. A push lands in main's history as one change, and Undo this change takes it all back. Its push protocol keeps every change it made, each field before and after.
+
+**Can I issue a revision inside a branch?** No. Issuing revisions, the project's settings and the library are changed in main. Push the branch first, then issue the revision there.
+
+**What is a commissioning package?** A part of a branch collected by drawing around it or by right-click, with its dates, lead and description. Once marked ready and reviewed, it is pushed to main on its own.
+
+## Revisions, datasheets and reports
+
+https://www.lanxtor.com/solution-revisions-datasheets-reports.html
+
+In E1, engineering documents are made from the live model: lists, reports, datasheets and drawings print from the same data the engineers edit. Each revision is frozen when it is created, signed along its purpose's route, and issued as a PDF that never changes, with clouds and a table of what changed since the revision before.
+
+### Engineering documents generated from the model
+
+In E1, every document of a project is in its Documents section, and most of them are generated from the model rather than drawn by hand.
+
+New document… makes a document by choosing its kind. A list document shows a saved query and prints it to PDF and Excel with a title block. A plot prints a 2D space on a chosen page format with chosen layers. A datasheet document puts an object's datasheet under revision control. Reports, PDF packages and the project's deliverables set bind several of them together.
+
+Documents made elsewhere have their place too. An uploaded document keeps a PDF from outside and revises it like any other. A hyperlink stands for a file kept in your engineering document management system: it opens the file there, and any object can be documented by it, so the file is found from the pump or the area it is about.
+
+The document number is the document's tag, made by the project's tag rules; a 2D space gets its number from a pattern such as {project.code}-{docType}-{seq:4}, giving P-PID-0001. The All ▾ filter shows only the drawings, the lists, the datasheets or the hyperlinks.
+
+### Revision control with purposes of issue and sign-off
+
+In E1, a revision freezes what a document shows when it is created, goes through sign-off, and is issued as a filed PDF that never changes.
+
+Create revision… asks for a purpose of issue, such as IFR — Issued for review or IFC — Issued for construction, and gives the next label of the project's revision scheme. By default the labels are A, B, C … skipping I, O, Q, S, X and Z, then 0, 1, 2 … from construction. A project can instead use ISO 19650 (P01 … then C01 …), numeric labels, letters only, or the company's own scheme, and EPC purposes of issue or ISO 19650 suitability codes.
+
+Every revision is signed along its purpose's route: by who prepared it, checked by someone else, and approved by someone with Issue revisions, a Lead engineer or above. Each signature names what is signed and may ask you to confirm it is you. A Reviewer, an access token and Alex never sign. Reject… and Withdraw… take a revision back, and Reassign… gives a step to another signer; a step past its days to sign is marked Late.
+
+The last signature issues the revision: its PDF is made once, filed under Documents, and stays byte for byte as issued, even after the model changes. The revision before is superseded. While the revision gate is on, an open error on what the document shows refuses the revision, so a known problem is fixed or accepted before it is issued. Internal versions, such as C.1 after Rev B, are printed INTERNAL — NOT FOR ISSUE.
+
+### Clouds and change tables in every revision
+
+In E1, each revision is compared with the one before it, and its PDF shows what changed.
+
+On a drawing's revision, the PDF draws a cloud around each change with a triangle carrying the revision label, and lists every change beside the title block, for example a design pressure from 16 bar(g) to 25 bar(g). The comparison is frozen when the output is created, so a later edit never changes an issued PDF. Compare with… lists the changes between any two outputs of a document.
+
+Between revisions, the document lists what changed since the last issue, and the explorer marks each modified or added object. Changes since… on a 2D space clouds everything added, deleted, modified or moved since a day, a revision or a version, with before → after and who changed it.
+
+### Instrument and equipment datasheets
+
+In E1, an object's datasheet is the screen its values are viewed and edited on and the page that prints, so the datasheet and the model never disagree.
+
+Specification datasheets have numbered lines, tables of parts that continue on continuation pages, operating cases side by side, and revision marks, the same on screen and in the PDF. Type values straight into the datasheet; units are added and checked, and Undo takes a change back. After a datasheet document is issued, each value changed since shows the next revision beside it.
+
+Ready-made templates cover instruments, valves, pumps and exchangers. They are E1's own templates inspired by ISA, API and ASME specification datasheets: only the idea comes from those forms, and the layout, wording and line numbers are E1's. Copy one to edit it in the datasheet designer, or build your own layout from components.
+
+One datasheet document can cover several tags of one class: shared values are shown once, differing ones read See list, and one change sets them all. Issuing its revision records every tag.
+
+### Reports, PDF packages and the deliverables set
+
+In E1, reports and document sets are bound from saved queries and issued documents, and revised like any single document.
+
+Add to report… on a saved query makes a report or adds the query as a section of one. Its PDF prints every section under its heading, grouped by a column such as Area, with the header on every page and page numbers; Export Excel writes a sheet per section. A list's Excel export reads back with Update from Excel…, which lists every change before it is applied.
+
+A PDF package binds up to 1,000 documents into one PDF with a cover and an index, taking each document's current revision; a revision of the package holds issued revisions only. Documents → Deliverables binds the project's drawings with its reports and datasheets into one PDF with a cover, an index and page numbers, previews it marked DRAFT, and issues it with a purpose of issue.
+
+### An audit trail for every document
+
+In E1, every version and revision of a document keeps a complete record of who created, signed, issued, withdrew or deleted it.
+
+Audit report (CSV) and Audit report (PDF) list each event in time order: created, signed with the sentence signed and the sign-in, rejected, issued with the PDF's SHA-256 fingerprint, withdrawn, deleted and restored with their reasons. Delete… with a reason takes an output out of a document, but a record stays, its label is never used again, and Restore brings it back for the project's kept period, 30 days by default.
+
+Project settings → Documents chooses the revision scheme, the number pattern, the purposes of issue, the sign-off route of each purpose, four-eyes, the filing rule for issued PDFs and who sees versions. Each setting applies to outputs made afterwards; outputs already made never change.
+
+### Questions
+
+**Which revision schemes does E1 support?** Letters before construction and numbers from construction (the default), ISO 19650 (P01 … then C01 …), numeric labels, letters only, or your company's and project's own schemes, chosen in Project settings → Documents.
+
+**Who can sign and issue a revision?** Checking needs Sign revisions (Engineer and above); approving and issuing need Issue revisions (Lead engineer and above). Someone else checks and approves unless a small team turns four-eyes off. A Reviewer, an access token and Alex never sign.
+
+**Does an issued PDF ever change?** No. An issued revision's PDF is made once, filed, and stays byte for byte as issued, even after the model changes. Its snapshot, signatures and PDF cannot be changed from any surface.
+
+**How do I see what changed since the last revision?** A drawing's revision PDF clouds each change and lists it beside the title block. Compare with… lists the changes between any two outputs, and the explorer marks objects modified or added since the last issue.
+
+**Are the datasheet templates ISA or API forms?** No. They are E1's own templates inspired by ISA, API and ASME specification datasheets, for instruments, valves, pumps and exchangers. No form name, number, logo or wording of theirs is used.
+
+**Can E1 keep documents made outside E1?** Yes. An uploaded document keeps a PDF from outside and revises it, and a hyperlink stands for a file kept in your document management system and opens it there.
+
+**Can I get lists and reports in Excel?** Yes. List documents and reports export to PDF and Excel, and an exported list reads back with Update from Excel…, which checks every change before it is applied.
+
+## Brownfield engineering and plant modifications, on the plant you already have
+
+https://www.lanxtor.com/solution-maintenance-brownfield.html
+
+In E1, an existing plant is not a special case. You bring its P&IDs and lists in from CAD, PDF, DEXPI and Excel, record what is installed as as-built, change it in a modification branch while the shared design stays untouched, and hand the field a list of exactly what to lift and land. Every change is recorded, compared and can be undone.
+
+### Start from the drawings you already have
+
+In E1, legacy P&IDs become real objects: File → Import ▸ Legacy diagrams reads DXF and vector PDF drawings, and File → Import reads DEXPI 2.0 files and Excel workbooks.
+
+Most brownfield plants were drawn in AutoCAD or a similar CAD program. E1 reads the drawings saved as DXF. Each block, such as a pump, a valve or a tank, becomes an object of the class it is named for or looks like, placed where it is drawn, and the lines on each layer become pipes, signals or cables connected to the symbols they end on. A DWG file is opened in your CAD program and saved as DXF first; E1 recognizes a DWG file and says so.
+
+Often the only copy of a P&ID is a PDF. When it was exported from CAD, E1 finds the symbols among the lines, groups the ones drawn alike, recognizes each group against E1's symbols, takes the text beside a symbol as its tag and makes a pipeline from each line number. Import all sheets of a set together, so a tag drawn on two sheets is one object. A scanned image cannot be read, and E1 says so.
+
+Every import proposes a class for each kind of thing with a confidence and a reason, shows every change before anything is stored, and takes it all back with one Ctrl+Z. Import a revised drawing or workbook again and the objects already there are updated, never duplicated. A value someone changed in E1 is never overwritten without your decision: you choose Use file or Keep E1.
+
+- DXF drawings from AutoCAD and other CAD programs, up to 50 MB each.
+- Vector PDF drawings, up to 50 MB and 50 pages per file.
+- DEXPI 2.0 P&IDs from other P&ID tools, with their drawing kept as the background.
+- Excel workbooks and CSV: equipment lists and instrument indexes, one class per sheet, one attribute per column.
+
+### Record what is installed, as-built
+
+In E1, every landed core and every terminal carries a construction status: Designed, Issued for construction, Installed, Terminated, Loop-checked, As-built or To be removed.
+
+The wiring of an existing plant, or of a vendor's panel, comes into E1 as a termination list in CSV or Excel. Alex shows first what it would do, then makes the enclosures, strips, terminals, cables and cores that are not yet in the project. Every core is landed at both ends, fixed, with the scope Existing and the status As-built, so new design is made around it and E1 never moves it by itself.
+
+Documents stay where they are when that suits you. A hyperlink in E1 stands for one file kept in your document management system and opens it there; relate it to a pump, a motor, a system or a 2D space and the file is found from that object. A PDF made elsewhere can be kept as an uploaded document with its own revisions.
+
+Reviewers confirm the drawing against the plant with the project's markup stamps. Field verified and As-built are among the stamps a project starts with, and each stamp carries the reviewer's name and the date.
+
+### Plant modifications in a branch, not in the live design
+
+In E1, a modification is a branch of part of the design: you change it while main stays as it is, and push it back as one change when it is ready.
+
+Start a branch from the objects the modification touches, on the drawing or in the explorer. E1 adds what comes with them, such as nozzles and connected lines, and explains why. Inside the branch, Show main lays main's version of the 2D space over yours, so you see exactly what moves. When main changes an object the branch may change, the branch is told, and Pull from main brings the change in value by value, with any conflict for a person to resolve.
+
+Finished work can be cut out as a commissioning package: draw around the equipment, give the package its dates and commissioning lead, mark it ready, and push only that part. A branch type can require a review by a colleague before main. Every push leaves a protocol with every field before and after. Branches are described in full on Branches and modifications.
+
+### Changes after issue: a wire move list for the field
+
+In E1, issued wiring is never moved silently: once cables are pulled and terminated, a change becomes a list of what to lift and what to land, terminal by terminal.
+
+Move a transmitter to another junction box and E1 writes the moves on the Changes tab of the Wiring page: Lift, Land or Remove, with the core, its wire number, the terminal and the reason. A device whose wiring is installed cannot simply be deleted; it is marked to be removed first, and its connections are on the list.
+
+The field view shows the moves in large rows by enclosure and strip, easy to hit with a finger on a tablet. One tap ticks a move off with your name and the time, and a comment goes back to design on the terminal. The move list also exports to Excel. Compare with shows what was added, removed and changed since an issued revision of the loop diagrams, or since a date.
+
+### Redlining and change clouds on the drawing
+
+In E1, redlines go on a Markups layer that never changes the drawing, and every markup has a card with its discussion and its status.
+
+Reviewers mark up a 2D space with clouds, arrows, text, pins and stamps; a Reviewer can mark up but never change the drawing. A markup is accepted, rejected, answered or incorporated, and incorporating it names the changes that did it. A marked-up print carries each markup as a real PDF comment, and a reviewer's annotated copy of that print reads back into the review round. The Markups list exports the comment resolution sheet.
+
+Changes since… on a 2D space clouds everything added, deleted, modified or moved since a day, a revision or a version, with before and after and who changed it. A revision's PDF clouds what changed with a triangle carrying its label and lists each change beside the title block. Each object's History tab shows when, who and what changed, and Undo this change takes one back.
+
+### Questions
+
+**Can E1 import DWG files?** E1 reads DXF. Open the DWG in your CAD program, use Save As → DXF, and import that file with File → Import ▸ Legacy diagrams ▸ DXF drawing…. E1 recognizes a DWG file and tells you to save it as DXF.
+
+**Can E1 read a scanned P&ID?** No. E1 reads PDFs exported from a CAD program (vector PDFs). A scanned drawing is an image; E1 says so and imports nothing.
+
+**What happens when I import a revised drawing?** Objects already in the project are found by their tag and updated, never duplicated. A value someone changed in E1 is shown beside the file's value, and you choose Use file or Keep E1 before Apply. A moved symbol is a placement for you to decide too.
+
+**How many legacy drawings may we import?** Each organization may import 100 DXF and 100 PDF drawings on the University, Essentials and Standard plans, and any number on Enterprise. A file counts once per project, so a revised version uses nothing more. Excel and DEXPI imports have no limit. See Plans and prices.
+
+**Which plans include modification branches?** Modification branches and commissioning packages are in the University, Standard (Editor) and Enterprise plans. Essentials (Editor Basic) has DXF and Excel import, redlining and document control, but not branches, PDF or DEXPI import.
+
+**Does a redline change the drawing?** No. Markups are on their own Markups layer. They never change the drawing, its objects, their history or their revisions; hiding the layer shows the drawing unchanged.
+
+**Can the field tick off wiring changes on a tablet?** Yes. On the Wiring page, Changes → Field view shows the wire moves in large rows for a finger. One tap marks a move done with your name and the time, and a comment goes back to design on the terminal.
+
+## Cloud plant engineering software, with nothing to install on servers
+
+https://www.lanxtor.com/solution-cloud-workspace.html
+
+E1 Cloud is LANXTOR's software as a service for plant engineering. Your organization's projects, data and team are in one place at app.lanxtor.com, hosted on Microsoft Azure in the European Union. You create an account, invite your colleagues and start engineering the same day, in the browser or in the desktop app. LANXTOR runs the servers, the backups and the updates.
+
+### Sign in, open the plant, keep going
+
+In E1 Cloud, you open app.lanxtor.com in the browser or start the desktop app, sign in, and your projects are there. Nothing is installed on a server.
+
+You sign in with your E1 account or with your company's Microsoft account. The first sign-in creates your account. A passkey signs you in with your screen lock or a security key, and Owners and Administrators need one before their rights take effect. A sign-in lasts 12 hours.
+
+Your changes are saved on the server as you make them, and your tabs, selection and open rows come back after a reload. The status bar names where your projects are kept; on E1 Cloud it reads Microsoft Azure. E1 Cloud is always on the latest version of E1: when the server is updated, a bar tells you a new version is ready and you choose when to restart into it.
+
+To try it, start a free 30-day trial: an organization of your own with 5 Editors, 5 Reviewers and unlimited Viewers invited as guests. The sample project Sample E1 gives you a complete fictional plant to explore. After a trial the organization is read-only for 90 more days, and everything can still be viewed and exported.
+
+### Projects, data and teams in one organization
+
+In E1, everything belongs to an organization: its members, their licenses, its projects and its company library. The plan and the invoice belong to the organization too.
+
+Owners and Administrators invite colleagues by email with a license, or many at once from Excel. Each person has one license, Editor, Reviewer or Viewer, which caps what their roles may do. Roles are given on the organization, on a project, on a section or on a single object, to a person or to a group, and an organization can make roles of its own.
+
+Projects are arranged in the explorer, and one query can run over the objects of every project you may view. Contractors and clients work on a shared project with their own people and licenses, up to the role you allow. Guests invited to a project view it for free.
+
+### Work on the same plant at the same time
+
+In E1 Cloud, several engineers work on one project at once and see each other's changes within seconds, pushed by the server, without reloading.
+
+Avatars on a 2D space's toolbar show who else has it open and who is editing. When two people change the same thing, the first change is kept and the second is refused with a clear message, so nothing is overwritten unseen. Every object keeps its history, with who changed what, before and after.
+
+Conversations stay with the work: comment on an object with mentions and replies, pin a message on a drawing, and give someone a task. The Inbox collects your mentions, replies and tasks, and you choose which notices come by email. Alex, the AI co-engineer, works in the same projects with your permissions and never more.
+
+### Where your data is, and how it is protected
+
+E1 Cloud runs in one Microsoft Azure region in the European Union, North Europe in Ireland. Your projects, drawings, documents and their backups stay in Azure data centres in the EU.
+
+Every record in the database belongs to one organization, and PostgreSQL row-level security lets E1 read only the rows of the organization you work in. The database has no public address. Traffic is HTTPS only, and the database, files and backups are encrypted at rest with AES-256. E1 keeps no passwords.
+
+The database can be restored to any minute of the last 7 days, and deleted files can be brought back for 14 days. Files are stored in three separate data centres of the region, and issued revisions are never removed. Owners and Administrators export the whole organization at any time, as open JSON lines and the original files. The full details are on E1 Cloud specifications.
+
+- Region: EU, Microsoft Azure North Europe (Ireland); a US region, Amazon Web Services and Google Cloud are coming.
+- Recovery: at most 1 hour of work lost (RPO), service restored within 8 hours (RTO).
+- Audit: sign-ins, members, licenses, roles and exports are recorded for administrators.
+- Support: LANXTOR support sees account and billing data, not your projects, drawings or documents.
+
+### Pay per user, per month
+
+E1 Cloud is licensed per user and per month, with updates included. The plan belongs to the organization: up to 20 Editors on Essentials or Standard, and more on Enterprise.
+
+Editors build the design, Reviewers review and approve, and Viewers see everything in E1 itself, read-only, not a PDF. AI credits are shared by the organization; more can be bought in packs, or your organization can use its own model key. Prices, plans and what each includes are on Plans and prices.
+
+If your data must stay in your own cloud subscription or data centre, the same E1 runs as an enterprise installation.
+
+### Questions
+
+**What is E1 Cloud?** E1 Cloud is LANXTOR's hosted E1 at app.lanxtor.com: plant engineering software as a service. LANXTOR runs the servers, backups and updates on Microsoft Azure in the EU; you sign in and work in the browser or the desktop app.
+
+**Where is our data stored?** In Microsoft Azure's North Europe region in Ireland. Database backups have a second copy in Azure's paired EU region, West Europe (the Netherlands). Projects, files and backups stay in the EU.
+
+**Do we need to install anything?** No. E1 runs in the browser with nothing to install. The desktop app for Windows and macOS is optional and connects to E1 Cloud with one click: Use E1 Cloud.
+
+**How do updates work?** E1 Cloud is always on the latest version, with updates included. When the server is updated, an open E1 tells you a new version is ready; Restart now opens it, and your work is already saved on the server.
+
+**Can LANXTOR employees open our drawings?** No. LANXTOR support sees your account and billing data so it can help with licenses and seats, not your projects, objects, drawings or documents. Access for a support case is given only when an Owner or Administrator approves it, and everything support does is in your audit log.
+
+**How do we get our data out?** An Owner or Administrator chooses File → Organization… → Export → Export everything…: one archive with every table as open JSON lines and every file, up to 4 GB.
+
+**What happens when the trial ends?** The organization becomes read-only for 90 more days. Everything stays visible and can be exported; nothing is lost.
+
+## Your data, your deployment: E1 in your own cloud or data centre
+
+https://www.lanxtor.com/solution-enterprise-deployment.html
+
+E1 runs as a cloud service by default, and as an enterprise installation when your policy requires it. LANXTOR gives you the installation: the same E1, with your projects, drawings and documents in your own Microsoft Azure subscription or on-premises on your own servers, in your own PostgreSQL database, under your own rules. Updates install themselves in the hour you choose.
+
+### Cloud by default, your own servers when policy requires
+
+E1 runs in three places: in E1 Cloud, run by LANXTOR; in your own Microsoft Azure subscription; or on-premises in your own data centre. It is the same E1 in each.
+
+Most teams start in E1 Cloud, hosted by LANXTOR in the EU. When contracts, export rules or company policy say where engineering data must be kept, an enterprise installation puts it there: data sovereignty in your own subscription, region and network. Amazon Web Services, Google Cloud and Alibaba Cloud are coming as further choices.
+
+In your own Azure there are two ways to run it. Your IT installs and runs it with LANXTOR's instructions, or LANXTOR runs it in your Azure for you. Either way, the subscription, the data and the Azure bill are yours.
+
+The status bar in E1 always names where the projects are kept, for example Microsoft Azure or PostgreSQL with the name of your database server, so everyone can see which installation they are in.
+
+### How an installation is set up
+
+In E1, the Owners and Administrators of your organization download everything to install E1 from their Account in E1 Cloud, under Own installation, once LANXTOR has turned it on for the organization.
+
+The installation package is one zip: the newest release of E1, your access to E1's releases and a short Start here. Your IT unzips it in Azure Cloud Shell and follows the install steps; your own E1 is created in your subscription and prints its address. Each download asks you to confirm it is you with a passkey, and is recorded in your organization's audit log.
+
+A new installation has no owner. Only the person whose email address was named as its operator can claim it by signing in first; nobody else can. The desktop app connects to your installation by its address, and people use it in the browser as they would E1 Cloud.
+
+### A signed license file, checked offline
+
+In your own installation, the plan, the seats of each license, the content packages and the dates come from a license file signed by LANXTOR. E1 checks it on its own, offline.
+
+The Owner downloads the license file from Account → Own installation in E1 Cloud and loads it once in File → Organization… → Members, and again each time LANXTOR issues a renewed one. The plan and seats apply at once, and loading it is in the audit log. A file is bound to your installation's address. E1 refuses a file that was changed after signing, a file for another address and one that is not valid yet, and says why.
+
+Thirty days before a license ends, every Owner and Administrator gets a notice in the Inbox. After the end comes a grace period, 30 days unless your contract says otherwise, in which everything still works. After that the installation is read-only until a renewed file is loaded: everyone can still open, view and export everything. E1 is never locked.
+
+### Company single sign-on and directory sync
+
+In E1, colleagues sign in with their company account through any OpenID Connect provider, and your company directory creates, updates and deactivates them in E1 with SCIM 2.0.
+
+Owners and Administrators set up sign-on under File → Organization… → Sign-on with your IT, for example with Okta, Microsoft Entra ID, Google Workspace, Keycloak or ADFS. Sign-on works for your company's verified email domains, and Only this way makes it the one way in for them. Signing in with a company Microsoft account is also available.
+
+Directory sync deactivates whoever leaves: their membership, license and roles end and they can no longer sign in, while their history stays. Directory groups become E1 groups, and a group can give a license, for example E1-Editors → Editor. Owners and Administrators still confirm with a passkey.
+
+### Audit, access and integration under your rules
+
+In E1, administrators see who did what: the Audit tab lists important events and every request sent to an AI model, and access history shows every change to members, licenses, groups and roles with before and after.
+
+E1 support has no access to your data. When it asks for access for a support case, nothing is given until an Owner or Administrator approves it, for a few hours, read-only or with changes; it ends at once with End. Everything support does shows in history and the audit log.
+
+Other systems connect through E1's API with access tokens and service accounts, through signed webhooks and a change feed, or through MQTT, AMQP and Kafka brokers. On your own installation a broker may be in your own network. Owners and Administrators can export the whole organization at any time, in open formats.
+
+- Data: your own PostgreSQL database, in your subscription or data centre.
+- Updates: they install themselves in the hour you choose; urgent fixes within the hour.
+- Licensing: single sign-on, many licenses, one invoice.
+- Exit: Export everything gives every table as JSON lines and every file.
+
+### Questions
+
+**Can E1 run on-premises?** Yes. Besides E1 Cloud and your own Microsoft Azure, E1 can be installed on-premises on your own servers, with your own PostgreSQL database. Contact sales to plan it.
+
+**Which clouds can we install E1 in?** Microsoft Azure today. Amazon Web Services, Google Cloud and Alibaba Cloud are coming.
+
+**Does LANXTOR hold our data in an own installation?** No. In your own Azure the subscription, the data and the bill are yours, whether your IT runs E1 or LANXTOR runs it there for you. E1 support sees your projects only if an Owner or Administrator approves a support request.
+
+**Does E1 need to call LANXTOR to check the license?** No. The license file is signed by LANXTOR and checked by E1 itself, offline. You load a renewed file when LANXTOR issues one.
+
+**What happens if our license file runs out?** A grace period follows, 30 days unless your contract says otherwise, in which everything works. After it the installation is read-only: everything can be opened, viewed and exported, but not changed, until the Owner loads a renewed file.
+
+**Which sign-in providers work?** Any OpenID Connect provider, such as Okta, Microsoft Entra ID, Google Workspace, Keycloak or ADFS, with SCIM 2.0 directory sync. Company Microsoft accounts work too.
+
+**How are updates installed?** Updates install themselves in the hour you choose, and urgent fixes within the hour. When your server is updated, E1 in the browser and in the desktop app tells each user that a new version is ready.
+
+## Windows and macOS desktop app, browser and tablet: one project everywhere
+
+https://www.lanxtor.com/solution-desktop-browser-tablet.html
+
+In E1, you engineer in the desktop app for Windows or macOS, or in the browser with nothing to install, and review from any browser on a laptop or a tablet. Every place opens the same project on the same server with the same account, so there are no files to copy and nothing to sync. A change made in one place is seen everywhere within seconds.
+
+### The desktop app for Windows and macOS
+
+E1 is a desktop app for Windows 10 or 11 (64-bit) and for Macs with Apple silicon on macOS 12 or newer. Both are signed and keep themselves up to date.
+
+Download it from Get E1: your own system is offered first. The Windows app is signed by Lanxtor LLC; the Mac app is signed and notarized by Apple, so macOS shows no warning about an unidentified developer. At the first start you choose the server: Use E1 Cloud, or type the address of your organization's own server. You sign in with the same account as in the browser, and your projects are there.
+
+In the desktop app, floating windows are real windows: take a tab out to work side by side or on a second screen, and it opens again where it was at the next start. The app looks for a new version when it starts and every four hours, downloads it in the background and asks you to restart. You never download an installer again, and an update never goes back to an older version.
+
+### E1 in the browser, with nothing to install
+
+In E1, the browser is a full place to work, not a reduced viewer: open app.lanxtor.com or your organization's E1 address, sign in, and the same projects open with the same tools.
+
+The browser suits any computer, including Linux, Intel Macs and Windows on Arm, which have no desktop installer. E1 Cloud is tested with current Google Chrome and Microsoft Edge. On the account page of the website, Open E1 in the browser takes you straight in.
+
+E1 saves each change on the server as you make it. Your tabs, your selection and the rows you opened are kept for you on the server and come back after a reload; your appearance and panel widths are kept per browser. In the browser, floating windows open as pop-ups.
+
+### Review from a laptop or a tablet
+
+In E1, reviewers and viewers work in the real model, not in an exported PDF: a Reviewer can redline, comment and approve, and a Viewer sees everything read-only.
+
+A Reviewer marks up a 2D space with clouds, arrows, text, pins and stamps on a Markups layer, and can never change the drawing. Each markup has a card with its discussion and status, and a review round ends with a comment resolution sheet. Viewers see every project, drawing, list and document they are given, in E1 itself. Clients and contractors invited to a project as guests view it for free.
+
+On a tablet, E1 runs in the browser. Some screens are made for a finger: the field view of the wire moves shows each lift and land in large rows, and one tap ticks a move off with your name and the time. E1 Reviewer for iPad and E1 Mobile for iPhone are coming to the App Store, as Get E1 shows.
+
+### The same project, the same account, wherever you are
+
+In E1, the project lives on the server, not on a device: the desktop app and the browser are two ways into the same data.
+
+Start a change at your desk in the desktop app and check it later from a browser in the plant or a meeting room. A change by one engineer reaches everyone who has the project open within seconds, pushed by the server, with no reload. Avatars on a 2D space's toolbar show who else has it open, and when two people change the same thing, the first change is kept and the second is refused with a clear message.
+
+An E1 license is for one named person, and every change and approval is recorded under that name. One account may be open in up to three places at once, browsers and the desktop app together. In a fourth place, E1 asks which one to sign out.
+
+- Desktop app: Windows 10 or 11 (64-bit); macOS 12 or newer on Apple silicon.
+- Browser: current Google Chrome and Microsoft Edge, on any computer or tablet.
+- Servers: E1 Cloud, or your organization's own E1 installation.
+- Updates: the server and the desktop app each tell you when a new version is ready.
+
+### Questions
+
+**Does E1 run on a Mac?** Yes. The desktop app runs on Macs with Apple silicon on macOS 12 or newer, signed and notarized by Apple. On an Intel Mac, use E1 in the browser.
+
+**Is there a Linux version?** There is no Linux desktop app. E1 runs in the browser on Linux with nothing to install.
+
+**Is the browser version limited compared with the desktop app?** No. Both open the same projects on the same server with the same account and tools. The desktop app adds real floating windows that reopen where they were, and its own updates.
+
+**Can we use E1 on an iPad or another tablet?** Yes, in the browser. E1 Reviewer for iPad is coming to the App Store; until then, review on a tablet in the browser.
+
+**Can the desktop app connect to our own server?** Yes. At the first start, choose Use E1 Cloud or type your organization's server address, for example https://e1.example.com, and click Connect. The app remembers it.
+
+**How is the desktop app updated?** It looks for a new version at start and every four hours, downloads it in the background and asks you to restart. Check for Updates… in the app menu looks at once.
+
+**Can I be signed in on my laptop and a tablet at once?** Yes. One account may be open in up to three places at once. In a fourth, E1 asks which place to sign out.

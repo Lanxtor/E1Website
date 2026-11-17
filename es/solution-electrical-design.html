@@ -1,0 +1,308 @@
+﻿<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electrical design software for process plants | LANXTOR E1</title>
+  <meta name="description" content="Electrical design in E1: single line diagrams with real cables, circuit diagrams, motor starters, cable schedule, cable routes, cabinet heat and a load list.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=147">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/solution-electrical-design.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/solution-electrical-design.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/solution-electrical-design.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/solution-electrical-design.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/solution-electrical-design.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/solution-electrical-design.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/es/solution-electrical-design.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="Electrical design software for process plants | LANXTOR E1">
+  <meta property="og:description" content="Electrical design in E1: single line diagrams with real cables, circuit diagrams, motor starters, cable schedule, cable routes, cabinet heat and a load list.">
+  <meta property="og:url" content="https://www.lanxtor.com/es/solution-electrical-design.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Solutions",
+     "item": "https://www.lanxtor.com/es/solutions.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Electrical design on the same plant model",
+     "item": "https://www.lanxtor.com/es/solution-electrical-design.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "es",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is a cable on the single line diagram the same as in the cable schedule?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Every line drawn with Cable on a single line diagram is the cable object itself, with its tag, type and cores. The cable schedule and the wiring show the same cable."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does E1 choose the starter components for a motor?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "From the motor's rated output or current: the breaker, contactor and overload relay are the catalog's smallest that take that current. You choose the cabinet and the control voltage in the dialog."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can E1 work out cable lengths from a 3D model?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A cable keeps a length by hand and a length from 3D, written through E1's API. E1 uses the length by hand when there is one and reports when the two differ by more than the project's tolerance."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I import the wiring of an existing plant or a vendor panel?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. A termination list in CSV or Excel is imported through Alex with a preview first. The cores come in as fixed, so the new design is made around them."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does E1 calculate cabinet heat dissipation?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The Fill and heat page works out the inside and top temperature from the devices' heat loss, the free walls, a fan and a cooling unit, and says how much cooling is missing."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which electrical documents can E1 make?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Terminal strip diagrams, cable block and cable diagrams, wire list, I/O list, device list, parts list, table of contents and the potential overview, plus the cable schedule and the other wiring lists in Excel and PDF."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <!-- Generated by tools/solutions/build.py from tools/solutions/pages/electrical.json. Do not edit this file. -->
+  <div id="site-header"></div>
+
+  <main class="cs-page sol-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="es/solutions.html#electrical"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Solutions</span></a>
+        <span class="saas-kicker reveal">Diseño eléctrico</span>
+        <h1 class="reveal">Electrical design on the same plant model.</h1>
+        <p class="lead reveal">In E1, the electrical engineer works on the same objects as process and instrumentation: the motor of a pump, the cabinet in an equipment room, the cable between them. Single line diagrams, circuit diagrams, the cable schedule and the electrical documents are made from that model, so plant power is not a separate island of tools.</p>
+        <div class="cs-glance reveal" aria-label="At a glance">
+          <div class="cs-stat"><b>5</b><span>wiring lists made from the model: wire, termination, cable, junction box and I/O</span></div>
+          <div class="cs-stat"><b>7</b><span>construction states for every core and terminal, from Designed to As-built</span></div>
+          <div class="cs-stat"><b>2</b><span>control voltages for generated starter circuits: 230 V AC or 24 V DC</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="En esta página">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="es/solution-electrical-design.html#single-line">Single line</a>
+          <a href="es/solution-electrical-design.html#circuits">Circuits</a>
+          <a href="es/solution-electrical-design.html#cables">Cables</a>
+          <a href="es/solution-electrical-design.html#cabinets">Cabinets</a>
+          <a href="es/solution-electrical-design.html#loads">Loads</a>
+          <a href="es/solution-electrical-design.html#faq">Questions</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section section-tight cs-section sol-section" id="single-line">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Single line</span>
+          <h2>Single line diagrams where every line is a real cable</h2>
+          <p>In E1, a single line diagram is a 2D space whose diagram type is Single line diagram. Field devices, junction boxes and cabinets are objects of the model, and every line drawn between them with Cable is a real cable.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Each cable you draw has its tag, the project's default cable type for its two ends and its cores. It is the same cable the cable schedule and the wiring show. Default cable types are set once in the project's wiring settings: field cable, multicore, cabinet to cabinet and feeder.</p>
+          <p><b>Propose cables</b> designs the cable network for new devices in one step. For every field device on the sheet that has signals and no field cable, E1 proposes a field cable to the nearest junction box of its area and segregation class with room on a strip. Free pairs of existing multicores are used first; a new multicore or junction box is proposed only where none fits. Nothing changes until you choose Apply.</p>
+          <p><b>Animate current</b> sets a single line diagram in motion: the current runs from the transformers or generators through the switchboard to the motors, coloured by voltage level. Open a breaker and its cable turns dead and the motor reads No supply. Nothing in the model changes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="circuits">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Circuits</span>
+          <h2>Circuit diagrams and motor starter circuits</h2>
+          <p>In E1, each symbol on a circuit diagram is one function of a device: a contactor's coil, its contacts and main poles, a pushbutton's contact, a pilot light's lamp.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>The device is one object owned by its cabinet, and its catalog item gives its functions with their terminal markings (A1 A2, 13 14, 21 22). Every drawn function has an address by page and column, such as /1.4. Under a contactor's coil E1 shows the contact image: each contact with its points and where it is drawn. E1 works these out from the drawings, so they are never out of date.</p>
+          <p>Right-click a motor and choose <b>Make starter circuit…</b>: E1 draws the starter on a new page of its cabinet's circuit document, with the motor protection breaker, contactor and overload relay in the three phases, the control circuit with its fuse, Stop, Start and pilot lights, the motor's terminals and its power cable. The breaker, contactor and overload relay are the catalog's smallest that take the motor's current. Pick several motors to make all their starters at once.</p>
+          <p>Terminals, cables and wire numbers are drawn on the same pages. E1 finds two potentials joined by a wire (a short circuit), more wires across a cable than it has cores, and contact points with no wire.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="cables">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Cables</span>
+          <h2>Cable schedule, cable routes and lengths</h2>
+          <p>In E1, a cable made from a cable type in the catalog gets its cores at once, and each core is landed on a terminal chosen from a tree, never typed.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>The cable schedule is the Cables tab of the Wiring page: one row per cable with its type, its two ends, the cores used and spare, its length and its status. It exports to Excel or PDF with the wire list, termination list, junction box schedule and I/O list, all made from the model when you ask for them.</p>
+          <p>Route segments are cable trays, ladders, conduits, ducts and trenches with their capacity and fill limit. A cable is routed through segments in order; each segment's fill adds up its cables' cross-sections and the cable's routed length adds up the segments. A cable has a length by hand and a length from 3D, and E1 reports when they differ by more than the project's tolerance.</p>
+          <ul>
+            <li>Wire numbers from the project's pattern, with a preview of every change.</li>
+            <li>Construction status on every core and terminal: Designed, Issued for construction, Installed, Terminated, Loop-checked, As-built or To be removed.</li>
+            <li>After issue, a change becomes a wire move list of what to lift and what to land, terminal by terminal.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="cabinets">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Cabinets</span>
+          <h2>Cabinets, MCCs, potentials and heat balance</h2>
+          <p>In E1, a cabinet is two objects: its location in Areas and the enclosure in Assets, which holds rails, terminal strips, cards, interposing devices, power supplies, earth bars and cable entries. An MCC and a distribution board are enclosures too.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>The Potentials tab lists every net such as +24V across enclosures, with its terminals, fuses and the supply's load against its rated current. The net view shows each fused terminal with its rating and the load it feeds; a missing value shows as ?, never as zero.</p>
+          <p>A cabinet's <b>Fill and heat</b> page shows each strip as a bar of used, spare and free terminals, and the heat balance from physics: the heat its devices give off at their load against what its free walls, a fan and a cooling unit take away. The result is the inside temperature, the temperature at the top, the margin to the cabinet's limit and the cooling still missing. Markers for wires, terminals and cables export for the printer's software.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="loads">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Loads</span>
+          <h2>Electrical load list and electrical documents</h2>
+          <p>In E1, Alex with the Electrical engineer skill writes the electrical load list, the cable schedule and the Ex equipment list of a 2D space into one Excel workbook.</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p><b>Export load list and cable schedule (Excel)</b> gives the load list with the maximum demand, the cable schedule with capacity and voltage drop, and the Ex equipment list. Alex judges cables with the ratings of IEC 60364-5-52 and a voltage drop of 3 % for lighting and 5 % for other uses. When a simulator in Alex has run an electrical load flow, short circuit, motor start or arc flash on the open 2D space, its results appear as cards with the method, inputs, assumptions and result tables.</p>
+          <p><b>Make documents…</b> on a cabinet, a folder or the project makes the electrical document set in one change: terminal strip diagrams, the cable block diagram, a cable diagram per cable, the wire list, the I/O list, the device list, the parts list and the table of contents, and for the project the potential overview. They are revised and issued like any document.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Preguntas</span>
+          <h2>Questions engineers ask.</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>Is a cable on the single line diagram the same as in the cable schedule?</summary>
+            <p>Yes. Every line drawn with Cable on a single line diagram is the cable object itself, with its tag, type and cores. The cable schedule and the wiring show the same cable.</p>
+          </details>
+          <details>
+            <summary>How does E1 choose the starter components for a motor?</summary>
+            <p>From the motor's rated output or current: the breaker, contactor and overload relay are the catalog's smallest that take that current. You choose the cabinet and the control voltage in the dialog.</p>
+          </details>
+          <details>
+            <summary>Can E1 work out cable lengths from a 3D model?</summary>
+            <p>A cable keeps a length by hand and a length from 3D, written through E1's API. E1 uses the length by hand when there is one and reports when the two differ by more than the project's tolerance.</p>
+          </details>
+          <details>
+            <summary>Can I import the wiring of an existing plant or a vendor panel?</summary>
+            <p>Yes. A termination list in CSV or Excel is imported through Alex with a preview first. The cores come in as fixed, so the new design is made around them.</p>
+          </details>
+          <details>
+            <summary>Does E1 calculate cabinet heat dissipation?</summary>
+            <p>Yes. The Fill and heat page works out the inside and top temperature from the devices' heat loss, the free walls, a fan and a cooling unit, and says how much cooling is missing.</p>
+          </details>
+          <details>
+            <summary>Which electrical documents can E1 make?</summary>
+            <p>Terminal strip diagrams, cable block and cable diagrams, wire list, I/O list, device list, parts list, table of contents and the potential overview, plus the cable schedule and the other wiring lists in Excel and PDF.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="more">
+      <div class="container sol-more">
+        <div class="reveal">
+          <h2>In the user guide</h2>
+          <ul class="sol-links">
+            <li><a href="guide-wiring.html#wire-single-line">Draw the cable network on a single line diagram</a></li>
+            <li><a href="guide-wiring.html#wire-propose-cables">Propose cables on a single line diagram</a></li>
+            <li><a href="guide-wiring.html#wire-circuit-devices">Circuit diagrams: devices with their functions</a></li>
+            <li><a href="guide-wiring.html#wire-circuit-starters">Circuit diagrams: starter circuits</a></li>
+            <li><a href="guide-wiring.html#wire-cable-schedule">The cable schedule</a></li>
+            <li><a href="guide-wiring.html#wire-routes">Cable routes: trays, conduits and fill</a></li>
+            <li><a href="guide-wiring.html#wire-fill-heat">Cabinet fill and heat balance</a></li>
+            <li><a href="guide-wiring.html#wire-circuit-documents">Circuit diagrams: making the documents</a></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>Related solutions</h2>
+          <ul class="sol-links">
+            <li><a href="es/solution-automation-control.html">Automation and control, from the same plant model</a></li>
+            <li><a href="es/solution-pid-instrumentation.html">P&amp;IDs and instrumentation, connected to the process</a></li>
+            <li><a href="es/solution-single-data-model.html">One plant data model, a single source of truth</a></li>
+            <li><a href="es/solution-maintenance-brownfield.html">Brownfield engineering and plant modifications, on the plant you already have</a></li>
+            <li><a href="es/solutions.html">All solutions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container sol-cta reveal">
+        <a class="btn btn-primary" href="es/download.html">Get E1</a>
+        <a class="btn btn-ghost" href="es/contact-sales.html">Contact sales</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="Site"><ul><li><a href="es/index.html">Home</a></li><li><a href="es/solutions.html">Solutions</a></li><li><a href="es/download.html">Get E1</a></li><li><a href="es/download.html#pricing">Pricing</a></li><li><a href="es/cloud-specifications.html">E1 Cloud specifications</a></li><li><a href="es/academy.html">Academy</a></li><li><a href="guide.html">User guide</a></li><li><a href="es/security.html">Security</a></li><li><a href="es/about.html">About us</a></li><li><a href="es/shape-e1.html">Contact us</a></li><li><a href="es/contact-sales.html">Contact sales</a></li></ul><ul><li><a href="es/solution-feed-process-engineering.html">FEED and process engineering on one plant model</a></li><li><a href="es/solution-pid-instrumentation.html">P&amp;IDs and instrumentation, connected to the process</a></li><li><a href="es/solution-electrical-design.html">Electrical design on the same plant model</a></li><li><a href="es/solution-automation-control.html">Automation and control, from the same plant model</a></li><li><a href="es/solution-single-data-model.html">One plant data model, a single source of truth</a></li><li><a href="es/solution-ai-predictive-engineering.html">Predictive engineering with Alex, the AI co-engineer</a></li><li><a href="es/solution-simulate-validate.html">Simulate, validate and explore your design</a></li><li><a href="es/solution-multidiscipline-collaboration.html">Work across disciplines on one project</a></li><li><a href="es/solution-large-projects.html">Built for refinery-size projects</a></li><li><a href="es/solution-cross-company-projects.html">Across companies on one project</a></li><li><a href="es/solution-branches-modifications.html">Branches for scenarios and modifications</a></li><li><a href="es/solution-revisions-datasheets-reports.html">Revisions, datasheets and reports</a></li><li><a href="es/solution-maintenance-brownfield.html">Brownfield engineering and plant modifications, on the plant you already have</a></li><li><a href="es/solution-cloud-workspace.html">Cloud plant engineering software, with nothing to install on servers</a></li><li><a href="es/solution-enterprise-deployment.html">Your data, your deployment: E1 in your own cloud or data centre</a></li><li><a href="es/solution-desktop-browser-tablet.html">Windows and macOS desktop app, browser and tablet: one project everywhere</a></li></ul></nav></div>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=7"></script>
+  <script src="assets/js/main.js?v=42"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>
