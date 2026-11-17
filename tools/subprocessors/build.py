@@ -47,7 +47,7 @@ def page(data):
 
     <section class="section section-tight">
       <div class="container legal">
-        <p class="cs-small">This list is Annex III of the <a href="dpa.html">E1 Data Processing Agreement</a> and is generated from E1 Cloud's configuration (generated {html.escape(data["generated"])}). We tell your organization's Owners and Administrators by email and in E1 at least 30 days before a new sub-processor processes your data; you may object to privacy@lanxtor.com within that time (DPA, section 8).</p>
+        <p class="cs-small">This list is Annex III of the <a href="dpa.html">E1 Data Processing Agreement</a> and is generated from E1 Cloud's configuration. We tell your organization's Owners and Administrators by email and in E1 at least 30 days before a new sub-processor processes your data; you may object to privacy@lanxtor.com within that time (DPA, section 8).</p>
         <div class="cs-table-wrap">
         <table class="cs-table">
           <thead><tr><th>Company</th><th>Service</th><th>Purpose</th><th>Personal data</th><th>Where</th></tr></thead>

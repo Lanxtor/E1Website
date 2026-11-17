@@ -21,6 +21,10 @@
     declined: "Declined"
   };
 
+  /* Example requests have no dates: only their order (days before now) is
+   * kept, for the Newest sort, and the board shows no age for them. */
+  function ago(days) { return new Date(Date.now() - days * 86400000).toISOString(); }
+
   var SEED = [
     {
       id: "pid-import",
@@ -29,10 +33,10 @@
       category: "Instrumentation",
       status: "planned",
       votes: 48,
-      created: "2026-09-14",
+      created: ago(64),
       comments: [
-        { who: "I&C lead, chemicals", when: "2026-09-20", text: "Tag recognition alone would already save weeks per unit." },
-        { who: "LANXTOR team", when: "2026-10-02", text: "Planned. DWG first, PDF symbol recognition after." }
+        { who: "I&C lead, chemicals", when: ago(58), text: "Tag recognition alone would already save weeks per unit." },
+        { who: "LANXTOR team", when: ago(46), text: "Planned. DWG first, PDF symbol recognition after." }
       ]
     },
     {
@@ -42,7 +46,7 @@
       category: "Electrical",
       status: "progress",
       votes: 36,
-      created: "2026-09-02",
+      created: ago(76),
       comments: []
     },
     {
@@ -52,9 +56,9 @@
       category: "Platform",
       status: "open",
       votes: 31,
-      created: "2026-10-05",
+      created: ago(43),
       comments: [
-        { who: "Maintenance planner, energy", when: "2026-10-11", text: "Read-only would be enough to start." }
+        { who: "Maintenance planner, energy", when: ago(37), text: "Read-only would be enough to start." }
       ]
     },
     {
@@ -64,7 +68,7 @@
       category: "Deliverables",
       status: "planned",
       votes: 27,
-      created: "2026-08-28",
+      created: ago(81),
       comments: []
     },
     {
@@ -74,7 +78,7 @@
       category: "Platform",
       status: "open",
       votes: 24,
-      created: "2026-10-18",
+      created: ago(30),
       comments: []
     },
     {
@@ -84,7 +88,7 @@
       category: "Process",
       status: "open",
       votes: 19,
-      created: "2026-10-21",
+      created: ago(27),
       comments: []
     },
     {
@@ -94,7 +98,7 @@
       category: "Automation",
       status: "open",
       votes: 17,
-      created: "2026-10-26",
+      created: ago(22),
       comments: []
     },
     {
@@ -104,10 +108,15 @@
       category: "AI",
       status: "progress",
       votes: 11,
-      created: "2026-10-29",
+      created: ago(19),
       comments: []
     }
   ];
+
+  SEED.forEach(function (r) {
+    r.example = true;
+    (r.comments || []).forEach(function (c) { c.example = true; });
+  });
 
   var UP_SVG =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>';
@@ -235,7 +244,7 @@
         thread =
           '<div class="board-thread">' +
           (count ? '<ul class="board-comments">' + comments.map(function (c) {
-            return "<li><span class=\"who\">" + escapeHtml(c.who) + '</span><span class="when">' + timeAgo(c.when) + "</span>" +
+            return "<li><span class=\"who\">" + escapeHtml(c.who) + "</span>" + (c.example ? "" : '<span class="when">' + timeAgo(c.when) + "</span>") +
               "<p>" + escapeHtml(c.text) + "</p></li>";
           }).join("") + "</ul>" : "") +
           '<form class="board-reply" data-board-reply>' +
@@ -254,7 +263,7 @@
         '<span class="board-status status-' + r.status + '">' + STATUS[r.status] + "</span>" +
         "<span>" + escapeHtml(r.category) + "</span>" +
         "<span>" + count + (count === 1 ? " comment" : " comments") + "</span>" +
-        "<span>" + timeAgo(r.created) + "</span>" +
+        (r.example ? "" : "<span>" + timeAgo(r.created) + "</span>") +
         "</div>" + thread + "</div></li>";
     }
 

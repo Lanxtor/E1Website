@@ -49,15 +49,15 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>On the website, click <span class="ui">Get E1</span>.</td><td>Under "Get E1.", the buttons <span class="ui">Download for Mac</span> ("Apple silicon (.dmg) · 114 MB") and <span class="ui">Download for Windows</span> ("Installer (.exe) · 92 MB"); your own system first, in blue. Under them: "Current version 0.1.2 · released Nov 10, 2026 · stable channel".</td></tr>
+      <tr><td>1</td><td>On the website, click <span class="ui">Get E1</span>.</td><td>Under "Get E1.", the buttons <span class="ui">Download for Mac</span> ("Apple silicon (.dmg) · 114 MB") and <span class="ui">Download for Windows</span> ("Installer (.exe) · 92 MB"); your own system first, in blue. Under them: "Current version ‹version› · released ‹date› · stable channel".</td></tr>
       <tr><td>2</td><td>Mac: click <span class="ui">Download for Mac</span>, open the .dmg and drag <span class="ui">Lanxtor E1</span> into <span class="ui">Applications</span>; open it from there.</td><td>macOS may ask once whether to open an app downloaded from the internet; click <span class="ui">Open</span>. No warning about an unidentified developer.</td></tr>
-      <tr><td>3</td><td>Windows: click <span class="ui">Download for Windows</span> and run <span class="ui">E1-Setup-0.1.2.exe</span>.</td><td>It installs and starts <span class="ui">Lanxtor E1</span>. While the installer is new, Windows may show "Windows protected your PC": click <span class="ui">More info</span>; the publisher is Lanxtor LLC; click <span class="ui">Run anyway</span>.</td></tr>
+      <tr><td>3</td><td>Windows: click <span class="ui">Download for Windows</span> and run <span class="ui">E1-Setup-‹version›.exe</span>.</td><td>It installs and starts <span class="ui">Lanxtor E1</span>. While the installer is new, Windows may show "Windows protected your PC": click <span class="ui">More info</span>; the publisher is Lanxtor LLC; click <span class="ui">Run anyway</span>.</td></tr>
       <tr><td>4</td><td>At the first start, on <span class="ui">Connect E1 to its server</span>, click <span class="ui">Use E1 Cloud</span>. For your organization's own server, type its address under "or your organization's server" in <span class="ui">Server address</span> (for example https://e1.example.com) and click <span class="ui">Connect</span>.</td><td>"E1 keeps projects on a server: E1 Cloud, run by LANXTOR, or your organization's own. You sign in next." The app restarts on that server, remembers it, and shows the sign-in.</td></tr>
       <tr><td>5</td><td>Sign in.</td><td>The same sign-in screen and the same account as in the browser; your projects are there. Floating windows are real windows and open again where they were at the next start.</td></tr>
     </tbody>
   </table></div>
   <p>Wrong addresses are refused with "That is not an address. Enter one like https://e1.example.com.", "The address starts with https://." or "Use https:// for a server that is not on this computer."</p>
-  <figure class="g-shot"><img src="assets/img/guides/web-download.webp" alt="The Get E1 page: Download for Mac (Apple silicon, 114 MB), Download for Windows (Installer, 92 MB) and E1 Reviewer for iPad (App Store, coming soon), with the current version 0.1.2 below" width="2160" height="1350" loading="lazy"><figcaption>Get E1: the download buttons, your own system first.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/web-download.webp" alt="The Get E1 page: Download for Mac (Apple silicon, 114 MB), Download for Windows (Installer, 92 MB) and E1 Reviewer for iPad (App Store, coming soon), with the current version below" width="2160" height="1350" loading="lazy"><figcaption>Get E1: the download buttons, your own system first.</figcaption></figure>
   <p class="g-warn">The app's window title is "Lanxtor E1". On Windows the system menu bar hides itself; use E1's own menu bar inside the window. The plan is to sign in through your system browser; today the app shows the server's sign-in inside its own window. The app has no way yet to switch to another server after the first start.</p>
   <p class="g-related">Related: <a href="#acc-browser">Open E1 in the browser</a> · <a href="#acc-sign-in">Sign in to E1</a> · <a href="#acc-desktop-updates">Keep the desktop app up to date</a> · <a href="guide-getting-started.html#gs-floating-windows">Floating windows</a></p>
 </section>
@@ -68,8 +68,8 @@
   <p class="g-summary">The desktop app looks for a new version when it starts and every four hours, downloads it in the background and asks you to restart. You do not download installers again.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A message from the app; the app menu → <span class="ui">Check for Updates…</span> (on a Mac: the <span class="ui">E1</span> menu)</dd>
-    <dt>Who</dt><dd>Anyone using the desktop app, from version 0.1.2</dd>
-    <dt>Before you start</dt><dd>The desktop app installed (version 0.1.2 or newer; an older one is replaced once from the download page) and an internet connection</dd>
+    <dt>Who</dt><dd>Anyone using the desktop app</dd>
+    <dt>Before you start</dt><dd>The desktop app installed and an internet connection</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -381,7 +381,7 @@
     <tbody>
       <tr><td>1</td><td>Open <span class="ui">Account</span> → <span class="ui">Your access</span>.</td><td>Under <span class="ui">License</span> it reads <span class="ui">Your university pays for your license.</span>, or <span class="ui">Your license is not paid, so your work is read-only. Pay … a month by card, for as long as you like, or ask your university to pay for it.</span></td></tr>
       <tr><td>2</td><td>Click <span class="ui">Pay by card</span>.</td><td>Stripe's payment page opens with the monthly price. E1 never sees your card number.</td></tr>
-      <tr><td>3</td><td>Enter your card and pay.</td><td>Back in E1 it reads, for example, <span class="ui">You pay by card (visa ending 4242), … a month. Next payment on 13 December 2026.</span> You can edit again.</td></tr>
+      <tr><td>3</td><td>Enter your card and pay.</td><td>Back in E1 it reads, for example, <span class="ui">You pay by card (visa ending 4242), … a month. Next payment on 13 May 2027.</span> You can edit again.</td></tr>
       <tr><td>4</td><td>To stop, click <span class="ui">Stop paying</span>, then <span class="ui">Stop paying</span> in E1's dialog <em>Stop paying by card?</em>.</td><td>Your license stays until the end of the month already paid; <span class="ui">Keep paying</span> takes it back. After that your work is read-only until you pay again.</td></tr>
     </tbody>
   </table></div>
@@ -478,7 +478,7 @@
     <dt>Who</dt><dd>Companies with their own sign-in system</dd>
     <dt>Before you start</dt><dd>—</dd>
   </dl>
-  <div class="g-dev"><p><strong>Planned (roadmap 09.4 "Company single sign-on and directory sync", in the parallel track).</strong> Its first part, Sign in with Microsoft, was delivered on 2026-11-07; the stage stays open for the rest.</p></div>
+  <div class="g-dev"><p><strong>Planned (roadmap 09.4 "Company single sign-on and directory sync", in the parallel track).</strong> Its first part, <a href="#acc-microsoft">Sign in with Microsoft</a>, is available; the stage stays open for the rest.</p></div>
   <h3>What you will be able to do</h3>
   <ul>
     <li>Sign in with your company's SAML sign-in.</li>
