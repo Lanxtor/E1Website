@@ -89,9 +89,10 @@ jobs:
         if: env.TOKEN != '' && github.event_name != 'pull_request' && env.SITE_MODE != 'live'
         run: |
           # Before launch nothing but the coming-soon page is public: only the files that page uses
-          # (styles, icons, fonts, manifest) and the license PDFs E1 links to are served; every other
-          # address, the data files and scripts under /assets included, shows the coming-soon page.
-          jq '.routes = [{"route": "/assets/css/*", "allowedRoles": ["anonymous"]}, {"route": "/assets/img/*", "allowedRoles": ["anonymous"]}, {"route": "/assets/fonts/*", "allowedRoles": ["anonymous"]}, {"route": "/assets/legal/*", "allowedRoles": ["anonymous"]}, {"route": "/assets/site.webmanifest", "allowedRoles": ["anonymous"]}, {"route": "/.well-known/*", "allowedRoles": ["anonymous"], "headers": {"Content-Type": "text/plain; charset=utf-8"}}, {"route": "/version.json", "allowedRoles": ["anonymous"], "headers": {"Cache-Control": "no-store"}}, {"route": "/*", "rewrite": "/coming-soon.html"}] | del(.responseOverrides)' staticwebapp.config.json > config.tmp
+          # (the stylesheet, its fonts and background, the icons and logo, the manifest) and the license PDFs E1 links to are served; every other
+          # address, the data files and scripts under /assets and /version.json included, shows the
+          # coming-soon page (the review boards read /version.json on preview.lanxtor.com until launch).
+          jq '.routes = [{"route": "/assets/css/styles.css", "allowedRoles": ["anonymous"]}, {"route": "/assets/fonts/*", "allowedRoles": ["anonymous"]}, {"route": "/assets/img/favicon.ico", "allowedRoles": ["anonymous"]}, {"route": "/assets/img/favicon.svg", "allowedRoles": ["anonymous"]}, {"route": "/assets/img/icon-192.png", "allowedRoles": ["anonymous"]}, {"route": "/assets/img/icon-512.png", "allowedRoles": ["anonymous"]}, {"route": "/assets/img/apple-touch-icon.png", "allowedRoles": ["anonymous"]}, {"route": "/assets/img/logo-512.png", "allowedRoles": ["anonymous"]}, {"route": "/assets/img/plant-wireframe.svg", "allowedRoles": ["anonymous"]}, {"route": "/assets/legal/*", "allowedRoles": ["anonymous"]}, {"route": "/assets/site.webmanifest", "allowedRoles": ["anonymous"]}, {"route": "/.well-known/*", "allowedRoles": ["anonymous"], "headers": {"Content-Type": "text/plain; charset=utf-8"}}, {"route": "/*", "rewrite": "/coming-soon.html"}] | del(.responseOverrides)' staticwebapp.config.json > config.tmp
           mv config.tmp staticwebapp.config.json
           echo "::notice::lanxtor.com shows the coming-soon page. Set the repository variable SITE_MODE to live to publish the full site."
 

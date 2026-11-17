@@ -131,6 +131,10 @@ def head_block(src, url, lang="en", home=False, crumbs=None, product=False, sile
         '<meta property="og:locale" content="%s">' % LOCALE.get(lang, "en_US"),
         '<meta name="twitter:card" content="summary_large_image">',
     ]
+    if silent:
+        # Before launch (the coming-soon page): the company only, no product, no preview image.
+        tags = [t for t in tags if "og:image" not in t]
+        tags = [t.replace("summary_large_image", "summary") for t in tags]
     if home:
         tags.append(_structured(lang, product=not silent))
     else:

@@ -423,6 +423,23 @@
    * license types and roles come from src/domain/access/catalog.mjs, the
    * subscription and seats from migration 0006, AI credits from design 09.
    */
+  /* Preview dates are counted back from today, but never from before
+   * 15 July 2027, so no preview date falls before day zero (14 April 2027). */
+  var DEMO_NOW = Math.max(Date.now(), Date.UTC(2027, 6, 15, 12));
+  function demoAgo(days, hour, minute) {
+    var d = new Date(DEMO_NOW - days * 86400000);
+    d.setUTCHours(hour || 0, minute || 0, 0, 0);
+    return d.toISOString();
+  }
+  function demoMonth(offset) {
+    var d = new Date(DEMO_NOW);
+    return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + offset, 1)).toISOString();
+  }
+  function demoInvoiceId(offset) {
+    var d = new Date(demoMonth(offset));
+    return "INV-" + d.getUTCFullYear() + "-" + ("0" + (d.getUTCMonth() + 1)).slice(-2);
+  }
+
   var DEMO = {
     csrf: "",
     user: { id: "u-demo", email: "alex.morgan@example.com", name: "Alex Morgan", givenName: "Alex", familyName: "Morgan", picture: null, locale: "en", timeZone: "Europe/Berlin" },
@@ -431,7 +448,7 @@
       { id: "org-acme", name: "Acme Process Engineering", role: "admin", license: "editor" },
       { id: "org-personal", name: "Alex Morgan (personal)", role: "owner", license: "editor" }
     ],
-    license: { type: "editor", name: "Editor", assignedAt: "2026-09-14T09:12:00Z" },
+    license: { type: "editor", name: "Editor", assignedAt: demoAgo(60, 9, 12) },
     roles: {
       org: [{ key: "admin", name: "Administrator" }],
       permissions: [
@@ -445,8 +462,8 @@
       planName: "Team",
       status: "active",
       source: "billing",
-      periodStart: "2026-11-01T00:00:00Z",
-      periodEnd: "2026-12-01T00:00:00Z",
+      periodStart: demoMonth(0),
+      periodEnd: demoMonth(1),
       trialEndsAt: null,
       addOns: ["Plant package"],
       seats: {
@@ -457,8 +474,8 @@
       }
     },
     aiUsage: {
-      periodStart: "2026-11-01T00:00:00Z",
-      periodEnd: "2026-12-01T00:00:00Z",
+      periodStart: demoMonth(0),
+      periodEnd: demoMonth(1),
       you: { credits: 412.5, requests: 186 },
       organization: { credits: 2310, included: 5000, personalCap: 800 },
       byModel: [
@@ -476,9 +493,9 @@
       ]
     },
     projects: [
-      { id: "p-1", name: "Plant 3 — Hydrogen unit", role: "lead", roleName: "Lead engineer", lastOpenedAt: "2026-11-03T16:40:00Z", objects: 4210 },
-      { id: "p-2", name: "Compressor station retrofit", role: "engineer", roleName: "Engineer", lastOpenedAt: "2026-10-29T08:05:00Z", objects: 1388 },
-      { id: "p-3", name: "Utility steam network", role: "reviewer", roleName: "Reviewer", lastOpenedAt: "2026-10-12T11:20:00Z", objects: 962 }
+      { id: "p-1", name: "Plant 3 — Hydrogen unit", role: "lead", roleName: "Lead engineer", lastOpenedAt: demoAgo(2, 16, 40), objects: 4210 },
+      { id: "p-2", name: "Compressor station retrofit", role: "engineer", roleName: "Engineer", lastOpenedAt: demoAgo(7, 8, 5), objects: 1388 },
+      { id: "p-3", name: "Utility steam network", role: "reviewer", roleName: "Reviewer", lastOpenedAt: demoAgo(24, 11, 20), objects: 962 }
     ],
     academy: {
       discussions: 6,
@@ -488,19 +505,19 @@
         { id: "c-branches", title: "Branches, pull and push", category: "Collaboration", summary: "Work on modification projects in a branch and bring the changes back to main.", lessons: 5, lessonsDone: 0, minutes: 41, minutesWatched: 0, status: "not_started", certificate: false, url: "" }
       ],
       certificates: [
-        { id: "cert-1", title: "E1 Foundations", issuedAt: "2026-10-21T10:00:00Z", credentialId: "E1-F-26-0412", url: "" }
+        { id: "cert-1", title: "E1 Foundations", issuedAt: demoAgo(15, 10, 0), credentialId: "E1-F-0412", url: "" }
       ]
     },
-    packages: [{ key: "core", name: "Core", version: "1.1.0" }, { key: "plant", name: "Plant", version: "1.1.0" }],
+    packages: [{ key: "core", name: "Core", version: "1.0.0" }, { key: "plant", name: "Plant", version: "1.0.0" }],
     billing: {
       canManage: true,
       provider: "Billing provider",
-      nextInvoice: { date: "2026-12-01T00:00:00Z", amount: 1490, currency: "USD" },
+      nextInvoice: { date: demoMonth(1), amount: 1490, currency: "USD" },
       paymentMethod: "Card ending 4242",
       invoices: [
-        { id: "INV-2026-011", date: "2026-11-01T00:00:00Z", amount: 1490, currency: "USD", status: "paid", url: "" },
-        { id: "INV-2026-010", date: "2026-10-01T00:00:00Z", amount: 1490, currency: "USD", status: "paid", url: "" },
-        { id: "INV-2026-009", date: "2026-09-01T00:00:00Z", amount: 1192, currency: "USD", status: "paid", url: "" }
+        { id: demoInvoiceId(0), date: demoMonth(0), amount: 1490, currency: "USD", status: "paid", url: "" },
+        { id: demoInvoiceId(-1), date: demoMonth(-1), amount: 1490, currency: "USD", status: "paid", url: "" },
+        { id: demoInvoiceId(-2), date: demoMonth(-2), amount: 1192, currency: "USD", status: "paid", url: "" }
       ]
     }
   };
@@ -647,17 +664,17 @@
         p1: { completed: true, position: 510 }, p2: { completed: true, position: 670 }, p3: { completed: true, position: 580 },
         p4: { completed: true, position: 625 }, p5: { completed: true, position: 470 }, p6: { completed: true, position: 0, score: 100 }
       },
-      activity: { "e1-fundamentals": "2026-11-03T18:12:00Z", "process-design": "2026-10-21T15:40:00Z" },
+      activity: { "e1-fundamentals": demoAgo(2, 18, 12), "process-design": demoAgo(15, 15, 40) },
       last: { "e1-fundamentals": "f6", "process-design": "p6" },
       certificates: [
-        { id: "E1C-7KQ3-M9XP-2DWA", courseKey: "process-design", issuedAt: "2026-10-21T15:40:00Z", score: 100 }
+        { id: "E1C-7KQ3-M9XP-2DWA", courseKey: "process-design", issuedAt: demoAgo(15, 15, 40), score: 100 }
       ],
       owned: []
     }
   };
 
   var demoTraining = (function () {
-    var KEY = "e1_demo_training_v1";
+    var KEY = "e1_demo_training_v2";
     var memory = null;
 
     function load() {

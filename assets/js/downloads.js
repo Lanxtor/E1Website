@@ -4,8 +4,7 @@
  * Used by download.html and the Downloads section of account.html.
  *
  * <div data-downloads></div>            the cards
- * <p data-release-line></p>             version and date (optional)
- * <ul data-release-notes></ul>          release notes (optional)
+ * <p data-release-line></p>             the release channel (optional)
  *
  * A file whose url is null shows "Coming soon". An app-store app (iPad,
  * phone) has a "store" instead of files: its card opens the store page, or
@@ -74,7 +73,7 @@
       "</div>";
   }
 
-  function card(key, platform, version, mine) {
+  function card(key, platform, mine) {
     if (platform.store) return storeCard(key, platform);
     var files = (platform.files || []).map(function (f) {
       if (!f.url) {
@@ -89,7 +88,6 @@
     return '<div class="card download-card' + (mine ? " is-mine" : "") + '" data-download-card="' + esc(key) + '">' +
       '<div class="download-card-head">' + icon(key) + "<h3>" + esc(platform.name) + "</h3>" + (mine ? '<span class="badge">' + T("Your system") + '</span>' : "") + "</div>" +
       '<p class="muted">' + esc(platform.requirements) + "</p>" +
-      '<span class="meta">' + T("Version") + " " + esc(version) + "</span>" +
       '<div class="download-files">' + files + "</div>" +
       "</div>";
   }
@@ -100,7 +98,7 @@
     if (mine) keys.sort(function (a, b) { return (b === mine) - (a === mine); });
 
     document.querySelectorAll("[data-downloads]").forEach(function (mount) {
-      mount.innerHTML = keys.map(function (k) { return card(k, manifest.platforms[k], manifest.version, k === mine); }).join("");
+      mount.innerHTML = keys.map(function (k) { return card(k, manifest.platforms[k], k === mine); }).join("");
     });
 
     // The quick buttons at the top of Get E1. A desktop system downloads its
@@ -146,14 +144,7 @@
     }
 
     document.querySelectorAll("[data-release-line]").forEach(function (el) {
-      el.textContent = T("Current version") + " " + manifest.version + (manifest.date ? " · " + T("released") + " " + (window.E1 ? E1.format.date(manifest.date) : manifest.date) : "") +
-        (manifest.channel ? " · " + T("{channel} channel").replace("{channel}", manifest.channel) : "");
-    });
-
-    document.querySelectorAll("[data-release-notes]").forEach(function (list) {
-      list.innerHTML = (manifest.notes || []).map(function (n) {
-        return "<li><span>" + esc(n.version) + (n.date ? " · " + esc(window.E1 ? E1.format.date(n.date) : n.date) : "") + '</span><span class="muted">' + esc(n.text) + "</span></li>";
-      }).join("");
+      el.textContent = manifest.channel ? T("{channel} channel").replace("{channel}", manifest.channel) : "";
     });
   }
 
