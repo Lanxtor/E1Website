@@ -280,7 +280,7 @@
 
 <section class="g-feature" id="doc-hyperlink">
   <h2>Hyperlinks: link a file kept in another system</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span class="g-id">DOC-hyperlink</span><span>Roadmap M4.30</span><span>Review check E4</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-16</span><span>Updated 2026-11-16</span><span class="g-id">DOC-hyperlink</span><span>Roadmap M4.30, M4.31</span><span>Review check E4</span></div>
   <p class="g-summary">Your files can stay where they are. A hyperlink is a document in E1 that stands for one file kept elsewhere, such as one of thousands of PDFs in your document management system: it holds the file's web address and opens it there. Relate it to a pump, a motor, a system, a process, an area, a 2D space or another document, and the file is found from that object.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click <span class="ui">Documents</span> → <span class="ui">New document…</span> → <span class="ui">Hyperlink</span></dd>
@@ -296,9 +296,12 @@
       <tr><td>3</td><td>Click <span class="ui">Open link</span>.</td><td>The file opens in a new browser tab, in the system that keeps it.</td></tr>
       <tr><td>4</td><td>In the explorer, drag the hyperlink with the right mouse button onto a pump.</td><td><span class="ui">Make a relationship?</span> says “Pump P-101 manual documents P-101.” Click <span class="ui">Make relationship</span>: both stay where they are, and the pump's relationships list the hyperlink (is documented by).</td></tr>
       <tr><td>5</td><td>Right-click the hyperlink in the explorer → <span class="ui">Open link</span>.</td><td>The file opens in a new tab without opening the hyperlink's window.</td></tr>
+      <tr><td>6</td><td>Right-click the hyperlink → <span class="ui">Place on drawing…</span> and choose a 2D space.</td><td>Its shape, a page with a chain link and its tag below, is drawn on the 2D space. Lines do not connect to it.</td></tr>
+      <tr><td>7</td><td>Select it on the drawing, <span class="ui">Copy</span>, then <span class="ui">Paste</span> on the empty sheet.</td><td>A second page is drawn. The copy is a new hyperlink under <span class="ui">Documents</span> (in its Copy temp folder) with the same <span class="ui">Link</span> and <span class="ui">Kept in</span>; it never goes under Assets.</td></tr>
+      <tr><td>8</td><td>On the Documents page, click <span class="ui">Query in words…</span> and type <code>pumps with a hyperlink</code>, or <code>hyperlinks where kept in is Doxis</code>.</td><td>The query lists the pumps that have a hyperlink, or the hyperlinks kept in that system. In <span class="ui">New query…</span>, <span class="ui">Link</span>, <span class="ui">Kept in</span> and the objects a hyperlink documents can be columns.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">Only http and https addresses open. An address typed without them, such as <code>dms.example.com/doc/4711</code>, opens as https. The <span class="ui">Hyperlinks</span> choice of the <span class="ui">All ▾</span> filter on the Documents page lists only the hyperlinks.</p>
+  <p class="g-note">In the explorer a hyperlink has a chain-link icon. Only http and https addresses open. An address typed without them, such as <code>dms.example.com/doc/4711</code>, opens as https. The <span class="ui">Hyperlinks</span> choice of the <span class="ui">All ▾</span> filter on the Documents page lists only the hyperlinks.</p>
   <p class="g-warn">E1 keeps no copy of the file and does not check that the address still works: its revisions are kept in the system that keeps the file, so a hyperlink has no Versions and revisions panel. Whether the file opens depends on your access to that system.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-new-document">New document…: list, plot, uploaded or datasheet document</a>, <a href="guide-documents.html#doc-upload">Uploaded documents: revise a PDF from outside</a>, <a href="guide-documents.html#doc-revisions-filter">Filter documents by kind</a></p>
 </section>
