@@ -91,6 +91,7 @@
         <ol>
           <li><a href="#workflow-overview">About this guide</a></li>
           <li><a href="#wf-statuses">Status sets and the project&#x27;s statuses</a></li>
+          <li><a href="#wf-task-types">Task types</a></li>
           <li><a href="#wf-status-chip">The status chip: set an item&#x27;s status</a></li>
           <li><a href="#wf-value-status">Value statuses: Assumed, Preliminary, Confirmed, Final</a></li>
           <li><a href="#wf-hold">Put an item or a value on hold</a></li>
@@ -119,7 +120,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Workflow and dashboards</p>
         <h1>14. Workflow and dashboards</h1>
         <p class="lead">Statuses of objects, sheets, documents and tasks in status sets with your own sub-statuses, the status chip, value statuses (Assumed, Preliminary, Confirmed, Final) and holds; workflows, boards and progress dashboards as they are built.</p>
-        <div class="g-meta"><span>23 features</span><span>23 available</span></div>
+        <div class="g-meta"><span>24 features</span><span>24 available</span></div>
 <section class="g-feature" id="workflow-overview">
   <h2>About this guide</h2>
   <p class="g-summary">Every object, sheet, document and task in E1 has a status. Statuses come in status sets: five fixed categories (New, Active, Resolved, Closed, Removed) with the sub-statuses your company or project adds under them. Values have a status of their own, from Assumed to Final, and anything can be put on hold with a reason.</p>
@@ -156,10 +157,34 @@
   </table></div>
   <ul>
     <li>The five main statuses cannot be removed or given another category; their names may change. Statuses are kept in category order.</li>
-    <li>Tasks read the task set: Open, In review, Done, Removed. A task is set Open or Done on its row in Tasks.</li>
-    <li>Built-in sets that their topics set are listed too: the revision, markup and construction sets. They are not offered per level, so with the built-in sets <em>Basic</em> is often the only choice for a level.</li>
+    <li>Tasks read the task set: Open, In review, Done, Removed. A task is set Open or Done on its row in Tasks. A query reads the built-in Query set: Draft, Submitted, Answered, Closed, moved on its page (see <a href="guide-collaboration.html#col-queries">Queries</a>).</li>
+    <li>Built-in sets that their topics set are listed too: the revision, markup, query and construction sets. They are not offered per level, so with the built-in sets <em>Basic</em> is often the only choice for a level.</li>
   </ul>
   <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-value-status">Value statuses</a> · <a href="#wf-hold">Hold</a></p>
+</section>
+
+<section class="g-feature" id="wf-task-types">
+  <h2>Task types</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">WF-task-types</span><span>Roadmap 07.8b</span></div>
+  <p class="g-summary">The kinds of task <span class="ui">New task…</span> offers. E1 has seven: <span class="ui">General</span>, <span class="ui">Engineering</span>, <span class="ui">Review</span>, <span class="ui">Maintenance</span>, <span class="ui">Administration</span>, and the two queries <span class="ui">Technical query</span> and <span class="ui">Engineering query</span>. Your organization adds its own: a plain task, or a query with a question and an answer for another query process, such as a site query.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Workflow</span> → <span class="ui">Task types</span></dd>
+    <dt>Who</dt><dd>Everyone sees them. Changing them: administrators who manage the organization's policies. They apply to every project.</dd>
+  </dl>
+  <h3>Add a type</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Configuration → Task types</span>.</td><td><span class="ui">E1's task types</span> are listed, each with what it is for and whether it is a task or a query; below, <span class="ui">Your organization's task types</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add type</span>, type <em>Site query</em> and what it is for, and tick <span class="ui">Query</span>.</td><td><span class="ui">Save</span> becomes active once the name is given and not used yet.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Save</span>.</td><td><em>Saved. New task… offers these types in every project.</em> A site query has a question and an answer, and goes Draft, Submitted, Answered, Closed (see <a href="guide-collaboration.html#col-queries">Queries</a>).</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><span class="ui">Remove</span> takes a type out of New task…; its tasks keep it.</li>
+    <li>Once saved, a type stays a task or a query.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-collaboration.html#col-tasks">Tasks</a> · <a href="guide-collaboration.html#col-queries">Queries</a> · <a href="#wf-statuses">Status sets</a></p>
 </section>
 
 <section class="g-feature" id="wf-status-chip">
