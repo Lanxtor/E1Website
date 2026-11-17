@@ -105,6 +105,7 @@
           <li><a href="#obj-rename">Rename an object</a></li>
           <li><a href="#obj-cases">Cases of an object</a></li>
           <li><a href="#obj-move">Move an object</a></li>
+          <li><a href="#obj-copy-paste">Copy, cut and paste objects in the explorer</a></li>
           <li><a href="#obj-void">Void an object</a></li>
           <li><a href="#obj-delete">Delete an object, restore it, or delete it permanently</a></li>
           <li><a href="#obj-deep-view">Deep view</a></li>
@@ -118,7 +119,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Objects, attributes and tags</p>
         <h1>4. Objects, attributes and tags</h1>
         <p class="lead">Make equipment and other objects from library classes, fill in attributes with units, relate objects, and tag them with your project&#x27;s rules.</p>
-        <div class="g-meta"><span>22 features</span><span>22 available</span></div>
+        <div class="g-meta"><span>23 features</span><span>23 available</span></div>
 <section class="g-feature" id="objects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 everything in the plant is an object: a pump, a valve, a function, an area, a pipe run. Each object is made from a class of the library, carries attributes with units, can be related to other objects, and gets its tag from your project's rules. Drawings, lists and datasheets all show the same objects.</p>
@@ -591,12 +592,35 @@
   <p class="g-related">Related: <a href="guide-projects.html#prj-drag-drop">Drag and drop in the explorer</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
 </section>
 
+<section class="g-feature" id="obj-copy-paste">
+  <h2>Copy, cut and paste objects in the explorer</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">OBJ-copy-paste</span><span>Roadmap M1.16</span></div>
+  <p class="g-summary">Copy objects and paste them as new objects, each with the class, name and values of its original and a tag from the project's tag rules. A folder is copied with everything in it. Cut and paste moves objects, as dragging does.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer: right-click an object, or a folder outside Model Space → <span class="ui">Cut</span>, <span class="ui">Copy</span>; right-click a section, a folder or an object → <span class="ui">Paste</span>. Or <kbd>Ctrl</kbd>+<kbd>C</kbd>, <kbd>Ctrl</kbd>+<kbd>X</kbd>, <kbd>Ctrl</kbd>+<kbd>V</kbd> (<kbd>⌘</kbd> on a Mac).</dd>
+    <dt>Who</dt><dd>A license and a project role that may create and edit objects</dd>
+    <dt>Before you start</dt><dd>A folder under <span class="ui">Assets</span> (right-click Assets → <span class="ui">New folder</span>).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click V5.</td><td><span class="ui">Cut</span>, <span class="ui">Copy</span> and <span class="ui">Paste</span> follow Open and View. <span class="ui">Paste</span> is greyed: "Copy or cut objects in the explorer first".</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Copy</span>, then right-click <span class="ui">Assets</span> → <span class="ui">Paste</span>.</td><td>A second V5 is under Assets: a new object of the same class, with V5's values and a tag of its own. It is on no 2D space.</td></tr>
+      <tr><td>3</td><td>Click V9, <kbd>Ctrl</kbd>-click V10, press <kbd>Ctrl</kbd>+<kbd>X</kbd>, click the folder and press <kbd>Ctrl</kbd>+<kbd>V</kbd>.</td><td>V9 and V10 move into the folder; they are not copied, and stay on their drawings. What was cut is pasted once.</td></tr>
+      <tr><td>4</td><td>Right-click the folder → <span class="ui">Copy</span>, then right-click <span class="ui">Assets</span> → <span class="ui">Paste</span>.</td><td>A second folder with copies of V9 and V10 in it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Pasted on an object, the copies go next to it, under the same parent; pasted on a folder or section, into it. A paste the class rules do not allow is refused with the reason. Placements on 2D spaces, relationships and cases are not copied. Objects are pasted in the project they were copied in. Copy and paste of symbols on a drawing is in <a href="guide-drawing.html">Drawing</a>.</p>
+  <p class="g-related">Related: <a href="#obj-move">Move an object</a> · <a href="#obj-tags">Tags</a></p>
+</section>
+
 <section class="g-feature" id="obj-void">
   <h2>Void an object</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">OBJ-void</span></div>
   <p class="g-summary">Voiding takes an object out of use without deleting it, so that its record is kept. Voided objects go to the project's <span class="ui">Voided bin</span>, where the only action is <span class="ui">Unvoid</span>.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click an object (or a 2D space or folder) → <span class="ui">Void</span></dd>
+    <dt>Where</dt><dd>Right-click an object (or a 2D space or folder) → <span class="ui">Void</span>; with several picked (<kbd>Ctrl</kbd>, <kbd>Shift</kbd>) → <span class="ui">Void 2 objects</span>; on a drawing, right-click a symbol (or the selection) → <span class="ui">Void</span></dd>
     <dt>Who</dt><dd>A license and a project role that may edit objects</dd>
     <dt>Before you start</dt><dd>An object you can void, for example a valve.</dd>
   </dl>
@@ -607,6 +631,8 @@
       <tr><td>1</td><td>Right-click V2 → <span class="ui">Void</span>.</td><td>V2 is gone from Assets.</td></tr>
       <tr><td>2</td><td>Click the project, then its tab <span class="ui">Bin</span>: V2 is under <span class="ui">Voided bin</span> → <span class="ui">Assets</span>.</td><td>Beside V2 only <span class="ui">Unvoid</span>. Nothing voided can be deleted.</td></tr>
       <tr><td>3</td><td>Choose <span class="ui">Unvoid</span>.</td><td>V2 is back under Assets.</td></tr>
+      <tr><td>4</td><td>Click V3, <kbd>Ctrl</kbd>-click V4, right-click V4 → <span class="ui">Void 2 objects</span>.</td><td>Both go to the Voided bin.</td></tr>
+      <tr><td>5</td><td>On the drawing, click Pump1, <kbd>Shift</kbd>-click Pump2, right-click Pump1 → <span class="ui">Void 2 objects</span>.</td><td>Both objects go to the Voided bin and stay drawn on the 2D space.</td></tr>
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="#obj-delete">Delete an object</a> · <a href="guide-projects.html#prj-project-bin">The project Bin</a></p>
@@ -629,6 +655,7 @@
       <tr><td>2</td><td>Click <span class="ui">Restore</span> beside V3.</td><td>V3 is back under Assets, and on its 2D spaces where it was drawn.</td></tr>
       <tr><td>3</td><td>Delete V3 again, then click <span class="ui">Delete permanently…</span> beside it on the tab <span class="ui">Bin</span>.</td><td>A dialog "Delete V3 permanently?" with "It leaves the deleted bin and cannot be restored.", the class (Check valve), "Objects that go with it", "Relationships" and "Placements on 2D spaces" ("On <i>2D space</i>; the lines through it heal", or "It is on no 2D space.").</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Delete permanently</span>.</td><td>V3 is gone for good.</td></tr>
+      <tr><td>5</td><td>Click V7, <kbd>Ctrl</kbd>-click V8 and press <kbd>Delete</kbd> (or right-click → <span class="ui">Delete 2 objects</span>).</td><td>Both go to the Deleted bin, without a question.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small" style="max-width:173px"><img src="assets/img/guides/tree-menu-object.webp" alt="The right-click menu of Pump1 in the explorer; its last items are Void and Delete." width="346" height="638" loading="lazy"><figcaption><span class="ui">Void</span> and <span class="ui">Delete</span> at the end of an object's menu.</figcaption></figure>
