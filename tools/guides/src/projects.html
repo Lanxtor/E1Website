@@ -266,7 +266,7 @@
 
 <section class="g-feature" id="prj-folders-sheets">
   <h2>Folders and 2D spaces inside a project</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-13</span><span class="g-id">PRJ-folders-sheets</span><span>Review check A2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-17</span><span class="g-id">PRJ-folders-sheets</span><span>Review check A2</span></div>
   <p class="g-summary">Every section takes folders, and folders nest as deep as you like. In <span class="ui">Model Space</span> you make the 2D spaces you draw on. Folders and 2D spaces are renamed in place, and deleting them moves them to the project's Bin, from where they can be restored.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click a section or a folder → <span class="ui">New folder</span>; right-click <span class="ui">Model Space</span> or a folder in it → <span class="ui">New 2D space</span>; or the same buttons on the section's or folder's page</dd>
@@ -283,7 +283,7 @@
       <tr><td>4</td><td>Right-click the folder "Area A".</td><td>Exactly these items: <span class="ui">New 2D space</span>, <span class="ui">New folder</span>, <span class="ui">Rename</span>, <span class="ui">Query</span> ▸, <span class="ui">Void</span>, <span class="ui">Delete</span>.</td></tr>
       <tr><td>5</td><td>Right-click "Area A" → <span class="ui">New folder</span>, then in that folder <span class="ui">New folder</span> again.</td><td>Folders nest three levels deep.</td></tr>
       <tr><td>6</td><td>Right-click "2D space 1" → <span class="ui">Rename</span>, type another name, press <kbd>Esc</kbd>.</td><td>The rename is cancelled; the name stays "2D space 1".</td></tr>
-      <tr><td>7</td><td>Right-click "2D space 1" → <span class="ui">Delete</span>.</td><td>No question is asked. The 2D space disappears from Model Space, and a <span class="ui">Bin</span> row appears at the end of the project with the 2D space in its <span class="ui">Deleted bin</span>.</td></tr>
+      <tr><td>7</td><td>Right-click "2D space 1" → <span class="ui">Delete</span>.</td><td>No question is asked. The 2D space disappears from Model Space; the project's tab <span class="ui">Bin</span> lists it in its <span class="ui">Deleted bin</span>.</td></tr>
       <tr><td>8</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">New folder</span>.</td><td>A folder appears under Assets. Every section takes folders the same way.</td></tr>
     </tbody>
   </table></div>
@@ -485,10 +485,10 @@
 
 <section class="g-feature" id="prj-project-bin">
   <h2>The project Bin: Deleted bin and Voided bin</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-15</span><span class="g-id">PRJ-project-bin</span></div>
-  <p class="g-summary">Inside each project, a group <span class="ui">Bin</span> collects what you deleted (<span class="ui">Deleted bin</span>) and what you voided (<span class="ui">Voided bin</span>), sorted by section. Deleted things can be restored or deleted permanently; voided things can only be unvoided.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-17</span><span class="g-id">PRJ-project-bin</span></div>
+  <p class="g-summary">What you delete or void inside a project leaves the explorer. The project's page has a tab <span class="ui">Bin</span> that lists what you deleted (<span class="ui">Deleted bin</span>) and what you voided (<span class="ui">Voided bin</span>), each sorted by section. Deleted things can be restored or deleted permanently; voided things can only be unvoided.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Bin</span> (shown only when something is in it)</dd>
+    <dt>Where</dt><dd>Explorer → click the project → the tab <span class="ui">Bin</span> (beside <span class="ui">Attachments</span>; the number on it says how many items are in the bins)</dd>
     <dt>Who</dt><dd>A license and a project role that may edit the project</dd>
     <dt>Before you start</dt><dd>A project with valves V9 and V10 under Assets, or any objects of your own.</dd>
   </dl>
@@ -496,17 +496,16 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select V10 under <span class="ui">Assets</span> and press <kbd>Delete</kbd>.</td><td>V10 is gone from Assets. A <span class="ui">Bin</span> row appears in the project, collapsed.</td></tr>
-      <tr><td>2</td><td>Expand <span class="ui">Bin</span> → <span class="ui">Deleted bin</span> → <span class="ui">Assets</span>.</td><td>V10 is listed there.</td></tr>
-      <tr><td>3</td><td>Right-click V10 in the bin.</td><td>The items <span class="ui">Open</span>, <span class="ui">Restore</span> and <span class="ui">Delete permanently…</span>.</td></tr>
-      <tr><td>4</td><td>Choose <span class="ui">Restore</span>.</td><td>V10 is back under Assets (and on its 2D spaces where it was drawn). The Bin disappears when it is empty.</td></tr>
-      <tr><td>5</td><td>Delete V9 and V10, then right-click <span class="ui">Deleted bin</span> (or the project's <span class="ui">Bin</span> row).</td><td>The item <span class="ui">Empty deleted bin…</span>. It is greyed out when the bin is empty, and without the permission Empty bins: see <a href="#prj-empty-bin">Empty a bin</a>.</td></tr>
-      <tr><td>6</td><td>Choose <span class="ui">Empty deleted bin…</span>.</td><td>E1's dialog <em>Empty the deleted bin?</em> asks "Delete the 2 items in the deleted bin permanently? They cannot be restored." After <span class="ui">Delete permanently</span> the bin is empty and the Bin row disappears.</td></tr>
-      <tr><td>7</td><td>Right-click an object → <span class="ui">Void</span>, then expand <span class="ui">Bin</span> → <span class="ui">Voided bin</span> and right-click it there.</td><td>Only <span class="ui">Unvoid</span> is offered: nothing voided can be deleted.</td></tr>
+      <tr><td>1</td><td>Select V10 under <span class="ui">Assets</span> and press <kbd>Delete</kbd>.</td><td>V10 is gone from Assets. The explorer shows no bin.</td></tr>
+      <tr><td>2</td><td>Click the project in the explorer, then the tab <span class="ui">Bin</span>.</td><td><span class="ui">Deleted bin</span>, and under it <span class="ui">Assets</span> with V10. Beside V10: <span class="ui">Restore</span> and <span class="ui">Delete permanently…</span>. Its name opens it.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Restore</span> beside V10.</td><td>V10 is back under Assets (and on its 2D spaces where it was drawn). With nothing left the tab says "Nothing is deleted or voided in this project."</td></tr>
+      <tr><td>4</td><td>Delete V9 and V10, then look at the <span class="ui">Deleted bin</span> on the tab <span class="ui">Bin</span>.</td><td>The button <span class="ui">Empty deleted bin…</span>. It is greyed out without the permission Empty bins: see <a href="#prj-empty-bin">Empty a bin</a>.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Empty deleted bin…</span>.</td><td>E1's dialog <em>Empty the deleted bin?</em> asks "Delete the 2 items in the deleted bin permanently? They cannot be restored." After <span class="ui">Delete permanently</span> the bin is empty.</td></tr>
+      <tr><td>6</td><td>Right-click an object → <span class="ui">Void</span>, then look at the <span class="ui">Voided bin</span> on the tab <span class="ui">Bin</span>.</td><td>Beside it only <span class="ui">Unvoid</span>: nothing voided can be deleted.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Deleting a 2D space with objects drawn on it asks first, in E1's dialog <em>Delete sheet?</em>: <span class="ui">Sheet only</span> moves the 2D space to the Deleted bin and the objects stay in the model; <span class="ui">Sheet and its objects</span> moves the objects to the Deleted bin with it, and off the other 2D spaces they are drawn on (the dialog says how many). A voided object, or one in a locked workflow step, stays either way. <span class="ui">Cancel</span> (or <kbd>Esc</kbd>) keeps everything. An empty 2D space goes without a question. Each object comes back with <span class="ui">Restore</span>, drawn again where it was once its 2D space is back.</p>
-  <p class="g-note">Selecting an item in the Deleted bin and pressing <kbd>Delete</kbd> (or <kbd>Backspace</kbd>) does the same as <span class="ui">Delete permanently…</span>. For a 2D space or folder in the Deleted bin, <span class="ui">Delete permanently…</span> asks <span class="ui">Delete 2D space "<i>name</i>" permanently? It cannot be restored.</span> or <span class="ui">Delete folder "<i>name</i>" permanently with everything inside it? It cannot be restored.</span> For an object it opens a preview of what goes with it: see <a href="guide-objects.html#obj-delete">Delete an object</a>.</p>
+  <p class="g-note">For a 2D space or folder in the Deleted bin, <span class="ui">Delete permanently…</span> asks <span class="ui">Delete 2D space "<i>name</i>" permanently? It cannot be restored.</span> or <span class="ui">Delete folder "<i>name</i>" permanently with everything inside it? It cannot be restored.</span> For an object it opens a preview of what goes with it: see <a href="guide-objects.html#obj-delete">Delete an object</a>.</p>
   <p class="g-related">Related: <a href="guide-objects.html#obj-delete">Delete an object</a> · <a href="guide-objects.html#obj-void">Void an object</a> · <a href="#prj-folders-sheets">Folders and 2D spaces</a> · <a href="#prj-delete">Delete a project</a> · <a href="#prj-empty-bin">Empty a bin</a></p>
 </section>
 
@@ -515,7 +514,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-17</span><span class="g-id">PRJ-empty-bin</span></div>
   <p class="g-summary">Emptying a bin deletes everything in it for good, at once: the objects, 2D spaces and folders in a project's <span class="ui">Deleted bin</span>, or every deleted project (in <span class="ui">Projects</span> → <span class="ui">Show deleted</span>). Nothing emptied can be restored, so it needs a permission of its own, <span class="ui">Empty bins</span>. The <span class="ui">Voided bin</span> is never emptied: nothing voided can be deleted.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Bin</span> or <span class="ui">Deleted bin</span> → right-click → <span class="ui">Empty deleted bin…</span>; <span class="ui">Projects</span> → <span class="ui">Show deleted</span> → <span class="ui">Empty bin…</span></dd>
+    <dt>Where</dt><dd>Explorer → click the project → the tab <span class="ui">Bin</span> → <span class="ui">Empty deleted bin…</span>; <span class="ui">Projects</span> → <span class="ui">Show deleted</span> → <span class="ui">Empty bin…</span></dd>
     <dt>Who</dt><dd>The permission <span class="ui">Empty bins</span> in the project (Project administrator has it; an organization can give it to a custom role). For deleted projects, in every one of them, together with <span class="ui">Delete the project</span>.</dd>
     <dt>Before you start</dt><dd>A project with valves V9 and V10 under Assets, or any objects of your own.</dd>
   </dl>
@@ -523,9 +522,9 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Delete V9 and V10 under <span class="ui">Assets</span>.</td><td>A <span class="ui">Bin</span> row appears at the end of the project.</td></tr>
-      <tr><td>2</td><td>Right-click the project's <span class="ui">Bin</span> row.</td><td>The item <span class="ui">Empty deleted bin…</span>. Without the permission Empty bins it is greyed out, and pointing at it says "Emptying a bin needs the permission Empty bins (a Project administrator has it)."</td></tr>
-      <tr><td>3</td><td>Choose <span class="ui">Empty deleted bin…</span>.</td><td>E1's dialog <em>Empty the deleted bin?</em> asks "Delete the 2 items in the deleted bin permanently? They cannot be restored." After <span class="ui">Delete permanently</span> V9 and V10 are gone for good and the Bin row disappears.</td></tr>
+      <tr><td>1</td><td>Delete V9 and V10 under <span class="ui">Assets</span>.</td><td>They leave the explorer.</td></tr>
+      <tr><td>2</td><td>Click the project, then its tab <span class="ui">Bin</span>.</td><td>The button <span class="ui">Empty deleted bin…</span> beside <span class="ui">Deleted bin</span>. Without the permission Empty bins it is greyed out, and pointing at it says "Emptying a bin needs the permission Empty bins (a Project administrator has it)."</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Empty deleted bin…</span>.</td><td>E1's dialog <em>Empty the deleted bin?</em> asks "Delete the 2 items in the deleted bin permanently? They cannot be restored." After <span class="ui">Delete permanently</span> V9 and V10 are gone for good.</td></tr>
       <tr><td>4</td><td>Delete a project of your own, then open <span class="ui">Projects</span> and click <span class="ui">Show deleted</span>.</td><td>The button <span class="ui">Empty bin…</span> above the deleted projects; greyed out when none is deleted. The server checks the permission.</td></tr>
       <tr><td>5</td><td>Choose <span class="ui">Empty bin…</span>.</td><td>E1's dialog <em>Empty the Bin?</em> lists the projects in the Bin and asks to delete them permanently. If you signed in more than 15 minutes ago, <a href="guide-access.html#acc-step-up">Confirm it is you</a> opens first: <span class="ui">Use passkey</span>, or <span class="ui">Sign in again</span> (you come back, E1 asks once more and carries on). After <span class="ui">Delete permanently</span> they are gone for good and <span class="ui">Deleted projects</span> says "No project is deleted."</td></tr>
     </tbody>

@@ -604,8 +604,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click V2 → <span class="ui">Void</span>.</td><td>V2 is gone from Assets. A <span class="ui">Bin</span> row appears in the project.</td></tr>
-      <tr><td>2</td><td>Expand <span class="ui">Bin</span> → <span class="ui">Voided bin</span> → <span class="ui">Assets</span> and right-click V2.</td><td>Only <span class="ui">Unvoid</span> is offered. Nothing voided can be deleted.</td></tr>
+      <tr><td>1</td><td>Right-click V2 → <span class="ui">Void</span>.</td><td>V2 is gone from Assets.</td></tr>
+      <tr><td>2</td><td>Click the project, then its tab <span class="ui">Bin</span>: V2 is under <span class="ui">Voided bin</span> → <span class="ui">Assets</span>.</td><td>Beside V2 only <span class="ui">Unvoid</span>. Nothing voided can be deleted.</td></tr>
       <tr><td>3</td><td>Choose <span class="ui">Unvoid</span>.</td><td>V2 is back under Assets.</td></tr>
     </tbody>
   </table></div>
@@ -617,7 +617,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">OBJ-delete</span><span>Roadmap M1.4</span><span>Review checks C7, A3</span></div>
   <p class="g-summary">Delete moves an object to the project's Deleted bin at once, from where <span class="ui">Restore</span> brings it back and draws it again where it was. <span class="ui">Delete permanently…</span> in the bin first shows everything that goes with it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Right-click the object → <span class="ui">Delete</span>, or select it and press <kbd>Delete</kbd>; in the bin, right-click → <span class="ui">Restore</span> or <span class="ui">Delete permanently…</span></dd>
+    <dt>Where</dt><dd>Right-click the object → <span class="ui">Delete</span>, or select it and press <kbd>Delete</kbd>; on the project's tab <span class="ui">Bin</span>, <span class="ui">Restore</span> or <span class="ui">Delete permanently…</span> beside it</dd>
     <dt>Who</dt><dd>A license and a project role that may delete objects</dd>
     <dt>Before you start</dt><dd>An object you may delete, for example the check valve V3.</dd>
   </dl>
@@ -625,10 +625,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click V3 → <span class="ui">Delete</span>.</td><td>No question is asked. V3 is gone from Assets and shows under <span class="ui">Bin</span> → <span class="ui">Deleted bin</span> → <span class="ui">Assets</span>, styled as binned. The Bin row stays collapsed.</td></tr>
-      <tr><td>2</td><td>Right-click V3 in the bin → <span class="ui">Restore</span>.</td><td>V3 is back under Assets, and on its 2D spaces where it was drawn.</td></tr>
-      <tr><td>3</td><td>Delete V3 again, then right-click it in the bin → <span class="ui">Delete permanently…</span>.</td><td>A dialog "Delete V3 permanently?" with "It leaves the deleted bin and cannot be restored.", the class (Check valve), "Objects that go with it", "Relationships" and "Placements on 2D spaces" ("On <i>2D space</i>; the lines through it heal", or "It is on no 2D space.").</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Delete permanently</span>.</td><td>V3 is gone for good. The Bin row disappears when it is empty.</td></tr>
+      <tr><td>1</td><td>Right-click V3 → <span class="ui">Delete</span>.</td><td>No question is asked. V3 is gone from Assets. Click the project, then its tab <span class="ui">Bin</span>: V3 is under <span class="ui">Deleted bin</span> → <span class="ui">Assets</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Restore</span> beside V3.</td><td>V3 is back under Assets, and on its 2D spaces where it was drawn.</td></tr>
+      <tr><td>3</td><td>Delete V3 again, then click <span class="ui">Delete permanently…</span> beside it on the tab <span class="ui">Bin</span>.</td><td>A dialog "Delete V3 permanently?" with "It leaves the deleted bin and cannot be restored.", the class (Check valve), "Objects that go with it", "Relationships" and "Placements on 2D spaces" ("On <i>2D space</i>; the lines through it heal", or "It is on no 2D space.").</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Delete permanently</span>.</td><td>V3 is gone for good.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small" style="max-width:173px"><img src="assets/img/guides/tree-menu-object.webp" alt="The right-click menu of Pump1 in the explorer; its last items are Void and Delete." width="346" height="638" loading="lazy"><figcaption><span class="ui">Void</span> and <span class="ui">Delete</span> at the end of an object's menu.</figcaption></figure>
