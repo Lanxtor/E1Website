@@ -1,0 +1,91 @@
+{
+  "id": "predictive-ai",
+  "file": "solution-ai-predictive-engineering.html",
+  "title": "AI for plant engineering: Alex, the co-engineer",
+  "description": "Alex, E1's AI co-engineer, reviews your P&amp;ID as you draw, suggests the next symbols and learns your company's conventions. Local, and always under your control.",
+  "kicker": "Predictive engineering",
+  "h1": "Predictive engineering with Alex, the AI co-engineer.",
+  "lead": "In E1, Alex reads the drawing as you work, the way a process, automation or electrical engineer beside you would, and suggests what usually comes next. Alex's review runs locally, with no language model and nothing sent outside E1. Every suggestion waits for you to apply or reject it.",
+  "glance": [
+    {"value": "5", "label": "Skills: plant, process, automation and electrical engineer, and HAZOP leader"},
+    {"value": "3", "label": "Levels: Quiet, Normal and Mentor"},
+    {"value": "3", "label": "Modes in the Agent tab: Agent, Ask and Plan"},
+    {"value": "0", "label": "Language model calls in Alex's own review of the drawing"}
+  ],
+  "sections": [
+    {
+      "id": "alex",
+      "kicker": "Alex",
+      "h2": "Alex, the AI co-engineer built into E1",
+      "intro": "In E1, Alex is one assistant in the panel on the right of the window, with three tabs: Co-engineer, Agent and E1 Guide.",
+      "paragraphs": [
+        "In <b>Co-engineer</b>, Alex is built into E1. It reads the open 2D space and lists warnings, questions and suggestions. It calls no language model and sends nothing outside E1, so it works in every installation. Alex is off until you click <b>Let Alex help</b>, and <b>Stop Alex</b> switches it off again.",
+        "In <b>Agent</b>, Alex answers in your own words with the help of a language model and can change the project, with review and undo. <b>E1 Guide</b> teaches E1 where you are, with bubbles on the real buttons. The name comes from Hero of Alexandria, the first-century engineer often called the father of automation.",
+        "Alex reads the drawing when you open it and about half a second after a change of yours settles, never while you are dragging. Its marks sit on the drawing, an amber ! for a warning and a blue ? for a question, linked both ways to its cards."
+      ]
+    },
+    {
+      "id": "predictive",
+      "kicker": "Predictive",
+      "h2": "Predictive mode: the next move, suggested while you draw",
+      "intro": "In E1, while Alex is on, placing or changing something brings an offer of what usually comes next, drawn as ghost symbols on the 2D space.",
+      "paragraphs": [
+        "Place a centrifugal pump and ghost valves appear around it. The offer is also the first card under Design suggestions, with the badge <b>After your change</b> and the buttons <b>Show</b>, <b>Apply</b> and <b>Reject</b>. Apply places the symbols as real, connected objects; Reject drops the offer and nothing is added. One undo takes an applied suggestion back.",
+        "Alex follows the design your project repeats. Where there is none yet, it uses starter rules: isolation on a pump's suction and a check valve on its discharge, isolation around control valves, and transmitters on vessels and exchangers. A pump, compressor, fan, agitator or conveyor with nothing to drive it gets the suggestion to add a motor, which is made in the model and tagged by the project's tag rules.",
+        "E1 never adds what a piece of equipment needs by itself: Alex suggests it and you decide. The same holds for a P&amp;ID made from a PFD, which opens with <b>Suggested additions</b>: what each object usually has on a P&amp;ID, for you to apply or reject."
+      ]
+    },
+    {
+      "id": "review",
+      "kicker": "Review",
+      "h2": "A design review as you work: warnings, questions and suggestions",
+      "intro": "In E1, Alex's findings are cards that say why, show where on the drawing, and offer a fix, an answer field or a way to set them aside.",
+      "paragraphs": [
+        "The skill decides which engineer reads the drawing: Plant engineer (every discipline), Process engineer, Automation engineer, Electrical engineer or HAZOP leader. The level decides how much Alex tells you, from warnings only at Quiet to tips that explain the practice at Mentor.",
+        "Alex checks line velocity by service, pressure drop, erosional velocity and design margin, sour service and CO₂, instrument loops, tags, fail positions, interlocks against the cause and effect matrix, and anti-surge, and asks about motor starting and signal types. A question card writes your answer straight into the object. A finding that does not apply is hidden with <b>Not applicable</b>, or proposed to your company so Alex stops raising it once an approver accepts.",
+        "Each skill also writes its lists from the drawing into Excel: the instrument index, I/O list, cause and effect and motor list for automation; the load list, cable schedule and Ex equipment list for electrical; a prepared HAZOP worksheet with LOPA scenarios for the HAZOP leader."
+      ]
+    },
+    {
+      "id": "learning",
+      "kicker": "Learning",
+      "h2": "Alex learns your company's engineering conventions",
+      "intro": "In E1, Alex learns from your own standards and projects, and a rule it finds applies only after a person accepts it.",
+      "paragraphs": [
+        "In Configuration → <b>Alex knowledge</b>, upload a standard as PDF, Word, Excel or text. Alex reads it locally and proposes the conventions it finds, such as a velocity limit for pump suction lines or a fail position for fuel gas control valves. Once an approver accepts one, Alex checks every drawing against it and its card quotes the clause. A language model reads the document only if you tick that option, and nothing is trained on your documents.",
+        "<b>Team memory</b> learns which values are usual at your company, such as the pipe class most cooling water lines get, from the projects you choose. It is off until someone with the permission switches it on, and confidential projects can be left out. With your pipe classes loaded, Alex also checks each line's pressure, temperature, class and sour service against them."
+      ]
+    },
+    {
+      "id": "agent",
+      "kicker": "Agent",
+      "h2": "Agent, Ask and Plan: AI for engineering design, with review and undo",
+      "intro": "In E1, Alex's Agent tab answers questions in your own words and changes the project with the same commands you run by hand.",
+      "paragraphs": [
+        "The mode decides what Alex may do: <b>Agent</b> edits the project, <b>Ask</b> only answers and never changes anything, and <b>Plan</b> writes out a plan and waits for <b>Apply</b>. With <b>Review changes first</b>, Alex works on a draft that is stored only when you apply it. <b>Protect the arrangement</b>, on by default, lets Alex add symbols, lines and notes but not move, resize or reroute what is drawn. <b>Undo change</b> takes back everything one reply changed.",
+        "Some changes always wait for you: a turn that would delete more than 10 objects, and commands marked to always ask. When you ask whether a design is right, Alex's own review runs first with your accepted conventions, and the answer rests on its findings. Alex also draws engineering patterns such as a redundant pump train, answers queries such as “all pumps without a motor”, and reads attached lists, specifications and screenshots."
+      ]
+    },
+    {
+      "id": "control",
+      "kicker": "Control",
+      "h2": "Safe and secure: you and your organization stay in control",
+      "intro": "In E1, Alex works with the permissions of the person who asks, never more, and your organization sets Alex's AI help to on, answer only, or off.",
+      "paragraphs": [
+        "Co-engineer and E1 Guide send nothing. In the Agent tab, your messages and the project context go to the model named under the tabs. In the E1 Cloud the default is GPT-4.1 on Azure OpenAI in Sweden Central, in the EU; see <a href=\"cloud-specifications.html\">E1 Cloud specifications</a>. In your own installation, the operators choose OpenAI, Anthropic, Azure OpenAI, Microsoft Foundry or a local model server.",
+        "Restricted values are removed before anything is sent to a model, and every call to the AI is logged with its model and size, without the text of your messages. Names, notes and attached files are treated as data, never as instructions. Without a model, Alex keeps reviewing in Co-engineer and you do the rest by hand. See <a href=\"security.html\">Security</a>."
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "What is predictive engineering in E1?", "a": "While Alex is on, E1 offers what usually comes next after a change, such as the valves around a new pump, as ghost symbols on the drawing. You apply or reject each offer; nothing is added without you."},
+    {"q": "Is Alex a local AI?", "a": "Alex's review in Co-engineer and the E1 Guide run inside E1, with no language model, and send nothing outside. Only the Agent tab uses a language model, and it says which one your messages go to."},
+    {"q": "Does Alex change my drawing on its own?", "a": "No. Suggestions wait for Apply. In the Agent tab, Ask never changes anything, Plan waits for Apply, and Agent can work on a draft you review. Large deletions are always held, and one click undoes a reply."},
+    {"q": "Which language model does Alex use?", "a": "In the E1 Cloud, GPT-4.1 on Azure OpenAI in Sweden Central is the default. An Editor may choose Claude Opus 5.5 for their own conversations; those requests may be processed outside the EU. Your own installation can use a local model server."},
+    {"q": "Is our data used to train a model?", "a": "No. Standards you give Alex knowledge are not used for training; their matching clauses are sent with a question only in the Agent tab. Team memory is off until you switch it on, and you choose the projects it learns from."},
+    {"q": "Can our organization switch Alex off?", "a": "Yes. The organization sets Alex's AI help to on, answer only or off. Without it, E1 works fully by hand, and Alex's local review in Co-engineer still runs."},
+    {"q": "Does Alex replace the engineer?", "a": "No. Alex points at what an experienced colleague would notice and drafts routine work. The engineer decides what is applied, and every change Alex makes is recorded and can be undone."}
+  ],
+  "guides": ["AI-alex", "DRAW-predictive", "AI-alex-suggestions", "AI-alex-cards", "AI-alex-knowledge", "AI-alex-team-memory", "AI-chat-modes", "AI-off"],
+  "related": ["simulate-validate", "single-model", "feed-process", "automation"]
+}

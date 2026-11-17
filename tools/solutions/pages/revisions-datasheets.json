@@ -1,0 +1,90 @@
+{
+  "id": "revisions-datasheets",
+  "file": "solution-revisions-datasheets-reports.html",
+  "title": "Document control, revisions and datasheets",
+  "description": "E1 makes lists, reports, instrument datasheets and drawings from the model, with revision control, sign-off, change clouds and issued PDFs that never change.",
+  "kicker": "Deliverables",
+  "h1": "Revisions, datasheets and reports.",
+  "lead": "In E1, engineering documents are made from the live model: lists, reports, datasheets and drawings print from the same data the engineers edit. Each revision is frozen when it is created, signed along its purpose's route, and issued as a PDF that never changes, with clouds and a table of what changed since the revision before.",
+  "glance": [
+    {"value": "3", "label": "Default sign-off steps: Prepared, Checked, Approved"},
+    {"value": "1,000", "label": "Documents bound into one PDF package"},
+    {"value": "30 days", "label": "A deleted output can be restored, by default"}
+  ],
+  "sections": [
+    {
+      "id": "documents",
+      "kicker": "Documents",
+      "h2": "Engineering documents generated from the model",
+      "intro": "In E1, every document of a project is in its Documents section, and most of them are generated from the model rather than drawn by hand.",
+      "paragraphs": [
+        "New document… makes a document by choosing its kind. A list document shows a saved query and prints it to PDF and Excel with a title block. A plot prints a 2D space on a chosen page format with chosen layers. A datasheet document puts an object's datasheet under revision control. Reports, PDF packages and the project's deliverables set bind several of them together.",
+        "Documents made elsewhere have their place too. An uploaded document keeps a PDF from outside and revises it like any other. A hyperlink stands for a file kept in your engineering document management system: it opens the file there, and any object can be documented by it, so the file is found from the pump or the area it is about.",
+        "The document number is the document's tag, made by the project's tag rules; a 2D space gets its number from a pattern such as <code>{project.code}-{docType}-{seq:4}</code>, giving P-PID-0001. The All ▾ filter shows only the drawings, the lists, the datasheets or the hyperlinks."
+      ]
+    },
+    {
+      "id": "revisions",
+      "kicker": "Revisions",
+      "h2": "Revision control with purposes of issue and sign-off",
+      "intro": "In E1, a revision freezes what a document shows when it is created, goes through sign-off, and is issued as a filed PDF that never changes.",
+      "paragraphs": [
+        "Create revision… asks for a purpose of issue, such as IFR — Issued for review or IFC — Issued for construction, and gives the next label of the project's revision scheme. By default the labels are A, B, C … skipping I, O, Q, S, X and Z, then 0, 1, 2 … from construction. A project can instead use ISO 19650 (P01 … then C01 …), numeric labels, letters only, or the company's own scheme, and EPC purposes of issue or ISO 19650 suitability codes.",
+        "Every revision is signed along its purpose's route: by who prepared it, checked by someone else, and approved by someone with Issue revisions, a Lead engineer or above. Each signature names what is signed and may ask you to confirm it is you. A Reviewer, an access token and Alex never sign. Reject… and Withdraw… take a revision back, and Reassign… gives a step to another signer; a step past its days to sign is marked Late.",
+        "The last signature issues the revision: its PDF is made once, filed under Documents, and stays byte for byte as issued, even after the model changes. The revision before is superseded. While the revision gate is on, an open error on what the document shows refuses the revision, so a known problem is fixed or accepted before it is issued. Internal versions, such as C.1 after Rev B, are printed INTERNAL — NOT FOR ISSUE."
+      ]
+    },
+    {
+      "id": "changes",
+      "kicker": "Changes",
+      "h2": "Clouds and change tables in every revision",
+      "intro": "In E1, each revision is compared with the one before it, and its PDF shows what changed.",
+      "paragraphs": [
+        "On a drawing's revision, the PDF draws a cloud around each change with a triangle carrying the revision label, and lists every change beside the title block, for example a design pressure from 16 bar(g) to 25 bar(g). The comparison is frozen when the output is created, so a later edit never changes an issued PDF. Compare with… lists the changes between any two outputs of a document.",
+        "Between revisions, the document lists what changed since the last issue, and the explorer marks each modified or added object. Changes since… on a 2D space clouds everything added, deleted, modified or moved since a day, a revision or a version, with before → after and who changed it."
+      ]
+    },
+    {
+      "id": "datasheets",
+      "kicker": "Datasheets",
+      "h2": "Instrument and equipment datasheets",
+      "intro": "In E1, an object's datasheet is the screen its values are viewed and edited on and the page that prints, so the datasheet and the model never disagree.",
+      "paragraphs": [
+        "Specification datasheets have numbered lines, tables of parts that continue on continuation pages, operating cases side by side, and revision marks, the same on screen and in the PDF. Type values straight into the datasheet; units are added and checked, and Undo takes a change back. After a datasheet document is issued, each value changed since shows the next revision beside it.",
+        "Ready-made templates cover instruments, valves, pumps and exchangers. They are E1's own templates inspired by ISA, API and ASME specification datasheets: only the idea comes from those forms, and the layout, wording and line numbers are E1's. Copy one to edit it in the datasheet designer, or build your own layout from components.",
+        "One datasheet document can cover several tags of one class: shared values are shown once, differing ones read See list, and one change sets them all. Issuing its revision records every tag."
+      ]
+    },
+    {
+      "id": "reports",
+      "kicker": "Reports",
+      "h2": "Reports, PDF packages and the deliverables set",
+      "intro": "In E1, reports and document sets are bound from saved queries and issued documents, and revised like any single document.",
+      "paragraphs": [
+        "Add to report… on a saved query makes a report or adds the query as a section of one. Its PDF prints every section under its heading, grouped by a column such as Area, with the header on every page and page numbers; Export Excel writes a sheet per section. A list's Excel export reads back with Update from Excel…, which lists every change before it is applied.",
+        "A PDF package binds up to 1,000 documents into one PDF with a cover and an index, taking each document's current revision; a revision of the package holds issued revisions only. Documents → Deliverables binds the project's drawings with its reports and datasheets into one PDF with a cover, an index and page numbers, previews it marked DRAFT, and issues it with a purpose of issue."
+      ]
+    },
+    {
+      "id": "audit",
+      "kicker": "Audit",
+      "h2": "An audit trail for every document",
+      "intro": "In E1, every version and revision of a document keeps a complete record of who created, signed, issued, withdrew or deleted it.",
+      "paragraphs": [
+        "Audit report (CSV) and Audit report (PDF) list each event in time order: created, signed with the sentence signed and the sign-in, rejected, issued with the PDF's SHA-256 fingerprint, withdrawn, deleted and restored with their reasons. Delete… with a reason takes an output out of a document, but a record stays, its label is never used again, and Restore brings it back for the project's kept period, 30 days by default.",
+        "Project settings → Documents chooses the revision scheme, the number pattern, the purposes of issue, the sign-off route of each purpose, four-eyes, the filing rule for issued PDFs and who sees versions. Each setting applies to outputs made afterwards; outputs already made never change."
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Which revision schemes does E1 support?", "a": "Letters before construction and numbers from construction (the default), ISO 19650 (P01 … then C01 …), numeric labels, letters only, or your company's and project's own schemes, chosen in Project settings → Documents."},
+    {"q": "Who can sign and issue a revision?", "a": "Checking needs Sign revisions (Engineer and above); approving and issuing need Issue revisions (Lead engineer and above). Someone else checks and approves unless a small team turns four-eyes off. A Reviewer, an access token and Alex never sign."},
+    {"q": "Does an issued PDF ever change?", "a": "No. An issued revision's PDF is made once, filed, and stays byte for byte as issued, even after the model changes. Its snapshot, signatures and PDF cannot be changed from any surface."},
+    {"q": "How do I see what changed since the last revision?", "a": "A drawing's revision PDF clouds each change and lists it beside the title block. Compare with… lists the changes between any two outputs, and the explorer marks objects modified or added since the last issue."},
+    {"q": "Are the datasheet templates ISA or API forms?", "a": "No. They are E1's own templates inspired by ISA, API and ASME specification datasheets, for instruments, valves, pumps and exchangers. No form name, number, logo or wording of theirs is used."},
+    {"q": "Can E1 keep documents made outside E1?", "a": "Yes. An uploaded document keeps a PDF from outside and revises it, and a hyperlink stands for a file kept in your document management system and opens it there."},
+    {"q": "Can I get lists and reports in Excel?", "a": "Yes. List documents and reports export to PDF and Excel, and an exported list reads back with Update from Excel…, which checks every change before it is applied."}
+  ],
+  "guides": ["DOC-revisions", "DOC-sign-off", "DOC-issue", "DOC-change-clouds", "DOC-spec-datasheets", "DOC-reports", "DOC-deliverables", "DOC-audit-report"],
+  "related": ["instrumentation", "single-model", "maintenance-mods", "cross-company"]
+}

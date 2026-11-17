@@ -1,0 +1,85 @@
+{
+  "id": "enterprise-deploy",
+  "file": "solution-enterprise-deployment.html",
+  "title": "On-premises and own-cloud installation",
+  "description": "Run E1 in your own Microsoft Azure or on-premises on your own servers, with your own PostgreSQL database, company sign-on and an offline-checked license file.",
+  "kicker": "Your data, your deployment",
+  "h1": "Your data, your deployment: E1 in your own cloud or data centre.",
+  "lead": "E1 runs as a cloud service by default, and as an enterprise installation when your policy requires it. LANXTOR gives you the installation: the same E1, with your projects, drawings and documents in your own Microsoft Azure subscription or on-premises on your own servers, in your own PostgreSQL database, under your own rules. Updates install themselves in the hour you choose.",
+  "glance": [
+    {"value": "Azure", "label": "Your own subscription today; AWS, Google Cloud and Alibaba Cloud coming"},
+    {"value": "1 hour", "label": "Urgent fixes reach your installation within the hour"},
+    {"value": "Offline", "label": "The signed license file is checked without calling LANXTOR"},
+    {"value": "PostgreSQL", "label": "Your own database, in your subscription or data centre"}
+  ],
+  "sections": [
+    {
+      "id": "choices",
+      "kicker": "Where",
+      "h2": "Cloud by default, your own servers when policy requires",
+      "intro": "E1 runs in three places: in E1 Cloud, run by LANXTOR; in your own Microsoft Azure subscription; or on-premises in your own data centre. It is the same E1 in each.",
+      "paragraphs": [
+        "Most teams start in <a href=\"solution-cloud-workspace.html\">E1 Cloud</a>, hosted by LANXTOR in the EU. When contracts, export rules or company policy say where engineering data must be kept, an enterprise installation puts it there: data sovereignty in your own subscription, region and network. Amazon Web Services, Google Cloud and Alibaba Cloud are coming as further choices.",
+        "In your own Azure there are two ways to run it. Your IT installs and runs it with LANXTOR's instructions, or LANXTOR runs it in your Azure for you. Either way, the subscription, the data and the Azure bill are yours.",
+        "The status bar in E1 always names where the projects are kept, for example Microsoft Azure or PostgreSQL with the name of your database server, so everyone can see which installation they are in."
+      ]
+    },
+    {
+      "id": "install",
+      "kicker": "Install",
+      "h2": "How an installation is set up",
+      "intro": "In E1, the Owners and Administrators of your organization download everything to install E1 from their Account in E1 Cloud, under Own installation, once LANXTOR has turned it on for the organization.",
+      "paragraphs": [
+        "The installation package is one zip: the newest release of E1, your access to E1's releases and a short Start here. Your IT unzips it in Azure Cloud Shell and follows the install steps; your own E1 is created in your subscription and prints its address. Each download asks you to confirm it is you with a passkey, and is recorded in your organization's audit log.",
+        "A new installation has no owner. Only the person whose email address was named as its operator can claim it by signing in first; nobody else can. The desktop app connects to your installation by its address, and people use it in the browser as they would E1 Cloud."
+      ]
+    },
+    {
+      "id": "license",
+      "kicker": "License",
+      "h2": "A signed license file, checked offline",
+      "intro": "In your own installation, the plan, the seats of each license, the content packages and the dates come from a license file signed by LANXTOR. E1 checks it on its own, offline.",
+      "paragraphs": [
+        "The Owner downloads the license file from Account → Own installation in E1 Cloud and loads it once in File → Organization… → Members, and again each time LANXTOR issues a renewed one. The plan and seats apply at once, and loading it is in the audit log. A file is bound to your installation's address. E1 refuses a file that was changed after signing, a file for another address and one that is not valid yet, and says why.",
+        "Thirty days before a license ends, every Owner and Administrator gets a notice in the Inbox. After the end comes a grace period, 30 days unless your contract says otherwise, in which everything still works. After that the installation is read-only until a renewed file is loaded: everyone can still open, view and export everything. E1 is never locked."
+      ]
+    },
+    {
+      "id": "identity",
+      "kicker": "Sign-on",
+      "h2": "Company single sign-on and directory sync",
+      "intro": "In E1, colleagues sign in with their company account through any OpenID Connect provider, and your company directory creates, updates and deactivates them in E1 with SCIM 2.0.",
+      "paragraphs": [
+        "Owners and Administrators set up sign-on under File → Organization… → Sign-on with your IT, for example with Okta, Microsoft Entra ID, Google Workspace, Keycloak or ADFS. Sign-on works for your company's verified email domains, and Only this way makes it the one way in for them. Signing in with a company Microsoft account is also available.",
+        "Directory sync deactivates whoever leaves: their membership, license and roles end and they can no longer sign in, while their history stays. Directory groups become E1 groups, and a group can give a license, for example E1-Editors → Editor. Owners and Administrators still confirm with a passkey."
+      ]
+    },
+    {
+      "id": "control",
+      "kicker": "Control",
+      "h2": "Audit, access and integration under your rules",
+      "intro": "In E1, administrators see who did what: the Audit tab lists important events and every request sent to an AI model, and access history shows every change to members, licenses, groups and roles with before and after.",
+      "paragraphs": [
+        "E1 support has no access to your data. When it asks for access for a support case, nothing is given until an Owner or Administrator approves it, for a few hours, read-only or with changes; it ends at once with End. Everything support does shows in history and the audit log.",
+        "Other systems connect through E1's API with access tokens and service accounts, through signed webhooks and a change feed, or through MQTT, AMQP and Kafka brokers. On your own installation a broker may be in your own network. Owners and Administrators can export the whole organization at any time, in open formats."
+      ],
+      "bullets": [
+        "<b>Data</b>: your own PostgreSQL database, in your subscription or data centre.",
+        "<b>Updates</b>: they install themselves in the hour you choose; urgent fixes within the hour.",
+        "<b>Licensing</b>: single sign-on, many licenses, one invoice.",
+        "<b>Exit</b>: Export everything gives every table as JSON lines and every file."
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Can E1 run on-premises?", "a": "Yes. Besides E1 Cloud and your own Microsoft Azure, E1 can be installed on-premises on your own servers, with your own PostgreSQL database. <a href=\"contact-sales.html\">Contact sales</a> to plan it."},
+    {"q": "Which clouds can we install E1 in?", "a": "Microsoft Azure today. Amazon Web Services, Google Cloud and Alibaba Cloud are coming."},
+    {"q": "Does LANXTOR hold our data in an own installation?", "a": "No. In your own Azure the subscription, the data and the bill are yours, whether your IT runs E1 or LANXTOR runs it there for you. E1 support sees your projects only if an Owner or Administrator approves a support request."},
+    {"q": "Does E1 need to call LANXTOR to check the license?", "a": "No. The license file is signed by LANXTOR and checked by E1 itself, offline. You load a renewed file when LANXTOR issues one."},
+    {"q": "What happens if our license file runs out?", "a": "A grace period follows, 30 days unless your contract says otherwise, in which everything works. After it the installation is read-only: everything can be opened, viewed and exported, but not changed, until the Owner loads a renewed file."},
+    {"q": "Which sign-in providers work?", "a": "Any OpenID Connect provider, such as Okta, Microsoft Entra ID, Google Workspace, Keycloak or ADFS, with SCIM 2.0 directory sync. Company Microsoft accounts work too."},
+    {"q": "How are updates installed?", "a": "Updates install themselves in the hour you choose, and urgent fixes within the hour. When your server is updated, E1 in the browser and in the desktop app tells each user that a new version is ready."}
+  ],
+  "guides": ["ORG-own-installation", "ORG-license-file", "ORG-own-license-file", "ACC-claim-installation", "ORG-sso", "ORG-support-access", "ORG-access-history", "ORG-export"],
+  "related": ["cloud-workspace", "cross-platform", "large-projects", "cross-company"]
+}
