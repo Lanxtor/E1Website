@@ -121,6 +121,7 @@
           <li><a href="#org-shared-projects">Share a project with another organization</a></li>
           <li><a href="#org-history-names">Show groups instead of names in history</a></li>
           <li><a href="#org-sso">Company single sign-on and directory sync</a></li>
+          <li><a href="#org-intune">Microsoft Intune for E1 Reviewer and E1 Mobile</a></li>
           <li><a href="#org-tokens">Tokens, service accounts and agents</a></li>
           <li><a href="#org-webhooks">Webhooks and the change feed</a></li>
           <li><a href="#org-message-queues">Message queues: events to a broker, commands from one</a></li>
@@ -131,7 +132,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>35 features</span><span>34 available</span></div>
+        <div class="g-meta"><span>36 features</span><span>34 available</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -1009,6 +1010,31 @@
   <p class="g-note">Signing in with a company Microsoft account through LANXTOR's connection (set up on the operator console) also stays available. Owners and Administrators still need a passkey.</p>
   <p class="g-warn">Not built yet: SAML 2.0 connections, verifying a domain yourself with a DNS record, and refusing sign-ins that did not use your company's multi-factor authentication.</p>
   <p class="g-related">Related: <a href="guide-access.html#acc-sign-in">Sign in</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-groups">Groups</a></p>
+</section>
+
+<section class="g-feature" id="org-intune">
+  <h2>Microsoft Intune for E1 Reviewer and E1 Mobile</h2>
+  <div class="g-meta"><span class="g-status under-development">Under development</span><span class="g-id">ORG-intune</span><span>Roadmap 27.18, 27.19, 42.17, 42.18</span></div>
+  <p class="g-summary">For your Intune administrators: add E1 Reviewer for iPad and E1 Mobile to Microsoft Intune, protect your company's data in them with app protection policies, preset your E1 server with an app configuration, and require a compliant or managed device with Conditional Access. Your people sign in with <span class="ui">Sign in with Microsoft (work account)</span>, through Microsoft Authenticator or Company Portal.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Microsoft Intune admin center (Apps); Microsoft Entra admin center (Conditional Access)</dd>
+    <dt>Who</dt><dd>Your company's Intune and Entra administrators</dd>
+    <dt>Before you start</dt><dd>Your company's Microsoft accounts are connected to E1 (<a href="guide-access.html#acc-microsoft">Sign in with your company's Microsoft account</a>), and your people have E1 accounts in your organization: the apps never create one.</dd>
+  </dl>
+  <h3>Add the apps and protect them</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In the Intune admin center, <span class="ui">Apps → iOS/iPadOS → Add</span>: add E1 Reviewer (bundle ID <code>com.lanxtor.e1reviewer</code>) and E1 Mobile (<code>com.lanxtor.e1phone</code>), and assign them to your groups.</td><td>The apps are offered in Company Portal.</td></tr>
+      <tr><td>2</td><td><span class="ui">Apps → App protection policies → Create policy → iOS/iPadOS</span>: choose the two apps (custom apps, by their bundle IDs) and set what you need, for example <em>Send org data to other apps</em>: None, <em>Save copies of org data</em>: Block, <em>Restrict cut, copy and paste between other apps</em>: Blocked, <em>Open data into org documents</em>: Block (no photo library), a PIN, and no screenshots.</td><td>After sign-in, E1 Reviewer and E1 Mobile ask for the PIN and follow the policy: documents do not open outside E1 Reviewer, copying out is stopped, and E1 Mobile offers only <span class="ui">Take photo</span>.</td></tr>
+      <tr><td>3</td><td><span class="ui">Apps → App configuration policies → Add → Managed apps</span> (or <span class="ui">Managed devices</span> for enrolled iPads), with the two apps and these keys: <code>E1ServerUrl</code> (your E1, for example https://app.lanxtor.com), <code>E1TenantId</code> (your Entra tenant ID or domain), <code>E1RequireIntune</code> (<code>true</code> to allow only <span class="ui">Sign in with Microsoft (work account)</span>).</td><td>The sign-in screen says <span class="ui">Managed by your organization.</span> and shows your E1 with <span class="ui">Set by your organization.</span>; with <code>E1RequireIntune</code> there is no other sign-in and no demo.</td></tr>
+      <tr><td>4</td><td>In the Entra admin center, <span class="ui">Conditional Access → New policy</span> for the enterprise application <em>LANXTOR E1</em>: grant access with <em>Require app protection policy</em> (or <em>Require device to be marked as compliant</em>).</td><td>Only protected apps on your devices can sign in; E1 in a browser is covered by the same policy.</td></tr>
+      <tr><td>5</td><td>To remove your company's data from a person's device: <span class="ui">Apps → App selective wipe → Create wipe request</span>.</td><td>The app signs out and forgets everything it kept; the person sees that the organization removed its data.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">E1 never sees the device: Microsoft decides with your Conditional Access before the app gets a sign-in, and E1 accepts it only for people with an E1 account in your organization. The app's session ends after about an hour and is renewed through Microsoft, so a device that stops meeting your rules loses E1 within the hour.</p>
+  <p class="g-warn">Under development: the apps carry the sign-in through Microsoft's broker and read the policy and the app configuration, but they have not yet been tried on devices managed by Intune; the App Store apps are not released yet, and E1 Mobile on Android comes later.</p>
+  <p class="g-related">Related: <a href="guide-access.html#acc-microsoft">Sign in with your company's Microsoft account</a> · <a href="#org-sso">Company single sign-on and directory sync</a> · <a href="guide-reviewer.html#ipad-microsoft-intune">Sign in with Microsoft (work account) on a managed iPad</a></p>
 </section>
 
 <section class="g-feature" id="org-tokens">
