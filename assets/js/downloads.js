@@ -138,8 +138,10 @@
     });
     if (mine) {
       document.querySelectorAll("[data-get-now]").forEach(function (row) {
+        // Each button may sit in a column with its notes for IT; the column moves with it.
         var own = row.querySelector('[data-get-os="' + mine + '"]');
-        if (own && own !== row.firstElementChild) row.insertBefore(own, row.firstElementChild);
+        if (own && own.parentNode !== row) own = own.closest("[data-get-col]") || own;
+        if (own && own.parentNode === row && own !== row.firstElementChild) row.insertBefore(own, row.firstElementChild);
       });
     }
 
