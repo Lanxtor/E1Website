@@ -361,6 +361,32 @@
   <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a></p>
 </section>
 
+<section class="g-feature" id="doc-output-set">
+  <h2>Versions or revisions for a set, with one index</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span class="g-id">DOC-output-set</span><span>Roadmap 29.10</span></div>
+  <p class="g-summary">Make a version or a revision of every 2D space in Model Space or a folder at once, each with its own next label or all with the same one.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Right-click <span class="ui">Model Space</span> or a folder in it → <span class="ui">Create versions for a set…</span> or <span class="ui">Create revisions for a set…</span></dd>
+    <dt>Who</dt><dd>Create versions or Create revisions (Engineer and above) on every 2D space of the set</dd>
+    <dt>Before you start</dt><dd>The 2D space Assets has two versions (A.1, A.2); the folder Unit 100 holds two new 2D spaces.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Model Space</span> → <span class="ui">Create versions for a set…</span>.</td><td>The window <span class="ui">Create versions for Model Space</span> lists every 2D space under it, ticked, under its folders, each with the label it will get.</td></tr>
+      <tr><td>2</td><td>Under <span class="ui">Index</span>, choose <span class="ui">Each document counts its own</span>.</td><td>Assets → Version A.3; the two new ones → Version A.1.</td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Same index for every document</span>.</td><td>All three → Version A.3, the highest any would get; the line under them says “3 versions, all Version A.3.”.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Create versions</span>.</td><td>“3 versions are made: Version A.3.” Each 2D space has Version A.3 on its page.</td></tr>
+      <tr><td>5</td><td>Open the window again and choose <span class="ui">Same index for the changed documents</span>.</td><td>Each 2D space unchanged since is greyed: “No change since Version A.3”; <span class="ui">Create versions</span> stays off until one changes.</td></tr>
+      <tr><td>6</td><td>Right-click the folder <span class="ui">Unit 100</span> → <span class="ui">Create revisions for a set…</span>, choose the <span class="ui">Purpose of issue</span>, then <span class="ui">Create revisions</span>.</td><td>One revision of each, in sign-off together: “2 revisions are in sign-off: Rev A.”</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Project settings → Documents → <span class="ui">Index in a set</span> chooses which index is ticked first. With one index, a 2D space behind the others skips the labels between; no label is ever given twice.</p>
+  <p class="g-warn">Revisions with one index must be in the same phase: a set with one 2D space at Rev B and another at Rev 0 is refused; choose Each document counts its own.</p>
+  <p class="g-related">Related: <a href="guide-documents.html#doc-sheet-versions">Versions of a 2D space</a>, <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a>, <a href="guide-documents.html#doc-document-settings">Project settings → Documents</a></p>
+</section>
+
 <section class="g-feature" id="doc-sheet-revisions">
   <h2>Revisions of a 2D space</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-13</span><span class="g-id">DOC-sheet-revisions</span><span>Roadmap 29.1</span><span>Review checks E7, E8</span></div>
@@ -470,7 +496,7 @@
 
 <section class="g-feature" id="doc-document-settings">
   <h2>Project settings → Documents</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Updated 2026-11-16</span><span>Roadmap 29.1, 29.5, 29.6, 29.8</span><span>Review check E9</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">DOC-document-settings</span><span>Updated 2026-11-17</span><span>Roadmap 29.1, 29.5, 29.6, 29.8, 29.10, 24.8</span><span>Review check E9</span></div>
   <p class="g-summary">The project's revision scheme, document number pattern, purposes of issue, filing rule, who sees versions, how long deleted outputs are kept, four-eyes, the sign-off route of each purpose and the output format.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Project settings → <span class="ui">Documents</span></dd>
@@ -490,7 +516,9 @@
       <tr><td><span class="ui">Deleted outputs are kept for</span></td><td>How long a deleted version or revision can be restored (30 days by default).</td></tr>
       <tr><td><span class="ui">Someone else checks and approves</span></td><td>Four-eyes; off for a small team.</td></tr>
       <tr><td><span class="ui">Sign-off</span>: a route per purpose, <span class="ui">Versions</span>, <span class="ui">Days to sign a step</span></td><td>A table of each purpose with its route and the route's steps (Prepared → Checked → Approved). The route each purpose's revisions follow (by default Prepared, checked, approved; Prepared, approved for IFI and VOID; with a project engineer for IFC), the route of versions, and the days before a step is late (<a href="guide-library.html#lib-documents-signoff-routes">Sign-off routes</a>).</td></tr>
+      <tr><td><span class="ui">Index in a set</span></td><td>In <span class="ui">Numbering</span>: how a set of versions or revisions made at once is labelled: Each document counts its own (the default), Same index for the changed documents, or Same index for every document (<a href="guide-documents.html#doc-output-set">Versions or revisions for a set</a>).</td></tr>
       <tr><td><span class="ui">Print INTERNAL — NOT FOR ISSUE on versions</span>, <span class="ui">Date format</span></td><td>In <span class="ui">Deliverables</span>, with the Deliverable profile.</td></tr>
+      <tr><td><span class="ui">Changes on datasheets</span>, <span class="ui">Revision column shows</span>, <span class="ui">Revision column position</span></td><td>In <span class="ui">Deliverables</span>: how a datasheet's version or revision PDF marks what changed: Clouds around the changed fields (the default) or Revision column, with Revision only, Version only or Revision and version, on the Left side of the sheet or the Right side of the sheet (<a href="guide-documents.html#doc-spec-datasheet-marks">Revision marks on a datasheet</a>).</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Each setting is saved at once and applies to outputs made afterwards; outputs already made never change.</p>
@@ -920,8 +948,8 @@
 
 <section class="g-feature" id="doc-spec-datasheet-marks">
   <h2>Revision marks on a datasheet</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DOC-spec-datasheet-marks</span><span>Roadmap 24.3</span><span>Review check V2</span></div>
-  <p class="g-summary">After a datasheet document is issued, each value changed since shows the next revision beside it.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-17</span><span class="g-id">DOC-spec-datasheet-marks</span><span>Roadmap 24.3, 24.8</span><span>Review check V2</span></div>
+  <p class="g-summary">After a datasheet document is issued, each value changed since shows the next revision beside it; its version and revision PDFs mark the changes with clouds or a revision column.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A specification datasheet whose object has a <a href="#doc-datasheet-document">datasheet document</a></dd>
     <dt>Who</dt><dd>Any project role</dd>
@@ -932,9 +960,12 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Change P-101's speed on its datasheet.</td><td>That line shows a small box with B beside the value; pointing at it says “Changed since the issued revision; issued next in B”. The other lines have no mark.</td></tr>
-      <tr><td>2</td><td>Issue revision B of the datasheet document.</td><td>The marks are gone until the next change.</td></tr>
+      <tr><td>2</td><td>Issue revision B of the datasheet document.</td><td>The marks are gone until the next change. In its PDF each changed field has a cloud with a triangle holding B.</td></tr>
+      <tr><td>3</td><td>In Project settings → Documents → <span class="ui">Deliverables</span>, set <span class="ui">Changes on datasheets</span> to <span class="ui">Revision column</span>, <span class="ui">Revision column shows</span> to <span class="ui">Revision and version</span> and <span class="ui">Revision column position</span> to <span class="ui">Left side of the sheet</span>.</td><td>Each is saved at once.</td></tr>
+      <tr><td>4</td><td>Change P-101's speed again and click <span class="ui">Create version…</span> → <span class="ui">Create version</span> in the datasheet document's window, then <span class="ui">Open PDF of C.1</span>.</td><td>The PDF has a narrow column headed REV on the left; the speed's line shows C.1 in it, with no cloud. A version marks what changed since the newest version or revision; a revision what changed since the last issued revision.</td></tr>
     </tbody>
   </table></div>
+  <p class="g-note">Use the revision column on crowded datasheets, where clouds would cover other values. Revision only shows the revision a version leads to (C); Version only its counter (1); a revision always shows its own label.</p>
   <p class="g-related">Related: <a href="guide-documents.html#doc-spec-datasheets">Specification datasheets</a>, <a href="guide-documents.html#doc-datasheet-document">Datasheet documents</a></p>
 </section>
 
