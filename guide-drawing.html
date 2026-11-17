@@ -100,7 +100,7 @@
           <li><a href="#draw-connector">Draw pipes, signals and cables with Connector</a></li>
           <li><a href="#draw-connection-rules">Connection rules: one pipe per nozzle, lines that follow and heal</a></li>
           <li><a href="#draw-select">Select symbols, lines and notes</a></li>
-          <li><a href="#draw-arrange">Move, flip, resize and align</a></li>
+          <li><a href="#draw-arrange">Move, flip, rotate, resize and align</a></li>
           <li><a href="#draw-clipboard">Undo, redo, copy, paste and duplicate</a></li>
           <li><a href="#draw-delete">Delete on the drawing: the placement or the object</a></li>
           <li><a href="#draw-tags-labels">Tags, names and line numbers on the 2D space</a></li>
@@ -465,11 +465,11 @@
 </section>
 
 <section class="g-feature" id="draw-arrange">
-  <h2>Move, flip, resize and align</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3</span><span>Review check B5</span></div>
-  <p class="g-summary">Drag the selection to move it; connected lines follow and stay square. Flip a symbol, resize it with its grips, or line several symbols up with the Align menu.</p>
+  <h2>Move, flip, rotate, resize and align</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3, M3.15</span><span>Review check B5</span></div>
+  <p class="g-summary">Drag the selection to move it; connected lines follow and stay square. Flip or rotate a symbol, resize it with its grips, or line several symbols up with the Align menu.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Flip</span> and <span class="ui">Align</span> ▾; right-click a symbol → <span class="ui">Flip</span> ▸ <span class="ui">Horizontal</span> / <span class="ui">Vertical</span></dd>
+    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Flip</span>, <span class="ui">Rotate symbol</span> and <span class="ui">Align</span> ▾; right-click a symbol → <span class="ui">Flip</span> ▸ <span class="ui">Horizontal</span> / <span class="ui">Vertical</span>, <span class="ui">Rotate</span> ▸ <span class="ui">Clockwise</span> / <span class="ui">Counter-clockwise</span> / <span class="ui">Half turn</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A 2D space with several connected symbols is open.</dd>
   </dl>
@@ -480,10 +480,12 @@
       <tr><td>1</td><td>Select a pump and drag it.</td><td>It moves; its pipes follow and stay horizontal or vertical.</td></tr>
       <tr><td>2</td><td>Press <kbd>F</kbd> (or click <span class="ui">Flip</span>).</td><td>The pump is mirrored. Doing it again turns it back.</td></tr>
       <tr><td>3</td><td>Right-click the pump → <span class="ui">Flip</span> ▸ <span class="ui">Vertical</span>.</td><td>The pump is mirrored top to bottom.</td></tr>
-      <tr><td>4</td><td>With one symbol selected, drag the grip on its right side (<span class="ui">Resize e</span>).</td><td>The symbol grows along its flow direction. The top and bottom grips (<span class="ui">Resize n</span>, <span class="ui">Resize s</span>) scale across it; the corner grips scale both ways. Its line width stays the same.</td></tr>
-      <tr><td>5</td><td>Select two or more symbols, click <span class="ui">Align</span> ▾ and choose <span class="ui">Align top</span>.</td><td>The menu offers <span class="ui">Align left</span>, <span class="ui">Align center</span>, <span class="ui">Align right</span>, <span class="ui">Align top</span>, <span class="ui">Align middle</span>, <span class="ui">Align bottom</span>, <span class="ui">Distribute horizontally</span>, <span class="ui">Distribute vertically</span> and <span class="ui">Same size</span>. The symbols line up at the top; connected pipes stay horizontal or vertical.</td></tr>
-      <tr><td>6</td><td>Select three symbols and choose <span class="ui">Align</span> ▾ → <span class="ui">Distribute horizontally</span>.</td><td>They are spaced evenly. Distribute needs three or more items.</td></tr>
-      <tr><td>7</td><td>Select two symbols and choose <span class="ui">Same size</span>.</td><td>The second takes the size of the first one selected.</td></tr>
+       <tr><td>4</td><td>Select the pump and press <kbd>R</kbd> (or click <span class="ui">Rotate symbol</span>).</td><td>It turns a quarter turn clockwise about its middle; its nozzles turn with it and its pipes follow, kept horizontal or vertical. <kbd>Shift</kbd>+<kbd>R</kbd> turns it counter-clockwise.</td></tr>
+       <tr><td>5</td><td>Right-click the pump → <span class="ui">Rotate</span> ▸ <span class="ui">Half turn</span>.</td><td>The pump turns half a turn. A mirrored symbol stays mirrored.</td></tr>
+      <tr><td>6</td><td>With one symbol selected, drag the grip on its right side (<span class="ui">Resize e</span>).</td><td>The symbol grows along its flow direction. The top and bottom grips (<span class="ui">Resize n</span>, <span class="ui">Resize s</span>) scale across it; the corner grips scale both ways. Its line width stays the same.</td></tr>
+      <tr><td>7</td><td>Select two or more symbols, click <span class="ui">Align</span> ▾ and choose <span class="ui">Align top</span>.</td><td>The menu offers <span class="ui">Align left</span>, <span class="ui">Align center</span>, <span class="ui">Align right</span>, <span class="ui">Align top</span>, <span class="ui">Align middle</span>, <span class="ui">Align bottom</span>, <span class="ui">Distribute horizontally</span>, <span class="ui">Distribute vertically</span> and <span class="ui">Same size</span>. The symbols line up at the top; connected pipes stay horizontal or vertical.</td></tr>
+      <tr><td>8</td><td>Select three symbols and choose <span class="ui">Align</span> ▾ → <span class="ui">Distribute horizontally</span>.</td><td>They are spaced evenly. Distribute needs three or more items.</td></tr>
+      <tr><td>9</td><td>Select two symbols and choose <span class="ui">Same size</span>.</td><td>The second takes the size of the first one selected.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">With lines selected, <kbd>F</kbd> flips their flow direction instead (<a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a>).</p>
