@@ -129,8 +129,9 @@
         if (meta) meta.textContent = file.label + (file.size ? " · " + size(file.size) : "");
       } else {
         // Not published yet: the button stays on its row, unless it names a page (the iPad guide).
+        // "#get-now" alone would follow the page's <base> (../ on a translated page) to another page.
         var soon = btn.getAttribute("data-soon-href");
-        btn.href = soon || "#get-now";
+        btn.href = soon || location.href.split("#")[0] + "#get-now";
         btn.setAttribute("aria-disabled", "true");
         btn.classList.add("is-soon");
         if (meta) meta.textContent = platform.store ? platform.store.label + " · " + T("Coming soon") : T("Coming soon");

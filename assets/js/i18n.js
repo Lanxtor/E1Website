@@ -35,9 +35,12 @@
     return PAGES.indexOf(name) >= 0 ? prefix(cur) + h : h;
   }
 
-  /* The same page in another language (relative to the site root / base). */
+  /* The same page in another language (relative to the site root / base).
+     A page that is not translated offers the home page of the other
+     languages, without this page's #part. */
   function hrefFor(code) {
-    return (translated ? prefix(code) + page : (code === "en" ? page : prefix(code) + "index.html")) + location.hash;
+    if (!translated && code !== "en") return prefix(code) + "index.html";
+    return (translated ? prefix(code) + page : page) + location.hash;
   }
 
   function t(s, vars) {
