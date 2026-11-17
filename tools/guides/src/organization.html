@@ -1131,3 +1131,26 @@
   </ul>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="guide-collaboration.html#col-merge-requests">Merge requests</a></p>
 </section>
+
+<section class="g-feature" id="org-restricted-data">
+  <h2>Restricted data: Alex, tokens and the audit log</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span class="g-id">ORG-restricted-data</span><span>Roadmap 10.2</span></div>
+  <p class="g-summary">What E1 does with projects, objects and attributes classified <span class="ui">Restricted</span> (see <a href="guide-objects.html#obj-classification">Classify data</a>), and the one choice the organization makes about it: whether Alex may read it.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Configuration → <span class="ui">Organization</span> → <span class="ui">Privacy</span> → <span class="ui">Alex and restricted data</span>; <span class="ui">File → Organization… → Audit</span></dd>
+    <dt>Who</dt><dd>Everyone sees the setting. Changing it needs the permission to manage the organization's policies; E1 may ask you to confirm it is you.</dd>
+    <dt>Before you start</dt><dd>The audit log and tokens need E1 with sign-in.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Ask Alex about a Restricted pump.</td><td>Alex answers without its values: they reach the language model as <code>[restricted]</code>.</td></tr>
+      <tr><td>2</td><td>Configuration → <span class="ui">Privacy</span>: tick <span class="ui">Let Alex read restricted data</span>.</td><td><span class="ui">Saved. Alex reads restricted objects and values like any other.</span> Untick it to leave them out again.</td></tr>
+      <tr><td>3</td><td>Open a Restricted object's page, then <span class="ui">File → Organization… → Audit</span>.</td><td>The read is listed as <code>object.restricted_read</code>, with who read it. Each change of a level is listed as <code>project.classification_changed</code>, <code>object.classification_changed</code> or <code>attribute.classification_changed</code>, with before and after.</td></tr>
+      <tr><td>4</td><td>Read a Restricted object with an access token whose roles do not include <span class="ui">Read restricted data</span>.</td><td>The API refuses it and leaves it out of lists. Give the token's person or service account a custom role with <span class="ui">Read restricted data</span> to allow it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-warn">Exporting anything Restricted (a list, an object's attributes, a datasheet, a 2D space as PDF or DEXPI) asks you to confirm it is you, as signing in again does.</p>
+  <p class="g-related">Related: <a href="guide-objects.html#obj-classification">Classify data</a> · <a href="#org-history-names">Show groups instead of names</a> · <a href="#org-tokens">Access tokens</a> · <a href="#org-audit">Audit</a></p>
+</section>
