@@ -766,12 +766,12 @@
 
 <section class="g-feature" id="draw-loop-diagram">
   <h2>Loop diagrams: preview, PDF, version and revision</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-16</span><span class="g-id">DRAW-loop-diagram</span><span>Roadmap 06.4, 28.9</span><span>Review checks E5, E6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-loop-diagram</span><span>Roadmap 06.4, 28.9</span><span>Review checks E5, E6</span></div>
   <p class="g-summary">E1 draws the loop diagram of a control function from the model whenever you look at it: the instruments that implement it and the devices it controls, in signal order, with their wiring. Nothing is stored while you preview. Export a PDF to send it to someone, or create a version or a revision: only then is it stored in <span class="ui">Documents</span>, where you can move symbols by hand and Regenerate keeps your moves.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click a function in the explorer → <span class="ui">Preview loop diagram</span>, or the function's Properties → <span class="ui">Preview loop diagram</span></dd>
     <dt>Who</dt><dd>Anyone who may view the project previews; Export PDF needs a role that may export; Create version… and Create revision… need a role that may make documents</dd>
-    <dt>Before you start</dt><dd>A function TIC-101 under <span class="ui">Systems</span>; a transmitter TT-101 that implements it (<a href="guide-objects.html#obj-relationships">Relationships</a>), wired through to an I/O channel (<a href="guide-wiring.html#wire-loop-diagram">Loop diagrams from the wiring</a>).</dd>
+    <dt>Before you start</dt><dd>A function TIC-101 under <span class="ui">Systems</span>; a transmitter TT-101 that implements it (<a href="guide-objects.html#obj-relationships">Relationships</a>). Its wiring may be unfinished (<a href="guide-wiring.html#wire-loop-diagram">Loop diagrams from the wiring</a>).</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
@@ -784,7 +784,7 @@
       <tr><td>5</td><td>Pick TIC-101 and FIC-102 with <kbd>Ctrl</kbd> (<kbd>Cmd</kbd> on a Mac), right-click → <span class="ui">Preview loop diagrams (2)</span>.</td><td>The preview pages through both with <span class="ui">Previous</span> and <span class="ui">Next</span>; <span class="ui">Create revisions for all 2…</span> creates their revisions with one sign-off.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The preview is read-only: "This is a preview: nothing on it can change." Until the loop's wiring is complete, <span class="ui">Preview loop diagram</span> is greyed and says what is missing. A function nothing implements has no loop diagram. In a stored loop diagram a line drawn between two devices becomes a signal in the model.</p>
+  <p class="g-note">The preview is read-only: "This is a preview: nothing on it can change." While the loop's wiring is not finished, a note above the drawing says what is missing; export and issue work all the same. An empty function (no device under it) has no loop diagram. In a stored loop diagram a line drawn between two devices becomes a signal in the model.</p>
   <p class="g-related">Related: <a href="guide-objects.html#obj-relationships">Relationships</a> · <a href="guide-wiring.html#wire-loop-diagram">Loop diagrams from the wiring</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-documents.html#doc-sheet-pdf">2D space PDF</a></p>
 </section>
 
