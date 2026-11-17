@@ -42,49 +42,102 @@
       <tr><td>7</td><td>Drag with the middle mouse button, or with the right button held down.</td><td>The drawing pans, whatever tool is active. A right-click without moving opens a menu instead.</td></tr>
       <tr><td>8</td><td>Right-click empty space and choose <span class="ui">Fit drawing</span>.</td><td>The whole drawing is shown, as with the status bar button.</td></tr>
       <tr><td>8</td><td>Hold <kbd>Shift</kbd> and turn the mouse wheel.</td><td>The drawing pans sideways.</td></tr>
-      <tr><td>9</td><td>Click <span class="ui">Pan</span> on the toolbar (or press <kbd>H</kbd>), then drag with the left button.</td><td>The status bar reads <span class="ui">Pan</span>, and a left-drag pans. Press <kbd>V</kbd> or click <span class="ui">Select</span> to go back to selecting.</td></tr>
+      <tr><td>9</td><td>Click <span class="ui">Pan</span> in the palette (or press <kbd>H</kbd>), then drag with the left button.</td><td>The status bar reads <span class="ui">Pan</span>, and a left-drag pans. Press <kbd>V</kbd> or click <span class="ui">Select</span> to go back to selecting.</td></tr>
       <tr><td>10</td><td>With <span class="ui">Select</span> active, hold <kbd>Space</kbd> and drag.</td><td>The drawing pans while Space is held.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The space name at the right end of the toolbar's first row (for example <span class="ui">Assets</span>) names the space this 2D space draws.</p>
+  <p class="g-note">The space name at the left of the bar (for example <span class="ui">Assets</span>) names the space this 2D space draws.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-toolbar">The drawing toolbar</a> · <a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a> · <a href="guide-getting-started.html#gs-shortcuts">Keyboard shortcuts</a> · <a href="guide-getting-started.html#gs-layout">The E1 window</a></p>
 </section>
 
 <section class="g-feature" id="draw-toolbar">
-  <h2>The drawing toolbar and the formatting bar</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-10</span><span class="g-id">DRAW-toolbar</span><span>Roadmap M3.3, M3.11</span></div>
-  <p class="g-summary">The toolbar above the 2D space has three rows: what to add, the editing tools, and the formatting of text and lines. Every button shows its name when you point at it.</p>
+  <h2>The drawing's bar, palette and Selection panel</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-toolbar</span><span>Roadmap M3.3, M3.11, M3.14</span></div>
+  <p class="g-summary">An open 2D space has one bar at the top, a palette on the left with the tools of the mode you are in, and a Selection panel on the right that opens only while something is selected. Every button shows its name when you point at it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Above an open 2D space</dd>
-    <dt>Who</dt><dd>Everyone sees it; the editing buttons need edit rights on the drawing</dd>
+    <dt>Where</dt><dd>Around an open 2D space</dd>
+    <dt>Who</dt><dd>Everyone sees them; the editing tools need edit rights on the drawing</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
-  <figure class="g-shot g-small"><img src="assets/img/guides/sheet-toolbar.webp" alt="The drawing toolbar: Object and Asset, Connector and Flow lines, and the space name Assets; below the tools Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align and Layers; below that Font, text color, B I U S, A− A+, Rotate, Line thickness, line color, Style, minus and plus" width="1596" height="246" loading="lazy"><figcaption>The three rows of the drawing toolbar.</figcaption></figure>
-  <h3>What is on it</h3>
+  <figure class="g-shot g-small"><img src="assets/img/guides/sheet-toolbar.webp" alt="The 2D space with its bar: the space name, Undo, Redo and the modes Design, Review and Simulate; on the left the palette with Select, Pan, Connect (Flow lines, Cable, Wire, Logic), Pinned, Recent, Add…, Text and Tag" width="1596" height="246" loading="lazy"><figcaption>The bar and the Design palette.</figcaption></figure>
+  <h3>What is where</h3>
   <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>Row</th><th>Control</th><th>What it does</th></tr></thead>
+    <thead><tr><th>Place</th><th>Control</th><th>What it does</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td><span class="ui">Object</span> with <span class="ui">Object type</span> (shows <span class="ui">Asset</span>)</td><td>Adds an object of the chosen type; Asset opens the <span class="ui">Add asset</span> window. See <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> and <a href="guide-drawing.html#draw-object-types">Object types</a>.</td></tr>
-      <tr><td>1</td><td><span class="ui">Connector</span> with <span class="ui">Connector type</span> (shows <span class="ui">Flow lines</span>)</td><td>Draws lines of the chosen kind. See <a href="guide-drawing.html#draw-connector">Connector</a>.</td></tr>
-      <tr><td>2</td><td><span class="ui">Select</span> (<kbd>V</kbd>), <span class="ui">Pan</span> (<kbd>H</kbd>)</td><td>The pointer tools.</td></tr>
-      <tr><td>2</td><td><span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>, <span class="ui">Delete</span></td><td>Editing. Delete is greyed out with nothing selected. See <a href="guide-drawing.html#draw-clipboard">Copy, paste and undo</a>.</td></tr>
-      <tr><td>2</td><td><span class="ui">Text</span>, <span class="ui">Tag</span></td><td>Place a text note; tag a symbol. See <a href="guide-drawing.html#draw-text">Text notes</a> and <a href="guide-drawing.html#draw-tags-labels">Tags on the 2D space</a>.</td></tr>
-      <tr><td>2</td><td>Frame tools (only while a system or area is picked)</td><td>Draw a rectangle, circle or freehand frame. See <a href="guide-drawing.html#draw-frames">Frames</a>.</td></tr>
-      <tr><td>2</td><td><span class="ui">Flip</span>, <span class="ui">Align</span> ▾, <span class="ui">Layers</span> ▾</td><td>See <a href="guide-drawing.html#draw-arrange">Move, flip, resize, align</a> and <a href="guide-drawing.html#draw-layers">Layers</a>.</td></tr>
-      <tr><td>3</td><td>Text format: <span class="ui">Font</span>, <span class="ui">Text color</span>, <span class="ui">Bold</span>, <span class="ui">Italic</span>, <span class="ui">Underline</span>, <span class="ui">Strikethrough</span>, <span class="ui">Smaller</span>, <span class="ui">Larger</span>, <span class="ui">Rotate</span></td><td>Greyed out until a note or a symbol name is selected. See <a href="guide-drawing.html#draw-text">Text notes</a>.</td></tr>
-      <tr><td>3</td><td>Line style: <span class="ui">Line thickness</span>, <span class="ui">Line color</span>, <span class="ui">Style</span>, <span class="ui">Thinner</span>, <span class="ui">Thicker</span></td><td>Greyed out until a line is selected. See <a href="guide-drawing.html#draw-line-style">Line style</a>.</td></tr>
+      <tr><td>The bar, left</td><td>The space name, <span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Branches</span> (in main) or <span class="ui">Show main</span> (in a branch)</td><td>The name is a link to its row in the explorer. See <a href="guide-drawing.html#draw-clipboard">Copy, paste and undo</a>.</td></tr>
+      <tr><td>The bar, middle</td><td><span class="ui">Design</span>, <span class="ui">Review</span>, <span class="ui">Simulate</span></td><td>The mode: it chooses what the palette holds. See <a href="guide-drawing.html#draw-modes">Design, Review and Simulate</a>.</td></tr>
+      <tr><td>The palette (Design)</td><td><span class="ui">Select</span> (<kbd>V</kbd>), <span class="ui">Pan</span> (<kbd>H</kbd>), Connect: <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span>, <span class="ui">Logic</span>; <span class="ui">Pinned</span>, <span class="ui">Recent</span>, <span class="ui">Add…</span>; <span class="ui">Text</span>, <span class="ui">Tag</span>; <span class="ui">Balance</span> on a process flow diagram</td><td>See <a href="guide-drawing.html#draw-connector">Connector</a>, <a href="guide-drawing.html#draw-palette">Pinned and Recent</a>, <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> and <a href="guide-drawing.html#draw-text">Text notes</a>.</td></tr>
+      <tr><td>The palette</td><td>Frame tools (only while a system or area is picked)</td><td>Draw a rectangle, circle or freehand frame. See <a href="guide-drawing.html#draw-frames">Frames</a>.</td></tr>
+      <tr><td>The Selection panel</td><td>Text: <span class="ui">Font</span>, <span class="ui">Text color</span>, <span class="ui">Bold</span>, <span class="ui">Italic</span>, <span class="ui">Underline</span>, <span class="ui">Strikethrough</span>, <span class="ui">Smaller</span>, <span class="ui">Larger</span>, <span class="ui">Rotate</span></td><td>While a note or a symbol is selected. See <a href="guide-drawing.html#draw-text">Text notes</a>.</td></tr>
+      <tr><td>The Selection panel</td><td>Line: <span class="ui">Line thickness</span>, <span class="ui">Thinner</span>, <span class="ui">Thicker</span>, <span class="ui">Line color</span>, <span class="ui">Line style</span></td><td>While a line is selected. See <a href="guide-drawing.html#draw-line-style">Line style</a>.</td></tr>
+      <tr><td>The Selection panel</td><td>Arrange: <span class="ui">Flip</span>, <span class="ui">Align</span> ▾, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>, <span class="ui">Delete</span></td><td>See <a href="guide-drawing.html#draw-arrange">Move, flip, resize, align</a>.</td></tr>
+      <tr><td>The status bar, right</td><td><span class="ui">Frame</span>, <span class="ui">Layers</span> ▾, the zoom</td><td>See <a href="guide-documents.html#doc-sheet-frame">Show the sheet frame</a> and <a href="guide-drawing.html#draw-layers">Layers</a>.</td></tr>
     </tbody>
   </table></div>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a 2D space and point at each button of the second row.</td><td>Each shows its name: Select, Pan, Undo, Redo, Copy, Paste, Duplicate, Delete, Text, Tag, Flip, Align, Layers.</td></tr>
-      <tr><td>2</td><td>With nothing selected, look at the third row.</td><td>All format controls are greyed out; <span class="ui">Font</span>, <span class="ui">Line thickness</span> and <span class="ui">Style</span> show their names.</td></tr>
-      <tr><td>3</td><td>Select a pipe.</td><td>The line style controls become active; the text format controls stay greyed out. The toolbar keeps its height.</td></tr>
+      <tr><td>1</td><td>Open a 2D space and point at each button of the palette.</td><td>Each shows its name: Select, Pan, Flow lines, Cable, Wire, Logic, Add…, Text, Tag.</td></tr>
+      <tr><td>2</td><td>With nothing selected, look at the right of the 2D space.</td><td>No Selection panel: the drawing has the room.</td></tr>
+      <tr><td>3</td><td>Select a pipe.</td><td>The Selection panel opens on the right with <span class="ui">Line</span> and <span class="ui">Arrange</span>; the drawing does not move.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">«</span> at the top right of the palette.</td><td>The palette folds to its icons; <span class="ui">»</span> unfolds it. It stays as you left it.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-modes">Design, Review and Simulate</a> · <a href="guide-drawing.html#draw-palette">Pinned and Recent</a> · <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
+</section>
+
+<section class="g-feature" id="draw-modes">
+  <h2>Design, Review and Simulate</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span class="g-id">DRAW-modes</span><span>Roadmap M3.14</span></div>
+  <p class="g-summary">A 2D space is drawn, reviewed or simulated. The three modes at the top of it choose what the palette on the left holds, so you only see the tools of what you are doing.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The middle of the bar above an open 2D space</dd>
+    <dt>Who</dt><dd>Everyone; drawing needs edit rights, a Reviewer can mark up</dd>
+    <dt>Before you start</dt><dd>A 2D space is open.</dd>
+  </dl>
+  <ul>
+    <li><span class="ui">Design</span>: Connect, Pinned, Recent, Add…, Text, Tag, the frame tools and, on a process flow diagram, <span class="ui">Balance</span>.</li>
+    <li><span class="ui">Review</span>: <span class="ui">Markup</span>, <span class="ui">Markups list</span> and <span class="ui">Changes since…</span>. Leaving Review turns Markup off.</li>
+    <li><span class="ui">Simulate</span>: <span class="ui">Animate flow</span> (<span class="ui">Animate current</span> on electrical sheets). Its own bar holds the trend, the alarms and the speed. Leaving Simulate stops the animation.</li>
+  </ul>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open a 2D space.</td><td><span class="ui">Design</span> is on; the palette shows Connect and <span class="ui">Add…</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Review</span>, then <span class="ui">Markup</span>.</td><td>Markup mode is on (a red frame). The palette shows Markup, Markups list and Changes since….</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Design</span>.</td><td>Markup is off again; the palette shows the drawing tools.</td></tr>
+      <tr><td>4</td><td>Press <kbd>M</kbd> on the 2D space.</td><td>Markup turns on and the mode moves to <span class="ui">Review</span> by itself.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Simulate</span>, then <span class="ui">Animate flow</span>.</td><td>The flow moves; the animation's bar shows the time, the speed and Trend.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-toolbar">The bar, palette and Selection panel</a> · <a href="guide-drawing.html#draw-redlining">Markups</a> · <a href="guide-documents.html#doc-changes-since">Changes since</a> · <a href="guide-drawing.html#draw-animate-flow">Animate flow</a></p>
+</section>
+
+<section class="g-feature" id="draw-palette">
+  <h2>Pinned and Recent in the palette</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span class="g-id">DRAW-palette</span><span>Roadmap M3.14</span></div>
+  <p class="g-summary">The shapes and modules you use most stay one click away. What you place shows under Recent; what you pin stays under Pinned. Both are your own, kept in this browser, and the Add window's tab <span class="ui">Recent &amp; pinned</span> shows the same.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The Design palette, under Connect; the Add window → <span class="ui">Recent &amp; pinned</span></dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A 2D space is open in <span class="ui">Design</span>.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Place a <span class="ui">Gate valve</span> (<a href="guide-drawing.html#draw-place-symbol">Place a symbol</a>).</td><td>The gate valve shows under <span class="ui">Recent</span> in the palette.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add…</span>, then <span class="ui">Shapes</span>, choose <span class="ui">Centrifugal pump</span> and click <span class="ui">Pin to palette</span>.</td><td>The button reads <span class="ui">Pinned</span>. Close the window: the pump is under <span class="ui">Pinned</span> in the palette.</td></tr>
+      <tr><td>3</td><td>Click the pump's tile in the palette, then click the 2D space twice.</td><td>A pump is placed with the next free name, as from the Add window.</td></tr>
+      <tr><td>4</td><td>Drag the gate valve's tile onto the middle of a pipe.</td><td>The valve goes into the line there.</td></tr>
+      <tr><td>5</td><td>Right-click the pump's tile.</td><td>A menu: <span class="ui">Unpin from the palette</span>, <span class="ui">Remove from recent</span>.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Add…</span> and the tab <span class="ui">Recent &amp; pinned</span>.</td><td>The same shapes and modules, with their names; a star pins or unpins each.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A module is read again from the library when you place it from the palette: one that cannot be placed here any more says why.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-module-place">Place a module</a> · <a href="guide-drawing.html#draw-toolbar">The bar, palette and Selection panel</a></p>
 </section>
 
 <section class="g-feature" id="draw-aids">
@@ -116,28 +169,30 @@
 
 <section class="g-feature" id="draw-place-symbol">
   <h2>Place a symbol</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-11</span><span class="g-id">DRAW-place-symbol</span><span>Roadmap M3.11, M1.1b</span><span>Review checks B2, B3, A3</span></div>
-  <p class="g-summary">You place equipment, valves and instruments from the <span class="ui">Add asset</span> window, tab <span class="ui">Shapes</span>; its tab <span class="ui">Modules</span> places a whole saved module (<a href="#draw-module-place">Place a module</a>). Each symbol you place is a new object in the project with its next free name or tag. Two clicks set its inlet and outlet, so you choose its direction and size as you place it.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-place-symbol</span><span>Roadmap M3.11, M1.1b, M3.14</span><span>Review checks B2, B3, A3</span></div>
+  <p class="g-summary">You place equipment, valves and instruments from the <span class="ui">Add</span> window, tab <span class="ui">Shapes</span>; its tab <span class="ui">Modules</span> places a whole saved module (<a href="#draw-module-place">Place a module</a>). Each symbol you place is a new object in the project with its next free name or tag. Two clicks set its inlet and outlet, so you choose its direction and size as you place it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object</span> while <span class="ui">Object type</span> shows <span class="ui">Asset</span>, or <span class="ui">Object type</span> → <span class="ui">Asset</span></dd>
+    <dt>Where</dt><dd>The Design palette → <span class="ui">Add…</span> → <span class="ui">Shapes</span>; again from <span class="ui">Pinned</span> or <span class="ui">Recent</span> in the palette</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
-  <h3>The Add asset window</h3>
+  <h3>The Add window</h3>
   <ul>
+    <li>At the top, <span class="ui">Connect</span>: <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> and <span class="ui">Logic</span> (<a href="guide-drawing.html#draw-connector">Connector</a>).</li>
+    <li>The tabs <span class="ui">Recent &amp; pinned</span>, <span class="ui">Shapes</span>, <span class="ui">Modules</span>, <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span> and <span class="ui">Areas</span>. It opens on the tab you used last. On Shapes:</li>
     <li><span class="ui">Search symbols</span> finds symbols by name, type, standard, key, class or diagram type.</li>
     <li>The filter menus <span class="ui">Standard</span> and <span class="ui">Diagram</span> have check boxes with counts and a <span class="ui">Show all</span> button. <span class="ui">Clear filters</span> resets them. On a 2D space with a diagram type, the Diagram filter starts on that type.</li>
     <li>On the left, <span class="ui">All</span> with a count and the class tree.</li>
     <li>The <span class="ui">Name</span> field is filled with the next free name.</li>
     <li>The symbol grid, grouped by kind; on <span class="ui">All</span>, a <span class="ui">Recent</span> group comes first.</li>
     <li>The details of the chosen symbol, with <span class="ui">Diagram types</span> check boxes. Ticking one sets that diagram type for the shape across the project. With nothing chosen it says "Select a symbol to see its details."</li>
-    <li><span class="ui">Cancel</span> and <span class="ui">Add to diagram</span>. A double-click on a symbol adds it at once; the arrow keys move the choice.</li>
+    <li><span class="ui">Pin to palette</span>, <span class="ui">Cancel</span> and <span class="ui">Add to diagram</span>. A double-click on a symbol adds it at once; the arrow keys move the choice.</li>
   </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Object</span> on the toolbar (its type shows <span class="ui">Asset</span>).</td><td>The <span class="ui">Add asset</span> window opens. <kbd>Esc</kbd> would close it.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Add…</span> in the palette, then the tab <span class="ui">Shapes</span>.</td><td>The <span class="ui">Add</span> window opens on Shapes. <kbd>Esc</kbd> would close it.</td></tr>
       <tr><td>2</td><td>Type "centrifugal" in <span class="ui">Search symbols</span>.</td><td>The grid shows only the matching symbols. A search with no match shows "No symbols match "…"."</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Centrifugal pump</span>, type the name P-NEW in <span class="ui">Name</span>, then click <span class="ui">Add to diagram</span>.</td><td>The window closes. The status bar reads <span class="ui">Place asset</span> with the hint "Click to set the inlet, then the outlet. Placing repeats for the next one; right-click or Esc stops. F flips the symbol."</td></tr>
       <tr><td>4</td><td>Click once on an empty spot of the 2D space.</td><td>The inlet is set, and a ghost of the pump follows the pointer. A first or second click near the end point of a pipe or a nozzle takes that point, so the symbol connects there.</td></tr>
@@ -149,17 +204,17 @@
       <tr><td>10</td><td>Look at the explorer under <span class="ui">Assets</span>.</td><td>The new pumps and the valve are there as objects. Pumps whose class has a tag rule get tags such as P-001, P-002.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/asset-window.webp" alt="The Add asset window: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add asset window, opened from the Object button.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/asset-window.webp" alt="The Add window on Shapes: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add window, opened from Add… in the palette.</figcaption></figure>
   <p class="g-note">The tags come from your project's tag rules (<a href="guide-objects.html#obj-tag-rules">Tag rules</a>). To place an object that already exists, drag it from the explorer or use <span class="ui">Place on drawing…</span> (<a href="guide-drawing.html#draw-drop-from-explorer">Place from the explorer</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-object-types">Object types</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-standards">Process and instrument symbols</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-new-object">Create an object</a></p>
 </section>
 
 <section class="g-feature" id="draw-object-types">
-  <h2>Add other objects with the Object button</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-object-types</span><span>Roadmap M3.11</span></div>
-  <p class="g-summary">The <span class="ui">Object</span> button adds more than assets. Its type menu also makes unit operations, systems, processes and areas while you draw, and the button remembers the type you used last.</p>
+  <h2>Add other objects from the Add window</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-object-types</span><span>Roadmap M3.11, M3.14</span></div>
+  <p class="g-summary">The Add window adds more than assets. Its tabs <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span> and <span class="ui">Areas</span> make those objects while you draw.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object type</span> (the right part of the Object button)</dd>
+    <dt>Where</dt><dd>The Design palette → <span class="ui">Add…</span> → the tab of the kind</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
@@ -167,10 +222,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Object type</span>.</td><td>A menu with <span class="ui">Unit operation</span>, <span class="ui">Asset</span>, <span class="ui">System</span>, <span class="ui">Process</span> and <span class="ui">Area</span>; Asset is checked the first time.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Area</span>.</td><td>The dialog "New object in Areas" opens.</td></tr>
-      <tr><td>3</td><td>In the classes, click <span class="ui">Area</span>, type the name "Area North", then click <span class="ui">Create</span>.</td><td>You are back on the 2D space. The frame tools for area Area North appear on the toolbar, and the button now reads <span class="ui">Area</span>.</td></tr>
-      <tr><td>4</td><td>Reload the page and look at the Object button.</td><td>It still shows the last type you chose (the choice is kept in this browser).</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Add…</span> in the palette.</td><td>The <span class="ui">Add</span> window, with the tabs <span class="ui">Recent &amp; pinned</span>, <span class="ui">Shapes</span>, <span class="ui">Modules</span>, <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span> and <span class="ui">Areas</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Areas</span>, then <span class="ui">New area…</span>.</td><td>The dialog "New object in Areas" opens.</td></tr>
+      <tr><td>3</td><td>In the classes, click <span class="ui">Area</span>, type the name "Area North", then click <span class="ui">Create</span>.</td><td>You are back on the 2D space. The frame tools for area Area North appear in the palette.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Add…</span> again.</td><td>The window opens on <span class="ui">Areas</span>, the tab you used last.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">The dialog is the same one the explorer opens for a new object (<a href="guide-objects.html#obj-new-object">Create an object</a>). Drawing a frame for the new area is described in <a href="guide-drawing.html#draw-frames">Frames</a>.</p>
@@ -179,10 +234,10 @@
 
 <section class="g-feature" id="draw-connector">
   <h2>Draw pipes, signals and cables with Connector</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11</span><span>Review checks B4, A3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11, M3.14</span><span>Review checks B4, A3</span></div>
   <p class="g-summary">Connector draws the lines between symbols: flow lines (pipes), cables, wires and logic signals. Every line is an object in the model and connects the symbols it touches, so the connection shows in lists and in Highlight flow.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Connector</span>; the kind in <span class="ui">Connector type</span>.</dd>
+    <dt>Where</dt><dd>The Design palette → Connect: <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> or <span class="ui">Logic</span>; also at the top of the Add window.</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A 2D space with at least two symbols is open.</dd>
   </dl>
@@ -190,14 +245,14 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Connector type</span>.</td><td>A menu with <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> and <span class="ui">Logic</span>, each with its colour swatch.</td></tr>
-      <tr><td>2</td><td>Choose <span class="ui">Flow lines</span>, then click <span class="ui">Connector</span>.</td><td>The button is highlighted. The status bar reads <span class="ui">Connector · Flow lines</span> with the hint "Click point by point to draw; each segment stays horizontal or vertical. Clicking a nozzle or a line connects and ends the run; Esc or a double-click ends it too, and right-click leaves the Connector."</td></tr>
+      <tr><td>1</td><td>Look at Connect in the palette.</td><td><span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> and <span class="ui">Logic</span>, each with its colour swatch.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Flow lines</span>.</td><td>The button is highlighted. The status bar reads <span class="ui">Connector · Flow lines</span> with the hint "Click point by point to draw; each segment stays horizontal or vertical. Clicking a nozzle or a line connects and ends the run; Esc or a double-click ends it too, and right-click leaves the Connector."</td></tr>
       <tr><td>3</td><td>Drag from the outlet of one pump to the inlet of a valve.</td><td>One routed pipe is drawn, and the two symbols are connected. The pipe shows its flow arrow.</td></tr>
       <tr><td>4</td><td>Click on an empty spot of the 2D space, then click a few more points.</td><td>Each click adds a segment from where the last one ended. The line being drawn looks like its kind.</td></tr>
       <tr><td>5</td><td>Click on a nozzle, a symbol or another line.</td><td>The run connects there and ends. Ending on a pipe makes a junction that splits it; ending within 8 pixels of a symbol attaches to it.</td></tr>
       <tr><td>6</td><td>Start another run, then press <kbd>Esc</kbd> or double-click.</td><td>The run ends, and Connector stays on.</td></tr>
       <tr><td>7</td><td>Right-click on the 2D space.</td><td>You leave Connector: the status bar reads <span class="ui">Select</span>, and no menu opens.</td></tr>
-      <tr><td>8</td><td>Choose <span class="ui">Logic</span> in <span class="ui">Connector type</span> and draw a line between two instruments.</td><td>Connector starts with Logic; the line is dashed while you draw it. Cable, Wire and Logic lines have no flow arrows.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Logic</span> in the palette and draw a line between two instruments.</td><td>Connector starts with Logic; the line is dashed while you draw it. Cable, Wire and Logic lines have no flow arrows.</td></tr>
       <tr><td>9</td><td>Choose <span class="ui">Cable</span> and end a cable on a pump body.</td><td>A port is made on the pump's outline, and the cable ends there.</td></tr>
     </tbody>
   </table></div>
@@ -316,7 +371,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-delete</span><span>Roadmap M3.11</span><span>Review checks A3, C7</span></div>
   <p class="g-summary">Deleting one symbol asks whether to remove it only from this drawing, keeping the object in the project, or to delete the object. Deleted objects go to the Deleted bin, from where they can be restored.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd><kbd>Delete</kbd> or <kbd>Backspace</kbd>, the toolbar <span class="ui">Delete</span>, or right-click → <span class="ui">Delete</span></dd>
+    <dt>Where</dt><dd><kbd>Delete</kbd> or <kbd>Backspace</kbd>, <span class="ui">Delete</span> in the Selection panel, or right-click → <span class="ui">Delete</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A 2D space with symbols, lines and a note is open.</dd>
   </dl>
@@ -324,7 +379,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select V3 and click <span class="ui">Delete</span> on the toolbar.</td><td>The dialog "Delete V3" asks: "Remove only this placement, and keep the object in the project (under Assets), or delete the object? A deleted object goes to the Deleted bin, from where it can be restored." with <span class="ui">Cancel</span>, <span class="ui">Remove from this drawing</span> and <span class="ui">Delete the object</span>.</td></tr>
+      <tr><td>1</td><td>Select V3 and click <span class="ui">Delete</span> in the Selection panel.</td><td>The dialog "Delete V3" asks: "Remove only this placement, and keep the object in the project (under Assets), or delete the object? A deleted object goes to the Deleted bin, from where it can be restored." with <span class="ui">Cancel</span>, <span class="ui">Remove from this drawing</span> and <span class="ui">Delete the object</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Remove from this drawing</span>.</td><td>V3 leaves the 2D space but stays under <span class="ui">Assets</span> in the explorer; its shortcut row for the drawing goes.</td></tr>
       <tr><td>3</td><td>Select two symbols and press <kbd>Delete</kbd>.</td><td>Both go to the Deleted bin without a question.</td></tr>
       <tr><td>4</td><td>Select a line or a note and press <kbd>Delete</kbd>.</td><td>It is deleted at once.</td></tr>
@@ -339,7 +394,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-tags-labels</span><span>Roadmap M3.10, M1.7</span><span>Review check B3</span></div>
   <p class="g-summary">Every symbol shows its tag or name, and every tagged or named pipe run shows its line number along it. You can drag and rotate the labels, and tag a symbol by hand with the Tag tool. Renames by other people appear on the open drawing.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>On the 2D space; drawing toolbar → <span class="ui">Tag</span></dd>
+    <dt>Where</dt><dd>On the 2D space; the Design palette → <span class="ui">Tag</span></dd>
     <dt>Who</dt><dd>Everyone sees labels; moving them and tagging need edit rights</dd>
     <dt>Before you start</dt><dd>A 2D space with tagged symbols and pipes is open.</dd>
   </dl>
@@ -351,7 +406,7 @@
       <tr><td>2</td><td>Look along a tagged pipe run.</td><td>Its line number (for example L-101) is drawn along it.</td></tr>
       <tr><td>3</td><td>Press on a pump's name label and drag it away from the pump.</td><td>The label moves with the pointer and stays where you dropped it, also after a reload. The pump need not be selected first.</td></tr>
       <tr><td>4</td><td>Click the pump to select it, then drag the round handle above its name (<span class="ui">Rotate the name</span>).</td><td>The handle appears above the name only while the symbol is selected. The label turns in steps of 15°.</td></tr>
-      <tr><td>5</td><td>Select one pump, then click <span class="ui">Tag</span> on the toolbar.</td><td>The tag dialog opens with the pump's tag, its state, and a field for a manual tag, with <span class="ui">Cancel</span> and <span class="ui">Set tag</span> (and <span class="ui">Use the rule's tag</span> when the rule gives a different tag).</td></tr>
+      <tr><td>5</td><td>Select one pump, then click <span class="ui">Tag</span> in the palette.</td><td>The tag dialog opens with the pump's tag, its state, and a field for a manual tag, with <span class="ui">Cancel</span> and <span class="ui">Set tag</span> (and <span class="ui">Use the rule's tag</span> when the rule gives a different tag).</td></tr>
       <tr><td>6</td><td>Close the dialog, click <span class="ui">Tag</span> with nothing selected, then click a symbol.</td><td>The tag dialog opens for that symbol.</td></tr>
     </tbody>
   </table></div>
@@ -484,7 +539,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-16</span><span class="g-id">DRAW-frames</span><span>Roadmap M3.11</span></div>
   <p class="g-summary">A frame drawn around symbols makes them belong to a system or an area. The framed symbols then show under that system or area in the explorer.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The frame tools on the drawing toolbar. They appear only while a system or area is picked in the explorer, or right after you made an area with the Object button.</dd>
+    <dt>Where</dt><dd>The frame tools in the Design palette. They appear only while a system or area is picked in the explorer, or right after you made an area with the Object button.</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A function or system, for example TIC-101, exists under <span class="ui">Systems</span> (<a href="guide-objects.html#obj-new-object">Create an object</a>), and a 2D space is open.</dd>
   </dl>
@@ -512,7 +567,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-off-page</span><span>Roadmap M3.11</span><span>Review check B9</span></div>
   <p class="g-summary">An off-page connector carries a line on to another 2D space. You link connectors end to end, and one connector may continue on several 2D spaces. Each connector shows where it goes and takes you there with a double-click; Highlight flow and Alex follow the links.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The symbol <span class="ui">Off-page connector</span> in the Add asset window; right-click a connector → <span class="ui">Flow</span> ▸ <span class="ui">Connect to off-page connector…</span>, <span class="ui">Continue on 2D space</span> ▸, <span class="ui">Go to …</span> and <span class="ui">Disconnect from …</span></dd>
+    <dt>Where</dt><dd>The symbol <span class="ui">Off-page connector</span> in the Add window; right-click a connector → <span class="ui">Flow</span> ▸ <span class="ui">Connect to off-page connector…</span>, <span class="ui">Continue on 2D space</span> ▸, <span class="ui">Go to …</span> and <span class="ui">Disconnect from …</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings (<span class="ui">Go to …</span> and the double-click work for everyone who can open the 2D space)</dd>
     <dt>Before you start</dt><dd>The project has three 2D spaces, for example <em>Assets</em>, <em>Utilities</em> and <em>Area B</em>, and its library is version 8 or later.</dd>
   </dl>
@@ -655,7 +710,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-standards</span><span>Roadmap M3.12</span><span>Review checks B7, B2</span></div>
   <p class="g-summary">E1 draws its own symbols for process equipment, valves and fittings, and for instruments, control valves and logic, in the conventions process engineers know. In Configuration → Shapes you browse and search them.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Shapes</span>; the same search and filters are in the Add asset window</dd>
+    <dt>Where</dt><dd>Left rail → <span class="ui">Configuration</span> → <span class="ui">Shapes</span>; the same search and filters are in the Add window</dd>
     <dt>Who</dt><dd>Everyone can browse</dd>
     <dt>Before you start</dt><dd>A project is open.</dd>
   </dl>
@@ -665,7 +720,7 @@
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Configuration</span> on the left rail, then <span class="ui">Shapes</span>.</td><td>The shape list with the filters <span class="ui">Standard</span>, <span class="ui">Category</span>, <span class="ui">Diagram</span> and <span class="ui">Package</span>, the search "Find a shape by name or key" and <span class="ui">Clear filters</span>.</td></tr>
       <tr><td>2</td><td>Type <code>gauge</code> in the search.</td><td>Only the matching shapes are listed: pressure gauge, level gauge and the other gauges, each with its category and the classes that use it.</td></tr>
-      <tr><td>3</td><td>On a 2D space, open the Add asset window, search for <code>gauge</code>, and place a <span class="ui">Pressure gauge</span>.</td><td>The gauge is placed and tagged PG-001 (with the default tag rules).</td></tr>
+      <tr><td>3</td><td>On a 2D space, open the Add window, search for <code>gauge</code>, and place a <span class="ui">Pressure gauge</span>.</td><td>The gauge is placed and tagged PG-001 (with the default tag rules).</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/config-shapes.webp" alt="The Shapes section of the Configuration place with its filters and the list of shapes" width="2160" height="1350" loading="lazy"><figcaption>Configuration → Shapes, where shapes are browsed and filtered.</figcaption></figure>
@@ -736,7 +791,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/alex-on.webp" alt="Alex turned on as Plant engineer: markers on the 2D space, cards with warnings, questions and suggestions, " width="2160" height="1350" loading="lazy"><figcaption>Alex on: Alex's cards are in the side panel.</figcaption></figure>
-  <p class="g-note">The drawing toolbar has no Alex or Skills button: Alex is switched on and off, and its skill chosen, in Alex (Co-engineer).</p>
+  <p class="g-note">The drawing has no Alex or Skills button: Alex is switched on and off, and its skill chosen, in Alex (Co-engineer).</p>
   <p class="g-related">Related: <a href="guide-ai.html#ai-alex">Alex</a> · <a href="guide-drawing.html#draw-patterns">Engineering patterns</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a></p>
 </section>
 
@@ -989,7 +1044,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>In <span class="ui">Project settings</span> → <span class="ui">Content packages</span>, switch <span class="ui">NORSOK SCD</span> on.</td><td>It is on, with Plant engineering and Electrical foundation.</td></tr>
-      <tr><td>2</td><td>Open a 2D space, set its <span class="ui">Diagram type</span> to <span class="ui">System control diagram</span>, and open <span class="ui">Add asset</span>. Search for "MA".</td><td><span class="ui">Analogue monitoring (MA)</span> is offered with its NORSOK I-005 clause. Place it, and <span class="ui">Shutdown level (LB)</span> to its right.</td></tr>
+      <tr><td>2</td><td>Open a 2D space, set its <span class="ui">Diagram type</span> to <span class="ui">System control diagram</span>, and click <span class="ui">Add…</span> in the palette, then <span class="ui">Shapes</span>. Search for "MA".</td><td><span class="ui">Analogue monitoring (MA)</span> is offered with its NORSOK I-005 clause. Place it, and <span class="ui">Shutdown level (LB)</span> to its right.</td></tr>
       <tr><td>3</td><td>Choose <span class="ui">Connector</span> with the line kind <span class="ui">Signal</span> and draw from the <span class="ui">AHH</span> label on the right edge of MA to the <span class="ui">X</span> on the left of LB.</td><td>The signal starts exactly at MA's AHH terminal and leaves it straight out; it ends at LB's X. A line never meets a function block between its terminals: E1 takes the nearest terminal.</td></tr>
       <tr><td>4</td><td>Right-click empty 2D space → <span class="ui">Check SCD…</span>.</td><td>"Nothing to report: every signal goes from an output to an input of its own signal class, at a named terminal."</td></tr>
       <tr><td>5</td><td>Draw a signal from MA's <span class="ui">Y</span> (analogue) to LB's <span class="ui">XS</span> (binary) and click <span class="ui">Check again</span>.</td><td>An error naming MA's Y as analogue and LB's XS as binary: "Analogue goes to analogue and binary to binary." <span class="ui">Show</span> opens the place on the drawing.</td></tr>
@@ -1002,7 +1057,7 @@
     <li><strong>Elementary functions:</strong> addition, subtraction, multiplication, division, optional formula, AND, OR, exclusive OR, comparators, selectors, memories, inverter, pulses, signal split, timers and the input parameter; and the <strong>control node change</strong>.</li>
     <li><strong>References:</strong> signal, process and sequence off-page and on-page references, signals to and from the shutdown system and a sequence, and references to MCC, thyristor and VSD control.</li>
     <li><strong>Sequence diagrams:</strong> the diagram type <span class="ui">Sequence diagram</span> with start, step, transition, action, condition, branches and end.</li>
-    <li><strong>The process:</strong> every Plant shape that fits a P&amp;ID also fits a system control diagram, so pumps, vessels, exchangers, valves, fittings, primary elements and control valves are offered in <span class="ui">Add asset</span> on an SCD and keep their Plant shape there.</li>
+    <li><strong>The process:</strong> every Plant shape that fits a P&amp;ID also fits a system control diagram, so pumps, vessels, exchangers, valves, fittings, primary elements and control valves are offered in <span class="ui">Add</span> on an SCD and keep their Plant shape there.</li>
     <li><strong>Devices:</strong> the block valve and actuated and manual dampers; every valve gets its normal position, failure action at loss of signal and limit switches; a signal its communication type (general signal or data communication link).</li>
     <li><strong>Function tags</strong> as NORSOK Z-DP-002 writes them: the system number, the function code and a four-digit number (43LIC0001). The tag waits until both are given.</li>
   </ul>
@@ -1264,7 +1319,7 @@
     <li>Tags, short codes and owners outside the module are never taken: placed modules get new tags from the tag rules.</li>
     <li>The relationships between members, the layout relative to the first process inlet, and the notes you selected.</li>
   </ul>
-  <p>To place it again: <a href="#draw-module-place">Add asset → Modules</a>.</p>
+  <p>To place it again: <a href="#draw-module-place">Add… → Modules</a>.</p>
   <p class="g-related">Related: <a href="guide-library.html#lib-modules">Modules in the library</a> · <a href="#draw-module-place">Place a module from the Modules tab</a> · <a href="#draw-symbol-menu">The right-click menus</a></p>
 </section>
 
@@ -1273,14 +1328,14 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-module-place</span><span>Roadmap 32.1c, 32.4, 32.4b, 32.4c</span><span>Review checks M3, M9, M10, M13</span></div>
   <p class="g-summary">Place a saved module in one step: its objects arrive connected, with new tags from the tag rules and the module's values. Turn and flip it before you click, connect it to an open line end, or click it onto a pipe to insert it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Object</span> (Object type <span class="ui">Asset</span>) → <span class="ui">Add asset</span>, tab <span class="ui">Modules</span></dd>
+    <dt>Where</dt><dd>The Design palette → <span class="ui">Add…</span> → tab <span class="ui">Modules</span>; again from <span class="ui">Pinned</span> or <span class="ui">Recent</span> in the palette</dd>
     <dt>Who</dt><dd>Creating objects in the project, on a 2D space you can edit</dd>
     <dt>Before you start</dt><dd>A published module (<a href="#draw-module-save">Save as module…</a>) that this project reads</dd>
   </dl>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open <span class="ui">Add asset</span> and click the <span class="ui">Modules</span> tab.</td><td>The modules this project reads, by category, with <span class="ui">Search modules</span>. A module that cannot be placed here is greyed with the reason: <em>Needs library version …</em> or <em>Available with a pin change</em>. A withdrawn module is not shown. The window opens on the tab you used last.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Add…</span> in the palette and the <span class="ui">Modules</span> tab.</td><td>The modules this project reads, by category, with <span class="ui">Search modules</span>. A module that cannot be placed here is greyed with the reason: <em>Needs library version …</em> or <em>Available with a pin change</em>. A withdrawn module is not shown. The window opens on the tab you used last.</td></tr>
       <tr><td>2</td><td>Click a module.</td><td>Its details: version, library, members, tie-in points and parameters.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Add to diagram</span> (or double-click the module).</td><td>The window closes; a bar at the bottom of the 2D space, with <span class="ui">Done</span>, says where to click, and that <kbd>R</kbd> turns the module by 90°, <kbd>F</kbd> flips it, <kbd>Shift</kbd>+<kbd>F</kbd> flips it vertically and <kbd>Esc</kbd> ends.</td></tr>
       <tr><td>4</td><td>Click where the module's inlet goes.</td><td>Without parameters it is placed at once. A tie-in point that lands on an open end of a line of its kind is connected to it. Clicked onto a pipe, a module with one process inlet and one process outlet is turned to the pipe and inserted, and the pipe is split around it.</td></tr>
@@ -1400,7 +1455,7 @@
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">DRAW-module-configure</span><span>Roadmap 32.6</span><span>Review check M15</span></div>
   <p class="g-summary">Say what a unit needs in words; E1 proposes the modules, their variants and how they join, and arranges them on the 2D space as one change.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>On a 2D space: <span class="ui">Add asset</span> → <span class="ui">Modules</span> → <span class="ui">Configure…</span></dd>
+    <dt>Where</dt><dd>On a 2D space: <span class="ui">Add…</span> → <span class="ui">Modules</span> → <span class="ui">Configure…</span></dd>
     <dt>Who</dt><dd>Engineer and above</dd>
     <dt>Before you start</dt><dd>Published modules, for example Block valve and Reducer station, each with a process inlet and outlet as tie-in points.</dd>
   </dl>
