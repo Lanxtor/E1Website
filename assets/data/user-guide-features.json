@@ -1049,7 +1049,7 @@
   {
    "id": "ACC-session",
    "title": "Session length, sign out and switching organization",
-   "summary": "A sign-in lasts 12 hours; sign out or sign in as someone else, switch between your organizations, and see your projects and where each one is.",
+   "summary": "A sign-in lasts 12 hours unless your organization sets another length, and your organization may sign you out after a time without use; sign out or sign in as someone else, switch between your organizations, and see your projects and where each one is.",
    "anchor": "acc-session",
    "status": "available",
    "roadmap": [
@@ -1059,7 +1059,8 @@
    "related": [
     "ACC-sign-in",
     "ACC-step-up",
-    "GS-places"
+    "GS-places",
+    "ORG-session-policy"
    ],
    "roles": "Everyone signed in",
    "training": {
@@ -7013,6 +7014,57 @@
    "screenshots": [],
    "category": "organization",
    "page": "guide-organization.html#org-join-requests"
+  },
+  {
+   "id": "ORG-role-requests",
+   "title": "Ask for a role, and decide on requests",
+   "summary": "A member asks for a role on the organization or on a project, chosen from lists, with the reason; the people who may give it approve or decline, and E1 gives the role.",
+   "anchor": "org-role-requests",
+   "status": "available",
+   "roadmap": [
+    "09.role-requests"
+   ],
+   "checks": [],
+   "related": [
+    "ORG-administrators",
+    "ORG-access-history",
+    "ORG-join-requests",
+    "ORG-organization-dialog"
+   ],
+   "roles": "Everyone signed in asks; Owner or Administrator, or the project's Project administrator, decides",
+   "training": {
+    "topic": "Asking for access",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-role-requests"
+  },
+  {
+   "id": "ORG-session-policy",
+   "title": "Sign people out after a time without use",
+   "summary": "Owners and Administrators choose how long people stay signed in: signed out after a time without use, and signed in again after a longest time. E1 warns two minutes before and the sign-in page says why.",
+   "anchor": "org-session-policy",
+   "status": "available",
+   "roadmap": [
+    "09.session-timeout"
+   ],
+   "checks": [],
+   "related": [
+    "ACC-session",
+    "ORG-sso",
+    "ORG-organization-dialog"
+   ],
+   "roles": "Owner or Administrator with a passkey",
+   "training": {
+    "topic": "Sessions",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "organization",
+   "page": "guide-organization.html#org-session-policy"
   },
   {
    "id": "ORG-project-members",

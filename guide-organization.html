@@ -104,6 +104,8 @@
           <li><a href="#org-roles-passkey">Organization roles and the passkey rule</a></li>
           <li><a href="#org-administrators">Who administers the organization</a></li>
           <li><a href="#org-join-requests">Requests to join from your company&#x27;s domain</a></li>
+          <li><a href="#org-role-requests">Ask for a role, and decide on requests</a></li>
+          <li><a href="#org-session-policy">Sign people out after a time without use</a></li>
           <li><a href="#org-project-members">Project members and roles</a></li>
           <li><a href="#org-drawing-roles">Roles on a single drawing: Share and Mark as read-only</a></li>
           <li><a href="#org-refusals">Why a change is refused</a></li>
@@ -131,7 +133,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>35 features</span><span>34 available</span></div>
+        <div class="g-meta"><span>37 features</span><span>36 available</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -554,6 +556,59 @@
   <p class="g-note">With your domain verified, nobody from it can start a second trial organization: LANXTOR's trial invitation is refused and points to your organization.</p>
   <p class="g-warn">Only people without an E1 account ask to join this way. Someone who already has an account (for example from an earlier trial) is invited as usual. Verifying the domain yourself with a DNS record is not available yet: LANXTOR adds it.</p>
   <p class="g-related">Related: <a href="#org-administrators">Who administers the organization</a> · <a href="#org-invitations">Invite a colleague</a> · <a href="#org-licenses-seats">Licenses and seats</a> · <a href="#org-organization-dialog">The Organization dialog</a> · <a href="#org-trials">Trials</a></p>
+</section>
+
+<section class="g-feature" id="org-role-requests">
+  <h2>Ask for a role, and decide on requests</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ORG-role-requests</span><span>Roadmap 09.role-requests</span></div>
+  <p class="g-summary">When you need more than your role allows (Engineer on a project you only view, or Library administrator to keep the symbols), ask for it in E1 with the reason. The people who may give that role are told, and approve or decline; when they approve, you have the role at once.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Access</span> → <span class="ui">Requests</span>; notices in the Inbox (<span class="ui">asks for a role</span>, <span class="ui">gave you the role you asked for</span>, <span class="ui">declined your request for a role</span>).</dd>
+    <dt>Who</dt><dd>Everyone signed in asks. An organization role: an Owner or Administrator decides. A project role: whoever manages access on the project (its Project administrators) decides. Nobody decides their own request.</dd>
+    <dt>Before you start</dt><dd>E1 on your organization's server, with sign-in. For a project role, you see the project (you are a member of it).</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">File</span> → <span class="ui">Organization…</span>, click <span class="ui">Access</span>, then the tab <span class="ui">Requests</span>.</td><td><span class="ui">Ask for a role</span>, and <span class="ui">Your requests</span> below it.</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Where</span>: <span class="ui">The organization</span> or one of your projects.</td><td><span class="ui">Role</span> lists the roles for that place: on the organization Administrator, Library administrator, Engineering standards owner, Catalog maintainer and your organization's own; on a project Project administrator, Lead engineer, Engineer, Reviewer, Viewer and your organization's own.</td></tr>
+      <tr><td>3</td><td>Choose the role, write <span class="ui">Why you need it</span> in a sentence and click <span class="ui">Ask</span>.</td><td><span class="ui">Sent. The people who may give the role are told; you get a notice in your Inbox when they decide.</span> <span class="ui">Your requests</span> shows it as <span class="ui">Waiting</span>, with <span class="ui">Cancel request</span>.</td></tr>
+      <tr><td>4</td><td>As an Owner or Administrator (or the project's Project administrator), open the Inbox, then <span class="ui">Access</span> → <span class="ui">Requests</span>.</td><td>A notice <span class="ui">&lt;name&gt; asks for a role</span> with the role, the place and the reason; <span class="ui">Requests to decide</span> lists it with <span class="ui">Note</span>, <span class="ui">Approve</span> and <span class="ui">Decline</span>.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Approve</span>.</td><td>The person has the role at once (on a project their highest role is raised to it when needed), and reads <span class="ui">You now have &lt;role&gt; on &lt;project&gt;.</span> in their Inbox. The request moves to <span class="ui">Decided</span>.</td></tr>
+      <tr><td>6</td><td>For another request, click <span class="ui">Decline</span>, with a note.</td><td>The person reads <span class="ui">Your request for &lt;role&gt; on &lt;project&gt; was declined.</span> with your note.</td></tr>
+      <tr><td>7</td><td>Open <span class="ui">Access</span> → <span class="ui">History</span> and choose the kind <span class="ui">Requests for a role</span>.</td><td><span class="ui">Role asked for</span>, <span class="ui">Role request approved</span>, <span class="ui">Role request declined</span> and <span class="ui">Role request cancelled</span>, with who and when; the role given is under <span class="ui">Roles</span>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Approving gives the role as you: you can approve only a role you could give yourself, and E1 may ask you to confirm it is you for a privileged one. Owner is never asked for: an Owner hands it over in <span class="ui">Members</span>.</p>
+  <p class="g-warn">A role on one section or folder, an end date with the request, and reminders for open requests are not available yet.</p>
+  <p class="g-related">Related: <a href="#org-administrators">Who administers the organization</a> · <a href="#org-access-history">Access history</a> · <a href="#org-join-requests">Requests to join</a> · <a href="#org-organization-dialog">The Organization dialog</a></p>
+</section>
+
+<section class="g-feature" id="org-session-policy">
+  <h2>Sign people out after a time without use</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ORG-session-policy</span><span>Roadmap 09.session-timeout</span></div>
+  <p class="g-summary">Choose how long your people stay signed in: signed out after a time without use, and signed in again after a longest time. It holds for E1 in a browser, the desktop app, E1 Reviewer for iPad and E1 Mobile. E1 warns two minutes before it signs someone out, and the sign-in page says why.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Sign-on</span>, <span class="ui">Sessions</span> at the top.</dd>
+    <dt>Who</dt><dd>Owner or Administrator with a passkey (E1 may ask you to confirm it is you).</dd>
+    <dt>Before you start</dt><dd>E1 on your organization's server, with sign-in.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">File</span> → <span class="ui">Organization…</span> → <span class="ui">Sign-on</span>.</td><td><span class="ui">Sessions</span> with <span class="ui">Sign out after no use for</span> (<span class="ui">Never</span> at first) and <span class="ui">Sign in again after</span> (<span class="ui">E1’s default (12 hours)</span>).</td></tr>
+      <tr><td>2</td><td>Choose <span class="ui">Sign out after no use for</span>: <span class="ui">15 minutes</span>, <span class="ui">30 minutes</span>, <span class="ui">1 hour</span>, <span class="ui">2 hours</span>, <span class="ui">4 hours</span> or <span class="ui">8 hours</span>.</td><td><span class="ui">Saved. A shorter time applies to everyone at once; a longer sign-in from their next sign-in.</span></td></tr>
+      <tr><td>3</td><td>Choose <span class="ui">Sign in again after</span>: <span class="ui">1 hour</span> to <span class="ui">7 days</span>.</td><td>Saved the same way. A new sign-in lasts at most that long; a sign-in older than that ends at once.</td></tr>
+      <tr><td>4</td><td>As one of your people, leave E1 alone until two minutes before the time.</td><td><span class="ui">You will be signed out soon</span>, with <span class="ui">Signed out in 1:59</span> counting down, <span class="ui">Stay signed in</span> and <span class="ui">Sign out</span>. A key or a click keeps you in too.</td></tr>
+      <tr><td>5</td><td>Let the time run out.</td><td>The sign-in page says <span class="ui">You were signed out because E1 was not used for 30 minutes, as your organization asks. Sign in again to go on.</span> Before the longest sign-in ends, the warning reads <span class="ui">Your sign-in ends soon</span> with <span class="ui">Sign in again now</span>.</td></tr>
+      <tr><td>6</td><td>Open <span class="ui">Audit</span>.</td><td><span class="ui">policy.changed</span> for your change, and <span class="ui">session.timed-out</span> for each session E1 ended.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Only use counts: a key, a click or a touch in any E1 tab of the browser. Refreshes E1 makes in the background do not keep an unused session open. A computer that slept is signed out when it wakes.</p>
+  <p class="g-warn">E1 Reviewer for iPad and E1 Mobile follow the same times, counting every request of the app as use; when the time is up they show their sign-in screen without the reason.</p>
+  <p class="g-related">Related: <a href="guide-access.html#acc-session">Session length and signing out</a> · <a href="#org-sso">Company sign-on</a> · <a href="#org-organization-dialog">The Organization dialog</a></p>
 </section>
 
 <section class="g-feature" id="org-project-members">
