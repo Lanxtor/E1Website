@@ -991,6 +991,53 @@
   <p class="g-related">Related: <a href="guide-organization.html#org-webhooks">Webhooks and the change feed</a>, <a href="guide-organization.html#org-tokens">Access tokens</a></p>
 </section>
 
+<section class="g-feature" id="org-entra-apps">
+  <h2>Entra ID applications call the API</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span class="g-id">ORG-entra-apps</span><span>Roadmap 19.6</span></div>
+  <p class="g-summary">An application in your company's Microsoft Entra ID (an integration platform, a data pipeline, a script running as a managed identity) calls E1's API with the access token Entra ID gives it, instead of an E1 token. You register it in E1 as one of your service accounts: it has that account's roles, and nothing more.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Service accounts</span>, <span class="ui">Entra ID applications</span> below the service accounts</dd>
+    <dt>Who</dt><dd>Owners and Administrators (Manage service accounts), signed in recently</dd>
+    <dt>Before you start</dt><dd>Your company's Entra ID connected to the organization (<a href="#org-sso">Sign-on</a> with your Entra ID, or Sign in with Microsoft set up by LANXTOR), a <a href="#org-tokens">service account</a> with the roles the application needs, and the application's Application (client) ID from its Overview in Entra ID</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>In <span class="ui">Entra ID applications</span>, type an <span class="ui">Application name</span> (for example "SAP integration"), choose the <span class="ui">Directory</span>, paste the <span class="ui">Application (client) ID</span>, choose the service account it <span class="ui">Acts as</span>, tick <span class="ui">Read only</span> if it only reads, and click <span class="ui">Register application</span>.</td><td>It is listed with its Application ID, the service account and <span class="ui">Never</span> used. Only directories connected to your organization are offered; one application can be registered once.</td></tr>
+      <tr><td>2</td><td>In the application, ask your directory for a token: <code>POST https://login.microsoftonline.com/&lt;directory id&gt;/oauth2/v2.0/token</code> with <code>grant_type=client_credentials</code> and <code>scope=&lt;E1's application ID URI&gt;/.default</code>.</td><td>Entra ID answers with an access token for E1.</td></tr>
+      <tr><td>3</td><td>Call E1 with it: <code>GET /api/v1/me</code> with <code>Authorization: Bearer &lt;token&gt;</code>.</td><td>E1 answers as the service account (<code>"kind": "service"</code>, <code>"via": "entra"</code>). Its changes read "Service account …" in History; each call is in the API access log, and its first call from a new address is in <a href="#org-audit">Audit</a>.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Remove</span> on its row.</td><td>Its next call is refused (401). Disabling the service account stops it too.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">E1 checks each token: signed with a key your directory publishes, issued by your directory, for E1 (its audience), not expired, and an application's own token. A token Entra ID gave a signed-in person is refused. The OpenAPI document (<code>/api/v1/openapi.json</code>) lists this as the <code>entra</code> security scheme beside E1 tokens.</p>
+  <p class="g-related">Related: <a href="#org-tokens">Tokens, service accounts and agents</a> · <a href="#org-sso">Company single sign-on</a> · <a href="#org-audit">Audit</a></p>
+</section>
+
+<section class="g-feature" id="org-siem">
+  <h2>Forward the audit log to your SIEM</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span class="g-id">ORG-siem</span><span>Roadmap 10.6</span></div>
+  <p class="g-summary">Send the organization's audit events to your security monitoring as they happen: to Azure Monitor (a Log Analytics workspace, which Microsoft Sentinel reads), to your own endpoint, or both. An event a destination does not take waits and is tried again, so none is lost.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">File → Organization… → Audit</span>, <span class="ui">Forward to your SIEM</span> at the top</dd>
+    <dt>Who</dt><dd>Owners and Administrators (Manage policies), signed in recently</dd>
+    <dt>Before you start</dt><dd>For Azure Monitor: a data collection endpoint and rule with the table <code>E1Audit_CL</code> (LANXTOR's template <code>deploy/azure/siem.bicep</code> makes them in your Log Analytics workspace), and the role Monitoring Metrics Publisher on the rule for E1's managed identity (your own installation) or E1's application in your directory (E1 Cloud). For your endpoint: an <code>https://</code> address, or <code>tls://host:port</code> for syslog over TLS.</dd>
+  </dl>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Tick <span class="ui">Forward audit events</span> and the <span class="ui">Events to forward</span>: <span class="ui">Sign-ins</span>, <span class="ui">Access and settings</span>, <span class="ui">Data changes (a summary of each)</span>, <span class="ui">API calls</span>, <span class="ui">Exports</span>, <span class="ui">Restricted data read</span>.</td><td>Only the ticked kinds are sent.</td></tr>
+      <tr><td>2</td><td>Tick <span class="ui">Azure Monitor</span> and give the <span class="ui">Data collection endpoint</span>, the <span class="ui">Data collection rule immutable ID</span> (<code>dcr-…</code>) and the <span class="ui">Stream</span> (<code>Custom-E1Audit_CL</code>); choose how <span class="ui">E1 signs in with</span>.</td><td>E1 sends the events to the Logs Ingestion API; they arrive in <code>E1Audit_CL</code>, where Microsoft Sentinel's analytics rules and workbooks read them.</td></tr>
+      <tr><td>3</td><td>Or tick <span class="ui">Your endpoint</span>: the <span class="ui">Endpoint address</span>, the <span class="ui">Format</span> (<span class="ui">JSON</span> or <span class="ui">CEF</span>) and an optional <span class="ui">Endpoint token</span> (sent as <code>Authorization: Bearer</code>, kept sealed and never shown again). Click <span class="ui">Save forwarding</span>.</td><td>Saved; the change itself is an audit event and is forwarded.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Send test event</span>.</td><td>A <code>siem.test</code> event arrives within seconds. <span class="ui">Forwarding status</span> shows each destination with what is waiting, what was delivered in 24 hours, and the last error.</td></tr>
+      <tr><td>5</td><td>If a destination was down, click <span class="ui">Retry now</span> once it is back.</td><td>What waited is sent, oldest first. Without it E1 tries again after 30 seconds, 2, 10 and 30 minutes, then every hour.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What each event holds</h3>
+  <p>One record per event: <code>TimeGenerated</code>, <code>EventId</code> (the same in every delivery, to ignore one seen twice), <code>Category</code>, <code>Action</code> (for example <code>signin.failed</code>, <code>access.granted</code>, <code>api.call</code>, <code>data.changed</code>, <code>org.exported</code>), <code>Outcome</code>, <code>ActorType</code>, <code>ActorId</code>, <code>Actor</code>, <code>Channel</code>, <code>TargetType</code>, <code>TargetId</code>, <code>SourceIp</code>, <code>Organization</code> and <code>Details</code> (before and after of a change; never values of your model). As CEF each record is one line, <code>CEF:0|LANXTOR|E1|1.0|&lt;action&gt;|…</code>; over syslog each line is an RFC 5424 message in an RFC 5425 frame.</p>
+  <p class="g-note">Microsoft Sentinel reads from Log Analytics: once the events are in <code>E1Audit_CL</code>, connect the workspace to Sentinel and query them with KQL, for example <code>E1Audit_CL | where Action == "signin.failed"</code>.</p>
+  <p class="g-related">Related: <a href="#org-audit">Audit</a> · <a href="#org-access-history">Access history</a> · <a href="#org-entra-apps">Entra ID applications</a></p>
+</section>
+
 <section class="g-feature" id="org-four-eyes">
   <h2>Discipline permissions, four-eyes approval and support access</h2>
   <div class="g-meta"><span class="g-status planned">Planned</span><span class="g-id">ORG-four-eyes</span><span>Roadmap 09.6</span></div>
