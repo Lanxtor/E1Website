@@ -1,0 +1,87 @@
+{
+  "id": "simulate-validate",
+  "file": "solution-simulate-validate.html",
+  "title": "Engineering design validation and simulation",
+  "description": "E1 simulates process lines and electrical networks on the drawing, checks every object as you work and lets you compare design options before you issue them.",
+  "kicker": "Simulate, validate, explore",
+  "h1": "Simulate, validate and explore your design.",
+  "lead": "In E1, the design is checked while you work on it. Alex simulates process lines and electrical networks from the values in the model, Animate flow shows what the plant does when a pump stops or a valve closes, and every object carries its own findings. Issues are found on the drawing, early, instead of in a review months later.",
+  "glance": [
+    {"value": "Peng-Robinson", "label": "Flash of a line: phases, density, Z, enthalpy and viscosity"},
+    {"value": "IEC 60909", "label": "Short-circuit and earth-fault currents at every board"},
+    {"value": "IEEE 1584-2018", "label": "Arc flash incident energy and boundary"},
+    {"value": "API RP 14E", "label": "Erosional velocity in Alex's review and the flow animation"}
+  ],
+  "sections": [
+    {
+      "id": "simulate",
+      "kicker": "Simulate",
+      "h2": "Process and electrical simulation on the drawing",
+      "intro": "In E1, Alex simulates the open 2D space from the values in the model and shows each result as a Simulation results card with the method, the inputs, the assumptions, any warnings and the result tables.",
+      "paragraphs": [
+        "For process engineers, a line whose line list has a composition, a pressure and a temperature gets a flash with the Peng-Robinson method: its phases, their amounts and compositions, density, Z, enthalpy, Cp and viscosity. When lines carry a composition, Alex solves the heat and material balance along the drawing through valves, pumps, compressors, heaters and coolers, exchangers, mixers, splitters and separators. Each unit needs its specification on its attributes; Alex asks for what is missing and never assumes it.",
+        "For electrical engineers, on a single line diagram, Alex works out load flow and the IEC 60909 short-circuit current at every board, motor starting, arc flash to IEEE 1584-2018, earth faults, harmonics to IEEE 519-2014, protection coordination from the relay, trip unit and fuse settings you entered, and battery sizing and UPS autonomy to IEEE 485 and IEEE 1115.",
+        "Every assumption a simulation makes is listed on its card, and a red <b>Not converged</b> says the numbers are not reliable. <b>Export results (Excel)</b> writes a summary sheet and one sheet per table. A calculated stream is written to the line list only when you press <b>Write to the line list</b>. Stream tables from HYSYS, Aspen Plus, DWSIM or a similar simulator are imported into the line list, matched to lines and checked by you."
+      ]
+    },
+    {
+      "id": "animate",
+      "kicker": "Animate",
+      "h2": "Animate flow: see what the plant does",
+      "intro": "In E1, one button sets a sheet in motion: on a PFD or P&amp;ID the flow moves through the pipes the way it goes and as fast as it goes, tanks fill and empty and pumps turn.",
+      "paragraphs": [
+        "Click a pump to stop it, or a valve to close it, and see what happens downstream. The lines after a stopped pump empty, the ones before it pulse as blocked, and a pump with a closed outlet valve is reported as dead-headed. A tank whose outlet is shut fills, with its level alarms LAH and LAHH, and a trend window draws every tank's level over the last ten minutes with the alarm limits.",
+        "Hold the pointer on a moving line to read its fluid, phase, flow, pressure, temperature, size, velocity, Reynolds number and friction loss. <b>Color by → Velocity check</b> colours lines green, amber or red against the usual velocity ranges and the erosional velocity of API RP 14E. On single line, circuit, wiring and loop diagrams, <b>Animate current</b> runs the current from the supply to the loads, checks cable loading against IEC 60364-5-52 ratings and voltage drop, and shows which motor loses its supply when a breaker opens.",
+        "Nothing in the model changes. <b>Reset</b> puts every valve, pump and switch back as drawn."
+      ]
+    },
+    {
+      "id": "validate",
+      "kicker": "Validate",
+      "h2": "Design validation: checks that run as you work",
+      "intro": "In E1, everything soft about an object is a finding with a severity, error, warning or information, listed on the object's Checks tab and for the whole project.",
+      "paragraphs": [
+        "Findings come from a required value that is missing, a relationship minimum not reached, a tag that is pending or out of date, an object that breaks its class's behavior, a check rule your organization wrote, a calculation with a missing input, and the piping check. An open error blocks issuing a revision of a document that shows it, until it is fixed or accepted with a comment by a lead engineer.",
+        "<b>Check piping…</b> follows the flow through every pipe on a 2D space and finds a pump turned the wrong way, pipe that meets head-on and pipelines that are no longer whole. It offers fixes and never applies one on its own. For wiring, E1 runs the entity check of intrinsically safe loops and the voltage budget of each loop at 20 mA; a value it needs and does not have is reported as missing, never taken as zero.",
+        "Safety and progress are checked the same way. A safety instrumented function shows its PFD, achieved SIL and hardware fault tolerance against the required SIL. A workflow step can require values confirmed, no open errors or a revision issued before an item moves on."
+      ]
+    },
+    {
+      "id": "full-context",
+      "kicker": "Full context",
+      "h2": "A full-context AI agent to pressure-test the design",
+      "intro": "In E1, when you ask Alex whether a design is right or complete, Alex's own review of the 2D space runs first, with your company's accepted conventions, and the answer is based on its findings.",
+      "paragraphs": [
+        "Ask in the Agent tab, in Ask mode if you want answers only: “Is the design of this 2D space right? What is missing?” The answer cites what Alex observed and, where they apply, your company's conventions, with the clause they come from. The review changes nothing in the project.",
+        "Alex's checks cover line velocity, pressure drop, erosional velocity and design margin, sour service, instrument loops, fail positions, interlocks against the cause and effect matrix, and anti-surge. As HAZOP leader, Alex prepares a HAZOP worksheet from the drawing with nodes, deviations, causes, consequences, safeguards, a LOPA per scenario, the API 521 relief cases and the risk matrix, for your team to work through. See <a href=\"solution-ai-predictive-engineering.html\">predictive engineering with Alex</a>."
+      ]
+    },
+    {
+      "id": "explore",
+      "kicker": "Explore",
+      "h2": "Explore and compare design options",
+      "intro": "In E1, design options are kept side by side as cases, module variants or branches, and compared with what was issued.",
+      "paragraphs": [
+        "A case is a variant of an object, for example another operating condition of a pump: it takes over the object's values until you type its own, so you only enter what differs. On a specification datasheet, the operating cases stand side by side. A module can have options and named variants, and a placed module switches to another variant.",
+        "For a larger alternative, make a branch of part of the design and change it while main stays as it is; push it back when it is ready, or close it. See <a href=\"solution-branches-modifications.html\">branches and modifications</a>.",
+        "To see what changed, <b>Changes since…</b> draws a cloud on a 2D space around everything added, deleted, modified or moved since a day, a revision or a version. The cause and effect matrix and the wiring are compared with an issued revision the same way."
+      ],
+      "bullets": [
+        "Simulation results with method, inputs and assumptions on every card",
+        "Flow and current animated on the drawing, with nothing changed in the model",
+        "Findings on every object, and a revision gate for open errors",
+        "Cases, variants and branches to compare options"
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Does E1 replace a process simulator?", "a": "E1 flashes lines and solves a heat and material balance along the drawing, from the values in the model. For a rigorous process model, keep your simulator and import its stream table from HYSYS, Aspen Plus, DWSIM or similar into E1's line list."},
+    {"q": "Does a simulation or the flow animation change my design?", "a": "No. Simulation results are cards, and the animation changes nothing in the model. A calculated value is written to the line list only when you press Write to the line list."},
+    {"q": "What happens when data is missing?", "a": "Alex asks for what a simulation needs and lists every assumption it makes on the result card. The wiring checks report a missing value as missing, never as zero."},
+    {"q": "Which electrical calculations are available?", "a": "On a single line diagram: load flow, IEC 60909 short circuit and earth faults, motor starting, IEEE 1584-2018 arc flash, IEEE 519-2014 harmonics, protection coordination, and IEEE 485 and IEEE 1115 battery and UPS sizing."},
+    {"q": "Can a failed check stop a drawing from being issued?", "a": "Yes. While the project's revision gate is on, a revision is refused while the document shows an object with an open error. A lead engineer can accept the finding with a comment instead."},
+    {"q": "How do I compare two design options?", "a": "Use cases for different operating conditions of one object, module variants for typical arrangements, and branches for a larger alternative. Changes since… shows what changed against a revision or a date."}
+  ],
+  "guides": ["AI-alex-simulation", "DRAW-animate-flow", "OBJ-checks", "DRAW-piping-check", "WIRE-circuit-checks", "SAFE-sif", "AI-calls-alex", "OBJ-cases"],
+  "related": ["predictive-ai", "branches", "electrical", "feed-process"]
+}
