@@ -323,7 +323,7 @@ def seo():
     # indexable, with the home page's address and the company data, so a search for LANXTOR finds it.
     path = os.path.join(ROOT, "coming-soon.html")
     src = open(path, encoding="utf-8").read()
-    open(path, "w", encoding="utf-8").write(SEO.put_block(src, SEO.head_block(src, SITE + "/", "en", home=True)))
+    open(path, "w", encoding="utf-8").write(SEO.put_block(src, SEO.head_block(src, SITE + "/", "en", home=True, silent=True)))
     for name in NOINDEX:
         path = os.path.join(ROOT, name)
         if not os.path.exists(path):
@@ -335,7 +335,8 @@ def seo():
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     for url, alts, when in urls:
-        lines.append("  <url><loc>%s</loc><lastmod>%s</lastmod>" % (url, when))
+        # No <lastmod>: nothing on the site has a date before day zero (14 April 2027).
+        lines.append("  <url><loc>%s</loc>" % url)
         for l, href in alts:
             lines.append('    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (l, href))
         lines.append("  </url>")

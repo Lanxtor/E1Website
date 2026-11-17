@@ -194,6 +194,14 @@ def nav_toc(cats, current, sections=None):
 FIG_RE = re.compile(r'<figure class="(g-shot[^"]*)"(?: style="[^"]*")?>(\s*<img [^>]*?width="(\d+)" height="(\d+)")')
 
 
+DATES = re.compile(r"<span>(?:Since|Updated) \d{4}-\d{2}-\d{2}</span>")
+
+
+def no_dates(frag):
+    """The fragments keep each feature's dates (an internal record); the published pages show none."""
+    return DATES.sub("", frag)
+
+
 def size_figures(frag):
     """Shows each screenshot at its size on screen (they are taken at device scale 2),
     never wider than the column and never taller than 720 px, so a narrow crop such as
@@ -234,13 +242,13 @@ def build():
     # Category pages
     for i, c in enumerate(cats):
         frag_path = os.path.join(SRC, "src", c["id"] + ".html")
-        frag = size_figures(read(frag_path)) if os.path.exists(frag_path) else "<p>This guide is being written.</p>"
+        frag = no_dates(size_figures(read(frag_path))) if os.path.exists(frag_path) else "<p>This guide is being written.</p>"
         sections = [(sid, strip_tags(h)) for sid, h in SECTION_RE.findall(frag)]
         n_av = sum(1 for f in by_cat[c["id"]] if f["status"] == "available")
         head = (
             '        <h1>%d. %s</h1>\n        <p class="lead">%s</p>\n'
-            '        <div class="g-meta"><span>%d features</span><span>%d available</span><span>Guide updated %s</span></div>\n'
-            % (i + 1, esc(c["title"]), esc(c["summary"]), len(by_cat[c["id"]]), n_av, esc(c.get("updated", meta["updated"])))
+            '        <div class="g-meta"><span>%d features</span><span>%d available</span></div>\n'
+            % (i + 1, esc(c["title"]), esc(c["summary"]), len(by_cat[c["id"]]), n_av)
         )
         nxt = cats[i + 1] if i + 1 < len(cats) else None
         prv = cats[i - 1] if i > 0 else None
@@ -273,21 +281,14 @@ def build():
     counts = {s: sum(1 for f in features if f["status"] == s) for s in STATUS}
     hub = """        <h1>E1 user guide</h1>
         <p class="lead">{intro}</p>
-        <div class="g-meta"><span>{total} features</span>{counts}<span>Guide updated {upd}</span></div>
+        <div class="g-meta"><span>{total} features</span>{counts}</div>
         <div class="g-intro">
-          <p>Every guide describes one feature the way you meet it on screen: where to find it, who may use it, what to do step by step, and what you should see after each step. The labels in <span class="ui">bold</span> are the exact words on the screen. Each feature carries its status and the date it was delivered or last changed, so you always know whether you are reading about something you can use today.</p>
-          <p>The screenshots were taken from E1 on {shots}, in the default dark appearance, with a small demo project (a pump train on one sheet).</p>
+          <p>Every guide describes one feature the way you meet it on screen: where to find it, who may use it, what to do step by step, and what you should see after each step. The labels in <span class="ui">bold</span> are the exact words on the screen. Each feature carries its status, so you always know whether you are reading about something you can use today.</p>
+          <p>The screenshots show E1 in the default dark appearance, with a small demo project (a pump train on one sheet).</p>
         </div>
         <div class="grid grid-3 g-cats">
 {cards}
         </div>
-        <section class="g-block" id="whats-new">
-          <h2>What's new</h2>
-          <p>The latest features and changes, newest first. <a href="guide-features.html">All features</a> lists every one.</p>
-          <ul class="g-news">
-{news}
-          </ul>
-        </section>
         <section class="g-block" id="under-development">
           <h2>Under development</h2>
           <p>Being built now or planned next. These are described in the guides so you can prepare, but they are not in E1 yet. <a href="guide-roadmap.html">The roadmap</a> shows every stage.</p>
@@ -311,21 +312,21 @@ def build():
            cards="\n".join(cards), news=news, dev=devlist,
            s_av=status_badge("available"), s_ud=status_badge("under-development"), s_pl=status_badge("planned"),
            s_ph=status_badge("placeholder"), s_pr=status_badge("preview"), s_pk=status_badge("parked"))
-    write("guide.html", page("Overview", meta["intro"], hub, nav_toc(cats, "guide.html", [("whats-new", "What's new"), ("under-development", "Under development"), ("statuses", "What the statuses mean")]), crumbs(), "guide.html"))
+    write("guide.html", page("Overview", meta["intro"], hub, nav_toc(cats, "guide.html", [("under-development", "Under development"), ("statuses", "What the statuses mean")]), crumbs(), "guide.html"))
 
     # Catalog
     rows = []
     for i, c in enumerate(cats):
         for f in by_cat[c["id"]]:
             rows.append(
-                '            <tr data-status="{st}" data-cat="{cid}"><td class="g-id">{id}</td><td>{link}<br><span class="muted">{sum}</span></td><td>{cat}</td><td>{badge}</td><td class="g-date">{since}</td><td class="g-date">{upd}</td><td>{rm}</td><td>{chk}</td><td>{topic}</td></tr>'.format(
+                '            <tr data-status="{st}" data-cat="{cid}"><td class="g-id">{id}</td><td>{link}<br><span class="muted">{sum}</span></td><td>{cat}</td><td>{badge}</td><td>{rm}</td><td>{chk}</td><td>{topic}</td></tr>'.format(
                     st=f["status"], cid=c["id"], id=esc(f["id"]), link=feature_link(f), sum=esc(f.get("summary", "")), cat=esc(c["title"]),
                     badge=status_badge(f["status"]), since=esc(f.get("since", "")), upd=esc(f.get("updated", "")),
                     rm=esc(", ".join(f.get("roadmap", []))), chk=esc(", ".join(f.get("checks", []))), topic=esc((f.get("training") or {}).get("topic", ""))))
     opts = "".join('<option value="%s">%s</option>' % (c["id"], esc(c["title"])) for c in cats)
     sopts = "".join('<option value="%s">%s</option>' % (s, v) for s, v in STATUS.items())
     catalog = """        <h1>All features</h1>
-        <p class="lead">Every feature of E1 from a user's point of view, with its category, status, the date it was delivered and the date it last changed, the roadmap stage that builds it, the review checks that test it, and the training topic it belongs to.</p>
+        <p class="lead">Every feature of E1 from a user's point of view, with its category, status, the roadmap stage that builds it, the review checks that test it, and the training topic it belongs to.</p>
         <div class="g-filter" role="search">
           <input type="search" placeholder="Search features" aria-label="Search features" data-guide-search>
           <select aria-label="Category" data-guide-cat><option value="">All categories</option>{opts}</select>
@@ -334,7 +335,7 @@ def build():
         <p class="muted" data-guide-count>{n} features</p>
         <div class="g-table-wrap">
           <table class="g-catalog" data-guide-catalog>
-            <thead><tr><th>Id</th><th>Feature</th><th>Category</th><th>Status</th><th>Since</th><th>Updated</th><th>Roadmap</th><th>Checks</th><th>Training topic</th></tr></thead>
+            <thead><tr><th>Id</th><th>Feature</th><th>Category</th><th>Status</th><th>Roadmap</th><th>Checks</th><th>Training topic</th></tr></thead>
             <tbody>
 {rows}
             </tbody>
@@ -342,12 +343,12 @@ def build():
         </div>
         <p class="g-related">The same list as data: <a href="assets/data/user-guide-features.json">user-guide-features.json</a>.</p>
 """.format(opts=opts, sopts=sopts, n=len(features), rows="\n".join(rows))
-    write("guide-features.html", page("All features", "Every E1 feature with status and dates.", catalog, nav_toc(cats, "guide-features.html"), crumbs("All features"), "guide-features.html"))
+    write("guide-features.html", page("All features", "Every E1 feature with its status.", catalog, nav_toc(cats, "guide-features.html"), crumbs("All features"), "guide-features.html"))
 
     # Roadmap
     if roadmap:
         parts = ['        <h1>Under development and roadmap</h1>',
-                 '        <p class="lead">What is built, what is being built, and what comes next, stage by stage. Taken from the build roadmap of the app (updated %s) and of the website (updated %s).</p>' % (esc(roadmap["app"]["updated"]), esc(roadmap["website"]["updated"]))]
+                 '        <p class="lead">What is built, what is being built, and what comes next, stage by stage. Taken from the build roadmap of the app and of the website.</p>']
         sections = []
         for key, label in (("app", "E1 app"), ("website", "Website")):
             for m in roadmap[key]["milestones"]:
@@ -360,7 +361,7 @@ def build():
                 parts.append('          <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>')
                 for s in m["stages"]:
                     st = "available" if s["done"] else ("parked" if m["id"] == "parked" else "planned")
-                    lab = ("Done %s" % s["doneOn"]) if s["done"] and s.get("doneOn") else ("Done" if s["done"] else None)
+                    lab = "Done" if s["done"] else None
                     badge = '<span class="g-status %s">%s</span>' % (st, esc(lab or STATUS[st]))
                     parts.append("            <tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (esc(s["id"]), esc(s["title"]), badge, esc(s["tryIt"])))
                 parts.append("          </tbody></table></div>\n        </section>")
@@ -375,9 +376,10 @@ def build():
     write("account.html", acc)
 
     # Data
-    data = {"updated": meta["updated"], "screenshotsTaken": meta["screenshotsTaken"], "statuses": STATUS,
+    # Public file: no dates (owner's rule, nothing has a history before day zero, 14 April 2027).
+    data = {"statuses": STATUS,
             "categories": [{k: c[k] for k in ("id", "title", "summary", "training") if k in c} | {"page": "guide-%s.html" % c["id"], "order": i + 1} for i, c in enumerate(cats)],
-            "features": features}
+            "features": [{k: v for k, v in f.items() if k not in ("since", "updated")} for f in features]}
     write("assets/data/user-guide-features.json", json.dumps(data, indent=1, ensure_ascii=False) + "\n")
     return cats, features
 

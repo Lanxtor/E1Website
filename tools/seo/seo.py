@@ -91,14 +91,15 @@ def _page_graph(src, url, lang, crumbs, product):
     return _ld(graph) if graph else ""
 
 
-def _structured(lang):
+def _structured(lang, product=True):
     graph = [
         ORGANIZATION,
         {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "LANXTOR",
          "publisher": {"@id": SITE + "/#organization"},
          "inLanguage": ["en", "de", "fr", "es", "nb"]},
-        PRODUCT,
     ]
+    if product:
+        graph.append(PRODUCT)
     return _ld(graph)
 
 
@@ -106,7 +107,7 @@ def _attr(v):
     return html.escape(html.unescape(v), quote=True)
 
 
-def head_block(src, url, lang="en", home=False, crumbs=None, product=False):
+def head_block(src, url, lang="en", home=False, crumbs=None, product=False, silent=False):
     t = re.search(r"<title>(.*?)</title>", src, re.S)
     d = re.search(r'<meta name="description" content="([^"]*)"', src)
     title = _attr(t.group(1).strip()) if t else "LANXTOR"
@@ -131,7 +132,7 @@ def head_block(src, url, lang="en", home=False, crumbs=None, product=False):
         '<meta name="twitter:card" content="summary_large_image">',
     ]
     if home:
-        tags.append(_structured(lang))
+        tags.append(_structured(lang, product=not silent))
     else:
         ld = _page_graph(src, url, lang, crumbs, product)
         if ld:
