@@ -10,11 +10,11 @@
     "stages": [
      {
       "id": "R1-5",
-      "title": "Refactoring: tests, one domain model, server modules, migrations, the server as the only writer",
+      "title": "Refactoring: tests, one domain model, server modules, the database schema, the server as the only writer",
       "done": true,
       "doneOn": null,
       "visible": false,
-      "tryIt": "The code was restructured and covered by tests. The app looks and works as before."
+      "tryIt": "The code is structured and covered by tests. Nothing to see on screen."
      },
      {
       "id": "R-F",
@@ -22,7 +22,7 @@
       "done": true,
       "doneOn": null,
       "visible": false,
-      "tryIt": "Per-user state and code structure. Nothing new on screen."
+      "tryIt": "Per-user state and code structure. Nothing to see on screen."
      },
      {
       "id": "6A-6H",
@@ -38,7 +38,7 @@
       "done": true,
       "doneOn": "2026-11-02",
       "visible": false,
-      "tryIt": "Tests that the interface, Alex, and outside agents run the same commands. Nothing new on screen."
+      "tryIt": "Tests that the interface, Alex, and outside agents run the same commands. Nothing to see on screen."
      },
      {
       "id": "M0.nav",
@@ -61,7 +61,7 @@
    {
     "id": "M1",
     "title": "Object model",
-    "summary": "Every engineering thing becomes one object with one owner, a class from a versioned library, attributes with sub-attributes and units, and typed relationships to other objects across sections. The library defines how objects behave (where they may live, what they may contain and relate to), and every tool follows the same rules. Tags come from the project's own naming rules. Today's symbols move into signed content packages as records, and every command works object by object, ready for the database of M2.",
+    "summary": "Every engineering thing is one object with one owner, a class from a versioned library, attributes with sub-attributes and units, and typed relationships to other objects across sections. The library defines how objects behave (where they may live, what they may contain and relate to), and every tool follows the same rules. Tags come from the project's own naming rules. Symbols are records in signed content packages, and every command works object by object, ready for the database of M2.",
     "mvp": true,
     "stages": [
      {
@@ -70,7 +70,7 @@
       "done": true,
       "doneOn": "2026-11-02",
       "visible": false,
-      "tryIt": "Parity checks and the AI evaluation set. Nothing new on screen."
+      "tryIt": "Parity checks and the AI evaluation set. Nothing to see on screen."
      },
      {
       "id": "M1.0b",
@@ -78,7 +78,7 @@
       "done": true,
       "doneOn": "2026-11-02",
       "visible": false,
-      "tryIt": "Every test now runs automatically on each change (GitHub Actions). Nothing new in the app."
+      "tryIt": "Every test runs automatically (GitHub Actions). Nothing to see in the app."
      },
      {
       "id": "M1.1",
@@ -86,23 +86,23 @@
       "done": true,
       "doneOn": "2026-11-02",
       "visible": false,
-      "tryIt": "The symbols now come from signed content packages. The symbol picker and the sheets look exactly as before; asking Alex which symbols exist gives the same list."
+      "tryIt": "The symbols come from signed content packages: the symbol picker and the sheets show them, and asking Alex which symbols exist lists them."
      },
      {
       "id": "M1.1b",
-      "title": "Symbols as content package records, drawn by one renderer (formerly M1.9)",
+      "title": "Symbols as content package records, drawn by one renderer",
       "done": true,
       "doneOn": "2026-11-02",
       "visible": false,
-      "tryIt": "Nothing should look different: every symbol is now drawn from its record in the content packages. Open Insert > Asset and page through the types, place a few symbols on a sheet and connect them, and open Model Space: all should look exactly as before."
+      "tryIt": "Every symbol is drawn from its record in the content packages. Open Insert > Asset and page through the types, place a few symbols on a sheet and connect them, and open Model Space: each symbol looks the same everywhere."
      },
      {
       "id": "M1.2",
-      "title": "Record-level store and the object model migration",
+      "title": "Record-level store and the object model",
       "done": true,
       "doneOn": "2026-11-02",
       "visible": true,
-      "tryIt": "Mostly under the hood. Open an existing project: the tree, sheets, and History should look as before, and every edit (and Alex) should still work."
+      "tryIt": "Mostly under the hood. Open a project: the tree, sheets and History show it, and every edit (and Alex) works object by object."
      },
      {
       "id": "M1.3",
@@ -214,7 +214,7 @@
       "done": true,
       "doneOn": "2026-11-03",
       "visible": false,
-      "tryIt": "Behind the scenes: with npm run db:up, db:migrate, and db:seed, then E1_STORE=postgres, projects open and edit as before, stored in PostgreSQL tables that keep each organization apart."
+      "tryIt": "Behind the scenes: with npm run db:up, db:migrate, and db:seed, then E1_STORE=postgres, projects open and edit, stored in PostgreSQL tables that keep each organization apart."
      },
      {
       "id": "M2.2",
@@ -301,16 +301,16 @@
    {
     "id": "M3",
     "title": "Lists and connectivity",
-    "summary": "Pipes, cables, wires, and signals become objects connected to ports. Any list is a live table of the model: right-click any node, Query ▸ New query… lists every object below it, in an Excel-like query view that can be filtered, edited, saved as a template (then listed under Query ▸), and exported to Excel. There are no fixed lists. The large 2D drawing editor arrives here. After M3, a first informal pilot preview.",
+    "summary": "Pipes, cables, wires, and signals are objects connected to ports. Any list is a live table of the model: right-click any node, Query ▸ New query… lists every object below it, in an Excel-like query view that can be filtered, edited, saved as a template (then listed under Query ▸), and exported to Excel. There are no fixed lists. The large 2D drawing editor arrives here. After M3, a first informal pilot preview.",
     "mvp": true,
     "stages": [
      {
       "id": "M3.1",
-      "title": "The drawing migration: lines as objects, placements in 2D",
+      "title": "Drawings: lines as objects, placements in 2D",
       "done": true,
       "doneOn": "2026-11-04",
       "visible": true,
-      "tryIt": "Open a drawn sheet: it looks and edits as before. Under Assets, open Pipelines, Signal lines or Cables and wires: each drawn pipe run, signal, cable, or wire is an object with its own attributes; drawing a second pipe to a nozzle that already has one is refused."
+      "tryIt": "Open a drawn sheet and edit it. Under Assets, open Pipelines, Signal lines or Cables and wires: each drawn pipe run, signal, cable, or wire is an object with its own attributes; drawing a second pipe to a nozzle that already has one is refused."
      },
      {
       "id": "M3.2",
@@ -386,7 +386,7 @@
      },
      {
       "id": "M3.11",
-      "title": "The 2D view becomes the sheet view",
+      "title": "The sheet view",
       "done": true,
       "doneOn": "2026-11-04",
       "visible": true,
@@ -502,7 +502,7 @@
       "done": true,
       "doneOn": "2026-11-05",
       "visible": true,
-      "tryIt": "Relate a transmitter to a loop function (implements) and right-click the function → Preview loop diagram: generated now, nothing stored, wired or not. Create revision… in the preview stores it in Documents, where a move by hand survives Regenerate."
+      "tryIt": "Relate a transmitter to a loop function (implements) and right-click the function → Preview loop diagram: generated on the spot, nothing stored, wired or not. Create revision… in the preview stores it in Documents, where a move by hand survives Regenerate."
      },
      {
       "id": "02.2",
@@ -598,7 +598,7 @@
       "done": true,
       "doneOn": "2026-11-07",
       "visible": true,
-      "tryIt": "A sheet's Share no longer offers Project administrator, and a role there needs a role on the project to open it. Behind it: no grant reaches another project, and nobody grants more than they hold."
+      "tryIt": "A sheet's Share offers the sheet roles only (no Project administrator), and a role there needs a role on the project to open it. Behind it: no grant reaches another project, and nobody grants more than they hold."
      },
      {
       "id": "09.6a",
@@ -634,7 +634,7 @@
      },
      {
       "id": "10.1n",
-      "title": "Privacy: history shows groups instead of names",
+      "title": "Privacy: history shows groups, not names",
       "done": true,
       "doneOn": "2026-11-10",
       "visible": true,
@@ -902,7 +902,7 @@
       "done": true,
       "doneOn": "2026-11-09",
       "visible": true,
-      "tryIt": "Settings → Project settings → Units: choose Imperial. A new flow rate offers ft³/h first; type only the number. Choose another unit for a value: Convert or Change unit only. (The Model Space 3D view is archived.)"
+      "tryIt": "Settings → Project settings → Units: choose Imperial. A new flow rate offers ft³/h first; type only the number. Choose another unit for a value: Convert or Change unit only."
      },
      {
       "id": "04.2",
@@ -910,7 +910,7 @@
       "done": true,
       "doneOn": "2026-11-09",
       "visible": true,
-      "tryIt": "Settings → Project settings → Content packages: switch Plant engineering off in a project with pumps: E1 lists what still uses it and keeps it. In an empty project switch it off: New asset… and the symbol picker no longer offer pumps."
+      "tryIt": "Settings → Project settings → Content packages: switch Plant engineering off in a project with pumps: E1 lists what still uses it and keeps it. In an empty project switch it off: New asset… and the symbol picker offer no pumps."
      },
      {
       "id": "04.8",
@@ -990,7 +990,7 @@
       "done": true,
       "doneOn": "2026-11-16",
       "visible": true,
-      "tryIt": "Issue a revision of a list document, then click its row Rev A · IFR in its folder under Documents: its window opens on the PDF tab showing that PDF. A hookup drawing with nothing issued shows its PDF as the model is now, marked Not issued."
+      "tryIt": "Issue a revision of a list document, then click its row Rev A · IFR in its folder under Documents: its window opens on the PDF tab showing that PDF. A hookup drawing with nothing issued shows its PDF as the model stands, marked Not issued."
      },
      {
       "id": "24.2",
@@ -1061,7 +1061,7 @@
    {
     "id": "M7",
     "title": "Piping",
-    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, and the pipe schedule (line list). DEXPI export moved after the MVP (owner, 2026-11-11, 00-D16).",
+    "summary": "Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, and the pipe schedule (line list). DEXPI export comes after the MVP.",
     "mvp": true,
     "stages": [
      {
@@ -1101,7 +1101,7 @@
    {
     "id": "M6",
     "title": "Rules and stored assistants",
-    "summary": "Rule-based engineering without programming: values calculated from other values and from related objects, copy rules that fill values from their source, and check rules that find problems and can block issuing a revision. Built together with stored assistants (owner, 2026-11-09, 00-D13): repeatable procedures saved from Alex's turn or recorded by hand, shared, and run with one click, and automated assistants that are always on and start by themselves when someone makes a change (owner, 2026-11-16).",
+    "summary": "Rule-based engineering without programming: values calculated from other values and from related objects, copy rules that fill values from their source, and check rules that find problems and can block issuing a revision. Built together with stored assistants: repeatable procedures saved from Alex's turn or recorded by hand, shared, and run with one click, and automated assistants that are always on and start by themselves when someone makes a change.",
     "mvp": true,
     "stages": [
      {
@@ -1221,7 +1221,7 @@
    {
     "id": "M9",
     "title": "EI&C: wiring and loop diagrams",
-    "summary": "Wiring design without drawing: cabinets, junction boxes, and marshalling panels with rails, cards, channels, and terminals; cables and cores; signals with segregation; wiring typicals; automatic allocation of signals to terminals and channels as a proposal, worked in the Wiring page; wire lists and marker export; loop diagrams generated from the real wiring; fieldbus segments. Added by the owner on 2026-11-10 (00-D14): 28.1 and 28.2 run alongside piping, the rest after the rules, all before branches.",
+    "summary": "Wiring design without drawing: cabinets, junction boxes, and marshalling panels with rails, cards, channels, and terminals; cables and cores; signals with segregation; wiring typicals; automatic allocation of signals to terminals and channels as a proposal, worked in the Wiring page; wire lists and marker export; loop diagrams generated from the real wiring; fieldbus segments. 28.1 and 28.2 run alongside piping, the rest after the rules, all before branches.",
     "mvp": true,
     "stages": [
      {
@@ -1309,7 +1309,7 @@
    {
     "id": "M10",
     "title": "Modules: modular P&ID design",
-    "summary": "Modules made from a selection on any P&ID, kept with versions in the company or project library, placed in one step from the Modules tab with tags from the rules, and their instances kept in step: E1 takes what the module changed, keeps what an instance changed, and asks about every conflict. Added by the owner on 2026-11-10 (00-D15): 32.1 to 32.3 alongside piping, 32.4 after the rules and piping, all before branches.",
+    "summary": "Modules made from a selection on any P&ID, kept with versions in the company or project library, placed in one step from the Modules tab with tags from the rules, and their instances kept in step: E1 takes what the module changed, keeps what an instance changed, and asks about every conflict. 32.1 to 32.3 alongside piping, 32.4 after the rules and piping, all before branches.",
     "mvp": true,
     "stages": [
      {
@@ -1366,7 +1366,7 @@
       "done": true,
       "doneOn": "2026-11-11",
       "visible": true,
-      "tryIt": "Delete a member of a placed module to the bin: Compare with module lists it as Removed here; restore it and it is back in step. Put all its objects in the bin: the module no longer offers that instance an update."
+      "tryIt": "Delete a member of a placed module to the bin: Compare with module lists it as Removed here; restore it and it is back in step. Put all its objects in the bin: the module offers that instance no update."
      },
      {
       "id": "32.2d",
@@ -1461,7 +1461,7 @@
    {
     "id": "M12",
     "title": "Cause and effect, safety functions, alarms",
-    "summary": "The last part of the owner's order of 2026-11-09 (00-D13, 00-D18): interlocks with their causes and effects in the model, shown as the cause and effect matrix with narratives; safety instrumented functions with their required SIL and a calculated PFD; and alarm management, with rationalized priorities and the plant states in which each alarm is shown or suppressed (concept 34).",
+    "summary": "Interlocks with their causes and effects in the model, shown as the cause and effect matrix with narratives; safety instrumented functions with their required SIL and a calculated PFD; and alarm management, with rationalized priorities and the plant states in which each alarm is shown or suppressed.",
     "mvp": true,
     "stages": [
      {
@@ -1501,7 +1501,7 @@
    {
     "id": "M11",
     "title": "Workflow and dashboards",
-    "summary": "Asked for by the owner on 2026-11-10 (concept 33, agreed): statuses with five fixed categories (New, Active, Resolved, Closed, Removed) and the company's own sub-statuses, on objects, attribute values, diagrams, documents, tasks, and branches; workflows as ordered steps with exit criteria, approvals, and a small flow editor; and configurable progress dashboards for the environment and each project, also shown in E1 Reviewer.",
+    "summary": "Statuses with five fixed categories (New, Active, Resolved, Closed, Removed) and the company's own sub-statuses, on objects, attribute values, diagrams, documents, tasks, and branches; workflows as ordered steps with exit criteria, approvals, and a small flow editor; and configurable progress dashboards for the environment and each project, also shown in E1 Reviewer.",
     "mvp": true,
     "stages": [
      {
@@ -1589,7 +1589,7 @@
    {
     "id": "M13",
     "title": "From PFD to cabinet: P&ID from a PFD, single line diagrams, circuit diagrams, racks",
-    "summary": "Asked for by the owner on 2026-11-14 (00-D20, 00-D21), so that one plant runs as one story from the PFD to the terminals in the cabinet: Alex makes a P&ID from a PFD with the same objects and suggests its additions; single line diagrams where field devices, junction boxes, cabinets and the cables between them are designed like a PFD for electrical; circuit diagrams with devices and their functions, cross-references, wire numbers, terminals, cables, PLC boxes, starter circuits and their documents; and every terminal, card and device assigned to its cabinet and rack. The 3D cabinet layout comes after the MVP.",
+    "summary": "One plant runs as one story from the PFD to the terminals in the cabinet: Alex makes a P&ID from a PFD with the same objects and suggests its additions; single line diagrams where field devices, junction boxes, cabinets and the cables between them are designed like a PFD for electrical; circuit diagrams with devices and their functions, cross-references, wire numbers, terminals, cables, PLC boxes, starter circuits and their documents; and every terminal, card and device assigned to its cabinet and rack. The 3D cabinet layout comes after the MVP.",
     "mvp": true,
     "stages": [
      {
@@ -1702,7 +1702,7 @@
       "done": true,
       "doneOn": "2026-11-14",
       "visible": true,
-      "tryIt": "On a Process flow diagram, Balance ▸ Place ▸ Mass balance puts the bird cage of its streams in view; drag it, stretch it by its handles, double-click it to format it (layout, composition, units, Trace, groups). Place ▸ Heat balance and Export ▸ Excel or PDF do the rest."
+      "tryIt": "On a Process flow diagram, Add… › Model Space › Mass balance puts the bird cage of its streams in view; drag it, stretch it by its handles, double-click it to format it (layout, composition, units, Trace, groups). Heat balance sits beside it."
      },
      {
       "id": "40.2",
@@ -1901,7 +1901,7 @@
    {
     "id": "P",
     "title": "In parallel: integration API, company sign-on, access, chat modes",
-    "summary": "Built alongside the milestones once the platform exists. An open, versioned integration API kept small by the owner (2026-11-10): access tokens and service accounts, reading objects with their attributes and writing attributes back, external ids, the change feed and webhooks. Company single sign-on and directory sync, discipline permissions and four-eyes approval, and stored assistants in content packages and from the API.",
+    "summary": "Built alongside the milestones once the platform exists. An open, versioned integration API, kept small: access tokens and service accounts, reading objects with their attributes and writing attributes back, external ids, the change feed and webhooks. Company single sign-on and directory sync, discipline permissions and four-eyes approval, and stored assistants in content packages and from the API.",
     "mvp": true,
     "stages": [
      {
@@ -2286,7 +2286,7 @@
       "done": true,
       "doneOn": "2026-11-13",
       "visible": false,
-      "tryIt": "Every lesson of the E1 Guide is taken in the app by a test, and a bubble whose control is not on screen, with nothing saying how to show it, fails it. Nothing new on screen."
+      "tryIt": "Every lesson of the E1 Guide is taken in the app by a test, and a bubble whose control is not on screen, with nothing saying how to show it, fails it. Nothing to see on screen."
      },
      {
       "id": "26.5",
@@ -2597,12 +2597,12 @@
    {
     "id": "after",
     "title": "After the MVP",
-    "summary": "Beyond the MVP: DXF drawings converted into E1 symbols and lines through a saved mapping, also into a branch; DEXPI export of a 2D space for handover (13.5); wire harness, marine and partner content packages; message queues and more formats; a script step for stored assistants; voice input in the chat; markups as PDF comments and back; hook-up drawings; E1 Mobile on Android; options, variants and the configurator for modules, and the built-in patterns as modules. Still open: a tested installation on a second cloud and on Alibaba Cloud (M4.16, M4.22). Not planned for now: connections and mappings to other systems (19.4).",
+    "summary": "Beyond the MVP: DXF drawings converted into E1 symbols and lines through a saved mapping, also into a branch; DEXPI export of a 2D space for handover (13.5); wire harness, marine and partner content packages; message queues and more formats; a script step for stored assistants; voice input in the chat; markups as PDF comments and back; hook-up drawings; E1 Mobile on Android; options, variants and the configurator for modules, and the built-in patterns as modules. Still open: a tested installation on a second cloud and on Alibaba Cloud (M4.16, M4.22). Not planned: connections and mappings to other systems (19.4).",
     "mvp": false,
     "stages": [
      {
       "id": "42.8",
-      "title": "E1 Mobile on Android phones: push notifications and Google Play (moved out of the MVP by the owner, 2026-11-16)",
+      "title": "E1 Mobile on Android phones: push notifications and Google Play",
       "done": false,
       "doneOn": null,
       "visible": true,
@@ -2610,7 +2610,7 @@
      },
      {
       "id": "38.1",
-      "title": "3D cabinet layout: the 3D view and cabinet templates (moved out of the MVP by the owner, 2026-11-14)",
+      "title": "3D cabinet layout: the 3D view and cabinet templates",
       "done": false,
       "doneOn": null,
       "visible": true,
@@ -2650,7 +2650,7 @@
      },
      {
       "id": "10.CRA",
-      "title": "Cyber Resilience Act and NERC CIP review, when a customer needs it (10-Q1, moved out of the MVP by the owner, 2026-11-12)",
+      "title": "Cyber Resilience Act and NERC CIP review, when a customer needs it",
       "done": false,
       "doneOn": null,
       "visible": false,
@@ -2658,7 +2658,7 @@
      },
      {
       "id": "M4.16",
-      "title": "Second cloud: Google Cloud (moved out of the MVP by the owner, 2026-11-12)",
+      "title": "Second cloud: Google Cloud",
       "done": false,
       "doneOn": null,
       "visible": false,
@@ -2666,7 +2666,7 @@
      },
      {
       "id": "M4.22",
-      "title": "Enterprise installation on Alibaba Cloud: a tested installation (moved out of the MVP by the owner, 2026-11-12)",
+      "title": "Enterprise installation on Alibaba Cloud: a tested installation",
       "done": false,
       "doneOn": null,
       "visible": false,
@@ -2766,7 +2766,7 @@
       "done": false,
       "doneOn": null,
       "visible": false,
-      "tryIt": "Not planned for now: a customer's own script or middleware maps and schedules through the API. Set up a connection with a field mapping and run it."
+      "tryIt": "Not planned: a customer's own script or middleware maps and schedules through the API. Set up a connection with a field mapping and run it."
      },
      {
       "id": "23.5",
@@ -2789,7 +2789,7 @@
    {
     "id": "parked",
     "title": "Parked: Power (IEC 61850)",
-    "summary": "Parked by the owner (2026-11-05, 00-D12): not part of the MVP, not scheduled, and it may never be built. Formerly M9: substation engineering following IEC 61850, SCL import and export, generated single-line diagrams.",
+    "summary": "Parked: not part of the MVP, not scheduled, and it may never be built. Substation engineering following IEC 61850, SCL import and export, generated single-line diagrams.",
     "mvp": false,
     "stages": [
      {
@@ -2931,7 +2931,7 @@
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "Open lanxtor.com: the full site instead of \"Coming soon.\""
+      "tryIt": "Open lanxtor.com: the full site."
      }
     ]
    },
@@ -2971,7 +2971,7 @@
       "done": false,
       "doneOn": null,
       "visible": true,
-      "tryIt": "The account page lists video courses with your progress and certificates instead of \"Video courses are on their way\"."
+      "tryIt": "The account page lists video courses with your progress and certificates."
      }
     ]
    },
