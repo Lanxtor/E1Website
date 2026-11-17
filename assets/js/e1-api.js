@@ -82,13 +82,41 @@
     if (!base) return "";
     var url = base + "/auth/login?return=" + encodeURIComponent(returnTo || accountPage());
     if (mode === "signup") url += "&signup=1";
-    return url;
+    return url + E1.campaignQuery("&");
+  };
+
+  /*
+   * The campaign tag of the link that brought the visitor (utm_source,
+   * utm_medium, utm_campaign, utm_content, utm_term), read from this page's
+   * address only: nothing is stored in the browser. main.js passes it on in
+   * the links between the site's pages, and the sign-in address carries it to
+   * the E1 server, which keeps it with a trial the sign-up starts (E1
+   * server/identity/campaign.mjs). Empty when the address has no utm_source.
+   */
+  var CAMPAIGN_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  E1.campaign = function () {
+    var out = [];
+    try {
+      var params = new URLSearchParams(location.search);
+      if (!params.get("utm_source")) return out;
+      CAMPAIGN_KEYS.forEach(function (key) {
+        var value = params.get(key);
+        if (value) out.push([key, value.slice(0, 80)]);
+      });
+    } catch (e) { /* an address without a query */ }
+    return out;
+  };
+  /** The tag as a query: "" or lead + "utm_source=…&utm_campaign=…". */
+  E1.campaignQuery = function (lead) {
+    var pairs = E1.campaign();
+    if (!pairs.length) return "";
+    return lead + pairs.map(function (p) { return p[0] + "=" + encodeURIComponent(p[1]); }).join("&");
   };
 
   /** Sign in with a company's Microsoft account (E1 server: identity/microsoft.mjs). */
   E1.microsoftLoginUrl = function (returnTo) {
     if (!base) return "";
-    return base + "/auth/login/microsoft?return=" + encodeURIComponent(returnTo || accountPage());
+    return base + "/auth/login/microsoft?return=" + encodeURIComponent(returnTo || accountPage()) + E1.campaignQuery("&");
   };
 
   /** GET /auth/providers: which sign-ins the E1 server offers ({ microsoft }). */

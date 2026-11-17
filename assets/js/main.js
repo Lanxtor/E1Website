@@ -600,6 +600,33 @@
     io.observe(box);
   }
 
+  /*
+   * The campaign tag travels with the visitor (e1-api.js E1.campaign): when
+   * this page was opened from a tagged link (utm_source=…), every link to
+   * another page of this site carries the same tag, so the sign-up that
+   * starts on login.html still knows where the visit began. Only the address
+   * is used; nothing is stored in the browser.
+   */
+  function initCampaignLinks() {
+    var api = window.E1;
+    var query = api && api.campaignQuery ? api.campaignQuery("") : "";
+    if (!query) return;
+    var pairs = query.split("&");
+    Array.prototype.forEach.call(document.querySelectorAll("a[href]"), function (a) {
+      var href = a.getAttribute("href");
+      if (!href || /^(#|mailto:|tel:|javascript:)/i.test(href)) return;
+      var url;
+      try { url = new URL(href, location.href); } catch (e) { return; }
+      if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname)) return;
+      if (url.searchParams.get("utm_source")) return;
+      pairs.forEach(function (pair) {
+        var at = pair.indexOf("=");
+        url.searchParams.set(pair.slice(0, at), decodeURIComponent(pair.slice(at + 1)));
+      });
+      a.setAttribute("href", href.split(/[?#]/)[0] + url.search + url.hash);
+    });
+  }
+
   renderHeader();
   renderFooter();
 
@@ -613,5 +640,6 @@
     initAuthTabs();
     initCatalog();
     initLaunch();
+    initCampaignLinks();
   });
 })();

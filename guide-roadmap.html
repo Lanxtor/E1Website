@@ -127,7 +127,7 @@
         </section>
         <section class="g-feature" id="app-m3">
           <h2>M3 Lists and connectivity — E1 app</h2>
-          <div class="g-meta"><span>13 of 13 stages done</span><span>MVP</span></div>
+          <div class="g-meta"><span>14 of 14 stages done</span><span>MVP</span></div>
           <p class="g-summary">Pipes, cables, wires, and signals become objects connected to ports. Any list is a live table of the model: right-click any node, Query ▸ New query… lists every object below it, in an Excel-like query view that can be filtered, edited, saved as a template (then listed under Query ▸), and exported to Excel. There are no fixed lists. The large 2D drawing editor arrives here. After M3, a first informal pilot preview.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>M3.1</td><td>The drawing migration: lines as objects, placements in 2D</td><td><span class="g-status available">Done 2026-11-04</span></td><td>Open a drawn sheet: it looks and edits as before. Under Assets, open Pipelines, Signal lines or Cables and wires: each drawn pipe run, signal, cable, or wire is an object with its own attributes; drawing a second pipe to a nozzle that already has one is refused.</td></tr>
@@ -143,6 +143,7 @@
             <tr><td>M3.11</td><td>The 2D view becomes the sheet view</td><td><span class="g-status available">Done 2026-11-04</span></td><td>Open any sheet: it is the 2D view, with flow arrows and line crossings, the right-click menus, name labels to drag, formatting, frames, predictive mode, and Layers.</td></tr>
             <tr><td>M3.12</td><td>Instrumentation symbols in the Plant package</td><td><span class="g-status available">Done 2026-11-04</span></td><td>Open Configuration → Shapes and search for gauge: the instrument, valve and logic shapes are there. Place a pressure gauge from the asset window: it is tagged PG-001.</td></tr>
             <tr><td>M3.13</td><td>Copy and paste between sheets and projects, through Copy temp</td><td><span class="g-status available">Done 2026-11-13</span></td><td>Copy a pump on a sheet, open a sheet of another project (in this window or another tab) and paste: the new pump, with its values, is in Assets ▸ Copy temp, and the area it was in is in Areas ▸ Copy temp. Drag them where they belong: Copy temp disappears once it is empty.</td></tr>
+            <tr><td>M3.14</td><td></td><td><span class="g-status available">Done 2026-11-17</span></td><td>Select a symbol: Format and Arrange open on the right.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m4">
@@ -392,7 +393,7 @@
         </section>
         <section class="g-feature" id="app-p">
           <h2>P In parallel: integration API, company sign-on, access, chat modes — E1 app</h2>
-          <div class="g-meta"><span>49 of 50 stages done</span><span>MVP</span></div>
+          <div class="g-meta"><span>51 of 52 stages done</span><span>MVP</span></div>
           <p class="g-summary">Built alongside the milestones once the platform exists. An open, versioned integration API kept small by the owner (2026-11-10): access tokens and service accounts, reading objects with their attributes and writing attributes back, external ids, the change feed and webhooks. Company single sign-on and directory sync, discipline permissions and four-eyes approval, and stored assistants in content packages and from the API.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>19.1</td><td>Command API, OpenAPI, and access tokens</td><td><span class="g-status available">Done 2026-11-09</span></td><td>Account → Access tokens: create a token (shown once). Call https://app.lanxtor.com/api/v1/projects/&lt;project&gt;/objects with Authorization: Bearer &lt;token&gt; to read objects with their attributes. File → Organization… → Service accounts for other systems.</td></tr>
@@ -420,7 +421,9 @@
             <tr><td>09.20</td><td>University: students pay by card themselves, or the university pays</td><td><span class="g-status available">Done 2026-11-13</span></td><td>As a member of a University organization, open Account → Your access: Pay by card opens Stripe&#x27;s page for the monthly Editor or Viewer license; afterwards it reads You pay by card, with Stop paying. In the operator console, Universities → University pays has the university invoiced instead.</td></tr>
             <tr><td>09.21</td><td>The organization&#x27;s name and logo at the top left and in About E1</td><td><span class="g-status available">Done 2026-11-13</span></td><td>As the Owner, open File → Organization… → Members → Name and logo: type a new name and click Rename, or choose Add logo…: the logo shows there, at the top left of E1 beside the organization&#x27;s name, and in Help → About E1 at the right of Lanxtor E1. In dark mode it is shown white.</td></tr>
             <tr><td>09.22</td><td>Names in the tree: the fields a tree row shows, in order, for the organization or one project</td><td><span class="g-status available">Done 2026-11-16</span></td><td>In Project defaults → Names in the tree, move Tag above Name and add Description with Add attribute…: each row shows its tag, else its name, else its description, else its class. A project can choose its own order in its Project settings.</td></tr>
-            <tr><td>09.23</td><td>Operator console: sections in groups on a side menu, with search</td><td><span class="g-status available">Done 2026-11-17</span></td><td>In the operator console, the menu on the left groups the sections (Business, Customers, Prices &amp; plans, Billing, Product &amp; security); type in Search (or press /) &quot;invoice&quot; or a customer&#x27;s name and press Enter to open it.</td></tr>
+            <tr><td>09.23</td><td>Operator console: sections in groups on a side menu, with search</td><td><span class="g-status available">Done 2026-11-17</span></td><td>In the operator console, the menu on the left groups the sections (Business, Customers, Prices &amp; plans, Billing, Product, Team &amp; security); type in Search (or press /) &quot;invoice&quot; or a customer&#x27;s name and press Enter to open it.</td></tr>
+            <tr><td>09.24</td><td>Operator console: Team, people given access as Owner or Viewer</td><td><span class="g-status available">Done 2026-11-17</span></td><td>In the operator console, Team &amp; security → Team → Add person: type their email and choose Viewer; they get an email and, signed in to E1 with that address, open /operator read-only. Change their Access to Owner, or Remove them; the server&#x27;s E1_OPERATORS stay as they are.</td></tr>
+            <tr><td>09.25</td><td>Where trials come from: the campaign tag of a post or ad, from the website to the operator console</td><td><span class="g-status available">Done 2026-11-17</span></td><td>Open lanxtor.com/?utm_source=linkedin&amp;utm_campaign=w01-launch&amp;utm_content=e1-l-001, go to Get E1 and start a trial: in the operator console, Trials shows the company came from linkedin, and Where trials come from counts its trial, and later its payment, under that campaign and film.</td></tr>
             <tr><td>09.6</td><td>Discipline permissions, four-eyes approval, support access</td><td><span class="g-status available">Done 2026-11-12</span></td><td>Give a role &quot;Edit electrical attributes&quot; only: it changes a pump&#x27;s hazardous area data and nothing else. Tick Four eyes in Branch types…: an author cannot approve their own merge request. Approve an E1 support request in Access → E1 support, then End it.</td></tr>
             <tr><td>02.3</td><td>Chat modes and attachments</td><td><span class="g-status available">Done 2026-11-03</span></td><td>In Alex&#x27;s Agent tab, pick Ask in the mode menu and see nothing change; pick Plan, ask for a change and Apply it; attach a file and ask about it.</td></tr>
             <tr><td>31.1</td><td>DEXPI import: one way in for files, import and update</td><td><span class="g-status available">Done 2026-11-10</span></td><td>Select a project, File → Import DEXPI…, add the DEXPI reference P&amp;ID, Accept all high, Check and Apply: the 2D space 123/A93 with its pumps, lines and instruments, as one Undo step. Import it again after a change in E1: the difference waits for Use file or Keep E1.</td></tr>
@@ -587,8 +590,8 @@
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=1"></script>
   <script src="assets/js/config.js?v=4"></script>
-  <script src="assets/js/e1-api.js?v=7"></script>
-  <script src="assets/js/main.js?v=42"></script>
+  <script src="assets/js/e1-api.js?v=8"></script>
+  <script src="assets/js/main.js?v=43"></script>
   <script src="assets/js/chat.js?v=7"></script>
   <script src="assets/js/guides.js?v=1"></script>
 </body>
