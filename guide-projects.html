@@ -537,11 +537,11 @@
 
 <section class="g-feature" id="prj-delete">
   <h2>Delete a project and restore it from the Bin</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-15</span><span class="g-id">PRJ-delete</span><span>Review check A2</span></div>
-  <p class="g-summary">A deleted project goes to the Bin at the end of the tree, from where you can restore it. Only <span class="ui">Delete permanently…</span> in the Bin removes it for good, with everything in it.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-17</span><span class="g-id">PRJ-delete</span><span>Review check A2</span></div>
+  <p class="g-summary">A deleted project leaves the tree and goes to the Bin. In <span class="ui">Projects</span>, <span class="ui">Show deleted</span> lists the deleted projects: <span class="ui">Restore</span> brings one back among the projects, ready to open. Only <span class="ui">Delete permanently</span> removes it for good, with everything in it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Select the project and click the trash button in the explorer header; or right-click the project → <span class="ui">Delete</span>; or <span class="ui">More explorer actions</span> → <span class="ui">Delete project</span>; or select it and press <kbd>Delete</kbd></dd>
-    <dt>Who</dt><dd>A project role that may delete the project</dd>
+    <dt>Who</dt><dd>A project role that may delete the project (to delete it and to restore it). Opening a restored project, or adding it to your explorer, needs nothing more.</dd>
     <dt>Before you start</dt><dd>A project you may delete, for example a new one.</dd>
   </dl>
   <h3>Steps</h3>
@@ -549,12 +549,11 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Right-click the project → <span class="ui">Delete</span>.</td><td>E1's dialog <em>Delete project?</em> asks: <span class="ui">Delete project "<i>name</i>"? It goes to the Bin, from where it can be restored.</span>, with <span class="ui">Cancel</span> and <span class="ui">Delete</span>.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Delete</span>.</td><td>The project is gone from the projects, and every tab of it closes. A top-level row <span class="ui">Bin</span> appears after the projects.</td></tr>
-      <tr><td>3</td><td>Expand <span class="ui">Bin</span>.</td><td>The project is listed inside.</td></tr>
-      <tr><td>4</td><td>Right-click the project in the Bin.</td><td>Exactly two items: <span class="ui">Restore</span> and <span class="ui">Delete permanently…</span>.</td></tr>
-      <tr><td>5</td><td>Choose <span class="ui">Restore</span>.</td><td>The project is back among the projects. The <span class="ui">Bin</span> row disappears when it is empty.</td></tr>
-      <tr><td>6</td><td>Delete the project again, expand <span class="ui">Bin</span>, right-click it → <span class="ui">Delete permanently…</span>.</td><td>E1's dialog <em>Delete project permanently?</em> asks: <span class="ui">Delete project "<i>name</i>" permanently, with everything in it? It cannot be restored.</span></td></tr>
-      <tr><td>7</td><td>Click <span class="ui">Delete permanently</span>.</td><td>The project is gone for good.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Delete</span>.</td><td>The project is gone from the tree and from the projects, and every tab of it closes. No Bin row appears in the tree.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Projects</span> on the left rail, then <span class="ui">Show deleted (1)</span> next to <span class="ui">Read-only</span>.</td><td><span class="ui">Deleted projects</span> appears under the other projects, with the project, its sheets and the day it was deleted. Each row has <span class="ui">Restore</span> and a trash button, <span class="ui">Delete permanently</span>. A second click on <span class="ui">Show deleted</span> hides them.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Restore</span>.</td><td>The project is back among the projects above. Open it as any other (its picture or <span class="ui">Open</span>). Without the right to delete the project, E1 says so and nothing changes.</td></tr>
+      <tr><td>5</td><td>Delete the project again; under <span class="ui">Show deleted</span>, click its trash button <span class="ui">Delete permanently</span>.</td><td>E1's dialog <em>Delete project permanently?</em> asks: <span class="ui">Delete project "<i>name</i>" permanently, with everything in it? It cannot be restored.</span></td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Delete permanently</span>.</td><td>The project is gone for good.</td></tr>
     </tbody>
   </table></div>
   <h3>Several projects at once</h3>
@@ -565,7 +564,7 @@
       <tr><td>2</td><td>Click the trash button.</td><td>E1's dialog <em>Delete projects?</em> asks "Delete 2 projects? They go to the Bin, from where they can be restored." with a list of their names, and <span class="ui">Cancel</span> and <span class="ui">Delete</span>. <kbd>Esc</kbd> instead clears the picks.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">This Bin at the end of the tree is for projects. Things deleted inside a project go to that project's own Bin: see <a href="#prj-project-bin">The project Bin</a>.</p>
+  <p class="g-note">Deleted projects are only in <span class="ui">Projects</span>, not in the tree. Things deleted inside a project go to that project's own Bin: see <a href="#prj-project-bin">The project Bin</a>.</p>
   <p class="g-related">Related: <a href="#prj-project-bin">The project Bin</a> · <a href="#prj-new-project">Create a project</a></p>
 </section>
 
@@ -598,11 +597,11 @@
 
 <section class="g-feature" id="prj-empty-bin">
   <h2>Empty a bin (the permission Empty bins)</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-15</span><span class="g-id">PRJ-empty-bin</span></div>
-  <p class="g-summary">Emptying a bin deletes everything in it for good, at once: the objects, 2D spaces and folders in a project's <span class="ui">Deleted bin</span>, or every project in the workspace's <span class="ui">Bin</span>. Nothing emptied can be restored, so it needs a permission of its own, <span class="ui">Empty bins</span>. The <span class="ui">Voided bin</span> is never emptied: nothing voided can be deleted.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-17</span><span class="g-id">PRJ-empty-bin</span></div>
+  <p class="g-summary">Emptying a bin deletes everything in it for good, at once: the objects, 2D spaces and folders in a project's <span class="ui">Deleted bin</span>, or every deleted project (in <span class="ui">Projects</span> → <span class="ui">Show deleted</span>). Nothing emptied can be restored, so it needs a permission of its own, <span class="ui">Empty bins</span>. The <span class="ui">Voided bin</span> is never emptied: nothing voided can be deleted.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Bin</span> or <span class="ui">Deleted bin</span> → right-click → <span class="ui">Empty deleted bin…</span>; the <span class="ui">Bin</span> after the projects → right-click → <span class="ui">Empty bin…</span></dd>
-    <dt>Who</dt><dd>The permission <span class="ui">Empty bins</span> in the project (Project administrator has it; an organization can give it to a custom role). For the workspace's Bin, in every project in it, together with <span class="ui">Delete the project</span>.</dd>
+    <dt>Where</dt><dd>Explorer → the project → <span class="ui">Bin</span> or <span class="ui">Deleted bin</span> → right-click → <span class="ui">Empty deleted bin…</span>; <span class="ui">Projects</span> → <span class="ui">Show deleted</span> → <span class="ui">Empty bin…</span></dd>
+    <dt>Who</dt><dd>The permission <span class="ui">Empty bins</span> in the project (Project administrator has it; an organization can give it to a custom role). For deleted projects, in every one of them, together with <span class="ui">Delete the project</span>.</dd>
     <dt>Before you start</dt><dd>A project with valves V9 and V10 under Assets, or any objects of your own.</dd>
   </dl>
   <h3>Steps</h3>
@@ -612,8 +611,8 @@
       <tr><td>1</td><td>Delete V9 and V10 under <span class="ui">Assets</span>.</td><td>A <span class="ui">Bin</span> row appears at the end of the project.</td></tr>
       <tr><td>2</td><td>Right-click the project's <span class="ui">Bin</span> row.</td><td>The item <span class="ui">Empty deleted bin…</span>. Without the permission Empty bins it is greyed out, and pointing at it says "Emptying a bin needs the permission Empty bins (a Project administrator has it)."</td></tr>
       <tr><td>3</td><td>Choose <span class="ui">Empty deleted bin…</span>.</td><td>E1's dialog <em>Empty the deleted bin?</em> asks "Delete the 2 items in the deleted bin permanently? They cannot be restored." After <span class="ui">Delete permanently</span> V9 and V10 are gone for good and the Bin row disappears.</td></tr>
-      <tr><td>4</td><td>Delete a project of your own, then right-click the <span class="ui">Bin</span> after the projects.</td><td>The item <span class="ui">Empty bin…</span>. While E1 is still checking your permission the item can already be chosen; the server checks it.</td></tr>
-      <tr><td>5</td><td>Choose <span class="ui">Empty bin…</span>.</td><td>E1's dialog <em>Empty the Bin?</em> lists the projects in the Bin and asks to delete them permanently. If you signed in more than 15 minutes ago, <a href="guide-access.html#acc-step-up">Confirm it is you</a> opens first: <span class="ui">Use passkey</span>, or <span class="ui">Sign in again</span> (you come back, E1 asks once more and carries on). After <span class="ui">Delete permanently</span> they are gone for good and the Bin row disappears.</td></tr>
+      <tr><td>4</td><td>Delete a project of your own, then open <span class="ui">Projects</span> and click <span class="ui">Show deleted</span>.</td><td>The button <span class="ui">Empty bin…</span> above the deleted projects; greyed out when none is deleted. The server checks the permission.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Empty bin…</span>.</td><td>E1's dialog <em>Empty the Bin?</em> lists the projects in the Bin and asks to delete them permanently. If you signed in more than 15 minutes ago, <a href="guide-access.html#acc-step-up">Confirm it is you</a> opens first: <span class="ui">Use passkey</span>, or <span class="ui">Sign in again</span> (you come back, E1 asks once more and carries on). After <span class="ui">Delete permanently</span> they are gone for good and <span class="ui">Deleted projects</span> says "No project is deleted."</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Without Empty bins you can still delete one item at a time with <span class="ui">Delete permanently…</span>, if your role may delete it. E1 checks the permission on the server, not only in the menu. On an installation without sign-in (the desktop app) nothing is restricted.</p>
