@@ -94,7 +94,7 @@
 
 <section class="g-feature" id="col-comments">
   <h2>Chat about an object: mentions, links, replies and likes</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-16</span><span class="g-id">COL-comments</span><span>Roadmap 07.8</span><span>Review check H3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-17</span><span class="g-id">COL-comments</span><span>Roadmap 07.8</span><span>Review check H3</span></div>
   <p class="g-summary">Every object, project, folder and 2D space has a Chat tab where you discuss it. Mention a colleague with @ so they are notified, link another object with #, reply, like, edit and delete your own messages, and resolve a thread when it is settled. A message written in E1 Mobile is in the same chat: about the whole project, on the project's Chat tab; about a 2D space, on its Chat tab.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The object window → tab <span class="ui">Chat</span>. The badge is the number of messages, with a dot when there are new ones.</dd>
@@ -122,10 +122,11 @@
     <li>A message pinned on a drawing shows <span class="ui">Pinned on a 2D space</span> (see <a href="#col-sheet-pins">Pin a message here</a>).</li>
     <li>A message removed by a moderator shows <span class="ui">Removed by a moderator</span>.</li>
     <li><span class="ui">Create task</span> on any message starts a task from it (see <a href="#col-tasks">Tasks</a>).</li>
+    <li>In the lists <span class="ui">People</span> and <span class="ui">Objects</span>, <kbd>↑</kbd> and <kbd>↓</kbd> move, <kbd>Enter</kbd> or <kbd>Tab</kbd> picks, <kbd>Esc</kbd> closes the list. The same @ works in other text boxes (see <a href="#col-tag-people">Tag a person with @</a>).</li>
   </ul>
   <p class="g-note">Without permission to write in the chat, the box is hidden and the tab says <span class="ui">You can read this chat; your role on the project does not include writing in it.</span> The Reviewer role can write messages but cannot resolve.</p>
   <p class="g-note">A message can be up to 10 000 characters, and one person can send up to 30 messages a minute.</p>
-  <p class="g-related">Related: <a href="#col-tasks">Tasks</a> · <a href="#col-inbox">The Inbox</a> · <a href="#col-notifications">Notification settings</a> · <a href="#col-sheet-pins">Pin a message here pins</a></p>
+  <p class="g-related">Related: <a href="#col-tasks">Tasks</a> · <a href="#col-inbox">The Inbox</a> · <a href="#col-notifications">Notification settings</a> · <a href="#col-sheet-pins">Pin a message here pins</a> · <a href="#col-tag-people">Tag a person with @</a></p>
 </section>
 
 <section class="g-feature" id="col-tasks">
@@ -235,7 +236,7 @@
 
 <section class="g-feature" id="col-sheet-pins">
   <h2>Pin a message on a drawing and mark it Needs review</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-13</span><span class="g-id">COL-sheet-pins</span><span>Roadmap 07.8</span><span>Review check H5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-05</span><span>Updated 2026-11-17</span><span class="g-id">COL-sheet-pins</span><span>Roadmap 07.8</span><span>Review check H5</span></div>
   <p class="g-summary">During a drawing review you pin a message right where the question is. The pin is numbered on the 2D space, the object shows <span class="ui">Needs review</span> in the explorer until the message is resolved, and the discussion continues on the object's Chat tab.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space: right-click a symbol or an empty spot → <span class="ui">Pin a message here</span></dd>
@@ -248,18 +249,49 @@
     <tbody>
       <tr><td>1</td><td>Right-click Pump1 on the 2D space.</td><td>The menu shows <span class="ui">Pin a message here</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Pin a message here</span>.</td><td>A card <span class="ui">Pin a message</span> with <span class="ui">A message on Pump1, pinned here</span> and the box <span class="ui">Chat message</span>.</td></tr>
-      <tr><td>3</td><td>Type <code>Is the suction size right?</code> and click <span class="ui">Pin message</span>. (<span class="ui">Cancel</span> or <kbd>Esc</kbd> closes the card without pinning.)</td><td>A pin numbered <span class="ui">1</span> appears on the 2D space.</td></tr>
-      <tr><td>4</td><td>Look at Pump1 in the explorer.</td><td>It shows the mark <span class="ui">Needs review: 1 unresolved comment</span> (at once in your window; in others within 30 seconds).</td></tr>
-      <tr><td>5</td><td>Click the pin.</td><td>A card with the author, <span class="ui">on Pump1</span>, the text, the number of replies and the buttons <span class="ui">Resolve</span>, <span class="ui">Open discussion</span> and <span class="ui">Close</span>.</td></tr>
-      <tr><td>6</td><td>Click <span class="ui">Open discussion</span>.</td><td>Pump1 opens on its Chat tab; the message reads <span class="ui">Pinned on a 2D space</span>.</td></tr>
-      <tr><td>7</td><td>Back on the 2D space, click the pin and then <span class="ui">Resolve</span>.</td><td>The pin shows as resolved, the Needs review mark disappears, and the card offers <span class="ui">Reopen</span>.</td></tr>
+      <tr><td>3</td><td>Type <code>Is the suction size right? @</code> and the first letters of a colleague's name, and press <kbd>Enter</kbd>.</td><td>The placeholder reads <span class="ui">Type @ to tag a person, # to link an object.</span> A list <span class="ui">People</span> shows who may view Pump1; <kbd>Enter</kbd> puts the chosen one in the message (it does not pin yet).</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Pin message</span> (or press <kbd>Enter</kbd>). (<span class="ui">Cancel</span> or <kbd>Esc</kbd> closes the card without pinning.)</td><td>A pin numbered <span class="ui">1</span> appears on the 2D space. The colleague you tagged gets an Inbox notice.</td></tr>
+      <tr><td>5</td><td>Look at Pump1 in the explorer.</td><td>It shows the mark <span class="ui">Needs review: 1 unresolved comment</span> (at once in your window; in others within 30 seconds).</td></tr>
+      <tr><td>6</td><td>Click the pin.</td><td>A card with the author, <span class="ui">on Pump1</span>, the text, the number of replies and the buttons <span class="ui">Resolve</span>, <span class="ui">Open discussion</span> and <span class="ui">Close</span>.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Open discussion</span>.</td><td>Pump1 opens on its Chat tab; the message reads <span class="ui">Pinned on a 2D space</span>.</td></tr>
+      <tr><td>8</td><td>Back on the 2D space, click the pin and then <span class="ui">Resolve</span>.</td><td>The pin shows as resolved, the Needs review mark disappears, and the card offers <span class="ui">Reopen</span>.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol: Cut, Copy, Paste, Duplicate, then Open with a submenu arrow, Pin a message here, Flow with a submenu arrow, Flip and Shape with submenu arrows, Save as module…, Branch with a submenu arrow, and Delete last" width="358" height="786" loading="lazy"><figcaption>The right-click menu of a symbol: <span class="ui">Pin a message here</span> follows <span class="ui">Open</span> ▸.</figcaption></figure>
   <figure class="g-shot"><img src="assets/img/guides/pin-needs-review.webp" alt="The 2D space with a numbered pin next to Pump1, and Pump1 in the explorer framed in red with its Needs review mark" width="2160" height="1650" loading="lazy"><figcaption>After pinning: the pin on the 2D space and Pump1's Needs review mark in the explorer.</figcaption></figure>
   <p class="g-warn">Pins are not printed in the 2D space PDF. The mark <em>Under merge review</em> is not built yet; it comes with branches (see <a href="#col-branches">Branches</a>).</p>
-  <p class="g-related">Related: <a href="#col-comments">Chat</a> · <a href="guide-drawing.html#draw-sheet-view">The 2D space view</a> · <a href="guide-documents.html#doc-sheet-pdf">2D space PDF</a></p>
+  <p class="g-related">Related: <a href="#col-comments">Chat</a> · <a href="#col-tag-people">Tag a person with @</a> · <a href="guide-drawing.html#draw-sheet-view">The 2D space view</a> · <a href="guide-documents.html#doc-sheet-pdf">2D space PDF</a></p>
 </section>
+
+<section class="g-feature" id="col-tag-people">
+  <h2>Tag a person with @ in any text box</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span>Updated 2026-11-17</span><span class="g-id">COL-tag-people</span><span>Roadmap 07.8a</span></div>
+  <p class="g-summary">Wherever you write about an object, type @ to tag a colleague: they are told in their Inbox, and the notice opens the object. It works in a chat message and its replies, a message pinned on a 2D space, a markup's text and its replies, and an attribute's value or comment.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The object window → <span class="ui">Chat</span>; a 2D space → right-click → <span class="ui">Pin a message here</span>; a markup's text and <span class="ui">Reply</span>; the object window → <span class="ui">Attributes</span>, a text value or a comment.</dd>
+    <dt>Who</dt><dd>Anyone who may write in that box. Only people who may view the object are listed and told.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in. A project with Pump1 and a second person on it.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Double-click Pump1. On the tab <span class="ui">Attributes</span>, click in the comment of an attribute and type <code>Check this @</code>.</td><td>A list <span class="ui">People</span> opens under the box with the people who may view Pump1.</td></tr>
+      <tr><td>2</td><td>Type the first letters of a colleague's name.</td><td>The list narrows to the matching people.</td></tr>
+      <tr><td>3</td><td>Press <kbd>Enter</kbd> (or click the name).</td><td>The tag is put in the text; the box stays open for more typing. <kbd>Esc</kbd> closes the list without tagging.</td></tr>
+      <tr><td>4</td><td>Press <kbd>Enter</kbd> again or click elsewhere.</td><td>The comment is saved.</td></tr>
+      <tr><td>5</td><td>Signed in as the colleague, click the bell.</td><td>A line reads <span class="ui">… tagged you</span> with the attribute, the object and the text. Clicking it opens Pump1.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>A person is told once: saving the same text again, or another change to the object, does not tell them again. Tagging yourself tells nobody.</li>
+    <li>In a chat message, # links an object the same way (see <a href="#col-comments">Chat</a>).</li>
+    <li>An email follows by your choice in the notification settings (see <a href="#col-notifications">Notification settings</a>).</li>
+  </ul>
+  <p class="g-warn">In an attribute the tag is shown as written, with the person's id in brackets. A task's description names the person but does not tell them; to ask someone, assign the task to them (see <a href="#col-tasks">Tasks</a>).</p>
+  <p class="g-related">Related: <a href="#col-comments">Chat</a> · <a href="#col-sheet-pins">Pin a message here</a> · <a href="#col-inbox">The Inbox</a> · <a href="#col-notifications">Notification settings</a></p>
+</section>
+
 
 <section class="g-feature" id="col-attachments">
   <h2>Attach files to an object or a project</h2>
