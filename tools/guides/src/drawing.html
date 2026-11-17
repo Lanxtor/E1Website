@@ -118,7 +118,7 @@
 <section class="g-feature" id="draw-palette">
   <h2>Pinned and Recent in the palette</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span class="g-id">DRAW-palette</span><span>Roadmap M3.14</span></div>
-  <p class="g-summary">The shapes and modules you use most stay one click away. What you place shows under Recent; what you pin stays under Pinned. Both are your own, kept in this browser, and the Add window's tab <span class="ui">Recent &amp; pinned</span> shows the same.</p>
+  <p class="g-summary">The objects and modules you use most stay one click away. What you place shows under Recent; what you star stays under Pinned. Both are your own, kept in this browser, and the Add window's tab <span class="ui">Recent &amp; pinned</span> shows the same.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The Design palette, under Connect; the Add window → <span class="ui">Recent &amp; pinned</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -129,11 +129,11 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Place a <span class="ui">Gate valve</span> (<a href="guide-drawing.html#draw-place-symbol">Place a symbol</a>).</td><td>The gate valve shows under <span class="ui">Recent</span> in the palette.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Add…</span>, then <span class="ui">Shapes</span>, choose <span class="ui">Centrifugal pump</span> and click <span class="ui">Pin to palette</span>.</td><td>The button reads <span class="ui">Pinned</span>. Close the window: the pump is under <span class="ui">Pinned</span> in the palette.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add…</span>, then <span class="ui">Assets</span>, and click the star ☆ in the corner of the <span class="ui">Centrifugal pump</span> card.</td><td>The star turns gold ★. Close the window: the pump is under <span class="ui">Pinned</span> in the palette.</td></tr>
       <tr><td>3</td><td>Click the pump's tile in the palette, then click the 2D space twice.</td><td>A pump is placed with the next free name, as from the Add window.</td></tr>
       <tr><td>4</td><td>Drag the gate valve's tile onto the middle of a pipe.</td><td>The valve goes into the line there.</td></tr>
       <tr><td>5</td><td>Right-click the pump's tile.</td><td>A menu: <span class="ui">Unpin from the palette</span>, <span class="ui">Remove from recent</span>.</td></tr>
-      <tr><td>6</td><td>Click <span class="ui">Add…</span> and the tab <span class="ui">Recent &amp; pinned</span>.</td><td>The same shapes and modules, with their names; a star pins or unpins each.</td></tr>
+      <tr><td>6</td><td>Click <span class="ui">Add…</span> and the tab <span class="ui">Recent &amp; pinned</span>.</td><td>The same objects and modules, with their names; a star pins or unpins each.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">A module is read again from the library when you place it from the palette: one that cannot be placed here any more says why.</p>
@@ -170,30 +170,30 @@
 <section class="g-feature" id="draw-place-symbol">
   <h2>Place a symbol</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-place-symbol</span><span>Roadmap M3.11, M1.1b, M3.14</span><span>Review checks B2, B3, A3</span></div>
-  <p class="g-summary">You place equipment, valves and instruments from the <span class="ui">Add</span> window, tab <span class="ui">Shapes</span>; its tab <span class="ui">Modules</span> places a whole saved module (<a href="#draw-module-place">Place a module</a>). Each symbol you place is a new object in the project with its next free name or tag. Two clicks set its inlet and outlet, so you choose its direction and size as you place it.</p>
+  <p class="g-summary">You place equipment, valves and instruments from the <span class="ui">Add</span> window, tab <span class="ui">Assets</span>; its tab <span class="ui">Modules</span> places a whole saved module (<a href="#draw-module-place">Place a module</a>). Each symbol you place is a new object in the project with its next free name or tag. Two clicks set its inlet and outlet, so you choose its direction and size as you place it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The Design palette → <span class="ui">Add…</span> → <span class="ui">Shapes</span>; again from <span class="ui">Pinned</span> or <span class="ui">Recent</span> in the palette</dd>
+    <dt>Where</dt><dd>The Design palette → <span class="ui">Add…</span> → <span class="ui">Assets</span>; again from <span class="ui">Pinned</span> or <span class="ui">Recent</span> in the palette</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
   <h3>The Add window</h3>
   <ul>
     <li>At the top, <span class="ui">Connect</span>: <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> and <span class="ui">Logic</span> (<a href="guide-drawing.html#draw-connector">Connector</a>).</li>
-    <li>The tabs <span class="ui">Recent &amp; pinned</span>, <span class="ui">Shapes</span>, <span class="ui">Modules</span>, <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span> and <span class="ui">Areas</span>. It opens on the tab you used last. On Shapes:</li>
-    <li><span class="ui">Search symbols</span> finds symbols by name, type, standard, key, class or diagram type.</li>
+    <li>A tab per section of the project: <span class="ui">Recent &amp; pinned</span>, <span class="ui">Model Space</span>, <span class="ui">Assets</span>, <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span>, <span class="ui">Areas</span>, and <span class="ui">Modules</span>. It opens on the tab you used last. <span class="ui">Model Space</span> holds the drawing's own objects: the off-page connector, the hyperlink and the balance tables (<a href="#draw-balance-tables">Heat and material balance</a>). On Assets:</li>
+    <li>The search box (<span class="ui">Search assets</span>) finds the tab's objects by name, type, standard, key, class or diagram type. When only another tab has a match, the window goes to that tab.</li>
     <li>The filter menus <span class="ui">Standard</span> and <span class="ui">Diagram</span> have check boxes with counts and a <span class="ui">Show all</span> button. <span class="ui">Clear filters</span> resets them. On a 2D space with a diagram type, the Diagram filter starts on that type.</li>
-    <li>On the left, <span class="ui">All</span> with a count and the class tree.</li>
+    <li>On the left, <span class="ui">All</span> with a count and the tab's own class tree: on Assets, Process, Instrumentation and Electrical.</li>
     <li>The <span class="ui">Name</span> field is filled with the next free name.</li>
-    <li>The symbol grid, grouped by kind; on <span class="ui">All</span>, a <span class="ui">Recent</span> group comes first.</li>
-    <li>The details of the chosen symbol, with <span class="ui">Diagram types</span> check boxes. Ticking one sets that diagram type for the shape across the project. With nothing chosen it says "Select a symbol to see its details."</li>
-    <li><span class="ui">Pin to palette</span>, <span class="ui">Cancel</span> and <span class="ui">Add to diagram</span>. A double-click on a symbol adds it at once; the arrow keys move the choice.</li>
+    <li>The objects, grouped by kind, each card with a star ☆ that pins it to the palette; on <span class="ui">All</span>, a <span class="ui">Recent</span> group comes first.</li>
+    <li>The details of the chosen object, with <span class="ui">Diagram types</span> check boxes. Ticking one sets that diagram type for the shape across the project. With nothing chosen it says "Select an object to see its details."</li>
+    <li><span class="ui">Cancel</span> and <span class="ui">Add to diagram</span>. A double-click on an object adds it at once; the arrow keys move the choice.</li>
   </ul>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Add…</span> in the palette, then the tab <span class="ui">Shapes</span>.</td><td>The <span class="ui">Add</span> window opens on Shapes. <kbd>Esc</kbd> would close it.</td></tr>
-      <tr><td>2</td><td>Type "centrifugal" in <span class="ui">Search symbols</span>.</td><td>The grid shows only the matching symbols. A search with no match shows "No symbols match "…"."</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Add…</span> in the palette, then the tab <span class="ui">Assets</span>.</td><td>The <span class="ui">Add</span> window opens on Assets. <kbd>Esc</kbd> would close it.</td></tr>
+      <tr><td>2</td><td>Type "centrifugal" in <span class="ui">Search assets</span>.</td><td>The grid shows only the matching objects. A search with no match shows "Nothing matches "…"."</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Centrifugal pump</span>, type the name P-NEW in <span class="ui">Name</span>, then click <span class="ui">Add to diagram</span>.</td><td>The window closes. The status bar reads <span class="ui">Place asset</span> with the hint "Click to set the inlet, then the outlet. Placing repeats for the next one; right-click or Esc stops. F flips the symbol."</td></tr>
       <tr><td>4</td><td>Click once on an empty spot of the 2D space.</td><td>The inlet is set, and a ghost of the pump follows the pointer. A first or second click near the end point of a pipe or a nozzle takes that point, so the symbol connects there.</td></tr>
       <tr><td>5</td><td>Move the pointer straight down and click.</td><td>A vertical pump P-NEW is placed. A short second click keeps the default size; a longer one sets the size, within limits.</td></tr>
@@ -204,7 +204,7 @@
       <tr><td>10</td><td>Look at the explorer under <span class="ui">Assets</span>.</td><td>The new pumps and the valve are there as objects. Pumps whose class has a tag rule get tags such as P-001, P-002.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/asset-window.webp" alt="The Add window on Shapes: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add window, opened from Add… in the palette.</figcaption></figure>
+  <figure class="g-shot"><img src="assets/img/guides/asset-window.webp" alt="The Add window on Assets: the class tree with Pump selected, the name Centrifugal pump 3, the symbol gallery, the Diagram types check boxes and the Add to diagram button" width="2160" height="1350" loading="lazy"><figcaption>The Add window, opened from Add… in the palette.</figcaption></figure>
   <p class="g-note">The tags come from your project's tag rules (<a href="guide-objects.html#obj-tag-rules">Tag rules</a>). To place an object that already exists, drag it from the explorer or use <span class="ui">Place on drawing…</span> (<a href="guide-drawing.html#draw-drop-from-explorer">Place from the explorer</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-object-types">Object types</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-standards">Process and instrument symbols</a> · <a href="guide-objects.html#obj-tags">Tags</a> · <a href="guide-objects.html#obj-new-object">Create an object</a></p>
 </section>
@@ -212,7 +212,7 @@
 <section class="g-feature" id="draw-object-types">
   <h2>Add other objects from the Add window</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-object-types</span><span>Roadmap M3.11, M3.14</span></div>
-  <p class="g-summary">The Add window adds more than assets. Its tabs <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span> and <span class="ui">Areas</span> make those objects while you draw.</p>
+  <p class="g-summary">The Add window has a tab per section of the project, each with its own tree on the left. Its tabs <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span> and <span class="ui">Areas</span> make those objects while you draw.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The Design palette → <span class="ui">Add…</span> → the tab of the kind</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -222,7 +222,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Add…</span> in the palette.</td><td>The <span class="ui">Add</span> window, with the tabs <span class="ui">Recent &amp; pinned</span>, <span class="ui">Shapes</span>, <span class="ui">Modules</span>, <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span> and <span class="ui">Areas</span>.</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Add…</span> in the palette.</td><td>The <span class="ui">Add</span> window, with the tabs <span class="ui">Recent &amp; pinned</span>, <span class="ui">Model Space</span>, <span class="ui">Assets</span>, <span class="ui">Unit operations</span>, <span class="ui">Systems</span>, <span class="ui">Processes</span>, <span class="ui">Areas</span> and <span class="ui">Modules</span>.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Areas</span>, then <span class="ui">New area…</span>.</td><td>The dialog "New object in Areas" opens.</td></tr>
       <tr><td>3</td><td>In the classes, click <span class="ui">Area</span>, type the name "Area North", then click <span class="ui">Create</span>.</td><td>You are back on the 2D space. The frame tools for area Area North appear in the palette.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Add…</span> again.</td><td>The window opens on <span class="ui">Areas</span>, the tab you used last.</td></tr>
@@ -1044,7 +1044,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>In <span class="ui">Project settings</span> → <span class="ui">Content packages</span>, switch <span class="ui">NORSOK SCD</span> on.</td><td>It is on, with Plant engineering and Electrical foundation.</td></tr>
-      <tr><td>2</td><td>Open a 2D space, set its <span class="ui">Diagram type</span> to <span class="ui">System control diagram</span>, and click <span class="ui">Add…</span> in the palette, then <span class="ui">Shapes</span>. Search for "MA".</td><td><span class="ui">Analogue monitoring (MA)</span> is offered with its NORSOK I-005 clause. Place it, and <span class="ui">Shutdown level (LB)</span> to its right.</td></tr>
+      <tr><td>2</td><td>Open a 2D space, set its <span class="ui">Diagram type</span> to <span class="ui">System control diagram</span>, and click <span class="ui">Add…</span> in the palette, then <span class="ui">Assets</span>. Search for "MA".</td><td><span class="ui">Analogue monitoring (MA)</span> is offered with its NORSOK I-005 clause. Place it, and <span class="ui">Shutdown level (LB)</span> to its right.</td></tr>
       <tr><td>3</td><td>Choose <span class="ui">Connector</span> with the line kind <span class="ui">Signal</span> and draw from the <span class="ui">AHH</span> label on the right edge of MA to the <span class="ui">X</span> on the left of LB.</td><td>The signal starts exactly at MA's AHH terminal and leaves it straight out; it ends at LB's X. A line never meets a function block between its terminals: E1 takes the nearest terminal.</td></tr>
       <tr><td>4</td><td>Right-click empty 2D space → <span class="ui">Check SCD…</span>.</td><td>"Nothing to report: every signal goes from an output to an input of its own signal class, at a named terminal."</td></tr>
       <tr><td>5</td><td>Draw a signal from MA's <span class="ui">Y</span> (analogue) to LB's <span class="ui">XS</span> (binary) and click <span class="ui">Check again</span>.</td><td>An error naming MA's Y as analogue and LB's XS as binary: "Analogue goes to analogue and binary to binary." <span class="ui">Show</span> opens the place on the drawing.</td></tr>
@@ -1473,10 +1473,10 @@
 </section>
 <section class="g-feature" id="draw-balance-tables">
   <h2>Heat and material balance on the PFD</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-14</span><span class="g-id">DRAW-balance-tables</span><span>Roadmap 40.1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-14</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-balance-tables</span><span>Roadmap 40.1</span></div>
   <p class="g-summary">Place the mass balance (bird cage) and the heat balance of a process flow diagram on the drawing, made from the line list; format them the way your customer wants and export the balance report.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>On a 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Process flow diagram</span>: the balance bar at the top right of the drawing</dd>
+    <dt>Where</dt><dd>On a 2D space whose <span class="ui">Diagram type</span> is <span class="ui">Process flow diagram</span>: <span class="ui">Add…</span> → <span class="ui">Model Space</span> → <span class="ui">Balance tables</span> places them; <span class="ui">Balance</span> in the palette exports them</dd>
     <dt>Who</dt><dd>Engineer and above</dd>
     <dt>Before you start</dt><dd>Streams drawn as process lines, with their values in the line list: typed, imported with <span class="ui">Import heat and material balance</span>, or written by Alex from a solved balance.</dd>
   </dl>
@@ -1484,14 +1484,14 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select the 2D space in the explorer, set <span class="ui">Diagram type</span> to <span class="ui">Process flow diagram</span> and open it.</td><td>The balance bar shows <span class="ui">Place mass balance</span>, <span class="ui">Place heat balance</span>, <span class="ui">Export balance (Excel)</span> and <span class="ui">Export balance (PDF)</span>.</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Place mass balance</span>.</td><td>The table appears in view: one column per stream with Stream, Line number, From, To, Phase, Temperature, Pressure, flows, Density, Molar mass and the composition. Each line shows its stream number in a diamond.</td></tr>
+      <tr><td>1</td><td>Select the 2D space in the explorer, set <span class="ui">Diagram type</span> to <span class="ui">Process flow diagram</span> and open it.</td><td><span class="ui">Balance</span> shows in the palette. In <span class="ui">Add…</span> → <span class="ui">Model Space</span>, <span class="ui">Mass balance</span> and <span class="ui">Heat balance</span> can be added; on another diagram type they are greyed, with the reason.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Add…</span>, then <span class="ui">Model Space</span>, and double-click <span class="ui">Mass balance</span>.</td><td>The table appears in view: one column per stream with Stream, Line number, From, To, Phase, Temperature, Pressure, flows, Density, Molar mass and the composition. Each line shows its stream number in a diamond.</td></tr>
       <tr><td>3</td><td>Drag the table to where it belongs.</td><td>It stays there; the next print and revision show it there.</td></tr>
       <tr><td>4</td><td>Double-click the table (or click it, then <span class="ui">Format…</span>).</td><td><span class="ui">Format mass balance</span> opens with presets across the top.</td></tr>
       <tr><td>5</td><td>Choose <span class="ui">Streams</span> → <span class="ui">One row per stream</span> and <span class="ui">Composition</span> → <span class="ui">Left of the properties</span>, untick a property, give Pressure a unit, then <span class="ui">Apply</span>.</td><td>The table redraws in that layout. <span class="ui">Streams shown</span> and <span class="ui">Components shown</span> are ticked in lists.</td></tr>
       <tr><td>6</td><td>Change a temperature in the line list.</td><td>The table shows the new value.</td></tr>
-      <tr><td>7</td><td>Click <span class="ui">Place heat balance</span>.</td><td>One row per heater, cooler, exchanger, pump and compressor with its service, duty and power, and the totals of heating, cooling, exchange and shaft power.</td></tr>
-      <tr><td>8</td><td>Click <span class="ui">Export balance (Excel)</span>.</td><td>A workbook downloads with the sheets Mass balance, Heat balance and Overall balance (feeds and products, mass in and out, closure).</td></tr>
+      <tr><td>7</td><td>In <span class="ui">Add…</span> → <span class="ui">Model Space</span>, double-click <span class="ui">Heat balance</span>.</td><td>One row per heater, cooler, exchanger, pump and compressor with its service, duty and power, and the totals of heating, cooling, exchange and shaft power.</td></tr>
+      <tr><td>8</td><td>Click <span class="ui">Balance</span> in the palette, then <span class="ui">Export</span> ▸ <span class="ui">Excel</span>.</td><td>A workbook downloads with the sheets Mass balance, Heat balance and Overall balance (feeds and products, mass in and out, closure).</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Nothing in a table is typed: it shows the line list every time the 2D space is read, printed or issued. A value that is missing or cannot be shown in the chosen unit shows as –. Click a table and press Delete, or <span class="ui">Remove</span>, to take it off. Alex places and formats tables with <code>place_balance_table</code> and <code>format_balance_table</code>, and exports the report with <code>export_balance_report</code>.</p>
