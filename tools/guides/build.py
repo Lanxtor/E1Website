@@ -348,9 +348,11 @@ def build():
     # Roadmap
     if roadmap:
         parts = ['        <h1>Under development and roadmap</h1>',
-                 '        <p class="lead">What is built, what is being built, and what comes next, stage by stage. Taken from the build roadmap of the app and of the website.</p>']
+                 '        <p class="lead">What is built, what is being built, and what comes next, stage by stage. Taken from the build roadmap of E1.</p>']
         sections = []
-        for key, label in (("app", "E1 app"), ("website", "Website")):
+        # The app's roadmap only: the website's (hosting, DNS, the coming-soon page) is an internal
+        # working record, not something a user of E1 needs.
+        for key, label in (("app", "E1 app"),):
             for m in roadmap[key]["milestones"]:
                 sid = ("%s-%s" % (key, m["id"])).lower()
                 sections.append((sid, "%s · %s %s" % (label, m["id"], m["title"])))
