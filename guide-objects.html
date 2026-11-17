@@ -112,13 +112,14 @@
           <li><a href="#obj-units">Units of measurement</a></li>
           <li><a href="#obj-calculations">Calculations and copy rules on attributes</a></li>
           <li><a href="#obj-checks">Checks: findings and accepting them</a></li>
+          <li><a href="#obj-classification">Classify data: Public, Internal, Confidential, Restricted</a></li>
         </ol>
       </nav>
       <article class="guide-main">
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Objects, attributes and tags</p>
         <h1>4. Objects, attributes and tags</h1>
         <p class="lead">Make equipment and other objects from library classes, fill in attributes with units, relate objects, and tag them with your project&#x27;s rules.</p>
-        <div class="g-meta"><span>22 features</span><span>22 available</span></div>
+        <div class="g-meta"><span>23 features</span><span>23 available</span></div>
 <section class="g-feature" id="objects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 everything in the plant is an object: a pump, a valve, a function, an area, a pipe run. Each object is made from a class of the library, carries attributes with units, can be related to other objects, and gets its tag from your project's rules. Drawings, lists and datasheets all show the same objects.</p>
@@ -793,6 +794,32 @@
   </ul>
   <p class="g-warn">The gate and the built-in severities are set by asking Alex (set_gate_options) or through the integration API; they have no screen yet. Markers on the drawing and a findings column in the query view come later, and the gates on pushing a branch come with branches.</p>
   <p class="g-related">Related: <a href="guide-library.html#lib-rules">Rules</a> · <a href="guide-documents.html#doc-issue">Issue a revision</a> · <a href="#obj-calculations">Calculations</a> · <a href="#obj-tags">Tags</a> · <a href="guide-drawing.html#draw-piping-check">Piping check</a></p>
+</section>
+
+<section class="g-feature" id="obj-classification">
+  <h2>Classify data: Public, Internal, Confidential, Restricted</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">OBJ-classification</span><span>Roadmap 10.2</span></div>
+  <p class="g-summary">Every project, object and attribute has a classification: <span class="ui">Public</span>, <span class="ui">Internal</span>, <span class="ui">Confidential</span> (the default) or <span class="ui">Restricted</span>. A file attached to an object has the object's. E1 works an object's level out by rules, the highest wins: the project's level, the level of what owns it, and the level of an attribute it has a value of. A person with <span class="ui">Classify data</span> can set it by hand instead.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>An object's page → <span class="ui">Details</span> → <span class="ui">Classification</span>; the project's page → <span class="ui">Details</span> → <span class="ui">Classification</span>; Configuration → <span class="ui">Attributes</span> → an attribute → <span class="ui">Classification in this project</span></dd>
+    <dt>Who</dt><dd>Everyone sees the labels. Setting them needs the permission <span class="ui">Classify data</span> (Project administrators have it); without it the list is greyed with the reason.</dd>
+    <dt>Before you start</dt><dd>A project is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Double-click a pump in the explorer.</td><td>Its page opens. In <span class="ui">Details</span>, the row <span class="ui">Classification</span> shows <span class="ui">Confidential</span> and <span class="ui">The project's level (the default).</span></td></tr>
+      <tr><td>2</td><td>In the list at the end of the row, choose <span class="ui">Restricted</span>.</td><td>The label reads <span class="ui">Restricted</span> with <span class="ui">Set by hand.</span> The explorer shows a lock beside the pump and beside what it owns, such as its nozzles.</td></tr>
+      <tr><td>3</td><td>Open the 2D space the pump is drawn on.</td><td>Its toolbar shows <span class="ui">Restricted</span>: a drawing is at least the level of what is drawn on it. File → Export PDF prints RESTRICTED at the top and bottom of the page; Export DEXPI writes it into the file.</td></tr>
+      <tr><td>4</td><td>Export the Assets section to Excel or CSV, change a row's <span class="ui">Classification</span> cell to <span class="ui">Restricted</span>, and read the file back with Update from Excel.</td><td>Every row has a <span class="ui">Classification</span> column (JSON: a <code>classification</code> field). Read back, the changed row's object is set to that level; a level that is not one of the four is reported for its row.</td></tr>
+      <tr><td>5</td><td>Choose <span class="ui">Automatic (by the rules)</span> in the list.</td><td>The hand-set level is gone; the rules decide again.</td></tr>
+      <tr><td>6</td><td>Double-click the project, and in <span class="ui">Details</span> → <span class="ui">Classification</span> choose <span class="ui">Restricted</span>.</td><td>Everything in the project is Restricted; a lower level in an object's list is greyed with <span class="ui">(the project is Restricted)</span>.</td></tr>
+      <tr><td>7</td><td>Configuration → <span class="ui">Attributes</span>, choose an attribute such as an IP address, and set <span class="ui">Classification in this project</span> to <span class="ui">Restricted</span>.</td><td>Every object with a value of it is Restricted, and the value itself is left out of history, logs and Alex. <span class="ui">As in the library</span> goes back to the library's level.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Restricted means: each read of the object is recorded in the audit log, Alex leaves its values out unless the organization allows it, a token or service account needs <span class="ui">Read restricted data</span>, and an export of it asks you to confirm it is you. See <a href="guide-organization.html#org-restricted-data">Restricted data</a>.</p>
+  <p class="g-related">Related: <a href="#obj-object-window">The object window</a> · <a href="guide-organization.html#org-restricted-data">Restricted data</a> · <a href="guide-lists.html#list-excel-export">Excel export</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-projects.html">Projects and the explorer</a> · <a href="guide-drawing.html">Drawing P&amp;IDs</a> →</p>
