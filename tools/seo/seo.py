@@ -91,9 +91,12 @@ def _page_graph(src, url, lang, crumbs, product):
     return _ld(graph) if graph else ""
 
 
+SILENT_ORGANIZATION = {k: v for k, v in ORGANIZATION.items() if k != "contactPoint"}
+
+
 def _structured(lang, product=True):
     graph = [
-        ORGANIZATION,
+        ORGANIZATION if product else SILENT_ORGANIZATION,
         {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "LANXTOR",
          "publisher": {"@id": SITE + "/#organization"},
          "inLanguage": ["en", "de", "fr", "es", "nb"]},
@@ -134,7 +137,7 @@ def head_block(src, url, lang="en", home=False, crumbs=None, product=False, sile
     if silent:
         # Before launch (the coming-soon page): the company only, no product, no preview image.
         tags = [t for t in tags if "og:image" not in t]
-        tags = [t.replace("summary_large_image", "summary") for t in tags]
+        tags = [t.replace("summary_large_image", "summary") for t in tags if 'rel="manifest"' not in t]
     if home:
         tags.append(_structured(lang, product=not silent))
     else:
