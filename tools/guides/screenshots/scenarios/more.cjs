@@ -20,16 +20,18 @@ module.exports = {
   async drawing(h) {
     const p = h.page; await h.open(); await toSheet(p);
     const tb = p.getByRole('toolbar', { name: 'Drawing' });
-    await h.shot('sheet-toolbar', { clip: [p.locator('.editor').locator('.drawing-chrome, [role=toolbar]').first(), tb], pad: 6 }).catch(() => {});
-    await p.getByRole('button', { name: 'Object', exact: true }).click();
-    const aw = p.getByRole('dialog', { name: 'Add asset' }); await aw.waitFor();
+    await h.shot('sheet-toolbar', { clip: [tb.locator('.tb-row-primary'), tb.locator('.dc-palette')], pad: 6 }).catch(() => {});
+    await tb.getByRole('button', { name: 'Add…' }).click();
+    const aw = p.getByRole('dialog', { name: 'Add', exact: true }); await aw.waitFor();
+    await aw.getByRole('tab', { name: 'Shapes' }).click();
     await aw.getByRole('tree', { name: 'Asset class' }).getByRole('treeitem', { name: 'Pump', exact: true }).locator('.cfg-row-main').click();
     await p.waitForTimeout(600);
     await h.shot('asset-window');
     await p.keyboard.press('Escape'); await p.waitForTimeout(300);
-    await tb.getByRole('button', { name: 'Layers' }).click();
+    const status = p.locator('.diagram-status');
+    await status.getByRole('button', { name: 'Layers' }).click();
     await p.waitForTimeout(400);
-    await h.shot('layers-menu', { clip: [p.getByRole('menu', { name: 'Layers' }), tb.getByRole('button', { name: 'Layers' })], pad: 6 });
+    await h.shot('layers-menu', { clip: [p.getByRole('menu', { name: 'Layers' }), status.getByRole('button', { name: 'Layers' })], pad: 6 });
     await p.keyboard.press('Escape');
     const a = await sym(p, 'Pump1');
     await p.mouse.click(a.x, a.y); await p.waitForTimeout(500);
@@ -39,9 +41,10 @@ module.exports = {
     await p.waitForTimeout(800);
     await h.shot('flow-highlight');
     await p.getByRole('button', { name: 'Clear', exact: true }).click().catch(() => {}); await p.keyboard.press('Escape'); await p.waitForTimeout(400);
-    await p.getByRole('button', { name: 'Connector', exact: true }).click();
+    const flow = tb.getByRole('group', { name: 'Connect' }).getByRole('button', { name: 'Flow lines', exact: true });
+    await flow.click();
     await p.waitForTimeout(400);
-    await h.mark(p.getByRole('button', { name: 'Connector', exact: true }));
+    await h.mark(flow);
     await h.shot('connector-on');
   },
   async query(h) {

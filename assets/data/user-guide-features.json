@@ -2950,25 +2950,28 @@
   },
   {
    "id": "DRAW-toolbar",
-   "title": "The drawing toolbar and the formatting bar",
-   "summary": "The three rows above the 2D space: what to add, the editing tools, and text and line formatting.",
+   "title": "The drawing's bar, palette and Selection panel",
+   "summary": "The bar above the 2D space with its modes, the palette of tools on the left, and the Selection panel on the right while something is selected.",
    "anchor": "draw-toolbar",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-10",
+   "updated": "2026-11-17",
    "roadmap": [
     "M3.3",
-    "M3.11"
+    "M3.11",
+    "M3.14"
    ],
    "checks": [],
    "related": [
+    "DRAW-modes",
+    "DRAW-palette",
     "DRAW-sheet-view",
     "DRAW-place-symbol",
     "DRAW-connector"
    ],
    "roles": "Everyone sees it; editing needs edit rights on the drawing",
    "training": {
-    "topic": "A tour of the drawing toolbar",
+    "topic": "A tour of the drawing's bar and palette",
     "level": "Beginner",
     "minutes": 3
    },
@@ -2977,6 +2980,59 @@
    ],
    "category": "drawing",
    "page": "guide-drawing.html#draw-toolbar"
+  },
+  {
+   "id": "DRAW-modes",
+   "title": "Design, Review and Simulate",
+   "summary": "The three modes at the top of a 2D space choose the tools of the palette: draw, review, or simulate.",
+   "anchor": "draw-modes",
+   "status": "available",
+   "since": "2026-11-17",
+   "roadmap": [
+    "M3.14"
+   ],
+   "checks": [],
+   "related": [
+    "DRAW-toolbar",
+    "DRAW-redlining",
+    "DOC-changes-since",
+    "DRAW-animate-flow"
+   ],
+   "roles": "Everyone; drawing needs edit rights, a Reviewer can mark up",
+   "training": {
+    "topic": "The drawing's three modes",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-modes"
+  },
+  {
+   "id": "DRAW-palette",
+   "title": "Pinned and Recent in the palette",
+   "summary": "Keep the shapes and modules you use most in the palette: what you place shows under Recent, what you pin stays under Pinned.",
+   "anchor": "draw-palette",
+   "status": "available",
+   "since": "2026-11-17",
+   "roadmap": [
+    "M3.14"
+   ],
+   "checks": [],
+   "related": [
+    "DRAW-place-symbol",
+    "DRAW-module-place",
+    "DRAW-toolbar"
+   ],
+   "roles": "Editor license and a project role that may edit drawings",
+   "training": {
+    "topic": "Pinned and Recent",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-palette"
   },
   {
    "id": "DRAW-aids",
@@ -3009,14 +3065,15 @@
   {
    "id": "DRAW-place-symbol",
    "title": "Place a symbol",
-   "summary": "Place equipment, valves and instruments from the Add asset window; each symbol becomes a new object with its next free name or tag.",
+   "summary": "Place equipment, valves and instruments from the Add window or the palette; each symbol becomes a new object with its next free name or tag.",
    "anchor": "draw-place-symbol",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-11",
+   "updated": "2026-11-17",
    "roadmap": [
     "M3.11",
-    "M1.1b"
+    "M1.1b",
+    "M3.14"
    ],
    "checks": [
     "B2",
@@ -3031,7 +3088,8 @@
     "OBJ-tag-rules",
     "OBJ-new-object",
     "DRAW-drop-from-explorer",
-    "DRAW-module-place"
+    "DRAW-module-place",
+    "DRAW-palette"
    ],
    "roles": "Editor license; a project role that may edit drawings",
    "training": {
@@ -3047,14 +3105,15 @@
   },
   {
    "id": "DRAW-object-types",
-   "title": "Add other objects with the Object button",
-   "summary": "Make unit operations, systems, processes and areas from the drawing toolbar's Object type menu.",
+   "title": "Add other objects from the Add window",
+   "summary": "Make unit operations, systems, processes and areas from their tabs in the Add window.",
    "anchor": "draw-object-types",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-17",
    "roadmap": [
-    "M3.11"
+    "M3.11",
+    "M3.14"
    ],
    "checks": [],
    "related": [
@@ -3065,7 +3124,7 @@
    ],
    "roles": "Editor license; a project role that may edit drawings",
    "training": {
-    "topic": "The Object button and its types",
+    "topic": "The Add window's kinds of object",
     "level": "Beginner",
     "minutes": 3
    },
@@ -3080,10 +3139,11 @@
    "anchor": "draw-connector",
    "status": "available",
    "since": "2026-11-04",
-   "updated": "2026-11-09",
+   "updated": "2026-11-17",
    "roadmap": [
     "M3.3",
-    "M3.11"
+    "M3.11",
+    "M3.14"
    ],
    "checks": [
     "B4",
@@ -5835,7 +5895,7 @@
    "anchor": "doc-changes-since",
    "status": "available",
    "since": "2026-11-12",
-   "updated": "2026-11-13",
+   "updated": "2026-11-17",
    "roadmap": [
     "29.2"
    ],
