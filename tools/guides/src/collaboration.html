@@ -6,7 +6,7 @@
     <li>Make a change and take it back if needed: <a href="#col-undo-redo">Undo and redo</a>.</li>
     <li>See what changed on one object and undo one change: <a href="#col-history">An object's History tab</a>; for the whole project, <a href="#col-history-place">the History place</a>.</li>
     <li>Discuss an object: <a href="#col-comments">Chat, mentions and links</a>.</li>
-    <li>Turn a question into work for someone: <a href="#col-tasks">Tasks</a>.</li>
+    <li>Turn a question into work for someone: <a href="#col-tasks">Tasks</a>; ask a technical or engineering question and get its answer: <a href="#col-queries">Queries</a>.</li>
     <li>Follow mentions, replies and tasks: <a href="#col-inbox">the Inbox</a> and <a href="#col-notifications">notification settings</a>.</li>
     <li>Review a drawing: <a href="#col-sheet-pins">Pinned messages and Needs review</a>.</li>
     <li>Keep the files that go with an object: <a href="#col-attachments">Attachments</a>.</li>
@@ -143,7 +143,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Tasks</span> in a project once, then <span class="ui">New task…</span> in its row of buttons.</td><td>The <span class="ui">New task</span> window opens: <span class="ui">Title</span>, <span class="ui">Type</span>, <span class="ui">Description</span> and <span class="ui">Screenshot</span> on the left; <span class="ui">Assign to</span>, <span class="ui">Due</span> and <span class="ui">Repeat (recurring task)</span> on the right.</td></tr>
-      <tr><td>2</td><td>Type <code>Inspect the flare tip</code> as the title and click the type <span class="ui">Maintenance</span>.</td><td><span class="ui">Create task</span> becomes active once there is a title. The types are <span class="ui">General</span>, <span class="ui">Engineering</span>, <span class="ui">Review</span>, <span class="ui">Maintenance</span> and <span class="ui">Administration</span>.</td></tr>
+      <tr><td>2</td><td>Type <code>Inspect the flare tip</code> as the title and click the type <span class="ui">Maintenance</span>.</td><td><span class="ui">Create task</span> becomes active once there is a title. The types are <span class="ui">General</span>, <span class="ui">Engineering</span>, <span class="ui">Review</span>, <span class="ui">Maintenance</span> and <span class="ui">Administration</span>, and those your organization added (<a href="guide-workflow.html#wf-task-types">Task types</a>). <span class="ui">Technical query</span> and <span class="ui">Engineering query</span> make a query instead (see <a href="#col-queries">Queries</a>).</td></tr>
       <tr><td>3</td><td>In <span class="ui">Assign to</span>, click a colleague under <span class="ui">People</span> or a group under <span class="ui">Groups</span>. Or type <code>@</code> in the description and pick a name.</td><td>The name is highlighted and the window's footer reads <span class="ui">For</span> and that name. With <code>@</code> and nobody chosen yet, the one picked becomes the assignee.</td></tr>
       <tr><td>4</td><td>Set <span class="ui">Due</span>, tick <span class="ui">Repeat (recurring task)</span> and choose <span class="ui">Every</span> 1 <span class="ui">week</span>.</td><td><span class="ui">Due</span> becomes <span class="ui">First due</span> and the window says <em>Every week, from …</em>.</td></tr>
       <tr><td>5</td><td>Copy a screenshot and press Ctrl+V in the window (or drop a picture, or <span class="ui">Choose picture…</span>).</td><td>A small picture of it shows with <span class="ui">Remove</span>.</td></tr>
@@ -159,6 +159,37 @@
   <figure class="g-shot"><img src="assets/img/guides/inbox-assigned.webp" alt="The Inbox with the I assigned view selected, listing the task Check the seal with a checkbox; the Tasks section in the explorer has a mark" width="2160" height="1350" loading="lazy"><figcaption>The task in the Inbox's <span class="ui">I assigned</span> view.</figcaption></figure>
   <p class="g-note">The person gets an email for a new task by default; the one who assigned it is told in the app when it is done. Change this in <a href="#col-notifications">notification settings</a>.</p>
   <p class="g-related">Related: <a href="#col-comments">Chat</a> · <a href="#col-inbox">The Inbox</a> · <a href="guide-objects.html#obj-relationships">Relationships</a></p>
+</section>
+
+<section class="g-feature" id="col-queries">
+  <h2>Technical and engineering queries</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-17</span><span>Updated 2026-11-17</span><span class="g-id">COL-queries</span><span>Roadmap 07.8b</span></div>
+  <p class="g-summary">A query asks a question about objects or documents: a technical query about a requirement, an engineering query about the design, or a query type your organization added. It is a task with a <span class="ui">Question</span> and an <span class="ui">Answer</span>, linked to what it is about, for a person or a group, with a due date. It goes <span class="ui">Draft</span> → <span class="ui">Submitted</span> → <span class="ui">Answered</span> → <span class="ui">Closed</span>, and the right people are told at each step.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The explorer's <span class="ui">Tasks</span> section → <span class="ui">New task…</span> → <span class="ui">Technical query</span> or <span class="ui">Engineering query</span>; the query's page; the Inbox</dd>
+    <dt>Who</dt><dd>Asking: Engineer and above. Answering: the person it is for, or any member of the group, whatever their role. Submitting, closing and asking again: who asked it. Whoever may edit the task may make every move.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in; a colleague on the project.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Tasks</span> in a project once, then <span class="ui">New task…</span>, and click the type <span class="ui">Technical query</span>.</td><td>The window becomes <span class="ui">New query</span>: <span class="ui">Question</span> and <span class="ui">About</span> take the place of <span class="ui">Description</span> and <span class="ui">Repeat (recurring task)</span>.</td></tr>
+      <tr><td>2</td><td>Type the title <code>Seal material for Pump1</code> and the question <code>Is PTFE acceptable at 180 °C?</code>.</td><td>—</td></tr>
+      <tr><td>3</td><td>Under <span class="ui">About</span>, click <span class="ui">Link objects…</span> and click Pump1 in the project's tree.</td><td>Pump1 is listed under <span class="ui">About</span>, with <span class="ui">×</span> to take it off. Tasks are greyed with the reason; nothing is typed.</td></tr>
+      <tr><td>4</td><td>In <span class="ui">Assign to</span>, click a colleague or a group, and set <span class="ui">Due</span>.</td><td><span class="ui">Submit query</span> becomes active once there is a question and someone to answer it.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Submit query</span>. (<span class="ui">Save draft</span> keeps it as a <span class="ui">Draft</span> only you see; submit it later on its page.)</td><td>The query opens. Its <span class="ui">Progress</span> shows <span class="ui">Draft</span>, <span class="ui">Submitted</span>, <span class="ui">Answered</span>, <span class="ui">Closed</span> with <span class="ui">Submitted</span> ringed. The person, or each member of the group, gets <em>sent you a query</em> in their Inbox, by email by default.</td></tr>
+      <tr><td>6</td><td>As the colleague: open it from the Inbox, type the answer under <span class="ui">Your answer</span> and click <span class="ui">Answer</span>.</td><td>The query is <span class="ui">Answered</span>; the page shows the <span class="ui">Answer</span> with <em>Answered by</em> and the date and time. The one who asked gets <em>answered your query</em>.</td></tr>
+      <tr><td>7</td><td>As the one who asked: click <span class="ui">Close query</span>, or <span class="ui">Ask again</span> when the answer is not enough.</td><td>Closed, the task is done. <span class="ui">Ask again</span> makes it <span class="ui">Submitted</span> again and tells the colleague.</td></tr>
+      <tr><td>8</td><td>On the Tasks page, choose <span class="ui">Type</span> → <span class="ui">All queries</span> (or <span class="ui">Technical query</span>), and the filter button <span class="ui">Open</span>.</td><td>Only the queries are listed, each with its status. Pump1 lists the query among its tasks.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>The question and what it is about can change while the query is a draft; once it is submitted they are fixed. Talk it over on the query's <span class="ui">Chat</span> tab.</li>
+    <li>A query does not repeat, and stays a query: its type can change only to another query type.</li>
+    <li>Your organization can add query types of its own, such as a site query: <a href="guide-workflow.html#wf-task-types">Task types</a>.</li>
+  </ul>
+  <p class="g-related">Related: <a href="#col-tasks">Tasks</a> · <a href="#col-inbox">The Inbox</a> · <a href="guide-workflow.html#wf-task-types">Task types</a></p>
 </section>
 
 <section class="g-feature" id="col-inbox">
