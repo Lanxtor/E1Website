@@ -378,7 +378,7 @@ def build():
     write("account.html", acc)
 
     # Data
-    # Public file: no dates (owner's rule, nothing has a history before day zero, 14 April 2027).
+    # Public file: no dates (owner's rule, nothing has a history before day zero, 19 May 2027).
     data = {"statuses": STATUS,
             "categories": [{k: c[k] for k in ("id", "title", "summary", "training") if k in c} | {"page": "guide-%s.html" % c["id"], "order": i + 1} for i, c in enumerate(cats)],
             "features": [{k: v for k, v in f.items() if k not in ("since", "updated")} for f in features]}

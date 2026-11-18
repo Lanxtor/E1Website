@@ -48,7 +48,7 @@ Audit date: 17 November 2026. Based on the repository code. This container could
 10. **A content hub** (`/resources/` or `/blog/`) with a simple build. Publish 2 articles a month: comparisons ("E1 vs AutoCAD Plant 3D", "vs AVEVA", "vs SmartPlant/Hexagon", "vs EPLAN"), explainers ("What is a P&ID", "Instrument index template", "FEED deliverables checklist") and glossary entries.
 11. **An automated SEO check in CI:** every page has a title of 30–60 characters, a description of 70–160, one h1, a canonical, hreflang, valid JSON-LD and is in the sitemap; no broken links. This keeps it from breaking unseen.
 
-### Phase B: launch day (14 April 2027)
+### Phase B: launch day (19 May 2027)
 - Set `SITE_MODE=live`, submit the sitemap in Google and Bing, request indexing of the home page, landing pages and guides, and enable **IndexNow** (instant Bing/Copilot/ChatGPT-search updates; free, a small file plus a ping in the deploy workflow).
 
 ### Phase C: after launch (ongoing)

@@ -424,7 +424,7 @@
    * subscription and seats from migration 0006, AI credits from design 09.
    */
   /* Preview dates are counted back from today, but never from before
-   * 15 July 2027, so no preview date falls before day zero (14 April 2027). */
+   * 15 July 2027, so no preview date falls before day zero (19 May 2027). */
   var DEMO_NOW = Math.max(Date.now(), Date.UTC(2027, 6, 15, 12));
   function demoAgo(days, hour, minute) {
     var d = new Date(DEMO_NOW - days * 86400000);

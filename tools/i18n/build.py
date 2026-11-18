@@ -335,7 +335,7 @@ def seo():
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     for url, alts, when in urls:
-        # No <lastmod>: nothing on the site has a date before day zero (14 April 2027).
+        # No <lastmod>: nothing on the site has a date before day zero (19 May 2027).
         lines.append("  <url><loc>%s</loc>" % url)
         for l, href in alts:
             lines.append('    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (l, href))
