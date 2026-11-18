@@ -127,3 +127,16 @@ test("GS-units: the unit system is chosen in Project settings; the status bar ha
   await expect(bar).not.toContainText(/unit/i);
   await expect(bar.locator("img")).toHaveAttribute("alt", /appearance switch/);
 });
+
+test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line opens its window; Show in tree takes its pipe run", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-select");
+  const select = page.locator("#draw-select");
+  await expectScrolledTo(select);
+  await expect(select).toContainText("Double-click a pipe, selected or not.");
+  await expect(select).toContainText("Its window opens on Attributes");
+  await expect(select).toContainText("Shift and double-click adds its whole run");
+  const pipelines = page.locator("#draw-pipelines");
+  await expect(pipelines).toContainText("once more, the line's window opens on Attributes");
+  const menus = page.locator("#draw-symbol-menu");
+  await expect(menus).toContainText("Show in tree selects the line's pipe run in the explorer, from any of its segments");
+});

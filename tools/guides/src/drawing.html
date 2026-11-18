@@ -285,8 +285,8 @@
 
 <section class="g-feature" id="draw-select">
   <h2>Select symbols, lines and notes</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-select</span><span>Roadmap M3.3</span><span>Review check B5</span></div>
-  <p class="g-summary">With the Select tool you pick one item with a click, add or remove items with Shift or Ctrl, take a region with a frame, or a whole pipe run with a double-click. The status bar shows how many items are selected.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-18</span><span class="g-id">DRAW-select</span><span>Roadmap M3.3</span><span>Review check B5</span></div>
+  <p class="g-summary">With the Select tool you pick one item with a click, add or remove items with Shift or Ctrl, take a region with a frame, or add a whole pipe run with Shift and a double-click. The status bar shows how many items are selected.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Select</span> (<kbd>V</kbd>)</dd>
     <dt>Who</dt><dd>Everyone who can open the 2D space</dd>
@@ -299,7 +299,7 @@
       <tr><td>1</td><td>Click Pump1.</td><td>Pump1 shows its grips. The status bar reads "1 selected", and the bottom right of the 2D space reads "Selected: Pump1". The hint says "Drag a symbol to move it. Shift-click or Ctrl-click adds to the selection. A frame selects a pipe only when the whole segment is inside it."</td></tr>
       <tr><td>2</td><td>Shift-click (or Ctrl-click (⌘-click)) a valve.</td><td>"2 selected"; the 2D space reads "Selected: 2 items". Shift-clicking it again takes it away.</td></tr>
       <tr><td>3</td><td>Click close to a pipe, not exactly on it.</td><td>The pipe is selected ("Selected: Line"); lines are picked near them.</td></tr>
-      <tr><td>4</td><td>Double-click a pipe.</td><td>Its whole run between two symbols is selected. Shift and double-click adds another run.</td></tr>
+      <tr><td>4</td><td>Double-click a pipe, selected or not.</td><td>Its window opens on <span class="ui">Attributes</span>, as for a symbol; a pipe in a pipeline is selected first, see <a href="guide-drawing.html#draw-pipelines">Pipelines</a>. Shift and double-click adds its whole run between two symbols to the selection instead.</td></tr>
       <tr><td>5</td><td>Drag a frame across part of the drawing on an empty part of the 2D space.</td><td>Symbols whose center is inside are selected; a pipe segment only when it lies fully inside.</td></tr>
       <tr><td>6</td><td>Click the 2D space, then press <kbd>Ctrl+A</kbd> (<kbd>⌘A</kbd>).</td><td>Everything on the 2D space is selected.</td></tr>
       <tr><td>7</td><td>Press <kbd>Esc</kbd>.</td><td>The selection is cleared.</td></tr>
@@ -650,7 +650,7 @@
 
 <section class="g-feature" id="draw-symbol-menu">
   <h2>The right-click menus on the 2D space, and Replace</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-symbol-menu</span><span>Roadmap M3.11</span><span>Review checks B4, B5, H5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-18</span><span class="g-id">DRAW-symbol-menu</span><span>Roadmap M3.11</span><span>Review checks B4, B5, H5</span></div>
   <p class="g-summary">Right-click a symbol, a line or an empty spot of the 2D space for the commands that fit it, in groups, with related commands in submenus (Open ▸, Flow ▸, Flip ▸, Shape ▸, Module ▸, Branch ▸) and Delete last. Replace swaps a symbol's shape and keeps the object, its name and its connections.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Right-click on the 2D space with the Select tool. While Connector or placing is active, a right-click leaves the tool instead.</dd>
@@ -674,7 +674,7 @@
       <tr><td>4</td><td>Right-click Pump1 → <span class="ui">Open</span> ▸ <span class="ui">Datasheet</span>.</td><td>The pump's datasheet opens (<a href="guide-documents.html#doc-datasheet">Datasheets</a>).</td></tr>
       <tr><td>5</td><td>Right-click Pump1 → <span class="ui">Shape</span> ▸ <span class="ui">Replace…</span>.</td><td>The asset window opens, titled "Replace", with a <span class="ui">Replace</span> button.</td></tr>
       <tr><td>6</td><td>Choose another pump symbol and click <span class="ui">Replace</span>.</td><td>The symbol on the 2D space changes. The object keeps its name, tag and connections.</td></tr>
-      <tr><td>7</td><td>Right-click a pipe.</td><td>The line menu opens, with <span class="ui">Show in tree</span>, the <span class="ui">Flow</span> ▸ submenu and <span class="ui">Flip direction</span>.</td></tr>
+      <tr><td>7</td><td>Right-click a pipe.</td><td>The line menu opens, with <span class="ui">Show in tree</span>, the <span class="ui">Flow</span> ▸ submenu and <span class="ui">Flip direction</span>. <span class="ui">Show in tree</span> selects the line's pipe run in the explorer, from any of its segments, also with the whole run selected.</td></tr>
       <tr><td>8</td><td>Right-click an empty spot of the 2D space.</td><td>A short menu with <span class="ui">Paste</span>, <span class="ui">Select all</span>, <span class="ui">Pin a message here</span>, <span class="ui">Check piping…</span> and <span class="ui">Detect pipelines…</span>.</td></tr>
     </tbody>
   </table></div>
@@ -956,7 +956,7 @@
 
 <section class="g-feature" id="draw-pipelines">
   <h2>Pipelines and completeness checks</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-15</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-10</span><span>Updated 2026-11-18</span><span class="g-id">DRAW-pipelines</span><span>Roadmap 13.1, 13.2</span></div>
   <p class="g-summary">A pipeline is a line of the line list: the pipe runs, valves and fittings from one end (an equipment nozzle, or an open end of pipe) to the other. It holds them in piping segments, carries the line number, and names where it comes from and where it goes.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space: right-click equipment → <span class="ui">Define pipeline from here</span>, under <span class="ui">Highlight flow</span> (a click starts at the outlet; ▸ beside it lists the other nozzles, such as <span class="ui">Inlet</span>); in the explorer: <span class="ui">Assets → Piping</span></dd>
@@ -969,7 +969,7 @@
       <tr><td>1</td><td>Right-click the tank and click <span class="ui">Define pipeline from here</span>. (To start at another nozzle, point at it and choose one in the list beside it, such as <span class="ui">Inlet</span>.)</td><td>A bar says "Click the equipment the pipeline goes to, from T-100 (outlet). Esc cancels."</td></tr>
       <tr><td>2</td><td>Click the pump.</td><td>E1 follows the drawn pipe through the valves and fittings (never through other equipment) and makes the pipeline; its page opens. If a bypass gives two ways, the dialog <em>Which path?</em> lists each path with what it runs through (<em>Path 1: through …</em>): click the one the pipeline follows, or <span class="ui">Cancel</span>.</td></tr>
       <tr><td>3</td><td>Look in the explorer under <span class="ui">Assets → Piping</span>.</td><td>The pipeline with <em>Segment 1</em> and, after a reducer, <em>Segment 2</em>; each holds its pipe runs, valves and fittings in flow order.</td></tr>
-      <tr><td>4</td><td>Double-click a line of the pipeline on the 2D space.</td><td>The whole pipeline is selected. Double-click again: only the segment that line is in.</td></tr>
+      <tr><td>4</td><td>Double-click a line of the pipeline on the 2D space.</td><td>The whole pipeline is selected. Double-click the same line again: only the segment that line is in; once more, the line's window opens on <span class="ui">Attributes</span>. A step that would select what is selected already (a pipeline or segment of that one line) is skipped.</td></tr>
     </tbody>
   </table></div>
   <ul>
