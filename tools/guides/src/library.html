@@ -326,7 +326,7 @@
 
 <section class="g-feature" id="lib-convention-templates">
   <h2>Convention templates for tag rules</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-15</span><span class="g-id">LIB-convention-templates</span><span>Roadmap 11.4</span><span>Review check L11</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-06</span><span>Updated 2026-11-18</span><span class="g-id">LIB-convention-templates</span><span>Roadmap 11.4</span><span>Review check L11</span></div>
   <p class="g-summary">A convention template is a published set of tag rules that projects copy in. A project keeps the version it applied until someone applies a newer one, so publishing a new version never retags a project by surprise.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd><span class="ui">Configuration</span> → <span class="ui">Company library</span> (the row with Kind "Convention template") and <span class="ui">Updates available in this project</span></dd>
@@ -338,9 +338,10 @@
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Ask Alex to save the project's tag rules as a convention template, then <span class="ui">Publish</span> its row in Company library.</td><td>A row with Kind "Convention template" and "Version 1".</td></tr>
-      <tr><td>2</td><td>Click <span class="ui">Apply to this project</span> on the row.</td><td>E1's dialog <em>Copy tag rules?</em> reads "Copy …'s tag rules (version 1) into this project? They replace its rules; existing tags stay until a retag." After <span class="ui">Copy tag rules</span>, the change is held for review before it is applied.</td></tr>
-      <tr><td>3</td><td>Publish a new version of the template.</td><td>Updates available lists "convention template version 1 → 2 (the project keeps version 1 until you apply it again)", with the rules added, removed and changed, and <span class="ui">Apply version 2</span>.</td></tr>
-      <tr><td>4</td><td>Click <span class="ui">Apply version 2</span>.</td><td>The project's tag rules become version 2; existing tags stay until a retag.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Apply to this project</span> on the row.</td><td>E1's dialog <em>Copy tag rules?</em> reads "Copy …'s tag rules (version 1) into this project? They replace its rules; existing tags stay until a retag. The change is held for review: nothing changes until you choose Apply." After <span class="ui">Copy tag rules</span>, <em>Review change</em> says "…'s tag rules (version 1) are held for review: nothing changes until you choose Apply."</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Apply</span>, or <span class="ui">Discard</span>.</td><td>Apply: the template's tag rules are now the project's ("Applied: …"); existing tags stay until a retag. Discard: "Discarded: the tag rules are as they were."</td></tr>
+      <tr><td>4</td><td>Publish a new version of the template.</td><td>Updates available lists "convention template version 1 → 2 (the project keeps version 1 until you apply it again)", with the rules added, removed and changed, and <span class="ui">Apply version 2</span>.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Apply version 2</span>.</td><td>The project's tag rules become version 2; existing tags stay until a retag.</td></tr>
     </tbody>
   </table></div>
   <p class="g-warn">There is no template editor on screen yet: a template is saved by asking Alex (or an agent), then published in Company library.</p>
