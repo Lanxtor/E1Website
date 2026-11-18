@@ -211,6 +211,65 @@ test("nobody signed in: the page asks to log in, and the header says Log in", as
   await expect(page.locator(".nav-actions a", { hasText: "Log in" })).toBeAttached();
 });
 
+/* The billing period is a calendar month (UTC) and an invoice is dated by a
+   day: both read the same in New York (the tests' time zone) as in Oslo, not
+   the day before. */
+for (const timezoneId of ["America/New_York", "Asia/Tokyo"]) {
+  test(`billing period and invoice dates are calendar days, also in ${timezoneId}`, async ({ browser }) => {
+    const context = await browser.newContext({ locale: "en-US", timezoneId });
+    const page = await context.newPage();
+    await context.addInitScript(() => { try { localStorage.setItem("e1.cookies", "necessary"); } catch (e) { /* storage blocked */ } });
+    await context.route(/^https:\/\/(?!app\.lanxtor\.com)/, (route) => route.abort("blockedbyclient"));
+    const data = overview();
+    data.billing.invoices = [
+      { id: "LX-2027-0007", date: "2027-07-01", amount: 3180, currency: "USD", status: "paid", url: "" },
+      { id: "LX-2027-0008", date: "2027-08-01T00:00:00Z", amount: 990, currency: "EUR", status: "open", url: "" }
+    ];
+    await mockApi(page, server({ "GET /api/account/overview": data }));
+    await page.goto("/account.html#billing");
+    await expect(page.locator("[data-usage-period]")).toHaveText("This billing period: Jul 1, 2027 – Aug 1, 2027.");
+    await expect(page.locator("[data-plan]")).toContainText("Current period Jul 1, 2027 – Aug 1, 2027");
+    await expect(page.locator("[data-payment]")).toContainText("Next invoice Aug 1, 2027");
+    const rows = page.locator("[data-invoices] tbody tr");
+    await expect(rows.nth(0).locator("td").nth(1)).toHaveText("Jul 1, 2027");
+    await expect(rows.nth(1).locator("td").nth(1)).toHaveText("Aug 1, 2027");
+    await context.close();
+  });
+}
+
+/* The session ends while the page is open (it ran out, or the person signed
+   out elsewhere): whatever they do next asks them to sign in again, instead
+   of an error next to data the page can no longer change. */
+for (const [what, route, act] of [
+  ["Save the name", "POST /api/account/profile", async (page) => { await page.locator("[data-profile-given]").fill("Ingrid"); await page.locator("[data-profile-save]").click(); }],
+  ["upload a picture", "POST /api/account/picture", (page) => page.locator("[data-picture-input]").setInputFiles("assets/img/icon-192.png")],
+  ["remove the picture", "DELETE /api/account/picture", (page) => page.locator("[data-picture-remove]").click()],
+  ["Switch organization", "POST /auth/switch", (page) => page.locator("[data-orgs]").getByRole("button", { name: "Switch" }).click()],
+  ["Manage billing", "POST /api/account/billing/portal", (page) => page.getByRole("button", { name: "Manage billing" }).click()]
+]) {
+  test(`the session ended: ${what} asks to sign in again, and the header says Log in`, async ({ page }) => {
+    const data = overview();
+    data.user.picture = "assets/img/hero-avatar.png";
+    data.billing.portal = true;
+    await mockApi(page, server({
+      "GET /api/account/overview": data,
+      [route]: respond(401, { error: { code: "unauthenticated", message: "Sign in first." } })
+    }));
+    let alerted = "";
+    page.on("dialog", (box) => { alerted = box.message(); box.dismiss(); });
+    await page.goto("/account.html#profile");
+    await expect(page.locator("[data-user-name]")).toHaveText("Kari Nordmann");
+    await expect(page.locator(".nav-actions a.btn", { hasText: "Account" })).toBeAttached();
+    await act(page);
+    await expect(page.getByRole("heading", { name: "Sign in to your account" })).toBeVisible();
+    await expect(page.locator("[data-user-name]")).toBeHidden();
+    await expect(page.locator(".nav-actions a.btn", { hasText: "Log in" })).toHaveAttribute("href", "login.html");
+    await expect(page.locator(".lang-menu a[data-lang-pick=\"en\"]")).toHaveText("English");
+    expect(await page.evaluate(() => localStorage.getItem("e1_signed_in"))).toBeNull();
+    expect(alerted).toBe("");
+  });
+}
+
 test("the server cannot be reached: the page says so, and Try again loads it", async ({ page }) => {
   let up = false;
   await mockApi(page, {

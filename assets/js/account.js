@@ -170,7 +170,7 @@
     var ai = d.aiUsage || {};
     var st = d.storage || {};
     $("[data-usage-period]").textContent = ai.periodStart
-      ? "This billing period: " + fmt.date(ai.periodStart) + " – " + fmt.date(ai.periodEnd) + "."
+      ? "This billing period: " + fmt.day(ai.periodStart) + " – " + fmt.day(ai.periodEnd) + "."
       : "";
 
     var org = ai.organization || {};
@@ -257,12 +257,12 @@
     var source = sub.source === "license_file" ? '<p class="meta-line">Licensed by a signed license file (customer installation).</p>' : "";
     $("[data-plan]").innerHTML = '<span class="eyebrow">Plan</span>' +
       "<h3>" + esc(sub.planName || sub.plan || "–") + ' <span class="badge status-' + esc(sub.status || "") + '">' + esc(STATUS_NAMES[sub.status] || sub.status || "") + "</span></h3>" +
-      (sub.periodEnd ? '<p class="meta-line">Current period ' + fmt.date(sub.periodStart) + " – " + fmt.date(sub.periodEnd) + "</p>" : "") +
+      (sub.periodEnd ? '<p class="meta-line">Current period ' + fmt.day(sub.periodStart) + " – " + fmt.day(sub.periodEnd) + "</p>" : "") +
       trial + source +
       ((sub.addOns || []).length ? '<p class="meta-line">Add-ons: ' + sub.addOns.map(esc).join(", ") + "</p>" : "");
 
     var pay = '<span class="eyebrow">Payment</span>';
-    if (bill.nextInvoice) pay += "<h3>" + fmt.money(bill.nextInvoice.amount, bill.nextInvoice.currency) + '</h3><p class="meta-line">Next invoice ' + fmt.date(bill.nextInvoice.date) + "</p>";
+    if (bill.nextInvoice) pay += "<h3>" + fmt.money(bill.nextInvoice.amount, bill.nextInvoice.currency) + '</h3><p class="meta-line">Next invoice ' + fmt.day(bill.nextInvoice.date) + "</p>";
     if (bill.paymentMethod) pay += '<p class="meta-line">' + esc(bill.paymentMethod) + "</p>";
     if (bill.canManage && (bill.portal || E1.isDemo())) {
       pay += '<button class="btn btn-primary btn-sm" type="button" data-billing-portal>Manage billing</button>' +
@@ -275,7 +275,7 @@
     $("[data-payment]").innerHTML = pay;
 
     var rows = (bill.invoices || []).map(function (i) {
-      return [esc(i.id), fmt.date(i.date), fmt.money(i.amount, i.currency), esc(i.status),
+      return [esc(i.id), fmt.day(i.date), fmt.money(i.amount, i.currency), esc(i.status),
         i.url ? '<a class="link-btn" href="' + esc(i.url) + '" target="_blank" rel="noopener">PDF</a>' : ""];
     });
     table($("[data-invoices]"), ["Invoice", "Date", "Amount", "Status", ""], rows,
@@ -497,18 +497,27 @@
       }
       render(d);
     }, function (err) {
-      if (err && err.status === 401) {
-        E1.rememberSignedIn(false);
-        show("signed-out");
-        return;
-      }
+      if (signedOut(err)) return;
       $("[data-error-text]").textContent = (err && err.message) || "The E1 cloud could not be reached.";
       show("error");
     });
   }
 
+  /*
+   * The session ended (expired, signed out elsewhere): the page asks to sign
+   * in again instead of showing what it can no longer change. True when it did.
+   */
+  function signedOut(err) {
+    if (!err || err.status !== 401) return false;
+    E1.rememberSignedIn(false);
+    var headerAccount = document.querySelector('.nav-actions a.btn[href="account.html"]');
+    if (headerAccount) { headerAccount.href = "login.html"; headerAccount.textContent = "Log in"; headerAccount.removeAttribute("aria-current"); }
+    show("signed-out");
+    return true;
+  }
+
   function switchOrg(id) {
-    E1.switchOrg(id).then(load, function (err) { alert(err.message); });
+    E1.switchOrg(id).then(load, function (err) { if (!signedOut(err)) alert(err.message); });
   }
 
   root.addEventListener("click", function (e) {
@@ -521,7 +530,7 @@
         current.user.picture = null;
         profileChanged();
         profileStatus("Picture removed.");
-      }, function (err) { t.disabled = false; profileStatus(err.message); });
+      }, function (err) { t.disabled = false; if (!signedOut(err)) profileStatus(err.message); });
       return;
     }
     if (t.hasAttribute("data-switch")) switchOrg(t.getAttribute("data-switch"));
@@ -535,7 +544,7 @@
         t.disabled = false;
         if (r && r.url) location.href = r.url;
         else alert("The billing portal is not connected yet.");
-      }, function (err) { t.disabled = false; alert(err.message); });
+      }, function (err) { t.disabled = false; if (!signedOut(err)) alert(err.message); });
     }
   });
 
@@ -559,7 +568,7 @@
       current.user.givenName = given; current.user.familyName = family; current.user.name = [given, family].filter(Boolean).join(" ");
       profileChanged();
       profileStatus("Saved.");
-    }, function (err) { button.disabled = false; profileStatus(err.message); });
+    }, function (err) { button.disabled = false; if (!signedOut(err)) profileStatus(err.message); });
   });
 
   root.addEventListener("change", function (e) {
@@ -572,7 +581,7 @@
         current.user.picture = (r && r.picture) || current.user.picture;
         profileChanged();
         profileStatus("Picture saved.");
-      }, function (err) { profileStatus(err.message); });
+      }, function (err) { if (!signedOut(err)) profileStatus(err.message); });
       return;
     }
     if (e.target.matches("[data-org-select]")) switchOrg(e.target.value);
