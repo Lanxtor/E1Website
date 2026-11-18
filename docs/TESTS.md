@@ -24,7 +24,7 @@ Chromium: `npx playwright install chromium` once on a new machine. Where a Chrom
 | `navigation.spec.mjs` | The header menu (hamburger on a phone), the footer, the cookie notice, the 404 page, Talk to sales, E1 Cloud specifications (`WEB-cloud-specs`). |
 | `languages.spec.mjs` | `WEB-languages`: the language menu, the choice remembered, a first visit in the browser's language. |
 | `download.spec.mjs` | `WEB-download`, `ACC-desktop-app`, `ACC-browser`: Get E1's four buttons and the download cards from the release manifest. |
-| `pricing.spec.mjs` | `WEB-pricing`: currencies, billed yearly or monthly, remembered; the live price list and plan features. |
+| `pricing.spec.mjs` | `WEB-pricing`: currencies, billed yearly or monthly, remembered; the live price list and plan features; a product of the price list the table has no place for, under "Also on the price list". |
 | `login.spec.mjs` | Log in and sign up, the university email check, Sign in with Microsoft. |
 | `account.spec.mjs` | `WEB-account-page`, `WEB-overview`, `WEB-licenses`, `WEB-usage`, `WEB-organizations`, `WEB-projects`, `WEB-permissions`, billing, profile, sign-out, errors. |
 | `academy.spec.mjs` | `WEB-academy-public`, `WEB-academy`, `WEB-course-player`, `WEB-certificates`, `WEB-certificate-page`. |

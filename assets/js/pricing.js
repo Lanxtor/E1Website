@@ -27,6 +27,10 @@
  *   [data-year-total]        in a plan's heading: the yearly price a year, or "No yearly commitment"
  *   [data-currency-switch]   the USD / EUR / GBP / NOK buttons are drawn here
  *   [data-currency-note]     "Prices in …" text for the current currency
+ *   [data-more-products]     on Get E1: the products of E1's price list that the page has no
+ *                            element for (made in the operator console and shown on the
+ *                            website) are drawn here, each with its name, description and price;
+ *                            the mount stays hidden when there are none
  *   tr[data-plan-feature]    a row of the plan table: which plan includes it comes from
  *                            GET <apiBase>/api/site/plan-features (the operator console's
  *                            Plans & features); its cells, in the order University,
@@ -216,10 +220,64 @@
             changed = true;
           }
         });
+        if (drawMoreProducts(data && data.products || [])) changed = true;
         if (changed) render();
       })
       .catch(function () {})
       .then(function () { if (timer) clearTimeout(timer); });
+  }
+
+  /*
+   * The products of the price list that no element on the page shows: listed
+   * under the plan table with their name, description and price, so a product
+   * the operator console shows on the website is on Get E1 too. Returns true
+   * when it drew any.
+   */
+  function drawMoreProducts(products) {
+    var mount = document.querySelector("[data-more-products]");
+    if (!mount) return false;
+    var extra = products.filter(function (p) {
+      return p && typeof p.id === "string" && /^[a-z][a-z0-9-]*$/.test(p.id) && typeof p.name === "string" && p.name &&
+        typeof p.usd === "number" && p.usd >= 0 && !document.querySelector('[data-product="' + p.id + '"]');
+    });
+    mount.textContent = "";
+    if (!extra.length) { mount.hidden = true; return false; }
+    var title = document.createElement("h3");
+    title.id = "pricing-more-title";
+    title.textContent = t("Also on the price list");
+    var list = document.createElement("div");
+    list.className = "pricing-more-list";
+    extra.forEach(function (p) {
+      var item = document.createElement("article");
+      item.className = "pricing-more-item";
+      item.setAttribute("aria-labelledby", "pricing-more-" + p.id);
+      var name = document.createElement("h4");
+      name.id = "pricing-more-" + p.id;
+      name.textContent = p.name;
+      item.appendChild(name);
+      if (typeof p.description === "string" && p.description) {
+        var about = document.createElement("p");
+        about.textContent = p.description;
+        item.appendChild(about);
+      }
+      var price = document.createElement("span");
+      price.className = "price";
+      price.setAttribute("data-product", p.id);
+      price.setAttribute("data-usd", String(p.usd));
+      if (p.kind !== "one_time" && typeof p.usdMonthly === "number" && p.usdMonthly >= 0) price.setAttribute("data-usd-monthly", String(p.usdMonthly));
+      price.textContent = format(p.usd, "USD");
+      item.appendChild(price);
+      var per = document.createElement("span");
+      per.className = "per";
+      if (p.kind === "one_time") per.textContent = t("One-time");
+      else per.setAttribute("data-billed", "");
+      item.appendChild(per);
+      list.appendChild(item);
+    });
+    mount.appendChild(title);
+    mount.appendChild(list);
+    mount.hidden = false;
+    return true;
   }
 
   // Which plan includes which feature, as set in the operator console (Plans & features).

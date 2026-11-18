@@ -65,3 +65,26 @@ export function trainingList() {
     certificates: [{ id: "E1C-TEST-0001", courseKey: "process-design", courseTitle: "Process design in E1", learnerName: "Kari Nordmann", issuedAt: day("2027-07-02T08:00:00Z"), score: 100 }]
   };
 }
+
+/*
+ * GET /api/site/prices: E1's public price list (server/operator/data.mjs,
+ * publicPrices), products shown on the website and active, by their sort.
+ * Each product as the server sends it; `extra` adds products the operator
+ * console made, with the same fields.
+ */
+export function sitePrices(extra = []) {
+  const p = (id, name, kind, licenseType, period, description, aiCredits, usd, usdMonthly) =>
+    ({ id, name, kind, licenseType, period, description, aiCredits, usd, usdMonthly, priceSince: day("2027-06-01T00:00:00Z") });
+  return {
+    products: [
+      p("student", "University", "license", "student", "month", "For a school or university, for teaching.", null, 29, 29),
+      p("university-viewer", "University Viewer", "license", null, "month", "Viewer in a University organization.", null, 9, 9),
+      p("viewer", "Viewer", "license", "viewer", "month", "View, search and export in E1 itself.", null, 21, 25),
+      p("reviewer", "Reviewer", "license", "reviewer", "month", "Comment, redline, approve, and ask Alex.", 300, 105, 125),
+      p("editor-basic", "Editor Basic", "license", null, "month", "Editor in an Essentials organization.", 300, 355, 425),
+      p("editor", "Editor", "license", "editor", "month", "Everything, with Alex making changes.", 2000, 800, 960),
+      p("academy", "E1 Academy", "one_time", null, "one_time", "The full E1 Academy training, one-time payment.", null, 760, null),
+      ...extra.map((x) => ({ licenseType: null, aiCredits: null, usdMonthly: null, description: "", priceSince: day("2027-06-01T00:00:00Z"), ...x }))
+    ]
+  };
+}

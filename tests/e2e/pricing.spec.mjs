@@ -4,6 +4,7 @@
  * live price list and plan features from the E1 server when it answers.
  */
 import { test, expect, mockApi, readJson } from "./fixtures.mjs";
+import { sitePrices } from "./data.mjs";
 
 const RATES = readJson("assets/data/rates.json").rates;
 /* The same rounding as pricing.js: a price list, not a conversion. */
@@ -105,4 +106,64 @@ test("the plan table scrolls inside its box on a phone, not the page", async ({ 
   expect(w).toBeLessThanOrEqual(1);
   await page.getByRole("link", { name: "Contact sales" }).first().click();
   await expect(page).toHaveURL(/\/contact-sales\.html$/);
+});
+
+/* Products the operator console shows on the website that the page has no place for. */
+const NEW_PRODUCTS = [
+  { id: "plant-package", name: "Plant package", kind: "one_time", period: "one_time", description: "A ready-made plant to start from.", usd: 990 },
+  { id: "site-license", name: "Site license", kind: "license", period: "month", description: "Every engineer on one site.", usd: 50, usdMonthly: 60 }
+];
+const more = (page) => page.getByRole("region", { name: "Also on the price list" });
+
+test("a product shown on the website that the page has no place for is listed with its price, in the chosen currency and billing", async ({ page }) => {
+  await mockApi(page, { "GET /api/site/prices": sitePrices(NEW_PRODUCTS) });
+  await page.goto("/download.html#pricing");
+  await expect(standard(page)).toHaveText("$800");
+  await expect(more(page)).toBeVisible();
+  const pkg = more(page).getByRole("article", { name: "Plant package" });
+  const site = more(page).getByRole("article", { name: "Site license" });
+  await expect(pkg).toContainText("A ready-made plant to start from.");
+  await expect(pkg.locator(".price")).toHaveText("$990");
+  await expect(pkg).toContainText("One-time");
+  await expect(site.locator(".price")).toHaveText("$50");
+  await expect(site).toContainText("Per user / month, billed yearly");
+  // Products the page already shows are not listed twice.
+  await expect(more(page).getByRole("article")).toHaveCount(2);
+  await expect(page.locator('#pricing [data-product="editor"]')).toHaveCount(1);
+
+  // Another currency, then billed monthly.
+  await page.locator('[data-currency-switch] button[data-cur="EUR"]').click();
+  await expect(pkg.locator(".price")).toHaveText(new RegExp(digits(nice(990 * toCur.EUR))));
+  await expect(pkg.locator(".price")).toContainText("€");
+  await page.locator('[data-billing-switch] button[data-billing="monthly"]').click();
+  await expect(site.locator(".price")).toHaveText(new RegExp(digits(nice(60 * toCur.EUR))));
+  await expect(site).toContainText("Per user / month, billed monthly");
+  await expect(pkg.locator(".price")).toHaveText(new RegExp(digits(nice(990 * toCur.EUR))));
+
+  // Kept after a reload; nothing wider than the screen on a phone.
+  await page.reload();
+  await expect(site.locator(".price")).toHaveText(new RegExp(digits(nice(60 * toCur.EUR))));
+  const w = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(w).toBeLessThanOrEqual(1);
+});
+
+test("without the server, or with only the page's own products, nothing is added to the price list", async ({ page }) => {
+  await page.goto("/download.html#pricing");
+  await expect(standard(page)).toHaveText("$795");
+  await expect(page.locator("[data-more-products]")).toBeHidden();
+  await mockApi(page, { "GET /api/site/prices": sitePrices() });
+  await page.reload();
+  await expect(standard(page)).toHaveText("$800");
+  await expect(page.locator("[data-more-products]")).toBeHidden();
+  await expect(more(page)).toHaveCount(0);
+});
+
+test("a German visitor sees a new product in euros, with the page's words in German", async ({ page }) => {
+  await mockApi(page, { "GET /api/site/prices": sitePrices(NEW_PRODUCTS) });
+  await page.goto("/de/download.html#pricing");
+  const list = page.locator("[data-more-products]");
+  await expect(list).toBeVisible();
+  await expect(list.getByRole("article", { name: "Plant package" }).locator(".price")).toContainText("€");
+  await expect(list.getByRole("heading", { name: "Ebenfalls in der Preisliste" })).toBeVisible();
+  await expect(list.getByRole("article", { name: "Plant package" })).toContainText("Einmalig");
 });

@@ -105,7 +105,9 @@ window.E1_I18N_DICT = {
   "No yearly commitment": "Keine jährliche Bindung",
   "per user a year": "pro Benutzer und Jahr",
   "What does E1 cost for students and universities?": "Was kostet E1 für Studierende und Hochschulen?",
-  "User guide": "Benutzerhandbuch"
+  "User guide": "Benutzerhandbuch",
+  "Also on the price list": "Ebenfalls in der Preisliste",
+  "One-time": "Einmalig"
  },
  "fr": {
   "Home": "Accueil",
@@ -211,7 +213,9 @@ window.E1_I18N_DICT = {
   "No yearly commitment": "Sans engagement annuel",
   "per user a year": "par utilisateur et par an",
   "What does E1 cost for students and universities?": "Combien coûte E1 pour les étudiants et les universités ?",
-  "User guide": "Guide utilisateur"
+  "User guide": "Guide utilisateur",
+  "Also on the price list": "Également dans la liste de prix",
+  "One-time": "Paiement unique"
  },
  "es": {
   "Home": "Inicio",
@@ -317,7 +321,9 @@ window.E1_I18N_DICT = {
   "No yearly commitment": "Sin compromiso anual",
   "per user a year": "por usuario al año",
   "What does E1 cost for students and universities?": "¿Cuánto cuesta E1 para estudiantes y universidades?",
-  "User guide": "Guía de usuario"
+  "User guide": "Guía de usuario",
+  "Also on the price list": "También en la lista de precios",
+  "One-time": "Pago único"
  },
  "no": {
   "Home": "Hjem",
@@ -423,6 +429,8 @@ window.E1_I18N_DICT = {
   "No yearly commitment": "Ingen årlig binding",
   "per user a year": "per bruker i året",
   "What does E1 cost for students and universities?": "Hva koster E1 for studenter og universiteter?",
-  "User guide": "Brukerveiledning"
+  "User guide": "Brukerveiledning",
+  "Also on the price list": "Også i prislisten",
+  "One-time": "Engangsbeløp"
  }
 };
