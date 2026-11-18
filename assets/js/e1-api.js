@@ -413,6 +413,16 @@
       var d = new Date(iso);
       return isNaN(d) ? "–" : d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
     },
+    /*
+     * A calendar day, the same everywhere: an invoice's date ("2027-07-01") or
+     * a billing period's first instant (UTC midnight). Written in UTC, so a
+     * visitor west of Greenwich does not see the day before.
+     */
+    day: function (iso) {
+      if (!iso) return "–";
+      var d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(String(iso)) ? iso + "T00:00:00Z" : iso);
+      return isNaN(d) ? "–" : d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
+    },
     money: function (amount, currency) {
       try {
         return Number(amount).toLocaleString(undefined, { style: "currency", currency: currency || "USD" });
