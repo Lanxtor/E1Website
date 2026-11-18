@@ -34,6 +34,7 @@ Chromium: `npx playwright install chromium` once on a new machine. Where a Chrom
 | `home.spec.mjs` | The home page's platform being built and Meet Alex (also with reduce motion), Contact us, a campaign tag going from page to page up to the sign-up. |
 | `screens.spec.mjs` | A 320 px phone and a tablet (no page scrolls sideways), and a window made narrower and wider while a page is open. |
 | `keyboard.spec.mjs` | The keyboard only (desktop): Tab, Enter, Space, the arrow keys and Escape in the menu, sign-in, Alex, the catalog, pricing, the course player and the account page. |
+| `more.spec.mjs` | The short addresses (`/account`, `/pricing` …), security.txt, the legal pages and sub-processors, the coming-soon page, Get E1's shortcut bar, Back and Forward, the interface in German, the currency and "Coming soon" in each language, printing. |
 | `errors.spec.mjs` | What a visitor sees when something fails or is not there yet: refused pictures, an organization that cannot be switched to, billing not connected, lessons that cannot load, saving the place in a video, native Share. |
 
 Against a real E1 server and the operator console, E1's own `tests/e2e/postgres/operatorWebsite.spec.mjs` (Lanxtor/E1) runs these pages for what the two share: prices and plan features from the console, sign-up with a campaign tag, the account page, Ask Alex with Product knowledge, the university check, Sign in with Microsoft.
