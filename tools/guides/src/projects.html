@@ -632,8 +632,8 @@
 
 <section class="g-feature" id="prj-export-dexpi">
   <h2>Export a 2D space as DEXPI</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-12</span><span class="g-id">PRJ-export-dexpi</span><span>Roadmap 13.5</span><span>Review check O5</span></div>
-  <p class="g-summary">Write a 2D space's pipelines, segments, equipment, instruments and drawing as a DEXPI 2.0 file, for a 3D design tool or another P&amp;ID tool; imported again it gives the same pipelines, segments and boundaries.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-18</span><span class="g-id">PRJ-export-dexpi</span><span>Roadmap 13.5</span><span>Review check O5</span></div>
+  <p class="g-summary">Write a 2D space's pipelines, segments, equipment, instruments and drawing as a DEXPI 2.0 file, for a 3D design tool or another P&amp;ID tool; every object carries its E1 id, so imported back into its project the file finds the same objects and pipe lines, and imported elsewhere it gives the same pipelines, segments and boundaries.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → a 2D space (one click) → <span class="ui">Export DEXPI</span> on its page</dd>
     <dt>Who</dt><dd>The <span class="ui">Export</span> permission in the project; no content package licence is needed</dd>
@@ -646,9 +646,10 @@
       <tr><td>1</td><td>Click the 2D space in the explorer, then <span class="ui">Export DEXPI</span>.</td><td>123-A93.xml downloads: the 2D space's drawing number names it.</td></tr>
       <tr><td>2</td><td>Make an empty project and <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> that file; <span class="ui">Apply</span>.</td><td>11 pipelines with their segments, the pumps, tanks, valves and instruments with their values, and the drawing in the same places, colours and tags.</td></tr>
       <tr><td>3</td><td>On the 2D space right-click empty space → <span class="ui">Check piping…</span> → <span class="ui">Refresh pipelines</span>.</td><td>Each pipeline and segment has the same From and To as in the sample project.</td></tr>
+      <tr><td>4</td><td>Change a valve's tag in the file with another tool, then in the sample project <span class="ui">File</span> → <span class="ui">Import</span> → <span class="ui">DEXPI P&amp;ID…</span> it back and go on to <span class="ui">Differences</span>.</td><td>"1 difference to decide · 0 new objects": every object and pipe line is found by its E1 id, none drawn again; the valve's new tag is a difference of the same valve. <span class="ui">Use file for all shown</span>, <span class="ui">Apply</span>, and one <span class="ui">Undo</span> takes it back.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">In the file: each pipeline with its line number and values, its segments with their valves, fittings and off-page connectors and the pipe runs between them, where each segment starts and ends; the equipment with its nozzles, chambers and values; the instruments, loops and signals; a control valve with its actuator; the drawing with its tags and background. From and To are not in the file (DEXPI has none): the import finds them again from the boundaries. A run outside a pipeline is written as a pipeline of its own, by its line number. Alex exports a 2D space too (<code>export_dexpi</code>).</p>
+  <p class="g-note">In the file: each pipeline with its line number and values, its segments with their valves, fittings and off-page connectors and the pipe runs between them, where each segment starts and ends; the equipment with its nozzles, chambers and values; the instruments, loops and signals; a control valve with its actuator; the drawing with its tags and background. From and To are not in the file (DEXPI has none): the import finds them again from the boundaries. A run outside a pipeline is written as a pipeline of its own, by its line number. Every object in the file carries its E1 id as a DEXPI <code>PersistentIdentifier</code> (Context <code>E1</code>): another tool keeps it, and E1 finds the object by it when the file comes back. Alex exports a 2D space too (<code>export_dexpi</code>).</p>
   <p class="g-related">Related: <a href="guide-projects.html#prj-import-dexpi">Import a DEXPI P&amp;ID</a>, <a href="guide-documents.html#doc-sheet-pdf">PDF of a P&amp;ID 2D space</a></p>
 </section>
 
