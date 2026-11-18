@@ -1043,7 +1043,7 @@
   <p class="g-summary">A branch asks for review before it goes to main; a colleague approves or requests changes, and the object shows Under merge review meanwhile.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Explorer → the project → <span class="ui">Branches</span> → a branch → <span class="ui">Ask for review</span></dd>
-    <dt>Who</dt><dd>Asking: the branch's members; deciding: Lead engineer and above, not the author when the type has four eyes</dd>
+    <dt>Who</dt><dd>Asking: the branch's members; deciding: Lead engineer and above, or a reviewer named in the merge request; not the author when the type has four eyes</dd>
     <dt>Before you start</dt><dd>A branch of a type with <span class="ui">Review before main</span> and <span class="ui">Four eyes</span>, with a change to P-101.</dd>
   </dl>
   <h3>Steps</h3>
@@ -1053,6 +1053,7 @@
       <tr><td>1</td><td>Click <span class="ui">Push to main</span>.</td><td>Refused: the branch needs an approved merge request first.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Ask for review</span> on the branch card.</td><td>The merge request is open; the reviewers find it in their Inbox. In the explorer, P-101 shows Under merge review in branch ….</td></tr>
       <tr><td>3</td><td>As the author, click <span class="ui">Approve</span>.</td><td>Refused: four eyes, the author does not approve the branch.</td></tr>
+      <tr><td>3a</td><td>As an Engineer, click <span class="ui">Approve</span>.</td><td>Refused: “You may not decide the merge request of …: it needs branch.approve.” A Lead engineer, or a reviewer named in it, decides it.</td></tr>
       <tr><td>4</td><td>As a colleague, click <span class="ui">Request changes…</span> on the branch card, write what should change and click <span class="ui">Send back</span>; or click <span class="ui">Approve</span>.</td><td>The author is told. After <span class="ui">Request changes…</span> the branch card shows Changes requested and, under it, who asked and what should change, until the branch asks for review again. After an approval, <span class="ui">Push to main</span> lands.</td></tr>
     </tbody>
   </table></div>
