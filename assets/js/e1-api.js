@@ -789,7 +789,13 @@
       return publicCert(cert);
     }
 
-    function fail(status, code, message) { return Promise.reject(new ApiError(status, code, message)); }
+    /* Rejected now, handed to the page 250 ms later (later()): marked as handled so the
+       browser does not report it as an uncaught error in the meantime. */
+    function fail(status, code, message) {
+      var p = Promise.reject(new ApiError(status, code, message));
+      p.catch(function () {});
+      return p;
+    }
 
     return {
       list: function () {

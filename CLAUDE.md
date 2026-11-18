@@ -22,3 +22,7 @@ The user guides (`tools/guides/`, rules in `docs/USER-GUIDES.md`) describe every
 ## Published apps are updated everywhere at once (owner's rule)
 
 When an app is published (desktop installer, E1 Reviewer for iPad, E1 Mobile), every place on the website that offers it changes in the same change: the buttons at the top of Get E1 (`download.html`), the cards under Downloads on the account page (`account.html`), the release manifest (`assets/data/releases.json` here and E1's seed `deploy/downloads/releases.json`) and the user guide. Details: `docs/AZURE-INTEGRATION.md` ("Downloads").
+
+## Checks
+
+- Run `npm run test:e2e` (the screen tests, `docs/TESTS.md`) before pushing a change to a page; never push with them failing, skipped or weakened. `python3 tools/guides/build.py --check` must pass too.

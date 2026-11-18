@@ -124,3 +124,14 @@ export async function openMenu(page, testInfo) {
 export function readJson(rel) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, rel), "utf8"));
 }
+
+/**
+ * The element's top is on screen once the page has finished scrolling to it
+ * (the site scrolls smoothly, so this waits for the scroll to end).
+ */
+export async function expectScrolledTo(locator) {
+  await expect.poll(async () => locator.evaluate((el) => {
+    const top = el.getBoundingClientRect().top;
+    return top >= -2 && top < window.innerHeight - 40;
+  }), { timeout: 15_000 }).toBe(true);
+}

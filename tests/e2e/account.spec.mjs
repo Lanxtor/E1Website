@@ -4,7 +4,7 @@
  * WEB-projects, WEB-permissions, the Downloads cards (WEB-download), the
  * Academy part (WEB-academy, WEB-certificates) and the profile.
  */
-import { test, expect, mockApi, respond, isPhone } from "./fixtures.mjs";
+import { test, expect, mockApi, respond, isPhone, expectScrolledTo } from "./fixtures.mjs";
 import { overview, trainingList } from "./data.mjs";
 
 function server(extra = {}) {
@@ -104,7 +104,7 @@ test("the account menu jumps to each section", async ({ page }, testInfo) => {
   for (const id of ["projects", "usage", "downloads", "licenses"]) {
     await page.locator(`.account-nav a[href="#${id}"]`).click();
     await expect(page).toHaveURL(new RegExp(`#${id}$`));
-    await expect(page.locator(`#${id} h2`)).toBeInViewport();
+    await expectScrolledTo(page.locator(`#${id} h2`));
   }
   if (isPhone(testInfo)) {
     const w = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

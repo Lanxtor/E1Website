@@ -1,0 +1,49 @@
+# Screen tests of the website (docs/TESTS.md): Playwright in Chromium, on a
+# desktop (1440x900) and a phone (iPhone 15) screen.
+#
+# Once a night and by hand (Actions → Website screen tests → Run workflow).
+# Not on pushes or pull requests: GitHub minutes cost money (the owner's
+# decision). Before pushing a change to a page, run npm run test:e2e locally.
+name: Website screen tests
+
+on:
+  schedule:
+    - cron: "5 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: User guides are in step with their sources
+        run: python3 tools/guides/build.py --check
+
+      - name: Screen tests
+        run: npm run test:e2e
+
+      - name: Report
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
