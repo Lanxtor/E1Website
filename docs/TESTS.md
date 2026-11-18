@@ -31,6 +31,10 @@ Chromium: `npx playwright install chromium` once on a new machine. Where a Chrom
 | `guides.spec.mjs` | `WEB-user-guides`: every feature's anchor (the E1 Guide's links), the catalog's search and filters, the roadmap. |
 | `solutions.spec.mjs` | The feature catalog on Solutions (category filters, search, nothing found and Clear filters, Escape), every solution page reached from it, and every question on each solution page opening and closing. |
 | `assistant.spec.mjs` | `WEB-assistant`: Ask Alex, suggested and typed questions, the conversation kept between pages. |
+| `home.spec.mjs` | The home page's platform being built and Meet Alex (also with reduce motion), Contact us, a campaign tag going from page to page up to the sign-up. |
+| `screens.spec.mjs` | A 320 px phone and a tablet (no page scrolls sideways), and a window made narrower and wider while a page is open. |
+| `keyboard.spec.mjs` | The keyboard only (desktop): Tab, Enter, Space, the arrow keys and Escape in the menu, sign-in, Alex, the catalog, pricing, the course player and the account page. |
+| `errors.spec.mjs` | What a visitor sees when something fails or is not there yet: refused pictures, an organization that cannot be switched to, billing not connected, lessons that cannot load, saving the place in a video, native Share. |
 
 Against a real E1 server and the operator console, E1's own `tests/e2e/postgres/operatorWebsite.spec.mjs` (Lanxtor/E1) runs these pages for what the two share: prices and plan features from the console, sign-up with a campaign tag, the account page, Ask Alex with Product knowledge, the university check, Sign in with Microsoft.
 

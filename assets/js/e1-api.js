@@ -161,11 +161,13 @@
 
   /** A photo of any usual size, scaled in the browser to at most 512 px a side (WebP, or JPEG where the browser cannot write WebP), so it fits E1's 256 KB. */
   function fitPicture(file) {
-    if (/^image\/(png|jpeg|gif|webp)$/.test(file.type) && file.size <= PICTURE_MAX_BYTES) return Promise.resolve(file);
     var unreadable = new ApiError(400, "invalid", "This file could not be read as a picture. Choose a PNG, JPEG, GIF or WebP photo.");
+    var small = /^image\/(png|jpeg|gif|webp)$/.test(file.type) && file.size <= PICTURE_MAX_BYTES;
     return decodePicture(file).then(function (img) {
       var w = img.naturalWidth || img.width, h = img.naturalHeight || img.height;
       if (!w || !h) throw unreadable;
+      // Small enough already: sent as it is, once it is known to be a picture.
+      if (small) { if (img.close) img.close(); return file; }
       var scale = Math.min(1, PICTURE_MAX_SIDE / Math.max(w, h));
       var canvas = document.createElement("canvas");
       canvas.width = Math.max(1, Math.round(w * scale));

@@ -37,7 +37,8 @@ export default defineConfig({
   },
   projects: [
     { name: "desktop", use: { browserName: "chromium", viewport: { width: 1440, height: 900 } } },
-    { name: "phone", use: { ...devices["iPhone 15"], browserName: "chromium" } }
+    // The keyboard tests need a keyboard: desktop only.
+    { name: "phone", use: { ...devices["iPhone 15"], browserName: "chromium" }, testIgnore: /keyboard\.spec\.mjs$/ }
   ],
   webServer: {
     command: `node tests/e2e/server.mjs ${PORT}`,
