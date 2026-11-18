@@ -26,3 +26,15 @@ When an app is published (desktop installer, E1 Reviewer for iPad, E1 Mobile), e
 ## Checks
 
 - Run `npm run test:e2e` (the screen tests, `docs/TESTS.md`) before pushing a change to a page; never push with them failing, skipped or weakened. `python3 tools/guides/build.py --check` must pass too.
+
+## When the work is done, push it to main (owner's standing rule)
+
+Every chat, whatever its topic (a bug fix, a requirement, a new feature or a page or screen), finishes the same way. **No pull request is needed, and there is no need to ask what to do next:** when the work is done, push it straight to `main`, whatever branch the session was told to develop on. This rule is the owner's explicit permission.
+
+Before pushing to `main`, all of these must hold:
+
+1. **The browser screen test for the chat's topic exists and passes** (Playwright, `tests/e2e/<page or feature>.spec.mjs`, see `docs/TESTS.md`), doing what a person does on the screen and checking the result there. For a bug it is written first, reproduces the bug as reported, fails without the fix and passes with it, so that bug can never come back unseen. No bug fix, requirement or feature reaches `main` without it.
+2. `npm run test:e2e` passes as a whole, and `python3 tools/guides/build.py --check` passes (see "Checks" above).
+3. Everything works and there are no open questions for the owner. If there is a decision only the owner can make, ask first and do not push.
+
+Then: commit on the session branch, `git fetch origin main`, merge or rebase onto it, run the tests again, and `git push origin HEAD:main` (also push the session branch). If the push is rejected because main moved, fetch and merge again; never force-push main. In the final summary, say what was pushed to `main` and which tests were added and pass.
