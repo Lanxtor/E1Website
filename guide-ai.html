@@ -825,9 +825,10 @@
       <tr><td>1</td><td>Ask "add a check valve after each pump".</td><td>The valves appear on the 2D space without a reload. The reply has <span class="ui">Undo change</span> and a folded list <span class="ui">Connected objects (n)</span>.</td></tr>
       <tr><td>2</td><td>Open <span class="ui">Connected objects (n)</span>.</td><td>Each object is listed with "changed", "no change needed: …" or "not checked".</td></tr>
       <tr><td>3</td><td>Point at <span class="ui">Undo change</span>, then click it.</td><td>The tooltip reads "Undo everything this reply changed". All the new valves are gone and the button disappears.</td></tr>
+      <tr><td>4</td><td>Ask again, then click the 2D space and press <kbd>Ctrl+Z</kbd> (or <span class="ui">Edit</span> → <span class="ui">Undo</span>, or the drawing's Undo button).</td><td>Alex's whole change is taken back, as one step. <kbd>Ctrl+Shift+Z</kbd> or <span class="ui">Edit</span> → <span class="ui">Redo</span> makes it again.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note">The change is also one entry in History, where it can be undone as a group too.</p>
+  <p class="g-note">A reply's change, and a proposal you apply, are one step of your own Undo, in the browser and the desktop app, also when Alex is in its own window. After <span class="ui">Undo change</span>, <kbd>Ctrl+Z</kbd> does not take that reply back a second time: it undoes your step before it. The change is also one entry in History, where it can be undone as a group too.</p>
   <p class="g-warn">Undo is checked before anything is changed: it needs edit rights in every project the change touched. A Viewer or Reviewer, someone without edit rights there, or an organization whose trial ended is refused (<span class="ui">The trial of this organization ended on &lt;date&gt;, so it is read-only now: …</span>), and nothing is undone.</p>
   <p class="g-related">Related: <a href="#ai-review-first">Review changes first</a> · <a href="guide-collaboration.html#col-history">History and undo</a></p>
 </section>
