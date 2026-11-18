@@ -125,6 +125,7 @@
           <li><a href="#org-sso">Company single sign-on and directory sync</a></li>
           <li><a href="#org-intune">Microsoft Intune for E1 Reviewer and E1 Mobile</a></li>
           <li><a href="#org-tokens">Tokens, service accounts and agents</a></li>
+          <li><a href="#org-claude-connector">Use E1 from Claude</a></li>
           <li><a href="#org-webhooks">Webhooks and the change feed</a></li>
           <li><a href="#org-message-queues">Message queues: events to a broker, commands from one</a></li>
           <li><a href="#org-entra-apps">Entra ID applications call the API</a></li>
@@ -137,7 +138,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Organization, members and access</p>
         <h1>9. Organization, members and access</h1>
         <p class="lead">Your organization, invitations, licenses and seats, project members and roles, exporting the organization, and the access control being built.</p>
-        <div class="g-meta"><span>41 features</span><span>39 available</span></div>
+        <div class="g-meta"><span>42 features</span><span>40 available</span></div>
 <section class="g-feature" id="organization-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers who may do what in E1: your organization and its members, invitations, licenses and seats, organization roles and the passkey they need, the members and roles of a project and of a single drawing, what a refusal tells you, exporting the whole organization, trials, and the access control that is being built now.</p>
@@ -1139,6 +1140,36 @@
   </ul>
   <p class="g-warn">Not in the API on purpose: drawing, deleting, relationships, the library and administration (use E1 itself), and mapping or scheduling (your script or middleware does that). Not built yet: address ranges in the token form (the API takes them).</p>
   <p class="g-related">Related: <a href="#org-custom-roles">Custom roles</a> · <a href="#org-audit">Audit</a> · <a href="#org-webhooks">Webhooks and the change feed</a> · <a href="#org-sso">Company single sign-on</a></p>
+</section>
+
+<section class="g-feature" id="org-claude-connector">
+  <h2>Use E1 from Claude</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">ORG-claude-connector</span><span>Roadmap 19.7</span></div>
+  <p class="g-summary">Add E1 as a connector in Claude, and Claude works in E1 as you: it reads your projects, draws sheets, fills attributes, makes lists, documents and tasks, with your permissions and nothing more. Every command you may run in E1 is open to it, except what stays your own act: it cannot sign, delete issued documents, or change who has access. Each change shows in History as "Claude, for" your name, and can be undone.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Account → <span class="ui">Use E1 from Claude</span>; in Claude: <span class="ui">Settings → Connectors → Add custom connector</span></dd>
+    <dt>Who</dt><dd>Everyone signed in to E1, for themselves.</dd>
+    <dt>Before you start</dt><dd>E1 with sign-in (the cloud), and Claude (claude.ai, Claude Desktop or Claude Code).</dd>
+  </dl>
+  <h3>Connect Claude</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open your Account and find <span class="ui">Use E1 from Claude</span>. Click <span class="ui">Copy</span> next to the connector address.</td><td>The button reads <span class="ui">Copied</span>; the address ends in <code>/mcp</code>.</td></tr>
+      <tr><td>2</td><td>In Claude, open <span class="ui">Settings → Connectors → Add custom connector</span>, name it E1, paste the address and click <span class="ui">Connect</span>.</td><td>E1 opens in your browser. If you are not signed in, E1's sign-in comes first.</td></tr>
+      <tr><td>3</td><td>Read E1's page "Allow Claude to work in E1?" and click <span class="ui">Allow</span>.</td><td>You are back in Claude, connected. <span class="ui">Cancel</span> connects nothing.</td></tr>
+      <tr><td>4</td><td>Ask Claude, for example: "In project Pouria, make a sheet P&amp;ID 200 with a feed pump and a level-controlled tank."</td><td>The sheet shows in E1 at once; History lists the changes as "Claude, for" you.</td></tr>
+      <tr><td>5</td><td>To end it: Account → <span class="ui">Access tokens</span>, <span class="ui">Revoke</span> on "Claude (MCP connector)".</td><td>Claude stops at once and must connect again.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Good to know</h3>
+  <ul>
+    <li><strong>Every command:</strong> Claude finds E1's commands by words (find, describe, run), so it can reach everything you can do. In Claude Code, use the second address on the Account page (ending in <code>/mcp/all</code>): every command is then its own tool.</li>
+    <li><strong>Your rights:</strong> a Viewer's Claude reads only; a token made Read only reads only. Claude never acts with an Owner or Administrator role.</li>
+    <li><strong>Your record:</strong> every call is in the API access log, and the connection is renewed by itself every 30 days until you revoke it.</li>
+  </ul>
+  <p class="g-note">Claude sees what you let it read in the conversation: project data you ask about is sent to Anthropic under your Claude plan's terms, not E1's.</p>
+  <p class="g-related">Related: <a href="#org-tokens">Tokens, service accounts and agents</a> · <a href="#org-audit">Audit</a></p>
 </section>
 
 <section class="g-feature" id="org-webhooks">
