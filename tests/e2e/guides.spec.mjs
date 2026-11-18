@@ -140,3 +140,17 @@ test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line op
   const menus = page.locator("#draw-symbol-menu");
   await expect(menus).toContainText("Show in tree selects the line's pipe run in the explorer, from any of its segments");
 });
+
+test("DRAW-place-symbol, DRAW-arrange, DRAW-clipboard: a symbol put on a pipe goes into it, placed, dragged or pasted", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-place-symbol");
+  const place = page.locator("#draw-place-symbol");
+  await expectScrolledTo(place);
+  await expect(place).toContainText("or just beside it where the valve would cover it");
+  await expect(place).toContainText("the part upstream runs into its inlet, the part downstream out of its outlet");
+  await expect(place).toContainText("Two clicks across a pipe put the valve into the pipe the same way");
+  const arrange = page.locator("#draw-arrange");
+  await expect(arrange).toContainText("Drag a valve that is connected to nothing onto a pipe");
+  await expect(arrange).toContainText("the pipe is split around it, connected on both sides");
+  const clipboard = page.locator("#draw-clipboard");
+  await expect(clipboard).toContainText("Drag the copy onto a pipe and it goes into the line, connected on both sides");
+});
