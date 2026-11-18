@@ -29,7 +29,10 @@ Chromium: `npx playwright install chromium` once on a new machine. Where a Chrom
 | `account.spec.mjs` | `WEB-account-page`, `WEB-overview`, `WEB-licenses`, `WEB-usage`, `WEB-organizations`, `WEB-projects`, `WEB-permissions`, billing, profile, sign-out, errors. |
 | `academy.spec.mjs` | `WEB-academy-public`, `WEB-academy`, `WEB-course-player`, `WEB-certificates`, `WEB-certificate-page`. |
 | `guides.spec.mjs` | `WEB-user-guides`: every feature's anchor (the E1 Guide's links), the catalog's search and filters, the roadmap. |
+| `solutions.spec.mjs` | The feature catalog on Solutions (category filters, search, nothing found and Clear filters, Escape), every solution page reached from it, and every question on each solution page opening and closing. |
 | `assistant.spec.mjs` | `WEB-assistant`: Ask Alex, suggested and typed questions, the conversation kept between pages. |
+
+Against a real E1 server and the operator console, E1's own `tests/e2e/postgres/operatorWebsite.spec.mjs` (Lanxtor/E1) runs these pages for what the two share: prices and plan features from the console, sign-up with a campaign tag, the account page, Ask Alex with Product knowledge, the university check, Sign in with Microsoft.
 
 Not covered by a screen test: the desktop app's own updates (`ACC-desktop-updates`, in the E1 app; only its guide part is checked), real downloads and store pages, the E1 server's sign-in, and clips that are not made yet (a missing clip keeps its still).
 
