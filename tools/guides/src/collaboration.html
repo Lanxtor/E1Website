@@ -49,6 +49,7 @@
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu open, with Undo and Redo" width="380" height="196" loading="lazy"><figcaption>The Edit menu: Undo and Redo.</figcaption></figure>
   <p class="g-note">If someone else has changed the same thing since your step, the undo is refused as a conflict and the step stays in your list. See <a href="#col-conflicts">When two people change the same thing</a>.</p>
+  <p class="g-note">While a change of yours is not saved yet because E1 cannot reach the server, <span class="ui">Undo</span> and <span class="ui">Redo</span> wait, so an older step is never taken back before it. The status bar says <span class="ui">Undo waits until your last change is saved: E1 cannot reach the server just now. Try again in a moment.</span> Once the status bar reads <span class="ui">Saved</span>, press them again.</p>
   <p class="g-note">Editors with their own draft, such as the datasheet designer, have their own <span class="ui">Undo</span> button until you save the draft.</p>
   <p class="g-warn">The list of steps is kept in the open app. It is probably lost when you reload the page; this has not been confirmed yet. To take back an older change after a reload, use <a href="#col-history">Undo this change</a> on the object's History tab.</p>
   <p class="g-related">Related: <a href="#col-history">An object's History tab</a> · <a href="#col-history-place">The History place</a> · <a href="guide-getting-started.html#gs-shortcuts">Keyboard shortcuts</a></p>
@@ -390,8 +391,9 @@
     <li><span class="ui">Loading</span>, <span class="ui">Saving…</span>, <span class="ui">Saved</span>: normal work.</li>
     <li><span class="ui">Changed elsewhere — reloaded</span>: someone changed the same object first. Your change to it was dropped and the current version is shown.</li>
     <li><span class="ui">Change refused</span>: the change is not allowed (your role, a read-only organization, or an invalid edit). The reason is shown beside it.</li>
-    <li><span class="ui">Save failed</span>: the change could not be saved.</li>
+    <li><span class="ui">Save failed</span>: the change could not be saved. It stays on screen and is sent again by itself once the server answers.</li>
   </ul>
+  <p class="g-note">If the server cannot be reached when E1 opens, the page reads <span class="ui">Could not open the workspace</span> with the reason. E1 tries again by itself every few seconds and opens the workspace once the server answers; <span class="ui">Try again now</span> tries at once.</p>
   <p class="g-note">On an object's page, a change E1 cannot send is named in place, above the tabs: <span class="ui">E1 cannot reach the server just now. What you typed is kept; try again in a moment.</span>, or, when you were signed out in another tab or window, <span class="ui">You are signed out of E1 (signed out in another tab or window). Sign in again in a new tab, then try again here: what you typed is kept.</span> The page and what you typed stay; press Enter again once the server answers or you are signed in again.</p>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
