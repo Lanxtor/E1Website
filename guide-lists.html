@@ -390,9 +390,9 @@
 <section class="g-feature" id="list-edit-cell">
   <h2>Edit a cell like in Excel</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">LIST-edit-cell</span><span>Roadmap M3.7, M3.9</span><span>Review check D4</span></div>
-  <p class="g-summary">Double-click or press F2 on a cell to change a name or an attribute value; Ctrl+Z undoes it.</p>
+  <p class="g-summary">Double-click a cell, press F2, or just type on it to change a name or an attribute value; Enter saves and goes to the cell below; Ctrl+Z undoes it.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Query tab → double-click a cell, or select only that cell and press <kbd>F2</kbd></dd>
+    <dt>Where</dt><dd>Query tab → double-click a cell, or select only that cell and press <kbd>F2</kbd> or type</dd>
     <dt>Who</dt><dd>A project role that may edit objects</dd>
     <dt>Before you start</dt><dd>A query filtered on Name <span class="ui">is</span> <code>pump1</code>, with the column “Design pressure / In” added from <span class="ui">Columns</span>.</dd>
   </dl>
@@ -406,11 +406,12 @@
       <tr><td>4</td><td>Double-click it again, type <code>3 m</code>, and press <kbd>Enter</kbd>.</td><td>An alert in the cell says the value is not a unit of pressure, and nothing is saved.</td></tr>
       <tr><td>5</td><td>Press <kbd>Esc</kbd>.</td><td>The cell shows “16 bar(g)” again.</td></tr>
       <tr><td>6</td><td>Click the table and press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The cell is empty again: one undo step per edit.</td></tr>
-      <tr><td>7</td><td>Click the Design pressure cell once and type <code>20</code>.</td><td>Nothing happens: typing on a selected cell does not start an edit.</td></tr>
-      <tr><td>8</td><td>Press <kbd>F2</kbd>.</td><td>The cell opens for editing. <kbd>F2</kbd> works only when exactly one cell is selected.</td></tr>
+      <tr><td>7</td><td>Click the Design pressure cell once and press <kbd>F2</kbd>.</td><td>The cell opens for editing. <kbd>F2</kbd> works only when exactly one cell is selected. Press <kbd>Esc</kbd>.</td></tr>
+      <tr><td>8</td><td>Type <code>20</code> on the selected cell and press <kbd>Enter</kbd>.</td><td>Typing opens the cell with what you type in place of the value; <kbd>Enter</kbd> saves “20 bar(g)” and selects the cell below, so you can type down a column.</td></tr>
+      <tr><td>9</td><td>Press the arrow keys, then <kbd>Shift</kbd> and an arrow.</td><td>The selection moves one cell at a time and stops at the edges; with <kbd>Shift</kbd> it widens into a block.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-note"><kbd>Enter</kbd> saves, <kbd>Esc</kbd> cancels, and leaving the cell (a click elsewhere, <kbd>Tab</kbd>) saves. <kbd>Tab</kbd> does not move to the next cell; it only leaves the edit. A Name cell renames the object; a tagged name is read-only. The rows refresh when anyone changes the project.</p>
+  <p class="g-note"><kbd>Enter</kbd> saves, <kbd>Esc</kbd> cancels, and leaving the cell (a click elsewhere, <kbd>Tab</kbd>) saves. <kbd>Tab</kbd> does not move to the next cell; it only leaves the edit. Typing on a read-only cell opens nothing. A Name cell renames the object; a tagged name is read-only. The rows refresh when anyone changes the project.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-paste">Paste a block from Excel</a>, <a href="guide-lists.html#list-fill">Fill down and Fill right</a>, <a href="guide-lists.html#list-set-value">Select many cells and Set value…</a>, <a href="guide-lists.html#list-read-only-cells">Read-only cells are tinted blue</a>, <a href="guide-collaboration.html#col-history">History and undo</a></p>
 </section>
 
