@@ -139,3 +139,113 @@ test("Open E1 in the browser: the guide's ACC-browser part is there", async ({ p
   await expect(page.locator("#acc-desktop-app")).toBeAttached();
   await expect(page.locator("#acc-desktop-updates")).toBeAttached();
 });
+
+/* The notes for IT under each button, as written on the page. */
+const IT_NOTES = {
+  mac: ["Package", "Signed", "Install", "Asks for", "Updates", "On the Mac"],
+  windows: ["Package", "Install", "Signed", "Integrity", "Updates", "On the PC"],
+  ipad: ["From", "Microsoft Intune", "Asks for", "Tracking", "On the iPad", "Notifications"],
+  phone: ["From", "Microsoft Intune", "Asks for", "Tracking", "On the iPhone", "Notifications"]
+};
+
+test("Get E1: under each button, its notes for IT, in its own column and on screen", async ({ page }) => {
+  await page.goto("/download.html");
+  const width = page.viewportSize().width;
+  for (const [key, terms] of Object.entries(IT_NOTES)) {
+    const col = page.locator(`[data-get-col="${key}"]`);
+    const btn = col.locator(`[data-get-os="${key}"]`);
+    const notes = col.locator('dl.get-it[aria-label="For IT"]');
+    await notes.scrollIntoViewIfNeeded();
+    await expect(notes).toBeVisible();
+    await expect(notes.locator("dt")).toHaveText(terms);
+    for (const dd of await notes.locator("dd").all()) expect((await dd.textContent()).trim().length).toBeGreaterThan(3);
+    // Under its own button, inside the screen.
+    const b = await btn.boundingBox(), n = await notes.boundingBox();
+    expect(n.y).toBeGreaterThanOrEqual(b.y + b.height - 1);
+    expect(Math.abs((n.x + n.width / 2) - (b.x + b.width / 2))).toBeLessThan(Math.max(b.width, n.width) / 2);
+    expect(n.x).toBeGreaterThanOrEqual(0);
+    expect(n.x + n.width).toBeLessThanOrEqual(width + 1);
+  }
+  // The facts IT asks for first.
+  await expect(page.locator('[data-get-col="mac"] .get-it')).toContainText("notarized by Apple");
+  await expect(page.locator('[data-get-col="windows"] .get-it code')).toHaveText(["/S", "E1_NO_UPDATES=1"]);
+  await expect(page.locator('[data-get-col="windows"] .get-it')).toContainText("SHA-256");
+  await expect(page.locator('[data-get-col="ipad"] .get-it')).toContainText("No analytics or advertising SDKs");
+});
+
+test("Get E1: the four buttons sit side by side on a desktop and one under the other on a phone", async ({ page }, testInfo) => {
+  await page.goto("/download.html");
+  const boxes = [];
+  for (const key of Object.keys(IT_NOTES)) boxes.push(await page.locator(`[data-get-col="${key}"]`).boundingBox());
+  const sameRow = boxes.every((b) => Math.abs(b.y - boxes[0].y) < 5);
+  if (isPhone(testInfo)) expect(sameRow).toBe(false);
+  else expect(sameRow).toBe(true);
+  // Never overlapping.
+  for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
+    const a = boxes[i], c = boxes[j];
+    const overlap = a.x < c.x + c.width - 1 && c.x < a.x + a.width - 1 && a.y < c.y + c.height - 1 && c.y < a.y + a.height - 1;
+    expect(overlap, `columns ${i} and ${j} overlap`).toBe(false);
+  }
+});
+
+test.describe("a visitor on Windows", () => {
+  test.beforeEach(async ({ context }) => {
+    await context.addInitScript(() => {
+      Object.defineProperty(Navigator.prototype, "platform", { get: () => "Win32" });
+      Object.defineProperty(Navigator.prototype, "userAgentData", { get: () => ({ platform: "Windows" }) });
+    });
+  });
+  test("the Windows notes for IT move first with their button", async ({ page }) => {
+    await page.goto("/download.html");
+    const first = page.locator("[data-get-now] [data-get-col]").first();
+    await expect(first).toHaveAttribute("data-get-col", "windows");
+    await expect(first.locator("[data-get-os]")).toHaveAttribute("data-get-os", "windows");
+    await expect(first.locator(".get-it dt").first()).toHaveText("Package");
+    await expect(first.locator(".get-it")).toContainText("Windows 10 or 11");
+  });
+});
+
+const IT_ALL = ["Network", "Data", "Sign-in", "AI", "Telemetry", "Trial", "Certifications", "Questions"];
+
+test("For IT: every app — network hosts, data, sign-in, AI, telemetry, trial, certifications, questions", async ({ page }) => {
+  await page.goto("/download.html");
+  const block = page.getByRole("region", { name: "For IT: every app" });
+  await block.scrollIntoViewIfNeeded();
+  await expect(block).toBeVisible();
+  await expect(block.locator(".get-it-grid dt")).toHaveText(IT_ALL);
+  await expect(block.locator(".get-it-grid dd").first().locator("code")).toHaveText(["app.lanxtor.com", "e1downloads.blob.core.windows.net", "login.microsoftonline.com", "*.ciamlogin.com"]);
+  // The hosts the page names are the ones the site itself talks to.
+  const config = await page.evaluate(() => window.E1_CONFIG);
+  expect(new URL(config.apiBase).host).toBe("app.lanxtor.com");
+  expect(new URL(config.releases).host).toBe("e1downloads.blob.core.windows.net");
+  await expect(block.getByRole("link", { name: "support@lanxtor.com" })).toHaveAttribute("href", "mailto:support@lanxtor.com");
+  // Fits the screen.
+  const b = await block.boundingBox();
+  expect(b.x).toBeGreaterThanOrEqual(0);
+  expect(b.x + b.width).toBeLessThanOrEqual(page.viewportSize().width + 1);
+});
+
+const IT_LINKS = [["E1 Cloud specifications", /\/cloud-specifications\.html$/], ["Data processing agreement", /\/dpa\.html$/], ["Sub-processors", /\/sub-processors\.html$/], ["Security", /\/security\.html$/], ["Privacy", /\/privacy\.html$/], ["Contact sales", /\/contact-sales\.html$/]];
+for (const [name, url] of IT_LINKS) {
+  test(`For IT: every app — ${name} opens its page`, async ({ page }) => {
+    await page.goto("/download.html");
+    const block = page.getByRole("region", { name: "For IT: every app" });
+    await block.getByRole("link", { name, exact: true }).click();
+    await expect(page).toHaveURL(url);
+    await expect(page.locator("h1").first()).toBeVisible();
+  });
+}
+
+for (const lang of ["de", "fr", "es", "no"]) {
+  test(`/${lang}/download.html has the notes for IT under each button and the For IT block`, async ({ page }) => {
+    await page.goto(`/${lang}/download.html`);
+    for (const key of Object.keys(IT_NOTES)) {
+      const notes = page.locator(`[data-get-col="${key}"] dl.get-it`);
+      await expect(notes).toBeAttached();
+      await expect(notes.locator("dt")).toHaveCount(IT_NOTES[key].length);
+    }
+    const all = page.locator("section.get-it-all");
+    await expect(all.locator(".get-it-grid dt")).toHaveCount(IT_ALL.length);
+    await expect(all.locator("code", { hasText: "app.lanxtor.com" })).toBeAttached();
+  });
+}
