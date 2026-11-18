@@ -155,7 +155,7 @@
     <li><strong>Tab strip.</strong> One tab for each open 2D space, list, object, place or page.</li>
     <li><strong>Editor area.</strong> The path bar and the content of the active tab, for example a drawing with its toolbar.</li>
     <li><strong>Side panel.</strong> Alex, the one assistant, with three tabs: <span class="ui">Co-engineer</span> (its findings, local), <span class="ui">Agent</span> (a conversation with a language model, in the mode Agent, Ask or Plan) and <span class="ui">E1 Guide</span>.</li>
-    <li><strong>Status bar.</strong> Whether your changes are saved, what is selected, the units, the appearance and the store E1 runs on.</li>
+    <li><strong>Status bar.</strong> Whether your changes are saved, what is selected, the appearance and the store E1 runs on.</li>
   </ol>
   <p>You can drag the splitters between the explorer and the editor, and between the editor and the side panel, to change their widths. The explorer can be dragged as narrow or as wide as you like (260 pixels at first), the side panel 280 to 560 pixels (340 at first). E1 keeps these widths in this browser. A splitter stops where the editor would get narrower than 300 pixels. In a window too narrow for the widths you set, the explorer gives up width first, then the side panel, so the window never scrolls sideways and nothing is cut off at the right; your widths are kept, and a bigger window shows them again.</p>
   <h3>Steps</h3>
@@ -539,7 +539,7 @@
 <section class="g-feature" id="gs-status-bar">
   <h2>The status bar</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-status-bar</span></div>
-  <p class="g-summary">The strip along the bottom tells you whether your changes are saved, what is selected, what your last edit touched, and which store E1 runs on. It also holds the units and appearance chips.</p>
+  <p class="g-summary">The strip along the bottom tells you whether your changes are saved, what is selected, what your last edit touched, and which store E1 runs on. It also holds the appearance switch.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The bottom edge of the window</dd>
     <dt>Who</dt><dd>Everyone</dd>
@@ -550,7 +550,6 @@
     <li><strong>Save state:</strong> <span class="ui">Loading</span>, <span class="ui">Saving…</span>, <span class="ui">Saved</span>, <span class="ui">Save failed</span>, <span class="ui">Changed elsewhere — reloaded</span> or <span class="ui">Change refused</span>. A failure is red, and its reason is shown next to it and on hover.</li>
     <li><strong>Name</strong> of the selected item.</li>
     <li><strong>Impact</strong> after an edit on the drawing, for example "Connected: P1, T1 and 3 lines". Hover it to see each symbol and line. It stays until your next edit.</li>
-    <li><strong>Unit system</strong> of the project (<span class="ui">MET</span>, <span class="ui">Imperial</span>, <span class="ui">SI</span>, a company system, or <span class="ui">Units</span> when none is chosen); a click opens Project settings. See <a href="#gs-units">Units of measurement</a>.</li>
     <li><strong>Appearance chip</strong> <span class="ui">Dark</span> or <span class="ui">Light</span>.</li>
     <li><strong>Store:</strong> where your projects are kept. See <a href="guide-access.html#acc-store">Which store E1 runs on</a>.</li>
   </ol>
@@ -563,8 +562,8 @@
       <tr><td>3</td><td>As a Reviewer on a project, try to move a symbol.</td><td>The save state reads <span class="ui">Change refused</span> in red, with the reason, for example "You may not do this here: it needs drawing.edit on …".</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot" style="max-width:600px"><img src="assets/img/guides/statusbar.webp" alt="The status bar in two parts: at the left Saved and the open item Assets; at the right the Units chip, the appearance chip Dark and the store data/db.json" width="1200" height="120" loading="lazy"><figcaption>The status bar of the demo: <span class="ui">Saved</span>, the open item <span class="ui">Assets</span>, the units chip, <span class="ui">Dark</span> and the store.</figcaption></figure>
-  <p class="g-related">Related: <a href="#gs-appearance">Light and dark appearance</a> · <a href="guide-access.html#acc-store">Which store E1 runs on</a> · <a href="#gs-units">Units of measurement</a></p>
+  <figure class="g-shot" style="max-width:600px"><img src="assets/img/guides/statusbar.webp" alt="The status bar in two parts: at the left Saved and the open item Assets; at the right the appearance switch (a moon in the dark appearance) and the store data/db.json" width="1200" height="120" loading="lazy"><figcaption>The status bar of the demo: <span class="ui">Saved</span>, the open item <span class="ui">Assets</span>, the appearance switch and the store.</figcaption></figure>
+  <p class="g-related">Related: <a href="#gs-appearance">Light and dark appearance</a> · <a href="guide-access.html#acc-store">Which store E1 runs on</a></p>
 </section>
 
 <section class="g-feature" id="gs-appearance">
@@ -585,7 +584,7 @@
       <tr><td>3</td><td>Choose <span class="ui">Light</span> in <span class="ui">Settings</span> → <span class="ui">Theme</span>, then reload.</td><td>E1 stays light after the reload.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot" style="max-width:600px"><img src="assets/img/guides/statusbar.webp" alt="The status bar in two parts: at the left Saved and the open item Assets; at the right the Units chip, the appearance chip Dark and the store data/db.json" width="1200" height="120" loading="lazy"><figcaption>The appearance chip reads <span class="ui">Dark</span> (lower strip, middle).</figcaption></figure>
+  <figure class="g-shot" style="max-width:600px"><img src="assets/img/guides/statusbar.webp" alt="The status bar in two parts: at the left Saved and the open item Assets; at the right the appearance switch (a moon in the dark appearance) and the store data/db.json" width="1200" height="120" loading="lazy"><figcaption>The appearance chip reads <span class="ui">Dark</span> (lower strip, middle).</figcaption></figure>
   <p class="g-note">The appearance is kept per browser, not per account: on another computer you start in dark again.</p>
   <p class="g-related">Related: <a href="#gs-settings">Your settings</a> · <a href="#gs-status-bar">The status bar</a></p>
 </section>
@@ -783,21 +782,21 @@
 <section class="g-feature" id="gs-units">
   <h2>Units of measurement</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">GS-units</span><span>Roadmap 01.2b</span><span>Review check L26</span></div>
-  <p class="g-summary">The status bar shows the unit system of the project you are working in: MET, Imperial, SI, or a company system. A click opens Project settings, where it is chosen.</p>
+  <p class="g-summary">Each project has a unit system: MET, Imperial, SI, or a company system. It is chosen in Project settings, and a new value is offered in its units first.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Status bar → the unit system chip</dd>
-    <dt>Who</dt><dd>Everyone; choosing the system needs the Project administrator role</dd>
-    <dt>Before you start</dt><dd>Something in a project is selected.</dd>
+    <dt>Where</dt><dd><span class="ui">Settings</span> → <span class="ui">Project settings</span> → <span class="ui">Units</span></dd>
+    <dt>Who</dt><dd>Everyone sees it; choosing the system needs the Project administrator role</dd>
+    <dt>Before you start</dt><dd>The project is selected in the explorer.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select something in a project.</td><td>The chip reads the project's unit system, or <span class="ui">Units</span> when none is chosen yet.</td></tr>
-      <tr><td>2</td><td>Click the chip.</td><td>Project settings opens; its <span class="ui">Units</span> card sets the system.</td></tr>
+      <tr><td>1</td><td>Select the project in the explorer, then open <span class="ui">Settings</span> in the left rail → <span class="ui">Project settings</span> → <span class="ui">Units</span>.</td><td>The <span class="ui">Unit system</span> list shows the project's system.</td></tr>
+      <tr><td>2</td><td>Choose another system, for example <span class="ui">Imperial</span>.</td><td>It is saved at once. A new value now takes the Imperial unit of its group first.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="#gs-status-bar">The status bar</a> · <a href="guide-library.html#lib-units">Unit systems</a> · <a href="guide-objects.html#obj-units">Entering values and units</a></p>
+  <p class="g-related">Related: <a href="guide-library.html#lib-units">Unit systems</a> · <a href="guide-objects.html#obj-units">Entering values and units</a></p>
 </section>
 
 <section class="g-feature" id="gs-messages">

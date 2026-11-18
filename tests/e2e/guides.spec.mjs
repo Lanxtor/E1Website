@@ -116,3 +116,14 @@ test("User guide in the footer opens the guide", async ({ page }) => {
   await page.locator(".site-footer a", { hasText: "User guide" }).click();
   await expect(page).toHaveURL(/\/guide\.html$/);
 });
+
+test("GS-units: the unit system is chosen in Project settings; the status bar has no unit chip", async ({ page }) => {
+  await page.goto("/guide-getting-started.html#gs-units");
+  const part = page.locator("#gs-units");
+  await expectScrolledTo(part);
+  await expect(part.locator("dl")).toContainText("Settings → Project settings → Units");
+  await expect(part).not.toContainText("status bar");
+  const bar = page.locator("#gs-status-bar");
+  await expect(bar).not.toContainText(/unit/i);
+  await expect(bar.locator("img")).toHaveAttribute("alt", /appearance switch/);
+});
