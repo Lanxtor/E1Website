@@ -5,7 +5,8 @@
 E1 (app), the E1 website, E1 Reviewer for iPad and E1 Mobile for iPhone and Android (`Lanxtor/E1`, `Lanxtor/E1Website`, `Lanxtor/E1iPad`, `Lanxtor/E1Phone`) go live together on **Wednesday 19 May 2027**. Until then everything is under construction and the website is a preview.
 
 - **Day zero is 19 May 2027.** From a user's point of view, nothing existed before it and nothing has a history.
-- **Record no history before then:** no release notes, changelogs, "what's new", "new in version …", "previously …", migration notes or deprecation notices, and no version numbers that suggest earlier releases. Rename, move or remove things freely; leave no trace of the old form in anything a user sees.
+- **Record no history before then:** no release notes, changelogs, "new in version …", "previously …", migration notes or deprecation notices, and no version numbers that suggest earlier releases. Rename, move or remove things freely; leave no trace of the old form in anything a user sees.
+- **Exception, What's new (owner's decision, 19 November 2026):** E1's **Help → What's new** (`src/ui/shell/whatsNew.js` in `Lanxtor/E1`) lists every update with its date and time and one line for each new feature and each bug fix. Every change a user can see, and every bug fix they could meet, in any of the four repositories, adds its line there in the same change (`tests/client/whatsNew.test.mjs` checks it).
 - **No backward compatibility:** no migrations or compatibility shims for old data, settings, routes or file formats; change them in place.
 - Internal working records (roadmap stages with `done`/`doneOn`, git history, design docs) stay as they are: they track the build, not product history.
 - At day zero all of this is reset: versions start at their first number and history starts then.
