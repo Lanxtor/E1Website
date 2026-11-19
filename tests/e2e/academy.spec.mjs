@@ -67,7 +67,7 @@ test("course player: watch, mark lessons done, pass the assessment, get the cert
   // The first lesson opens with its video.
   const lesson = page.locator("[data-lesson]");
   await expect(lesson.locator("h2")).toHaveText("Redlining a 2D space · Markup settings");
-  await expect(lesson.locator("video[data-video] source")).toHaveAttribute("src", "assets/clips/hero.mp4");
+  await expect(lesson.locator("video[data-video] source")).toHaveAttribute("src", "assets/clips/academy-first-pid-01.mp4");
 
   // Mark as completed moves on to the next lesson.
   for (const [title, next] of [["Redlining a 2D space · Markup settings", "Answering markups"], ["Answering markups", "Review rounds"], ["Review rounds", "Marked-up prints · Markups as PDF comments"], ["Marked-up prints · Markups as PDF comments", "Final assessment"]]) {

@@ -568,7 +568,7 @@
    * The catalog and quizzes are examples. On the server the answers never
    * reach the browser: the quiz is graded by POST .../quiz.
    */
-  var DEMO_CLIP = "assets/clips/hero.mp4";
+  var DEMO_CLIP = "assets/clips/academy-first-pid-01.mp4";
 
   function v(id, title, seconds, extra) {
     var l = { id: id, type: "video", title: title, durationSeconds: seconds };
