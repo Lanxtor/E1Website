@@ -27,7 +27,7 @@ test("Get E1 → Your cloud: System requirements opens the sizes, the database r
   await page.locator('.cs-nav a[href="#database"]').click();
   await expect(page).toHaveURL(/#database$/);
   await expectScrolledTo(page.locator("#database"));
-  await expect(page.locator("#database")).toContainText("General Purpose (D4ds_v5 for up to 50 engineers)");
+  await expect(page.locator("#database")).toContainText("General Purpose (D2ds_v6 for a trial, D4ds_v6 for up to 50 engineers)");
   await expect(page.locator("#database .cs-avoid li").first()).toContainText("Burstable or shared-core databases");
 
   // A question opens and closes.
@@ -54,8 +54,10 @@ test("E1 Cloud specifications: the servers behind it, linked to the system requi
   await page.locator('.cs-nav a[href="#performance"]').click();
   const card = page.locator(".cs-servers");
   await expect(card.getByRole("heading", { name: "The servers behind it" })).toBeVisible();
-  await expect(card).toContainText("General Purpose: 4 dedicated vCores and 16 GB of memory");
-  await expect(card).toContainText("another availability zone");
+  await expect(card).toContainText("General Purpose on the newest Intel generation: dedicated cores only");
+  await expect(card).toContainText("2 to 96 dedicated vCores and 8 to 384 GB of memory, raised with the engineers working at once");
+  // No size of one moment is promised: the card stays true when the database grows.
+  await expect(card).not.toContainText("4 dedicated vCores and 16 GB");
   // On a phone Alex's button floats over the card's last line: scroll it to the middle, as a person would.
   const link = card.getByRole("link", { name: "system requirements" });
   await link.evaluate((el) => el.scrollIntoView({ block: "center" }));
