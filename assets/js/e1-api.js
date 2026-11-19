@@ -23,10 +23,37 @@
     try { return new URLSearchParams(location.search).get("demo") === "1"; } catch (e) { return false; }
   }
 
+  // Where the signed-in person's organization has its E1 (E1 design 43.1, cells): the answers of
+  // /auth/me, the account overview and /auth/switch name it as `server`. It is followed only when
+  // it is the address the website signs in at, or an https host under it.
+  var orgServer = "";
+
+  function originOf(address) {
+    try {
+      var url = new URL(String(address || ""));
+      return (url.protocol === "https:" || url.protocol === "http:") && !url.username && !url.password ? url : null;
+    } catch (e) { return null; }
+  }
+
+  function trustedServer(named) {
+    var url = typeof named === "string" ? originOf(named) : null;
+    var home = originOf(base);
+    if (!url || !home) return "";
+    if (url.origin === home.origin) return url.origin;
+    return url.protocol === "https:" && url.hostname.slice(-(home.hostname.length + 1)) === "." + home.hostname ? url.origin : "";
+  }
+
+  function noteServer(data) {
+    if (data && data.server !== undefined) orgServer = trustedServer(data.server);
+    return data;
+  }
+
   var E1 = {
     configured: function () { return Boolean(base); },
     isDemo: function () { return !base || forcedDemo(); },
-    appUrl: function () { return String(config.appUrl || base || ""); }
+    /** Where "Open E1 in the browser" goes: the organization's E1 once a sign-in answer named it, else the configured address. */
+    appUrl: function () { return String(orgServer || config.appUrl || base || ""); },
+    trustedServer: trustedServer
   };
 
   function ApiError(status, code, message) {
@@ -128,7 +155,7 @@
   /** GET /auth/me: who is signed in. Resolves null when nobody is. */
   E1.me = function () {
     if (E1.isDemo()) return later({ user: DEMO.user, org: DEMO.org, orgs: DEMO.orgs });
-    return request("GET", "/auth/me").catch(function (err) {
+    return request("GET", "/auth/me").then(noteServer).catch(function (err) {
       if (err.status === 401) return null;
       throw err;
     });
@@ -139,7 +166,7 @@
     if (E1.isDemo()) return later(JSON.parse(JSON.stringify(DEMO)));
     return request("GET", "/api/account/overview").then(function (data) {
       csrf = (data && data.csrf) || "";
-      return data;
+      return noteServer(data);
     });
   };
 
@@ -244,7 +271,7 @@
       DEMO.org = DEMO.orgs.filter(function (o) { return o.id === orgId; })[0] || DEMO.org;
       return later({ ok: true });
     }
-    return request("POST", "/auth/switch", { org: orgId });
+    return request("POST", "/auth/switch", { org: orgId }).then(noteServer);
   };
 
   /** POST /api/account/billing/portal: a link to the billing provider's portal. */

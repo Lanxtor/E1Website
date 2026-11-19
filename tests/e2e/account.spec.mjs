@@ -143,6 +143,30 @@ test("switch organization with the Switch button and with the menu", async ({ pa
   expect(switched).toEqual(["org-delta", "org-fjord"]);
 });
 
+test("Open E1 in the browser goes to the organization's E1, and only to an address of the E1 Cloud", async ({ page }) => {
+  // Each organization may have its E1 at its own address under app.lanxtor.com (E1 design 43.1).
+  let org = "org-fjord";
+  const at = { "org-fjord": "https://us1.app.lanxtor.com", "org-delta": "https://app.lanxtor.com" };
+  await mockApi(page, {
+    "GET /api/training": respond(404, { error: { code: "not_found", message: "No training." } }),
+    "GET /api/account/overview": () => overview({ server: at[org], ...(org === "org-delta" ? { org: { id: "org-delta", name: "Delta Utilities" } } : {}) }),
+    "POST /auth/switch": (req) => { org = req.postDataJSON().org; return { ok: true, server: at[org] }; }
+  });
+  await page.goto("/account.html");
+  await expect(page.locator("[data-open-app]")).toHaveAttribute("href", "https://us1.app.lanxtor.com");
+  await page.locator("[data-org-select]").selectOption("org-delta");
+  await expect(page.locator("[data-org-select]")).toHaveValue("org-delta");
+  await expect(page.locator("[data-open-app]")).toHaveAttribute("href", "https://app.lanxtor.com");
+
+  // An address that is not the E1 Cloud's is never offered, whoever names it.
+  for (const server of ["https://evil.example", "https://app.lanxtor.com.evil.example", "http://us1.app.lanxtor.com", "javascript:alert(1)"]) {
+    at["org-delta"] = server;
+    await page.reload();
+    await expect(page.locator("[data-org-select]")).toHaveValue("org-delta");
+    await expect(page.locator("[data-open-app]"), server).toHaveAttribute("href", "https://app.lanxtor.com");
+  }
+});
+
 test("profile: save the first and last name; an empty name is refused", async ({ page }) => {
   const saved = [];
   await mockApi(page, server({

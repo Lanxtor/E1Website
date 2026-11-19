@@ -238,7 +238,7 @@ test("For IT: every app — network hosts, data, sign-in, AI, telemetry, trial, 
   await block.scrollIntoViewIfNeeded();
   await expect(block).toBeVisible();
   await expect(block.locator(".get-it-grid dt")).toHaveText(IT_ALL);
-  await expect(block.locator(".get-it-grid dd").first().locator("code")).toHaveText(["app.lanxtor.com", "e1downloads.blob.core.windows.net", "login.microsoftonline.com", "*.ciamlogin.com"]);
+  await expect(block.locator(".get-it-grid dd").first().locator("code")).toHaveText(["app.lanxtor.com", "*.app.lanxtor.com", "e1downloads.blob.core.windows.net", "login.microsoftonline.com", "*.ciamlogin.com"]);
   // The hosts the page names are the ones the site itself talks to.
   const config = await page.evaluate(() => window.E1_CONFIG);
   expect(new URL(config.apiBase).host).toBe("app.lanxtor.com");
@@ -271,7 +271,9 @@ for (const lang of ["de", "fr", "es", "no", "zh"]) {
     }
     const all = page.locator("section.get-it-all");
     await expect(all.locator(".get-it-grid dt")).toHaveCount(IT_ALL.length);
-    await expect(all.locator("code", { hasText: "app.lanxtor.com" })).toBeAttached();
+    await expect(all.locator("code", { hasText: /^app\.lanxtor\.com$/ })).toBeAttached();
+    // The hosts under it too (E1 design 43.1): a firewall rule made now holds when the E1 Cloud runs in more regions.
+    await expect(all.locator("code", { hasText: /^\*\.app\.lanxtor\.com$/ })).toBeAttached();
   });
 }
 
