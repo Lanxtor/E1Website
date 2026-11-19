@@ -274,3 +274,16 @@ for (const lang of ["de", "fr", "es", "no"]) {
     await expect(all.locator("code", { hasText: "app.lanxtor.com" })).toBeAttached();
   });
 }
+
+test("Get E1: the headings in the For IT notes (such as Microsoft Intune) are blue, not grey, so they are not missed", async ({ page }) => {
+  await page.goto("/download.html");
+  const blue = "rgb(21, 101, 192)";
+  for (const key of ["mac", "windows", "ipad", "phone"]) {
+    const headings = page.locator(`[data-get-col="${key}"] .get-it dt`);
+    expect(await headings.count()).toBeGreaterThan(0);
+    for (const h of await headings.all()) await expect(h).toHaveCSS("color", blue);
+  }
+  await expect(page.locator('[data-get-col="ipad"] .get-it dt', { hasText: "Microsoft Intune" })).toHaveCSS("color", blue);
+  // The For IT: every app box below uses the same blue headings.
+  for (const h of await page.locator(".get-it-grid dt").all()) await expect(h).toHaveCSS("color", blue);
+});
