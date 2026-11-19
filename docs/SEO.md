@@ -7,7 +7,7 @@ What the website has, and what is done outside it.
 `python3 tools/i18n/build.py` writes, after the translations:
 
 - **Every public page, in every language** (`index`, `solutions`, `academy`, `download`, `about`,
-  `contact-sales`, `shape-e1`, `legal`, `privacy`, `terms`, each in en, de, fr, es, no): a
+  `contact-sales`, `shape-e1`, `legal`, `privacy`, `terms`, each in en, de, fr, es, no, zh): a
   `<!-- seo -->` block from `tools/seo/seo.py` with its canonical address (`https://www.lanxtor.com/…`),
   icons, theme colour, Open Graph and Twitter tags (title and description in the page's language,
   preview image `assets/img/og-image.png`, 1200×630). The `hreflang` links between the languages

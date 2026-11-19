@@ -1,0 +1,325 @@
+﻿<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文档控制、修订和数据表 | LANXTOR E1</title>
+  <meta name="description" content="E1 由模型生成清单、报告、仪表数据表和图纸，具备修订控制、签署、变更云线以及永不更改的已发布 PDF。">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=150">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/solution-revisions-datasheets-reports.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/solution-revisions-datasheets-reports.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/solution-revisions-datasheets-reports.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/solution-revisions-datasheets-reports.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/solution-revisions-datasheets-reports.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://www.lanxtor.com/zh/solution-revisions-datasheets-reports.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/solution-revisions-datasheets-reports.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/zh/solution-revisions-datasheets-reports.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="文档控制、修订和数据表 | LANXTOR E1">
+  <meta property="og:description" content="E1 由模型生成清单、报告、仪表数据表和图纸，具备修订控制、签署、变更云线以及永不更改的已发布 PDF。">
+  <meta property="og:url" content="https://www.lanxtor.com/zh/solution-revisions-datasheets-reports.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "解决方案",
+     "item": "https://www.lanxtor.com/zh/solutions.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "修订、数据表和报告。",
+     "item": "https://www.lanxtor.com/zh/solution-revisions-datasheets-reports.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-CN",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "E1 支持哪些修订方案？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "施工前用字母、施工起用数字（默认），ISO 19650（P01 …… 然后 C01 ……）、数字标签、仅字母，或贵公司和项目自己的方案，在 Project settings → Documents 中选择。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "谁可以签署和发布修订？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "校核需要 Sign revisions 权限（Engineer 及以上）；批准和发布需要 Issue revisions 权限（Lead engineer 及以上）。除非小团队关闭了四眼原则，否则由其他人进行校核和批准。Reviewer、访问令牌和 Alex 从不签署。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "已发布的 PDF 会改变吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。已发布修订的 PDF 只生成一次并归档，即使模型此后发生变化，也逐字节保持发布时的状态。其快照、签名和 PDF 无法在任何界面中更改。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "如何查看自上次修订以来更改了什么？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "图纸的修订 PDF 会为每处更改绘制云线，并在标题栏旁列出。Compare with… 可列出任意两个输出之间的更改，资源管理器会标记自上次发布以来修改或新增的对象。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "数据表模板是 ISA 或 API 表单吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不是。它们是 E1 自己的模板，参考了 ISA、API 和 ASME 规格数据表，适用于仪表、阀门、泵和换热器。未使用其任何表单名称、编号、标志或措辞。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "E1 可以保存在 E1 之外制作的文档吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可以。上传的文档可保存外部 PDF 并对其进行修订；超链接代表保存在您的文档管理系统中的文件，并在该系统中打开。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "可以将清单和报告导出到 Excel 吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可以。清单文档和报告可导出为 PDF 和 Excel，导出的清单可通过 Update from Excel… 读回，在应用前会检查每项更改。"
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <!-- Generated by tools/solutions/build.py from tools/solutions/pages/revisions-datasheets.json. Do not edit this file. -->
+  <div id="site-header"></div>
+
+  <main class="cs-page sol-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="zh/solutions.html#revisions-datasheets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>解决方案</span></a>
+        <span class="saas-kicker reveal">交付成果</span>
+        <h1 class="reveal">修订、数据表和报告。</h1>
+        <p class="lead reveal">在 E1 中，工程文档由实时模型生成：清单、报告、数据表和图纸都基于工程师编辑的同一数据打印。每个修订在创建时即被冻结，按其发布目的的签署流程签署，并以永不更改的 PDF 发布，附带修订云线和自上一修订以来的变更表。</p>
+        <div class="cs-glance reveal" aria-label="概览">
+          <div class="cs-stat"><b>3</b><span>默认签署步骤：编制、校核、批准</span></div>
+          <div class="cs-stat"><b>1,000</b><span>份文档可装订为一个 PDF 包</span></div>
+          <div class="cs-stat"><b>30 天</b><span>内可恢复已删除的输出（默认）</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="本页内容">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="zh/solution-revisions-datasheets-reports.html#documents">文档</a> <a href="zh/solution-revisions-datasheets-reports.html#revisions">修订</a> <a href="zh/solution-revisions-datasheets-reports.html#changes">变更</a> <a href="zh/solution-revisions-datasheets-reports.html#datasheets">数据表</a> <a href="zh/solution-revisions-datasheets-reports.html#reports">报告</a> <a href="zh/solution-revisions-datasheets-reports.html#audit">审计</a> <a href="zh/solution-revisions-datasheets-reports.html#faq">常见问题</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section section-tight cs-section sol-section" id="documents">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">文档</span>
+          <h2>由模型生成的工程文档</h2>
+          <p>在 E1 中，项目的每份文档都位于其 Documents 部分，其中大多数由模型生成，而非手工绘制。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>New document… 通过选择文档种类来创建文档。清单文档显示一个已保存的查询，并将其连同标题栏打印为 PDF 和 Excel。图纸输出将 2D 空间按所选图幅和所选图层打印。数据表文档将对象的数据表纳入修订控制。报告、PDF 包和项目交付物集可将多份文档装订在一起。</p>
+          <p>在其他地方制作的文档同样有其位置。上传的文档可保存外部 PDF，并像其他文档一样进行修订。超链接代表保存在您的工程文档管理系统中的文件：它会在该系统中打开文件，任何对象都可以由它进行文档关联，因此可以从相关的泵或区域找到该文件。</p>
+          <p>文档编号即文档的位号，由项目的位号规则生成；2D 空间的编号来自诸如 <code>{project.code}-{docType}-{seq:4}</code> 的模式，例如 P-PID-0001。All ▾ 筛选器可只显示图纸、清单、数据表或超链接。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="revisions">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">修订</span>
+          <h2>带发布目的和签署的修订控制</h2>
+          <p>在 E1 中，修订在创建时冻结文档所显示的内容，经过签署，并以归档的、永不更改的 PDF 发布。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Create revision… 会要求选择发布目的，例如 IFR — Issued for review 或 IFC — Issued for construction，并给出项目修订方案中的下一个标签。默认标签为 A、B、C ……（跳过 I、O、Q、S、X 和 Z），从施工阶段起为 0、1、2 ……。项目也可以改用 ISO 19650（P01 …… 然后 C01 ……）、数字标签、仅字母或公司自己的方案，以及 EPC 发布目的或 ISO 19650 适用性代码。</p>
+          <p>每个修订都按其发布目的的流程签署：由编制人签署，由他人校核，并由具有 Issue revisions 权限的人（Lead engineer 或更高角色）批准。每个签名都会写明所签署的内容，并可能要求您确认是本人操作。Reviewer、访问令牌和 Alex 从不签署。Reject… 和 Withdraw… 可收回修订，Reassign… 可将某一步骤交给其他签署人；超过签署期限的步骤会标记为 Late。</p>
+          <p>最后一个签名即发布该修订：其 PDF 只生成一次，归档在 Documents 下，即使模型此后发生变化，也逐字节保持发布时的状态。上一修订随即被取代。启用修订关卡时，文档所显示内容上若存在未解决的错误，修订将被拒绝，因此已知问题会在发布前被修复或接受。内部版本（例如 Rev B 之后的 C.1）会打印 INTERNAL — NOT FOR ISSUE 字样。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="changes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">变更</span>
+          <h2>每个修订中的修订云线和变更表</h2>
+          <p>在 E1 中，每个修订都会与上一修订进行比较，其 PDF 会显示更改了哪些内容。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>在图纸的修订中，PDF 会在每处更改周围绘制云线，并附带标有修订标签的三角形，同时在标题栏旁列出每项更改，例如设计压力从 16 bar(g) 改为 25 bar(g)。比较结果在输出创建时即被冻结，因此之后的编辑永远不会改变已发布的 PDF。Compare with… 可列出文档任意两个输出之间的更改。</p>
+          <p>在两次修订之间，文档会列出自上次发布以来的更改，资源管理器会标记每个已修改或新增的对象。在 2D 空间上，Changes since… 会为自某一日期、修订或版本以来新增、删除、修改或移动的所有内容绘制云线，并显示更改前 → 更改后以及更改人。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="datasheets">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">数据表</span>
+          <h2>仪表和设备数据表</h2>
+          <p>在 E1 中，对象的数据表既是查看和编辑其数值的界面，也是打印出来的页面，因此数据表与模型始终一致。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>规格数据表带有编号行、可延续到续页的部件表、并列的操作工况以及修订标记，屏幕上与 PDF 中完全相同。直接在数据表中输入数值；单位会自动添加并校验，Undo 可撤销更改。数据表文档发布后，此后更改的每个值旁都会显示下一修订号。</p>
+          <p>现成的模板涵盖仪表、阀门、泵和换热器。它们是 E1 自己的模板，参考了 ISA、API 和 ASME 规格数据表：仅借鉴了这些表单的理念，版式、措辞和行号均为 E1 自有。复制一个模板即可在数据表设计器中编辑，或用组件构建您自己的版式。</p>
+          <p>一份数据表文档可涵盖同一类的多个位号：共同的值只显示一次，不同的值显示为 See list，一次更改即可全部设置。发布其修订时会记录每个位号。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="reports">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">报告</span>
+          <h2>报告、PDF 包和交付物集</h2>
+          <p>在 E1 中，报告和文档集由已保存的查询和已发布的文档装订而成，并像单个文档一样进行修订。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>在已保存的查询上，Add to report… 可创建报告，或将该查询作为报告的一个章节添加。其 PDF 在各自标题下打印每个章节，并按 Area 等列分组，每页都有页眉和页码；Export Excel 为每个章节写入一个工作表。清单的 Excel 导出文件可通过 Update from Excel… 读回，在应用前会列出每项更改。</p>
+          <p>PDF 包可将最多 1,000 份文档装订为一个带封面和目录的 PDF，并采用每份文档的当前修订；PDF 包的修订只包含已发布的修订。Documents → Deliverables 将项目的图纸连同其报告和数据表装订为一个带封面、目录和页码的 PDF，预览时标记为 DRAFT，并按发布目的发布。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="audit">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">审计</span>
+          <h2>每份文档都有审计追踪</h2>
+          <p>在 E1 中，文档的每个版本和修订都完整记录了由谁创建、签署、发布、撤回或删除。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Audit report (CSV) 和 Audit report (PDF) 按时间顺序列出每个事件：创建；签署（含所签署的语句和登录信息）；驳回；发布（含 PDF 的 SHA-256 指纹）；撤回、删除和恢复（含其原因）。Delete… 并填写原因可将输出从文档中移除，但记录仍会保留，其标签永不再使用；在项目的保留期内（默认 30 天），Restore 可将其恢复。</p>
+          <p>Project settings → Documents 用于选择修订方案、编号模式、发布目的、每种目的的签署流程、四眼原则、已发布 PDF 的归档规则以及谁可以查看版本。每项设置适用于之后生成的输出；已生成的输出永不更改。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">问题</span>
+          <h2>工程师常问的问题。</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>E1 支持哪些修订方案？</summary>
+            <p>施工前用字母、施工起用数字（默认），ISO 19650（P01 …… 然后 C01 ……）、数字标签、仅字母，或贵公司和项目自己的方案，在 Project settings → Documents 中选择。</p>
+          </details>
+          <details>
+            <summary>谁可以签署和发布修订？</summary>
+            <p>校核需要 Sign revisions 权限（Engineer 及以上）；批准和发布需要 Issue revisions 权限（Lead engineer 及以上）。除非小团队关闭了四眼原则，否则由其他人进行校核和批准。Reviewer、访问令牌和 Alex 从不签署。</p>
+          </details>
+          <details>
+            <summary>已发布的 PDF 会改变吗？</summary>
+            <p>不会。已发布修订的 PDF 只生成一次并归档，即使模型此后发生变化，也逐字节保持发布时的状态。其快照、签名和 PDF 无法在任何界面中更改。</p>
+          </details>
+          <details>
+            <summary>如何查看自上次修订以来更改了什么？</summary>
+            <p>图纸的修订 PDF 会为每处更改绘制云线，并在标题栏旁列出。Compare with… 可列出任意两个输出之间的更改，资源管理器会标记自上次发布以来修改或新增的对象。</p>
+          </details>
+          <details>
+            <summary>数据表模板是 ISA 或 API 表单吗？</summary>
+            <p>不是。它们是 E1 自己的模板，参考了 ISA、API 和 ASME 规格数据表，适用于仪表、阀门、泵和换热器。未使用其任何表单名称、编号、标志或措辞。</p>
+          </details>
+          <details>
+            <summary>E1 可以保存在 E1 之外制作的文档吗？</summary>
+            <p>可以。上传的文档可保存外部 PDF 并对其进行修订；超链接代表保存在您的文档管理系统中的文件，并在该系统中打开。</p>
+          </details>
+          <details>
+            <summary>可以将清单和报告导出到 Excel 吗？</summary>
+            <p>可以。清单文档和报告可导出为 PDF 和 Excel，导出的清单可通过 Update from Excel… 读回，在应用前会检查每项更改。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="more">
+      <div class="container sol-more">
+        <div class="reveal">
+          <h2>用户指南中</h2>
+          <ul class="sol-links">
+            <li><a href="guide-documents.html#doc-revisions">文档的版本和修订</a></li>
+            <li><a href="guide-documents.html#doc-sign-off">修订的签署</a></li>
+            <li><a href="guide-documents.html#doc-issue">发布修订</a></li>
+            <li><a href="guide-documents.html#doc-change-clouds">修订 PDF 中的云线和变更表</a></li>
+            <li><a href="guide-documents.html#doc-spec-datasheets">规格数据表</a></li>
+            <li><a href="guide-documents.html#doc-reports">报告：一份文档中的多个已保存查询</a></li>
+            <li><a href="guide-documents.html#doc-deliverables">交付物：预览并发布项目文档集</a></li>
+            <li><a href="guide-documents.html#doc-audit-report">文档的审计报告</a></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>相关解决方案</h2>
+          <ul class="sol-links">
+            <li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li>
+            <li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li>
+            <li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li>
+            <li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li>
+            <li><a href="zh/solutions.html">全部解决方案</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container sol-cta reveal">
+        <a class="btn btn-primary" href="zh/download.html">获取 E1</a> <a class="btn btn-ghost" href="zh/contact-sales.html">联系销售</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=10"></script>
+  <script src="assets/js/main.js?v=43"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>

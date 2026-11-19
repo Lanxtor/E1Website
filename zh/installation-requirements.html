@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自有 E1 安装的系统要求 — LANXTOR</title>
+  <meta name="description" content="在您自己的云或数据中心运行 E1 时所需的数据库、服务器、存储和网络，按工程师人数确定规格，让 E1 对您而言与在 E1 Cloud 中一样快。">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=150">
+    <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/installation-requirements.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/installation-requirements.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/installation-requirements.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/installation-requirements.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/installation-requirements.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://www.lanxtor.com/zh/installation-requirements.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/installation-requirements.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/zh/installation-requirements.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="自有 E1 安装的系统要求 — LANXTOR">
+  <meta property="og:description" content="在您自己的云或数据中心运行 E1 时所需的数据库、服务器、存储和网络，按工程师人数确定规格，让 E1 对您而言与在 E1 Cloud 中一样快。">
+  <meta property="og:url" content="https://www.lanxtor.com/zh/installation-requirements.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "自有安装的系统要求。",
+     "item": "https://www.lanxtor.com/zh/installation-requirements.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-CN",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "我们可以从小规模开始，以后再扩展吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可以。从适合当前同时工作人数的那一行开始。托管数据库只需更改一项设置并重启几分钟即可升级到更大规格，E1 服务器会在负载下自动增加。只有试用规格不适合日常工作。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "为什么不用更便宜的可突增数据库？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可突增数据库只有在拥有 CPU 积分时才快。工程师一次工作数小时，积分会耗尽，数据库随即降到一个核心的一小部分：此后每次点击都要等待数秒。省下的钱会因工程师的等待而成倍损失。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "你们会在我们开始前核查规格吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "会。请告诉我们将有多少工程师同时工作以及项目规模，我们会确认或调整规格。对于超过 200 名工程师同时工作的情况，我们会根据负载测试确定安装规格。请联系 销售 。"
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <div id="site-header"></div>
+
+  <main class="cs-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="zh/download.html#own-servers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>您的云</span></a>
+        <h1 class="reveal">自有安装的系统要求。</h1>
+        <p class="lead reveal">E1 在您自己的云或数据中心运行时所需的条件。E1 的速度取决于其底层数据库：以下是 E1 Cloud 本身遵循的规格，让您的工程师获得同样的速度。</p>
+
+        <div class="cs-glance reveal" aria-label="日常工作最低要求一览">
+          <div class="cs-stat"><b>PostgreSQL 16</b><span>托管或自建，使用专用核心</span></div>
+          <div class="cs-stat"><b>4 vCores</b><span>以及 16 GB 数据库内存，最多 50 名工程师</span></div>
+          <div class="cs-stat"><b>1,100 IOPS</b><span>数据库 SSD 存储，至少</span></div>
+          <div class="cs-stat"><b>2 × 2 vCPU</b><span>两台 E1 服务器，其中一台停止时无人察觉</span></div>
+          <div class="cs-stat"><b>2 ms</b><span>E1 服务器与数据库之间的最大延迟</span></div>
+          <div class="cs-stat"><b>0</b><span>可突增或共享核心数据库：它们会让 E1 变慢</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="本页内容">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="zh/installation-requirements.html#sizes">规格</a> <a href="zh/installation-requirements.html#database">数据库</a> <a href="zh/installation-requirements.html#servers">E1 服务器与存储</a> <a href="zh/installation-requirements.html#faq">问题</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sizes -->
+    <section class="section section-tight cs-section" id="sizes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">规格</span>
+          <h2>按同时工作的工程师数量确定规格。</h2>
+          <p>请按同时在 E1 中工作的最多人数选择对应行，而不是按拥有账户的总人数。</p>
+        </div>
+        <div class="cs-table-wrap reveal">
+          <table class="cs-table cs-sizes" aria-label="推荐规格">
+            <thead><tr><th scope="col">同时在线工程师</th><th scope="col">数据库</th><th scope="col">数据库存储</th><th scope="col">E1 服务器</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">试用，最多 5 人</th><td>2 个专用 vCore，8 GB</td><td>128 GB SSD，500 IOPS</td><td>1 台服务器，2 vCPU，4 GB</td></tr>
+              <tr><th scope="row">最多 50 人</th><td>4 个专用 vCore，16 GB，另一可用区设备用实例</td><td>256 GB SSD，1,100 IOPS</td><td>2 至 6 台服务器，每台 2 vCPU，4 GB</td></tr>
+              <tr><th scope="row">最多 200 人</th><td>8 个专用 vCore，32 GB，设备用实例</td><td>512 GB SSD，2,300 IOPS</td><td>4 至 10 台服务器，每台 2 vCPU，4 GB</td></tr>
+              <tr><th scope="row">超过 200 人</th><td colspan="3">我们根据您自己项目的负载测试与您一起确定规格。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cs-note reveal">最多 50 名工程师这一行是我们负载测试的规模：50 名工程师同时在一个包含 498,000 个对象的项目上工作（<a href="zh/cloud-specifications.html#performance">E1 Cloud 规格</a>）。数据库以后可以升级到下一行：在 Microsoft Azure 上只需更改一项设置并重启几分钟。</p>
+      </div>
+    </section>
+
+    <!-- Database -->
+    <section class="section section-tight cs-section" id="database">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">数据库</span>
+          <h2>数据库决定 E1 的速度。</h2>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>应选择什么</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>数据库</span><span>PostgreSQL 16</span></li>
+              <li><span>在 Microsoft Azure 上</span><span>Azure Database for PostgreSQL – Flexible Server，General Purpose（试用用 D2ds_v6，最多 50 名工程师用 D4ds_v6）</span></li>
+              <li><span>在您自己的服务器上</span><span>专用核心，以及本地 SSD 或满足上述 IOPS 的 SAN</span></li>
+              <li><span>连接数</span><span>E1 至少需要 300 个：每台 E1 服务器打开 41 个</span></li>
+              <li><span>备用</span><span>位于另一可用区的副本，可自动接管，用于日常工作</span></li>
+              <li><span>备份</span><span>时间点恢复，保留 35 天</span></li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <h3>不应选择什么</h3>
+            <ul class="cs-avoid">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>可突增或共享核心数据库</b>（Azure Burstable B 系列等）：一旦 CPU 积分用完，其速度会降到一个核心的一小部分，E1 每次点击都要等待数秒。</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>小而慢的磁盘</b>：32 GB 磁盘仅提供 120 IOPS，对同时工作的工程师来说太少。</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>远离 E1 服务器的数据库</b>：位于另一区域或数据中心，会使每次点击的每一步都增加延迟。</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>与其他应用共享的数据库</b>：它们的负载会变成您的工程师的等待时间。</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- E1 server and storage -->
+    <section class="section section-tight cs-section" id="servers">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">E1 服务器与存储</span>
+          <h2>安装的其余部分。</h2>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>E1 服务器</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>每台服务器</span><span>2 vCPU 和 4 GB 内存，Linux 容器</span></li>
+              <li><span>数量</span><span>日常工作至少 2 台，根据 CPU 负载增加</span></li>
+              <li><span>在 Microsoft Azure 上</span><span>Azure Container Apps，位于数据库所在区域</span></li>
+              <li><span>网络</span><span>数据库位于专用网络中，延迟最多 2 ms</span></li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <h3>文件和密钥</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>文件和文档</span><span>保存在三个数据中心的对象存储（Azure Storage，区域冗余）</span></li>
+              <li><span>空间</span><span>起步约每名工程师 1 GB；随您的文档增长</span></li>
+              <li><span>机密</span><span>密钥保管库（Azure Key Vault）</span></li>
+              <li><span>登录</span><span>通过 OpenID Connect 使用您自己的登录</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">问题</span>
+          <h2>IT 团队常问的问题。</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>我们可以从小规模开始，以后再扩展吗？</summary>
+            <p>可以。从适合当前同时工作人数的那一行开始。托管数据库只需更改一项设置并重启几分钟即可升级到更大规格，E1 服务器会在负载下自动增加。只有试用规格不适合日常工作。</p>
+          </details>
+          <details>
+            <summary>为什么不用更便宜的可突增数据库？</summary>
+            <p>可突增数据库只有在拥有 CPU 积分时才快。工程师一次工作数小时，积分会耗尽，数据库随即降到一个核心的一小部分：此后每次点击都要等待数秒。省下的钱会因工程师的等待而成倍损失。</p>
+          </details>
+          <details>
+            <summary>你们会在我们开始前核查规格吗？</summary>
+            <p>会。请告诉我们将有多少工程师同时工作以及项目规模，我们会确认或调整规格。对于超过 200 名工程师同时工作的情况，我们会根据负载测试确定安装规格。请联系<a href="zh/contact-sales.html">销售</a>。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <article class="saas saas-dark cs-cta reveal">
+          <div class="saas-text">
+            <span class="saas-kicker">企业安装</span>
+            <h2>计划自行安装？</h2>
+            <p>我们帮助您的 IT 团队在您自己的云或数据中心中确定 E1 规格并完成部署。</p>
+            <div class="hero-actions"><a class="btn btn-light" href="zh/contact-sales.html">联系销售</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
+
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=10"></script>
+  <script src="assets/js/main.js?v=43"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>

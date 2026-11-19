@@ -1,6 +1,6 @@
 /*
- * WEB-languages: the website in English, German, French, Spanish and
- * Norwegian. The language menu in the header (inside the menu on a phone)
+ * WEB-languages: the website in English, German, French, Spanish,
+ * Norwegian and Simplified Chinese. The language menu in the header (inside the menu on a phone)
  * opens the same page in the chosen language, the choice is remembered, and
  * a first visit follows the browser's language.
  */
@@ -11,9 +11,10 @@ const HERO = {
   de: "Anlagenplanung in Gedankenschnelle.",
   fr: "L'ingénierie d'installations, à la vitesse de la pensée.",
   es: "Ingeniería de plantas, a la velocidad del pensamiento.",
-  no: "Anleggsprosjektering i tankens hastighet."
+  no: "Anleggsprosjektering i tankens hastighet.",
+  zh: "工厂工程设计，快如思维。"
 };
-const NAMES = { en: "English", de: "Deutsch", fr: "Français", es: "Español", no: "Norsk" };
+const NAMES = { en: "English", de: "Deutsch", fr: "Français", es: "Español", no: "Norsk", zh: "中文" };
 
 async function pick(page, testInfo, code) {
   await openMenu(page, testInfo);
@@ -23,7 +24,7 @@ async function pick(page, testInfo, code) {
   await page.locator(`.lang-menu a[data-lang-pick="${code}"]`).click();
 }
 
-for (const code of ["de", "fr", "es", "no"]) {
+for (const code of ["de", "fr", "es", "no", "zh"]) {
   test(`switch to ${NAMES[code]} and back to English, remembered after reload`, async ({ page }, testInfo) => {
     await page.goto("/solutions.html");
     await pick(page, testInfo, code);
@@ -93,4 +94,84 @@ test("a page without translations offers the home page in each language, without
   await expect(page.locator('.lang-menu a[data-lang-pick="en"]')).toHaveAttribute("href", "guide-account.html#web-languages");
   await page.locator('.lang-menu a[data-lang-pick="de"]').click();
   await expect(page).toHaveURL(/\/de\/index\.html$/);
+});
+
+/*
+ * Simplified Chinese (/zh/): every translated page is in Chinese, reached from
+ * a Chinese browser, and laid out without the header or the text spilling over.
+ */
+const ZH_PAGES = ["index.html", "solutions.html", "academy.html", "download.html", "about.html", "contact-sales.html",
+  "cloud-specifications.html", "installation-requirements.html", "security.html", "privacy.html", "terms.html", "legal.html", "shape-e1.html"];
+const HAN = /[一-鿿]/;
+
+for (const locale of ["zh-CN", "zh-TW", "zh"]) {
+  test.describe(`first visit in a ${locale} browser`, () => {
+    test.use({ locale });
+    test("the English home page opens in Simplified Chinese", async ({ page }) => {
+      await page.goto("/index.html");
+      await expect(page).toHaveURL(/\/zh\/index\.html$/);
+      await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
+      await expect(page.locator("h1").first()).toHaveText(HERO.zh);
+    });
+  });
+}
+
+for (const name of ZH_PAGES) {
+  test(`/zh/${name}: the heading, the title and the menu are in Chinese, in Chinese fonts, nothing spills over`, async ({ page }, testInfo) => {
+    await page.goto(`/zh/${name}`);
+    await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
+    // The heading may be only a name (E1 Academy); the text under it is Chinese.
+    await expect(page.locator("main, #main, body").first()).toContainText(HAN);
+    const han = await page.evaluate(() => (document.body.innerText.match(/[\u4e00-\u9fff]/g) || []).length);
+    expect(han).toBeGreaterThan(200);
+    expect(await page.title()).toMatch(HAN);
+    const font = await page.locator("body").evaluate((el) => getComputedStyle(el).fontFamily);
+    expect(font).toMatch(/PingFang SC/);
+    expect(font).toMatch(/Microsoft YaHei/);
+    // Nothing wider than the window (a phone's too).
+    const wide = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(wide).toBeLessThanOrEqual(1);
+    await openMenu(page, testInfo);
+    await expect(page.locator(".nav-links a", { hasText: HAN }).first()).toBeVisible();
+    await expect(page.locator(".lang-toggle span")).toHaveText("ZH");
+  });
+}
+
+test("/zh/: the header stays one row on a desktop, as in English", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "phone", "the phone has the menu button");
+  await page.goto("/index.html");
+  const en = await page.locator(".site-header").boundingBox();
+  await page.goto("/zh/index.html");
+  const zh = await page.locator(".site-header").boundingBox();
+  expect(Math.abs(zh.height - en.height)).toBeLessThanOrEqual(4);
+  // Every link of the menu on the same line.
+  const tops = await page.locator(".nav-links > li:visible").evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().top)));
+  expect(new Set(tops.map((t) => Math.round(t / 8))).size).toBe(1);
+});
+
+test("中文 from the keyboard: Enter on the language button, Tab to 中文, Enter; Back keeps Chinese", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "phone", "the keyboard is a desktop's");
+  await page.goto("/about.html");
+  await page.locator(".lang-toggle").focus();
+  await page.keyboard.press("Enter");
+  const zh = page.locator('.lang-menu a[data-lang-pick="zh"]');
+  await expect(zh).toBeVisible();
+  for (let i = 0; i < 8 && !(await zh.evaluate((el) => el === document.activeElement)); i++) await page.keyboard.press("Tab");
+  await expect(zh).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/zh\/about\.html$/);
+  await expect(page.locator("h1").first()).toHaveText(HAN);
+  // The browser's Back button leads to the English address, which keeps the chosen Chinese.
+  await page.goBack();
+  await expect(page).toHaveURL(/\/zh\/about\.html$/);
+});
+
+test("/zh/: Get E1 prices start in US dollars and the currency can be changed", async ({ page }) => {
+  await page.goto("/zh/download.html");
+  const usd = page.locator('[data-currency-switch] button[data-cur="USD"]');
+  await expect(usd).toHaveAttribute("aria-pressed", "true");
+  await page.locator('[data-currency-switch] button[data-cur="EUR"]').click();
+  await expect(page.locator('[data-currency-switch] button[data-cur="EUR"]')).toHaveAttribute("aria-pressed", "true");
+  await page.reload();
+  await expect(page.locator('[data-currency-switch] button[data-cur="EUR"]')).toHaveAttribute("aria-pressed", "true");
 });

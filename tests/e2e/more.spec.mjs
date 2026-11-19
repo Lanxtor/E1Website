@@ -155,7 +155,7 @@ test.describe("printing", () => {
   });
 });
 
-const LANG_CURRENCY = { de: "EUR", fr: "EUR", es: "EUR", no: "NOK" };
+const LANG_CURRENCY = { de: "EUR", fr: "EUR", es: "EUR", no: "NOK", zh: "USD" };
 for (const [lang, cur] of Object.entries(LANG_CURRENCY)) {
   test(`/${lang}/ Get E1: prices start in ${cur} and the buttons not published yet say so in the language`, async ({ page }) => {
     await page.goto(`/${lang}/download.html`);

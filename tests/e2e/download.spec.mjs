@@ -183,7 +183,7 @@ test("Get E1: what is ready and what is still in preparation, as it stands", asy
   // Neither app is in the App Store yet.
   for (const key of ["ipad", "phone"]) await expect(page.locator(`[data-get-os="${key}"] [data-get-meta]`)).toHaveText("App Store · Coming soon");
   // In every language the iPad and the iPhone say the same as each other.
-  for (const lang of ["de", "fr", "es", "no"]) {
+  for (const lang of ["de", "fr", "es", "no", "zh"]) {
     await page.goto(`/${lang}/download.html`);
     await expect(note("ipad", "Microsoft Intune")).toHaveText(await note("phone", "Microsoft Intune").innerText());
   }
@@ -261,7 +261,7 @@ for (const [name, url] of IT_LINKS) {
   });
 }
 
-for (const lang of ["de", "fr", "es", "no"]) {
+for (const lang of ["de", "fr", "es", "no", "zh"]) {
   test(`/${lang}/download.html has the notes for IT under each button and the For IT block`, async ({ page }) => {
     await page.goto(`/${lang}/download.html`);
     for (const key of Object.keys(IT_NOTES)) {

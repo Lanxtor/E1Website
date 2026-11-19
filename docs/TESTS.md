@@ -22,7 +22,7 @@ Chromium: `npx playwright install chromium` once on a new machine. Where a Chrom
 | --- | --- |
 | `pages.spec.mjs` | Every page in `sitemap.xml` and the pages reached from them: loads with no error, every internal link and `#part` exists, every image loads, no sideways scroll on a phone. |
 | `navigation.spec.mjs` | The header menu (hamburger on a phone), the footer, the cookie notice, the 404 page, Talk to sales, E1 Cloud specifications (`WEB-cloud-specs`). |
-| `languages.spec.mjs` | `WEB-languages`: the language menu, the choice remembered, a first visit in the browser's language. |
+| `languages.spec.mjs` | `WEB-languages`: the language menu (English, German, French, Spanish, Norwegian, Simplified Chinese), the choice remembered, a first visit in the browser's language, the Chinese pages laid out without overflow. |
 | `download.spec.mjs` | `WEB-download`, `ACC-desktop-app`, `ACC-browser`: Get E1's four buttons and the download cards from the release manifest. |
 | `pricing.spec.mjs` | `WEB-pricing`: currencies, billed yearly or monthly, remembered; the live price list and plan features; a product of the price list the table has no place for, under "Also on the price list". |
 | `login.spec.mjs` | Log in and sign up, the university email check, Sign in with Microsoft. |
