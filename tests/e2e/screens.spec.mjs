@@ -7,7 +7,7 @@
 import { test, expect, sitemapPaths, sideways } from "./fixtures.mjs";
 
 /* English and German (the longest words) pages, plus the account and sign-in pages. */
-const PAGES = sitemapPaths().filter((p) => !/^\/(fr|es|no)\//.test(p)).concat(["/login.html", "/account.html?demo=1", "/training.html?course=e1-fundamentals&demo=1", "/certificate.html?id=E1C-7KQ3-M9XP-2DWA&demo=1", "/guide-features.html"]);
+const PAGES = sitemapPaths().filter((p) => !/^\/(fr|es|no)\//.test(p)).concat(["/login.html", "/account.html?demo=1", "/training.html?course=getting-started&demo=1", "/certificate.html?id=E1C-7KQ3-M9XP-2DWA&demo=1", "/guide-features.html"]);
 
 const SIZES = [
   ["small phone", { width: 320, height: 568 }],

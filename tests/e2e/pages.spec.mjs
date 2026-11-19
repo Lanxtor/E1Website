@@ -11,7 +11,7 @@ import path from "node:path";
 import { test, expect, sitemapPaths, sideways, isPhone, ROOT } from "./fixtures.mjs";
 
 const EXTRA = [
-  "/account.html", "/login.html", "/training.html?course=e1-fundamentals&demo=1", "/certificate.html?id=E1C-7KQ3-M9XP-2DWA&demo=1",
+  "/account.html", "/login.html", "/training.html?course=getting-started&demo=1", "/certificate.html?id=E1C-7KQ3-M9XP-2DWA&demo=1",
   "/guide-features.html", "/guide-roadmap.html", "/industries.html", "/dpa.html", "/sub-processors.html", "/e1-terms.html", "/training.html"
 ].filter((p) => fs.existsSync(path.join(ROOT, p.split("?")[0])));
 

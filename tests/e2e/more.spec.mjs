@@ -106,14 +106,14 @@ test("Back and Forward: through pages, a language switch and the course player",
 
   // Lessons change the address without adding steps: Back leaves the course.
   await page.goto("/account.html?demo=1#academy-courses");
-  await page.locator(".course-card", { hasText: "Collaboration, branches and review" }).getByRole("link", { name: "Start the course" }).click();
-  await expect(page.locator("[data-lesson] h2")).toHaveText("Why branches");
-  await page.locator(".outline-lesson", { hasText: "Release a revision" }).click();
-  await expect(page).toHaveURL(/lesson=c4/);
+  await page.locator(".course-card", { hasText: "Review and markups" }).getByRole("link", { name: "Start the course" }).click();
+  await expect(page.locator("[data-lesson] h2")).toHaveText("Redlining a 2D space · Markup settings");
+  await page.locator(".outline-lesson", { hasText: "Marked-up prints" }).click();
+  await expect(page).toHaveURL(/lesson=review-markups-04/);
   await page.goBack();
   await expect(page).toHaveURL(/\/account\.html\?demo=1#academy-courses$/);
   await page.goForward();
-  await expect(page.locator("[data-lesson] h2")).toHaveText("Release a revision");
+  await expect(page.locator("[data-lesson] h2")).toHaveText("Marked-up prints · Markups as PDF comments");
 });
 
 test.describe("the interface in German", () => {
