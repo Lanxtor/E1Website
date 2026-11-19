@@ -97,7 +97,7 @@
       <div class="container">
         <a class="cs-back reveal" href="download.html#own-servers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Your cloud</span></a>
         <h1 class="reveal">System requirements for your own installation.</h1>
-        <p class="lead reveal">What E1 needs when it runs in your own cloud or data centre. E1 is only as fast as the database under it: these are the sizes we run the E1 Cloud on and test every night, so your engineers get the same speed.</p>
+        <p class="lead reveal">What E1 needs when it runs in your own cloud or data centre. E1 is only as fast as the database under it: these are the sizes the E1 Cloud itself follows, so your engineers get the same speed.</p>
 
         <div class="cs-glance reveal" aria-label="The minimum for daily work at a glance">
           <div class="cs-stat"><b>PostgreSQL 16</b><span>Managed or your own, with dedicated cores</span></div>
@@ -140,7 +140,7 @@
             </tbody>
           </table>
         </div>
-        <p class="cs-note reveal">The row for up to 50 engineers is the size of the E1 Cloud, where we measure 50 engineers at once on a project of 498,000 objects (<a href="cloud-specifications.html#performance">E1 Cloud specifications</a>). A database can grow to the next row later: on Microsoft Azure that is one setting and a restart of a few minutes.</p>
+        <p class="cs-note reveal">The row for up to 50 engineers is the size of our load test: 50 engineers at once on a project of 498,000 objects (<a href="cloud-specifications.html#performance">E1 Cloud specifications</a>). A database can grow to the next row later: on Microsoft Azure that is one setting and a restart of a few minutes.</p>
       </div>
     </section>
 
@@ -156,7 +156,7 @@
             <h3>What to choose</h3>
             <ul class="spec-list cs-spec">
               <li><span>Database</span><span>PostgreSQL 16</span></li>
-              <li><span>On Microsoft Azure</span><span>Azure Database for PostgreSQL – Flexible Server, General Purpose (D4ds_v5 for up to 50 engineers)</span></li>
+              <li><span>On Microsoft Azure</span><span>Azure Database for PostgreSQL – Flexible Server, General Purpose (D2ds_v6 for a trial, D4ds_v6 for up to 50 engineers)</span></li>
               <li><span>On your own servers</span><span>Dedicated cores and local SSD or a SAN with the IOPS above</span></li>
               <li><span>Connections</span><span>At least 300 for E1: each E1 server opens 41</span></li>
               <li><span>Standby</span><span>A copy in another availability zone that takes over by itself, for daily work</span></li>
