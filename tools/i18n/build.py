@@ -38,7 +38,7 @@ HERE = os.path.join(ROOT, "tools", "i18n")
 
 PAGES = ["index.html", "solutions.html", "academy.html", "download.html", "cloud-specifications.html",
          "about.html", "contact-sales.html", "shape-e1.html",
-         "legal.html", "privacy.html", "terms.html", "security.html"]
+         "legal.html", "privacy.html", "terms.html", "security.html", "installation-requirements.html"]
 # The solution pages (tools/solutions/build.py) are translated like the others.
 try:
     with open(os.path.join(ROOT, "tools", "solutions", "order.json"), encoding="utf-8") as _f:

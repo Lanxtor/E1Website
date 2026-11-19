@@ -7,7 +7,7 @@
   <title>Spécifications d'E1 Cloud — LANXTOR</title>
   <meta name="description" content="Où se trouvent vos données E1 Cloud, à quelle vitesse E1 répond, comment il est sécurisé, qui voit quoi, et comment fonctionnent les sauvegardes et les restaurations : les faits derrière E1 Cloud sur Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=148">
+  <link rel="stylesheet" href="assets/css/styles.css?v=149">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
@@ -266,6 +266,17 @@
             <p>Le serveur E1 ajoute de la capacité quand il est sollicité et tourne en permanence : pas de démarrage à froid. Des contrôles d'état toutes les quelques secondes remplacent un serveur qui ne répond plus.</p>
           </article>
         </div>
+        <article class="cs-card reveal cs-servers">
+          <h3>Les serveurs derrière</h3>
+          <p class="cs-card-sub">Des cœurs dédiés partout : rien dans E1 Cloud ne tourne sur des machines burstable ou à cœurs partagés.</p>
+          <ul class="spec-list cs-spec">
+            <li><span>Base de données</span><span>Azure Database for PostgreSQL 16, General Purpose : 4 vCores dédiés et 16 Go de mémoire</span></li>
+            <li><span>Secours</span><span>Une copie de la base de données dans une autre zone de disponibilité, qui prend le relais d'elle-même</span></li>
+            <li><span>Stockage de la base</span><span>256 Go SSD, 1 100 IOPS, qui s'agrandit de lui-même</span></li>
+            <li><span>Serveur E1</span><span>2 à 6 serveurs de 2 vCPU et 4 Go chacun, ajoutés selon la charge</span></li>
+          </ul>
+          <p class="cs-card-sub">Vous hébergez E1 vous-même ? Consultez la <a href="fr/installation-requirements.html">configuration requise</a>.</p>
+        </article>
         <p class="cs-note reveal">Mesuré lors de nos tests de charge. Dans E1 Cloud, les temps dépendent de la taille de votre projet, du nombre de personnes travaillant en même temps et de votre connexion.</p>
       </div>
     </section>

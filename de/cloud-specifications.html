@@ -7,7 +7,7 @@
   <title>Spezifikationen der E1 Cloud — LANXTOR</title>
   <meta name="description" content="Wo Ihre Daten in der E1 Cloud liegen, wie schnell E1 ist, wie es abgesichert ist, wer was sieht und wie Backups und Wiederherstellungen funktionieren: die Fakten hinter der E1 Cloud auf Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=148">
+  <link rel="stylesheet" href="assets/css/styles.css?v=149">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
@@ -266,6 +266,17 @@
             <p>Der E1-Server erhöht seine Kapazität bei hoher Last und läuft immer, sodass es keinen Kaltstart gibt. Health Checks alle paar Sekunden ersetzen einen Server, der nicht mehr antwortet.</p>
           </article>
         </div>
+        <article class="cs-card reveal cs-servers">
+          <h3>Die Server dahinter</h3>
+          <p class="cs-card-sub">Durchgehend dedizierte Kerne: nichts in der E1 Cloud läuft auf Burstable- oder Shared-Core-Maschinen.</p>
+          <ul class="spec-list cs-spec">
+            <li><span>Datenbank</span><span>Azure Database for PostgreSQL 16, General Purpose: 4 dedizierte vCores und 16 GB Arbeitsspeicher</span></li>
+            <li><span>Standby</span><span>Eine Kopie der Datenbank in einer anderen Verfügbarkeitszone, die von selbst übernimmt</span></li>
+            <li><span>Datenbankspeicher</span><span>256 GB SSD, 1.100 IOPS, wächst von selbst</span></li>
+            <li><span>E1-Server</span><span>2 bis 6 Server mit je 2 vCPU und 4 GB, je nach Last hinzugefügt</span></li>
+          </ul>
+          <p class="cs-card-sub">Betreiben Sie E1 selbst? Siehe die <a href="de/installation-requirements.html">Systemanforderungen</a>.</p>
+        </article>
         <p class="cs-note reveal">Gemessen in unseren Lasttests. Die Zeiten in der E1 Cloud hängen von der Größe Ihres Projekts, der Zahl gleichzeitig arbeitender Personen und Ihrer Verbindung ab.</p>
       </div>
     </section>
