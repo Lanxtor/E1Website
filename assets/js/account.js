@@ -363,10 +363,12 @@
     var done = taking.filter(function (c) { return c.progress && c.progress.status === "completed"; }).length;
     var active = taking.filter(function (c) { return c.progress && c.progress.status === "in_progress"; });
     var lessons = taking.reduce(function (n, c) { return n + ((c.progress && c.progress.completedLessons) || 0); }, 0);
+    var minTotal = taking.reduce(function (n, c) { return n + (c.durationMinutes || 0); }, 0);
+    var minDone = taking.reduce(function (n, c) { return n + Math.round((c.durationMinutes || 0) * (((c.progress && c.progress.percent) || 0) / 100)); }, 0);
     var tiles = [
       { label: "Courses completed", value: String(done), sub: "of " + taking.length + " in your plan", href: "#academy-courses" },
       { label: "In progress", value: String(active.length), sub: lessons + " lessons completed", href: "#academy-courses" },
-      { label: "More courses", value: String(courses.length - taking.length), sub: "to add to your plan", href: "#academy-courses" },
+      { label: "Learning time", value: duration(minDone), sub: "of " + duration(minTotal) + " in your plan", href: "#academy-courses" },
       { label: "Certificates", value: String(certs.length), sub: certs.length ? "earned" : "Finish a course to earn one", href: "#academy-certificates" }
     ];
     $("[data-academy-stats]").innerHTML = tiles.map(function (x) {
@@ -385,7 +387,32 @@
         '<span class="muted">' + (current.progress.nextLessonTitle ? "Next: " + esc(current.progress.nextLessonTitle) + " · " : "") + current.progress.percent + "% done</span></span>" +
         '<span class="continue-meter">' + progressMeter(current.progress.completedLessons, current.progress.totalLessons) + "</span></a>"
       : "";
-    $("[data-academy-courses]").innerHTML = cont + '<div class="grid grid-2 course-grid">' + courses.map(courseCard).join("") + "</div>";
+
+    /* The learning paths, in their order (assets/js/academy-syllabus.js); courses outside them last. */
+    var syl = window.E1_SYLLABUS || { paths: [] };
+    var byKey = {};
+    courses.forEach(function (c) { byKey[c.key] = c; });
+    var placed = {};
+    var groups = syl.paths.map(function (p, i) {
+      var cs = p.courses.map(function (k) { return byKey[k]; }).filter(Boolean);
+      cs.forEach(function (c) { placed[c.key] = true; });
+      return { n: i + 1, key: p.key, title: p.title, summary: p.summary, courses: cs };
+    }).filter(function (g) { return g.courses.length; });
+    var rest = courses.filter(function (c) { return !placed[c.key]; });
+    if (rest.length) groups.push({ n: 0, key: "more", title: groups.length ? "More courses" : "Courses", summary: "", courses: rest });
+
+    $("[data-academy-courses]").innerHTML = cont + groups.map(function (g) {
+      var pDone = g.courses.filter(function (c) { return c.progress && c.progress.status === "completed"; }).length;
+      var pMin = g.courses.reduce(function (n, c) { return n + (c.durationMinutes || 0); }, 0);
+      return '<section class="path-block" id="path-' + esc(g.key) + '" aria-labelledby="path-' + esc(g.key) + '-title">' +
+        '<header class="path-head"><div>' + (g.n ? '<span class="path-step">Path ' + g.n + "</span>" : "") +
+        '<h4 id="path-' + esc(g.key) + '-title">' + esc(g.title) + "</h4>" + (g.summary ? '<p class="muted">' + esc(g.summary) + "</p>" : "") + "</div>" +
+        '<div class="path-meta"><span>' + g.courses.length + " courses · " + duration(pMin) + "</span>" +
+        '<span class="meta-line">' + pDone + " of " + g.courses.length + " completed</span>" + progressMeter(pDone, g.courses.length) + "</div></header>" +
+        '<div class="grid grid-2 course-grid">' + g.courses.map(courseCard).join("") + "</div></section>";
+    }).join("");
+
+    renderMine();
 
     table($("[data-academy-certificates]"), ["Certificate", "Earned", "Credential", ""],
       certs.map(function (c) {
@@ -399,6 +426,46 @@
         ];
       }),
       "No certificates yet. Complete a course and pass its final assessment to earn your first one.");
+  }
+
+  /* ---------- academy: my notes and bookmarks, across courses ---------- */
+
+  function clock(seconds) {
+    seconds = Math.max(0, Math.round(seconds || 0));
+    var m = Math.floor(seconds / 60), r = seconds % 60;
+    return m + ":" + (r < 10 ? "0" : "") + r;
+  }
+
+  function momentHref(x) {
+    return "training.html?course=" + encodeURIComponent(x.courseKey) + "&lesson=" + encodeURIComponent(x.lessonId) + "&t=" + Math.round(x.position || 0) + demoSuffix();
+  }
+
+  function renderMine() {
+    var box = $("[data-academy-notes]");
+    if (!box) return;
+    var block = $("#academy-notes");
+    if (block) block.hidden = false;
+    box.innerHTML = '<p class="muted">Loading your notes and bookmarks…</p>';
+    Promise.all([
+      E1.training.notes().then(function (r) { return (r && r.notes) || []; }),
+      E1.training.bookmarks().then(function (r) { return (r && r.bookmarks) || []; })
+    ]).then(function (both) {
+      var notes = both[0], marks = both[1];
+      function list(items, kind) {
+        if (!items.length) return '<p class="muted">' + (kind === "notes"
+          ? "No notes yet. In a lesson, open My notes under the video and write what you want to remember: the note keeps the moment."
+          : "No bookmarks yet. In a lesson, use Bookmark this moment under the video.") + "</p>";
+        return '<ul class="mine-list">' + items.map(function (x) {
+          return '<li><a href="' + momentHref(x) + '"><span class="mine-time">' + clock(x.position) + "</span>" +
+            '<span class="mine-body"><strong>' + esc(x.lessonTitle) + '</strong><span class="muted">' + esc(x.courseTitle) + "</span>" +
+            (kind === "notes" ? '<span class="mine-text">' + esc(x.text) + "</span>" : "") + "</span></a></li>";
+        }).join("") + "</ul>";
+      }
+      box.innerHTML = '<div class="grid grid-2 mine-grid"><div><h4>Notes <span class="tab-count">' + notes.length + "</span></h4>" + list(notes, "notes") + "</div>" +
+        '<div><h4>Bookmarks <span class="tab-count">' + marks.length + "</span></h4>" + list(marks, "bookmarks") + "</div></div>";
+    }, function () {
+      box.innerHTML = '<p class="muted">Your notes and bookmarks could not be loaded right now.</p>';
+    });
   }
 
   function renderAcademy(d) {

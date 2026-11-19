@@ -92,14 +92,23 @@ test.describe("keyboard", () => {
   });
 
   test("course player: lessons are opened and marked done with the keyboard", async ({ page }) => {
-    await page.goto("/training.html?course=collaboration&demo=1");
-    await expect(page.locator("[data-lesson] h2")).toHaveText("Why branches");
-    await page.locator(".outline-lesson", { hasText: "Comment and approve" }).focus();
+    await page.goto("/training.html?course=review-markups&demo=1");
+    await expect(page.locator("[data-lesson] h2")).toHaveText("Redlining a 2D space · Markup settings");
+    await page.locator(".outline-lesson", { hasText: "Review rounds" }).focus();
     await page.keyboard.press("Enter");
-    await expect(page.locator("[data-lesson] h2")).toHaveText("Comment and approve");
+    await expect(page.locator("[data-lesson] h2")).toHaveText("Review rounds");
     await page.getByRole("button", { name: "Mark as completed" }).focus();
     await page.keyboard.press("Enter");
-    await expect(page.locator("[data-lesson] h2")).toHaveText("Release a revision");
+    await expect(page.locator("[data-lesson] h2")).toHaveText("Marked-up prints · Markups as PDF comments");
+    // The lesson's tabs and a note with the keyboard.
+    await page.getByRole("tab", { name: /My notes/ }).focus();
+    await page.keyboard.press("Enter");
+    await expect(page.getByRole("tab", { name: /My notes/ })).toHaveAttribute("aria-selected", "true");
+    await page.getByLabel(/A note at/).focus();
+    await page.keyboard.type("Ask the reviewer.");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Enter");
+    await expect(page.locator('[data-panel="notes"] .note-item')).toContainText("Ask the reviewer.");
     // The quiz: radio buttons with the arrow keys.
     await page.locator(".outline-lesson", { hasText: "Final assessment" }).focus();
     await page.keyboard.press("Enter");
@@ -112,7 +121,7 @@ test.describe("keyboard", () => {
   });
 
   test("the certificate dialog: focus starts on Close, Enter closes it", async ({ page }) => {
-    await page.goto("/training.html?course=collaboration&demo=1");
+    await page.goto("/training.html?course=review-markups&demo=1");
     for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Mark as completed" }).click();
     for (const [q, a] of [["q1", "a"], ["q2", "b"], ["q3", "a"], ["q4", "a"]]) await page.locator(`input[name="${q}"][value="${a}"]`).check();
     await page.getByRole("button", { name: "Submit answers" }).click();

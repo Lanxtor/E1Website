@@ -96,14 +96,14 @@ test("the Academy before the server has courses: the account's own list, or 'on 
 
 test("course cards lead into the course player", async ({ page }) => {
   await page.goto("/account.html?demo=1#academy-courses");
-  const card = page.locator(".course-card", { hasText: "Collaboration, branches and review" });
+  const card = page.locator(".course-card", { hasText: "Review and markups" });
   await card.getByRole("link", { name: "Start the course" }).click();
-  await expect(page).toHaveURL(/training\.html\?course=collaboration&demo=1$/);
-  await expect(page.locator("[data-course-title]")).toHaveText("Collaboration, branches and review");
+  await expect(page).toHaveURL(/training\.html\?course=review-markups&demo=1$/);
+  await expect(page.locator("[data-course-title]")).toHaveText("Review and markups");
   await page.goBack();
   await page.locator(".continue-card").click();
-  await expect(page).toHaveURL(/training\.html\?course=e1-fundamentals&lesson=f6&demo=1$/);
-  await expect(page.locator("[data-lesson] h2")).toHaveText("Properties, tags and the catalog");
+  await expect(page).toHaveURL(/training\.html\?course=getting-started&lesson=getting-started-06&demo=1$/);
+  await expect(page.locator("[data-lesson] h2")).toHaveText("A tour of the E1 window · The left rail");
 });
 
 test("course player: a lesson that cannot be loaded says why; others still open", async ({ page }) => {
@@ -151,11 +151,29 @@ test("course player: the place in the video is saved when the learner goes back 
   expect(saved[0].position).toBeLessThan(5);
 });
 
-test("course player: a lesson of a course not owned cannot be watched, and the quiz cannot be sent", async ({ page }) => {
-  await page.goto("/training.html?course=instrumentation-electrical&lesson=i6&demo=1");
-  await expect(page.locator("[data-lesson] .lesson-locked")).toBeVisible();
-  await expect(page.locator("[data-lesson] form")).toHaveCount(0);
-  await expect(page.locator("[data-buy]")).toBeVisible();
+test("course player: notes and bookmarks that cannot be loaded or saved say so, and the lesson still plays", async ({ page }) => {
+  const course = {
+    key: "mini", title: "A short course", summary: "One lesson.", level: "Beginner", access: "included", durationMinutes: 5,
+    progress: { percent: 0, completedLessons: 0, totalLessons: 1, status: "not_started", nextLessonId: "m1" },
+    modules: [{ title: "Only module", lessons: [{ id: "m1", type: "video", title: "First lesson", durationSeconds: 60, completed: false }] }]
+  };
+  await mockApi(page, {
+    "GET /api/training/courses/mini": { csrf: "t1", course, certificate: null },
+    "GET /api/training/lessons/m1": { id: "m1", type: "video", title: "First lesson", completed: false, position: 0, media: { url: "assets/clips/hero.mp4", type: "video/mp4" }, notes: [], resources: [] },
+    "POST /api/training/notes": respond(500, { error: { code: "internal", message: "Your note could not be saved. Try again." } }),
+    "POST /api/training/bookmarks": respond(500, { error: { code: "internal", message: "The bookmark could not be saved. Try again." } })
+  });
+  await page.goto("/training.html?course=mini");
+  const lesson = page.locator("[data-lesson]");
+  await expect(lesson.locator("h2")).toHaveText("First lesson");
+  await expect(lesson.locator("video[data-video]")).toBeVisible();
+  await lesson.getByRole("button", { name: "Bookmark this moment" }).click();
+  await expect(lesson.locator("[data-player-status]")).toHaveText("The bookmark could not be saved. Try again.");
+  await lesson.getByRole("tab", { name: /My notes/ }).click();
+  await lesson.getByLabel(/A note at/).fill("Keep this.");
+  await lesson.getByRole("button", { name: "Save note" }).click();
+  await expect(lesson.locator("[data-note-msg]")).toHaveText("Your note could not be saved. Try again.");
+  await expect(lesson.getByLabel(/A note at/)).toHaveValue("Keep this.");
 });
 
 test("certificate page: native Share on a device that offers it", async ({ page }) => {
@@ -171,7 +189,7 @@ test("certificate page: native Share on a device that offers it", async ({ page 
   const shared = await page.evaluate(() => window.__shared);
   expect(shared).toHaveLength(1);
   expect(shared[0].url).toMatch(/certificate\.html\?id=E1C-7KQ3-M9XP-2DWA$/);
-  expect(shared[0].text).toContain("Process design in E1");
+  expect(shared[0].text).toContain("Projects and the explorer");
 });
 
 test("the assistant cannot be reached at all: Alex says so, and asking again works", async ({ page }) => {

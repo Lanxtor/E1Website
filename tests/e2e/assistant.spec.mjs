@@ -122,6 +122,7 @@ test("Alex speaks the page's language (German)", async ({ page }) => {
   await panel.locator("textarea").fill("Was kostet E1?");
   await panel.locator("textarea").press("Enter");
   await expect(panel.locator(".alex-msg.alex-me")).toHaveText("Was kostet E1?");
+  await expect.poll(() => a.asked.length).toBe(1);
   expect(a.asked[0].lang).toBe("de");
 });
 

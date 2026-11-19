@@ -341,10 +341,15 @@ test("WEB-academy and WEB-certificates on the account page", async ({ page }) =>
 
   const cards = page.locator(".course-card");
   await expect(cards).toHaveCount(3);
-  await expect(cards.nth(2)).toHaveClass(/is-locked/);
-  await expect(cards.nth(2)).toContainText("$149.00");
-  await expect(cards.nth(2).getByRole("link", { name: "See the course" })).toBeVisible();
-  await expect(cards.nth(1).getByRole("link", { name: "View certificate" })).toHaveAttribute("href", "certificate.html?id=E1C-TEST-0001");
+  // A course of the syllabus is in its learning path; the others under More courses.
+  await expect(page.locator("#path-process .course-card")).toContainText("Process design in E1");
+  await expect(page.locator("#path-process .path-step")).toHaveText("Path 2");
+  await expect(page.locator("#path-more .course-card")).toHaveCount(2);
+  const locked = cards.filter({ hasText: "Instrumentation and electrical" });
+  await expect(locked).toHaveClass(/is-locked/);
+  await expect(locked).toContainText("$149.00");
+  await expect(locked.getByRole("link", { name: "See the course" })).toBeVisible();
+  await expect(cards.filter({ hasText: "Process design in E1" }).getByRole("link", { name: "View certificate" })).toHaveAttribute("href", "certificate.html?id=E1C-TEST-0001");
 
   const cert = page.locator("[data-academy-certificates] tbody tr");
   await expect(cert).toHaveCount(1);

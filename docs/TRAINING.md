@@ -6,12 +6,17 @@ LANXTOR E1 training is hosted on our own website and E1 cloud, not on YouTube or
 - **E1 server (`Lanxtor/E1`):** the courses, who may take them, progress, grading and certificates. It uses the same sign-in, PostgreSQL and billing as the rest of the account (`docs/AZURE-INTEGRATION.md`).
 - **In the preview** (`apiBase` empty in `assets/js/config.js`, or `?demo=1`), the pages answer from the preview data in `assets/js/e1-api.js` (`DEMO_TRAINING`), with the visitor's progress kept in their own browser. Try it at `account.html?demo=1#academy-courses`. The Academy uses these routes when the server answers them; until then it shows the overview's `academy` data (`AZURE-INTEGRATION.md`), or "Video courses are on their way".
 
+## 0. The syllabus
+
+The courses, their order and their lessons are built from the user guides: `tools/academy/syllabus.json` names the learning paths and courses, and lists for each module the guide features it teaches; `python3 tools/academy/build.py` packs them into lessons of about 4 to 9 minutes (each feature's `training.minutes`, plus a minute for the goal and recap), adds an assessment of 10 minutes per course, and writes `assets/js/academy-syllabus.js` (`window.E1_SYLLABUS`) and `docs/ACADEMY-SYLLABUS.md` to read and review. `--check` fails when a feature is unknown, not available, taught twice or in no course (website-only features are listed under `guideOnly`), or when the written files are out of date. Run it after every change to the guides. The Academy page (`academy.html`, `assets/js/academy.js`), the account page's learning paths and the preview's courses all read the same file; the E1 server seeds its `training_*` tables from it.
+
 ## 1. What the person sees
 
 | Where | What |
 | --- | --- |
-| Account → Academy | Four tiles (courses completed, in progress, more courses, certificates); under *Courses*, *Continue where you left off* (latest course in progress, next lesson); one card per course with level, length, progress bar, status and *Start / Continue / View certificate / See the course*; under *Certificates*, the table of their certificates with *View and share* and *Add to LinkedIn*. *User guides* stay as they are. |
-| `training.html` | Course outline with ✓ per lesson, the video (position saved while watching; completed at 90 % watched, at the end, or with *Mark as completed*), notes and exercise files, and the final assessment. Courses not in the plan show free preview lessons and a *Buy the course* box. When the last requirement is met, a dialog offers the certificate and *Add to LinkedIn profile*. |
+| Academy page | *The syllabus*: the totals, the six learning paths in order (each a link), a level filter, and per path its courses with level, length, outcome (*Afterwards:*) and *Lessons* (modules, lessons with minutes, the assessment), each with *Open the course*. |
+| Account → Academy | Four tiles (courses completed, in progress, learning time, certificates); under *Courses*, *Continue where you left off* (latest course in progress, next lesson), then the learning paths in order with each path's progress and its course cards (level, length, progress bar, status and *Start / Continue / View certificate / See the course*); courses outside the syllabus under *More courses*; *Notes and bookmarks* from every course, each opening the lesson at its moment (`training.html?course=…&lesson=…&t=seconds`); under *Certificates*, the table of their certificates with *View and share* and *Add to LinkedIn*. *User guides* stay as they are. |
+| `training.html` | Course outline with ✓ per lesson, a count per module and *Bookmarked* on lessons with a bookmark; under the video *Speed* (0.75× to 2×, kept in the browser), *Bookmark this moment*, *Add a note here*, and the tabs *Overview* (the lesson's notes, its features under *In the user guide*, exercise files), *Transcript* (times that move the video), *My notes* (a note keeps its moment; *Edit*, *Delete*) and *Bookmarks* (the course's, each opening its lesson at its moment). A lesson left halfway says *Continuing at* with *Start from the beginning*. Then the video (position saved while watching; completed at 90 % watched, at the end, or with *Mark as completed*), notes and exercise files, and the final assessment. Courses not in the plan show free preview lessons and a *Buy the course* box. When the last requirement is met, a dialog offers the certificate and *Add to LinkedIn profile*. |
 | `certificate.html` | Public and needs no sign-in. A *Verified certificate* banner, the certificate itself (SVG), *Add to LinkedIn profile*, posting on LinkedIn, X and Facebook, email, copy link, the phone's own share sheet (with the image, for Instagram or WhatsApp), *Download image (PNG)* and *Print or save as PDF* (A4 landscape). |
 
 ## 2. Rules
@@ -64,6 +69,19 @@ Saves the playback position (every ~15 s of playback, on pause and when the tab 
 
 Returns `{ passed, score, passMark, results: [{ id, correct }], course: { key, progress }, certificate: {…} | null }`.
 
+### Notes and bookmarks: the person's own
+
+- `GET /api/training/notes[?course={key}]` → `{ notes: [{ id, lessonId, lessonTitle, courseKey, courseTitle, position, text, createdAt, updatedAt }] }`, newest first.
+- `POST /api/training/notes` `{ id | null, lessonId, position, text }` → `{ note }`: a new note (with `id: null`) or the text of the person's note `id` changed. Text 1 to 4000 characters, plain text, never HTML.
+- `DELETE /api/training/notes/{id}` → `{ ok: true }`.
+- `GET /api/training/bookmarks[?course={key}]` → `{ bookmarks: [{ id, lessonId, lessonTitle, courseKey, courseTitle, position, createdAt }] }`, newest first.
+- `POST /api/training/bookmarks` `{ lessonId, position }` → `{ bookmark }` (a bookmark within 3 s of one already there is that one).
+- `DELETE /api/training/bookmarks/{id}` → `{ ok: true }`.
+
+Only for lessons the person may open; a person reads and changes only their own. An error is `{ error: { code, message } }` and the player shows the message.
+
+A video lesson may also carry `guide: [{ id, title, page }]` (the user guide features it teaches, from the syllabus) and `transcript: [{ at, text }]` (the narration with its seconds, from the film's script).
+
 ### `POST /api/training/courses/{key}/checkout` `{ return }`
 
 Returns `{ url }`: a checkout session of the billing provider for this course (Stripe Checkout or the chosen merchant of record, `AZURE-INTEGRATION.md` §6.2), returning to `return`. Its signed webhook writes the purchase. That is the only way a course becomes `owned`. An organization can instead add training to its plan as an add-on (`included`). Empty `url`: the page says online payment is coming soon.
@@ -88,9 +106,11 @@ Returns `{ url }`: a checkout session of the billing provider for this course (S
 | `training_question` | `id`, `lesson_id`, `text`, `options` (jsonb `[{id,text}]`), `answer` (option id; **never** selected into a client response), `sort` |
 | `training_entitlement` | `course_key`, `org_id` **or** `user_id`, `source` (`plan`/`add_on`/`purchase`), `granted_at`, `expires_at` |
 | `training_progress` | `user_id`, `lesson_id`, `position`, `completed_at`, `best_score`, `attempts`, `updated_at`; PK (`user_id`, `lesson_id`) |
+| `training_note` | `id`, `user_id`, `lesson_id`, `position`, `text`, `created_at`, `updated_at` |
+| `training_bookmark` | `id`, `user_id`, `lesson_id`, `position`, `created_at` |
 | `training_certificate` | `id` (the public ID) PK, `user_id`, `course_key`, `holder_name`, `score`, `issued_at`, `revoked_at`, `revoked_reason`; unique (`user_id`, `course_key`) |
 
-Row-level security as elsewhere: a person reads and writes only their own `training_progress`. Certificates are inserted only by the server. The public route reads one certificate by ID through a narrow view without `user_id`.
+Row-level security as elsewhere: a person reads and writes only their own `training_progress`, `training_note` and `training_bookmark`. Certificates are inserted only by the server. The public route reads one certificate by ID through a narrow view without `user_id`.
 
 ## 5. Videos
 
@@ -113,7 +133,7 @@ Either way the website needs only the URL. **The CSP must allow the video's host
 ## 7. Open decisions
 
 1. **Included or sold:** which courses come with which plans, which are paid add-ons, and their prices. The preview has three included courses and one at €149.
-2. **The real course catalog,** recordings and assessment questions. The preview questions are examples.
+2. **Recordings and assessment questions.** The catalog is the syllabus (§0); the preview's assessment questions are examples, the same for every course.
 3. **Name on certificate:** allow people to set a different name (legal name) before issue, or only use the account name.
 4. **Video hosting:** Azure Blob + CDN, or a video service (§5).
 5. **Expiry:** whether certificates expire with major E1 versions (for example "valid for E1 2026"), and whether a refresher course renews them.

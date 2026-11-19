@@ -12,7 +12,7 @@ Chromium: `npx playwright install chromium` once on a new machine. Where a Chrom
 
 ## How they run
 
-- `tests/e2e/server.mjs` serves the repository on a free port the way Azure Static Web Apps does, following `staticwebapp.config.json`: the global headers (the Content Security Policy too), redirects (`/pricing` → `download.html#pricing`, `user-guides.html` → the Academy), `/tools/*` and `/docs/*` answer 404, and the 404 page.
+- `tests/e2e/server.mjs` serves the repository on a free port the way Azure Static Web Apps does (byte ranges too, so a video can be sought), following `staticwebapp.config.json`: the global headers (the Content Security Policy too), redirects (`/pricing` → `download.html#pricing`, `user-guides.html` → the Academy), `/tools/*` and `/docs/*` answer 404, and the 404 page.
 - `tests/e2e/fixtures.mjs`: nothing leaves the machine. The E1 server (`https://app.lanxtor.com`) answers 503 unless a test answers its routes with `mockApi()` (shapes in `tests/e2e/data.mjs`); the release manifest in the downloads storage answers 404, so `assets/data/releases.json` is used; every other outside address is blocked. A test fails on any error the page throws and on any CSP violation.
 - The course player and certificate page also run in the preview (`?demo=1`), where `assets/js/e1-api.js` answers with its own example data.
 
@@ -27,7 +27,7 @@ Chromium: `npx playwright install chromium` once on a new machine. Where a Chrom
 | `pricing.spec.mjs` | `WEB-pricing`: currencies, billed yearly or monthly, remembered; the live price list and plan features; a product of the price list the table has no place for, under "Also on the price list". |
 | `login.spec.mjs` | Log in and sign up, the university email check, Sign in with Microsoft. |
 | `account.spec.mjs` | `WEB-account-page`, `WEB-overview`, `WEB-licenses`, `WEB-usage`, `WEB-organizations`, `WEB-projects`, `WEB-permissions`, billing, profile, sign-out, errors. |
-| `academy.spec.mjs` | `WEB-academy-public`, `WEB-academy`, `WEB-course-player`, `WEB-certificates`, `WEB-certificate-page`. |
+| `academy.spec.mjs` | `WEB-academy-public` (the syllabus: paths, courses, lessons, the level filter, also in German), `WEB-academy`, `WEB-course-player` (speed, bookmarks, notes at a moment, the transcript, the user guide links, notes and bookmarks on the account page), `WEB-certificates`, `WEB-certificate-page`. |
 | `guides.spec.mjs` | `WEB-user-guides`: every feature's anchor (the E1 Guide's links), the catalog's search and filters, the roadmap. |
 | `solutions.spec.mjs` | The feature catalog on Solutions (category filters, search, nothing found and Clear filters, Escape), every solution page reached from it, and every question on each solution page opening and closing. |
 | `assistant.spec.mjs` | `WEB-assistant`: Ask Alex, suggested and typed questions, the conversation kept between pages. |

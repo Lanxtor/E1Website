@@ -357,48 +357,51 @@
 
 <section class="g-feature" id="web-academy">
   <h2>Academy: your courses</h2>
-  <div class="g-meta"><span class="g-status preview">Preview data only</span><span>Since 2026-11-05</span><span class="g-id">WEB-academy</span><span>Roadmap W3.4</span></div>
-  <p class="g-summary">The Academy on your account page lists your video courses with your progress, lets you continue where you left off, and collects the certificates you earn.</p>
+  <div class="g-meta"><span class="g-status preview">Preview data only</span><span>Since 2026-11-05</span><span>Updated 2026-11-19</span><span class="g-id">WEB-academy</span><span>Roadmap W3.4</span></div>
+  <p class="g-summary">The Academy on your account page shows your courses in their learning paths with your progress, lets you continue where you left off, lists your notes and bookmarks, and collects the certificates you earn.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Account page → <span class="ui">Academy</span> → <span class="ui">Courses</span></dd>
+    <dt>Where</dt><dd>Account page → <span class="ui">Academy</span> → <span class="ui">Courses</span>, <span class="ui">Notes and bookmarks</span>, <span class="ui">Certificates</span></dd>
     <dt>Who</dt><dd>Anyone signed in. The full Academy is included with every Editor license billed yearly; billed monthly, it is $750 one-time per person.</dd>
-    <dt>Before you start</dt><dd>Open the account page with <code>?demo=1</code> to see the preview courses.</dd>
+    <dt>Before you start</dt><dd>Open the account page with <code>?demo=1</code> to see the courses with preview progress.</dd>
   </dl>
   <h3>Steps (preview data)</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click <span class="ui">Academy</span> → <span class="ui">Courses</span>.</td><td>Four tiles: <span class="ui">Courses completed</span>, <span class="ui">In progress</span>, <span class="ui">More courses</span>, <span class="ui">Certificates</span>; a card "Continue where you left off"; course cards including "E1 Fundamentals".</td></tr>
+      <tr><td>1</td><td>Click <span class="ui">Academy</span> → <span class="ui">Courses</span>.</td><td>Four tiles: <span class="ui">Courses completed</span>, <span class="ui">In progress</span>, <span class="ui">Learning time</span>, <span class="ui">Certificates</span>; a card "Continue where you left off"; then the six learning paths in order, from Path 1 Foundations to Path 6 Configuration and administration, each with its courses, length and progress bar.</td></tr>
       <tr><td>2</td><td>Look at the buttons on the course cards.</td><td><span class="ui">Start the course</span>, <span class="ui">Continue</span>, <span class="ui">View certificate</span> / <span class="ui">Review the course</span>, or for a course not in your plan <span class="ui">See the course</span> with "Not included in your plan. Buy it for yourself or your organization."</td></tr>
-      <tr><td>3</td><td>Click <span class="ui">Continue</span> on a course.</td><td>The course player opens.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Continue</span> on a course.</td><td>The course player opens at the lesson you were in.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Notes and bookmarks</span>.</td><td>Your notes and bookmarks from every course, newest first, each with its lesson, course and moment. Clicking one opens the lesson at that moment.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/web-account-academy.webp" alt="The Academy section in preview data: four tiles, Continue where you left off, and course cards with Continue, View certificate and Review the course buttons" width="2160" height="1350" loading="lazy"><figcaption>Academy courses with preview data.</figcaption></figure>
-  <p class="g-dev">Serving the courses from the E1 cloud (roadmap W3.4) is not built yet. Until then, signed in for real, the section says "Video courses are on their way."; the courses above are examples.</p>
+  <p class="g-dev">Serving the courses from the E1 cloud (roadmap W3.4) is not built yet. Until then, signed in for real, the section says "Video courses are on their way."; the progress above is an example.</p>
   <p class="g-related">Related: <a href="#web-course-player">The course player</a> · <a href="#web-certificates">Certificates</a> · <a href="#web-user-guides">User guides</a> · <a href="#web-academy-public">The Academy page</a></p>
 </section>
 
 <section class="g-feature" id="web-course-player">
   <h2>Take a course in the course player</h2>
-  <div class="g-meta"><span class="g-status preview">Preview data only</span><span>Since 2026-11-05</span><span class="g-id">WEB-course-player</span><span>Roadmap W3.4</span></div>
-  <p class="g-summary">Watch the lessons of a course in order, mark them done, read the notes, and pass the final assessment to earn a certificate.</p>
+  <div class="g-meta"><span class="g-status preview">Preview data only</span><span>Since 2026-11-05</span><span>Updated 2026-11-19</span><span class="g-id">WEB-course-player</span><span>Roadmap W3.4</span></div>
+  <p class="g-summary">Watch the lessons of a course in order at your own speed, bookmark moments, write notes that keep their moment, read the transcript and the lesson's user guide features, and pass the assessment to earn a certificate.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Academy → a course → <span class="ui">Start the course</span> or <span class="ui">Continue</span></dd>
-    <dt>Who</dt><dd>Anyone signed in with the course in their plan</dd>
+    <dt>Who</dt><dd>Anyone signed in with the Academy in their plan</dd>
   </dl>
   <h3>Steps (preview data)</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open a course.</td><td>"Loading the course…", then the outline with a ✓ per finished lesson, the lesson video, and the banner "Preview. The courses and videos are examples, and your progress is kept in this browser only."</td></tr>
-      <tr><td>2</td><td>Play a lesson, then click <span class="ui">Mark as completed</span>.</td><td>The lesson gets a ✓ in the outline. Watching 90 % of a video also completes it.</td></tr>
-      <tr><td>3</td><td>Submit the final assessment with a question unanswered.</td><td>"One question is not answered yet."</td></tr>
-      <tr><td>4</td><td>Answer all questions and submit, with every lesson done.</td><td>You pass and "Your certificate is ready." With lessons left: "Complete the remaining lessons to receive your certificate."</td></tr>
-      <tr><td>5</td><td>Click <span class="ui">Back to the Academy</span>.</td><td>The account page's Academy opens.</td></tr>
+      <tr><td>1</td><td>Open a course.</td><td>"Loading the course…", then the outline with a ✓ per finished lesson and each module's count, the lesson video, and the banner "Preview. The courses and videos are examples, and your progress is kept in this browser only." A lesson you left halfway says "Continuing at" its moment, with <span class="ui">Start from the beginning</span>.</td></tr>
+      <tr><td>2</td><td>Choose a <span class="ui">Speed</span> under the video.</td><td>The video plays at that speed, and every lesson after it too.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Bookmark this moment</span>.</td><td>"Bookmarked at" the moment; the lesson is marked <span class="ui">Bookmarked</span> in the outline and listed under <span class="ui">Bookmarks</span>, where its time opens the lesson there.</td></tr>
+      <tr><td>4</td><td>Click <span class="ui">Add a note here</span>, write, and click <span class="ui">Save note</span>.</td><td>The video pauses, <span class="ui">My notes</span> opens with "A note at" the moment, and the note is listed with its time. Click the time to go back to it, or <span class="ui">Edit</span> or <span class="ui">Delete</span> it.</td></tr>
+      <tr><td>5</td><td>Open <span class="ui">Overview</span> and <span class="ui">Transcript</span>.</td><td>The lesson's goal, its features under "In the user guide", and the spoken text with times: click a time to go there.</td></tr>
+      <tr><td>6</td><td>Play a lesson, then click <span class="ui">Mark as completed</span>.</td><td>The lesson gets a ✓ in the outline and the next lesson opens. Watching 90 % of a video also completes it.</td></tr>
+      <tr><td>7</td><td>Submit the assessment with a question unanswered, then with all answered and every lesson done.</td><td>"One question is not answered yet."; then you pass and "Your certificate is ready." With lessons left: "Complete the remaining lessons to receive your certificate."</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot"><img src="assets/img/guides/web-training.webp" alt="The course player in preview: the course E1 Fundamentals, Beginner, 1 h 3 min, 9 lessons, with its progress of 56 %" width="2160" height="763" loading="lazy"><figcaption>The course player.</figcaption></figure>
-  <p class="g-warn">Buying a course is not online yet: the <span class="ui">Buy the course</span> box says "Online payment is coming soon. Until then, contact us and we will add the course to your account." Signed out, the player says "Sign in to take this course".</p>
+  <figure class="g-shot"><img src="assets/img/guides/web-training.webp" alt="The course player in preview: a course with its level, length and lessons, and its progress" width="2160" height="763" loading="lazy"><figcaption>The course player.</figcaption></figure>
+  <p class="g-warn">Buying the Academy is not online yet: the <span class="ui">Get the Academy</span> box says "Online payment is coming soon. Until then, contact us and we will add the course to your account." Signed out, the player says "Sign in to take this course".</p>
   <p class="g-related">Related: <a href="#web-academy">Academy courses</a> · <a href="#web-certificates">Certificates</a></p>
 </section>
 
@@ -468,18 +471,20 @@
 
 <section class="g-feature" id="web-academy-public">
   <h2>The Academy page</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-10</span><span class="g-id">WEB-academy-public</span></div>
-  <p class="g-summary">The public Academy page shows the courses on offer, their level and length, and what the Academy costs.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Updated 2026-11-19</span><span class="g-id">WEB-academy-public</span></div>
+  <p class="g-summary">The public Academy page shows the whole syllabus: the learning paths in the order they are taken, every course with its level, length, outcome and lessons, and what the Academy costs.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>Website → Academy</dd>
+    <dt>Where</dt><dd>Website → Academy → <span class="ui">The syllabus</span></dd>
     <dt>Who</dt><dd>Anyone</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Open the Academy page.</td><td>"E1 Academy." with four courses: E1 Fundamentals (Beginner, 9 lessons), Collaboration, branches and review (Beginner, 5 lessons), Process design in E1 (Intermediate, 6 lessons), Instrumentation and electrical (Advanced, 6 lessons).</td></tr>
-      <tr><td>2</td><td>Scroll to the end of the page.</td><td>"Included with your yearly E1 Editor license." with a check mark, and "Billed monthly: $750 one-time per person."</td></tr>
+      <tr><td>1</td><td>Open the Academy page and scroll to <span class="ui">The syllabus</span>.</td><td>The number of learning paths, courses, lessons and hours of video; the six paths in order, from 1 Foundations to 6 Configuration and administration.</td></tr>
+      <tr><td>2</td><td>Click a path, then <span class="ui">Lessons</span> on one of its courses.</td><td>The page moves to the path; the course shows its modules and lessons, each with its minutes, and the assessment.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Beginner</span>, <span class="ui">Intermediate</span> or <span class="ui">Advanced</span>.</td><td>Only the courses of that level are shown; <span class="ui">All levels</span> shows every course again.</td></tr>
+      <tr><td>4</td><td>Scroll to the end of the page.</td><td>"Included with your yearly E1 Editor license." with a check mark, and "Billed monthly: $750 one-time per person."</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/web-academy.webp" alt="The public Academy page with the course player preview" width="2160" height="1350" loading="lazy"><figcaption>The Academy page.</figcaption></figure>

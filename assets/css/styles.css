@@ -4166,3 +4166,70 @@ code {
   .cs-table.cs-sizes th, .cs-table.cs-sizes td { display: table-cell; padding: 10px 12px; border-bottom: 1px solid var(--line); }
   .cs-table.cs-sizes tbody th { width: auto; }
 }
+
+/* ---------- Academy: the syllabus, learning paths, notes and bookmarks ---------- */
+.syllabus-totals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 20px; }
+.syllabus-totals div { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; }
+.syllabus-totals dt { font-size: 1.6rem; font-weight: 700; color: var(--heading); }
+.syllabus-totals dd { margin: 2px 0 0; color: var(--text-muted); font-size: 0.9rem; }
+.path-sequence { list-style: none; margin: 0 0 18px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
+.path-sequence a { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); text-decoration: none; }
+.path-sequence a:hover { border-color: var(--brand-edge); background: var(--brand-soft); }
+.path-sequence .muted { display: block; font-size: 0.82rem; }
+.path-step { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; padding: 0 8px; border-radius: 99px; background: var(--brand-soft); color: var(--brand); font-weight: 700; font-size: 0.8rem; }
+.path-head .path-step { margin-bottom: 6px; }
+.syllabus-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 8px; }
+.syllabus-filter .chip { border: 1px solid var(--control-border); background: var(--bg); color: var(--text); border-radius: 99px; padding: 6px 14px; font: inherit; font-size: 0.9rem; cursor: pointer; }
+.syllabus-filter .chip.is-on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.syllabus-note { margin: 0 0 18px; }
+.path-block { margin: 28px 0 0; scroll-margin-top: calc(var(--header-h) + 12px); }
+.path-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+.path-head h3, .path-head h4 { margin: 0 0 4px; }
+.path-head p { margin: 0; max-width: 60ch; }
+.path-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; min-width: 180px; font-size: 0.9rem; color: var(--text-muted); }
+.path-meta .meter { width: 100%; }
+.syllabus-course h4 { margin: 6px 0 8px; }
+.course-outcome { font-size: 0.92rem; }
+.syllabus-lessons { margin: 10px 0 4px; border-top: 1px solid var(--line); padding-top: 8px; }
+.syllabus-lessons summary { cursor: pointer; font-weight: 600; color: var(--brand); }
+.syllabus-module h5 { margin: 12px 0 4px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+.syllabus-module ol { margin: 0; padding-left: 20px; }
+.syllabus-module li { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; font-size: 0.92rem; }
+.syllabus-module li.is-quiz { font-weight: 600; list-style: none; margin-left: -20px; }
+.outline-module h3 { display: flex; justify-content: space-between; gap: 8px; }
+.outline-count { font-weight: 500; color: var(--text-muted); }
+.outline-mark { display: inline-block; margin-left: 4px; padding: 0 6px; border-radius: 99px; font-size: 0.7rem; background: var(--brand-soft); color: var(--brand); }
+.player-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 10px 0 4px; }
+.player-speed { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; color: var(--text-muted); }
+.player-speed select { font: inherit; padding: 4px 8px; border: 1px solid var(--control-border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); }
+.lesson-tabs { display: flex; flex-wrap: wrap; gap: 4px; margin: 20px 0 0; border-bottom: 1px solid var(--line); }
+.lesson-tabs [role="tab"] { border: 0; background: none; font: inherit; padding: 10px 14px; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.lesson-tabs [role="tab"][aria-selected="true"] { color: var(--heading); border-bottom-color: var(--brand); font-weight: 600; }
+.tab-count { display: inline-block; min-width: 20px; padding: 0 6px; border-radius: 99px; background: var(--bg-soft); color: var(--text-muted); font-size: 0.75rem; text-align: center; }
+.lesson-panel { padding: 14px 0; }
+.transcript { list-style: none; margin: 0; padding: 0; }
+.transcript li { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.link-btn.time { font-variant-numeric: tabular-nums; min-width: 44px; text-align: left; }
+.note-form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.note-form label { font-size: 0.9rem; color: var(--text-muted); }
+.note-form textarea { font: inherit; padding: 10px 12px; border: 1px solid var(--control-border); border-radius: var(--radius-sm); resize: vertical; background: var(--bg); color: var(--text); }
+.note-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.note-list { list-style: none; margin: 0; padding: 0; }
+.note-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.note-item .note-form { flex: 1; margin: 0; }
+.note-text { flex: 1; white-space: pre-wrap; overflow-wrap: anywhere; }
+.note-tools { display: flex; gap: 10px; }
+.lesson-guide a { color: var(--brand); }
+.mine-grid h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
+.mine-list { list-style: none; margin: 0; padding: 0; }
+.mine-list a { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--text); text-decoration: none; }
+.mine-list a:hover strong { color: var(--brand); }
+.mine-time { font-variant-numeric: tabular-nums; color: var(--brand); font-weight: 600; min-width: 44px; }
+.mine-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mine-text { overflow-wrap: anywhere; }
+@media (max-width: 720px) {
+  .syllabus-totals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .path-meta { align-items: flex-start; }
+}
+.path-block .course-grid { align-items: start; }
+.path-head h3 { font-size: 1.45rem; }

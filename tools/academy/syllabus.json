@@ -1,0 +1,243 @@
+{
+  "title": "E1 Academy syllabus",
+  "note": "Courses, their sequence and their lessons, built from the user guides (tools/guides/features). Each module lists guide feature ids; tools/academy/build.py packs them into lessons of about 4 to 9 minutes and checks that every available feature is taught once or listed under guideOnly.",
+  "assessmentMinutes": 10,
+  "paths": [
+    { "key": "foundations", "title": "Foundations", "summary": "Everyone starts here: the window, projects, objects, your first P&ID, lists, working together and Alex." },
+    { "key": "process", "title": "Process and piping", "summary": "From the process flow diagram to a checked P&ID, its line list and reusable designs." },
+    { "key": "instrumentation", "title": "Instrumentation and safety", "summary": "Instruments, loops, hookups, datasheets, the cause and effect matrix, SIFs and alarms." },
+    { "key": "electrical", "title": "Electrical and wiring", "summary": "Cabinets, cables and terminals, wiring at scale, single line and circuit diagrams." },
+    { "key": "project", "title": "Documents and project control", "summary": "Documents and revisions, review and markups, branches, workflows and dashboards, import and export." },
+    { "key": "admin", "title": "Configuration and administration", "summary": "The company library, catalogs and modules, people and access, integrations and Alex's automation." }
+  ],
+  "courses": [
+    { "key": "getting-started", "path": "foundations", "level": "Beginner",
+      "title": "Getting started with E1",
+      "summary": "Open E1, sign in and find your way around the window, its menus, places and settings.",
+      "outcome": "You can open E1 anywhere, sign in safely and find every part of the window.",
+      "modules": [
+        { "title": "Open E1 and sign in", "features": ["ACC-browser", "ACC-desktop-app", "ACC-desktop-updates", "ACC-new-version", "ACC-sign-in", "ACC-microsoft", "ACC-sign-in-problems", "ACC-passkeys", "ACC-step-up", "ACC-session", "ACC-one-person", "GS-terms"] },
+        { "title": "The E1 window", "features": ["GS-layout", "GS-rail", "GS-places", "GS-tabs", "GS-back-forward", "GS-floating-windows", "GS-hide-panels", "GS-status-bar"] },
+        { "title": "Menus, help and settings", "features": ["GS-menu-file", "GS-menu-edit", "GS-menu-help", "GS-feedback", "GS-whats-new", "GS-under-construction", "GS-appearance", "GS-shortcuts", "GS-settings", "GS-usage-statistics", "GS-view-kept", "GS-units"] },
+        { "title": "Learn as you go", "features": ["AI-alex-trainer", "AI-guide-paths", "AI-guide-what-is-this", "AI-guide-show-me-how"] }
+      ] },
+    { "key": "projects-explorer", "path": "foundations", "level": "Beginner",
+      "title": "Projects and the explorer",
+      "summary": "Start on Sample E1, create projects, and organize sections, folders and 2D spaces in the explorer.",
+      "outcome": "You can open, create and organize projects and find anything in the explorer.",
+      "modules": [
+        { "title": "Your first project", "features": ["PRJ-sample-project", "PRJ-new-project", "PRJ-project-templates", "PRJ-rename", "PRJ-sections"] },
+        { "title": "The explorer", "features": ["PRJ-tree-rows", "PRJ-tree-names", "PRJ-tree-columns", "PRJ-explorer-header", "PRJ-search", "PRJ-hidden-folders", "PRJ-folders-sheets", "PRJ-drag-drop"] },
+        { "title": "Your projects", "features": ["PRJ-projects-place", "PRJ-arrange", "PRJ-organization-menu", "PRJ-delete", "PRJ-project-bin", "PRJ-empty-bin"] }
+      ] },
+    { "key": "objects-tags", "path": "foundations", "level": "Beginner",
+      "title": "Objects, attributes and tags",
+      "summary": "The single source of truth: create objects, fill in attributes, tag them and relate them.",
+      "outcome": "You can create clean, uniquely tagged objects with their attributes and relationships.",
+      "modules": [
+        { "title": "Create objects", "features": ["OBJ-new-object", "OBJ-several", "OBJ-object-window", "OBJ-attributes", "OBJ-sub-attributes", "OBJ-add-attribute", "OBJ-units", "OBJ-classification"] },
+        { "title": "Tags", "features": ["OBJ-tags", "OBJ-tag-dialog", "OBJ-retag", "OBJ-tag-rules"] },
+        { "title": "Relationships and views", "features": ["OBJ-relationships", "OBJ-deep-view", "OBJ-diagrams", "OBJ-cases", "OBJ-calculations", "OBJ-checks"] },
+        { "title": "Change and clean up", "features": ["OBJ-rename", "OBJ-move", "OBJ-copy-paste", "OBJ-void", "OBJ-delete"] }
+      ] },
+    { "key": "first-pid", "path": "foundations", "level": "Beginner",
+      "title": "Your first P&ID",
+      "summary": "Draw on a 2D space: place symbols, connect pipes and signals, tag, annotate and print.",
+      "outcome": "You can draw a small, tagged P&ID over two 2D spaces and print it as PDF.",
+      "modules": [
+        { "title": "The 2D space", "features": ["DRAW-sheet-view", "DRAW-toolbar", "DRAW-modes", "DRAW-aids"] },
+        { "title": "Place and connect", "features": ["DRAW-palette", "DRAW-place-symbol", "DRAW-standards", "DRAW-object-types", "DRAW-drop-from-explorer", "DRAW-connector", "DRAW-connection-rules"] },
+        { "title": "Edit the drawing", "features": ["DRAW-select", "DRAW-arrange", "DRAW-clipboard", "DRAW-delete", "DRAW-symbol-menu"] },
+        { "title": "Annotate and finish", "features": ["DRAW-tags-labels", "DRAW-text", "DRAW-line-style", "DRAW-flow-arrows", "DRAW-layers", "DRAW-frames", "DRAW-off-page", "DOC-sheet-frame", "DOC-sheet-pdf", "DOC-print"] }
+      ] },
+    { "key": "lists-excel", "path": "foundations", "level": "Beginner",
+      "title": "Lists, queries and Excel",
+      "summary": "Build any list from the model, edit it like a spreadsheet and exchange it with Excel.",
+      "outcome": "You can build, filter, edit and export any list, and update the model from Excel.",
+      "modules": [
+        { "title": "Build a query", "features": ["LIST-new-query", "LIST-sort", "LIST-columns", "LIST-eng-columns", "LIST-catalog-columns", "LIST-filter", "LIST-filter-summary", "LIST-parameters", "LIST-group-totals", "LIST-templates"] },
+        { "title": "Edit like a spreadsheet", "features": ["LIST-edit-cell", "LIST-paste", "LIST-set-value", "LIST-fill", "LIST-fill-handle", "LIST-cell-menu", "LIST-read-only-cells", "LIST-find-replace", "LIST-owner-cell"] },
+        { "title": "Excel and beyond", "features": ["LIST-excel-export", "LIST-update-from-excel", "LIST-import-excel", "LIST-project-excel", "LIST-workspace-query", "LIST-sentence-query"] }
+      ] },
+    { "key": "working-together", "path": "foundations", "level": "Beginner",
+      "title": "Working together",
+      "summary": "Work live with your team: history and undo, chat and mentions, tasks, the Inbox and attachments.",
+      "outcome": "You can work with others in one project, follow changes and hand over work.",
+      "modules": [
+        { "title": "At the same time", "features": ["COL-presence", "COL-live-refresh", "COL-conflicts", "COL-undo-redo", "COL-history"] },
+        { "title": "Talk and hand over", "features": ["COL-comments", "COL-tag-people", "COL-queries", "COL-sheet-pins", "DRAW-comment-here", "COL-attachments"] },
+        { "title": "Tasks and the Inbox", "features": ["COL-tasks", "COL-task-checklist", "COL-inbox", "COL-notifications"] }
+      ] },
+    { "key": "alex", "path": "foundations", "level": "Beginner",
+      "title": "Working with Alex",
+      "summary": "Let Alex, the AI co-engineer, review your drawing, suggest the next step and change the project safely.",
+      "outcome": "You can use Alex's review, take or leave its suggestions and let it work under your name.",
+      "modules": [
+        { "title": "Meet Alex", "features": ["AI-side-panel", "AI-alex", "AI-alex-why", "AI-alex-skill-level", "AI-off"] },
+        { "title": "Alex's review", "features": ["AI-alex-cards", "AI-alex-markers", "AI-alex-filters", "AI-alex-not-applicable", "AI-alex-ask-cloud", "AI-alex-simulation"] },
+        { "title": "Alex while you draw", "features": ["AI-alex-suggestions", "DRAW-predictive"] },
+        { "title": "Let Alex change the project", "features": ["AI-cloud-ai", "AI-chat-modes", "AI-review-first", "AI-protect-arrangement", "AI-undo", "AI-held-for-review", "AI-attachments", "AI-voice", "AI-model-menu", "AI-calls-alex", "AI-injection-safety"] }
+      ] },
+    { "key": "process-design", "path": "process", "level": "Intermediate",
+      "title": "Process design: from PFD to P&ID",
+      "summary": "Take a PFD with its heat and material balance to a P&ID, with pipelines, the line list and the checks.",
+      "outcome": "You can turn a PFD into a checked P&ID and keep its line list in step.",
+      "modules": [
+        { "title": "The PFD", "features": ["DRAW-balance-tables", "AI-alex-hmb", "DRAW-pid-from-pfd"] },
+        { "title": "Pipelines and the line list", "features": ["DRAW-pipelines", "DRAW-piping-check", "DRAW-pipe-classes", "AI-alex-pipe-class", "DRAW-line-list"] },
+        { "title": "See the flow", "features": ["DRAW-highlight-flow", "DRAW-animate-flow"] }
+      ] },
+    { "key": "reuse-design", "path": "process", "level": "Advanced",
+      "title": "Reusable designs: patterns, modules and symbols",
+      "summary": "Reuse proven designs as patterns and modules, and make your own symbols.",
+      "outcome": "You can reuse designs across projects and keep them up to date.",
+      "modules": [
+        { "title": "Patterns", "features": ["DRAW-patterns", "AI-patterns"] },
+        { "title": "Modules", "features": ["DRAW-module-save", "DRAW-module-place", "DRAW-module-instance", "DRAW-module-compare", "DRAW-module-promote", "DRAW-module-variants", "DRAW-module-configure"] },
+        { "title": "Symbols", "features": ["DRAW-symbol-designer", "DRAW-svg-import", "DRAW-symbol-versions", "DRAW-attribute-labels"] }
+      ] },
+    { "key": "instrumentation", "path": "instrumentation", "level": "Intermediate",
+      "title": "Instrumentation",
+      "summary": "Instruments and loops on the P&ID, hookups, loop diagrams, system control diagrams and the instrument index.",
+      "outcome": "You can keep instruments, hookups and loop diagrams as views of the same instrument objects.",
+      "modules": [
+        { "title": "Instruments and hookups", "features": ["OBJ-hookups", "DOC-hookup-schedule", "DOC-hookup-drawing", "AI-alex-instrument-index"] },
+        { "title": "Loops and control", "features": ["DRAW-loop-diagram", "DRAW-scd"] },
+        { "title": "Datasheets", "features": ["DOC-datasheet", "DOC-datasheet-edit", "DOC-datasheet-pdf", "DOC-datasheet-document"] }
+      ] },
+    { "key": "spec-datasheets", "path": "instrumentation", "level": "Advanced",
+      "title": "Specification datasheets",
+      "summary": "Fill and design specification datasheets: rows, operating cases, several tags and revision marks.",
+      "outcome": "You can issue specification datasheets straight from the model.",
+      "modules": [
+        { "title": "Fill a datasheet", "features": ["DOC-spec-datasheets", "DOC-spec-datasheet-templates", "DOC-spec-datasheet-rows", "DOC-spec-datasheet-cases", "DOC-spec-datasheet-tags", "DOC-spec-datasheet-marks"] },
+        { "title": "Design datasheets", "features": ["DOC-datasheet-designer", "DOC-spec-datasheet-designer"] }
+      ] },
+    { "key": "safety", "path": "instrumentation", "level": "Advanced",
+      "title": "Safety: cause and effect, SIFs and alarms",
+      "summary": "Keep the cause and effect matrix, safety instrumented functions and alarms in the model.",
+      "outcome": "You can build the safety matrix, SIFs and alarm list and issue them as documents.",
+      "modules": [
+        { "title": "Cause and effect", "features": ["SAFE-cause-effect", "SAFE-plant-states", "SAFE-excel", "SAFE-compare"] },
+        { "title": "SIFs and alarms", "features": ["SAFE-sif", "SAFE-alarms", "SAFE-documents"] }
+      ] },
+    { "key": "wiring-basics", "path": "electrical", "level": "Intermediate",
+      "title": "Wiring basics: cabinets, cables and terminals",
+      "summary": "Land a signal from the field to a cabinet terminal and get the wiring lists.",
+      "outcome": "You can wire signals through cabinets and produce wire and cable lists.",
+      "modules": [
+        { "title": "The Wiring page", "features": ["WIRE-signals", "WIRE-path", "WIRE-field-view"] },
+        { "title": "Cabinets and strips", "features": ["WIRE-enclosures", "WIRE-cabinet-contents", "WIRE-terminals", "WIRE-strip-designer", "WIRE-markers"] },
+        { "title": "Cables and circuits", "features": ["WIRE-cables-cores", "WIRE-cable-editor", "WIRE-trace", "WIRE-potentials"] },
+        { "title": "Lists and diagrams", "features": ["WIRE-lists", "WIRE-cable-schedule", "WIRE-io-list", "WIRE-loop-diagram", "WIRE-strip-diagram"] }
+      ] },
+    { "key": "wiring-scale", "path": "electrical", "level": "Advanced",
+      "title": "Wiring at scale",
+      "summary": "Wire a unit from typicals, check it, route the cables and manage changes after issue.",
+      "outcome": "You can wire whole units, check them and control changes after issue.",
+      "modules": [
+        { "title": "Typicals and allocation", "features": ["WIRE-typicals", "WIRE-typical-editor", "WIRE-allocation", "WIRE-numbering", "WIRE-fieldbus"] },
+        { "title": "Checks and routes", "features": ["WIRE-checks", "WIRE-circuit-checks", "WIRE-segregation-matrix", "WIRE-routes", "WIRE-cable-lengths", "WIRE-fill-heat"] },
+        { "title": "After issue", "features": ["WIRE-construction-status", "WIRE-wire-moves", "WIRE-compare", "WIRE-import"] }
+      ] },
+    { "key": "electrical-diagrams", "path": "electrical", "level": "Advanced",
+      "title": "Single line and circuit diagrams",
+      "summary": "Draw the cable network on a single line diagram and make circuit diagrams from the same objects.",
+      "outcome": "You can produce single line and circuit diagrams from the model.",
+      "modules": [
+        { "title": "Single line diagrams", "features": ["WIRE-single-line", "WIRE-propose-cables"] },
+        { "title": "Circuit diagrams", "features": ["WIRE-circuit-devices", "WIRE-circuit-references", "WIRE-circuit-cables", "WIRE-circuit-starters", "WIRE-circuit-plc-boxes", "WIRE-circuit-documents"] }
+      ] },
+    { "key": "documents", "path": "project", "level": "Intermediate",
+      "title": "Documents and revisions",
+      "summary": "Make documents from the model, issue revisions with sign-off and issue the deliverable set.",
+      "outcome": "You can make, revise, sign off and issue every document of a project.",
+      "modules": [
+        { "title": "Documents", "features": ["DOC-revisions-section", "DOC-new-document", "DOC-list-document", "DOC-plot", "DOC-upload", "DOC-hyperlink", "DOC-pdf-tab", "DOC-reports", "DOC-pdf-package"] },
+        { "title": "Versions and revisions", "features": ["DOC-revisions", "DOC-status", "DOC-updated-mark", "DOC-sheet-versions", "DOC-output-set", "DOC-sheet-revisions", "DOC-delete-output"] },
+        { "title": "Issue and sign off", "features": ["DOC-issue", "DOC-sign-off", "DOC-reassign-signer", "DOC-audit-report", "DOC-deliverables", "DOC-document-settings"] },
+        { "title": "What changed", "features": ["DOC-changes-since", "DOC-change-clouds", "DOC-changed-since"] }
+      ] },
+    { "key": "review-markups", "path": "project", "level": "Intermediate",
+      "title": "Review and markups",
+      "summary": "Redline a 2D space, answer markups and run review rounds inside and outside E1.",
+      "outcome": "You can run a review round from markup to closed comment.",
+      "modules": [
+        { "title": "Mark up", "features": ["DRAW-redlining", "DRAW-markup-settings", "DRAW-markup-status"] },
+        { "title": "Review rounds", "features": ["DRAW-markups-list", "DRAW-markup-print", "DRAW-markup-pdf"] }
+      ] },
+    { "key": "branches", "path": "project", "level": "Intermediate",
+      "title": "Branches",
+      "summary": "Change a design on a branch, pull, push, ask for review and hand over branch packages.",
+      "outcome": "You can work on a branch and bring it safely back to main.",
+      "modules": [
+        { "title": "Work on a branch", "features": ["PRJ-branches", "PRJ-branch-conflicts", "PRJ-branch-push", "PRJ-push-protocols"] },
+        { "title": "Review and hand over", "features": ["PRJ-branch-review", "PRJ-branch-types", "PRJ-branch-packages", "PRJ-branch-proposals"] }
+      ] },
+    { "key": "workflows", "path": "project", "level": "Intermediate",
+      "title": "Statuses, workflows and dashboards",
+      "summary": "Track the work: statuses and holds, workflows with criteria and approvals, dashboards and progress.",
+      "outcome": "You can run a project's workflow and report its progress.",
+      "modules": [
+        { "title": "Statuses", "features": ["WF-statuses", "WF-task-types", "WF-status-chip", "WF-value-status", "WF-hold", "WF-status-layer"] },
+        { "title": "Workflows", "features": ["WF-workflows", "WF-assignments", "WF-move", "WF-board", "WF-criteria", "WF-approvals", "WF-override", "WF-flow-editor", "WF-versions", "WF-branches"] },
+        { "title": "Dashboards", "features": ["WF-dashboards", "WF-tiles", "WF-dashboard-edit", "WF-tile-settings", "WF-dashboard-audience", "WF-every-project", "WF-progress", "WF-trends"] }
+      ] },
+    { "key": "import-export", "path": "project", "level": "Intermediate",
+      "title": "Import and export",
+      "summary": "Bring existing P&IDs and lists into E1 and hand them over: DEXPI, CAD, PDF and Excel.",
+      "outcome": "You can bring an existing plant into E1 and hand data over to other tools.",
+      "modules": [
+        { "title": "Import", "features": ["PRJ-import-excel", "PRJ-import-dexpi", "PRJ-import-dxf", "PRJ-import-pdf", "PRJ-import-limits"] },
+        { "title": "Export", "features": ["PRJ-export-dexpi", "PRJ-export-mapping"] }
+      ] },
+    { "key": "library", "path": "admin", "level": "Advanced",
+      "title": "The company library and project setup",
+      "summary": "Configuration: classes, attributes, shapes and relationships, the company library, project settings and document setup.",
+      "outcome": "You can set up the library and a project's rules and document setup.",
+      "modules": [
+        { "title": "Configuration", "features": ["LIB-configuration", "LIB-object-classes", "LIB-attributes", "LIB-dependent-picklists", "LIB-shapes", "LIB-relationships", "LIB-where-used", "LIB-units", "LIB-datasheets"] },
+        { "title": "The company library", "features": ["LIB-company-library", "LIB-import-standard", "LIB-library-updates", "LIB-upgrade", "LIB-project-library", "LIB-pin-version", "LIB-convention-templates", "LIB-rules"] },
+        { "title": "Project setup", "features": ["LIB-project-settings", "LIB-project-defaults", "LIB-documents-templates", "LIB-documents-numbering", "LIB-documents-purposes", "LIB-documents-filing", "LIB-documents-signoff-routes", "LIB-documents-deliverable-profiles"] }
+      ] },
+    { "key": "catalogs-packages", "path": "admin", "level": "Advanced",
+      "title": "Catalogs, content packages and library modules",
+      "summary": "Approved product catalogs, content packages and standards, and modules offered to your projects.",
+      "outcome": "You can manage catalogs, packages and company modules.",
+      "modules": [
+        { "title": "Catalogs", "features": ["LIB-catalogs", "LIB-from-catalog", "LIB-catalog-reapply", "LIB-catalog-import"] },
+        { "title": "Content packages", "features": ["LIB-content-packages", "LIB-harness-marine", "LIB-partner-packages", "LIB-package-switching", "LIB-package-licensing"] },
+        { "title": "Modules in the library", "features": ["LIB-modules", "LIB-module-versions", "LIB-module-updates", "LIB-module-edit", "LIB-available-in"] }
+      ] },
+    { "key": "people-access", "path": "admin", "level": "Intermediate",
+      "title": "People, licenses and access",
+      "summary": "Invite people, assign licenses and roles, set up groups and see who did what.",
+      "outcome": "You can run an organization's people, licenses and permissions.",
+      "modules": [
+        { "title": "The organization", "features": ["ORG-organization-dialog", "ORG-logo", "ORG-plan", "ORG-pro-features", "ORG-licenses-seats", "ORG-trials", "ORG-university", "ACC-trial", "ACC-ai-credits", "ACC-university-payment"] },
+        { "title": "People", "features": ["ORG-invitations", "ORG-invite-list", "ORG-join-requests", "ORG-role-requests", "ORG-blocked-domains", "ORG-administrators", "ORG-roles-passkey", "ORG-session-policy", "ORG-groups"] },
+        { "title": "Projects and permissions", "features": ["ORG-project-members", "ORG-drawing-roles", "ORG-refusals", "ORG-visibility", "ORG-custom-roles", "ORG-discipline-permissions", "ORG-responsibility", "ORG-restricted-data", "ORG-shared-projects"] },
+        { "title": "Audit and privacy", "features": ["ORG-audit", "ORG-access-history", "ORG-history-names", "ORG-support-access", "ORG-export"] }
+      ] },
+    { "key": "enterprise", "path": "admin", "level": "Advanced",
+      "title": "Enterprise: your own cloud and integrations",
+      "summary": "E1 in your own Azure, company sign-on, tokens and the API, webhooks, message queues and security monitoring.",
+      "outcome": "You can run E1 in your own cloud and connect it to your company's systems.",
+      "modules": [
+        { "title": "Your own installation", "features": ["ACC-store", "ACC-cloud-deployment", "ACC-claim-installation", "ORG-own-installation", "ORG-license-file", "ORG-own-license-file", "ORG-sso", "ORG-entra-apps", "AI-model-admin", "LIB-cloud-ai-model"] },
+        { "title": "Integrations", "features": ["ORG-tokens", "ORG-claude-connector", "ORG-webhooks", "ORG-message-queues", "ORG-siem", "AI-mcp"] }
+      ] },
+    { "key": "alex-automation", "path": "admin", "level": "Advanced",
+      "title": "Alex for your company: conventions and assistants",
+      "summary": "Teach Alex your company's conventions and automate routine work with stored and automated assistants.",
+      "outcome": "You can make Alex follow your standards and automate routine engineering work.",
+      "modules": [
+        { "title": "Your conventions", "features": ["AI-alex-knowledge", "LIB-alex-knowledge", "AI-alex-team-memory"] },
+        { "title": "Assistants", "features": ["AI-stored-assistants", "AI-package-assistants", "AI-assistant-script", "AI-automated-assistants", "AI-query-sentence"] }
+      ] }
+  ],
+  "guideOnly": {
+    "note": "Features of the website, not of E1: taught by the user guides only.",
+    "features": ["WEB-download", "WEB-cloud-specs", "WEB-pricing", "WEB-user-guides", "WEB-academy-public", "WEB-assistant", "WEB-languages"]
+  }
+}

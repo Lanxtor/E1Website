@@ -46,9 +46,24 @@ function fileFor(p) {
   }
 }
 
-function send(res, status, file, headers) {
+function send(res, status, file, headers, range) {
   const body = fs.readFileSync(file);
-  res.writeHead(status, { ...CONFIG.globalHeaders, ...headers, "Content-Type": TYPES[path.extname(file).toLowerCase()] || "application/octet-stream" });
+  const type = { ...CONFIG.globalHeaders, ...headers, "Content-Type": TYPES[path.extname(file).toLowerCase()] || "application/octet-stream", "Accept-Ranges": "bytes" };
+  // Byte ranges, as Azure Static Web Apps answers them: a video can then be sought.
+  const m = status === 200 && range ? /^bytes=(\d*)-(\d*)$/.exec(range) : null;
+  if (m) {
+    const start = m[1] === "" ? Math.max(0, body.length - Number(m[2])) : Number(m[1]);
+    const end = m[1] !== "" && m[2] !== "" ? Math.min(Number(m[2]), body.length - 1) : body.length - 1;
+    if (start > end || start >= body.length) {
+      res.writeHead(416, { ...type, "Content-Range": `bytes */${body.length}` });
+      res.end();
+      return;
+    }
+    res.writeHead(206, { ...type, "Content-Range": `bytes ${start}-${end}/${body.length}`, "Content-Length": end - start + 1 });
+    res.end(body.subarray(start, end + 1));
+    return;
+  }
+  res.writeHead(status, type);
   res.end(body);
 }
 
@@ -69,7 +84,7 @@ const server = http.createServer((req, res) => {
   if (route?.statusCode === 404) return notFound(res);
   if (route?.rewrite) {
     const f = fileFor(route.rewrite);
-    return f ? send(res, 200, f, route.headers || {}) : notFound(res);
+    return f ? send(res, 200, f, route.headers || {}, req.headers.range) : notFound(res);
   }
   // A directory without its trailing slash, as Azure: /de -> /de/
   const raw = path.join(ROOT, decodeURIComponent(p));
@@ -80,7 +95,7 @@ const server = http.createServer((req, res) => {
   }
   const f = fileFor(p);
   if (!f || path.basename(f).startsWith(".") && !p.startsWith("/.well-known/")) return notFound(res);
-  send(res, 200, f, route?.headers || {});
+  send(res, 200, f, route?.headers || {}, req.headers.range);
 });
 
 server.listen(PORT, "127.0.0.1", () => console.log(`E1 website on http://127.0.0.1:${PORT}`));

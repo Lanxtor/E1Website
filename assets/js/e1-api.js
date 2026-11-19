@@ -311,6 +311,36 @@
       if (E1.isDemo()) return later(demoTraining.quiz(id, answers));
       return request("POST", "/api/training/lessons/" + encodeURIComponent(id) + "/quiz", { answers: answers });
     },
+    /** GET /api/training/notes[?course=key] → { notes: [{ id, lessonId, lessonTitle, courseKey, courseTitle, position, text, createdAt, updatedAt }] }, newest first. */
+    notes: function (courseKey) {
+      if (E1.isDemo()) return later(demoTraining.notes(courseKey));
+      return request("GET", "/api/training/notes" + (courseKey ? "?course=" + encodeURIComponent(courseKey) : ""));
+    },
+    /** POST /api/training/notes { id?, lessonId, position, text } → { note }: a new note, or the note with that id changed. */
+    saveNote: function (note) {
+      if (E1.isDemo()) return Promise.resolve(demoTraining.saveNote(note));
+      return request("POST", "/api/training/notes", { id: note.id || null, lessonId: note.lessonId, position: Math.round(note.position || 0), text: String(note.text || "") });
+    },
+    /** DELETE /api/training/notes/{id} → { ok } */
+    deleteNote: function (id) {
+      if (E1.isDemo()) return Promise.resolve(demoTraining.deleteNote(id));
+      return request("DELETE", "/api/training/notes/" + encodeURIComponent(id));
+    },
+    /** GET /api/training/bookmarks[?course=key] → { bookmarks: [{ id, lessonId, lessonTitle, courseKey, courseTitle, position, createdAt }] }, newest first. */
+    bookmarks: function (courseKey) {
+      if (E1.isDemo()) return later(demoTraining.bookmarks(courseKey));
+      return request("GET", "/api/training/bookmarks" + (courseKey ? "?course=" + encodeURIComponent(courseKey) : ""));
+    },
+    /** POST /api/training/bookmarks { lessonId, position } → { bookmark } */
+    addBookmark: function (lessonId, position) {
+      if (E1.isDemo()) return Promise.resolve(demoTraining.addBookmark(lessonId, position));
+      return request("POST", "/api/training/bookmarks", { lessonId: lessonId, position: Math.round(position || 0) });
+    },
+    /** DELETE /api/training/bookmarks/{id} → { ok } */
+    deleteBookmark: function (id) {
+      if (E1.isDemo()) return Promise.resolve(demoTraining.deleteBookmark(id));
+      return request("DELETE", "/api/training/bookmarks/" + encodeURIComponent(id));
+    },
     /** POST /api/training/courses/{key}/checkout → { url } of the billing provider's checkout. */
     checkout: function (key) {
       if (E1.isDemo()) return later({ url: "" });
@@ -547,152 +577,66 @@
   }
   function q(id, title) { return { id: id, type: "quiz", title: title || "Final assessment", durationSeconds: 600 }; }
 
+  /*
+   * The preview's courses are the Academy syllabus (assets/js/academy-syllabus.js,
+   * built by tools/academy/build.py from the user guides): every course with its
+   * modules and lessons, and a final assessment. The assessment questions are
+   * examples, the same for every course, until each course's own are written.
+   */
+  var SYLLABUS = window.E1_SYLLABUS || { paths: [], courses: [] };
+  function demoCourse(sc) {
+    var first = true;
+    return {
+      key: sc.key, title: sc.title, summary: sc.summary, outcome: sc.outcome, path: sc.path, level: sc.level,
+      access: "included", price: null, passMark: 75,
+      modules: sc.modules.map(function (m) {
+        return { title: m.title, lessons: m.lessons.map(function (l) {
+          var lesson = v(l.id, l.title, l.minutes * 60, { preview: first, features: l.features });
+          first = false;
+          return lesson;
+        }) };
+      }).concat([{ title: "Assessment", lessons: [q(sc.key + "-quiz")] }])
+    };
+  }
+  var DEMO_QUIZ = [
+    { id: "q1", text: "What is a symbol on a P&ID in E1?", options: [["a", "A representation of the object, which is the single source of truth"], ["b", "A drawing element with its own copy of the data"], ["c", "A picture you update by hand"]], answer: "a" },
+    { id: "q2", text: "You change a pump's design pressure on its object. What follows?", options: [["a", "Only the drawing you are on"], ["b", "Every drawing, list and datasheet that shows the pump"], ["c", "Nothing until you export"]], answer: "b" },
+    { id: "q3", text: "Alex changes the project in the Agent tab. How are those changes made?", options: [["a", "Under your name, through the same commands you use, and you can undo them"], ["b", "By a separate AI account nobody can undo"], ["c", "Only in an exported copy"]], answer: "a" },
+    { id: "q4", text: "Where do you find each feature step by step?", options: [["a", "In the user guides, and in E1 with the E1 Guide"], ["b", "Only in a printed manual"], ["c", "Nowhere: you ask support"]], answer: "a" }
+  ];
+
   var DEMO_TRAINING = {
-    courses: [
-      {
-        key: "e1-fundamentals",
-        title: "E1 Fundamentals",
-        summary: "Find your way around E1: projects, branches, drawings, lists and the catalog, and your first design from start to export.",
-        level: "Beginner",
-        access: "included",
-        price: null,
-        passMark: 75,
-        modules: [
-          { title: "Getting around", lessons: [
-            v("f1", "Welcome to E1", 200, { preview: true }),
-            v("f2", "Projects, branches and the object tree", 465),
-            v("f3", "Navigating drawings and lists", 370)
-          ] },
-          { title: "Your first design", lessons: [
-            v("f4", "Create a project", 330),
-            v("f5", "Place equipment and lines", 545),
-            v("f6", "Properties, tags and the catalog", 495)
-          ] },
-          { title: "Working together", lessons: [
-            v("f7", "Share a project and set roles", 400),
-            v("f8", "Export to PDF, DWG and Excel", 355)
-          ] },
-          { title: "Assessment", lessons: [q("f9")] }
-        ]
-      },
-      {
-        key: "process-design",
-        title: "Process design in E1",
-        summary: "From process flow diagram to P&ID: streams, line lists, valves, instruments and the consistency checks that keep them in step.",
-        level: "Intermediate",
-        access: "included",
-        price: null,
-        passMark: 75,
-        modules: [
-          { title: "Process flow diagrams", lessons: [
-            v("p1", "From PFD to P&ID", 510, { preview: true }),
-            v("p2", "Streams and mass balance", 670)
-          ] },
-          { title: "P&ID in depth", lessons: [
-            v("p3", "Line lists and piping specs", 580),
-            v("p4", "Valves, instruments and loops", 625),
-            v("p5", "Checks and consistency rules", 470)
-          ] },
-          { title: "Assessment", lessons: [q("p6")] }
-        ]
-      },
-      {
-        key: "collaboration",
-        title: "Collaboration, branches and review",
-        summary: "Work on a branch, pull and push, comment and approve, and release a revision your whole team can trust.",
-        level: "Beginner",
-        access: "included",
-        price: null,
-        passMark: 75,
-        modules: [
-          { title: "Branches", lessons: [
-            v("c1", "Why branches", 270, { preview: true }),
-            v("c2", "Pull, push and merge", 490)
-          ] },
-          { title: "Review", lessons: [
-            v("c3", "Comment and approve", 380),
-            v("c4", "Release a revision", 345)
-          ] },
-          { title: "Assessment", lessons: [q("c5")] }
-        ]
-      },
-      {
-        key: "instrumentation-electrical",
-        title: "Instrumentation and electrical",
-        summary: "The instrument index, datasheets and loop diagrams, then cable schedules and single-line diagrams, all from one model.",
-        level: "Advanced",
-        access: "available",
-        price: { amount: 149, currency: "USD" },
-        passMark: 75,
-        modules: [
-          { title: "Instrumentation", lessons: [
-            v("i1", "Course overview", 240, { preview: true }),
-            v("i2", "Instrument index and datasheets", 720),
-            v("i3", "Loop diagrams", 630)
-          ] },
-          { title: "Electrical", lessons: [
-            v("i4", "Cable schedules", 560),
-            v("i5", "Single-line diagrams", 705)
-          ] },
-          { title: "Assessment", lessons: [q("i6")] }
-        ]
-      }
-    ],
-    notes: [
-      "This is a preview lesson. In the live course this is where the lesson's video plays, with chapters and captions, streamed only to people who have the course.",
-      "Use the notes and the downloadable exercise files to follow along in your own E1 project. Your position in the video is saved, so you can stop at any time and continue on another device."
-    ],
-    quizzes: {
-      f9: [
-        { id: "q1", text: "You have a Viewer license. What can you do in a project?", options: [["a", "Edit objects if your project role allows it"], ["b", "View and export only"], ["c", "Approve branches"]], answer: "b" },
-        { id: "q2", text: "Where do you make changes without affecting the version your colleagues use?", options: [["a", "On a branch"], ["b", "In an exported copy"], ["c", "In the company library"]], answer: "a" },
-        { id: "q3", text: "What happens when your organization's AI credits run out?", options: [["a", "The project becomes read-only"], ["b", "Only AI requests stop; viewing, editing and export go on"], ["c", "Export is disabled until the next period"]], answer: "b" },
-        { id: "q4", text: "Which formats can a drawing be exported to?", options: [["a", "PDF, DWG and Excel lists"], ["b", "Only PDF"], ["c", "Only the E1 project format"]], answer: "a" }
-      ],
-      p6: [
-        { id: "q1", text: "What does a P&ID show that a PFD usually does not?", options: [["a", "Main process streams"], ["b", "Valves, instruments and control loops"], ["c", "Only the mass balance"]], answer: "b" },
-        { id: "q2", text: "Where are pipe size, class and fluid of every line kept together?", options: [["a", "In the line list"], ["b", "In the drawing title block"], ["c", "In the project's chat"]], answer: "a" },
-        { id: "q3", text: "What do consistency checks compare?", options: [["a", "Drawings with lists and the model, so they stay in step"], ["b", "File sizes between revisions"], ["c", "User licenses"]], answer: "a" },
-        { id: "q4", text: "A stream's flow changes. Where should you change it?", options: [["a", "On every drawing by hand"], ["b", "Once, on the stream object; drawings and lists follow"], ["c", "In an exported spreadsheet"]], answer: "b" }
-      ],
-      c5: [
-        { id: "q1", text: "Why work on a branch?", options: [["a", "To change a design without disturbing the version others use"], ["b", "To make the project faster"], ["c", "To avoid needing a license"]], answer: "a" },
-        { id: "q2", text: "Which license can approve a branch but not edit?", options: [["a", "Viewer"], ["b", "Reviewer"], ["c", "Administrator"]], answer: "b" },
-        { id: "q3", text: "What does \"push\" do?", options: [["a", "Sends your branch's changes to the shared project"], ["b", "Deletes your branch"], ["c", "Exports a PDF"]], answer: "a" },
-        { id: "q4", text: "What is a released revision?", options: [["a", "A fixed, approved state of the design that can be issued"], ["b", "Any autosave"], ["c", "A draft comment"]], answer: "a" }
-      ],
-      i6: [
-        { id: "q1", text: "What is the instrument index?", options: [["a", "The list of every instrument with its tag, service and data"], ["b", "A drawing's legend"], ["c", "The cable price list"]], answer: "a" },
-        { id: "q2", text: "What does a loop diagram show?", options: [["a", "How an instrument is wired from field to control system"], ["b", "The plot plan"], ["c", "Only the pipe route"]], answer: "a" },
-        { id: "q3", text: "Where do cable schedules get their ends from?", options: [["a", "Typed by hand"], ["b", "The connected equipment and instruments in the model"], ["c", "An external spreadsheet only"]], answer: "b" },
-        { id: "q4", text: "A single-line diagram shows…", options: [["a", "Power distribution, one line per circuit"], ["b", "Every pipe in 3D"], ["c", "The org chart"]], answer: "a" }
-      ]
-    },
-    /* The progress the preview starts with. */
-    seed: {
-      progress: {
-        f1: { completed: true, position: 200 }, f2: { completed: true, position: 465 }, f3: { completed: true, position: 370 },
-        f4: { completed: true, position: 330 }, f5: { completed: true, position: 545 }, f6: { completed: false, position: 190 },
-        p1: { completed: true, position: 510 }, p2: { completed: true, position: 670 }, p3: { completed: true, position: 580 },
-        p4: { completed: true, position: 625 }, p5: { completed: true, position: 470 }, p6: { completed: true, position: 0, score: 100 }
-      },
-      activity: { "e1-fundamentals": demoAgo(2, 18, 12), "process-design": demoAgo(15, 15, 40) },
-      last: { "e1-fundamentals": "f6", "process-design": "p6" },
-      certificates: [
-        { id: "E1C-7KQ3-M9XP-2DWA", courseKey: "process-design", issuedAt: demoAgo(15, 15, 40), score: 100 }
-      ],
-      owned: []
-    }
+    courses: SYLLABUS.courses.map(demoCourse),
+    /* The progress the preview starts with: Getting started half done, Projects and the explorer completed. */
+    seed: (function () {
+      var progress = {}, gs = SYLLABUS.courses[0], pe = SYLLABUS.courses[1];
+      function ids(c) { return c ? c.modules.reduce(function (a, m) { return a.concat(m.lessons.map(function (l) { return l; })); }, []) : []; }
+      ids(gs).slice(0, 5).forEach(function (l) { progress[l.id] = { completed: true, position: l.minutes * 60 }; });
+      var sixth = ids(gs)[5];
+      if (sixth) progress[sixth.id] = { completed: false, position: 190 };
+      ids(pe).forEach(function (l) { progress[l.id] = { completed: true, position: l.minutes * 60 }; });
+      if (pe) progress[pe.key + "-quiz"] = { completed: true, position: 0, score: 100 };
+      var second = ids(gs)[1];
+      return {
+        progress: progress,
+        activity: gs && pe ? (function (a) { a[gs.key] = demoAgo(2, 18, 12); a[pe.key] = demoAgo(15, 15, 40); return a; })({}) : {},
+        last: gs && sixth ? (function (a) { a[gs.key] = sixth.id; return a; })({}) : {},
+        certificates: pe ? [{ id: "E1C-7KQ3-M9XP-2DWA", courseKey: pe.key, issuedAt: demoAgo(15, 15, 40), score: 100 }] : [],
+        owned: [],
+        notes: second ? [{ id: "n-demo-1", lessonId: second.id, position: 95, text: "The passkey replaces the password: set it up on the laptop and the phone.", createdAt: demoAgo(3, 10, 4), updatedAt: demoAgo(3, 10, 4) }] : [],
+        bookmarks: sixth ? [{ id: "b-demo-1", lessonId: sixth.id, position: 120, createdAt: demoAgo(2, 18, 10) }] : []
+      };
+    })()
   };
 
   var demoTraining = (function () {
-    var KEY = "e1_demo_training_v2";
+    var KEY = "e1_demo_training_v3";
     var memory = null;
 
     function load() {
       if (memory) return memory;
       try { memory = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { memory = null; }
-      if (!memory || !memory.progress) memory = JSON.parse(JSON.stringify(DEMO_TRAINING.seed));
+      if (!memory || !memory.progress || !memory.notes) memory = JSON.parse(JSON.stringify(DEMO_TRAINING.seed));
       return memory;
     }
     function save() {
@@ -757,7 +701,7 @@
     function summary(c) {
       var cert = certOf(c.key);
       return {
-        key: c.key, title: c.title, summary: c.summary, level: c.level, access: access(c), price: c.price,
+        key: c.key, title: c.title, summary: c.summary, path: c.path, level: c.level, access: access(c), price: c.price,
         durationMinutes: Math.round(lessonsOf(c).reduce(function (t, l) { return t + l.durationSeconds; }, 0) / 60),
         lessons: lessonsOf(c).length, progress: progressOf(c), certificateId: cert ? cert.id : null
       };
@@ -767,7 +711,7 @@
       var st = load();
       var take = canTake(c);
       return {
-        key: c.key, title: c.title, summary: c.summary, level: c.level, access: access(c), price: c.price, passMark: c.passMark,
+        key: c.key, title: c.title, summary: c.summary, outcome: c.outcome, path: c.path, level: c.level, access: access(c), price: c.price, passMark: c.passMark,
         durationMinutes: summary(c).durationMinutes, progress: progressOf(c),
         modules: c.modules.map(function (m) {
           return {
@@ -833,12 +777,18 @@
         if (hit.lesson.type === "video") {
           out.durationSeconds = hit.lesson.durationSeconds;
           out.media = { url: DEMO_CLIP, type: "video/mp4", expiresAt: null, captions: [] };
-          out.notes = DEMO_TRAINING.notes;
+          var fs = hit.lesson.features || [];
+          out.notes = ["Preview: the film of this lesson is being recorded. It shows each step on Sample E1, labels exactly as on screen, and ends with a short recap."];
+          out.guide = fs.map(function (f) { return { id: f.id, title: f.title, page: f.page }; });
+          var step = fs.length ? hit.lesson.durationSeconds / (fs.length + 1) : 0;
+          out.transcript = [{ at: 0, text: "In this lesson: " + fs.map(function (f) { return f.title; }).join("; ") + "." }].concat(fs.map(function (f, i) {
+            return { at: Math.round(step * (i + 1)), text: f.summary || f.title };
+          }));
           out.resources = [];
         } else {
           out.passMark = hit.course.passMark;
           out.score = p.score == null ? null : p.score;
-          out.questions = (DEMO_TRAINING.quizzes[id] || []).map(function (x) {
+          out.questions = DEMO_QUIZ.map(function (x) {
             return { id: x.id, text: x.text, options: x.options.map(function (o) { return { id: o[0], text: o[1] }; }) };
           });
         }
@@ -863,7 +813,7 @@
       },
       quiz: function (id, answers) {
         var hit = findLesson(id);
-        var bank = DEMO_TRAINING.quizzes[id];
+        var bank = hit && hit.lesson.type === "quiz" ? DEMO_QUIZ : null;
         if (!hit || !bank) return fail(404, "not_found", "There is no such assessment.");
         if (!canTake(hit.course)) return fail(403, "not_entitled", "This assessment is part of a course you do not have yet.");
         var right = 0;
@@ -888,8 +838,68 @@
       certificate: function (id) {
         var x = load().certificates.filter(function (c) { return c.id === id; })[0];
         return x ? publicCert(x) : null;
+      },
+      notes: function (courseKey) {
+        return { notes: load().notes.map(placed).filter(inCourse(courseKey)).sort(newest) };
+      },
+      saveNote: function (note) {
+        var hit = findLesson(note.lessonId);
+        var text = String(note.text || "").trim();
+        if (!hit) return fail(404, "not_found", "There is no such lesson.");
+        if (!text) return fail(400, "empty", "Write something first.");
+        if (text.length > 4000) return fail(400, "too_long", "A note can be at most 4000 characters.");
+        var st = load();
+        var now = new Date().toISOString();
+        var x = note.id ? st.notes.filter(function (n) { return n.id === note.id; })[0] : null;
+        if (note.id && !x) return fail(404, "not_found", "That note no longer exists.");
+        if (x) { x.text = text; x.updatedAt = now; }
+        else {
+          x = { id: "n-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), lessonId: note.lessonId, position: Math.max(0, Math.round(note.position || 0)), text: text, createdAt: now, updatedAt: now };
+          st.notes.push(x);
+        }
+        save();
+        return { note: placed(x) };
+      },
+      deleteNote: function (id) {
+        var st = load();
+        st.notes = st.notes.filter(function (n) { return n.id !== id; });
+        save();
+        return { ok: true };
+      },
+      bookmarks: function (courseKey) {
+        return { bookmarks: load().bookmarks.map(placed).filter(inCourse(courseKey)).sort(newest) };
+      },
+      addBookmark: function (lessonId, position) {
+        if (!findLesson(lessonId)) return fail(404, "not_found", "There is no such lesson.");
+        var st = load();
+        var pos = Math.max(0, Math.round(position || 0));
+        var same = st.bookmarks.filter(function (b) { return b.lessonId === lessonId && Math.abs(b.position - pos) < 3; })[0];
+        if (same) return { bookmark: placed(same) };
+        var b = { id: "b-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), lessonId: lessonId, position: pos, createdAt: new Date().toISOString() };
+        st.bookmarks.push(b);
+        save();
+        return { bookmark: placed(b) };
+      },
+      deleteBookmark: function (id) {
+        var st = load();
+        st.bookmarks = st.bookmarks.filter(function (b) { return b.id !== id; });
+        save();
+        return { ok: true };
       }
     };
+
+    /* A note or bookmark with its lesson's and course's titles, as the server sends it. */
+    function placed(x) {
+      var hit = findLesson(x.lessonId);
+      var out = {};
+      for (var k in x) out[k] = x[k];
+      out.lessonTitle = hit ? hit.lesson.title : "";
+      out.courseKey = hit ? hit.course.key : "";
+      out.courseTitle = hit ? hit.course.title : "";
+      return out;
+    }
+    function inCourse(key) { return function (x) { return !key || x.courseKey === key; }; }
+    function newest(a, b) { return (a.updatedAt || a.createdAt) < (b.updatedAt || b.createdAt) ? 1 : -1; }
   })();
 
   window.E1 = E1;
