@@ -151,9 +151,9 @@ test("course player: speed, bookmarks, notes at a moment, the transcript and the
   await expect.poll(() => video.evaluate((v) => v.playbackRate)).toBe(1.5);
 
   // Overview: the lesson's features in the user guide.
-  const guide = lesson.locator(".lesson-guide a");
-  await expect(guide.first()).toHaveText("Open a 2D space, zoom and pan");
-  await expect(guide.first()).toHaveAttribute("href", "guide-drawing.html#draw-sheet-view");
+  const guide = lesson.locator(".lesson-guide a").first();
+  await expect(guide).toHaveText("Read more: Open a 2D space, zoom and pan");
+  await expect(guide).toHaveAttribute("href", "guide-drawing.html#draw-sheet-view");
 
   // Transcript: a time moves the video there.
   await lesson.getByRole("tab", { name: "Transcript" }).click();

@@ -234,6 +234,56 @@ def feature_link(f):
     return '<a href="%s">%s</a>' % (esc(f["page"]), esc(f["title"]))
 
 
+# The triangle (owner, 2026-11-19): the E1 Guide in the app, the user guides and the Academy's
+# films are always linked to each other. Every feature that a lesson of the Academy films gets
+# "Watch the lesson" (assets/js/academy-syllabus.js, tools/academy/build.py), and every feature
+# that an E1 Guide lesson teaches gets "Show me how in E1" (tools/guides/e1-guide.json, written
+# by scripts/sync-guide-links.mjs in Lanxtor/E1), which opens E1 at that lesson.
+APP_URL = "https://app.lanxtor.com/"
+
+
+def _academy_lessons():
+    path = os.path.join(ROOT, "assets", "js", "academy-syllabus.js")
+    if not os.path.exists(path):
+        return {}
+    text = read(path)
+    data = json.loads(text[text.index("=") + 1:].strip().rstrip(";"))
+    out = {}
+    for c in data["courses"]:
+        for m in c["modules"]:
+            for l in m["lessons"]:
+                for f in l["features"]:
+                    out[f["id"]] = {"course": c["key"], "courseTitle": c["title"], "id": l["id"], "title": l["title"], "minutes": l["minutes"]}
+    return out
+
+
+def _e1_guide():
+    path = os.path.join(SRC, "e1-guide.json")
+    return json.loads(read(path)).get("features", {}) if os.path.exists(path) else {}
+
+
+def triangle(frag, features):
+    """Adds Watch the lesson and Show me how in E1 to every feature section that has them."""
+    lessons, e1 = _academy_lessons(), _e1_guide()
+    by_anchor = {f.get("anchor"): f for f in features}
+    def add(m):
+        sid, body = m.group(1), m.group(2)
+        f = by_anchor.get(sid)
+        if not f or f["status"] != "available" or "g-learn" in body:
+            return m.group(0)
+        links = []
+        lesson = lessons.get(f["id"])
+        if lesson:
+            links.append('<a href="training.html?course=%s&amp;lesson=%s">Watch the lesson: %s</a> <span class="muted">(%s · %d min)</span>' % (
+                esc(lesson["course"]), esc(lesson["id"]), esc(lesson["title"]), esc(lesson["courseTitle"]), lesson["minutes"]))
+        for g in e1.get(f["id"], [])[:1]:
+            links.append('<a href="%s?guide=%s" target="_blank" rel="noopener">Show me how in E1: %s</a>' % (APP_URL, esc(g["id"]), esc(g["title"])))
+        if not links:
+            return m.group(0)
+        return m.group(0).replace("</section>", '  <p class="g-learn">' + " · ".join(links) + "</p>\n</section>")
+    return re.sub(r'<section class="g-feature[^"]*" id="([^"]+)"[^>]*>(.*?)</section>', add, frag, flags=re.S)
+
+
 def build():
     meta, features, roadmap = load()
     cats = meta["categories"]
@@ -242,7 +292,7 @@ def build():
     # Category pages
     for i, c in enumerate(cats):
         frag_path = os.path.join(SRC, "src", c["id"] + ".html")
-        frag = no_dates(size_figures(read(frag_path))) if os.path.exists(frag_path) else "<p>This guide is being written.</p>"
+        frag = triangle(no_dates(size_figures(read(frag_path))), by_cat[c["id"]]) if os.path.exists(frag_path) else "<p>This guide is being written.</p>"
         sections = [(sid, strip_tags(h)) for sid, h in SECTION_RE.findall(frag)]
         n_av = sum(1 for f in by_cat[c["id"]] if f["status"] == "available")
         head = (
@@ -412,7 +462,7 @@ def check(features):
             if href.startswith(("http", "mailto:", "assets/css", "assets/img/favicon")):
                 continue
             target, _, anchor = href.partition("#")
-            target = target or name
+            target = target.split("?")[0] or name
             if target.startswith("guide"):
                 if target not in pages:
                     problems.append("%s: link to missing page %s" % (name, href))

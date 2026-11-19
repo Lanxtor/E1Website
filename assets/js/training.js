@@ -24,6 +24,12 @@
   var SPEEDS = [0.75, 1, 1.25, 1.5, 1.75, 2];
   if (params.get("t") && !isNaN(Number(params.get("t")))) seekTo = Math.max(0, Number(params.get("t")));
 
+  /* Where E1 runs (assets/js/config.js appUrl), for "Show me how in E1". */
+  function appUrl() {
+    var u = String((window.E1_CONFIG && window.E1_CONFIG.appUrl) || "https://app.lanxtor.com").replace(/\/+$/, "");
+    return u + "/";
+  }
+
   function storedSpeed() {
     try { var v = Number(localStorage.getItem("e1_training_speed")); return SPEEDS.indexOf(v) >= 0 ? v : 1; } catch (e) { return 1; }
   }
@@ -284,8 +290,11 @@
     if (name === "overview") {
       return ((lesson.notes || []).length ? '<div class="lesson-notes">' + lesson.notes.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" : "") +
         ((lesson.guide || []).length
-          ? '<h3 class="sub-head">In the user guide</h3><ul class="mini-list lesson-guide">' + lesson.guide.map(function (g) {
-            return '<li><a href="' + esc(safeUrl(g.page)) + '" target="_blank" rel="noopener">' + esc(g.title) + "</a></li>";
+          ? '<h3 class="sub-head">Read more, or let E1 show you</h3><ul class="mini-list lesson-guide">' + lesson.guide.map(function (g) {
+            /* The triangle: the user guide's feature, and the E1 Guide lesson that shows it in E1 itself. */
+            var show = (g.showMe || [])[0];
+            return '<li><a href="' + esc(safeUrl(g.page)) + '" target="_blank" rel="noopener" aria-label="Read more in the user guide: ' + esc(g.title) + '">Read more: ' + esc(g.title) + "</a>" +
+              (show ? '<a class="show-me" href="' + esc(appUrl() + "?guide=" + encodeURIComponent(show.id)) + '" target="_blank" rel="noopener" title="Opens E1 at the E1 Guide lesson ' + esc(show.title) + '">Show me how in E1</a>' : "") + "</li>";
           }).join("") + "</ul>"
           : "") +
         ((lesson.resources || []).length

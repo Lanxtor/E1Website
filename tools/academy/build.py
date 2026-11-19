@@ -31,6 +31,7 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SOURCE = os.path.join(ROOT, "tools", "academy", "syllabus.json")
 FEATURES = os.path.join(ROOT, "assets", "data", "user-guide-features.json")
+E1_GUIDE = os.path.join(ROOT, "tools", "guides", "e1-guide.json")  # written by Lanxtor/E1 scripts/sync-guide-links.mjs
 OUT_JS = os.path.join(ROOT, "assets", "js", "academy-syllabus.js")
 OUT_MD = os.path.join(ROOT, "docs", "ACADEMY-SYLLABUS.md")
 PACK = 7          # guide-minutes per lesson, at most (a single bigger feature is its own lesson)
@@ -47,6 +48,8 @@ def build():
     src = json.load(open(SOURCE, encoding="utf-8"))
     cat = json.load(open(FEATURES, encoding="utf-8"))
     feats = {f["id"]: f for f in cat["features"]}
+    # The triangle: the E1 Guide lessons that teach a feature, for the player's "Show me how in E1".
+    e1 = json.load(open(E1_GUIDE, encoding="utf-8")).get("features", {}) if os.path.exists(E1_GUIDE) else {}
     errors = []
     seen = {}
     paths = {p["key"]: p for p in src["paths"]}
@@ -94,7 +97,8 @@ def build():
                     "id": f"{c['key']}-{n:02d}",
                     "title": title,
                     "minutes": minutes,
-                    "features": [{"id": f["id"], "title": f["title"], "summary": f.get("summary", ""), "page": f["page"]} for f in g],
+                    "features": [{"id": f["id"], "title": f["title"], "summary": f.get("summary", ""), "page": f["page"],
+                                  "showMe": e1.get(f["id"], [])[:1]} for f in g],
                 })
             modules.append({"title": m["title"], "lessons": lessons})
         lesson_min = sum(l["minutes"] for m in modules for l in m["lessons"])

@@ -20,6 +20,16 @@ The user guides (`tools/guides/`, rules in `docs/USER-GUIDES.md`) describe every
 - After changing the guides: `python3 tools/guides/build.py --check`, then in `Lanxtor/E1` run `node scripts/sync-guide-links.mjs` and its check (`npx vitest run tests/client/trainerKnowledge.test.mjs`).
 - A new guide feature for something on screen gets an E1 Guide step too.
 
+## The E1 Guide, the user guides and the Academy films are always linked (owner's rule)
+
+A person can read about a feature, be shown it in E1, or watch its film, whichever they prefer, from any of the three (owner, 2026-11-19):
+
+- **Guide → film and E1:** every taught feature in the user guide has **Watch the lesson** (the course player at its lesson) and **Show me how in E1** (E1 at its E1 Guide lesson, `https://app.lanxtor.com/?guide=<lesson>`); `tools/guides/build.py` adds them from `assets/js/academy-syllabus.js` and `tools/guides/e1-guide.json`.
+- **Film → guide and E1:** every lesson in the course player has **Read more** for each feature it teaches and **Show me how in E1**.
+- **E1 → guide and film:** in `Lanxtor/E1`, every **Read more** of the E1 Guide has **Watch the lesson** next to it.
+
+Keep it so: a change to the guides or the syllabus (`tools/academy/syllabus.json`) runs, in this order, `python3 tools/guides/build.py`, `python3 tools/academy/build.py`, then in `Lanxtor/E1` `node scripts/sync-guide-links.mjs` (it writes `tools/guides/e1-guide.json` here), then `python3 tools/guides/build.py --check` and `python3 tools/academy/build.py --check` here. Every available feature is in one Academy lesson or listed under `guideOnly` (the build fails otherwise). Tests: `tests/e2e/triangle.spec.mjs` here, `tests/e2e/web/guideAcademyLinks.spec.mjs` in `Lanxtor/E1`.
+
 ## Published apps are updated everywhere at once (owner's rule)
 
 When an app is published (desktop installer, E1 Reviewer for iPad, E1 Mobile), every place on the website that offers it changes in the same change: the buttons at the top of Get E1 (`download.html`), the cards under Downloads on the account page (`account.html`), the release manifest (`assets/data/releases.json` here and E1's seed `deploy/downloads/releases.json`) and the user guide. Details: `docs/AZURE-INTEGRATION.md` ("Downloads").

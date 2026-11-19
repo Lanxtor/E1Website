@@ -779,7 +779,7 @@
           out.media = { url: DEMO_CLIP, type: "video/mp4", expiresAt: null, captions: [] };
           var fs = hit.lesson.features || [];
           out.notes = ["Preview: the film of this lesson is being recorded. It shows each step on Sample E1, labels exactly as on screen, and ends with a short recap."];
-          out.guide = fs.map(function (f) { return { id: f.id, title: f.title, page: f.page }; });
+          out.guide = fs.map(function (f) { return { id: f.id, title: f.title, page: f.page, showMe: f.showMe || [] }; });
           var step = fs.length ? hit.lesson.durationSeconds / (fs.length + 1) : 0;
           out.transcript = [{ at: 0, text: "In this lesson: " + fs.map(function (f) { return f.title; }).join("; ") + "." }].concat(fs.map(function (f, i) {
             return { at: Math.round(step * (i + 1)), text: f.summary || f.title };

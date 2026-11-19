@@ -80,7 +80,7 @@ Returns `{ passed, score, passMark, results: [{ id, correct }], course: { key, p
 
 Only for lessons the person may open; a person reads and changes only their own. An error is `{ error: { code, message } }` and the player shows the message.
 
-A video lesson may also carry `guide: [{ id, title, page }]` (the user guide features it teaches, from the syllabus) and `transcript: [{ at, text }]` (the narration with its seconds, from the film's script).
+A video lesson may also carry `guide: [{ id, title, page, showMe: [{ id, title }] }]` (the user guide features it teaches, from the syllabus, each with the E1 Guide lesson that shows it in E1: the player's *Read more* and *Show me how in E1*, the triangle in `CLAUDE.md`) and `transcript: [{ at, text }]` (the narration with its seconds, from the film's script).
 
 ### `POST /api/training/courses/{key}/checkout` `{ return }`
 
@@ -129,6 +129,12 @@ Either way the website needs only the URL. **The CSP must allow the video's host
   1. When the domain is known, make `og:image` in `certificate.html` an absolute URL. Some networks ignore relative ones.
   2. Optional, for a preview with the holder's name and course: the E1 server serves `GET /c/{id}`, a tiny HTML page with per-certificate `og:title`, `og:description` and `og:image` (a PNG it renders, or `/api/training/certificates/{id}.png`) that redirects people to `certificate.html?id={id}`. The share links would then point at `/c/{id}`.
 - The PNG download and the printed PDF are made in the browser from the same SVG, so they always match the page.
+
+## 6a. Decided (owner, 2026-11-19)
+
+- **Assessments:** every course ends with one; every lesson gives it 3 to 5 questions; pass mark 75 %, unlimited attempts, graded by the server. A course certificate needs every lesson done and the assessment passed.
+- **Learning path certificates:** when every course of a path is passed, the path's certificate is issued too (website roadmap W3.6).
+- **Hands-on exercises are recommended, not required:** about one lesson in three has one. *Start the exercise* opens the person's own copy of Sample E1 at the lesson's start; *Check my work* checks the end state with the same assertions the film's take uses; *Show me how in E1* helps when stuck (roadmap W3.5). They do not count towards a certificate.
 
 ## 7. Open decisions
 
