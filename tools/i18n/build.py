@@ -50,7 +50,7 @@ try:
 except (OSError, ValueError):
     _SOL = []
 PAGES = PAGES + _SOL
-LANGS = {"de": "de", "fr": "fr", "es": "es", "no": "nb"}  # folder: html lang
+LANGS = {"de": "de", "fr": "fr", "es": "es", "no": "nb", "zh": "zh-CN"}  # folder: html lang
 SITE = "https://www.lanxtor.com"
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
