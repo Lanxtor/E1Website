@@ -175,8 +175,17 @@ test("Get E1: under each button, its notes for IT, in its own column and on scre
 
 test("Get E1: the four buttons sit side by side on a desktop and one under the other on a phone", async ({ page }, testInfo) => {
   await page.goto("/download.html");
-  const boxes = [];
-  for (const key of Object.keys(IT_NOTES)) boxes.push(await page.locator(`[data-get-col="${key}"]`).boundingBox());
+  // Measured once the page has settled: the fonts loaded and the buttons filled from the release
+  // manifest, the columns where they stay (two readings in a row the same).
+  await page.evaluate(() => document.fonts.ready);
+  const measure = async () => {
+    const found = [];
+    for (const key of Object.keys(IT_NOTES)) found.push(await page.locator(`[data-get-col="${key}"]`).boundingBox());
+    return JSON.stringify(found);
+  };
+  let last = "";
+  await expect.poll(async () => { const now = await measure(); const same = now === last; last = now; return same; }, { intervals: [150], timeout: 10_000 }).toBe(true);
+  const boxes = JSON.parse(last);
   const sameRow = boxes.every((b) => Math.abs(b.y - boxes[0].y) < 5);
   if (isPhone(testInfo)) expect(sameRow).toBe(false);
   else expect(sameRow).toBe(true);
