@@ -178,12 +178,15 @@ test("Get E1: what is ready and what is still in preparation, as it stands", asy
   const note = (key, term) => page.locator(`[data-get-col="${key}"] .get-it dt`, { hasText: term }).locator("xpath=following-sibling::dd[1]");
   // The Windows installer is signed.
   await expect(note("windows", "Signed")).toHaveText("Lanxtor LLC, with Microsoft Artifact Signing");
-  // On the iPad, app protection and app configuration work; selective wipe is still being checked.
-  await expect(note("ipad", "Microsoft Intune")).toHaveText("App protection policies and app configuration; selective wipe: in preparation");
-  // On the iPhone, Intune is still in preparation.
-  await expect(note("phone", "Microsoft Intune")).toHaveText("App protection policies, app configuration and selective wipe: in preparation");
+  // Intune is built in both apps but not yet checked on a managed device: the iPad and the iPhone say the same.
+  for (const key of ["ipad", "phone"]) await expect(note(key, "Microsoft Intune")).toHaveText("App protection policies, app configuration and selective wipe: in preparation");
   // Neither app is in the App Store yet.
   for (const key of ["ipad", "phone"]) await expect(page.locator(`[data-get-os="${key}"] [data-get-meta]`)).toHaveText("App Store · Coming soon");
+  // In every language the iPad and the iPhone say the same as each other.
+  for (const lang of ["de", "fr", "es", "no"]) {
+    await page.goto(`/${lang}/download.html`);
+    await expect(note("ipad", "Microsoft Intune")).toHaveText(await note("phone", "Microsoft Intune").innerText());
+  }
 });
 
 test("Get E1: the four buttons sit side by side on a desktop and one under the other on a phone", async ({ page }, testInfo) => {
@@ -271,3 +274,16 @@ for (const lang of ["de", "fr", "es", "no"]) {
     await expect(all.locator("code", { hasText: "app.lanxtor.com" })).toBeAttached();
   });
 }
+
+test("Get E1: the headings in the For IT notes (such as Microsoft Intune) are blue, not grey, so they are not missed", async ({ page }) => {
+  await page.goto("/download.html");
+  const blue = "rgb(21, 101, 192)";
+  for (const key of ["mac", "windows", "ipad", "phone"]) {
+    const headings = page.locator(`[data-get-col="${key}"] .get-it dt`);
+    expect(await headings.count()).toBeGreaterThan(0);
+    for (const h of await headings.all()) await expect(h).toHaveCSS("color", blue);
+  }
+  await expect(page.locator('[data-get-col="ipad"] .get-it dt', { hasText: "Microsoft Intune" })).toHaveCSS("color", blue);
+  // The For IT: every app box below uses the same blue headings.
+  for (const h of await page.locator(".get-it-grid dt").all()) await expect(h).toHaveCSS("color", blue);
+});
