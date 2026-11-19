@@ -14,7 +14,7 @@ import re
 
 SITE = "https://www.lanxtor.com"
 OG_IMAGE = SITE + "/assets/img/og-image.png"
-LOCALE = {"en": "en_US", "de": "de_DE", "fr": "fr_FR", "es": "es_ES", "nb": "nb_NO"}
+LOCALE = {"en": "en_US", "de": "de_DE", "fr": "fr_FR", "es": "es_ES", "nb": "nb_NO", "zh-CN": "zh_CN"}
 LINKEDIN = "https://www.linkedin.com/company/lanxtor/"
 
 ORGANIZATION = {
@@ -99,7 +99,7 @@ def _structured(lang, product=True):
         ORGANIZATION if product else SILENT_ORGANIZATION,
         {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "LANXTOR",
          "publisher": {"@id": SITE + "/#organization"},
-         "inLanguage": ["en", "de", "fr", "es", "nb"]},
+         "inLanguage": ["en", "de", "fr", "es", "nb", "zh-CN"]},
     ]
     if product:
         graph.append(PRODUCT)

@@ -1,0 +1,316 @@
+﻿<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>棕地装置工程与改造 | LANXTOR E1</title>
+  <meta name="description" content="E1 中的棕地工程：从 DXF、PDF、DEXPI 和 Excel 导入旧有 P&amp;ID，记录竣工接线，并在分支中开展装置改造。">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=150">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/solution-maintenance-brownfield.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/solution-maintenance-brownfield.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/solution-maintenance-brownfield.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/solution-maintenance-brownfield.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/solution-maintenance-brownfield.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://www.lanxtor.com/zh/solution-maintenance-brownfield.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/solution-maintenance-brownfield.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/zh/solution-maintenance-brownfield.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="棕地装置工程与改造 | LANXTOR E1">
+  <meta property="og:description" content="E1 中的棕地工程：从 DXF、PDF、DEXPI 和 Excel 导入旧有 P&amp;ID，记录竣工接线，并在分支中开展装置改造。">
+  <meta property="og:url" content="https://www.lanxtor.com/zh/solution-maintenance-brownfield.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "解决方案",
+     "item": "https://www.lanxtor.com/zh/solutions.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "在您现有的工厂上进行改扩建工程和装置改造。",
+     "item": "https://www.lanxtor.com/zh/solution-maintenance-brownfield.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-CN",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "E1 能导入 DWG 文件吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "E1 读取 DXF。请在您的 CAD 程序中打开 DWG，使用“另存为 → DXF”，然后通过“文件 → 导入 ▸ 旧有图纸 ▸ DXF 图纸…”导入该文件。E1 能识别 DWG 文件，并会提示您将其另存为 DXF。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "E1 能读取扫描的 P&ID 吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不能。E1 读取由 CAD 程序导出的 PDF（矢量 PDF）。扫描的图纸是图像；E1 会如实提示，且不导入任何内容。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "导入修订后的图纸时会发生什么？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "项目中已有的对象会按位号找到并更新，绝不会重复。有人在 E1 中修改过的值会显示在文件值旁边，您在“应用”之前选择“使用文件”或“保留 E1”。移动过的符号也是一个由您决定的放置位置。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "我们可以导入多少张旧有图纸？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "在 University、Essentials 和 Standard 方案中，每个组织可导入 100 张 DXF 图纸和 100 张 PDF 图纸；Enterprise 方案不限数量。每个文件在每个项目中只计一次，因此修订版本不会额外占用。Excel 和 DEXPI 导入不受限制。请参阅 方案和价格 。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "哪些方案包含改造分支？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "改造分支和调试包包含在 University、Standard（Editor）和 Enterprise 方案中。Essentials（Editor Basic）具备 DXF 和 Excel 导入、红线批注和文档控制，但不含分支、PDF 或 DEXPI 导入。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "红线批注会改动图纸吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。批注位于单独的“批注”图层上。它们绝不会改动图纸、其中的对象、对象的历史或修订；隐藏该图层即可看到未改动的图纸。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "现场人员能在平板电脑上勾选接线变更吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可以。在“接线”页面上，“更改 → 现场视图”以适合手指操作的大行显示导线移动。轻点一下即可将一项移动标记为完成，并记录您的姓名和时间；在端子上添加的评论会返回给设计人员。"
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <!-- Generated by tools/solutions/build.py from tools/solutions/pages/maintenance-mods.json. Do not edit this file. -->
+  <div id="site-header"></div>
+
+  <main class="cs-page sol-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="zh/solutions.html#maintenance-mods"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>解决方案</span></a>
+        <span class="saas-kicker reveal">维护与改造</span>
+        <h1 class="reveal">在您现有的工厂上进行改扩建工程和装置改造。</h1>
+        <p class="lead reveal">在 E1 中，现有工厂并非特例。您可以从 CAD、PDF、DEXPI 和 Excel 导入其 P&amp;ID 和清单，将已安装的内容记录为竣工状态，在改造分支中进行更改而不影响共享设计，并向现场提交一份准确列明需拆除和接入哪些接线的清单。每项更改都会被记录、比较，并可撤销。</p>
+        <div class="cs-glance reveal" aria-label="概览">
+          <div class="cs-stat"><b>4</b><span>种现有 P&amp;ID 和清单的导入格式：DXF、PDF、DEXPI 和 Excel</span></div>
+          <div class="cs-stat"><b>7</b><span>种施工状态，从 Designed 到 As-built 和 To be removed</span></div>
+          <div class="cs-stat"><b>50 MB</b><span>每个 DXF、PDF 或 DEXPI 文件</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="本页内容">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="zh/solution-maintenance-brownfield.html#legacy">导入</a> <a href="zh/solution-maintenance-brownfield.html#as-built">竣工</a> <a href="zh/solution-maintenance-brownfield.html#modifications">改造</a> <a href="zh/solution-maintenance-brownfield.html#field">现场作业</a> <a href="zh/solution-maintenance-brownfield.html#review">红线批注</a> <a href="zh/solution-maintenance-brownfield.html#faq">常见问题</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section section-tight cs-section sol-section" id="legacy">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">导入</span>
+          <h2>从您已有的图纸开始</h2>
+          <p>在 E1 中，旧版 P&amp;ID 会成为真正的对象：File → Import ▸ Legacy diagrams 读取 DXF 和矢量 PDF 图纸，File → Import 读取 DEXPI 2.0 文件和 Excel 工作簿。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>大多数既有工厂都是用 AutoCAD 或类似 CAD 程序绘制的。E1 读取保存为 DXF 的图纸。每个图块（例如泵、阀门或储罐）都会成为其名称或外观所对应类的对象，并放置在其绘制位置；每个图层上的线条会成为管道、信号或电缆，并连接到其端点所在的符号。DWG 文件需先在您的 CAD 程序中打开并另存为 DXF；E1 能识别 DWG 文件并给出提示。</p>
+          <p>P&amp;ID 的唯一副本往往是 PDF。若它是从 CAD 导出的，E1 会在线条中找出符号，将绘制方式相同的符号分组，将每组与 E1 的符号进行识别匹配，把符号旁的文字作为其位号，并根据每个管线号生成管线。请将一套图纸的所有图页一起导入，这样绘制在两张图页上的同一位号就是同一个对象。扫描图像无法读取，E1 会给出提示。</p>
+          <p>每次导入都会为每类事物建议一个类，并附带置信度和理由；在存储任何内容之前显示每项更改，并可通过一次 Ctrl+Z 全部撤销。再次导入修订后的图纸或工作簿时，已存在的对象会被更新，而不会重复。在 E1 中被人更改过的值，未经您的决定绝不会被覆盖：您可以选择 Use file 或 Keep E1。</p>
+          <ul>
+            <li><b>DXF 图纸</b>，来自 AutoCAD 和其他 CAD 程序，每个最大 50 MB。</li>
+            <li><b>矢量 PDF 图纸</b>，每个文件最大 50 MB、50 页。</li>
+            <li><b>DEXPI 2.0</b> P&amp;ID，来自其他 P&amp;ID 工具，并保留其图纸作为背景。</li>
+            <li><b>Excel 工作簿和 CSV</b>：设备清单和仪表索引，每个工作表对应一个类，每列对应一个属性。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="as-built">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">竣工</span>
+          <h2>记录已安装的内容，作为竣工状态</h2>
+          <p>在 E1 中，每根已接入的芯线和每个端子都带有施工状态：Designed、Issued for construction、Installed、Terminated、Loop-checked、As-built 或 To be removed。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>现有工厂或供应商盘柜的接线以 CSV 或 Excel 格式的端接清单导入 E1。Alex 会先显示它将执行的操作，然后创建项目中尚未有的机柜、端子排、端子、电缆和芯线。每根芯线的两端都会被接入并固定，范围为 Existing，状态为 As-built，因此新设计会围绕它进行，E1 绝不会自行移动它。</p>
+          <p>如果合适，文档可以留在原处。E1 中的超链接代表保存在您的文档管理系统中的一个文件，并在该系统中打开；将其关联到泵、电机、系统或 2D 空间，即可从该对象找到该文件。在其他地方制作的 PDF 可作为上传的文档保存，并拥有自己的修订。</p>
+          <p>审核人使用项目的批注印章，对照现场核实图纸。Field verified 和 As-built 是项目初始自带的印章之一，每个印章都带有审核人的姓名和日期。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="modifications">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">改造</span>
+          <h2>在分支中而非实时设计中进行装置改造</h2>
+          <p>在 E1 中，改造是设计中某一部分的分支：您在其中进行更改，而 main 保持不变，并在准备就绪时将其作为一次更改推送回去。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>在图纸上或资源管理器中，从改造涉及的对象开始一个分支。E1 会添加随之而来的内容（例如管口和相连的管线），并说明原因。在分支内，Show main 会将 main 版本的 2D 空间叠加在您的版本上，让您准确看到哪些内容发生了移动。当 main 更改了分支可能更改的对象时，分支会收到通知，Pull from main 会逐值引入该更改，任何冲突都由人来解决。</p>
+          <p>已完成的工作可划分为调试包：圈出设备，为调试包设置日期和调试负责人，标记为就绪，然后只推送这一部分。分支类型可要求在合并到 main 之前由同事审核。每次推送都会留下一份协议，列出每个字段更改前后的值。有关分支的完整说明，请参阅<a href="zh/solution-branches-modifications.html">分支与改造</a>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="field">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">现场作业</span>
+          <h2>发布后的更改：供现场使用的接线移动清单</h2>
+          <p>在 E1 中，已发布的接线绝不会被悄然移动：电缆一旦敷设并端接，更改就会成为一份逐个端子列明需拆除和接入内容的清单。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>将变送器移到另一个接线盒，E1 会在 Wiring 页面的 Changes 选项卡上写入移动项：Lift、Land 或 Remove，并注明芯线、线号、端子和原因。接线已安装的设备不能直接删除；须先将其标记为待拆除，其连接也会列入清单。</p>
+          <p>现场视图按机柜和端子排以大行显示移动项，便于在平板电脑上用手指点按。点按一下即可勾销一项移动，并记录您的姓名和时间；评论会通过端子反馈给设计。移动清单也可导出到 Excel。Compare with 可显示自回路图某个已发布修订或某个日期以来新增、删除和更改的内容。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="review">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">红线批注</span>
+          <h2>在图纸上进行红线批注和修改云线</h2>
+          <p>在 E1 中，红线批注位于“批注”图层上，绝不会改动图纸；每条批注都有一张卡片，记录其讨论和状态。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>审阅人可以在二维空间上用云线、箭头、文字、图钉和图章进行批注；Reviewer 可以批注，但绝不能修改图纸。批注可被接受、拒绝、答复或采纳，采纳时会注明实现它的修改。带批注的打印件将每条批注作为真正的 PDF 注释携带，审阅人在该打印件上的批注副本也可读回到审阅轮次中。批注列表可导出意见处理表。</p>
+          <p>在二维空间上，“自…以来的更改”会用云线标出自某一天、某个修订或某个版本以来新增、删除、修改或移动的所有内容，并显示修改前后及修改人。修订的 PDF 用带有其标签的三角形云线标出变更内容，并在标题栏旁列出每项变更。每个对象的“历史”选项卡显示何时、何人、改了什么，“撤销此更改”可将其撤回。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">问题</span>
+          <h2>工程师常问的问题。</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>E1 能导入 DWG 文件吗？</summary>
+            <p>E1 读取 DXF。请在您的 CAD 程序中打开 DWG，使用“另存为 → DXF”，然后通过“文件 → 导入 ▸ 旧有图纸 ▸ DXF 图纸…”导入该文件。E1 能识别 DWG 文件，并会提示您将其另存为 DXF。</p>
+          </details>
+          <details>
+            <summary>E1 能读取扫描的 P&amp;ID 吗？</summary>
+            <p>不能。E1 读取由 CAD 程序导出的 PDF（矢量 PDF）。扫描的图纸是图像；E1 会如实提示，且不导入任何内容。</p>
+          </details>
+          <details>
+            <summary>导入修订后的图纸时会发生什么？</summary>
+            <p>项目中已有的对象会按位号找到并更新，绝不会重复。有人在 E1 中修改过的值会显示在文件值旁边，您在“应用”之前选择“使用文件”或“保留 E1”。移动过的符号也是一个由您决定的放置位置。</p>
+          </details>
+          <details>
+            <summary>我们可以导入多少张旧有图纸？</summary>
+            <p>在 University、Essentials 和 Standard 方案中，每个组织可导入 100 张 DXF 图纸和 100 张 PDF 图纸；Enterprise 方案不限数量。每个文件在每个项目中只计一次，因此修订版本不会额外占用。Excel 和 DEXPI 导入不受限制。请参阅<a href="zh/download.html#pricing">方案和价格</a>。</p>
+          </details>
+          <details>
+            <summary>哪些方案包含改造分支？</summary>
+            <p>改造分支和调试包包含在 University、Standard（Editor）和 Enterprise 方案中。Essentials（Editor Basic）具备 DXF 和 Excel 导入、红线批注和文档控制，但不含分支、PDF 或 DEXPI 导入。</p>
+          </details>
+          <details>
+            <summary>红线批注会改动图纸吗？</summary>
+            <p>不会。批注位于单独的“批注”图层上。它们绝不会改动图纸、其中的对象、对象的历史或修订；隐藏该图层即可看到未改动的图纸。</p>
+          </details>
+          <details>
+            <summary>现场人员能在平板电脑上勾选接线变更吗？</summary>
+            <p>可以。在“接线”页面上，“更改 → 现场视图”以适合手指操作的大行显示导线移动。轻点一下即可将一项移动标记为完成，并记录您的姓名和时间；在端子上添加的评论会返回给设计人员。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="more">
+      <div class="container sol-more">
+        <div class="reveal">
+          <h2>用户指南中</h2>
+          <ul class="sol-links">
+            <li><a href="guide-projects.html#prj-import-dxf">从 CAD 导入 P&amp;ID（DXF）</a></li>
+            <li><a href="guide-projects.html#prj-import-pdf">从 PDF 导入 P&amp;ID</a></li>
+            <li><a href="guide-projects.html#prj-import-dexpi">导入 DEXPI P&amp;ID</a></li>
+            <li><a href="guide-wiring.html#wire-import">导入现有或供应商接线</a></li>
+            <li><a href="guide-wiring.html#wire-construction-status">线芯和端子的施工状态</a></li>
+            <li><a href="guide-wiring.html#wire-wire-moves">发布后的更改：导线移动清单</a></li>
+            <li><a href="guide-projects.html#prj-branch-packages">分支包</a></li>
+            <li><a href="guide-drawing.html#draw-redlining">红线批注</a></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>相关解决方案</h2>
+          <ul class="sol-links">
+            <li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li>
+            <li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li>
+            <li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li>
+            <li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li>
+            <li><a href="zh/solutions.html">全部解决方案</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container sol-cta reveal">
+        <a class="btn btn-primary" href="zh/download.html">获取 E1</a> <a class="btn btn-ghost" href="zh/contact-sales.html">联系销售</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=10"></script>
+  <script src="assets/js/main.js?v=43"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>

@@ -126,6 +126,20 @@ test("Alex speaks the page's language (German)", async ({ page }) => {
   expect(a.asked[0].lang).toBe("de");
 });
 
+test("Alex speaks the page's language (Chinese)", async ({ page }) => {
+  const a = assistant({});
+  await mockApi(page, a.routes);
+  await page.goto("/zh/index.html");
+  await page.locator(".alex-launcher").click();
+  const panel = page.locator(".alex-panel");
+  await expect(panel).toBeVisible();
+  await panel.locator("textarea").fill("E1 多少钱？");
+  await panel.locator("textarea").press("Enter");
+  await expect(panel.locator(".alex-msg.alex-me")).toHaveText("E1 多少钱？");
+  await expect.poll(() => a.asked.length).toBe(1);
+  expect(a.asked[0].lang).toBe("zh");
+});
+
 test("the panel fits the screen (a phone's, too)", async ({ page }) => {
   await page.goto("/index.html");
   await page.locator(".alex-launcher").click();

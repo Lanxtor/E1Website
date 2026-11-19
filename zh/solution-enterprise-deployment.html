@@ -1,0 +1,316 @@
+﻿<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>本地部署和自有云安装 | LANXTOR E1</title>
+  <meta name="description" content="在您自己的 Microsoft Azure 中或在您自己的服务器上本地运行 E1，使用您自己的 PostgreSQL 数据库、公司登录以及离线校验的许可证文件。">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=150">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/solution-enterprise-deployment.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/solution-enterprise-deployment.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/solution-enterprise-deployment.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/solution-enterprise-deployment.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/solution-enterprise-deployment.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://www.lanxtor.com/zh/solution-enterprise-deployment.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/solution-enterprise-deployment.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/zh/solution-enterprise-deployment.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="本地部署和自有云安装 | LANXTOR E1">
+  <meta property="og:description" content="在您自己的 Microsoft Azure 中或在您自己的服务器上本地运行 E1，使用您自己的 PostgreSQL 数据库、公司登录以及离线校验的许可证文件。">
+  <meta property="og:url" content="https://www.lanxtor.com/zh/solution-enterprise-deployment.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "解决方案",
+     "item": "https://www.lanxtor.com/zh/solutions.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "您的数据，您的部署：E1 运行在您自己的云或数据中心。",
+     "item": "https://www.lanxtor.com/zh/solution-enterprise-deployment.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-CN",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "E1 能本地部署吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可以。除 E1 Cloud 和您自己的 Microsoft Azure 外，E1 还可以本地部署在您自己的服务器上，使用您自己的 PostgreSQL 数据库。请 联系销售 进行规划。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "我们可以在哪些云中安装 E1？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "目前支持 Microsoft Azure。Amazon Web Services、Google Cloud 和 Alibaba Cloud 即将推出。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "在自有安装中，LANXTOR 会持有我们的数据吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。在您自己的 Azure 中，无论由您的 IT 部门运行 E1，还是由 LANXTOR 在其中为您运行，订阅、数据和账单都归您所有。只有在 Owner 或 Administrator 批准支持请求后，E1 支持人员才能看到您的项目。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "E1 需要联系 LANXTOR 来校验许可证吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不需要。许可证文件由 LANXTOR 签名，由 E1 自行离线校验。LANXTOR 签发续期文件时，您加载即可。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "如果我们的许可证文件到期会怎样？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "随后有一段宽限期，除非您的合同另有规定，否则为 30 天，期间一切照常运行。宽限期过后，安装变为只读：所有内容都可以打开、查看和导出，但不能修改，直到 Owner 加载续期文件为止。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "支持哪些登录提供商？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "任何 OpenID Connect 提供商，例如 Okta、Microsoft Entra ID、Google Workspace、Keycloak 或 ADFS，并支持 SCIM 2.0 目录同步。公司 Microsoft 账户同样可用。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "更新如何安装？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "更新会在您选择的时段自动安装，紧急修复在 1 小时内安装。服务器更新后，浏览器和桌面应用中的 E1 会提示每位用户新版本已就绪。"
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <!-- Generated by tools/solutions/build.py from tools/solutions/pages/enterprise-deploy.json. Do not edit this file. -->
+  <div id="site-header"></div>
+
+  <main class="cs-page sol-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="zh/solutions.html#enterprise-deploy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>解决方案</span></a>
+        <span class="saas-kicker reveal">您的数据，您的部署</span>
+        <h1 class="reveal">您的数据，您的部署：E1 运行在您自己的云或数据中心。</h1>
+        <p class="lead reveal">E1 默认作为云服务运行；当您的政策有要求时，也可作为企业安装运行。LANXTOR 为您提供安装包：同样的 E1，您的项目、图纸和文档存放在您自己的 Microsoft Azure 订阅中，或本地部署在您自己的服务器上，使用您自己的 PostgreSQL 数据库，遵循您自己的规则。更新会在您选择的时段自动安装。</p>
+        <div class="cs-glance reveal" aria-label="概览">
+          <div class="cs-stat"><b>Azure</b><span>目前支持您自己的订阅；AWS、Google Cloud 和 Alibaba Cloud 即将推出</span></div>
+          <div class="cs-stat"><b>1 小时</b><span>紧急修复在 1 小时内送达您的安装</span></div>
+          <div class="cs-stat"><b>离线</b><span>签名的许可证文件无需联系 LANXTOR 即可校验</span></div>
+          <div class="cs-stat"><b>PostgreSQL</b><span>您自己的数据库，位于您的订阅或数据中心</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="本页内容">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="zh/solution-enterprise-deployment.html#choices">部署位置</a> <a href="zh/solution-enterprise-deployment.html#install">安装</a> <a href="zh/solution-enterprise-deployment.html#license">许可证</a> <a href="zh/solution-enterprise-deployment.html#identity">登录</a> <a href="zh/solution-enterprise-deployment.html#control">管控</a> <a href="zh/solution-enterprise-deployment.html#faq">常见问题</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section section-tight cs-section sol-section" id="choices">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">部署位置</span>
+          <h2>默认在云端，政策要求时部署在您自己的服务器上</h2>
+          <p>E1 可在三个位置运行：由 LANXTOR 运营的 E1 Cloud；您自己的 Microsoft Azure 订阅；或您自己数据中心的本地部署。各处运行的都是同样的 E1。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>大多数团队从 LANXTOR 在欧盟托管的 <a href="zh/solution-cloud-workspace.html">E1 Cloud</a> 开始。当合同、出口管制规定或公司政策规定了工程数据必须存放的位置时，企业安装可将数据放在那里：在您自己的订阅、区域和网络中实现数据主权。Amazon Web Services、Google Cloud 和 Alibaba Cloud 即将作为更多选择推出。</p>
+          <p>在您自己的 Azure 中有两种运行方式：由您的 IT 部门按照 LANXTOR 的说明安装和运行，或由 LANXTOR 在您的 Azure 中为您运行。无论哪种方式，订阅、数据和 Azure 账单都归您所有。</p>
+          <p>E1 的状态栏始终显示项目的存放位置，例如 Microsoft Azure，或 PostgreSQL 加上您的数据库服务器名称，让每个人都清楚自己所在的是哪个安装。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="install">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">安装</span>
+          <h2>安装如何设置</h2>
+          <p>在 E1 中，LANXTOR 为您的组织开通后，组织的 Owner 和 Administrator 可在 E1 Cloud 的“账户”中的“自有安装”下，下载安装 E1 所需的一切。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>安装包是一个 zip 文件：包含 E1 的最新版本、您访问 E1 发布版本的权限以及一份简短的“从这里开始”。您的 IT 部门在 Azure Cloud Shell 中解压并按照安装步骤操作；您自己的 E1 会在您的订阅中创建并输出其地址。每次下载都会要求您用通行密钥确认身份，并记录在组织的审计日志中。</p>
+          <p>新安装没有所有者。只有电子邮件地址被指定为其运营者的人，才能通过首先登录来认领它；其他任何人都不能。桌面应用通过地址连接到您的安装，用户在浏览器中使用它的方式与 E1 Cloud 相同。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="license">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">许可证</span>
+          <h2>签名的许可证文件，离线校验</h2>
+          <p>在您自己的安装中，方案、各类许可证的席位、内容包和日期均来自 LANXTOR 签名的许可证文件。E1 会自行离线校验。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Owner 从 E1 Cloud 的“账户 → 自有安装”下载许可证文件，并在“文件 → 组织… → 成员”中加载一次；每当 LANXTOR 签发续期文件时再次加载。方案和席位立即生效，加载操作记录在审计日志中。文件与您安装的地址绑定。E1 会拒绝签名后被修改的文件、用于其他地址的文件以及尚未生效的文件，并说明原因。</p>
+          <p>许可证到期前三十天，每位 Owner 和 Administrator 都会在收件箱中收到通知。到期后有一段宽限期，除非您的合同另有规定，否则为 30 天，期间一切照常运行。宽限期过后，安装变为只读，直到加载续期文件为止：每个人仍可打开、查看和导出所有内容。E1 绝不会被锁定。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="identity">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">登录</span>
+          <h2>公司单点登录和目录同步</h2>
+          <p>在 E1 中，同事可通过任何 OpenID Connect 提供商使用公司账户登录，您的公司目录通过 SCIM 2.0 在 E1 中创建、更新和停用他们。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Owner 和 Administrator 与您的 IT 部门一起在“文件 → 组织… → 登录”下设置登录，例如使用 Okta、Microsoft Entra ID、Google Workspace、Keycloak 或 ADFS。登录适用于您公司已验证的电子邮件域名，“仅限此方式”会使其成为这些用户唯一的登录途径。也可以使用公司 Microsoft 账户登录。</p>
+          <p>目录同步会停用离职人员：其成员资格、许可证和角色终止，无法再登录，但其历史记录保留。目录组成为 E1 组，组可以授予许可证，例如 E1-Editors → Editor。Owner 和 Administrator 仍需用通行密钥确认。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="control">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">控制</span>
+          <h2>按您的规则进行审计、访问和集成</h2>
+          <p>在 E1 中，管理员可以看到谁做了什么：“审计”选项卡列出重要事件以及发送给 AI 模型的每个请求，访问历史显示成员、许可证、组和角色的每次变更及其前后状态。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>E1 支持人员无权访问您的数据。当其为支持工单申请访问权限时，在 Owner 或 Administrator 批准前不会授予任何权限；批准的期限为几个小时，可为只读或允许修改；点击“结束”即可立即终止。支持人员的一切操作都会显示在历史记录和审计日志中。</p>
+          <p>其他系统可通过 E1 的 API（使用访问令牌和服务账户）、签名的 webhook 和变更源，或通过 MQTT、AMQP 和 Kafka 消息代理进行连接。在您自己的安装中，消息代理可以位于您自己的网络内。Owner 和 Administrator 可随时以开放格式导出整个组织。</p>
+          <ul>
+            <li><b>数据</b>：您自己的 PostgreSQL 数据库，位于您的订阅或数据中心。</li>
+            <li><b>更新</b>：在您选择的时段自动安装；紧急修复在 1 小时内送达。</li>
+            <li><b>授权</b>：单点登录，多种许可证，一张发票。</li>
+            <li><b>退出</b>：“导出全部”以 JSON lines 格式提供每张表以及所有文件。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">问题</span>
+          <h2>工程师常问的问题。</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>E1 能本地部署吗？</summary>
+            <p>可以。除 E1 Cloud 和您自己的 Microsoft Azure 外，E1 还可以本地部署在您自己的服务器上，使用您自己的 PostgreSQL 数据库。请<a href="zh/contact-sales.html">联系销售</a>进行规划。</p>
+          </details>
+          <details>
+            <summary>我们可以在哪些云中安装 E1？</summary>
+            <p>目前支持 Microsoft Azure。Amazon Web Services、Google Cloud 和 Alibaba Cloud 即将推出。</p>
+          </details>
+          <details>
+            <summary>在自有安装中，LANXTOR 会持有我们的数据吗？</summary>
+            <p>不会。在您自己的 Azure 中，无论由您的 IT 部门运行 E1，还是由 LANXTOR 在其中为您运行，订阅、数据和账单都归您所有。只有在 Owner 或 Administrator 批准支持请求后，E1 支持人员才能看到您的项目。</p>
+          </details>
+          <details>
+            <summary>E1 需要联系 LANXTOR 来校验许可证吗？</summary>
+            <p>不需要。许可证文件由 LANXTOR 签名，由 E1 自行离线校验。LANXTOR 签发续期文件时，您加载即可。</p>
+          </details>
+          <details>
+            <summary>如果我们的许可证文件到期会怎样？</summary>
+            <p>随后有一段宽限期，除非您的合同另有规定，否则为 30 天，期间一切照常运行。宽限期过后，安装变为只读：所有内容都可以打开、查看和导出，但不能修改，直到 Owner 加载续期文件为止。</p>
+          </details>
+          <details>
+            <summary>支持哪些登录提供商？</summary>
+            <p>任何 OpenID Connect 提供商，例如 Okta、Microsoft Entra ID、Google Workspace、Keycloak 或 ADFS，并支持 SCIM 2.0 目录同步。公司 Microsoft 账户同样可用。</p>
+          </details>
+          <details>
+            <summary>更新如何安装？</summary>
+            <p>更新会在您选择的时段自动安装，紧急修复在 1 小时内安装。服务器更新后，浏览器和桌面应用中的 E1 会提示每位用户新版本已就绪。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="more">
+      <div class="container sol-more">
+        <div class="reveal">
+          <h2>用户指南中</h2>
+          <ul class="sol-links">
+            <li><a href="guide-organization.html#org-own-installation">在您自己的 Azure 中运行 E1：安装包</a></li>
+            <li><a href="guide-organization.html#org-license-file">您自己 Azure 中 E1 的许可证文件</a></li>
+            <li><a href="guide-organization.html#org-own-license-file">在您自己的 Azure 中运行 E1：下载许可证文件</a></li>
+            <li><a href="guide-access.html#acc-claim-installation">认领新安装</a></li>
+            <li><a href="guide-organization.html#org-sso">公司单点登录和目录同步</a></li>
+            <li><a href="guide-organization.html#org-support-access">E1 支持访问</a></li>
+            <li><a href="guide-organization.html#org-access-history">访问历史和审计导出</a></li>
+            <li><a href="guide-organization.html#org-export">导出组织的全部内容</a></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>相关解决方案</h2>
+          <ul class="sol-links">
+            <li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li>
+            <li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li>
+            <li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li>
+            <li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li>
+            <li><a href="zh/solutions.html">全部解决方案</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container sol-cta reveal">
+        <a class="btn btn-primary" href="zh/download.html">获取 E1</a> <a class="btn btn-ghost" href="zh/contact-sales.html">联系销售</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=10"></script>
+  <script src="assets/js/main.js?v=43"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>
