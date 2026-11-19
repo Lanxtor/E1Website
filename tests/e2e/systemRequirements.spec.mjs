@@ -70,6 +70,7 @@ for (const [lang, h1, tile] of [
   ["fr", "Configuration requise pour votre propre installation.", "Configuration requise"],
   ["es", "Requisitos del sistema para tu propia instalación.", "Requisitos del sistema"],
   ["no", "Systemkrav for din egen installasjon.", "Systemkrav"],
+  ["zh", "自有安装的系统要求。", "系统要求"],
 ]) {
   test(`/${lang}/download.html: the Your cloud box opens the translated system requirements`, async ({ page }) => {
     await page.goto(`/${lang}/download.html`);

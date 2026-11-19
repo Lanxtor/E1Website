@@ -11,7 +11,8 @@ const HERO = {
   de: "Anlagenplanung in Gedankenschnelle.",
   fr: "L'ingénierie d'installations, à la vitesse de la pensée.",
   es: "Ingeniería de plantas, a la velocidad del pensamiento.",
-  no: "Anleggsprosjektering i tankens hastighet."
+  no: "Anleggsprosjektering i tankens hastighet.",
+  zh: "工厂工程设计，快如思维。"
 };
 const NAMES = { en: "English", de: "Deutsch", fr: "Français", es: "Español", no: "Norsk", zh: "中文" };
 
@@ -119,7 +120,10 @@ for (const name of ZH_PAGES) {
   test(`/zh/${name}: the heading, the title and the menu are in Chinese, in Chinese fonts, nothing spills over`, async ({ page }, testInfo) => {
     await page.goto(`/zh/${name}`);
     await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
-    await expect(page.locator("h1").first()).toHaveText(HAN);
+    // The heading may be only a name (E1 Academy); the text under it is Chinese.
+    await expect(page.locator("main, #main, body").first()).toContainText(HAN);
+    const han = await page.evaluate(() => (document.body.innerText.match(/[\u4e00-\u9fff]/g) || []).length);
+    expect(han).toBeGreaterThan(200);
     expect(await page.title()).toMatch(HAN);
     const font = await page.locator("body").evaluate((el) => getComputedStyle(el).fontFamily);
     expect(font).toMatch(/PingFang SC/);

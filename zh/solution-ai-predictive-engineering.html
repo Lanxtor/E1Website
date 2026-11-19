@@ -1,0 +1,326 @@
+﻿<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>面向装置工程的 AI：协同工程师 Alex | LANXTOR E1</title>
+  <meta name="description" content="Alex 是 E1 的 AI 协同工程师，在您绘图时审查 P&amp;ID、建议下一个符号，并学习您公司的惯例。本地运行，始终由您掌控。">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=150">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/solution-ai-predictive-engineering.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/solution-ai-predictive-engineering.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/solution-ai-predictive-engineering.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/solution-ai-predictive-engineering.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/solution-ai-predictive-engineering.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://www.lanxtor.com/zh/solution-ai-predictive-engineering.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/solution-ai-predictive-engineering.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/zh/solution-ai-predictive-engineering.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="面向装置工程的 AI：协同工程师 Alex | LANXTOR E1">
+  <meta property="og:description" content="Alex 是 E1 的 AI 协同工程师，在您绘图时审查 P&amp;ID、建议下一个符号，并学习您公司的惯例。本地运行，始终由您掌控。">
+  <meta property="og:url" content="https://www.lanxtor.com/zh/solution-ai-predictive-engineering.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "解决方案",
+     "item": "https://www.lanxtor.com/zh/solutions.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "借助 AI 协同工程师 Alex 实现预测式工程。",
+     "item": "https://www.lanxtor.com/zh/solution-ai-predictive-engineering.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-CN",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "E1 中的预测性工程是什么？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Alex 开启时，E1 会在更改后以虚影符号的形式在图纸上提供通常接下来的内容，例如新泵周围的阀门。您可以逐一应用或拒绝；未经您同意，不会添加任何内容。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Alex 是本地 AI 吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Alex 在 Co-engineer 中的审查和 E1 Guide 均在 E1 内部运行，不使用语言模型，也不向外部发送任何内容。只有 Agent 选项卡使用语言模型，并会注明您的消息发送到哪个模型。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Alex 会自行更改我的图纸吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。建议需等待“应用”。在 Agent 选项卡中，Ask 从不更改任何内容，Plan 等待“应用”，Agent 可以在供您审查的草稿上工作。大量删除总是会被挂起，一键即可撤销一次回复。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Alex 使用哪个语言模型？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "在 E1 Cloud 中，默认使用位于 Sweden Central 区域的 Azure OpenAI 上的 GPT-4.1。编辑者可为自己的对话选择 Claude Opus 5.5；这些请求可能在欧盟以外处理。您自己的安装可以使用本地模型服务器。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "我们的数据会被用于训练模型吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。您提供给 Alex 知识的标准不会用于训练；只有在 Agent 选项卡中，其匹配条款才会随问题一起发送。团队记忆在您开启之前处于关闭状态，并由您选择它学习的项目。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "我们的组织可以关闭 Alex 吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可以。组织可将 Alex 的 AI 帮助设为开启、仅回答或关闭。关闭后，E1 仍可完全手动使用，Alex 在 Co-engineer 中的本地审查也照常运行。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Alex 会取代工程师吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。Alex 指出经验丰富的同事会注意到的问题，并起草例行工作。由工程师决定应用哪些内容，Alex 所做的每项更改都会被记录且可以撤销。"
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <!-- Generated by tools/solutions/build.py from tools/solutions/pages/predictive-ai.json. Do not edit this file. -->
+  <div id="site-header"></div>
+
+  <main class="cs-page sol-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="zh/solutions.html#predictive-ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>解决方案</span></a>
+        <span class="saas-kicker reveal">预测式工程设计</span>
+        <h1 class="reveal">借助 AI 协同工程师 Alex 实现预测式工程。</h1>
+        <p class="lead reveal">在 E1 中，Alex 在您工作时读取图纸，就像身边的工艺、自动化或电气工程师一样，并建议通常的下一步。Alex 的审查在本地运行，不使用语言模型，也不会向 E1 之外发送任何内容。每条建议都等待您应用或拒绝。</p>
+        <div class="cs-glance reveal" aria-label="概览">
+          <div class="cs-stat"><b>5</b><span>项技能：工厂、工艺、自动化和电气工程师，以及 HAZOP 主持人</span></div>
+          <div class="cs-stat"><b>3</b><span>个级别：安静、普通和导师</span></div>
+          <div class="cs-stat"><b>3</b><span>种“代理”选项卡模式：代理、提问和计划</span></div>
+          <div class="cs-stat"><b>0</b><span>次语言模型调用：Alex 自身对图纸的审查</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="本页内容">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="zh/solution-ai-predictive-engineering.html#alex">Alex</a> <a href="zh/solution-ai-predictive-engineering.html#predictive">预测</a> <a href="zh/solution-ai-predictive-engineering.html#review">审查</a> <a href="zh/solution-ai-predictive-engineering.html#learning">学习</a> <a href="zh/solution-ai-predictive-engineering.html#agent">代理</a> <a href="zh/solution-ai-predictive-engineering.html#control">控制</a> <a href="zh/solution-ai-predictive-engineering.html#faq">常见问题</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section section-tight cs-section sol-section" id="alex">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Alex</span>
+          <h2>Alex，内置于 E1 的 AI 协同工程师</h2>
+          <p>在 E1 中，Alex 是窗口右侧面板中的一个助手，有三个选项卡：协同工程师、代理和 E1 Guide。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>在<b>协同工程师</b>中，Alex 内置于 E1。它读取打开的 2D 空间，列出警告、问题和建议。它不调用任何语言模型，也不向 E1 之外发送任何内容，因此在每种安装中都能工作。在您单击<b>让 Alex 帮忙</b>之前，Alex 处于关闭状态，<b>停止 Alex</b> 可再次将其关闭。</p>
+          <p>在<b>代理</b>中，Alex 借助语言模型用您自己的语言回答，并可在审查和撤销的保障下更改项目。<b>E1 Guide</b> 在您所在之处讲解 E1，在真实按钮上显示气泡提示。这个名字来自亚历山大的希罗（Hero of Alexandria），这位公元一世纪的工程师常被称为自动化之父。</p>
+          <p>Alex 在您打开图纸时读取它，并在您的更改稳定约半秒后再次读取，绝不在您拖动时读取。它的标记位于图纸上，琥珀色 ! 表示警告，蓝色 ? 表示问题，并与其卡片双向链接。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="predictive">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">预测</span>
+          <h2>预测模式：在您绘图时建议下一步</h2>
+          <p>在 E1 中，当 Alex 开启时，放置或更改某项内容会带来通常下一步的建议，以虚影符号绘制在 2D 空间上。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>放置一台离心泵，其周围就会出现虚影阀门。该建议也是“设计建议”下的第一张卡片，带有<b>在您的更改之后</b>标记以及<b>显示</b>、<b>应用</b>和<b>拒绝</b>按钮。“应用”将符号放置为真实的、已连接的对象；“拒绝”放弃该建议，不添加任何内容。一次撤销即可撤回已应用的建议。</p>
+          <p>Alex 遵循您项目中重复使用的设计。尚无此类设计时，它使用初始规则：泵吸入口设隔断阀、排出口设止回阀，控制阀周围设隔断阀，容器和换热器上设变送器。没有驱动装置的泵、压缩机、风机、搅拌器或输送机会得到添加电机的建议，电机在模型中创建并按项目的位号规则编号。</p>
+          <p>E1 从不自行添加设备所需的内容：由 Alex 提出建议，由您决定。由 PFD 生成的 P&amp;ID 也是如此，它会打开<b>建议添加项</b>：列出每个对象在 P&amp;ID 上通常具备的内容，供您应用或拒绝。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="review">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">审查</span>
+          <h2>边工作边进行设计审查：警告、问题和建议</h2>
+          <p>在 E1 中，Alex 的发现以卡片形式呈现：说明原因、在图纸上标出位置，并提供修复、回答栏或将其搁置的方式。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>技能决定由哪位工程师来审阅图纸：装置工程师（所有专业）、工艺工程师、自动化工程师、电气工程师或 HAZOP 主持人。级别决定 Alex 告诉您多少内容，从“安静”级别仅提示警告，到“导师”级别给出解释相关做法的提示。</p>
+          <p>Alex 按介质检查管线流速、压降、冲蚀流速和设计裕量、酸性工况和 CO₂、仪表回路、位号、故障位置、对照因果矩阵的联锁以及防喘振，并询问电机启动和信号类型。问题卡片会将您的回答直接写入对象。不适用的发现可通过<b>不适用</b>隐藏，或提议给您的公司，审批人接受后 Alex 将不再提出。</p>
+          <p>每项技能还会将图纸中的清单写入 Excel：自动化方面有仪表索引、I/O 清单、因果表和电机清单；电气方面有负荷清单、电缆表和防爆设备清单；HAZOP 主持人则获得一份预先准备好的 HAZOP 工作表，含 LOPA 场景。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="learning">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">学习</span>
+          <h2>Alex 学习您公司的工程惯例</h2>
+          <p>在 E1 中，Alex 从您自己的标准和项目中学习，它发现的规则只有在有人接受后才会生效。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>在“配置”→<b>Alex 知识</b>中，以 PDF、Word、Excel 或文本格式上传标准。Alex 在本地读取，并提出它发现的惯例，例如泵吸入管线的流速限值或燃料气控制阀的故障位置。审批人接受后，Alex 会据此检查每张图纸，其卡片会引用相应条款。只有勾选该选项时，语言模型才会读取文档，且不会用您的文档训练任何模型。</p>
+          <p><b>团队记忆</b>从您选择的项目中学习您公司的常用值，例如大多数冷却水管线所用的管道等级。在有权限的人员开启之前，它处于关闭状态，且可以排除保密项目。加载您的管道等级后，Alex 还会对照它们检查每条管线的压力、温度、等级和酸性工况。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="agent">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">代理</span>
+          <h2>Agent、Ask 和 Plan：用于工程设计的 AI，可审查、可撤销</h2>
+          <p>在 E1 中，Alex 的 Agent 选项卡以您自己的语言回答问题，并使用与您手动执行相同的命令修改项目。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>模式决定 Alex 可以做什么：<b>Agent</b> 编辑项目，<b>Ask</b> 只回答、从不更改任何内容，<b>Plan</b> 写出计划并等待<b>应用</b>。启用<b>先审查更改</b>后，Alex 在草稿上工作，只有在您应用时才会保存。<b>保护布置</b>默认开启，允许 Alex 添加符号、管线和注释，但不能移动、缩放或重新布线已绘制的内容。<b>撤销更改</b>可撤回一次回复所做的全部更改。</p>
+          <p>有些更改始终需要等待您确认：一次会删除超过 10 个对象的操作，以及标记为始终询问的命令。当您询问设计是否正确时，Alex 会先结合您已接受的惯例运行自身审查，答案以其发现为依据。Alex 还能绘制工程模式，例如冗余泵组，回答“所有没有电机的泵”之类的查询，并读取附加的清单、规格书和截图。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section" id="control">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">控制</span>
+          <h2>安全可靠：您和您的组织始终掌控</h2>
+          <p>在 E1 中，Alex 以提问者的权限工作，绝不越权；您的组织可将 Alex 的 AI 帮助设为开启、仅回答或关闭。</p>
+        </div>
+        <div class="sol-prose reveal">
+          <p>Co-engineer 和 E1 Guide 不发送任何内容。在 Agent 选项卡中，您的消息和项目上下文会发送到选项卡下方所示的模型。在 E1 Cloud 中，默认使用位于欧盟 Sweden Central 区域的 Azure OpenAI 上的 GPT-4.1；请参阅 <a href="zh/cloud-specifications.html">E1 Cloud 规格</a>。在您自己的安装中，由运维人员选择 OpenAI、Anthropic、Azure OpenAI、Microsoft Foundry 或本地模型服务器。</p>
+          <p>受限值在发送给模型之前即被移除，每次 AI 调用都会记录其模型和大小，但不记录您的消息文本。名称、注释和附件均被视为数据，绝不作为指令。没有模型时，Alex 仍在 Co-engineer 中继续审查，其余工作由您手动完成。请参阅<a href="zh/security.html">安全</a>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">问题</span>
+          <h2>工程师常问的问题。</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>E1 中的预测性工程是什么？</summary>
+            <p>Alex 开启时，E1 会在更改后以虚影符号的形式在图纸上提供通常接下来的内容，例如新泵周围的阀门。您可以逐一应用或拒绝；未经您同意，不会添加任何内容。</p>
+          </details>
+          <details>
+            <summary>Alex 是本地 AI 吗？</summary>
+            <p>Alex 在 Co-engineer 中的审查和 E1 Guide 均在 E1 内部运行，不使用语言模型，也不向外部发送任何内容。只有 Agent 选项卡使用语言模型，并会注明您的消息发送到哪个模型。</p>
+          </details>
+          <details>
+            <summary>Alex 会自行更改我的图纸吗？</summary>
+            <p>不会。建议需等待“应用”。在 Agent 选项卡中，Ask 从不更改任何内容，Plan 等待“应用”，Agent 可以在供您审查的草稿上工作。大量删除总是会被挂起，一键即可撤销一次回复。</p>
+          </details>
+          <details>
+            <summary>Alex 使用哪个语言模型？</summary>
+            <p>在 E1 Cloud 中，默认使用位于 Sweden Central 区域的 Azure OpenAI 上的 GPT-4.1。编辑者可为自己的对话选择 Claude Opus 5.5；这些请求可能在欧盟以外处理。您自己的安装可以使用本地模型服务器。</p>
+          </details>
+          <details>
+            <summary>我们的数据会被用于训练模型吗？</summary>
+            <p>不会。您提供给 Alex 知识的标准不会用于训练；只有在 Agent 选项卡中，其匹配条款才会随问题一起发送。团队记忆在您开启之前处于关闭状态，并由您选择它学习的项目。</p>
+          </details>
+          <details>
+            <summary>我们的组织可以关闭 Alex 吗？</summary>
+            <p>可以。组织可将 Alex 的 AI 帮助设为开启、仅回答或关闭。关闭后，E1 仍可完全手动使用，Alex 在 Co-engineer 中的本地审查也照常运行。</p>
+          </details>
+          <details>
+            <summary>Alex 会取代工程师吗？</summary>
+            <p>不会。Alex 指出经验丰富的同事会注意到的问题，并起草例行工作。由工程师决定应用哪些内容，Alex 所做的每项更改都会被记录且可以撤销。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section" id="more">
+      <div class="container sol-more">
+        <div class="reveal">
+          <h2>用户指南中</h2>
+          <ul class="sol-links">
+            <li><a href="guide-ai.html#ai-alex">Alex：让内置的工程助手协助您</a></li>
+            <li><a href="guide-drawing.html#draw-predictive">预测模式：让 Alex 协助</a></li>
+            <li><a href="guide-ai.html#ai-alex-suggestions">绘图时的建议：应用或拒绝</a></li>
+            <li><a href="guide-ai.html#ai-alex-cards">阅读并处理 Alex 的卡片</a></li>
+            <li><a href="guide-ai.html#ai-alex-knowledge">教 Alex 学习您公司的惯例（Alex 知识）</a></li>
+            <li><a href="guide-ai.html#ai-alex-team-memory">团队记忆：您公司的常用做法</a></li>
+            <li><a href="guide-ai.html#ai-chat-modes">Agent、Ask 和 Plan：各自可以做什么</a></li>
+            <li><a href="guide-ai.html#ai-off">没有语言模型时：Co-engineer，全部手动完成</a></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>相关解决方案</h2>
+          <ul class="sol-links">
+            <li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li>
+            <li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li>
+            <li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li>
+            <li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li>
+            <li><a href="zh/solutions.html">全部解决方案</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container sol-cta reveal">
+        <a class="btn btn-primary" href="zh/download.html">获取 E1</a> <a class="btn btn-ghost" href="zh/contact-sales.html">联系销售</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=10"></script>
+  <script src="assets/js/main.js?v=43"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>
