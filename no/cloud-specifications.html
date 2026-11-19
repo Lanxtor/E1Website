@@ -7,7 +7,7 @@
   <title>Spesifikasjoner for E1 Cloud – LANXTOR</title>
   <meta name="description" content="Hvor dataene dine i E1 Cloud er, hvor rask E1 er, hvordan den er sikret, hvem som ser hva, og hvordan sikkerhetskopiering og gjenoppretting fungerer: fakta om E1 Cloud på Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=148">
+  <link rel="stylesheet" href="assets/css/styles.css?v=149">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
@@ -266,6 +266,17 @@
             <p>E1-serveren legger til kapasitet når den har mye å gjøre, og kjører alltid, så det er ingen kaldstart. Helsesjekker hvert par sekunder erstatter en server som slutter å svare.</p>
           </article>
         </div>
+        <article class="cs-card reveal cs-servers">
+          <h3>Serverne bak</h3>
+          <p class="cs-card-sub">Dedikerte kjerner hele veien: ingenting i E1 Cloud kjører på burstable-maskiner eller maskiner med delte kjerner.</p>
+          <ul class="spec-list cs-spec">
+            <li><span>Database</span><span>Azure Database for PostgreSQL 16, General Purpose: 4 dedikerte vCores og 16 GB minne</span></li>
+            <li><span>Reserve</span><span>En kopi av databasen i en annen tilgjengelighetssone som tar over av seg selv</span></li>
+            <li><span>Databaselagring</span><span>256 GB SSD, 1 100 IOPS, vokser av seg selv</span></li>
+            <li><span>E1-server</span><span>2 til 6 servere med 2 vCPU og 4 GB hver, lagt til etter last</span></li>
+          </ul>
+          <p class="cs-card-sub">Kjører du E1 selv? Se <a href="no/installation-requirements.html">systemkravene</a>.</p>
+        </article>
         <p class="cs-note reveal">Målt i lasttestene våre. Tidene i E1 Cloud avhenger av størrelsen på prosjektet ditt, hvor mange som jobber samtidig og tilkoblingen din.</p>
       </div>
     </section>

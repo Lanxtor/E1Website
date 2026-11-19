@@ -4150,3 +4150,19 @@ code {
 /* The four downloads stay on one row down to tablet width */
 @media (min-width: 900px) { .get-now { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: none; } }
 @media (min-width: 900px) and (max-width: 1100px) { .getE1-page .get-col .get-btn { padding: 8px 10px; gap: 8px; } .getE1-page .get-col .get-text b { font-size: 0.9rem; } .get-it { padding: 10px 11px; } }
+
+/* System requirements: what not to choose, and the E1 Cloud's servers */
+.cs-servers { margin-top: 20px; }
+.cs-avoid { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 14px; }
+.cs-avoid li { display: flex; align-items: flex-start; gap: 12px; color: var(--text-muted); }
+.cs-avoid li b { color: var(--text); font-weight: 600; }
+.cs-avoid svg { flex: none; width: 22px; height: 22px; padding: 4px; margin-top: 1px; border-radius: 50%; background: rgba(198, 40, 40, 0.12); color: #c62828; }
+/* The sizes stay a table on a phone (four columns need their headings); it scrolls inside its frame. */
+@media (max-width: 640px) {
+  .cs-table.cs-sizes { display: table; min-width: 560px; }
+  .cs-table.cs-sizes thead { display: table-header-group; }
+  .cs-table.cs-sizes tbody { display: table-row-group; }
+  .cs-table.cs-sizes tr { display: table-row; padding: 0; }
+  .cs-table.cs-sizes th, .cs-table.cs-sizes td { display: table-cell; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .cs-table.cs-sizes tbody th { width: auto; }
+}

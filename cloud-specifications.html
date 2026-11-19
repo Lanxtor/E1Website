@@ -6,7 +6,7 @@
   <title>E1 Cloud specifications — LANXTOR</title>
   <meta name="description" content="Where your E1 Cloud data is, how fast E1 is, how it is secured, who can see what, and how backups and restores work: the facts behind the E1 Cloud on Microsoft Azure.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=148">
+  <link rel="stylesheet" href="assets/css/styles.css?v=149">
   <!-- i18n:alternates -->
   <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/cloud-specifications.html">
   <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/cloud-specifications.html">
@@ -272,6 +272,17 @@
             <p>The E1 server adds capacity when it is busy and is always running, so there is no cold start. Health checks every few seconds replace a server that stops answering.</p>
           </article>
         </div>
+        <article class="cs-card reveal cs-servers">
+          <h3>The servers behind it</h3>
+          <p class="cs-card-sub">Dedicated cores throughout: nothing in the E1 Cloud runs on burstable or shared-core machines.</p>
+          <ul class="spec-list cs-spec">
+            <li><span>Database</span><span>Azure Database for PostgreSQL 16, General Purpose: 4 dedicated vCores and 16 GB of memory</span></li>
+            <li><span>Standby</span><span>A copy of the database in another availability zone that takes over by itself</span></li>
+            <li><span>Database storage</span><span>256 GB SSD, 1,100 IOPS, growing by itself</span></li>
+            <li><span>E1 server</span><span>2 to 6 servers of 2 vCPU and 4 GB each, added by load</span></li>
+          </ul>
+          <p class="cs-card-sub">Running E1 yourself? See the <a href="installation-requirements.html">system requirements</a>.</p>
+        </article>
         <p class="cs-note reveal">Measured in our load tests. Times in the E1 Cloud depend on the size of your project, how many people work at once and your connection.</p>
       </div>
     </section>

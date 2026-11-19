@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Requisitos del sistema para tu propia instalación de E1 — LANXTOR</title>
+  <meta name="description" content="La base de datos, los servidores, el almacenamiento y la red que E1 necesita en tu propia nube o centro de datos, dimensionados según el número de ingenieros, para que E1 sea tan rápido para ti como en E1 Cloud.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=149">
+    <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/installation-requirements.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/installation-requirements.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/installation-requirements.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/installation-requirements.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/installation-requirements.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/installation-requirements.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/es/installation-requirements.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="Requisitos del sistema para tu propia instalación de E1 — LANXTOR">
+  <meta property="og:description" content="La base de datos, los servidores, el almacenamiento y la red que E1 necesita en tu propia nube o centro de datos, dimensionados según el número de ingenieros, para que E1 sea tan rápido para ti como en E1 Cloud.">
+  <meta property="og:url" content="https://www.lanxtor.com/es/installation-requirements.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Requisitos del sistema para tu propia instalación",
+     "item": "https://www.lanxtor.com/es/installation-requirements.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "es",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Podemos empezar con poco y crecer después?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí. Empieza con la fila que corresponde a las personas que trabajan a la vez hoy. Una base de datos gestionada pasa a un tamaño mayor con un ajuste y un reinicio de unos minutos, y los servidores E1 se añaden solos con la carga. Solo el tamaño de prueba no está pensado para el trabajo diario."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Por qué no una base de datos burstable más barata?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Una base de datos burstable solo es rápida mientras tiene créditos de CPU. Los ingenieros trabajan durante horas, los créditos se agotan y la base de datos cae a una fracción de un núcleo: cada clic espera entonces segundos. El dinero ahorrado se pierde muchas veces en ingenieros esperando."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Revisáis nuestros tamaños antes de empezar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí. Dinos cuántos ingenieros trabajarán a la vez y qué tamaño tienen tus proyectos, y confirmamos los tamaños o los ajustamos. Para más de 200 ingenieros a la vez dimensionamos la instalación con una prueba de carga. Escribe a ventas ."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <div id="site-header"></div>
+
+  <main class="cs-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="es/download.html#own-servers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Tu nube</span></a>
+        <h1 class="reveal">Requisitos del sistema para tu propia instalación.</h1>
+        <p class="lead reveal">Lo que E1 necesita cuando funciona en tu propia nube o centro de datos. E1 solo es tan rápido como la base de datos que tiene debajo: estos son los tamaños con los que funciona E1 Cloud y que probamos cada noche, para que tus ingenieros tengan la misma velocidad.</p>
+
+        <div class="cs-glance reveal" aria-label="El mínimo para el trabajo diario de un vistazo">
+          <div class="cs-stat"><b>PostgreSQL 16</b><span>Gestionada o propia, con núcleos dedicados</span></div>
+          <div class="cs-stat"><b>4 vCores</b><span>Y 16 GB de memoria para la base de datos, hasta 50 ingenieros</span></div>
+          <div class="cs-stat"><b>1.100 IOPS</b><span>De almacenamiento SSD para la base de datos, como mínimo</span></div>
+          <div class="cs-stat"><b>2 × 2 vCPU</b><span>Dos servidores E1, para que uno pueda detenerse sin que nadie lo note</span></div>
+          <div class="cs-stat"><b>2 ms</b><span>Como máximo entre el servidor E1 y la base de datos</span></div>
+          <div class="cs-stat"><b>0</b><span>Bases de datos burstable o de núcleos compartidos: hacen que E1 sea lento</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="En esta página">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="es/installation-requirements.html#sizes">Tamaños</a> <a href="es/installation-requirements.html#database">Base de datos</a> <a href="es/installation-requirements.html#servers">Servidor E1 y almacenamiento</a> <a href="es/installation-requirements.html#faq">Preguntas</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sizes -->
+    <section class="section section-tight cs-section" id="sizes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Tamaños</span>
+          <h2>Dimensionado según los ingenieros que trabajan a la vez.</h2>
+          <p>Elige la fila para el mayor número de personas que trabajarán en E1 al mismo tiempo, no para todos los que tienen una cuenta.</p>
+        </div>
+        <div class="cs-table-wrap reveal">
+          <table class="cs-table cs-sizes" aria-label="Tamaños recomendados">
+            <thead><tr><th scope="col">Ingenieros a la vez</th><th scope="col">Base de datos</th><th scope="col">Almacenamiento de la base de datos</th><th scope="col">Servidor E1</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Una prueba, hasta 5</th><td>2 vCores dedicados, 8 GB</td><td>128 GB SSD, 500 IOPS</td><td>1 servidor, 2 vCPU, 4 GB</td></tr>
+              <tr><th scope="row">Hasta 50</th><td>4 vCores dedicados, 16 GB, con una réplica en espera en otra zona</td><td>256 GB SSD, 1.100 IOPS</td><td>De 2 a 6 servidores, 2 vCPU, 4 GB cada uno</td></tr>
+              <tr><th scope="row">Hasta 200</th><td>8 vCores dedicados, 32 GB, con una réplica en espera</td><td>512 GB SSD, 2.300 IOPS</td><td>De 4 a 10 servidores, 2 vCPU, 4 GB cada uno</td></tr>
+              <tr><th scope="row">Más de 200</th><td colspan="3">La dimensionamos contigo a partir de una prueba de carga con tus propios proyectos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cs-note reveal">La fila de hasta 50 ingenieros es el tamaño de E1 Cloud, donde medimos 50 ingenieros a la vez en un proyecto de 498.000 objetos (<a href="es/cloud-specifications.html#performance">Especificaciones de E1 Cloud</a>). Una base de datos puede pasar más adelante a la fila siguiente: en Microsoft Azure es un ajuste y un reinicio de unos minutos.</p>
+      </div>
+    </section>
+
+    <!-- Database -->
+    <section class="section section-tight cs-section" id="database">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Base de datos</span>
+          <h2>La base de datos decide lo rápido que es E1.</h2>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>Qué elegir</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Base de datos</span><span>PostgreSQL 16</span></li>
+              <li><span>En Microsoft Azure</span><span>Azure Database for PostgreSQL – Flexible Server, General Purpose (D4ds_v5 para hasta 50 ingenieros)</span></li>
+              <li><span>En tus propios servidores</span><span>Núcleos dedicados y SSD local o una SAN con las IOPS de arriba</span></li>
+              <li><span>Conexiones</span><span>Al menos 300 para E1: cada servidor E1 abre 41</span></li>
+              <li><span>Réplica en espera</span><span>Una copia en otra zona de disponibilidad que toma el relevo por sí sola, para el trabajo diario</span></li>
+              <li><span>Copias de seguridad</span><span>Recuperación a un momento dado, conservadas 35 días</span></li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Qué no elegir</h3>
+            <ul class="cs-avoid">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>Bases de datos burstable o de núcleos compartidos</b> (Azure Burstable serie B y similares): cuando agotan sus créditos de CPU bajan a una fracción de un núcleo, y E1 tarda segundos en cada clic.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>Discos pequeños y lentos</b>: un disco de 32 GB da 120 IOPS, muy pocas para ingenieros que trabajan a la vez.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>Una base de datos lejos del servidor E1</b>: otra región u otro centro de datos añade su retraso a cada paso de cada clic.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>Una base de datos compartida con otras aplicaciones</b>: su carga se convierte en el tiempo de espera de tus ingenieros.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- E1 server and storage -->
+    <section class="section section-tight cs-section" id="servers">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Servidor E1 y almacenamiento</span>
+          <h2>El resto de la instalación.</h2>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>Servidor E1</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Cada servidor</span><span>2 vCPU y 4 GB de memoria, contenedores Linux</span></li>
+              <li><span>Cuántos</span><span>Al menos 2 para el trabajo diario, más según la carga de CPU</span></li>
+              <li><span>En Microsoft Azure</span><span>Azure Container Apps, en la región de la base de datos</span></li>
+              <li><span>Red</span><span>La base de datos en una red privada, a 2 ms como máximo</span></li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Archivos y claves</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Archivos y documentos</span><span>Almacenamiento de objetos en tres centros de datos (Azure Storage, redundante entre zonas)</span></li>
+              <li><span>Espacio</span><span>Alrededor de 1 GB por ingeniero al principio; crece con tus documentos</span></li>
+              <li><span>Secretos</span><span>Un almacén de claves (Azure Key Vault)</span></li>
+              <li><span>Inicio de sesión</span><span>Tu propio inicio de sesión mediante OpenID Connect</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Preguntas</span>
+          <h2>Preguntas que hacen los equipos de TI.</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>¿Podemos empezar con poco y crecer después?</summary>
+            <p>Sí. Empieza con la fila que corresponde a las personas que trabajan a la vez hoy. Una base de datos gestionada pasa a un tamaño mayor con un ajuste y un reinicio de unos minutos, y los servidores E1 se añaden solos con la carga. Solo el tamaño de prueba no está pensado para el trabajo diario.</p>
+          </details>
+          <details>
+            <summary>¿Por qué no una base de datos burstable más barata?</summary>
+            <p>Una base de datos burstable solo es rápida mientras tiene créditos de CPU. Los ingenieros trabajan durante horas, los créditos se agotan y la base de datos cae a una fracción de un núcleo: cada clic espera entonces segundos. El dinero ahorrado se pierde muchas veces en ingenieros esperando.</p>
+          </details>
+          <details>
+            <summary>¿Revisáis nuestros tamaños antes de empezar?</summary>
+            <p>Sí. Dinos cuántos ingenieros trabajarán a la vez y qué tamaño tienen tus proyectos, y confirmamos los tamaños o los ajustamos. Para más de 200 ingenieros a la vez dimensionamos la instalación con una prueba de carga. Escribe a <a href="es/contact-sales.html">ventas</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <article class="saas saas-dark cs-cta reveal">
+          <div class="saas-text">
+            <span class="saas-kicker">Instalación empresarial</span>
+            <h2>¿Planificas tu propia instalación?</h2>
+            <p>Ayudamos a tu equipo de TI a dimensionar y poner en marcha E1 en tu propia nube o centro de datos.</p>
+            <div class="hero-actions"><a class="btn btn-light" href="es/contact-sales.html">Contactar con ventas</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="Sitio"><ul><li><a href="es/index.html">Inicio</a></li><li><a href="es/solutions.html">Soluciones</a></li><li><a href="es/download.html">Obtener E1</a></li><li><a href="es/download.html#pricing">Precios</a></li><li><a href="es/cloud-specifications.html">Especificaciones de E1 Cloud</a></li><li><a href="es/academy.html">Academy</a></li><li><a href="guide.html">Guía de usuario</a></li><li><a href="es/security.html">Seguridad</a></li><li><a href="es/about.html">Sobre nosotros</a></li><li><a href="es/shape-e1.html">Contacto</a></li><li><a href="es/contact-sales.html">Contactar con ventas</a></li></ul><ul><li><a href="es/solution-feed-process-engineering.html">FEED e ingeniería de procesos sobre un único modelo de planta</a></li><li><a href="es/solution-pid-instrumentation.html">P&amp;ID e instrumentación, conectados con el proceso</a></li><li><a href="es/solution-electrical-design.html">Diseño eléctrico sobre el mismo modelo de planta</a></li><li><a href="es/solution-automation-control.html">Automatización y control, desde el mismo modelo de planta</a></li><li><a href="es/solution-single-data-model.html">Un único modelo de datos de la planta, una sola fuente de verdad</a></li><li><a href="es/solution-ai-predictive-engineering.html">Ingeniería predictiva con Alex, el coingeniero de IA</a></li><li><a href="es/solution-simulate-validate.html">Simula, valida y explora tu diseño</a></li><li><a href="es/solution-multidiscipline-collaboration.html">Trabaja entre disciplinas en un mismo proyecto</a></li><li><a href="es/solution-large-projects.html">Pensado para proyectos del tamaño de una refinería</a></li><li><a href="es/solution-cross-company-projects.html">Entre empresas en un mismo proyecto</a></li><li><a href="es/solution-branches-modifications.html">Ramas para escenarios y modificaciones</a></li><li><a href="es/solution-revisions-datasheets-reports.html">Revisiones, hojas de datos e informes</a></li><li><a href="es/solution-maintenance-brownfield.html">Ingeniería brownfield y modificaciones de planta, sobre la planta que ya tienes</a></li><li><a href="es/solution-cloud-workspace.html">Software de ingeniería de planta en la nube, sin nada que instalar en servidores</a></li><li><a href="es/solution-enterprise-deployment.html">Tus datos, tu despliegue: E1 en tu propia nube o centro de datos</a></li><li><a href="es/solution-desktop-browser-tablet.html">Aplicación de escritorio para Windows y macOS, navegador y tableta: un proyecto en todas partes</a></li></ul></nav></div>
+
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=8"></script>
+  <script src="assets/js/main.js?v=43"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>

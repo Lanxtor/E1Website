@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="nb" data-lang="no">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Systemkrav for din egen E1-installasjon — LANXTOR</title>
+  <meta name="description" content="Databasen, serverne, lagringen og nettverket E1 trenger i din egen sky eller ditt eget datasenter, dimensjonert etter antall ingeniører, så E1 er like raskt hos deg som i E1 Cloud.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=149">
+    <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://www.lanxtor.com/installation-requirements.html">
+  <link rel="alternate" hreflang="de" href="https://www.lanxtor.com/de/installation-requirements.html">
+  <link rel="alternate" hreflang="fr" href="https://www.lanxtor.com/fr/installation-requirements.html">
+  <link rel="alternate" hreflang="es" href="https://www.lanxtor.com/es/installation-requirements.html">
+  <link rel="alternate" hreflang="nb" href="https://www.lanxtor.com/no/installation-requirements.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.lanxtor.com/installation-requirements.html">
+  <!-- /i18n:alternates -->
+  <!-- seo -->
+  <link rel="canonical" href="https://www.lanxtor.com/no/installation-requirements.html">
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LANXTOR">
+  <meta property="og:title" content="Systemkrav for din egen E1-installasjon — LANXTOR">
+  <meta property="og:description" content="Databasen, serverne, lagringen og nettverket E1 trenger i din egen sky eller ditt eget datasenter, dimensjonert etter antall ingeniører, så E1 er like raskt hos deg som i E1 Cloud.">
+  <meta property="og:url" content="https://www.lanxtor.com/no/installation-requirements.html">
+  <meta property="og:image" content="https://www.lanxtor.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LANXTOR E1: plant engineering, at the speed of thought.">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LANXTOR",
+     "item": "https://www.lanxtor.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Systemkrav for din egen installasjon",
+     "item": "https://www.lanxtor.com/no/installation-requirements.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "nb",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Kan vi begynne smått og vokse senere?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ja. Begynn med raden som passer til dem som jobber samtidig i dag. En administrert database går over til en større størrelse med én innstilling og en omstart på noen minutter, og E1-serverne legges til av seg selv under last. Bare prøvestørrelsen er ikke ment for daglig arbeid."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hvorfor ikke en billigere burstable-database?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "En burstable-database er bare rask så lenge den har CPU-kreditter. Ingeniører jobber i timevis, kredittene tar slutt, og databasen faller til en brøkdel av én kjerne: hvert klikk venter da i sekunder. Pengene du sparer, tapes mange ganger i ventende ingeniører."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Sjekker dere størrelsene våre før vi begynner?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ja. Fortell oss hvor mange ingeniører som vil jobbe samtidig og hvor store prosjektene dine er, så bekrefter eller justerer vi størrelsene. For mer enn 200 ingeniører samtidig dimensjonerer vi installasjonen ut fra en lasttest. Skriv til salg ."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo -->
+</head>
+<body class="has-plant-bg">
+  <div id="site-header"></div>
+
+  <main class="cs-page">
+    <section class="page-hero cs-hero">
+      <div class="container">
+        <a class="cs-back reveal" href="no/download.html#own-servers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Din sky</span></a>
+        <h1 class="reveal">Systemkrav for din egen installasjon.</h1>
+        <p class="lead reveal">Hva E1 trenger når det kjører i din egen sky eller ditt eget datasenter. E1 er aldri raskere enn databasen under: dette er størrelsene vi kjører E1 Cloud på og tester hver natt, så ingeniørene dine får samme hastighet.</p>
+
+        <div class="cs-glance reveal" aria-label="Minimum for daglig arbeid i et blikk">
+          <div class="cs-stat"><b>PostgreSQL 16</b><span>Administrert eller din egen, med dedikerte kjerner</span></div>
+          <div class="cs-stat"><b>4 vCores</b><span>Og 16 GB minne til databasen, opptil 50 ingeniører</span></div>
+          <div class="cs-stat"><b>1 100 IOPS</b><span>SSD-lagring til databasen, minst</span></div>
+          <div class="cs-stat"><b>2 × 2 vCPU</b><span>To E1-servere, så én kan stoppe uten at noen merker det</span></div>
+          <div class="cs-stat"><b>2 ms</b><span>Høyst mellom E1-serveren og databasen</span></div>
+          <div class="cs-stat"><b>0</b><span>Burstable-databaser eller databaser med delte kjerner: de gjør E1 tregt</span></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cs-nav" aria-label="På denne siden">
+      <div class="container">
+        <div class="cs-nav-track">
+          <a href="no/installation-requirements.html#sizes">Størrelser</a> <a href="no/installation-requirements.html#database">Database</a> <a href="no/installation-requirements.html#servers">E1-server og lagring</a> <a href="no/installation-requirements.html#faq">Spørsmål</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sizes -->
+    <section class="section section-tight cs-section" id="sizes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Størrelser</span>
+          <h2>Dimensjonert etter ingeniørene som jobber samtidig.</h2>
+          <p>Velg raden for flest personer som vil jobbe i E1 samtidig, ikke for alle som har en konto.</p>
+        </div>
+        <div class="cs-table-wrap reveal">
+          <table class="cs-table cs-sizes" aria-label="Anbefalte størrelser">
+            <thead><tr><th scope="col">Ingeniører samtidig</th><th scope="col">Database</th><th scope="col">Databaselagring</th><th scope="col">E1-server</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">En prøve, opptil 5</th><td>2 dedikerte vCores, 8 GB</td><td>128 GB SSD, 500 IOPS</td><td>1 server, 2 vCPU, 4 GB</td></tr>
+              <tr><th scope="row">Opptil 50</th><td>4 dedikerte vCores, 16 GB, med en reserve i en annen sone</td><td>256 GB SSD, 1 100 IOPS</td><td>2 til 6 servere, 2 vCPU, 4 GB hver</td></tr>
+              <tr><th scope="row">Opptil 200</th><td>8 dedikerte vCores, 32 GB, med en reserve</td><td>512 GB SSD, 2 300 IOPS</td><td>4 til 10 servere, 2 vCPU, 4 GB hver</td></tr>
+              <tr><th scope="row">Mer enn 200</th><td colspan="3">Vi dimensjonerer den sammen med deg ut fra en lasttest på dine egne prosjekter.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cs-note reveal">Raden for opptil 50 ingeniører er størrelsen på E1 Cloud, der vi måler 50 ingeniører samtidig på et prosjekt med 498 000 objekter (<a href="no/cloud-specifications.html#performance">Spesifikasjoner for E1 Cloud</a>). En database kan senere vokse til neste rad: på Microsoft Azure er det én innstilling og en omstart på noen minutter.</p>
+      </div>
+    </section>
+
+    <!-- Database -->
+    <section class="section section-tight cs-section" id="database">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Database</span>
+          <h2>Databasen avgjør hvor raskt E1 er.</h2>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>Hva du bør velge</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Database</span><span>PostgreSQL 16</span></li>
+              <li><span>På Microsoft Azure</span><span>Azure Database for PostgreSQL – Flexible Server, General Purpose (D4ds_v5 for opptil 50 ingeniører)</span></li>
+              <li><span>På dine egne servere</span><span>Dedikerte kjerner og lokal SSD eller et SAN med IOPS-tallene over</span></li>
+              <li><span>Tilkoblinger</span><span>Minst 300 for E1: hver E1-server åpner 41</span></li>
+              <li><span>Reserve</span><span>En kopi i en annen tilgjengelighetssone som tar over av seg selv, for daglig arbeid</span></li>
+              <li><span>Sikkerhetskopier</span><span>Gjenoppretting til et tidspunkt, beholdt i 35 dager</span></li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Hva du ikke bør velge</h3>
+            <ul class="cs-avoid">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>Burstable-databaser eller databaser med delte kjerner</b> (Azure Burstable B-serien og lignende): når CPU-kredittene er brukt opp, faller de til en brøkdel av en kjerne, og E1 bruker sekunder per klikk.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>Små, trege disker</b>: en disk på 32 GB gir 120 IOPS, for lite for ingeniører som jobber samtidig.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>En database langt fra E1-serveren</b>: en annen region eller et annet datasenter legger sin forsinkelse til hvert steg i hvert klikk.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> <span><b>En database delt med andre programmer</b>: deres last blir ingeniørenes ventetid.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- E1 server and storage -->
+    <section class="section section-tight cs-section" id="servers">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">E1-server og lagring</span>
+          <h2>Resten av installasjonen.</h2>
+        </div>
+        <div class="cs-two">
+          <article class="cs-card reveal">
+            <h3>E1-server</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Hver server</span><span>2 vCPU og 4 GB minne, Linux-containere</span></li>
+              <li><span>Hvor mange</span><span>Minst 2 for daglig arbeid, flere lagt til etter CPU-last</span></li>
+              <li><span>På Microsoft Azure</span><span>Azure Container Apps, i databasens region</span></li>
+              <li><span>Nettverk</span><span>Databasen på et privat nettverk, høyst 2 ms unna</span></li>
+            </ul>
+          </article>
+          <article class="cs-card reveal">
+            <h3>Filer og nøkler</h3>
+            <ul class="spec-list cs-spec">
+              <li><span>Filer og dokumenter</span><span>Objektlagring i tre datasentre (Azure Storage, soneredundant)</span></li>
+              <li><span>Plass</span><span>Omtrent 1 GB per ingeniør til å begynne med; den vokser med dokumentene dine</span></li>
+              <li><span>Hemmeligheter</span><span>Et nøkkelhvelv (Azure Key Vault)</span></li>
+              <li><span>Pålogging</span><span>Din egen pålogging via OpenID Connect</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-tight cs-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Spørsmål</span>
+          <h2>Spørsmål IT-team stiller.</h2>
+        </div>
+        <div class="cs-faq reveal">
+          <details>
+            <summary>Kan vi begynne smått og vokse senere?</summary>
+            <p>Ja. Begynn med raden som passer til dem som jobber samtidig i dag. En administrert database går over til en større størrelse med én innstilling og en omstart på noen minutter, og E1-serverne legges til av seg selv under last. Bare prøvestørrelsen er ikke ment for daglig arbeid.</p>
+          </details>
+          <details>
+            <summary>Hvorfor ikke en billigere burstable-database?</summary>
+            <p>En burstable-database er bare rask så lenge den har CPU-kreditter. Ingeniører jobber i timevis, kredittene tar slutt, og databasen faller til en brøkdel av én kjerne: hvert klikk venter da i sekunder. Pengene du sparer, tapes mange ganger i ventende ingeniører.</p>
+          </details>
+          <details>
+            <summary>Sjekker dere størrelsene våre før vi begynner?</summary>
+            <p>Ja. Fortell oss hvor mange ingeniører som vil jobbe samtidig og hvor store prosjektene dine er, så bekrefter eller justerer vi størrelsene. For mer enn 200 ingeniører samtidig dimensjonerer vi installasjonen ut fra en lasttest. Skriv til <a href="no/contact-sales.html">salg</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <article class="saas saas-dark cs-cta reveal">
+          <div class="saas-text">
+            <span class="saas-kicker">Bedriftsinstallasjon</span>
+            <h2>Planlegger du din egen installasjon?</h2>
+            <p>Vi hjelper IT-teamet ditt med å dimensjonere og sette opp E1 i din egen sky eller ditt eget datasenter.</p>
+            <div class="hero-actions"><a class="btn btn-light" href="no/contact-sales.html">Kontakt salg</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"><nav class="site-links" aria-label="Nettsted"><ul><li><a href="no/index.html">Hjem</a></li><li><a href="no/solutions.html">Løsninger</a></li><li><a href="no/download.html">Skaff deg E1</a></li><li><a href="no/download.html#pricing">Priser</a></li><li><a href="no/cloud-specifications.html">Spesifikasjoner for E1 Cloud</a></li><li><a href="no/academy.html">Academy</a></li><li><a href="guide.html">Brukerveiledning</a></li><li><a href="no/security.html">Sikkerhet</a></li><li><a href="no/about.html">Om oss</a></li><li><a href="no/shape-e1.html">Kontakt oss</a></li><li><a href="no/contact-sales.html">Kontakt salg</a></li></ul><ul><li><a href="no/solution-feed-process-engineering.html">FEED og prosessdesign på én anleggsmodell</a></li><li><a href="no/solution-pid-instrumentation.html">P&amp;ID-er og instrumentering, koblet til prosessen</a></li><li><a href="no/solution-electrical-design.html">Elektrodesign på den samme anleggsmodellen</a></li><li><a href="no/solution-automation-control.html">Automasjon og kontroll, fra den samme anleggsmodellen</a></li><li><a href="no/solution-single-data-model.html">Én anleggsdatamodell, én sannhetskilde</a></li><li><a href="no/solution-ai-predictive-engineering.html">Prediktiv prosjektering med Alex, AI-medingeniøren</a></li><li><a href="no/solution-simulate-validate.html">Simuler, valider og utforsk designet ditt</a></li><li><a href="no/solution-multidiscipline-collaboration.html">Jobb på tvers av fagområder i ett prosjekt</a></li><li><a href="no/solution-large-projects.html">Bygget for prosjekter i raffineristørrelse</a></li><li><a href="no/solution-cross-company-projects.html">På tvers av selskaper i ett prosjekt</a></li><li><a href="no/solution-branches-modifications.html">Grener for scenarier og modifikasjoner</a></li><li><a href="no/solution-revisions-datasheets-reports.html">Revisjoner, datablad og rapporter</a></li><li><a href="no/solution-maintenance-brownfield.html">Brownfield-prosjektering og anleggsmodifikasjoner, på anlegget du allerede har</a></li><li><a href="no/solution-cloud-workspace.html">Skybasert programvare for anleggsprosjektering, uten noe å installere på servere</a></li><li><a href="no/solution-enterprise-deployment.html">Dine data, din installasjon: E1 i din egen sky eller ditt eget datasenter</a></li><li><a href="no/solution-desktop-browser-tablet.html">Skrivebordsapp for Windows og macOS, nettleser og nettbrett: ett prosjekt overalt</a></li></ul></nav></div>
+
+  <script src="assets/js/i18n-dict.js?v=2"></script>
+  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/config.js?v=4"></script>
+  <script src="assets/js/e1-api.js?v=8"></script>
+  <script src="assets/js/main.js?v=43"></script>
+  <script src="assets/js/chat.js?v=7"></script>
+</body>
+</html>
