@@ -197,3 +197,32 @@ test("DRAW-live-checks, DRAW-layout-check: what is marked while drawing with its
   await expect(check.locator(".g-related").getByRole("link", { name: "Checks while drawing" })).toHaveAttribute("href", /#draw-live-checks$/);
   await expect(check).not.toContainText("as markers on the drawing");
 });
+
+test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break line, Straighten, Reset route and Line kind, with Watch the lesson and Show me how in E1", async ({ page }) => {
+  const f = FEATURES.find((x) => x.id === "DRAW-edit-line");
+  expect(f, "DRAW-edit-line is in the guides").toBeTruthy();
+  await page.goto(`/${pageOf(f)}#${f.anchor}`);
+  const part = page.locator("section#draw-edit-line");
+  await expect(part).toBeVisible();
+  await expectScrolledTo(part);
+  await expect(part.getByRole("heading", { level: 2 })).toHaveText("Shape a line: bends, ends, join, break and straighten");
+  const steps = part.locator("table.g-steps tbody tr");
+  await expect(steps).toHaveCount(12);
+  await expect(steps.filter({ hasText: "Drag a bend grip sideways" })).toContainText("the next bend slides with it");
+  await expect(steps.filter({ hasText: "Remove bend" })).toContainText("The line itself is not deleted");
+  await expect(steps.filter({ hasText: "where another pipe already ends" })).toContainText("already ends a pipe: a nozzle takes one pipe.");
+  for (const label of ["Break line", "Join lines", "Straighten", "Reset route"]) await expect(part.locator(".ui", { hasText: label }).first()).toBeVisible();
+  await expect(steps.filter({ hasText: "Drag one of the valves the hand-shaped pipe ends on" })).toContainText("The pipe keeps the bends you gave it");
+  await expect(part.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=first-pid&lesson=[\w-]+$/);
+  await expect(part.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=sheet-edit-line");
+
+  // Related → Line style, where Line kind is told.
+  await part.locator(".g-related").getByRole("link", { name: "Line style, thickness and colour" }).click();
+  const style = page.locator("section#draw-line-style");
+  await expectScrolledTo(style);
+  await expect(style.locator("table.g-steps tbody tr").filter({ hasText: "Line kind" })).toContainText("becomes a line of that kind");
+
+  // The catalog lists it.
+  await page.goto("/guide-features.html");
+  await expect(page.locator("body")).toContainText("Shape a line: bends, ends, join, break and straighten");
+});
