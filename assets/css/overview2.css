@@ -324,12 +324,22 @@
 /* ---------- not yet ---------- */
 
 /* ---------- roles ---------- */
-.o2-roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
-.o2-role { display: block; padding: 20px 22px; border-radius: 14px; border: 1px solid var(--o2-line); background: #fff; text-decoration: none; transition: border-color var(--o2-fast), box-shadow var(--o2-fast); }
-.o2-role:hover { border-color: var(--brand); box-shadow: 0 10px 26px -18px rgba(11, 42, 74, 0.45); }
-.o2-role b { display: block; color: var(--o2-ink); font-size: 1.05rem; }
-.o2-role span { display: block; margin-top: 4px; font-size: 0.95rem; color: var(--o2-muted); }
-.o2-role span::after { content: " →"; color: var(--brand); }
+.o2-rolebar { padding: 44px 0 52px; background: linear-gradient(180deg, #f5f8fc, #fff); border-bottom: 1px solid var(--o2-line); }
+.o2-rolebar-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 22px; }
+.o2-rolebar-head .o2-kicker { margin: 0; }
+.o2-rolebar-head h2 { margin: 0; font-family: "Sora", var(--font); font-size: clamp(1.3rem, 2vw, 1.7rem); color: var(--o2-ink); }
+.o2-rcs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.o2-rc { position: relative; display: flex; flex-direction: column; align-items: center; height: 100%; padding: 18px 12px 16px; border-radius: 18px; background: #fff; border: 1px solid var(--o2-line); text-align: center; text-decoration: none; box-shadow: 0 10px 24px -22px rgba(11, 42, 74, 0.5); transition: transform var(--o2-mid), box-shadow var(--o2-mid), border-color var(--o2-mid); }
+.o2-rc::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; border-radius: 18px 18px 0 0; background: var(--rc); }
+.o2-rc:hover, .o2-rc:focus-visible { transform: translateY(-4px); border-color: var(--rc); box-shadow: 0 22px 36px -24px color-mix(in srgb, var(--rc) 70%, transparent); }
+.o2-rc-pic { position: relative; display: block; width: 96px; height: 96px; margin-bottom: 12px; border-radius: 50%; background: color-mix(in srgb, var(--rc) 14%, #fff); }
+.o2-rc-pic img { display: block; width: 96px; height: 96px; border-radius: 50%; }
+.o2-rc-badge { position: absolute; right: -4px; bottom: -2px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--rc); color: #fff; box-shadow: 0 0 0 3px #fff; }
+.o2-rc-badge svg { width: 18px; height: 18px; }
+.o2-rc b { display: block; font-size: 0.98rem; line-height: 1.25; color: var(--o2-ink); }
+.o2-rc-line { display: block; margin: 4px 0 14px; font-size: 0.85rem; line-height: 1.35; color: var(--o2-muted); }
+.o2-rc-go { display: grid; place-items: center; width: 30px; height: 30px; margin-top: auto; border-radius: 50%; background: color-mix(in srgb, var(--rc) 12%, #fff); color: var(--rc); font-weight: 800; transform: translateY(6px); transition: background var(--o2-mid), color var(--o2-mid); }
+.o2-rc:hover .o2-rc-go { background: var(--rc); color: #fff; }
 
 /* ---------- closing ---------- */
 .o2-close { text-align: center; }
@@ -355,7 +365,7 @@
   .o2-thread { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .o2-thread li { border-left: 1px solid var(--o2-line) !important; border-radius: 0 !important; }
   .o2-thread li::after { display: none; }
-  .o2-roles { grid-template-columns: 1fr 1fr; }
+  .o2-rcs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .o2 main { font-size: 1.0625rem; }
@@ -376,7 +386,9 @@
   .o2-view dl, .o2-view dd { text-align: center; }
   .o2-view .o2-upd { margin-top: 4px; font-size: 0.56rem; }
   .o2-model .o2-view-hist { max-width: 200px; }
-  .o2-two, .o2-bento, .o2-roles { grid-template-columns: 1fr; }
+  .o2-two, .o2-bento { grid-template-columns: 1fr; }
+  .o2-rcs { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -16px; padding: 4px 16px 10px; }
+  .o2-rcs li { flex: 0 0 46%; scroll-snap-align: start; }
   .o2-b-wide { grid-column: auto; }
   .o2-thread { grid-template-columns: 1fr 1fr; }
   .o2-cta .container { flex-direction: column; align-items: flex-start; }
