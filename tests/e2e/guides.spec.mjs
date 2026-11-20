@@ -297,3 +297,79 @@ test("DRAW-command-search, DRAW-quick-swap, DRAW-clipboard, GS-shortcuts: the to
   await page.getByRole("searchbox").first().fill("Swap a symbol");
   await expect(page.locator("main").getByRole("link", { name: /Swap a symbol for another of its class/ }).first()).toBeVisible();
 });
+
+/*
+ * Documents around the P&ID (E1, 2026-11-20): the standard lists of every
+ * project, holds on the drawing and the legend sheet. Each opens from its
+ * address (the E1 Guide's Read more), shows its steps with the labels as on
+ * screen, and has Watch the lesson and Show me how in E1.
+ */
+const PID_DOCUMENTS = [
+  { id: "LIST-standard-lists", lesson: "list-standard-lists", says: ["Line list", "Valve list", "Equipment list", "Instrument index", "Hold list", "Excel (.xlsx)", "Saved query"] },
+  { id: "WF-hold-cloud", lesson: "wf-hold-cloud", says: ["Put on hold…", "Edit hold…", "Close hold", "HOLD H1", "Hold list", "Open holds", "Show holds"] },
+  { id: "DOC-legend-sheet", lesson: "doc-legend-sheet", says: ["Legend sheet", "Refresh", "Export PDF", "Symbols in use", "Line types in use", "Tag letters in use", "ISO 10628-2"] },
+];
+for (const { id, lesson, says } of PID_DOCUMENTS) {
+  test(`${id}: opens from its address with its steps, Watch the lesson and Show me how in E1`, async ({ page }) => {
+    const f = FEATURES.find((x) => x.id === id);
+    expect(f, `${id} is in the guides`).toBeTruthy();
+    expect(f.status).toBe("available");
+    await page.goto(`/${pageOf(f)}#${f.anchor}`);
+    const part = page.locator(`[id="${f.anchor}"]`);
+    await expect(part).toBeVisible();
+    await expectScrolledTo(part);
+    await expect(part.getByRole("heading", { level: 2 })).toHaveText(f.title);
+    await expect(part.locator(".g-status")).toHaveText("Available");
+    for (const text of says) await expect(part, `${id} says ${text}`).toContainText(text);
+    expect(await part.locator("table.g-steps tbody tr").count()).toBeGreaterThanOrEqual(6);
+    await expect(part.getByRole("link", { name: /^Watch the lesson/ })).toHaveAttribute("href", /training\.html\?course=/);
+    await expect(part.getByRole("link", { name: /^Show me how in E1/ })).toHaveAttribute("href", `https://app.lanxtor.com/?guide=${lesson}`);
+    /* Every Related link leads to a part that exists. */
+    for (const link of await part.locator(".g-related a").all()) {
+      const href = await link.getAttribute("href");
+      const [file, anchor] = href.startsWith("#") ? [pageOf(f), href.slice(1)] : href.split("#");
+      const html = await (await page.request.get("/" + file)).text();
+      expect(html, `${id}: ${href}`).toContain(`id="${anchor}"`);
+    }
+  });
+}
+
+test("the catalog finds the new features: hold cloud, legend sheet, standard lists", async ({ page }) => {
+  await page.goto("/guide-features.html");
+  for (const [words, id] of [["hold cloud", "WF-hold-cloud"], ["legend sheet", "DOC-legend-sheet"], ["standard lists", "LIST-standard-lists"]]) {
+    const f = FEATURES.find((x) => x.id === id);
+    await page.getByRole("searchbox").first().fill(words);
+    await expect(page.locator(`a[href="${f.page}"]`).first()).toBeVisible();
+  }
+});
+
+/*
+ * A screenshot that declares another shape than its file makes the page jump
+ * when it loads: a link to a part further down (the E1 Guide's Read more,
+ * guide-documents.html#doc-legend-sheet) then lands above or below its part.
+ */
+test("every guide screenshot declares the shape of its file, so the page does not jump when it loads", async ({ request }) => {
+  const fs = await import("node:fs");
+  const shapeOf = (file) => {
+    const b = fs.readFileSync(file);
+    const kind = b.toString("latin1", 12, 16);
+    if (kind === "VP8 ") return [b.readUInt16LE(26) & 0x3fff, b.readUInt16LE(28) & 0x3fff];
+    if (kind === "VP8X") return [b.readUIntLE(24, 3) + 1, b.readUIntLE(27, 3) + 1];
+    if (kind === "VP8L") { const bits = b.readUInt32LE(21); return [(bits & 0x3fff) + 1, ((bits >> 14) & 0x3fff) + 1]; }
+    return null;
+  };
+  const wrong = [];
+  let seen = 0;
+  for (const c of DATA.categories) {
+    const html = await (await request.get("/" + c.page)).text();
+    for (const m of html.matchAll(/<img src="(assets\/img\/guides\/[^"]+\.webp)"[^>]*?width="(\d+)" height="(\d+)"/g)) {
+      const real = shapeOf(new URL(`../../${m[1]}`, import.meta.url));
+      if (!real) continue;
+      seen += 1;
+      const declared = Number(m[2]) / Number(m[3]);
+      if (Math.abs(real[0] / real[1] - declared) / (real[0] / real[1]) > 0.02) wrong.push(`${c.page}: ${m[1]} says ${m[2]}×${m[3]}, is ${real[0]}×${real[1]}`);
+    }
+  }
+  expect(seen).toBeGreaterThan(50);
+  expect(wrong).toEqual([]);
+});

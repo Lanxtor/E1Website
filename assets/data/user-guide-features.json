@@ -4852,7 +4852,8 @@
     "LIST-new-query",
     "LIST-filter",
     "LIST-group-totals",
-    "LIB-company-library"
+    "LIB-company-library",
+    "LIST-standard-lists"
    ],
    "roles": "For me: may view the project. For this project: may configure the project. For the organization: may publish to the company library",
    "training": {
@@ -4863,6 +4864,33 @@
    "screenshots": [],
    "category": "lists",
    "page": "guide-lists.html#list-templates"
+  },
+  {
+   "id": "LIST-standard-lists",
+   "title": "The standard lists of every project: Line list, Valve list, Equipment list, Instrument index, Hold list",
+   "summary": "Every project has five lists that come with E1, under Query ▸ on any of its places, with their usual columns and nothing to save first.",
+   "anchor": "list-standard-lists",
+   "status": "available",
+   "roadmap": [
+    "M3.standard-lists"
+   ],
+   "checks": [],
+   "related": [
+    "LIST-new-query",
+    "LIST-templates",
+    "LIST-excel-export",
+    "DOC-list-document",
+    "WF-hold-cloud"
+   ],
+   "roles": "Everyone who can view the project",
+   "training": {
+    "topic": "The standard lists",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "lists",
+   "page": "guide-lists.html#list-standard-lists"
   },
   {
    "id": "LIST-edit-cell",
@@ -6227,6 +6255,32 @@
    "screenshots": [],
    "category": "documents",
    "page": "guide-documents.html#doc-hookup-drawing"
+  },
+  {
+   "id": "DOC-legend-sheet",
+   "title": "The legend sheet: the symbols, line types and tag letters a project uses",
+   "summary": "Right-click Deliverables → Legend sheet makes one generated drawing with every symbol the project's drawings use, with its name and standard, the line types and the tag letters; Refresh it and plot it.",
+   "anchor": "doc-legend-sheet",
+   "status": "available",
+   "roadmap": [
+    "M4.legend"
+   ],
+   "checks": [],
+   "related": [
+    "DOC-new-document",
+    "DOC-sheet-pdf",
+    "DOC-revisions",
+    "DRAW-place-symbol"
+   ],
+   "roles": "A project role that may create documents; everyone who can view the project may open and export it",
+   "training": {
+    "topic": "The legend sheet",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-legend-sheet"
   },
   {
    "id": "DOC-datasheet-designer",
@@ -12098,7 +12152,8 @@
     "WF-status-chip",
     "WF-value-status",
     "LIST-columns",
-    "WF-status-layer"
+    "WF-status-layer",
+    "WF-hold-cloud"
    ],
    "roles": "Put on hold (Lead engineer, Project administrator)",
    "training": {
@@ -12111,9 +12166,35 @@
    "page": "guide-workflow.html#wf-hold"
   },
   {
+   "id": "WF-hold-cloud",
+   "title": "Put a hold on the drawing: hold cloud, number and Hold list",
+   "summary": "Right-click a symbol → Put on hold… gives the hold a number and draws a hold cloud with its text around it; the Hold list lists every hold, and a revision counts those open.",
+   "anchor": "wf-hold-cloud",
+   "status": "available",
+   "roadmap": [
+    "33.hold-cloud"
+   ],
+   "checks": [],
+   "related": [
+    "WF-hold",
+    "WF-status-layer",
+    "LIST-standard-lists",
+    "DOC-sheet-revisions"
+   ],
+   "roles": "Put on hold (Lead engineer, Project administrator); everyone who can view the project sees the clouds and the Hold list",
+   "training": {
+    "topic": "Holds on the drawing",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-hold-cloud"
+  },
+  {
    "id": "WF-status-layer",
    "title": "Statuses and holds on the drawing",
-   "summary": "Layers ▸ Status tints each symbol on a 2D space by its status, with a legend at the bottom left; Layers ▸ Show holds marks every held item HOLD. Both are off until you turn them on, for you and that 2D space only.",
+   "summary": "Layers ▸ Status tints each symbol on a 2D space by its status, with a legend at the bottom left; Layers ▸ Show holds draws a hold cloud around every held item. Both are off until you turn them on, for you and that 2D space only.",
    "anchor": "wf-status-layer",
    "status": "available",
    "roadmap": [
@@ -12125,7 +12206,8 @@
    "related": [
     "WF-status-chip",
     "WF-hold",
-    "DRAW-layers"
+    "DRAW-layers",
+    "WF-hold-cloud"
    ],
    "roles": "Everyone who can view the project",
    "training": {
