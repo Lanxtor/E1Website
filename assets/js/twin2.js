@@ -1,9 +1,8 @@
 /*
  * Overview 2 hero (overview-2.html): the home page's platform (twin.js),
- * changed after the overview research: it plays once and then holds the
- * whole picture with every engineer connected (no restart to an empty
- * stage), Pause / Replay stops it at any time (WCAG 2.2.2), and the page's
- * "Pause animations" (overview2.js, event o2:motion) shows the end at once.
+ * the platform builds, every engineer joins, the whole picture holds for a
+ * few seconds and then it builds again, over and over (no buttons). With
+ * reduce motion or Save-Data (overview2.js) it shows the whole picture at once.
  *
  * Home page hero: the offshore platform as one model.
  *
@@ -163,18 +162,13 @@
     });
     t += 800;
     later(function () { who.forEach(function (x) { x.classList.remove("is-cur"); }); done(); }, t);
-    running = true; showBtn();
+    running = true;
   }
 
-  /* The whole picture at once: every part up, every engineer connected. */
-  var running = false;
-  var btn = document.querySelector("[data-twin-toggle]");
-  function showBtn() {
-    if (!btn) return;
-    btn.textContent = running ? "❚❚ Pause" : "↻ Replay";
-    btn.setAttribute("aria-label", running ? "Pause the platform animation" : "Replay the platform animation");
-  }
-  function done() { running = false; showBtn(); }
+  /* The whole picture holds for a moment, then the platform builds again. */
+  var running = false, HOLD_MS = 6000;
+  function done() { running = false; if (!quiet()) later(cycle, HOLD_MS); }
+  /* Reduce motion or Save-Data: the whole picture at once, every engineer connected. */
   function finish() {
     clear();
     parts.forEach(function (p) { p.classList.add("is-up", "is-set"); });
@@ -182,17 +176,16 @@
     state("is-built is-run");
     who.forEach(function (w) { w.classList.add("is-on"); w.classList.remove("is-cur", "is-upd"); });
     drawLeads();
-    done();
+    running = false;
   }
-  if (btn) btn.addEventListener("click", function () { if (running) finish(); else cycle(); });
   function quiet() { return window.E1O2 && window.E1O2.isPaused(); }
-  document.addEventListener("o2:motion", function (e) { if (e.detail && e.detail.paused) finish(); });
 
   window.addEventListener("resize", drawLeads);
   window.addEventListener("load", drawLeads);
   if (quiet()) finish(); else cycle();
-  // A hidden tab keeps no timers: the platform shows its end state when it is back.
+  // A hidden tab keeps no timers: the platform starts again when it is back.
   document.addEventListener("visibilitychange", function () {
-    if (document.hidden && running) finish();
+    if (quiet()) return;
+    if (document.hidden) finish(); else cycle();
   });
 })();

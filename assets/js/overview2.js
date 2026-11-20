@@ -2,8 +2,7 @@
  * Overview 2 (overview-2.html): clips, chapters, tabs and the quiet reveals.
  *
  * - Clips play only while on screen, muted and looping, and each has its own
- *   Pause / Play button (WCAG 2.2.2). "Pause animations" in the hero pauses
- *   every clip and the platform, and is remembered for the visit.
+ *   Pause / Play button (WCAG 2.2.2).
  * - With "reduce motion" or Save-Data nothing starts by itself: the still
  *   picture shows, and Play starts a clip.
  * - Chapters seek the Branches clip; the tabs switch the living diagram and
