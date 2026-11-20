@@ -2281,7 +2281,7 @@ code {
   padding-bottom: 56px;
 }
 
-.account-section + .account-section { padding-top: 8px; }
+.account-layout { scroll-margin-top: calc(var(--header-h) + 24px); }
 .account-section > h2 { font-size: 1.6rem; margin-bottom: 8px; }
 .section-note { margin-bottom: 24px; color: var(--text-muted); font-size: 0.98rem; }
 .sub-head { margin: 32px 0 14px; font-size: 1rem; }
@@ -2310,6 +2310,7 @@ code {
 
 /* Academy */
 .account-nav a.account-nav-sub { padding: 5px 14px 5px 28px; font-size: 0.88rem; }
+.account-nav:not(.is-academy) a.account-nav-sub { display: none; }
 .academy-block { scroll-margin-top: calc(var(--header-h) + 24px); }
 .course-list { display: grid; gap: 14px; }
 .account-section .card.course {

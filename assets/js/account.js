@@ -580,7 +580,7 @@
     renderPermissions(d);
     renderBilling(d);
     show("ready");
-    highlightNav();
+    openTab(!!location.hash);
   }
 
   /* ---------- behaviour ---------- */
@@ -691,19 +691,37 @@
     if (e.target.matches("[data-org-select]")) switchOrg(e.target.value);
   });
 
-  function highlightNav() {
-    var links = $all(".account-nav a");
-    if (!("IntersectionObserver" in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        links.forEach(function (a) {
-          a.toggleAttribute("aria-current", a.getAttribute("href") === "#" + entry.target.id);
-        });
-      });
-    }, { rootMargin: "-30% 0px -60% 0px" });
-    $all(".account-section").forEach(function (s) { io.observe(s); });
+  /*
+   * Each item of the menu on the left is a page of its own: only its section
+   * is shown. The address keeps the part (#licenses, #academy-notes), so a
+   * link, Back and Forward and a reload open the same page; a part inside a
+   * section (the Academy's Courses, Notes and bookmarks …) opens its section
+   * and scrolls to it.
+   */
+  function openTab(scroll) {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var target = id ? document.getElementById(id) : null;
+    var section = target && target.closest(".account-section");
+    if (!section) { section = $("#overview"); target = section; }
+    $all(".account-section").forEach(function (s) { s.hidden = s !== section; });
+    var nav = $(".account-nav");
+    nav.classList.toggle("is-academy", section.id === "academy");
+    $all(".account-nav a").forEach(function (a) {
+      var href = a.getAttribute("href");
+      var on = href === "#" + section.id || (target !== section && href === "#" + target.id);
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    var link = nav.querySelector('a[href="#' + section.id + '"]');
+    if (link && nav.scrollWidth > nav.clientWidth) {
+      nav.scrollLeft = Math.max(0, link.offsetLeft - nav.offsetLeft - 16);
+    }
+    if (!scroll) return;
+    if (target !== section) { target.scrollIntoView({ block: "start" }); return; }
+    var top = $(".account-layout").getBoundingClientRect().top;
+    if (top < 0 || top > window.innerHeight * 0.6) $(".account-layout").scrollIntoView({ block: "start" });
   }
+
+  window.addEventListener("hashchange", function () { openTab(true); });
 
   document.addEventListener("DOMContentLoaded", load);
 })();
