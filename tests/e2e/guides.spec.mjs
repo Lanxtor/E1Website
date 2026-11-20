@@ -184,7 +184,7 @@ test("DRAW-tags-labels, DRAW-attribute-labels, DRAW-select: labels typed over, d
   await expect(select).toContainText("Click a value in that list, for example Material");
   await expect(select).toContainText("Service, Nominal size, Fluid, Pipe class");
   await expect(select).toContainText("Heat tracing opens a list with None, Electric, Steam, Hot water and Hot oil");
-
+});
 
 test("DRAW-connector: the guide tells that the Connector routes the line, shows it first and is one step to undo", async ({ page }) => {
   const f = FEATURES.find((x) => x.id === "DRAW-connector");
