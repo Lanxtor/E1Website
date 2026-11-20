@@ -154,3 +154,42 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-clipboard: a symbol put on a pipe go
   const clipboard = page.locator("#draw-clipboard");
   await expect(clipboard).toContainText("Drag the copy onto a pipe and it goes into the line, connected on both sides");
 });
+
+test("DRAW-command-search, DRAW-quick-swap, DRAW-clipboard, GS-shortcuts: the tool keys, Ctrl+K, paste at the pointer and Swap symbol are in the guide, each with its lesson and Show me how in E1", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-command-search");
+  const search = page.locator("#draw-command-search");
+  await expectScrolledTo(search);
+  await expect(search.getByRole("heading", { level: 2 })).toHaveText("Tool keys and the command search (Ctrl+K)");
+  for (const [key, tool] of [["P", "Flow lines"], ["L", "Logic"], ["C", "Cable"], ["W", "Wire"], ["T", "Text"], ["G", "Tag"], ["A", "Add…"], ["B", "Frame"]]) {
+    await expect(search.locator("tr", { has: page.locator("kbd", { hasText: new RegExp(`^${key}$`) }) }).filter({ hasText: tool }), `${key} is ${tool}`).toHaveCount(1);
+  }
+  await expect(search).toContainText("Everything is listed before you type");
+  await expect(search).toContainText("Search symbols and commands…");
+  await expect(search).toContainText("Select something on the drawing first.");
+  await expect(search.getByRole("link", { name: /Watch the lesson/ })).toBeVisible();
+  await expect(search.getByRole("link", { name: /Show me how in E1/ })).toHaveAttribute("href", /\?guide=sheet-keys-search$/);
+  // The contents list of the page jumps to both new parts.
+  await page.locator('a[href="#draw-quick-swap"]').first().click();
+  const swap = page.locator("#draw-quick-swap");
+  await expectScrolledTo(swap);
+  await expect(swap.getByRole("heading", { level: 2 })).toHaveText("Swap a symbol for another of its class");
+  await expect(swap).toContainText("Globe valve, Ball valve and the other valves, all shown at once");
+  await expect(swap).toContainText("Both pipes are still connected; its name and tag have not changed");
+  await expect(swap.getByRole("link", { name: /Show me how in E1/ })).toHaveAttribute("href", /\?guide=sheet-quick-swap$/);
+  await expect(swap.getByRole("link", { name: /Watch the lesson/ })).toBeVisible();
+  const clipboard = page.locator("#draw-clipboard");
+  await expect(clipboard).toContainText("The copies land with their middle under the pointer, and the pipe between them is copied with them");
+  await expect(clipboard).toContainText("The copy lands where you right-clicked");
+  await expect(page.locator("#draw-symbol-menu")).toContainText("Search symbols and commands…");
+  // The shortcuts list has the keys, and its link opens the new part.
+  await page.goto("/guide-getting-started.html#gs-shortcuts");
+  const keys = page.locator("#gs-shortcuts");
+  await expect(keys.locator("tr", { hasText: "Draw Flow lines, Logic, Cable or Wire" })).toContainText("P, L, C, W");
+  await expect(keys.locator("tr", { hasText: "Search symbols and commands on the drawing" })).toContainText("Ctrl+K");
+  await keys.getByRole("link", { name: "Tool keys and the command search" }).click();
+  await expect(page).toHaveURL(/guide-drawing\.html#draw-command-search$/);
+  // Both are found in All features.
+  await page.goto("/guide-features.html");
+  await page.getByRole("searchbox").first().fill("Swap a symbol");
+  await expect(page.locator("main").getByRole("link", { name: /Swap a symbol for another of its class/ }).first()).toBeVisible();
+});

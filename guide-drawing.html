@@ -94,6 +94,7 @@
           <li><a href="#draw-toolbar">The drawing&#x27;s bar, palette and Selection panel</a></li>
           <li><a href="#draw-modes">Design, Review and Simulate</a></li>
           <li><a href="#draw-palette">Pinned and Recent in the palette</a></li>
+          <li><a href="#draw-command-search">Tool keys and the command search (Ctrl+K)</a></li>
           <li><a href="#draw-aids">Snap, Grid and Ortho</a></li>
           <li><a href="#draw-place-symbol">Place a symbol</a></li>
           <li><a href="#draw-object-types">Add other objects from the Add window</a></li>
@@ -113,6 +114,7 @@
           <li><a href="#draw-off-page">Off-page connectors and Continue on 2D space</a></li>
           <li><a href="#draw-pid-from-pfd">Make a P&amp;ID from a PFD</a></li>
           <li><a href="#draw-symbol-menu">The right-click menus on the 2D space, and Replace</a></li>
+          <li><a href="#draw-quick-swap">Swap a symbol for another of its class</a></li>
           <li><a href="#draw-comment-here">Pin a message here, on the drawing</a></li>
           <li><a href="#draw-standards">Process and instrument symbols</a></li>
           <li><a href="#draw-drop-from-explorer">Place an object from the explorer on a 2D space or a line</a></li>
@@ -151,7 +153,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>55 features</span><span>53 available</span></div>
+        <div class="g-meta"><span>57 features</span><span>55 available</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -296,6 +298,49 @@
   <p class="g-note">A module is read again from the library when you place it from the palette: one that cannot be placed here any more says why.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-module-place">Place a module</a> · <a href="guide-drawing.html#draw-toolbar">The bar, palette and Selection panel</a></p>
   <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-03">Watch the lesson: Pinned and Recent · Placing symbols</a> <span class="muted">(Your first P&amp;ID · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-place-symbol" target="_blank" rel="noopener">Show me how in E1: Place a symbol</a></p>
+</section>
+
+<section class="g-feature" id="draw-command-search">
+  <h2>Tool keys and the command search (Ctrl+K)</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-command-search</span><span>Roadmap M3.16</span><span>Review checks B4</span></div>
+  <p class="g-summary">Two ways to draw without reaching for the palette. One plain key arms each drawing tool. And <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>) opens one list of every drawing command and every symbol: the whole list is shown at once, typing narrows it, a symbol you choose is placed and a command you choose runs.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The 2D space, in <span class="ui">Design</span>; the list also opens from the right-click menu of empty 2D space: <span class="ui">Search symbols and commands…</span></dd>
+    <dt>Who</dt><dd>Everyone can open the list; drawing needs an Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A 2D space is open and was the last thing you clicked.</dd>
+  </dl>
+  <h3>The tool keys</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Key</th><th>Tool</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>V</kbd>, <kbd>H</kbd></td><td><span class="ui">Select</span>, <span class="ui">Pan</span></td><td>Back to selecting; drag to move the view.</td></tr>
+      <tr><td><kbd>P</kbd></td><td><span class="ui">Flow lines</span></td><td>The Connector draws a pipe: click from point to point, double-click or <kbd>Esc</kbd> ends the run.</td></tr>
+      <tr><td><kbd>L</kbd></td><td><span class="ui">Logic</span></td><td>The Connector draws a logic signal.</td></tr>
+      <tr><td><kbd>C</kbd></td><td><span class="ui">Cable</span></td><td>The Connector draws a cable.</td></tr>
+      <tr><td><kbd>W</kbd></td><td><span class="ui">Wire</span></td><td>The Connector draws a wire.</td></tr>
+      <tr><td><kbd>T</kbd></td><td><span class="ui">Text</span></td><td>Click the 2D space to place a note and type it.</td></tr>
+      <tr><td><kbd>G</kbd></td><td><span class="ui">Tag</span></td><td>Opens the Tag dialog of the selected symbol; with nothing selected, the next symbol you click.</td></tr>
+      <tr><td><kbd>A</kbd></td><td><span class="ui">Add…</span></td><td>Opens the Add window.</td></tr>
+      <tr><td><kbd>B</kbd></td><td><span class="ui">Frame</span></td><td>Arms the rectangle frame of the system or area selected in the explorer; without one it does nothing.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Each key is shown in its button's tooltip, in brackets, and in <span class="ui">Help → Keyboard shortcuts</span>. The keys are plain keys: <kbd>Ctrl+C</kbd> is still Copy and <kbd>Shift+C</kbd> is still Changes since. They never fire while you type in a field (a note, a search box, the chat), in a dialog or in a menu, and a key pressed in <span class="ui">Review</span> arms its tool and shows <span class="ui">Design</span> again.</p>
+  <h3>Steps: the command search</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the 2D space and press <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>).</td><td>The list <span class="ui">Search symbols and commands</span> opens over the drawing: <span class="ui">Commands</span> first, each with its key, then <span class="ui">Symbols</span>, each with its class. Everything is listed before you type.</td></tr>
+      <tr><td>2</td><td>Type <kbd>globe</kbd>.</td><td>Only the rows with that word stay. Several words narrow further; clearing the box shows the whole list again.</td></tr>
+      <tr><td>3</td><td>Press <kbd>↓</kbd> or <kbd>↑</kbd> to <span class="ui">Globe valve</span>, then <kbd>Enter</kbd> (or click the row).</td><td>The list closes and the Place tool is armed with the globe valve: the status bar says <span class="ui">Place asset</span>.</td></tr>
+      <tr><td>4</td><td>Click where the valve starts and where it ends, or click a pipe.</td><td>The valve is placed, as from <span class="ui">Add…</span>; it is also among the palette's recent picks.</td></tr>
+      <tr><td>5</td><td>Press <kbd>Ctrl+K</kbd>, type <kbd>cable</kbd> and press <kbd>Enter</kbd>.</td><td>The command runs: the Connector is armed with Cable.</td></tr>
+      <tr><td>6</td><td>With nothing selected, press <kbd>Ctrl+K</kbd> and look at <span class="ui">Copy</span>.</td><td>It is greyed and says why: "Select something on the drawing first." A greyed row cannot be chosen.</td></tr>
+      <tr><td>7</td><td>Press <kbd>Esc</kbd>, or click outside the list.</td><td>The list closes and nothing changes.</td></tr>
+    </tbody>
+  </table></div>
+  <p>The commands are the drawing's own: the tools, Undo and Redo, Cut, Copy, Paste, Duplicate, Select all, Delete, Flip, Rotate, the zooms, Ortho, Snap and Grid (each shows On or Off), Markup, Changes since… and Swap symbol…. The symbols are those of the 2D space's diagram type.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-palette">The palette</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-getting-started.html#gs-shortcuts">Keyboard shortcuts</a></p>
+  <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-06">Watch the lesson: How connections stay correct · Tool keys and the command search</a> <span class="muted">(Your first P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-keys-search" target="_blank" rel="noopener">Show me how in E1: Tool keys and the command search</a></p>
 </section>
 
 <section class="g-feature" id="draw-aids">
@@ -443,7 +488,7 @@
     </tbody>
   </table></div>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a> · <a href="guide-drawing.html#draw-arrange">Move, flip, resize and align</a></p>
-  <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-06">Watch the lesson: How connections stay correct</a> <span class="muted">(Your first P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-place-symbol" target="_blank" rel="noopener">Show me how in E1: Place a symbol</a></p>
+  <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-06">Watch the lesson: How connections stay correct · Tool keys and the command search</a> <span class="muted">(Your first P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-place-symbol" target="_blank" rel="noopener">Show me how in E1: Place a symbol</a></p>
 </section>
 
 <section class="g-feature" id="draw-select">
@@ -506,7 +551,7 @@
 
 <section class="g-feature" id="draw-clipboard">
   <h2>Undo, redo, copy, paste and duplicate</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4, M3.13</span><span>Review checks A4, B5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4, M3.13, M3.16</span><span>Review checks A4, B5</span></div>
   <p class="g-summary">Copy, paste and duplicate make new objects with new tags; cut removes them to the Deleted bin. A copy pastes on any sheet, in the same project or another one, in any E1 window or tab, and what a paste makes waits in the explorer in <span class="ui">Copy temp</span> until you move it. Undo and redo work step by step across the drawing, the explorer and attributes, one history per person per project.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar (<span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>), the <span class="ui">Edit</span> menu, and the right-click menus</dd>
@@ -523,12 +568,16 @@
       <tr><td>4</td><td>In the explorer, open <span class="ui">Assets</span>.</td><td>The copy is in <span class="ui">Copy temp</span>, last in Assets, with its own folder icon. Drag it where it belongs: once Copy temp is empty it is no longer shown.</td></tr>
       <tr><td>5</td><td>Copy a pump that is in an area, open a sheet of another project (in this window or another tab) and press <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>The copy, with the pump's values, is in Assets ▸ Copy temp of that project, and a copy of its area in Areas ▸ Copy temp, the pump in it. Systems, unit operations and processes come along the same way.</td></tr>
       <tr><td>6</td><td>Select a valve and press <kbd>Ctrl+D</kbd> (<kbd>⌘D</kbd>) or click <span class="ui">Duplicate</span>.</td><td>A duplicate with a new name appears beside it.</td></tr>
-      <tr><td>7</td><td>Select the copy and press <kbd>Ctrl+X</kbd> (<kbd>⌘X</kbd>).</td><td>It leaves the 2D space and goes to the Deleted bin.</td></tr>
-      <tr><td>8</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
+      <tr><td>7</td><td>Select a pump and the valve piped to it, press <kbd>Ctrl+C</kbd> (<kbd>⌘C</kbd>), move the pointer to an empty spot of the 2D space and press <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>The copies land with their middle under the pointer, and the pipe between them is copied with them. Press <kbd>Ctrl+V</kbd> again without moving: the next copy lands one metre on, so no copy hides another.</td></tr>
+      <tr><td>8</td><td>Select the valve, move the pointer away and press <kbd>Ctrl+D</kbd> (<kbd>⌘D</kbd>).</td><td>The duplicate lands under the pointer.</td></tr>
+      <tr><td>9</td><td>Right-click an empty spot and choose <span class="ui">Paste</span>.</td><td>The copy lands where you right-clicked.</td></tr>
+      <tr><td>10</td><td>Select the copy and press <kbd>Ctrl+X</kbd> (<kbd>⌘X</kbd>).</td><td>It leaves the 2D space and goes to the Deleted bin.</td></tr>
+      <tr><td>11</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small" style="max-width:190px"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu with Undo and Redo and their shortcuts" width="380" height="196" loading="lazy"><figcaption>The Edit menu: Undo and Redo; cut, copy, paste and duplicate are on their keys and in the right-click menu.</figcaption></figure>
   <p>A copy takes its original's design values (calculated values come from their rules again), the relationships between the objects you copied, and the parts of an object that are not drawn. Copy every symbol of a placed module and the copies are a new instance of it: <a href="#draw-module-instance">A placed module on its objects</a>. The values come in a second step after the copy is made: <kbd>Ctrl+Z</kbd> takes them back first.</p>
+  <p>Where a copy lands: under the pointer when you have moved it on the 2D space since your last click there; one metre to the right and below the original when the pointer is still where you clicked (click a symbol, then <kbd>Ctrl+D</kbd>) or is off the 2D space (the <span class="ui">Edit</span> menu, the buttons of Format and arrange).</p>
   <p>Every paste puts what it makes in <span class="ui">Copy temp</span> of its section (Assets ▸ Copy temp, Systems ▸ Copy temp, Areas ▸ Copy temp, …); a duplicate stays beside its original in the tree. Pasted from a project you cannot open, the copies are made without the originals' values. In another browser, paste reads the copy from the system clipboard, and the browser may ask you to allow that.</p>
   <p class="g-note"><kbd>Ctrl+C</kbd>, <kbd>Ctrl+X</kbd>, <kbd>Ctrl+V</kbd>, <kbd>Ctrl+D</kbd> and <kbd>Ctrl+A</kbd> (<kbd>⌘</kbd> on a Mac) act on the 2D space only when the 2D space was the last pane you clicked. After a click in the explorer, click the 2D space first. Paste in the right-click menu is greyed out until you have copied something. To undo a change of someone else's, or an older change, use History (<a href="guide-collaboration.html#col-history">History and undo</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a> · <a href="guide-collaboration.html#col-history">History and undo</a></p>
@@ -852,13 +901,39 @@
       <tr><td>5</td><td>Right-click Pump1 → <span class="ui">Shape</span> ▸ <span class="ui">Replace…</span>.</td><td>The asset window opens, titled "Replace", with a <span class="ui">Replace</span> button.</td></tr>
       <tr><td>6</td><td>Choose another pump symbol and click <span class="ui">Replace</span>.</td><td>The symbol on the 2D space changes. The object keeps its name, tag and connections.</td></tr>
       <tr><td>7</td><td>Right-click a pipe.</td><td>The line menu opens, with <span class="ui">Show in tree</span>, the <span class="ui">Flow</span> ▸ submenu and <span class="ui">Flip direction</span>. <span class="ui">Show in tree</span> selects the line's pipe run in the explorer, from any of its segments, also with the whole run selected.</td></tr>
-      <tr><td>8</td><td>Right-click an empty spot of the 2D space.</td><td>A short menu with <span class="ui">Paste</span>, <span class="ui">Select all</span>, <span class="ui">Pin a message here</span>, <span class="ui">Check piping…</span> and <span class="ui">Detect pipelines…</span>.</td></tr>
+      <tr><td>8</td><td>Right-click an empty spot of the 2D space.</td><td>A short menu with <span class="ui">Paste</span> (the copy lands where you right-clicked), <span class="ui">Select all</span>, <span class="ui">Search symbols and commands…</span>, <span class="ui">Pin a message here</span>, <span class="ui">Check piping…</span> and <span class="ui">Detect pipelines…</span>.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small" style="max-width:179px"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol: Cut, Copy, Paste, Duplicate, then Open with a submenu arrow, Pin a message here, Flow with a submenu arrow, Flip and Shape with submenu arrows, Save as module…, Branch with a submenu arrow, and Delete last" width="358" height="786" loading="lazy"><figcaption>The symbol menu, grouped, with Delete last.</figcaption></figure>
   <p class="g-note"><span class="ui">Open</span> ▸ <span class="ui">Data sheet</span> opens the object on its attributes view, as the same item in the explorer does; <span class="ui">Open</span> ▸ <span class="ui">Datasheet</span> opens the formatted datasheet document. Deep view is a placeholder tab today.</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Pin a message here</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-arrange">Flip</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-documents.html#doc-datasheet">Datasheets</a></p>
-  <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-09">Watch the lesson: Right-click menus and Replace</a> <span class="muted">(Your first P&amp;ID · 5 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-right-click" target="_blank" rel="noopener">Show me how in E1: Right-click menus and Replace</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Pin a message here</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-arrange">Flip</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-documents.html#doc-datasheet">Datasheets</a> · <a href="guide-drawing.html#draw-quick-swap">Swap a symbol</a></p>
+  <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-09">Watch the lesson: Right-click menus and Replace · Swapping a symbol in place</a> <span class="muted">(Your first P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-right-click" target="_blank" rel="noopener">Show me how in E1: Right-click menus and Replace</a></p>
+</section>
+
+<section class="g-feature" id="draw-quick-swap">
+  <h2>Swap a symbol for another of its class</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-quick-swap</span><span>Roadmap M3.16</span><span>Review checks B4</span></div>
+  <p class="g-summary">A gate valve that should be a globe valve is changed in two clicks. One selected symbol shows a small round <span class="ui">Swap symbol</span> control beside it; it lists the other symbols of the same class, and the one you choose takes its place. The object, its name and tag, its values and the pipes on its nozzles stay.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Beside the selected symbol on the 2D space, at its top right; also <span class="ui">Swap symbol…</span> in the command search (<kbd>Ctrl+K</kbd>)</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A 2D space with a piped valve is open, with <span class="ui">Select</span> on.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click a gate valve that has a pipe on each side.</td><td>It is selected, and <span class="ui">Swap symbol</span> shows beside it.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Swap symbol</span>.</td><td>A list opens under it, headed <span class="ui">Valve</span>: Globe valve, Ball valve and the other valves, all shown at once. The gate valve itself is not in it.</td></tr>
+      <tr><td>3</td><td>Type <kbd>globe</kbd>.</td><td>The list narrows to the rows with that word.</td></tr>
+      <tr><td>4</td><td>Press <kbd>Enter</kbd>, or click <span class="ui">Globe valve</span>.</td><td>The valve is drawn as a globe valve in the same place. Both pipes are still connected; its name and tag have not changed; in the explorer it is the same object.</td></tr>
+      <tr><td>5</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The gate valve is back.</td></tr>
+      <tr><td>6</td><td>Select two symbols, then a pipe, then a note.</td><td><span class="ui">Swap symbol</span> is not shown: it is for one symbol.</td></tr>
+    </tbody>
+  </table></div>
+  <p>The list holds the symbols of the same class that the 2D space's diagram type draws. A symbol that is alone in its class has no control. For a symbol of another class, right-click the symbol → <span class="ui">Shape</span> ▸ <span class="ui">Replace…</span> (<a href="#draw-symbol-menu">The right-click menus, and Replace</a>). The control stays out of the way while another tool is armed or while you drag.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-symbol-menu">Right-click menus and Replace</a> · <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-command-search">Tool keys and the command search</a></p>
+  <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-09">Watch the lesson: Right-click menus and Replace · Swapping a symbol in place</a> <span class="muted">(Your first P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-quick-swap" target="_blank" rel="noopener">Show me how in E1: Swap a symbol for another of its class</a></p>
 </section>
 
 <section class="g-feature" id="draw-comment-here">
