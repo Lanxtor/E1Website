@@ -1,0 +1,182 @@
+/*
+ * Overview 2 (overview-2.html): the overview page designed from the research.
+ * A visitor reads the hero, watches the platform play once and hold, pauses
+ * every animation, plays and pauses a clip of E1, jumps through the Branches
+ * clip by its chapters, switches the living diagram and Alex's modes (mouse
+ * and arrow keys), and uses the on-this-page bar. With reduce motion or
+ * Save-Data nothing starts by itself.
+ */
+import { test, expect } from "./fixtures.mjs";
+
+const CLIPS = [
+  "web-overview-legacy-import", "web-overview-one-model", "web-overview-branches",
+  "web-overview-animate-pid", "web-overview-animate-circuit", "web-overview-alex",
+  "web-overview-feed-to-wiring", "web-overview-checks-history"
+];
+
+const playing = (v) => v.evaluate((el) => !el.paused && el.readyState > 2);
+
+test("Overview 2: one checkable claim in the hero, and the platform plays once and holds", async ({ page }) => {
+  await page.goto("/overview-2.html");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Change a tag once. Every discipline sees it.");
+  await expect(page.getByRole("link", { name: "Open the sample project" }).first()).toHaveAttribute("href", "login.html#signup");
+  const twin = page.locator("[data-twin]");
+  const toggle = page.locator("[data-twin-toggle]");
+  await expect(toggle).toHaveText("❚❚ Pause");
+  // Every engineer joins, then the picture holds instead of starting again.
+  await expect(twin.locator(".tw-who.is-on")).toHaveCount(5, { timeout: 45_000 });
+  await expect(toggle).toHaveText("↻ Replay", { timeout: 10_000 });
+  await page.waitForTimeout(5000);
+  await expect(twin.locator(".tw-who.is-on")).toHaveCount(5);
+  // Replay starts it again from the first part.
+  await toggle.click();
+  await expect(toggle).toHaveText("❚❚ Pause");
+  await expect(twin.locator(".tw-who.is-on")).toHaveCount(0);
+  // Pause shows the whole picture at once.
+  await toggle.click();
+  await expect(twin.locator(".tw-who.is-on")).toHaveCount(5);
+  await expect(toggle).toHaveText("↻ Replay");
+});
+
+test("Overview 2: a clip of E1 plays while on screen, and its Pause button stops it", async ({ page }) => {
+  await page.goto("/overview-2.html");
+  const fig = page.locator("#import [data-clip]");
+  await fig.scrollIntoViewIfNeeded();
+  const video = fig.locator("video");
+  await expect.poll(() => playing(video), { timeout: 15_000 }).toBe(true);
+  const button = fig.getByRole("button", { name: /^Pause the clip/ });
+  await button.click();
+  await expect.poll(() => video.evaluate((el) => el.paused)).toBe(true);
+  await expect(fig.getByRole("button", { name: /^Play the clip/ })).toHaveText("▶ Play");
+  // Scrolled away and back, a clip the visitor paused stays paused.
+  await page.locator("#secure").scrollIntoViewIfNeeded();
+  await fig.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(800);
+  expect(await video.evaluate((el) => el.paused)).toBe(true);
+  await fig.getByRole("button", { name: /^Play the clip/ }).click();
+  await expect.poll(() => playing(video), { timeout: 10_000 }).toBe(true);
+});
+
+test("Overview 2: Pause animations stops the platform and every clip, and is kept on reload", async ({ page }) => {
+  await page.goto("/overview-2.html");
+  const all = page.locator("[data-motion-toggle]");
+  await all.click();
+  await expect(all).toHaveText("▶ Play animations");
+  await expect(all).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("[data-twin] .tw-who.is-on")).toHaveCount(5);
+  const fig = page.locator("#import [data-clip]");
+  await fig.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(1200);
+  expect(await fig.locator("video").evaluate((el) => el.paused)).toBe(true);
+  await page.reload();
+  await expect(page.locator("[data-motion-toggle]")).toHaveText("▶ Play animations");
+  await expect(page.locator("[data-twin] .tw-who.is-on")).toHaveCount(5);
+  // Play animations starts the clip that is on screen.
+  await page.locator("#import [data-clip]").scrollIntoViewIfNeeded();
+  await page.locator("[data-motion-toggle]").first().evaluate((b) => b.click());
+  await expect.poll(() => playing(page.locator("#import video")), { timeout: 15_000 }).toBe(true);
+});
+
+test("Overview 2: the chapters of the Branches clip jump to their step", async ({ page }) => {
+  await page.goto("/overview-2.html#branches");
+  const chapters = page.getByLabel("Chapters of the clip");
+  const buttons = chapters.getByRole("button");
+  await expect(buttons).toHaveCount(4);
+  const third = buttons.nth(2);
+  const t = Number(await third.getAttribute("data-t"));
+  expect(t).toBeGreaterThan(0);
+  await third.click();
+  await expect(third).toHaveAttribute("aria-pressed", "true");
+  const at = await page.locator("#clip-branches video").evaluate((v) => v.currentTime);
+  expect(at).toBeGreaterThanOrEqual(t - 0.1);
+  await expect(buttons.first()).toHaveAttribute("aria-pressed", "false");
+  await buttons.first().click();
+  await expect(buttons.first()).toHaveAttribute("aria-pressed", "true");
+});
+
+test("Overview 2: the living diagram and Alex's modes switch by click and by arrow keys", async ({ page }) => {
+  await page.goto("/overview-2.html#living");
+  const pid = page.getByRole("tab", { name: "P&ID" });
+  const circuit = page.getByRole("tab", { name: "Circuit diagram" });
+  await expect(pid).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("#panel-pid")).toBeVisible();
+  await circuit.click();
+  await expect(page.locator("#panel-circuit")).toBeVisible();
+  await expect(page.locator("#panel-pid")).toBeHidden();
+  await expect.poll(() => playing(page.locator("#panel-circuit video")), { timeout: 15_000 }).toBe(true);
+  await circuit.press("ArrowLeft");
+  await expect(pid).toBeFocused();
+  await expect(page.locator("#panel-pid")).toBeVisible();
+  expect(await page.locator("#panel-circuit video").evaluate((v) => v.paused)).toBe(true);
+
+  const modes = page.getByRole("tablist", { name: "Alex's modes" });
+  await modes.scrollIntoViewIfNeeded();
+  await modes.getByRole("tab", { name: "Agent" }).click();
+  await expect(page.getByRole("heading", { name: "Agent: changes, on a branch." })).toBeVisible();
+  await expect(page.getByText("✕ Not moved: the arrangement is protected")).toBeVisible();
+  await modes.getByRole("tab", { name: "Agent" }).press("ArrowRight");
+  await expect(page.getByRole("heading", { name: "Plan: proposes first." })).toBeVisible();
+  await modes.getByRole("tab", { name: "Plan" }).press("Home");
+  await expect(page.getByRole("heading", { name: "Ask: answers only." })).toBeVisible();
+});
+
+test("Overview 2: the on-this-page bar takes the visitor to a section and marks it", async ({ page }) => {
+  await page.goto("/overview-2.html");
+  const bar = page.getByRole("navigation", { name: "On this page" });
+  await expect(bar.getByRole("link")).toHaveCount(11);
+  await bar.getByRole("link", { name: "FEED to wiring" }).click();
+  await expect(page).toHaveURL(/#wiring$/);
+  await expect(page.getByRole("heading", { name: "One instrument, from the P&ID to the terminal." })).toBeInViewport();
+  await expect(bar.getByRole("link", { name: "FEED to wiring" })).toHaveAttribute("aria-current", "true");
+  await bar.getByRole("link", { name: "Secure and open" }).click();
+  await expect(page.getByRole("heading", { name: "Locked down to the object. Open at the edges." })).toBeInViewport();
+});
+
+test("Overview 2: every clip, still and device screen is there, and nothing scrolls sideways", async ({ page, request }) => {
+  await page.goto("/overview-2.html");
+  for (const name of CLIPS) {
+    for (const ext of [".webm", ".web.mp4", ".poster.webp"]) {
+      const res = await request.get(`/assets/clips/overview2/${name}${ext}`);
+      expect(res.status(), `${name}${ext}`).toBe(200);
+    }
+    await expect(page.locator(`video[poster$="${name}.poster.webp"]`)).toHaveCount(1);
+  }
+  await expect(page.locator("img[src$='missing.svg']")).toHaveCount(0);
+  for (const img of await page.locator("#mobile img, [data-twin] img").all()) {
+    await img.scrollIntoViewIfNeeded();
+    await expect.poll(() => img.evaluate((i) => i.complete && i.naturalWidth > 0)).toBe(true);
+  }
+  const wide = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+  expect(wide).toBeLessThanOrEqual(0);
+});
+
+test.describe("with reduce motion on", () => {
+  test.use({ reducedMotion: "reduce" });
+  test("Overview 2: the platform shows its end at once and no clip starts by itself", async ({ page }) => {
+    await page.goto("/overview-2.html");
+    await expect(page.locator("[data-twin] .tw-who.is-on")).toHaveCount(5);
+    await expect(page.locator("[data-twin-toggle]")).toHaveText("↻ Replay");
+    const fig = page.locator("#import [data-clip]");
+    await fig.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1500);
+    expect(await fig.locator("video").evaluate((el) => el.paused)).toBe(true);
+    // The still and its Play button are there; Play starts the clip.
+    await fig.getByRole("button", { name: /^Play the clip/ }).click();
+    await expect.poll(() => playing(fig.locator("video")), { timeout: 15_000 }).toBe(true);
+    // The one-model views are all shown, not waiting for a reveal.
+    await expect(page.locator(".o2-model")).not.toHaveClass(/is-wait/);
+  });
+});
+
+test("Overview 2: with Save-Data on, clips show their still until the visitor presses Play", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "connection", { value: { saveData: true }, configurable: true });
+  });
+  await page.goto("/overview-2.html");
+  const fig = page.locator("#wiring [data-clip]");
+  await fig.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(1500);
+  expect(await fig.locator("video").evaluate((el) => el.paused)).toBe(true);
+  await fig.getByRole("button", { name: /^Play the clip/ }).click();
+  await expect.poll(() => playing(fig.locator("video")), { timeout: 15_000 }).toBe(true);
+});
