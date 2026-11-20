@@ -358,7 +358,10 @@
   /*
    * login.html: no password is typed here. "Continue" sends the browser to the
    * E1 server's sign-in (Microsoft Entra External ID), which returns to
-   * account.html signed in. Sign up uses the same page of the provider.
+   * account.html signed in. Sign up uses the same page of the provider: Create
+ * your account makes the account only (E1 shows its welcome page until the
+ * person joins a team or starts a trial); Start your free 30-day trial adds
+ * trial=1, and the account starts with its trial organization.
    */
   function initAuthTabs() {
     var box = document.querySelector("[data-auth]");
@@ -369,6 +372,8 @@
     var title = box.querySelector("[data-auth-title]");
     var lead = box.querySelector("[data-auth-lead]");
     var submit = box.querySelector("[data-auth-submit]");
+    var trial = box.querySelector("[data-auth-trial]");
+    var later = box.querySelector("[data-auth-later]");
     var notice = box.querySelector("[data-auth-notice]");
     var kindBox = box.querySelector("[data-signup-kind]");
     var kinds = box.querySelectorAll("[data-kind]");
@@ -396,8 +401,11 @@
         ? T("Sign in to see your licenses, usage, projects and downloads.")
         : uni
           ? T("For teaching: Editor and Viewer licenses by the month, for as long as you want, paid by your university or by you, by card.")
-          : T("Create your account and start your free 30-day trial, for you and your team.");
-      submit.textContent = !signup ? T("Continue to sign in") : uni ? T("Continue with your university email") : T("Start your free 30-day trial");
+          : T("Create your E1 account. Join your team when they invite you, or start your free 30-day trial, for you and your team.");
+      // Sign up creates the account only; the trial is the person's own choice, here or later in E1.
+      submit.textContent = !signup ? T("Continue to sign in") : uni ? T("Continue with your university email") : T("Create your account");
+      if (trial) trial.hidden = !signup || uni;
+      if (later) later.hidden = !signup || uni;
       // Sign up: the panel next to the form, for a trial or for a university.
       var promo = document.querySelector("[data-trial-promo]");
       var uniPromo = document.querySelector("[data-uni-promo]");
@@ -416,6 +424,10 @@
         if (email) url += "&login_hint=" + encodeURIComponent(email);
       }
       submit.setAttribute("href", url || "account.html?demo=1");
+      if (trial) {
+        var trialUrl = api && !api.isDemo() && api.loginUrl("signup", returnTo && new URL(returnTo, location.href).href);
+        trial.setAttribute("href", trialUrl ? trialUrl + "&trial=1" : "account.html?demo=1");
+      }
       var blocked = uni && verdict && ["rejected", "public-mail"].indexOf(verdict) >= 0;
       submit.classList.toggle("is-disabled", Boolean(blocked));
       submit.setAttribute("aria-disabled", blocked ? "true" : "false");
