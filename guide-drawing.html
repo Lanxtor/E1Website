@@ -178,7 +178,7 @@
 
 <section class="g-feature" id="draw-sheet-view">
   <h2>Open a 2D space, zoom and pan</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-sheet-view</span><span>Roadmap M3.2, M3.11</span><span>Review check B1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-sheet-view</span><span>Roadmap M3.2, M3.11, M3.21</span><span>Review check B1</span></div>
   <p class="g-summary">A 2D space opens in its own tab as a drawing. You zoom with the mouse wheel or the zoom controls, and pan with a drag, the Pan tool or the Space bar. Symbols and text stay sharp at every zoom.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Double-click a 2D space in the explorer, or click its tab. Zoom: the zoom controls at the right end of the status bar under the 2D space, the mouse wheel and the keys.</dd>
@@ -198,6 +198,7 @@
       <tr><td>7</td><td>Drag with the middle mouse button, or with the right button held down.</td><td>The drawing pans, whatever tool is active. A right-click without moving opens a menu instead.</td></tr>
       <tr><td>8</td><td>Right-click empty space and choose <span class="ui">Fit drawing</span>.</td><td>The whole drawing is shown, as with the status bar button.</td></tr>
       <tr><td>8</td><td>Hold <kbd>Shift</kbd> and turn the mouse wheel.</td><td>The drawing pans sideways.</td></tr>
+      <tr><td>9</td><td>On a touch screen, put two fingers on the drawing and move them apart or together; then move both the same way.</td><td>The drawing zooms about the place between your fingers, and pans with them. Nothing is selected or moved. One finger works as the mouse does: a tap selects, a drag moves, and the grips of a selected symbol are larger and sit just outside it.</td></tr>
       <tr><td>9</td><td>Click <span class="ui">Pan</span> in the palette (or press <kbd>H</kbd>), then drag with the left button.</td><td>The status bar reads <span class="ui">Pan</span>, and a left-drag pans. Press <kbd>V</kbd> or click <span class="ui">Select</span> to go back to selecting.</td></tr>
       <tr><td>10</td><td>With <span class="ui">Select</span> active, hold <kbd>Space</kbd> and drag.</td><td>The drawing pans while Space is held.</td></tr>
     </tbody>
@@ -302,16 +303,19 @@
 
 <section class="g-feature" id="draw-aids">
   <h2>Snap, Grid and Ortho</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-aids</span><span>Roadmap M3.3</span><span>Review check B4</span></div>
-  <p class="g-summary">Three drawing aids help you draw clean P&amp;IDs: a grid, snapping of line ends onto nozzles, and lines that stay horizontal or vertical. They are your own settings and stay as you left them after a reload.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-aids</span><span>Roadmap M3.3, M3.21</span><span>Review check B4</span></div>
+  <p class="g-summary">Three drawing aids help you draw clean P&amp;IDs: a grid, Snap, which puts what you place, move or draw on the grid, onto nozzles and line ends and in line with other symbols, and lines that stay horizontal or vertical. They are your own settings and stay as you left them after a reload.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The toggles <span class="ui">Snap</span>, <span class="ui">Grid</span> and <span class="ui">Ortho</span> in the status bar under the 2D space</dd>
     <dt>Who</dt><dd>Everyone; the setting is per person</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
   <ul>
-    <li><span class="ui">Grid</span> shows a grid of 0.5 m (2.5 m when you zoom far out).</li>
-    <li><span class="ui">Snap</span>: a line end you move within 16 pixels of a free nozzle or point joins it.</li>
+    <li><span class="ui">Grid</span> shows the grid behind the drawing; its squares get larger as you zoom out.</li>
+    <li><span class="ui">Snap</span>, on the grid: a symbol or a note you move, a symbol you place and a line end you draw on free space land on the grid (steps of 2.5 mm on the sheet).</li>
+    <li><span class="ui">Snap</span>, onto nozzles and line ends: a symbol you bring within 16 pixels of a free nozzle or a loose line end lands on it exactly, and a line end is connected to the symbol. A line end you move near a free nozzle joins it the same way.</li>
+    <li><span class="ui">Snap</span>, alignment guides: while you move or place a symbol, a thin dashed guide line shows where its middle, an edge or a nozzle lines up with another symbol, and the symbol takes that line.</li>
+    <li>Hold <kbd>Alt</kbd> during a drag to leave Snap out for that one move. With <span class="ui">Snap</span> off, everything lands exactly where you let go and no guide shows.</li>
     <li><span class="ui">Ortho</span>: each connector segment stays horizontal or vertical. With Ortho off, lines run straight at any angle.</li>
   </ul>
   <h3>Steps</h3>
@@ -322,9 +326,12 @@
       <tr><td>2</td><td>Reload the page.</td><td>Grid is still off.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Ortho</span> in the status bar to turn it off, then draw a line with <span class="ui">Connector</span> by clicking two points at an angle.</td><td>The line runs straight at an angle. The status hint says you can draw "at any angle".</td></tr>
       <tr><td>4</td><td>Turn <span class="ui">Ortho</span> and <span class="ui">Grid</span> back on.</td><td>New segments stay horizontal or vertical; the grid is shown again.</td></tr>
+      <tr><td>5</td><td>With <span class="ui">Snap</span> on, drag a valve slowly past the level of another valve.</td><td>A dashed guide line shows through both valves while they line up; let go there and the two are exactly level. Elsewhere the valve lands on the grid.</td></tr>
+      <tr><td>6</td><td>Drag a valve that is connected to nothing so that its outlet comes close to the loose end of a pipe.</td><td>The valve jumps onto the pipe end and the pipe is connected to it: move the valve again and the pipe follows.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Snap</span> to turn it off and drag the valve again.</td><td>No guide shows and the valve stays exactly where you let go. Point at <span class="ui">Snap</span> to read what it does.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-arrange">Move, flip, rotate, resize and align</a> · <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
   <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-02">Watch the lesson: The drawing&#x27;s three modes · Snap, Grid and Ortho</a> <span class="muted">(Your first P&amp;ID · 5 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-view-zoom-pan" target="_blank" rel="noopener">Show me how in E1: Find your way on a 2D space</a></p>
 </section>
 
@@ -397,7 +404,7 @@
 
 <section class="g-feature" id="draw-connector">
   <h2>Draw pipes, signals and cables with Connector</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11, M3.14</span><span>Review checks B4, A3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11, M3.14, M3.connector-routing</span><span>Review checks B4, A3</span></div>
   <p class="g-summary">Connector draws the lines between symbols: flow lines (pipes), cables, wires and logic signals. Every line is an object in the model and connects the symbols it touches, so the connection shows in lists and in Highlight flow.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The Design palette → Connect: <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> or <span class="ui">Logic</span>; also at the top of the Add window.</dd>
@@ -410,9 +417,11 @@
     <tbody>
       <tr><td>1</td><td>Look at Connect in the palette.</td><td><span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> and <span class="ui">Logic</span>, each with its colour swatch.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Flow lines</span>.</td><td>The button is highlighted. The status bar reads <span class="ui">Connector · Flow lines</span> with the hint "Click point by point to draw; each segment stays horizontal or vertical. Clicking a nozzle or a line connects and ends the run; Esc or a double-click ends it too; Esc with no run, or a right-click, leaves the Connector."</td></tr>
-      <tr><td>3</td><td>Drag from the outlet of one pump to the inlet of a valve.</td><td>One routed pipe is drawn, and the two symbols are connected. The pipe shows its flow arrow.</td></tr>
-      <tr><td>4</td><td>Click on an empty spot of the 2D space, then click a few more points.</td><td>Each click adds a segment from where the last one ended. The line being drawn looks like its kind.</td></tr>
-      <tr><td>5</td><td>Click on a nozzle, a symbol or another line.</td><td>The run connects there and ends. Ending on a pipe makes a junction that splits it; ending within 8 pixels of a symbol attaches to it.</td></tr>
+      <tr><td>3</td><td>Drag from the outlet of one pump to the inlet of a valve that has another symbol between them.</td><td>While you drag, the route that will be drawn is shown, and the nozzle under the pointer is highlighted. On release one pipe is drawn, square, around the symbol and the lines in its way, and the two symbols are connected. The pipe shows its flow arrow.</td></tr>
+      <tr><td>4</td><td>Click on an empty spot of the 2D space, then click a few more points.</td><td>Before each click the segment it will draw is shown, in the look of its kind. Each click adds that segment from where the last one ended: you set the bends by hand.</td></tr>
+      <tr><td>5</td><td>Move over a nozzle, a symbol or another line, then click it.</td><td>The nozzle, symbol or line is highlighted, and the route shown goes around what is in its way. The click draws that route: the run connects there and ends. Ending on a pipe makes a junction that splits it; ending within 8 pixels of a symbol attaches to it.</td></tr>
+      <tr><td>5a</td><td>Click a nozzle, then click another nozzle (no drag).</td><td>The same routed pipe as a drag draws: square, around the symbols and lines between the two.</td></tr>
+      <tr><td>5b</td><td>Draw a line in several clicks, then press <kbd>Ctrl</kbd>+<kbd>Z</kbd> once.</td><td>The whole line is gone: a line is one step, however many clicks drew it. <kbd>Ctrl</kbd>+<kbd>Y</kbd> draws it again.</td></tr>
       <tr><td>6</td><td>Start another run, then press <kbd>Esc</kbd> or double-click.</td><td>The run ends, and Connector stays on. A second <kbd>Esc</kbd> leaves Connector: the status bar reads <span class="ui">Select</span>.</td></tr>
       <tr><td>7</td><td>Right-click on the 2D space.</td><td>You leave Connector: the status bar reads <span class="ui">Select</span>, and no menu opens.</td></tr>
       <tr><td>8</td><td>Click <span class="ui">Logic</span> in the palette and draw a line between two instruments.</td><td>Connector starts with Logic; the line is dashed while you draw it. Cable, Wire and Logic lines have no flow arrows.</td></tr>
@@ -420,7 +429,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/connector-on.webp" alt="The 2D space with the Connector tool active; the Connector button is framed in red" width="2160" height="1350" loading="lazy"><figcaption>Connector is on: the button is highlighted and the status bar names the kind.</figcaption></figure>
-  <p class="g-note">With <span class="ui">Ortho</span> off, segments run at any angle (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>). Each drawn pipe run is an object under <span class="ui">Assets → Pipelines</span>.</p>
+  <p class="g-note">With <span class="ui">Ortho</span> off, segments run at any angle and are not routed around anything (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>). Each drawn pipe run is an object under <span class="ui">Assets → Pipelines</span>.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows and crossings</a> · <a href="guide-drawing.html#draw-line-style">Line style</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a></p>
   <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-05">Watch the lesson: Placing existing objects · Drawing pipes and signals</a> <span class="muted">(Your first P&amp;ID · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-connector" target="_blank" rel="noopener">Show me how in E1: Draw a pipe, a signal or a cable</a></p>
 </section>
@@ -478,8 +487,8 @@
 
 <section class="g-feature" id="draw-arrange">
   <h2>Move, flip, rotate, resize and align</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3, M3.15</span><span>Review check B5</span></div>
-  <p class="g-summary">Drag the selection to move it; connected lines follow and stay square. Flip or rotate a symbol, resize it with its grips, or line several symbols up with the Align menu.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3, M3.15, M3.21</span><span>Review check B5</span></div>
+  <p class="g-summary">Drag the selection to move it, or nudge it with the arrow keys; connected lines follow and stay square. Flip or rotate a symbol, resize it with its grips, or line several symbols up with the Align menu.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Flip</span>, <span class="ui">Rotate symbol</span> and <span class="ui">Align</span> ▾; right-click a symbol → <span class="ui">Flip</span> ▸ <span class="ui">Horizontal</span> / <span class="ui">Vertical</span>, <span class="ui">Rotate</span> ▸ <span class="ui">Clockwise</span> / <span class="ui">Counter-clockwise</span> / <span class="ui">Half turn</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -489,7 +498,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select a pump and drag it.</td><td>It moves; its pipes follow and stay horizontal or vertical.</td></tr>
+      <tr><td>1</td><td>Select a pump and drag it.</td><td>It moves; its pipes follow and stay horizontal or vertical. With <span class="ui">Snap</span> on it lands on the grid, and a guide line shows where it lines up with another symbol (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>).</td></tr>
+      <tr><td>1a</td><td>With the pump selected, press <kbd>→</kbd> three times, then <kbd>Shift</kbd>+<kbd>↓</kbd>.</td><td>Each arrow key moves the selection one grid step that way; with <kbd>Shift</kbd>, ten steps. Its pipes follow. One <span class="ui">Undo</span> takes the whole run of presses back.</td></tr>
       <tr><td>2</td><td>Press <kbd>F</kbd> (or click <span class="ui">Flip</span>).</td><td>The pump is mirrored. Doing it again turns it back.</td></tr>
       <tr><td>3</td><td>Right-click the pump → <span class="ui">Flip</span> ▸ <span class="ui">Vertical</span>.</td><td>The pump is mirrored top to bottom.</td></tr>
        <tr><td>4</td><td>Select the pump and press <kbd>R</kbd> (or click <span class="ui">Rotate symbol</span>).</td><td>It turns a quarter turn clockwise about its middle; its nozzles turn with it and its pipes follow, kept horizontal or vertical. <kbd>Shift</kbd>+<kbd>R</kbd> turns it counter-clockwise.</td></tr>
