@@ -166,6 +166,7 @@ test("DRAW-connector: the guide tells that the Connector routes the line, shows 
   await expect(steps.filter({ hasText: "around the symbol and the lines in its way" })).toHaveCount(1);
   await expect(steps.filter({ hasText: "Click a nozzle, then click another nozzle" })).toContainText("The same routed pipe as a drag draws");
   await expect(steps.filter({ hasText: "press Ctrl+Z once" })).toContainText("The whole line is gone");
+  await expect(steps.filter({ hasText: "with the hint" })).toContainText("the line is routed around what is in its way, as shown before the click");
   /* The catalog finds it by what it now does. */
   await page.goto("/guide-features.html");
   await expect(page.locator("body")).toContainText("routed around what is in the way");
