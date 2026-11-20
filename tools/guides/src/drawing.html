@@ -234,7 +234,7 @@
 
 <section class="g-feature" id="draw-connector">
   <h2>Draw pipes, signals and cables with Connector</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11, M3.14</span><span>Review checks B4, A3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11, M3.14, M3.connector-routing</span><span>Review checks B4, A3</span></div>
   <p class="g-summary">Connector draws the lines between symbols: flow lines (pipes), cables, wires and logic signals. Every line is an object in the model and connects the symbols it touches, so the connection shows in lists and in Highlight flow.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The Design palette → Connect: <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> or <span class="ui">Logic</span>; also at the top of the Add window.</dd>
@@ -247,9 +247,11 @@
     <tbody>
       <tr><td>1</td><td>Look at Connect in the palette.</td><td><span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> and <span class="ui">Logic</span>, each with its colour swatch.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Flow lines</span>.</td><td>The button is highlighted. The status bar reads <span class="ui">Connector · Flow lines</span> with the hint "Click point by point to draw; each segment stays horizontal or vertical. Clicking a nozzle or a line connects and ends the run; Esc or a double-click ends it too; Esc with no run, or a right-click, leaves the Connector."</td></tr>
-      <tr><td>3</td><td>Drag from the outlet of one pump to the inlet of a valve.</td><td>One routed pipe is drawn, and the two symbols are connected. The pipe shows its flow arrow.</td></tr>
-      <tr><td>4</td><td>Click on an empty spot of the 2D space, then click a few more points.</td><td>Each click adds a segment from where the last one ended. The line being drawn looks like its kind.</td></tr>
-      <tr><td>5</td><td>Click on a nozzle, a symbol or another line.</td><td>The run connects there and ends. Ending on a pipe makes a junction that splits it; ending within 8 pixels of a symbol attaches to it.</td></tr>
+      <tr><td>3</td><td>Drag from the outlet of one pump to the inlet of a valve that has another symbol between them.</td><td>While you drag, the route that will be drawn is shown, and the nozzle under the pointer is highlighted. On release one pipe is drawn, square, around the symbol and the lines in its way, and the two symbols are connected. The pipe shows its flow arrow.</td></tr>
+      <tr><td>4</td><td>Click on an empty spot of the 2D space, then click a few more points.</td><td>Before each click the segment it will draw is shown, in the look of its kind. Each click adds that segment from where the last one ended: you set the bends by hand.</td></tr>
+      <tr><td>5</td><td>Move over a nozzle, a symbol or another line, then click it.</td><td>The nozzle, symbol or line is highlighted, and the route shown goes around what is in its way. The click draws that route: the run connects there and ends. Ending on a pipe makes a junction that splits it; ending within 8 pixels of a symbol attaches to it.</td></tr>
+      <tr><td>5a</td><td>Click a nozzle, then click another nozzle (no drag).</td><td>The same routed pipe as a drag draws: square, around the symbols and lines between the two.</td></tr>
+      <tr><td>5b</td><td>Draw a line in several clicks, then press <kbd>Ctrl</kbd>+<kbd>Z</kbd> once.</td><td>The whole line is gone: a line is one step, however many clicks drew it. <kbd>Ctrl</kbd>+<kbd>Y</kbd> draws it again.</td></tr>
       <tr><td>6</td><td>Start another run, then press <kbd>Esc</kbd> or double-click.</td><td>The run ends, and Connector stays on. A second <kbd>Esc</kbd> leaves Connector: the status bar reads <span class="ui">Select</span>.</td></tr>
       <tr><td>7</td><td>Right-click on the 2D space.</td><td>You leave Connector: the status bar reads <span class="ui">Select</span>, and no menu opens.</td></tr>
       <tr><td>8</td><td>Click <span class="ui">Logic</span> in the palette and draw a line between two instruments.</td><td>Connector starts with Logic; the line is dashed while you draw it. Cable, Wire and Logic lines have no flow arrows.</td></tr>
@@ -257,7 +259,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/connector-on.webp" alt="The 2D space with the Connector tool active; the Connector button is framed in red" width="2160" height="1350" loading="lazy"><figcaption>Connector is on: the button is highlighted and the status bar names the kind.</figcaption></figure>
-  <p class="g-note">With <span class="ui">Ortho</span> off, segments run at any angle (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>). Each drawn pipe run is an object under <span class="ui">Assets → Pipelines</span>.</p>
+  <p class="g-note">With <span class="ui">Ortho</span> off, segments run at any angle and are not routed around anything (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>). Each drawn pipe run is an object under <span class="ui">Assets → Pipelines</span>.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows and crossings</a> · <a href="guide-drawing.html#draw-line-style">Line style</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a></p>
 </section>
 
