@@ -1149,7 +1149,7 @@
 
 <section class="g-feature" id="draw-line-numbers">
   <h2>Line numbers as you draw, size and pipe class</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-line-numbers</span><span>Roadmap 13.6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-line-numbers</span><span>Roadmap 13.7</span></div>
   <p class="g-summary">A pipe drawn on a P&amp;ID is a line of the line list from the moment it is drawn: it gets its pipeline and its line number at once, keeps the number through the valves and fittings on it, and gives them its nominal size and pipe class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space of diagram type P&amp;ID: draw with <span class="ui">Flow lines</span>; right-click a pipe, valve or fitting → <span class="ui">Flow</span> ▸ <span class="ui">Size and pipe class…</span>; <span class="ui">Add…</span> → <span class="ui">Fitting</span> for <span class="ui">Spec break</span>, <span class="ui">Pipeline break</span> and <span class="ui">Line end</span>; <span class="ui">Settings → Project settings → Drawing</span> and <span class="ui">Tag rules</span></dd>
@@ -1163,6 +1163,7 @@
       <tr><td>2</td><td>Press <kbd>Ctrl+Z</kbd>.</td><td>The pipe and its line number are taken back together: drawing a pipe is one step to undo. <kbd>Ctrl+Y</kbd> brings both back.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Add…</span>, choose a gate valve and click it onto the pipe.</td><td>The valve goes into the line. Both sides show the same line number.</td></tr>
       <tr><td>4</td><td>Draw a pipe on from a valve at the end of a line.</td><td>It joins the line: the same number. A pipe drawn from a pump or a tank is a new line with the next number.</td></tr>
+      <tr><td>5</td><td>Select a valve with the pipe on both sides, press <kbd>Ctrl+C</kbd> and <kbd>Ctrl+V</kbd> (or <kbd>Ctrl+D</kbd>).</td><td>The copy is a line of its own with the next line number, the copied valve on it. <kbd>Ctrl+Z</kbd> takes the copy and its number back.</td></tr>
     </tbody>
   </table></div>
   <h3>Set the size and the pipe class of a line</h3>
@@ -1172,6 +1173,7 @@
       <tr><td>1</td><td>Right-click the pipe (or a valve or fitting on it) and choose <span class="ui">Flow</span> ▸ <span class="ui">Size and pipe class…</span>.</td><td>The dialog <em>Size and pipe class</em> names the <em>Line number</em> and has two lists: <span class="ui">Nominal size</span> and <span class="ui">Pipe class</span> (the pipe classes of the project's library; the sizes its pipe class lists, else the common nominal sizes).</td></tr>
       <tr><td>2</td><td>Choose <em>6"</em> and a pipe class, and click <span class="ui">Apply</span>.</td><td>The line number follows, for example <em>6"-P-10001-A1A</em>; its running number stays. The valves and fittings on the line have the size and the pipe class (select one: the Selection panel shows <em>Nominal size 6"</em>). One <kbd>Ctrl+Z</kbd> takes the change back.</td></tr>
       <tr><td>3</td><td>Click a reducer from <span class="ui">Add…</span> → <span class="ui">Fitting</span> onto the pipe, then open <span class="ui">Size and pipe class…</span> on the pipe after it and choose <em>4"</em>.</td><td>The reducer starts a new piping segment with a size of its own: the pipe after it reads <em>4"-P-10001-A1A</em>, the pipe before it <em>6"-P-10001-A1A</em>, and the reducer's nominal size is <em>6" x 4"</em>.</td></tr>
+      <tr><td>4</td><td>Select a pipe, click <span class="ui">Nominal size</span> in the <span class="ui">Selection</span> panel, type a size and press <kbd>Enter</kbd>.</td><td>The same as in the dialog: the size is the line's (after a reducer, the segment's), the valves and fittings on it take it and the line number follows. A size typed on a valve or fitting of the line does the same.</td></tr>
     </tbody>
   </table></div>
   <h3>Spec break, pipeline break and line end</h3>
@@ -1233,8 +1235,8 @@
 
 <section class="g-feature" id="draw-live-checks">
   <h2>Checks while drawing</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span class="g-id">DRAW-live-checks</span><span>Roadmap 13.6</span></div>
-  <p class="g-summary">E1 looks at the 2D space after every change and marks what is wrong the moment you draw it, quietly: a small marker on the item and a count in the status row, never a window. The finding and its fix are one click away.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-live-checks</span><span>Roadmap 13.6</span></div>
+  <p class="g-summary">E1 looks at the 2D space after every change and marks what is wrong the moment you draw it, quietly: a small marker on the item and a count in the status row, never a dialog. Yellow is a warning, red is critical. The finding and its fix are one click away, in the Checks window: by kind, filtered, and placed where you want it.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space (a P&amp;ID, a PFD, a hydraulic diagram, or one with no diagram type): the markers on the drawing, and <span class="ui">Checks</span> with the count in the status row under it</dd>
     <dt>Who</dt><dd>Anyone who can view the project sees the markers. The fixes: a project role that may edit drawings</dd>
@@ -1243,16 +1245,32 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Draw a pipe that ends in the open, away from any nozzle.</td><td>A small warning marker appears beside the open end, and the number beside <span class="ui">Checks</span> in the status row goes up by one. No window opens.</td></tr>
-      <tr><td>2</td><td>Click the marker.</td><td>A card opens at the bottom left of the 2D space: "This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.", with <span class="ui">Show</span> and <span class="ui">Delete the open pipe</span>.</td></tr>
+      <tr><td>1</td><td>Draw a pipe that ends in the open, away from any nozzle.</td><td>A small yellow warning marker appears beside the open end, and the number beside <span class="ui">Checks</span> in the status row goes up by one. No window opens.</td></tr>
+      <tr><td>2</td><td>Click the marker.</td><td>The Checks window opens at the bottom left of the 2D space: "This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.", with <span class="ui">Show</span> and <span class="ui">Delete the open pipe</span>.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Delete the open pipe</span> (or connect the pipe yourself).</td><td>The marker is gone and the count goes down. It is one change: Ctrl+Z brings the pipe and its marker back.</td></tr>
-      <tr><td>4</td><td>Click the number beside <span class="ui">Checks</span>.</td><td>The card lists every problem on the 2D space, each with <span class="ui">Show</span> and its fixes. × or Esc closes it.</td></tr>
+      <tr><td>4</td><td>Click the number beside <span class="ui">Checks</span>.</td><td>The Checks window lists every problem on the 2D space, each with <span class="ui">Show</span> and its fixes. × or Esc closes it. The number is yellow when all are warnings and red while one is critical.</td></tr>
       <tr><td>5</td><td>Click <span class="ui">Checks</span>.</td><td>The markers and the count are hidden; E1 remembers it in this browser. Click it again to turn them back on.</td></tr>
     </tbody>
   </table></div>
+  <h3>The Checks window: by kind, filtered, moved and resized</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On a 2D space with several problems, among them two or more items whose tag another item has, click the number beside <span class="ui">Checks</span>.</td><td>The window is headed with the number of problems, for example "4 problems on this 2D space". The problems stand by kind, each kind with a coloured dot, its name and its number, the critical kinds first: <span class="ui">Duplicate tags</span>, <span class="ui">Flow direction</span>, <span class="ui">Open pipe ends</span>, <span class="ui">Pipe size changes</span>, <span class="ui">Pipe class changes</span>, <span class="ui">Off-page connectors with no counterpart</span>.</td></tr>
+      <tr><td>2</td><td>Read <span class="ui">Duplicate tags</span>.</td><td>The dot and the bar beside each problem are red. What is wrong is said once, under the heading: "A tag names one item. Rename one of the two." Each problem then shows only what differs, for example "P-101 (the other is on PID-2)", with <span class="ui">Show</span> and <span class="ui">Rename to P-102</span>. A kind found only once keeps its full sentence.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Critical</span>, then <span class="ui">Warnings</span>, then <span class="ui">All</span>.</td><td>Each shows only those problems; the number on each button says how many there are. A button with nothing to show is greyed, and pointing at it says why ("No warnings on this 2D space"). The buttons are shown while the window lists more than one problem.</td></tr>
+      <tr><td>4</td><td>Click the <span class="ui">i</span> at the top right of the window (<span class="ui">About these checks</span>).</td><td>A note opens above the problems. It says that Checks are fixed rules of the drawing, checked after every change, each problem certain and with its fix one click away; that Alex gives engineering advice once you click <span class="ui">Let Alex help</span>; and that red is critical and yellow a warning. A second click folds it away.</td></tr>
+      <tr><td>5</td><td>Drag the window by its title.</td><td>It moves with the pointer and stays wholly on the 2D space. Nothing on the drawing is selected or moved.</td></tr>
+      <tr><td>6</td><td>Drag the lower right corner of the window (or focus the corner and press the arrow keys).</td><td>The window gets larger or smaller, never smaller than it can be read. The title and the filter buttons stay; the list of problems scrolls inside.</td></tr>
+      <tr><td>7</td><td>Close the window, open it again, and reload E1.</td><td>The window is where you left it, as large as you left it: E1 remembers it in this browser.</td></tr>
+      <tr><td>8</td><td>Double-click the title.</td><td>The window is back at the bottom left of the 2D space, as high as its list.</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Critical or warning.</strong> Two items with one tag is critical (red): they cannot be told apart in a list or a report. Every other problem is a warning (yellow): look at it; it may be right while you are still drawing. The colours are the same in the light and the dark appearance. A critical problem here does not stop you from issuing a revision.</p>
+  <p><strong>Checks or Alex?</strong> Checks are E1's own fixed rules and need no AI: they are always on, on every 2D space of these kinds, and each problem they mark is certain. Alex's advice (<a href="guide-ai.html#ai-alex">Alex</a>) is an engineer's view of the 2D space with your company's conventions: warnings, questions and design suggestions, as cards in the Alex panel, once you click <span class="ui">Let Alex help</span>.</p>
   <h3>What is marked, and its fix</h3>
   <div class="g-table-wrap"><table class="g-steps">
-    <thead><tr><th>Problem</th><th>Marked on</th><th>Fix on the card</th></tr></thead>
+    <thead><tr><th>Problem</th><th>Marked on</th><th>Fix in the Checks window</th></tr></thead>
     <tbody>
       <tr><td>A pipe that ends in the open</td><td>The open end</td><td><span class="ui">Delete the open pipe</span></td></tr>
       <tr><td>Flow against flow: two pipes that both flow into a point or a valve, or both out of it; flow that leaves an inlet or enters an outlet; a pump turned the wrong way</td><td>The point or the symbol</td><td><span class="ui">Flip the flow of the chain</span>, <span class="ui">Turn P-101 around</span></td></tr>

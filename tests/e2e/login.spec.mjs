@@ -15,13 +15,45 @@ test("Log in and Sign up tabs, with the address of the E1 sign-in", async ({ pag
   await page.getByRole("tab", { name: "Sign up" }).click();
   await expect(page.getByRole("tab", { name: "Sign up" })).toHaveAttribute("aria-selected", "true");
   await expect(page.locator("[data-auth-title]")).toHaveText("Create your account");
-  await expect(submit).toHaveText("Start your free 30-day trial");
+  await expect(submit).toHaveText("Create your account");
   await expect(submit).toHaveAttribute("href", /\/auth\/login\?return=.*&signup=1$/);
   await expect(page.locator("[data-trial-promo]")).toBeVisible();
 
   await page.getByRole("tab", { name: "Log in" }).click();
   await expect(page.locator("[data-auth-title]")).toHaveText("Welcome back");
   await expect(page.locator("[data-signup-kind]")).toBeHidden();
+});
+
+test("Sign up: Create your account makes the account only; the free 30-day trial is a choice of its own", async ({ page }) => {
+  await page.goto("/login.html");
+  const trial = page.getByRole("link", { name: "Start your free 30-day trial" });
+  await expect(trial).toBeHidden();
+  await page.getByRole("tab", { name: "Sign up" }).click();
+  // The main button signs up without a trial: someone who waits to be invited is not pushed into one.
+  const create = page.getByRole("link", { name: "Create your account" });
+  await expect(create).toHaveClass(/btn-primary/);
+  await expect(create).toHaveAttribute("href", /\/auth\/login\?return=.*&signup=1$/);
+  await expect(create).not.toHaveAttribute("href", /trial=1/);
+  await expect(trial).toBeVisible();
+  await expect(trial).toHaveAttribute("href", /\/auth\/login\?return=.*&signup=1&trial=1$/);
+  await expect(page.locator("[data-auth-lead]")).toHaveText("Create your E1 account. Join your team when they invite you, or start your free 30-day trial, for you and your team.");
+  await expect(page.getByText("No trial yet? Your account is ready all the same: join your team when they invite you, and start your trial in E1 whenever you want.")).toBeVisible();
+  // For a university: no trial button.
+  await page.getByRole("radio", { name: "For teaching at a university" }).click();
+  await expect(trial).toBeHidden();
+  await page.getByRole("tab", { name: "Log in" }).click();
+  await expect(trial).toBeHidden();
+});
+
+test("the trial panel shows Mac, Windows, iPad and iPhone for Editors, Reviewers and Invited Viewers", async ({ page }) => {
+  await page.goto("/login.html#signup");
+  const rows = page.locator("[data-trial-promo] .tp-row");
+  await expect(rows).toHaveCount(3);
+  for (let i = 0; i < 3; i += 1) {
+    await expect(rows.nth(i).locator(".tp-chip")).toHaveText(["Mac", "Windows", "iPad", "iPhone"]);
+    await expect(rows.nth(i).locator(".tp-chip-iphone svg")).toBeVisible();
+  }
+  await expect(page.locator("[data-trial-promo] .tp-note")).toHaveText("The apps for iPad and iPhone are coming to the App Store.");
 });
 
 test("login.html#signup opens on Sign up; a campaign tag goes with the sign-in", async ({ page }) => {

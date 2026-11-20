@@ -57,6 +57,7 @@ test("signed in: overview, licenses, usage, organizations, projects, permissions
   await expect(page.locator("[data-storage]")).toContainText("Ammonia plant");
 
   // WEB-organizations.
+  await page.locator(".account-nav").getByRole("link", { name: "Organizations" }).click();
   const orgs = page.locator("[data-orgs] tbody tr");
   await expect(orgs).toHaveCount(2);
   await expect(orgs.nth(0)).toContainText("Fjord Process AS");
@@ -97,15 +98,55 @@ test("signed in: overview, licenses, usage, organizations, projects, permissions
   await expect(page.locator(".nav-actions a", { hasText: "Account" })).toBeAttached();
 });
 
-test("the account menu jumps to each section", async ({ page }, testInfo) => {
+test("each item of the account menu is a page of its own", async ({ page }, testInfo) => {
   await mockApi(page, server());
   await page.goto("/account.html");
   await expect(page.locator("[data-user-name]")).toHaveText("Kari Nordmann");
-  for (const id of ["projects", "usage", "downloads", "licenses"]) {
-    await page.locator(`.account-nav a[href="#${id}"]`).click();
+  const nav = page.locator(".account-nav");
+  const sections = page.locator(".account-section");
+  const ids = ["overview", "profile", "academy", "licenses", "usage", "organizations", "projects", "permissions", "billing", "downloads"];
+
+  // Without a part in the address, only the Overview is shown.
+  await expect(sections.filter({ visible: true })).toHaveCount(1);
+  await expect(page.locator("#overview")).toBeVisible();
+  await expect(nav.locator('a[href="#overview"]')).toHaveAttribute("aria-current", "page");
+  // The Academy's own parts are listed only while the Academy is open.
+  await expect(nav.getByRole("link", { name: "Notes and bookmarks" })).toBeHidden();
+
+  for (const id of ["projects", "usage", "downloads", "licenses", "profile", "academy", "billing"]) {
+    await nav.locator(`a[href="#${id}"]`).click();
     await expect(page).toHaveURL(new RegExp(`#${id}$`));
+    await expect(page.locator(`#${id}`)).toBeVisible();
+    await expect(sections.filter({ visible: true })).toHaveCount(1);
+    for (const other of ids.filter((x) => x !== id)) await expect(page.locator(`#${other}`)).toBeHidden();
+    await expect(nav.locator(`a[href="#${id}"]`)).toHaveAttribute("aria-current", "page");
+    await expect(nav.locator("a[aria-current]")).toHaveCount(1);
     await expectScrolledTo(page.locator(`#${id} h2`));
   }
+
+  // A part of the Academy opens the Academy and goes to that part.
+  await nav.locator('a[href="#academy"]').click();
+  await nav.getByRole("link", { name: "Certificates" }).click();
+  await expect(page).toHaveURL(/#academy-certificates$/);
+  await expect(page.locator("#academy")).toBeVisible();
+  await expectScrolledTo(page.locator("#academy-certificates h3"));
+  await expect(nav.locator('a[href="#academy"]')).toHaveAttribute("aria-current", "page");
+  await expect(nav.locator('a[href="#academy-certificates"]')).toHaveAttribute("aria-current", "page");
+
+  // An Overview tile opens its page.
+  await nav.locator('a[href="#overview"]').click();
+  await page.locator("[data-overview] .stat").first().click();
+  await expect(page).toHaveURL(/#licenses$/);
+  await expect(page.locator("#licenses")).toBeVisible();
+  await expect(page.locator("#overview")).toBeHidden();
+
+  // Back and Forward go from page to page.
+  await page.goBack();
+  await expect(page.locator("#overview")).toBeVisible();
+  await expect(page.locator("#licenses")).toBeHidden();
+  await page.goForward();
+  await expect(page.locator("#licenses")).toBeVisible();
+
   if (isPhone(testInfo)) {
     const w = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(w).toBeLessThanOrEqual(1);
@@ -116,9 +157,12 @@ test("an address with #section opens there after loading, also after reload", as
   await mockApi(page, server());
   await page.goto("/account.html#permissions");
   await expect(page.locator("[data-groups]")).toContainText("Hydrogen team");
+  await expect(page.locator("#permissions")).toBeVisible();
+  await expect(page.locator("#overview")).toBeHidden();
   await page.reload();
   await expect(page.locator("[data-groups]")).toContainText("Hydrogen team");
-  await expect(page.locator("#permissions")).toBeAttached();
+  await expect(page.locator("#permissions")).toBeVisible();
+  await expect(page.locator("#overview")).toBeHidden();
 });
 
 test("switch organization with the Switch button and with the menu", async ({ page }) => {
@@ -133,7 +177,10 @@ test("switch organization with the Switch button and with the menu", async ({ pa
   });
   await page.goto("/account.html");
   await expect(page.locator("[data-my-license] h3")).toHaveText("Editor");
+  await page.locator(".account-nav").getByRole("link", { name: "Organizations" }).click();
   await page.locator("[data-orgs]").getByRole("button", { name: "Switch" }).click();
+  // The page stays on Organizations after the switch.
+  await expect(page.locator("#organizations")).toBeVisible();
   await expect(page.locator("[data-my-license] h3")).toHaveText("Reviewer");
   await expect(page.locator("[data-orgs] tbody tr").nth(1)).toContainText("Current");
   await expect(page.locator("[data-org-select]")).toHaveValue("org-delta");
@@ -268,8 +315,8 @@ for (const [what, route, act] of [
   ["Save the name", "POST /api/account/profile", async (page) => { await page.locator("[data-profile-given]").fill("Ingrid"); await page.locator("[data-profile-save]").click(); }],
   ["upload a picture", "POST /api/account/picture", (page) => page.locator("[data-picture-input]").setInputFiles("assets/img/icon-192.png")],
   ["remove the picture", "DELETE /api/account/picture", (page) => page.locator("[data-picture-remove]").click()],
-  ["Switch organization", "POST /auth/switch", (page) => page.locator("[data-orgs]").getByRole("button", { name: "Switch" }).click()],
-  ["Manage billing", "POST /api/account/billing/portal", (page) => page.getByRole("button", { name: "Manage billing" }).click()]
+  ["Switch organization", "POST /auth/switch", async (page) => { await page.locator(".account-nav").getByRole("link", { name: "Organizations" }).click(); await page.locator("[data-orgs]").getByRole("button", { name: "Switch" }).click(); }],
+  ["Manage billing", "POST /api/account/billing/portal", async (page) => { await page.locator(".account-nav").getByRole("link", { name: "Billing" }).click(); await page.getByRole("button", { name: "Manage billing" }).click(); }]
 ]) {
   test(`the session ended: ${what} asks to sign in again, and the header says Log in`, async ({ page }) => {
     const data = overview();
