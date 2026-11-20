@@ -128,6 +128,16 @@ test("GS-units: the unit system is chosen in Project settings; the status bar ha
   await expect(bar.locator("img")).toHaveAttribute("alt", /appearance switch/);
 });
 
+test("GS-getting-started: Steps for names Maintenance and modifications, and what I manage engineers gives", async ({ page }) => {
+  await page.goto("/guide-getting-started.html#gs-getting-started");
+  const part = page.locator("#gs-getting-started");
+  await expectScrolledTo(part);
+  const row = part.locator("tr", { hasText: "Steps for:" });
+  await expect(row).toContainText("Process engineering, Instrumentation and control, Electrical, Maintenance and modifications, I manage engineers or Just looking");
+  await expect(row).toContainText("Maintenance and modifications gives the steps on branches, reviews and tasks");
+  await expect(row).toContainText("I manage engineers those on progress, the deliverable set and signing off a revision");
+});
+
 test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line opens its window; Show in tree takes its pipe run", async ({ page }) => {
   await page.goto("/guide-drawing.html#draw-select");
   const select = page.locator("#draw-select");
@@ -151,6 +161,7 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-symbol-menu: one click for a valve, 
   await expect(place).toContainText("Click to set the inlet, then the outlet; on a line it goes into the line. F flips it before the click.");
   await expect(place).toContainText("The pipe lights up, and the ghost of the valve already lies along it");
   await expect(place).toContainText("The next valve is placed with that one click");
+  await expect(place).toContainText("strainers and in-line filters, steam traps, rupture discs, flame arrestors and sight glasses");
   await expect(place).toContainText("The ghost turns a quarter turn clockwise each time you press R");
   await expect(place).toContainText("the second pump is placed mirrored");
   await expect(place).not.toContainText("F flips the symbol.");
@@ -159,6 +170,7 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-symbol-menu: one click for a valve, 
   await expect(arrange).toContainText("It stays on its pipe and slides along it");
   await expect(arrange).toContainText("Drag it along its line; hold Alt to take it off the line.");
   await expect(arrange).toContainText("the pipe closes into one line again");
+  await expect(arrange).toContainText("A pipe you shaped by hand keeps its bends, and both pipes keep their line numbers");
   await expect(arrange).toContainText("it steps to the next of its standard sizes");
   await expect(arrange).toContainText("Small, Standard, Large and Extra large");
   await expect(arrange).toContainText("dragging one resizes them all in one step");
@@ -282,6 +294,7 @@ test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break li
   await expect(part.getByRole("heading", { level: 2 })).toHaveText("Shape a line: bends, ends, join, break and straighten");
   const steps = part.locator("table.g-steps tbody tr");
   await expect(steps).toHaveCount(12);
+  await expect(steps.filter({ hasText: "Shift-click its other segments" })).toContainText("a segment that is not selected has none");
   await expect(steps.filter({ hasText: "Drag a bend grip sideways" })).toContainText("the next bend slides with it");
   await expect(steps.filter({ hasText: "Remove bend" })).toContainText("The line itself is not deleted");
   await expect(steps.filter({ hasText: "where another pipe already ends" })).toContainText("already ends a pipe: a nozzle takes one pipe.");
@@ -296,6 +309,9 @@ test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break li
   const style = page.locator("section#draw-line-style");
   await expectScrolledTo(style);
   await expect(style.locator("table.g-steps tbody tr").filter({ hasText: "Line kind" })).toContainText("becomes a line of that kind");
+
+  await expect(style.locator("table.g-steps tbody tr").filter({ hasText: "Line kind" })).toContainText("beside the heading Line");
+  await expect(page.locator("section#draw-arrange")).toContainText("shows only its title, so it does not lie over the drawing");
 
   // The catalog lists it.
   await page.goto("/guide-features.html");

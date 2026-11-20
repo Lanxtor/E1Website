@@ -208,6 +208,7 @@ p { margin: 0; }
 .lang-menu a { display: block; padding: 8px 12px; border-radius: 9px; font-size: 0.92rem; color: var(--text); }
 .lang-menu a:hover { background: var(--bg-soft); }
 .lang-menu a[aria-current] { font-weight: 600; color: var(--accent); }
+.lang-menu .lang-note { max-width: 240px; padding: 6px 12px 8px; margin-bottom: 4px; border-bottom: 1px solid var(--line); font-size: 0.8rem; line-height: 1.35; color: var(--text-muted); }
 @media (max-width: 860px) {
   .nav-actions { flex-wrap: wrap; }
   .lang-menu { position: static; opacity: 1; pointer-events: auto; transform: none; display: none; margin-top: 8px; box-shadow: none; }
@@ -894,6 +895,7 @@ a.card:hover { opacity: 0.6; }
 }
 
 .auth-box .btn { width: 100%; justify-content: center; margin-top: 8px; }
+.auth-box .btn[hidden], .auth-box .auth-fine[hidden] { display: none; }
 
 .notice {
   margin-top: 20px;
@@ -3160,7 +3162,7 @@ code {
 .tp-devices { grid-area: devices; display: flex; flex-wrap: wrap; gap: 6px; }
 .tp-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 0.78rem; font-weight: 600; }
 .tp-chip svg { width: 14px; height: 14px; }
-.tp-chip-ipad { background: #fff; color: var(--text); }
+.tp-chip-ipad, .tp-chip-iphone { background: #fff; color: var(--text); }
 .tp-points { display: grid; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
 .tp-points li { display: flex; align-items: flex-start; gap: 10px; color: rgba(255, 255, 255, 0.9); font-size: 0.92rem; line-height: 1.45; }
 .tp-points svg { flex: none; width: 20px; height: 20px; margin-top: 1px; padding: 4px; border-radius: 50%; background: rgba(21, 101, 192, 0.45); color: #fff; }
@@ -4247,3 +4249,6 @@ html:lang(zh) {
 html:lang(zh) body { line-height: 1.7; }
 html:lang(zh) :is(h1, h2, h3) { line-height: 1.3; }
 html:lang(zh) :is(h1, h2, h3, h4, .eyebrow, .section-kicker) { letter-spacing: 0; line-break: strict; }
+
+/* Account → Downloads: the details "For IT" from Get E1, at the foot of each card. */
+.download-card .download-it { flex: 0 0 auto; margin-top: 16px; padding: 12px 0 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; }
