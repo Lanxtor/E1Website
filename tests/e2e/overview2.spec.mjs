@@ -10,7 +10,7 @@ import { test, expect } from "./fixtures.mjs";
 const CLIPS = [
   "web-overview-legacy-import", "web-overview-one-model", "web-overview-branches",
   "web-overview-animate-pid", "web-overview-animate-circuit", "web-overview-alex",
-  "web-overview-feed-to-wiring", "web-overview-checks-history"
+  "web-overview-feed-to-wiring", "web-overview-checks-history", "web-overview-access-tasks"
 ];
 
 const playing = (v) => v.evaluate((el) => !el.paused && el.readyState > 2);
