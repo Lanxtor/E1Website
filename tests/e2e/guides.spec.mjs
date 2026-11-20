@@ -186,3 +186,146 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-clipboard: a symbol put on a pipe go
   const clipboard = page.locator("#draw-clipboard");
   await expect(clipboard).toContainText("Drag the copy onto a pipe and it goes into the line, connected on both sides");
 });
+
+test("DRAW-line-style: the line types are listed with how each is drawn; the PDF and DEXPI export are named", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-line-style");
+  const style = page.locator("#draw-line-style");
+  await expectScrolledTo(style);
+  await expect(style).toContainText("the signal lines of ISA-5.1, and heat-traced and jacketed pipes");
+  await expect(style).toContainText("choose Pneumatic signal");
+  await expect(style.getByRole("heading", { name: "The line types" })).toBeVisible();
+  const types = style.locator("table").nth(1).locator("tbody tr td:first-child");
+  await expect(types).toHaveText(["Solid, Dashed", "Pneumatic signal", "Electric signal", "Capillary tube", "Hydraulic signal", "Electromagnetic or sonic signal",
+    "Software or data link", "Mechanical link", "Undefined signal", "Heat-traced pipe", "Jacketed pipe"]);
+  await expect(style).toContainText("The PDF and the DEXPI file draw the line with its marks.");
+});
+
+test("DRAW-tags-labels, DRAW-attribute-labels, DRAW-select: labels typed over, dragged with a leader and reset; attributes changed in the Selection panel", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-tags-labels");
+  const labels = page.locator("#draw-tags-labels");
+  await expectScrolledTo(labels);
+  await expect(labels).toContainText("Double-click a pump's tag (or its name) on the drawing");
+  await expect(labels).toContainText("one another object has is refused, with that object's name under the field");
+  await expect(labels).toContainText("Double-click a line number and type a new one.");
+  await expect(labels).toContainText("Far from its line a thin leader joins the number to the line");
+  await expect(labels).toContainText("Reset label position");
+  const values = page.locator("#draw-attribute-labels");
+  await expect(values).toContainText("far from the pump a thin leader joins them");
+  await expect(values).toContainText("Right-click the label → Reset label position.");
+  const select = page.locator("#draw-select");
+  await expect(select).toContainText("Click a value in that list, for example Material");
+  await expect(select).toContainText("Service, Nominal size, Fluid, Pipe class");
+  await expect(select).toContainText("Heat tracing opens a list with None, Electric, Steam, Hot water and Hot oil");
+});
+
+test("DRAW-connector: the guide tells that the Connector routes the line, shows it first and is one step to undo", async ({ page }) => {
+  const f = FEATURES.find((x) => x.id === "DRAW-connector");
+  await page.goto(`/${pageOf(f)}#${f.anchor}`);
+  const part = page.locator(`[id="${f.anchor}"]`);
+  await expect(part).toBeVisible();
+  await expectScrolledTo(part);
+  const steps = part.locator("table.g-steps tbody tr");
+  await expect(steps.filter({ hasText: "the route that will be drawn is shown" })).toHaveCount(1);
+  await expect(steps.filter({ hasText: "around the symbol and the lines in its way" })).toHaveCount(1);
+  await expect(steps.filter({ hasText: "Click a nozzle, then click another nozzle" })).toContainText("The same routed pipe as a drag draws");
+  await expect(steps.filter({ hasText: "press Ctrl+Z once" })).toContainText("The whole line is gone");
+  /* The catalog finds it by what it now does. */
+  await page.goto("/guide-features.html");
+  await expect(page.locator("body")).toContainText("routed around what is in the way");
+});
+
+test("DRAW-live-checks, DRAW-layout-check: what is marked while drawing with its fix, and the layout warnings, each with Watch the lesson and Show me how in E1", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-live-checks");
+  const live = page.locator("section#draw-live-checks");
+  await expectScrolledTo(live);
+  await expect(live.getByRole("heading", { level: 2 })).toHaveText("Checks while drawing");
+  await expect(live).toContainText("This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.");
+  for (const fix of ["Delete the open pipe", "Flip the flow of the chain", "Use DN 80 on both", "Rename to P-102", "Connect to off-page connector…"]) await expect(live).toContainText(fix);
+  await expect(live).toContainText("At a tee: a branch in another pipe class than its header");
+  await expect(live.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=process-design&lesson=[\w-]+$/);
+  await expect(live.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=sheet-live-checks");
+
+  // Related → Layout check, on the same page.
+  await live.locator(".g-related").getByRole("link", { name: "Layout check" }).click();
+  const layout = page.locator("section#draw-layout-check");
+  await expectScrolledTo(layout);
+  await expect(layout.getByRole("heading", { level: 2 })).toHaveText("Layout check");
+  await expect(layout).toContainText("PID-1 has 4 major equipment items, more than 3");
+  await expect(layout).toContainText("Major equipment on a 2D space");
+  await expect(layout).toContainText("The main flow on PID-1 runs right to left. Draw the process from left to right.");
+  await expect(layout).toContainText("incoming connectors belong on the left edge");
+  await expect(layout.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=sheet-piping-check");
+
+  // Check piping names both.
+  const check = page.locator("section#draw-piping-check");
+  await expect(check.locator(".g-related").getByRole("link", { name: "Checks while drawing" })).toHaveAttribute("href", /#draw-live-checks$/);
+  await expect(check).not.toContainText("as markers on the drawing");
+});
+
+test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break line, Straighten, Reset route and Line kind, with Watch the lesson and Show me how in E1", async ({ page }) => {
+  const f = FEATURES.find((x) => x.id === "DRAW-edit-line");
+  expect(f, "DRAW-edit-line is in the guides").toBeTruthy();
+  await page.goto(`/${pageOf(f)}#${f.anchor}`);
+  const part = page.locator("section#draw-edit-line");
+  await expect(part).toBeVisible();
+  await expectScrolledTo(part);
+  await expect(part.getByRole("heading", { level: 2 })).toHaveText("Shape a line: bends, ends, join, break and straighten");
+  const steps = part.locator("table.g-steps tbody tr");
+  await expect(steps).toHaveCount(12);
+  await expect(steps.filter({ hasText: "Drag a bend grip sideways" })).toContainText("the next bend slides with it");
+  await expect(steps.filter({ hasText: "Remove bend" })).toContainText("The line itself is not deleted");
+  await expect(steps.filter({ hasText: "where another pipe already ends" })).toContainText("already ends a pipe: a nozzle takes one pipe.");
+  for (const label of ["Break line", "Join lines", "Straighten", "Reset route"]) await expect(part.locator(".ui", { hasText: label }).first()).toBeVisible();
+  await expect(steps.filter({ hasText: "Drag one of the valves the hand-shaped pipe ends on" })).toContainText("The pipe keeps the bends you gave it");
+  await expect(part.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=first-pid&lesson=[\w-]+$/);
+  await expect(part.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=sheet-edit-line");
+
+  // Related → Line style, where Line kind is told.
+  await part.locator(".g-related").getByRole("link", { name: "Line style, thickness and colour" }).click();
+  const style = page.locator("section#draw-line-style");
+  await expectScrolledTo(style);
+  await expect(style.locator("table.g-steps tbody tr").filter({ hasText: "Line kind" })).toContainText("becomes a line of that kind");
+
+  // The catalog lists it.
+  await page.goto("/guide-features.html");
+  await expect(page.locator("body")).toContainText("Shape a line: bends, ends, join, break and straighten");
+});
+
+test("DRAW-command-search, DRAW-quick-swap, DRAW-clipboard, GS-shortcuts: the tool keys, Ctrl+K, paste at the pointer and Swap symbol are in the guide, each with its lesson and Show me how in E1", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-command-search");
+  const search = page.locator("#draw-command-search");
+  await expectScrolledTo(search);
+  await expect(search.getByRole("heading", { level: 2 })).toHaveText("Tool keys and the command search (Ctrl+K)");
+  for (const [key, tool] of [["P", "Flow lines"], ["L", "Logic"], ["C", "Cable"], ["W", "Wire"], ["T", "Text"], ["G", "Tag"], ["A", "Add…"], ["B", "Frame"]]) {
+    await expect(search.locator("tr", { has: page.locator("kbd", { hasText: new RegExp(`^${key}$`) }) }).filter({ hasText: tool }), `${key} is ${tool}`).toHaveCount(1);
+  }
+  await expect(search).toContainText("Everything is listed before you type");
+  await expect(search).toContainText("Search symbols and commands…");
+  await expect(search).toContainText("Select something on the drawing first.");
+  await expect(search.getByRole("link", { name: /Watch the lesson/ })).toBeVisible();
+  await expect(search.getByRole("link", { name: /Show me how in E1/ })).toHaveAttribute("href", /\?guide=sheet-keys-search$/);
+  // The contents list of the page jumps to both new parts.
+  await page.locator('a[href="#draw-quick-swap"]').first().click();
+  const swap = page.locator("#draw-quick-swap");
+  await expectScrolledTo(swap);
+  await expect(swap.getByRole("heading", { level: 2 })).toHaveText("Swap a symbol for another of its class");
+  await expect(swap).toContainText("Globe valve, Ball valve and the other valves, all shown at once");
+  await expect(swap).toContainText("Both pipes are still connected; its name and tag have not changed");
+  await expect(swap.getByRole("link", { name: /Show me how in E1/ })).toHaveAttribute("href", /\?guide=sheet-quick-swap$/);
+  await expect(swap.getByRole("link", { name: /Watch the lesson/ })).toBeVisible();
+  const clipboard = page.locator("#draw-clipboard");
+  await expect(clipboard).toContainText("The copies land with their middle under the pointer, and the pipe between them is copied with them");
+  await expect(clipboard).toContainText("The copy lands where you right-clicked");
+  await expect(page.locator("#draw-symbol-menu")).toContainText("Search symbols and commands…");
+  // The shortcuts list has the keys, and its link opens the new part.
+  await page.goto("/guide-getting-started.html#gs-shortcuts");
+  const keys = page.locator("#gs-shortcuts");
+  await expect(keys.locator("tr", { hasText: "Draw Flow lines, Logic, Cable or Wire" })).toContainText("P, L, C, W");
+  await expect(keys.locator("tr", { hasText: "Search symbols and commands on the drawing" })).toContainText("Ctrl+K");
+  await keys.getByRole("link", { name: "Tool keys and the command search" }).click();
+  await expect(page).toHaveURL(/guide-drawing\.html#draw-command-search$/);
+  // Both are found in All features.
+  await page.goto("/guide-features.html");
+  await page.getByRole("searchbox").first().fill("Swap a symbol");
+  await expect(page.locator("main").getByRole("link", { name: /Swap a symbol for another of its class/ }).first()).toBeVisible();
+});

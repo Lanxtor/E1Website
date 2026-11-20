@@ -22,7 +22,7 @@
 
 <section class="g-feature" id="draw-sheet-view">
   <h2>Open a 2D space, zoom and pan</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-sheet-view</span><span>Roadmap M3.2, M3.11</span><span>Review check B1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-sheet-view</span><span>Roadmap M3.2, M3.11, M3.21</span><span>Review check B1</span></div>
   <p class="g-summary">A 2D space opens in its own tab as a drawing. You zoom with the mouse wheel or the zoom controls, and pan with a drag, the Pan tool or the Space bar. Symbols and text stay sharp at every zoom.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Double-click a 2D space in the explorer, or click its tab. Zoom: the zoom controls at the right end of the status bar under the 2D space, the mouse wheel and the keys.</dd>
@@ -42,6 +42,7 @@
       <tr><td>7</td><td>Drag with the middle mouse button, or with the right button held down.</td><td>The drawing pans, whatever tool is active. A right-click without moving opens a menu instead.</td></tr>
       <tr><td>8</td><td>Right-click empty space and choose <span class="ui">Fit drawing</span>.</td><td>The whole drawing is shown, as with the status bar button.</td></tr>
       <tr><td>8</td><td>Hold <kbd>Shift</kbd> and turn the mouse wheel.</td><td>The drawing pans sideways.</td></tr>
+      <tr><td>9</td><td>On a touch screen, put two fingers on the drawing and move them apart or together; then move both the same way.</td><td>The drawing zooms about the place between your fingers, and pans with them. Nothing is selected or moved. One finger works as the mouse does: a tap selects, a drag moves, and the grips of a selected symbol are larger and sit just outside it.</td></tr>
       <tr><td>9</td><td>Click <span class="ui">Pan</span> in the palette (or press <kbd>H</kbd>), then drag with the left button.</td><td>The status bar reads <span class="ui">Pan</span>, and a left-drag pans. Press <kbd>V</kbd> or click <span class="ui">Select</span> to go back to selecting.</td></tr>
       <tr><td>10</td><td>With <span class="ui">Select</span> active, hold <kbd>Space</kbd> and drag.</td><td>The drawing pans while Space is held.</td></tr>
     </tbody>
@@ -140,18 +141,63 @@
   <p class="g-related">Related: <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-module-place">Place a module</a> · <a href="guide-drawing.html#draw-toolbar">The bar, palette and Selection panel</a></p>
 </section>
 
+<section class="g-feature" id="draw-command-search">
+  <h2>Tool keys and the command search (Ctrl+K)</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-command-search</span><span>Roadmap M3.16</span><span>Review checks B4</span></div>
+  <p class="g-summary">Two ways to draw without reaching for the palette. One plain key arms each drawing tool. And <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>) opens one list of every drawing command and every symbol: the whole list is shown at once, typing narrows it, a symbol you choose is placed and a command you choose runs.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>The 2D space, in <span class="ui">Design</span>; the list also opens from the right-click menu of empty 2D space: <span class="ui">Search symbols and commands…</span></dd>
+    <dt>Who</dt><dd>Everyone can open the list; drawing needs an Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A 2D space is open and was the last thing you clicked.</dd>
+  </dl>
+  <h3>The tool keys</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Key</th><th>Tool</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>V</kbd>, <kbd>H</kbd></td><td><span class="ui">Select</span>, <span class="ui">Pan</span></td><td>Back to selecting; drag to move the view.</td></tr>
+      <tr><td><kbd>P</kbd></td><td><span class="ui">Flow lines</span></td><td>The Connector draws a pipe: click from point to point, double-click or <kbd>Esc</kbd> ends the run.</td></tr>
+      <tr><td><kbd>L</kbd></td><td><span class="ui">Logic</span></td><td>The Connector draws a logic signal.</td></tr>
+      <tr><td><kbd>C</kbd></td><td><span class="ui">Cable</span></td><td>The Connector draws a cable.</td></tr>
+      <tr><td><kbd>W</kbd></td><td><span class="ui">Wire</span></td><td>The Connector draws a wire.</td></tr>
+      <tr><td><kbd>T</kbd></td><td><span class="ui">Text</span></td><td>Click the 2D space to place a note and type it.</td></tr>
+      <tr><td><kbd>G</kbd></td><td><span class="ui">Tag</span></td><td>Opens the Tag dialog of the selected symbol; with nothing selected, the next symbol you click.</td></tr>
+      <tr><td><kbd>A</kbd></td><td><span class="ui">Add…</span></td><td>Opens the Add window.</td></tr>
+      <tr><td><kbd>B</kbd></td><td><span class="ui">Frame</span></td><td>Arms the rectangle frame of the system or area selected in the explorer; without one it does nothing.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Each key is shown in its button's tooltip, in brackets, and in <span class="ui">Help → Keyboard shortcuts</span>. The keys are plain keys: <kbd>Ctrl+C</kbd> is still Copy and <kbd>Shift+C</kbd> is still Changes since. They never fire while you type in a field (a note, a search box, the chat), in a dialog or in a menu, and a key pressed in <span class="ui">Review</span> arms its tool and shows <span class="ui">Design</span> again.</p>
+  <h3>Steps: the command search</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the 2D space and press <kbd>Ctrl+K</kbd> (<kbd>⌘K</kbd>).</td><td>The list <span class="ui">Search symbols and commands</span> opens over the drawing: <span class="ui">Commands</span> first, each with its key, then <span class="ui">Symbols</span>, each with its class. Everything is listed before you type.</td></tr>
+      <tr><td>2</td><td>Type <kbd>globe</kbd>.</td><td>Only the rows with that word stay. Several words narrow further; clearing the box shows the whole list again.</td></tr>
+      <tr><td>3</td><td>Press <kbd>↓</kbd> or <kbd>↑</kbd> to <span class="ui">Globe valve</span>, then <kbd>Enter</kbd> (or click the row).</td><td>The list closes and the Place tool is armed with the globe valve: the status bar says <span class="ui">Place asset</span>.</td></tr>
+      <tr><td>4</td><td>Click where the valve starts and where it ends, or click a pipe.</td><td>The valve is placed, as from <span class="ui">Add…</span>; it is also among the palette's recent picks.</td></tr>
+      <tr><td>5</td><td>Press <kbd>Ctrl+K</kbd>, type <kbd>cable</kbd> and press <kbd>Enter</kbd>.</td><td>The command runs: the Connector is armed with Cable.</td></tr>
+      <tr><td>6</td><td>With nothing selected, press <kbd>Ctrl+K</kbd> and look at <span class="ui">Copy</span>.</td><td>It is greyed and says why: "Select something on the drawing first." A greyed row cannot be chosen.</td></tr>
+      <tr><td>7</td><td>Press <kbd>Esc</kbd>, or click outside the list.</td><td>The list closes and nothing changes.</td></tr>
+    </tbody>
+  </table></div>
+  <p>The commands are the drawing's own: the tools, Undo and Redo, Cut, Copy, Paste, Duplicate, Select all, Delete, Flip, Rotate, the zooms, Ortho, Snap and Grid (each shows On or Off), Markup, Changes since… and Swap symbol…. The symbols are those of the 2D space's diagram type.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-palette">The palette</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-getting-started.html#gs-shortcuts">Keyboard shortcuts</a></p>
+</section>
+
 <section class="g-feature" id="draw-aids">
   <h2>Snap, Grid and Ortho</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-aids</span><span>Roadmap M3.3</span><span>Review check B4</span></div>
-  <p class="g-summary">Three drawing aids help you draw clean P&amp;IDs: a grid, snapping of line ends onto nozzles, and lines that stay horizontal or vertical. They are your own settings and stay as you left them after a reload.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-aids</span><span>Roadmap M3.3, M3.21</span><span>Review check B4</span></div>
+  <p class="g-summary">Three drawing aids help you draw clean P&amp;IDs: a grid, Snap, which puts what you place, move or draw on the grid, onto nozzles and line ends and in line with other symbols, and lines that stay horizontal or vertical. They are your own settings and stay as you left them after a reload.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The toggles <span class="ui">Snap</span>, <span class="ui">Grid</span> and <span class="ui">Ortho</span> in the status bar under the 2D space</dd>
     <dt>Who</dt><dd>Everyone; the setting is per person</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
   <ul>
-    <li><span class="ui">Grid</span> shows a grid of 0.5 m (2.5 m when you zoom far out).</li>
-    <li><span class="ui">Snap</span>: a line end you move within 16 pixels of a free nozzle or point joins it.</li>
+    <li><span class="ui">Grid</span> shows the grid behind the drawing; its squares get larger as you zoom out.</li>
+    <li><span class="ui">Snap</span>, on the grid: a symbol or a note you move, a symbol you place and a line end you draw on free space land on the grid (steps of 2.5 mm on the sheet).</li>
+    <li><span class="ui">Snap</span>, onto nozzles and line ends: a symbol you bring within 16 pixels of a free nozzle or a loose line end lands on it exactly, and a line end is connected to the symbol. A line end you move near a free nozzle joins it the same way.</li>
+    <li><span class="ui">Snap</span>, alignment guides: while you move or place a symbol, a thin dashed guide line shows where its middle, an edge or a nozzle lines up with another symbol, and the symbol takes that line.</li>
+    <li>Hold <kbd>Alt</kbd> during a drag to leave Snap out for that one move. With <span class="ui">Snap</span> off, everything lands exactly where you let go and no guide shows.</li>
     <li><span class="ui">Ortho</span>: each connector segment stays horizontal or vertical. With Ortho off, lines run straight at any angle.</li>
   </ul>
   <h3>Steps</h3>
@@ -162,9 +208,12 @@
       <tr><td>2</td><td>Reload the page.</td><td>Grid is still off.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Ortho</span> in the status bar to turn it off, then draw a line with <span class="ui">Connector</span> by clicking two points at an angle.</td><td>The line runs straight at an angle. The status hint says you can draw "at any angle".</td></tr>
       <tr><td>4</td><td>Turn <span class="ui">Ortho</span> and <span class="ui">Grid</span> back on.</td><td>New segments stay horizontal or vertical; the grid is shown again.</td></tr>
+      <tr><td>5</td><td>With <span class="ui">Snap</span> on, drag a valve slowly past the level of another valve.</td><td>A dashed guide line shows through both valves while they line up; let go there and the two are exactly level. Elsewhere the valve lands on the grid.</td></tr>
+      <tr><td>6</td><td>Drag a valve that is connected to nothing so that its outlet comes close to the loose end of a pipe.</td><td>The valve jumps onto the pipe end and the pipe is connected to it: move the valve again and the pipe follows.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Snap</span> to turn it off and drag the valve again.</td><td>No guide shows and the valve stays exactly where you let go. Point at <span class="ui">Snap</span> to read what it does.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-arrange">Move, flip, rotate, resize and align</a> · <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
 </section>
 
 <section class="g-feature" id="draw-place-symbol">
@@ -237,7 +286,7 @@
 
 <section class="g-feature" id="draw-connector">
   <h2>Draw pipes, signals and cables with Connector</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-17</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11, M3.14</span><span>Review checks B4, A3</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-connector</span><span>Roadmap M3.3, M3.11, M3.14, M3.connector-routing</span><span>Review checks B4, A3</span></div>
   <p class="g-summary">Connector draws the lines between symbols: flow lines (pipes), cables, wires and logic signals. Every line is an object in the model and connects the symbols it touches, so the connection shows in lists and in Highlight flow.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The Design palette → Connect: <span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> or <span class="ui">Logic</span>; also at the top of the Add window.</dd>
@@ -250,9 +299,11 @@
     <tbody>
       <tr><td>1</td><td>Look at Connect in the palette.</td><td><span class="ui">Flow lines</span>, <span class="ui">Cable</span>, <span class="ui">Wire</span> and <span class="ui">Logic</span>, each with its colour swatch.</td></tr>
       <tr><td>2</td><td>Click <span class="ui">Flow lines</span>.</td><td>The button is highlighted. The status bar reads <span class="ui">Connector · Flow lines</span> with the hint "Click point by point to draw; each segment stays horizontal or vertical. Clicking a nozzle or a line connects and ends the run; Esc or a double-click ends it too; Esc with no run, or a right-click, leaves the Connector."</td></tr>
-      <tr><td>3</td><td>Drag from the outlet of one pump to the inlet of a valve.</td><td>One routed pipe is drawn, and the two symbols are connected. The pipe shows its flow arrow.</td></tr>
-      <tr><td>4</td><td>Click on an empty spot of the 2D space, then click a few more points.</td><td>Each click adds a segment from where the last one ended. The line being drawn looks like its kind.</td></tr>
-      <tr><td>5</td><td>Click on a nozzle, a symbol or another line.</td><td>The run connects there and ends. Ending on a pipe makes a junction that splits it; ending within 8 pixels of a symbol attaches to it.</td></tr>
+      <tr><td>3</td><td>Drag from the outlet of one pump to the inlet of a valve that has another symbol between them.</td><td>While you drag, the route that will be drawn is shown, and the nozzle under the pointer is highlighted. On release one pipe is drawn, square, around the symbol and the lines in its way, and the two symbols are connected. The pipe shows its flow arrow.</td></tr>
+      <tr><td>4</td><td>Click on an empty spot of the 2D space, then click a few more points.</td><td>Before each click the segment it will draw is shown, in the look of its kind. Each click adds that segment from where the last one ended: you set the bends by hand.</td></tr>
+      <tr><td>5</td><td>Move over a nozzle, a symbol or another line, then click it.</td><td>The nozzle, symbol or line is highlighted, and the route shown goes around what is in its way. The click draws that route: the run connects there and ends. Ending on a pipe makes a junction that splits it; ending within 8 pixels of a symbol attaches to it.</td></tr>
+      <tr><td>5a</td><td>Click a nozzle, then click another nozzle (no drag).</td><td>The same routed pipe as a drag draws: square, around the symbols and lines between the two.</td></tr>
+      <tr><td>5b</td><td>Draw a line in several clicks, then press <kbd>Ctrl</kbd>+<kbd>Z</kbd> once.</td><td>The whole line is gone: a line is one step, however many clicks drew it. <kbd>Ctrl</kbd>+<kbd>Y</kbd> draws it again.</td></tr>
       <tr><td>6</td><td>Start another run, then press <kbd>Esc</kbd> or double-click.</td><td>The run ends, and Connector stays on. A second <kbd>Esc</kbd> leaves Connector: the status bar reads <span class="ui">Select</span>.</td></tr>
       <tr><td>7</td><td>Right-click on the 2D space.</td><td>You leave Connector: the status bar reads <span class="ui">Select</span>, and no menu opens.</td></tr>
       <tr><td>8</td><td>Click <span class="ui">Logic</span> in the palette and draw a line between two instruments.</td><td>Connector starts with Logic; the line is dashed while you draw it. Cable, Wire and Logic lines have no flow arrows.</td></tr>
@@ -260,7 +311,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/connector-on.webp" alt="The 2D space with the Connector tool active; the Connector button is framed in red" width="2160" height="1350" loading="lazy"><figcaption>Connector is on: the button is highlighted and the status bar names the kind.</figcaption></figure>
-  <p class="g-note">With <span class="ui">Ortho</span> off, segments run at any angle (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>). Each drawn pipe run is an object under <span class="ui">Assets → Pipelines</span>.</p>
+  <p class="g-note">With <span class="ui">Ortho</span> off, segments run at any angle and are not routed around anything (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>). Each drawn pipe run is an object under <span class="ui">Assets → Pipelines</span>.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-place-symbol">Place a symbol</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows and crossings</a> · <a href="guide-drawing.html#draw-line-style">Line style</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a></p>
 </section>
 
@@ -288,8 +339,8 @@
 
 <section class="g-feature" id="draw-select">
   <h2>Select symbols, lines and notes</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-18</span><span class="g-id">DRAW-select</span><span>Roadmap M3.3</span><span>Review check B5</span></div>
-  <p class="g-summary">With the Select tool you pick one item with a click, add or remove items with Shift or Ctrl, take a region with a frame, or add a whole pipe run with Shift and a double-click. The status bar shows how many items are selected.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-select</span><span>Roadmap M3.3, M3.labels</span><span>Review check B5</span></div>
+  <p class="g-summary">With the Select tool you pick one item with a click, add or remove items with Shift or Ctrl, take a region with a frame, or add a whole pipe run with Shift and a double-click. The status bar shows how many items are selected. With one symbol or one line selected, the Selection panel shows its attributes, and you change them there.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Select</span> (<kbd>V</kbd>)</dd>
     <dt>Who</dt><dd>Everyone who can open the 2D space</dd>
@@ -306,8 +357,12 @@
       <tr><td>5</td><td>Drag a frame across part of the drawing on an empty part of the 2D space.</td><td>Symbols whose center is inside are selected; a pipe segment only when it lies fully inside.</td></tr>
       <tr><td>6</td><td>Click the 2D space, then press <kbd>Ctrl+A</kbd> (<kbd>⌘A</kbd>).</td><td>Everything on the 2D space is selected.</td></tr>
       <tr><td>7</td><td>Press <kbd>Esc</kbd>.</td><td>The selection is cleared.</td></tr>
+      <tr><td>8</td><td>Click Pump1 and look at the <span class="ui">Selection</span> panel on the right.</td><td>Above <span class="ui">Format and arrange</span> it lists the attributes of the pump that hold a value: the name on the left, the value with its unit on the right. The number beside the tag counts them.</td></tr>
+      <tr><td>9</td><td>Click a value in that list, for example <span class="ui">Material</span>, type a new one and press <kbd>Enter</kbd>.</td><td>A field opens where the value stands, with the value selected. <kbd>Enter</kbd> or a click away saves it; <kbd>Esc</kbd> leaves it as it was. An attribute with choices opens a list instead. A value the attribute cannot take is refused under the list and nothing changes. <kbd>Ctrl+Z</kbd> takes the change back.</td></tr>
+      <tr><td>10</td><td>Click a pipe and look at the panel.</td><td>It lists the line's attributes: <span class="ui">Service</span>, <span class="ui">Nominal size</span>, <span class="ui">Fluid</span>, <span class="ui">Pipe class</span> and the rest of the head of its data sheet, also while they are empty (shown as —). Click one to fill it in; <span class="ui">Heat tracing</span> opens a list with None, Electric, Steam, Hot water and Hot oil, and <span class="ui">(none)</span> clears it.</td></tr>
     </tbody>
   </table></div>
+  <p class="g-note">Values are changed in the Selection panel only by people who may edit the drawing; others read them there.</p>
   <p class="g-note"><kbd>Ctrl+A</kbd> (<kbd>⌘A</kbd>) acts on the 2D space only when the 2D space was the last pane you clicked; after a click in the explorer it does not. <kbd>Ctrl+A</kbd>, <span class="ui">Select all</span> and <kbd>Esc</kbd> select and clear only for people who may edit the drawing.</p>
   <figure class="g-shot"><img src="assets/img/guides/sheet-selected.webp" alt="Pump1 selected on the 2D space with its resize grips, the status bar reading 1 selected" width="2160" height="1350" loading="lazy"><figcaption>One symbol selected: its grips are shown and the status bar counts it.</figcaption></figure>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-arrange">Move, flip, resize and align</a> · <a href="guide-drawing.html#draw-clipboard">Copy, paste and undo</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a></p>
@@ -315,8 +370,8 @@
 
 <section class="g-feature" id="draw-arrange">
   <h2>Move, flip, rotate, resize and align</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3, M3.15, M3.16</span><span>Review check B5</span></div>
-  <p class="g-summary">Drag the selection to move it; connected lines follow and stay square, and a valve slides along its pipe. Flip or rotate a symbol, resize it with its grips (equipment stretches, a valve keeps a standard size), or line several symbols up with the Align menu.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3, M3.15, M3.16, M3.21</span><span>Review check B5</span></div>
+  <p class="g-summary">Drag the selection to move it, or nudge it with the arrow keys; connected lines follow and stay square, and a valve slides along its pipe. Flip or rotate a symbol, resize it with its grips (equipment stretches, a valve keeps a standard size), or line several symbols up with the Align menu.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Flip</span>, <span class="ui">Rotate symbol</span> and <span class="ui">Align</span> ▾; right-click a symbol → <span class="ui">Flip</span> ▸ <span class="ui">Horizontal</span> / <span class="ui">Vertical</span>, <span class="ui">Rotate</span> ▸ <span class="ui">Clockwise</span> / <span class="ui">Counter-clockwise</span> / <span class="ui">Half turn</span>, and on a valve, an instrument or a fitting <span class="ui">Size</span> ▸ <span class="ui">Small</span> / <span class="ui">Standard</span> / <span class="ui">Large</span> / <span class="ui">Extra large</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -326,7 +381,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select a pump and drag it.</td><td>It moves; its pipes follow and stay horizontal or vertical.</td></tr>
+      <tr><td>1</td><td>Select a pump and drag it.</td><td>It moves; its pipes follow and stay horizontal or vertical. With <span class="ui">Snap</span> on it lands on the grid, and a guide line shows where it lines up with another symbol (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>).</td></tr>
+      <tr><td>1a</td><td>With the pump selected, press <kbd>→</kbd> three times, then <kbd>Shift</kbd>+<kbd>↓</kbd>.</td><td>Each arrow key moves the selection one grid step that way; with <kbd>Shift</kbd>, ten steps. Its pipes follow. One <span class="ui">Undo</span> takes the whole run of presses back.</td></tr>
       <tr><td>2</td><td>Press <kbd>F</kbd> (or click <span class="ui">Flip</span>).</td><td>The pump is mirrored left to right, exactly as right-click → <span class="ui">Flip</span> ▸ <span class="ui">Horizontal</span> does; its nozzles stay where they are. Doing it again turns it back. Its name stays upright under it.</td></tr>
       <tr><td>3</td><td>Right-click the pump → <span class="ui">Flip</span> ▸ <span class="ui">Vertical</span>.</td><td>The pump is mirrored top to bottom. <kbd>Shift</kbd>+<kbd>F</kbd> does the same; the menu shows both keys.</td></tr>
        <tr><td>4</td><td>Select the pump and press <kbd>R</kbd> (or click <span class="ui">Rotate symbol</span>).</td><td>It turns a quarter turn clockwise about its middle; its nozzles turn with it and its pipes follow, kept horizontal or vertical. <kbd>Shift</kbd>+<kbd>R</kbd> turns it counter-clockwise. Its name stays upright: under the symbol, or to its right while the symbol stands upright.</td></tr>
@@ -346,9 +402,39 @@
   <p class="g-related">Related: <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol's right-click menu</a></p>
 </section>
 
+<section class="g-feature" id="draw-edit-line">
+  <h2>Shape a line: bends, ends, join, break and straighten</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-edit-line</span><span>Roadmap M3.3b</span><span>Review check B5</span></div>
+  <p class="g-summary">A selected line shows grips: one on each bend, one in the middle of each segment and one on each end. With them you shape the line by hand, and its right-click menu joins two lines, breaks one in two, takes out bends it does not need, or lets E1 route it again. A line you shaped by hand keeps its bends when a symbol at its end moves.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space: select one line with <span class="ui">Select</span>; right-click a line for its menu</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A 2D space with two valves joined by a pipe that has two bends, and a third valve with free nozzles.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click the pipe.</td><td>It is selected and shows a round grip on each bend, a small square grip in the middle of each segment and a round grip on each end.</td></tr>
+      <tr><td>2</td><td>Drag a bend grip sideways.</td><td>The bend moves and the next bend slides with it, so every segment stays horizontal or vertical. Beside an end of the line the bend only slides along that segment. The line is still the same line, with its tag.</td></tr>
+      <tr><td>3</td><td>Drag the square grip in the middle of a segment aside.</td><td>The line steps over there: new bends are added where you dragged.</td></tr>
+      <tr><td>4</td><td>Click a bend grip, then press <span class="ui">Delete</span> (or <span class="ui">Backspace</span>). Or right-click the bend and choose <span class="ui">Remove bend</span>.</td><td>That bend is taken out and the line is squared again with fewer bends. The line itself is not deleted. With no bend picked, <span class="ui">Delete</span> deletes the line as before.</td></tr>
+      <tr><td>5</td><td>Drag the grip on the pipe's end onto a free nozzle of the third valve, onto the valve itself, or onto another line.</td><td>The pipe now ends there: on that nozzle, on the valve's free nozzle, or at a tee on the other line. It is routed square again. A signal line and a wire have the same end grips; a cable has its own (<span class="ui">Move cable end</span>).</td></tr>
+      <tr><td>6</td><td>Drag a pipe's end onto a nozzle where another pipe already ends.</td><td>It is refused with the message "That nozzle of … already ends a pipe: a nozzle takes one pipe.", and nothing changes.</td></tr>
+      <tr><td>7</td><td>Right-click the pipe where you want to cut it and choose <span class="ui">Break line</span>.</td><td>The pipe is two lines that meet end to end at that place; each can have its own tag, kind and look.</td></tr>
+      <tr><td>8</td><td>Right-click one of the two and choose <span class="ui">Join lines</span>. Or select both first.</td><td>They are one line again: the other line takes this line's kind, look and direction of flow. With no line meeting it end to end, <span class="ui">Join lines</span> is greyed out and says so.</td></tr>
+      <tr><td>9</td><td>Right-click a line with a step it does not need and choose <span class="ui">Straighten</span>.</td><td>The needless bends go: the line leaves its start and arrives at its end as before, with the fewest bends between.</td></tr>
+      <tr><td>10</td><td>Drag one of the valves the hand-shaped pipe ends on.</td><td>The pipe keeps the bends you gave it; only the bend beside the moved valve slides. A line you never shaped is routed again as before.</td></tr>
+      <tr><td>11</td><td>Right-click the hand-shaped pipe and choose <span class="ui">Reset route</span>.</td><td>E1 routes the line again automatically, and from now on routes it again when its symbols move.</td></tr>
+      <tr><td>12</td><td>Press <span class="ui">Ctrl+Z</span> after any of these.</td><td>The line is as it was before that step; <span class="ui">Ctrl+Shift+Z</span> makes the change again.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-connection-rules">Connection rules</a> · <a href="guide-drawing.html#draw-arrange">Move, flip, resize and align</a> · <a href="guide-drawing.html#draw-line-style">Line style, thickness and colour</a></p>
+</section>
+
 <section class="g-feature" id="draw-clipboard">
   <h2>Undo, redo, copy, paste and duplicate</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-18</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4, M3.13</span><span>Review checks A4, B5</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-clipboard</span><span>Roadmap M3.4, M3.13, M3.16</span><span>Review checks A4, B5</span></div>
   <p class="g-summary">Copy, paste and duplicate make new objects with new tags; cut removes them to the Deleted bin. A copy pastes on any sheet, in the same project or another one, in any E1 window or tab, and what a paste makes waits in the explorer in <span class="ui">Copy temp</span> until you move it. Undo and redo work step by step across the drawing, the explorer and attributes, one history per person per project.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar (<span class="ui">Undo</span>, <span class="ui">Redo</span>, <span class="ui">Copy</span>, <span class="ui">Paste</span>, <span class="ui">Duplicate</span>), the <span class="ui">Edit</span> menu, and the right-click menus</dd>
@@ -365,12 +451,16 @@
       <tr><td>4</td><td>In the explorer, open <span class="ui">Assets</span>.</td><td>The copy is in <span class="ui">Copy temp</span>, last in Assets, with its own folder icon. Drag it where it belongs: once Copy temp is empty it is no longer shown.</td></tr>
       <tr><td>5</td><td>Copy a pump that is in an area, open a sheet of another project (in this window or another tab) and press <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>The copy, with the pump's values, is in Assets ▸ Copy temp of that project, and a copy of its area in Areas ▸ Copy temp, the pump in it. Systems, unit operations and processes come along the same way.</td></tr>
       <tr><td>6</td><td>Select a valve and press <kbd>Ctrl+D</kbd> (<kbd>⌘D</kbd>) or click <span class="ui">Duplicate</span>.</td><td>A duplicate with a new name appears beside it.</td></tr>
-      <tr><td>7</td><td>Select the copy and press <kbd>Ctrl+X</kbd> (<kbd>⌘X</kbd>).</td><td>It leaves the 2D space and goes to the Deleted bin.</td></tr>
-      <tr><td>8</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
+      <tr><td>7</td><td>Select a pump and the valve piped to it, press <kbd>Ctrl+C</kbd> (<kbd>⌘C</kbd>), move the pointer to an empty spot of the 2D space and press <kbd>Ctrl+V</kbd> (<kbd>⌘V</kbd>).</td><td>The copies land with their middle under the pointer, and the pipe between them is copied with them. Press <kbd>Ctrl+V</kbd> again without moving: the next copy lands one metre on, so no copy hides another.</td></tr>
+      <tr><td>8</td><td>Select the valve, move the pointer away and press <kbd>Ctrl+D</kbd> (<kbd>⌘D</kbd>).</td><td>The duplicate lands under the pointer.</td></tr>
+      <tr><td>9</td><td>Right-click an empty spot and choose <span class="ui">Paste</span>.</td><td>The copy lands where you right-clicked.</td></tr>
+      <tr><td>10</td><td>Select the copy and press <kbd>Ctrl+X</kbd> (<kbd>⌘X</kbd>).</td><td>It leaves the 2D space and goes to the Deleted bin.</td></tr>
+      <tr><td>11</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) three times.</td><td>The last three steps are undone one by one.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/menu-edit.webp" alt="The Edit menu with Undo and Redo and their shortcuts" width="380" height="196" loading="lazy"><figcaption>The Edit menu: Undo and Redo; cut, copy, paste and duplicate are on their keys and in the right-click menu.</figcaption></figure>
   <p>A copy takes its original's design values (calculated values come from their rules again), the relationships between the objects you copied, and the parts of an object that are not drawn. Copy every symbol of a placed module and the copies are a new instance of it: <a href="#draw-module-instance">A placed module on its objects</a>. The values come in a second step after the copy is made: <kbd>Ctrl+Z</kbd> takes them back first.</p>
+  <p>Where a copy lands: under the pointer when you have moved it on the 2D space since your last click there; one metre to the right and below the original when the pointer is still where you clicked (click a symbol, then <kbd>Ctrl+D</kbd>) or is off the 2D space (the <span class="ui">Edit</span> menu, the buttons of Format and arrange).</p>
   <p>Every paste puts what it makes in <span class="ui">Copy temp</span> of its section (Assets ▸ Copy temp, Systems ▸ Copy temp, Areas ▸ Copy temp, …); a duplicate stays beside its original in the tree. Pasted from a project you cannot open, the copies are made without the originals' values. In another browser, paste reads the copy from the system clipboard, and the browser may ask you to allow that.</p>
   <p class="g-note"><kbd>Ctrl+C</kbd>, <kbd>Ctrl+X</kbd>, <kbd>Ctrl+V</kbd>, <kbd>Ctrl+D</kbd> and <kbd>Ctrl+A</kbd> (<kbd>⌘</kbd> on a Mac) act on the 2D space only when the 2D space was the last pane you clicked. After a click in the explorer, click the 2D space first. Paste in the right-click menu is greyed out until you have copied something. To undo a change of someone else's, or an older change, use History (<a href="guide-collaboration.html#col-history">History and undo</a>).</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-delete">Delete on the drawing</a> · <a href="guide-collaboration.html#col-history">History and undo</a></p>
@@ -401,8 +491,8 @@
 
 <section class="g-feature" id="draw-tags-labels">
   <h2>Tags, names and line numbers on the 2D space</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-tags-labels</span><span>Roadmap M3.10, M1.7</span><span>Review check B3</span></div>
-  <p class="g-summary">Every symbol shows its tag or name, and every tagged or named pipe run shows its line number along it. You can drag and rotate the labels, and tag a symbol by hand with the Tag tool. Renames by other people appear on the open drawing.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-tags-labels</span><span>Roadmap M3.10, M1.7, M3.labels</span><span>Review check B3</span></div>
+  <p class="g-summary">Every symbol shows its tag or name, and every tagged or named pipe run shows its line number along it. You can type over a tag or a line number where it is written, drag and rotate the labels, and tag a symbol by hand with the Tag tool. A label dragged far from its symbol or line gets a leader, and Reset label position puts it back. Renames by other people appear on the open drawing.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On the 2D space; the Design palette → <span class="ui">Tag</span></dd>
     <dt>Who</dt><dd>Everyone sees labels; moving them and tagging need edit rights</dd>
@@ -418,6 +508,10 @@
       <tr><td>4</td><td>Click the pump to select it, then drag the round handle above its name (<span class="ui">Rotate the name</span>).</td><td>The handle appears above the name only while the symbol is selected. The label turns in steps of 15°.</td></tr>
       <tr><td>5</td><td>Select one pump, then click <span class="ui">Tag</span> in the palette.</td><td>The tag dialog opens with the pump's tag, its state, and a field for a manual tag, with <span class="ui">Cancel</span> and <span class="ui">Set tag</span> (and <span class="ui">Use the rule's tag</span> when the rule gives a different tag).</td></tr>
       <tr><td>6</td><td>Close the dialog, click <span class="ui">Tag</span> with nothing selected, then click a symbol.</td><td>The tag dialog opens for that symbol.</td></tr>
+      <tr><td>7</td><td>Double-click a pump's tag (or its name) on the drawing, type a new one and press <kbd>Enter</kbd>.</td><td>A field opens over the label with the text selected. <kbd>Enter</kbd> or a click away saves; <kbd>Esc</kbd> leaves it. A tag keeps its rules: one another object has is refused, with that object's name under the field, which stays open to correct. <kbd>Ctrl+Z</kbd> takes the change back.</td></tr>
+      <tr><td>8</td><td>Double-click a line number and type a new one.</td><td>The same field opens over the line number; the pipe run gets the new tag or name everywhere it is shown.</td></tr>
+      <tr><td>9</td><td>Drag a line number a short way off its line, then far from it.</td><td>It stays where you drop it, also after a reload. A click on a line number without a drag selects its line. Far from its line a thin leader joins the number to the line; a symbol's name dragged far from its symbol gets one too. The PDF draws the leaders.</td></tr>
+      <tr><td>10</td><td>Right-click a label you moved → <span class="ui">Reset label position</span>.</td><td>The label goes back to where E1 writes it and its leader goes. The item is greyed out while the label is at its own place. The same menu has <span class="ui">Edit tag or name</span> and <span class="ui">Edit line number</span>.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">Labels are formatted with the text format row (<a href="guide-drawing.html#draw-text">Text notes</a>) and hidden with the Annotation layer (<a href="guide-drawing.html#draw-layers">Layers</a>). How tags are made is described in <a href="guide-objects.html#obj-tags">Tags</a> and <a href="guide-objects.html#obj-tag-rules">Tag rules</a>.</p>
@@ -454,10 +548,10 @@
 
 <section class="g-feature" id="draw-line-style">
   <h2>Line style, thickness and colour</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-09</span><span class="g-id">DRAW-line-style</span><span>Roadmap M3.11</span><span>Review check B8</span></div>
-  <p class="g-summary">Selected lines get their thickness, colour and pattern from the line style group, with the line thicknesses of ISO drawing practice for main, subsidiary and auxiliary lines.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-04</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-line-style</span><span>Roadmap M3.11, M3.labels</span><span>Review check B8</span></div>
+  <p class="g-summary">Selected lines get their kind, thickness, colour and line type from the line style group, with the line thicknesses of ISO drawing practice for main, subsidiary and auxiliary lines. The line types are Solid and Dashed, the signal lines of ISA-5.1, and heat-traced and jacketed pipes; the drawing, the PDF and the DEXPI export draw them.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>The line style group in the third toolbar row</dd>
+    <dt>Where</dt><dd>The <span class="ui">Selection</span> panel on the right, while a line is selected: the line style group</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
     <dt>Before you start</dt><dd>A 2D space with a pipe is open.</dd>
   </dl>
@@ -468,10 +562,32 @@
       <tr><td>1</td><td>Select a pipe.</td><td>The line style controls become active. The thickness button shows the line's thickness, for example "Flow lines (1 mm)".</td></tr>
       <tr><td>2</td><td>Open the thickness menu and choose Subsidiary flow lines.</td><td>The choices are Flow lines 1 mm, Subsidiary flow lines 0.5 mm and Auxiliary lines 0.25 mm. The pipe becomes thinner.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Thicker</span> (+).</td><td>The pipe steps back to the next thicker width. <span class="ui">Thinner</span> (−) steps the other way; each is greyed out at its end.</td></tr>
-      <tr><td>4</td><td>Open <span class="ui">Style</span> and choose Dashed.</td><td>The pipe is drawn dashed, and the button reads Dashed.</td></tr>
-      <tr><td>5</td><td>Open <span class="ui">Line color</span> and choose Blue, then choose Connector.</td><td>The pipe turns blue, then back to the colour of its kind.</td></tr>
+      <tr><td>4</td><td>Open <span class="ui">Line style</span> and choose Dashed.</td><td>The pipe is drawn dashed, and the button reads Dashed.</td></tr>
+      <tr><td>5</td><td>Select a signal line, open <span class="ui">Line style</span> and choose <span class="ui">Pneumatic signal</span>.</td><td>The line is drawn solid with pairs of slashes across it, and the button reads Pneumatic signal. The list has every type (table below).</td></tr>
+      <tr><td>6</td><td>Select a pipe and choose <span class="ui">Heat-traced pipe</span>, then <span class="ui">Jacketed pipe</span>.</td><td>A dashed line runs beside the pipe; then a second wall is drawn on both sides of it, closed at its ends.</td></tr>
+      <tr><td>7</td><td>Press <kbd>Ctrl+Z</kbd>, then export the 2D space with <span class="ui">Export PDF</span> and <span class="ui">Export DEXPI</span>.</td><td><kbd>Ctrl+Z</kbd> gives the line its type before. The PDF and the DEXPI file draw the line with its marks.</td></tr>
+      <tr><td>8</td><td>Open <span class="ui">Line color</span> and choose Blue, then choose Connector.</td><td>The pipe turns blue, then back to the colour of its kind.</td></tr>
+      <tr><td>9</td><td>Open <span class="ui">Line kind</span> (it reads Flow lines for a pipe) and choose Cable, Wire or Logic.</td><td>The whole line, with all its bends, becomes a line of that kind, drawn in that kind's own look, and is a new object of that kind under Assets. <span class="ui">Ctrl+Z</span> gives the pipe back.</td></tr>
     </tbody>
   </table></div>
+  <h3>The line types</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Line type</th><th>Drawn as</th><th>After</th></tr></thead>
+    <tbody>
+      <tr><td>Solid, Dashed</td><td>The plain stroke, whole or dashed</td><td></td></tr>
+      <tr><td>Pneumatic signal</td><td>Two slashes across the line, repeated along it</td><td>ISA-5.1</td></tr>
+      <tr><td>Electric signal</td><td>Three slashes (ISA-5.1's other form is the dashed line: choose Dashed for it)</td><td>ISA-5.1</td></tr>
+      <tr><td>Capillary tube</td><td>A cross on the line</td><td>ISA-5.1</td></tr>
+      <tr><td>Hydraulic signal</td><td>An L on the line</td><td>ISA-5.1</td></tr>
+      <tr><td>Electromagnetic or sonic signal</td><td>A wave on the line</td><td>ISA-5.1</td></tr>
+      <tr><td>Software or data link</td><td>The line runs through open circles</td><td>ISA-5.1</td></tr>
+      <tr><td>Mechanical link</td><td>The line runs through circles with their middle marked</td><td>ISA-5.1</td></tr>
+      <tr><td>Undefined signal</td><td>One slash across the line</td><td>ISA-5.1</td></tr>
+      <tr><td>Heat-traced pipe</td><td>A dashed line beside the pipe</td><td>Common P&amp;ID practice (ISO 10628)</td></tr>
+      <tr><td>Jacketed pipe</td><td>A second wall on both sides of the pipe, closed at its ends</td><td>Common P&amp;ID practice (ISO 10628)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The type is kept on the line, so every drawing output shows it. It does not change what the line is: a pipe stays a pipe and a signal a signal.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-text">Text notes and text formatting</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
 </section>
 
@@ -683,12 +799,37 @@
       <tr><td>5</td><td>Right-click Pump1 → <span class="ui">Shape</span> ▸ <span class="ui">Replace…</span>.</td><td>The asset window opens, titled "Replace", with a <span class="ui">Replace</span> button.</td></tr>
       <tr><td>6</td><td>Choose another pump symbol and click <span class="ui">Replace</span>.</td><td>The symbol on the 2D space changes. The object keeps its name, tag and connections.</td></tr>
       <tr><td>7</td><td>Right-click a pipe.</td><td>The line menu opens, with <span class="ui">Show in tree</span>, the <span class="ui">Flow</span> ▸ submenu and <span class="ui">Flip direction</span>. <span class="ui">Show in tree</span> selects the line's pipe run in the explorer, from any of its segments, also with the whole run selected.</td></tr>
-      <tr><td>8</td><td>Right-click an empty spot of the 2D space.</td><td>A short menu with <span class="ui">Paste</span>, <span class="ui">Select all</span>, <span class="ui">Pin a message here</span>, <span class="ui">Check piping…</span> and <span class="ui">Detect pipelines…</span>.</td></tr>
+      <tr><td>8</td><td>Right-click an empty spot of the 2D space.</td><td>A short menu with <span class="ui">Paste</span> (the copy lands where you right-clicked), <span class="ui">Select all</span>, <span class="ui">Search symbols and commands…</span>, <span class="ui">Pin a message here</span>, <span class="ui">Check piping…</span> and <span class="ui">Detect pipelines…</span>.</td></tr>
     </tbody>
   </table></div>
   <figure class="g-shot g-small"><img src="assets/img/guides/symbol-menu.webp" alt="The right-click menu of a pump symbol: Cut, Copy, Paste, Duplicate, then Open with a submenu arrow, Pin a message here, Flow with a submenu arrow, Flip and Shape with submenu arrows, Save as module…, Branch with a submenu arrow, and Delete last" width="358" height="786" loading="lazy"><figcaption>The symbol menu, grouped, with Delete last.</figcaption></figure>
   <p class="g-note"><span class="ui">Open</span> ▸ <span class="ui">Data sheet</span> opens the object on its attributes view, as the same item in the explorer does; <span class="ui">Open</span> ▸ <span class="ui">Datasheet</span> opens the formatted datasheet document. Deep view is a placeholder tab today.</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Pin a message here</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-arrange">Flip</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-documents.html#doc-datasheet">Datasheets</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-comment-here">Pin a message here</a> · <a href="guide-drawing.html#draw-highlight-flow">Highlight flow</a> · <a href="guide-drawing.html#draw-arrange">Flip</a> · <a href="guide-objects.html#obj-object-window">The object window</a> · <a href="guide-documents.html#doc-datasheet">Datasheets</a> · <a href="guide-drawing.html#draw-quick-swap">Swap a symbol</a></p>
+</section>
+
+<section class="g-feature" id="draw-quick-swap">
+  <h2>Swap a symbol for another of its class</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-quick-swap</span><span>Roadmap M3.16</span><span>Review checks B4</span></div>
+  <p class="g-summary">A gate valve that should be a globe valve is changed in two clicks. One selected symbol shows a small round <span class="ui">Swap symbol</span> control beside it; it lists the other symbols of the same class, and the one you choose takes its place. The object, its name and tag, its values and the pipes on its nozzles stay.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Beside the selected symbol on the 2D space, at its top right; also <span class="ui">Swap symbol…</span> in the command search (<kbd>Ctrl+K</kbd>)</dd>
+    <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
+    <dt>Before you start</dt><dd>A 2D space with a piped valve is open, with <span class="ui">Select</span> on.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click a gate valve that has a pipe on each side.</td><td>It is selected, and <span class="ui">Swap symbol</span> shows beside it.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Swap symbol</span>.</td><td>A list opens under it, headed <span class="ui">Valve</span>: Globe valve, Ball valve and the other valves, all shown at once. The gate valve itself is not in it.</td></tr>
+      <tr><td>3</td><td>Type <kbd>globe</kbd>.</td><td>The list narrows to the rows with that word.</td></tr>
+      <tr><td>4</td><td>Press <kbd>Enter</kbd>, or click <span class="ui">Globe valve</span>.</td><td>The valve is drawn as a globe valve in the same place. Both pipes are still connected; its name and tag have not changed; in the explorer it is the same object.</td></tr>
+      <tr><td>5</td><td>Press <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>).</td><td>The gate valve is back.</td></tr>
+      <tr><td>6</td><td>Select two symbols, then a pipe, then a note.</td><td><span class="ui">Swap symbol</span> is not shown: it is for one symbol.</td></tr>
+    </tbody>
+  </table></div>
+  <p>The list holds the symbols of the same class that the 2D space's diagram type draws. A symbol that is alone in its class has no control. For a symbol of another class, right-click the symbol → <span class="ui">Shape</span> ▸ <span class="ui">Replace…</span> (<a href="#draw-symbol-menu">The right-click menus, and Replace</a>). The control stays out of the way while another tool is armed or while you drag.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-symbol-menu">Right-click menus and Replace</a> · <a href="guide-drawing.html#draw-select">Select</a> · <a href="guide-drawing.html#draw-command-search">Tool keys and the command search</a></p>
 </section>
 
 <section class="g-feature" id="draw-comment-here">
@@ -894,10 +1035,10 @@
 
 <section class="g-feature" id="draw-attribute-labels">
   <h2>Attribute labels on symbols</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-attribute-labels</span><span>Roadmap 21.3</span><span>Review checks L22, L23</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-07</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-attribute-labels</span><span>Roadmap 21.3, M3.labels</span><span>Review checks L22, L23</span></div>
   <p class="g-summary">A shape can carry labels that show an attribute of the object it draws, for example the design pressure, with its unit. The label always shows the current value: change the value anywhere and every 2D space shows the new one, and so does the PDF. No label text is stored.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>In the symbol designer: <span class="ui">Attributes on the shape</span> on the right, with <span class="ui">+ Add attribute</span>. On a placement: ask Alex to hide, show or move a label (set_symbol_label).</dd>
+    <dt>Where</dt><dd>In the symbol designer: <span class="ui">Attributes on the shape</span> on the right, with <span class="ui">+ Add attribute</span>. On a placement: drag the label to move it, right-click it → <span class="ui">Reset label position</span> to put it back; ask Alex to hide or show it.</dd>
     <dt>Who</dt><dd>Adding labels: whoever may edit the shape (see the symbol designer). Hiding or moving one on a placement: a project role that may edit drawings.</dd>
     <dt>Before you start</dt><dd>Pump1 has a design pressure in (for example 16 bar(g)).</dd>
   </dl>
@@ -910,7 +1051,9 @@
       <tr><td>3</td><td>Type P in the row's <span class="ui">Prefix</span> and click <span class="ui">Save and use here</span>.</td><td>Under Pump1 the 2D space reads "P 16 bar(g)".</td></tr>
       <tr><td>4</td><td>Change Pump1's design pressure in to 18 bar(g) (its page, a list or the datasheet).</td><td>The label reads "P 18 bar(g)" on every open 2D space, without reloading.</td></tr>
       <tr><td>5</td><td>File → <span class="ui">Export PDF</span>.</td><td>The PDF shows "P 18 bar(g)" as text.</td></tr>
-      <tr><td>6</td><td>Ask Alex: "hide the design pressure label on Pump1".</td><td>The label goes from this placement only; the shape, the object and other placements keep it.</td></tr>
+      <tr><td>6</td><td>Drag the label "P 18 bar(g)" away from Pump1, a short way and then far.</td><td>It stays where you drop it on this placement only, also after a reload; far from the pump a thin leader joins them. The shape and other placements keep it where the shape has it. A value that lies inside its symbol, such as an instrument's letters, is dragged with <kbd>Alt</kbd> held: there a plain press selects or moves the symbol.</td></tr>
+      <tr><td>7</td><td>Right-click the label → <span class="ui">Reset label position</span>.</td><td>The label is back where the shape has it and the leader goes. <kbd>Ctrl+Z</kbd> moves it out again.</td></tr>
+      <tr><td>8</td><td>Ask Alex: "hide the design pressure label on Pump1".</td><td>The label goes from this placement only; the shape, the object and other placements keep it.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">A value of a restricted attribute is never shown in a label. A label with no value shows nothing.</p>
@@ -1005,7 +1148,7 @@
 
 <section class="g-feature" id="draw-piping-check">
   <h2>Check piping and flow direction</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-13</span><span class="g-id">DRAW-piping-check</span><span>Roadmap 13.2</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-piping-check</span><span>Roadmap 13.2</span></div>
   <p class="g-summary">E1 checks which way the flow goes through every pipe on a 2D space, in a pipeline or not, and whether each pipeline is still whole. It offers fixes; it never applies one on its own.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space: right-click empty space → <span class="ui">Check piping…</span> or <span class="ui">Detect pipelines…</span>; right-click a pump or check valve → <span class="ui">Flip</span> ▸ <span class="ui">Turn around</span></dd>
@@ -1035,10 +1178,69 @@
     <li><strong>A branch with only inflow or only outflow.</strong></li>
     <li><strong>An incomplete pipeline:</strong> its start or end is gone, or the drawn pipe between them is cut.</li>
     <li><strong>Pipe in no pipeline</strong> (a note, with Detect pipelines), and an <strong>off-page connector without its counterpart</strong>.</li>
+    <li><strong>A pipe that ends in the open</strong>, <strong>a size or a pipe class that changes across a connection</strong> with no reducer or spec break, and <strong>two items with one tag</strong>: the same findings E1 marks on the 2D space while you draw (<a href="#draw-live-checks">Checks while drawing</a>).</li>
+    <li><strong>The layout</strong>: too many major equipment items, main flow right to left, an off-page connector on the wrong edge (<a href="#draw-layout-check">Layout check</a>).</li>
   </ul>
   <p>One finding per chain of pipe, not per run, so one reversed pump gives one finding. Alex reads the same findings (<em>check_piping</em>) and offers the same fixes.</p>
-  <p class="g-warn">Not built yet: the findings in the Checks panel and as markers on the drawing (with the rule engine, milestone M6), and Ignore with a reason.</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a></p>
+  <p class="g-warn">Not built yet: the findings in the Checks panel (with the rule engine, milestone M6), and Ignore with a reason.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-live-checks">Checks while drawing</a> · <a href="guide-drawing.html#draw-layout-check">Layout check</a></p>
+</section>
+
+<section class="g-feature" id="draw-live-checks">
+  <h2>Checks while drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span class="g-id">DRAW-live-checks</span><span>Roadmap 13.6</span></div>
+  <p class="g-summary">E1 looks at the 2D space after every change and marks what is wrong the moment you draw it, quietly: a small marker on the item and a count in the status row, never a window. The finding and its fix are one click away.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space (a P&amp;ID, a PFD, a hydraulic diagram, or one with no diagram type): the markers on the drawing, and <span class="ui">Checks</span> with the count in the status row under it</dd>
+    <dt>Who</dt><dd>Anyone who can view the project sees the markers. The fixes: a project role that may edit drawings</dd>
+  </dl>
+  <h3>See a problem and fix it</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Draw a pipe that ends in the open, away from any nozzle.</td><td>A small warning marker appears beside the open end, and the number beside <span class="ui">Checks</span> in the status row goes up by one. No window opens.</td></tr>
+      <tr><td>2</td><td>Click the marker.</td><td>A card opens at the bottom left of the 2D space: "This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.", with <span class="ui">Show</span> and <span class="ui">Delete the open pipe</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Delete the open pipe</span> (or connect the pipe yourself).</td><td>The marker is gone and the count goes down. It is one change: Ctrl+Z brings the pipe and its marker back.</td></tr>
+      <tr><td>4</td><td>Click the number beside <span class="ui">Checks</span>.</td><td>The card lists every problem on the 2D space, each with <span class="ui">Show</span> and its fixes. × or Esc closes it.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Checks</span>.</td><td>The markers and the count are hidden; E1 remembers it in this browser. Click it again to turn them back on.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What is marked, and its fix</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Problem</th><th>Marked on</th><th>Fix on the card</th></tr></thead>
+    <tbody>
+      <tr><td>A pipe that ends in the open</td><td>The open end</td><td><span class="ui">Delete the open pipe</span></td></tr>
+      <tr><td>Flow against flow: two pipes that both flow into a point or a valve, or both out of it; flow that leaves an inlet or enters an outlet; a pump turned the wrong way</td><td>The point or the symbol</td><td><span class="ui">Flip the flow of the chain</span>, <span class="ui">Turn P-101 around</span></td></tr>
+      <tr><td>The pipe size changes across a valve or fitting that is not a reducer, or where two pipe runs meet</td><td>The valve, fitting or point</td><td><span class="ui">Use DN 80 on both</span> or <span class="ui">Use DN 50 on both</span></td></tr>
+      <tr><td>At a tee: a branch in another pipe class than its header, or a header that changes size straight through the tee. A smaller branch is not a problem</td><td>The tee</td><td><span class="ui">Use A1 on both</span>, <span class="ui">Use DN 100 on both</span></td></tr>
+      <tr><td>The pipe class changes across a connection with no spec break</td><td>The same</td><td><span class="ui">Use A1 on both</span> or <span class="ui">Use B2 on both</span></td></tr>
+      <tr><td>Two items with one tag, on this 2D space or one here and one on another</td><td>The second symbol</td><td><span class="ui">Rename to P-102</span>: the next number nobody has</td></tr>
+      <tr><td>An off-page connector on a pipe with no counterpart on another 2D space</td><td>The connector</td><td><span class="ui">Connect to off-page connector…</span>, then click the connector on the other 2D space</td></tr>
+    </tbody>
+  </table></div>
+  <p>A pipe run's size and pipe class are its own <span class="ui">Nominal size</span> and <span class="ui">Pipe class</span>, else those of its segment or pipeline. A name without a number ("Valve") is not a tag, and off-page connectors share their name with their counterpart, so neither is reported as a duplicate. E1 never applies a fix on its own. <a href="#draw-piping-check">Check piping…</a> lists the same findings. The findings and their fixes are shown in the language E1 is shown in.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-layout-check">Layout check</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
+</section>
+
+<section class="g-feature" id="draw-layout-check">
+  <h2>Layout check</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span class="g-id">DRAW-layout-check</span><span>Roadmap 13.6</span></div>
+  <p class="g-summary">A P&amp;ID reads from left to right, a few items of equipment to a sheet. Check piping warns when a 2D space departs from that.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space: right-click empty space → <span class="ui">Check piping…</span>, under <em>Findings</em>. The limit: <span class="ui">Settings → Project settings → Drawing → Major equipment on a 2D space</span></dd>
+    <dt>Who</dt><dd>Check piping: anyone who can view the project. The limit: Project administrator</dd>
+  </dl>
+  <h3>Read the layout warnings</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On a 2D space with four tanks, right-click empty space and choose <span class="ui">Check piping…</span>.</td><td>A warning: "PID-1 has 4 major equipment items, more than 3: the sheet gets hard to read. Move some to another 2D space." A set of pumps in one service, P-101A and P-101B, counts as one; valves, fittings, instruments and connectors do not count.</td></tr>
+      <tr><td>2</td><td>Open <span class="ui">Settings → Project settings → Drawing</span> and set <span class="ui">Major equipment on a 2D space</span> to 4 (2 to 10, or <span class="ui">No limit</span>).</td><td>Saved at once. Check piping no longer warns of four items on any 2D space of the project.</td></tr>
+      <tr><td>3</td><td>Draw the process from right to left and check again.</td><td>A warning: "The main flow on PID-1 runs right to left. Draw the process from left to right." A short recycle back says nothing: it is the direction most of the pipe runs.</td></tr>
+      <tr><td>4</td><td>Draw an off-page connector that brings flow in on the right of the drawing, or one that takes flow out on the left, and check again.</td><td>A warning for each: "Off-page connector L-100 brings flow in on the right of PID-1: incoming connectors belong on the left edge." <span class="ui">Show</span> selects it. Utilities are exempt: a connector or pipe named for steam, condensate, cooling water, instrument air, nitrogen, fuel gas, flare, vent or drain.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-live-checks">Checks while drawing</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-library.html#lib-project-settings">Project settings</a></p>
 </section>
 
 <section class="g-feature" id="draw-scd">
