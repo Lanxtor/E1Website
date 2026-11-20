@@ -152,28 +152,46 @@
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="pfd">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pfd">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">PFD</span>
           <h2>Process flow diagrams made of real objects</h2>
           <p>In E1, a process flow diagram is a 2D space whose diagram type is Process flow diagram. Every symbol on it is an object in the project.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Every symbol is an object</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="3.5"/><rect x="13" y="3.5" width="7" height="7" rx="1"/><path d="M7 13.5 3.5 20h7z"/><path d="M13 14h7v6h-7z"/></svg></span><span>Process symbols built in</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>You place equipment from the Add asset window, and each symbol becomes a new object with the next free tag from the project's tag rules, such as P-001 and P-002 for pumps. Streams are drawn as process lines with the Connector tool, and every line is an object that connects what it touches. Unit operations, systems, processes and areas are made from the drawing toolbar while you draw.</p>
           <p>Because the drawing and the data are the same thing, the PFD answers questions directly. Highlight flow traces where a stream goes, from an open end through valves to the next equipment, and on through pumps and compressors and across off-page connectors to other 2D spaces. Animate flow sets the sheet in motion: the flow moves through the pipes the way it goes, tanks fill and empty, and Alex works out velocities from the values in the model without changing anything.</p>
           <p>E1 draws its own symbols for process equipment, valves and fittings in the conventions process engineers know. You browse and search them in Configuration → Shapes.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pfd.webp" alt="E1: DF-00-F-0001, the Demo Field process flow diagram in E1." width="1200" height="1029" loading="lazy"></div><figcaption><b>DF-00-F-0001</b>, the Demo Field process flow diagram in E1.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="balance">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="balance">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Balance</span>
           <h2>Heat and material balance from the line list</h2>
           <p>In E1, the heat and material balance tables on a PFD are made from the line list. Nothing in a table is typed.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Stream values in the line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Mass and heat balance sheets</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>One source for every stream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Stream values come into the line list in three ways: typed, imported from your simulator, or written by Alex from a solved balance. <b>Import heat and material balance</b> in Alex reads the stream table of HYSYS, Aspen Plus, DWSIM or a similar simulator as .xlsx, .xls, .csv or .txt. Alex matches streams to lines by name or by the middle of the line number, you check each match, and only then are the values written. Alex then asks only for what is still missing.</p>
           <p>On the PFD, <b>Place mass balance</b> draws the bird cage: one column per stream with line number, From, To, phase, temperature, pressure, flows, density, molar mass and composition. <b>Place heat balance</b> lists every heater, cooler, exchanger, pump and compressor with its service, duty and power, and the totals. Format presets set the layout your customer expects, and a changed temperature in the line list shows in the table at once.</p>
@@ -181,48 +199,81 @@
             <li>A value that is missing, or cannot be shown in the chosen unit, shows as – rather than a guess.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-balance.webp" alt="E1: A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density." width="1200" height="1029" loading="lazy"></div><figcaption>A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="pid">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pid">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">P&amp;ID</span>
           <h2>Make the P&amp;ID from the PFD</h2>
           <p>In E1, Make P&amp;ID from this PFD… draws a new P&amp;ID with the PFD's own equipment: the same objects with the same tags, not copies.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Made from the PFD</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Same equipment, no copies</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/></svg></span><span>DEXPI 2.0 in and out</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Each stream becomes a pipe between the same equipment, carrying the same stream. You choose which objects to draw; one already on a P&amp;ID of that PFD, or with no P&amp;ID shape, is greyed with the reason. Equipment you leave for a second P&amp;ID ends at an off-page connector that continues there. Nothing is drawn twice.</p>
           <p>When objects or streams are added to the PFD later, <b>Update from PFD</b> offers only the new ones. The new P&amp;ID opens with Alex's <b>Suggested additions</b>: what each object usually has on a P&amp;ID. A centrifugal pump gets suction and discharge isolation, a discharge check valve, a suction strainer and a discharge pressure gauge; a vessel gets a relief valve, a drain, a vent, level and pressure instruments. Additions your company's conventions require come first, and <b>Apply all</b> is one change with one Undo.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pid.webp" alt="E1: P&amp;ID DF-20-P-0001, the HP separation of the Demo Field." width="1200" height="1029" loading="lazy"></div><figcaption>P&amp;ID <b>DF-20-P-0001</b>, the HP separation of the Demo Field.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="line-list">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="line-list">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Line list</span>
           <h2>Pipelines, pipe classes and a live line list</h2>
           <p>In E1, a pipeline is a line of the line list: the pipe runs, valves and fittings from one equipment nozzle to another, with its line number, From and To.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12a3 3 0 0 1 3 3v9M3 15h9a0 0 0 0 1 0 0"/><path d="M3 6v6M18 21h4"/></svg></span><span>Pipelines and pipe classes</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>A live line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Always in step with the P&amp;IDs</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>You define a pipeline on the drawing from one item of equipment to the next, and E1 follows the drawn pipe through valves and fittings to make it, split into segments at reducers. A pipeline names its pipe class. Pipe classes hold your piping specifications: rating, material, pressure–temperature envelope, sizes with their schedule, and the valves and fittings allowed. They are kept in the company or project library, published as versions, and can be imported from a spreadsheet.</p>
           <p><b>Check piping…</b> finds a pump turned the wrong way, flow that meets head-on, branches with only inflow, and pipelines that are no longer whole. It offers fixes and never applies one on its own. With pipe classes loaded, Alex checks each line's pressure and temperature against its class and flags sour service in a class not rated for it.</p>
           <p>E1 ships no fixed line list. The pipe schedule is a query you build and save on the project's pipelines: line number, From and To, size, fluid, pipe class, design conditions and the P&amp;IDs each line is drawn on. It stays live with the drawing and exports to Excel or CSV, or becomes a list document with revisions.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-linelist.webp" alt="E1: The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line." width="1200" height="1029" loading="lazy"></div><figcaption>The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="deliverables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deliverables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Deliverables</span>
           <h2>FEED deliverables that downstream disciplines inherit</h2>
           <p>In E1, datasheets, lists and drawings are generated from the same objects, so the FEED package and the detailed design never drift apart.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/></svg></span><span>Deliverables bound together</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Revisions shown on change</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Inherited downstream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Specification datasheets for pumps and exchangers come as ready-made templates, E1's own layouts inspired by API and ASME datasheets. Operating cases sit side by side on the datasheet: maximum, rated, normal, minimum, design or start-up, each inheriting the object's values until you give it its own. After a datasheet is issued, every value changed since shows the next revision beside it.</p>
           <p>Documents → Deliverables binds the chosen drawings with the reports and datasheets of the deliverable profile into one PDF, with a cover, an index and page numbers, and issues it. Process data also leaves E1 as data: any query exports to Excel, CSV or JSON, a 2D space exports as DEXPI 2.0 for a 3D design tool or another P&amp;ID tool, and existing P&amp;IDs come in from DEXPI, DXF or a vector PDF.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-deliverables.webp" alt="E1: Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF." width="1200" height="1029" loading="lazy"></div><figcaption>Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF.</figcaption></figure>
         </div>
       </div>
     </section>

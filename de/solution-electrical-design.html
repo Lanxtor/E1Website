@@ -147,43 +147,70 @@
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="single-line">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="single-line">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Einlinienplan</span>
           <h2>Einlinienpläne, in denen jede Linie ein echtes Kabel ist</h2>
           <p>In E1 ist ein Einlinienplan ein 2D-Raum, dessen Diagrammtyp Single line diagram ist. Feldgeräte, Anschlusskästen und Schränke sind Objekte des Modells, und jede mit Cable dazwischen gezeichnete Linie ist ein echtes Kabel.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Every line is a real cable</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Devices are model objects</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate current</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Jedes Kabel, das Sie zeichnen, hat seinen Tag, den Standardkabeltyp des Projekts für seine beiden Enden und seine Adern. Es ist dasselbe Kabel, das die Kabelliste und die Verdrahtung zeigen. Standardkabeltypen werden einmal in den Verdrahtungseinstellungen des Projekts festgelegt: Feldkabel, Mehradrig, Schrank zu Schrank und Zuleitung.</p>
           <p><b>Propose cables</b> entwirft das Kabelnetz für neue Geräte in einem Schritt. Für jedes Feldgerät auf dem Blatt, das Signale und kein Feldkabel hat, schlägt E1 ein Feldkabel zum nächsten Anschlusskasten seines Bereichs und seiner Trennungsklasse mit Platz auf einer Klemmleiste vor. Freie Paare vorhandener Mehrleiterkabel werden zuerst verwendet; ein neues Mehrleiterkabel oder ein neuer Anschlusskasten wird nur vorgeschlagen, wo keines passt. Nichts ändert sich, bis Sie Apply wählen.</p>
           <p><b>Animate current</b> versetzt einen Einlinienplan in Bewegung: Der Strom läuft von den Transformatoren oder Generatoren über die Schaltanlage zu den Motoren, nach Spannungsebene eingefärbt. Öffnen Sie einen Leistungsschalter, wird sein Kabel spannungslos und der Motor zeigt No supply. Im Modell ändert sich nichts.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-singleline.webp" alt="E1: Single line diagram DF-80-E-0001: generators, switchgear, MCC and motors." width="1200" height="1029" loading="lazy"></div><figcaption>Single line diagram <b>DF-80-E-0001</b>: generators, switchgear, MCC and motors.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="circuits">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="circuits">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Stromlaufpläne</span>
           <h2>Stromlaufpläne und Motorstarter-Stromkreise</h2>
           <p>In E1 ist jedes Symbol auf einem Stromlaufplan eine Funktion eines Geräts: die Spule eines Schützes, seine Kontakte und Hauptpole, der Kontakt eines Tasters, die Lampe einer Meldeleuchte.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><span>One symbol per function</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8.5 15V9l3.5 4 3.5-4v6"/></svg></span><span>Motor starter circuits</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Short circuits found</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Das Gerät ist ein Objekt, das seinem Schrank gehört, und sein Katalogeintrag liefert seine Funktionen mit ihren Klemmenbezeichnungen (A1 A2, 13 14, 21 22). Jede gezeichnete Funktion hat eine Adresse nach Seite und Spalte, etwa /1.4. Unter der Spule eines Schützes zeigt E1 das Kontaktbild: jeden Kontakt mit seinen Punkten und wo er gezeichnet ist. E1 ermittelt das aus den Zeichnungen, sodass es nie veraltet ist.</p>
           <p>Klicken Sie mit der rechten Maustaste auf einen Motor und wählen Sie <b>Make starter circuit…</b>: E1 zeichnet den Starter auf eine neue Seite des Stromlaufplan-Dokuments seines Schranks, mit Motorschutzschalter, Schütz und Überlastrelais in den drei Phasen, dem Steuerstromkreis mit Sicherung, Aus, Ein und Meldeleuchten, den Klemmen des Motors und seinem Leistungskabel. Schalter, Schütz und Überlastrelais sind die kleinsten des Katalogs, die den Strom des Motors verkraften. Wählen Sie mehrere Motoren aus, um alle ihre Starter auf einmal zu erzeugen.</p>
           <p>Klemmen, Kabel und Drahtnummern werden auf denselben Seiten gezeichnet. E1 findet zwei Potenziale, die durch einen Draht verbunden sind (einen Kurzschluss), mehr Drähte über ein Kabel als es Adern hat und Kontaktpunkte ohne Draht.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-circuit.webp" alt="E1: Circuit diagram DF-80-E-0101: the starter circuit of motor 43-EM-4301A." width="1200" height="1029" loading="lazy"></div><figcaption>Circuit diagram <b>DF-80-E-0101</b>: the starter circuit of motor 43-EM-4301A.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="cables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="cables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Kabel</span>
           <h2>Kabelliste, Kabeltrassen und Längen</h2>
           <p>In E1 erhält ein Kabel, das aus einem Kabeltyp im Katalog erzeugt wird, sofort seine Adern, und jede Ader wird auf eine Klemme aufgelegt, die aus einem Baum gewählt, nie getippt wird.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Cores from the cable type</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Cable schedule</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Wire move lists</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Die Kabelliste ist der Reiter Cables der Seite Wiring: eine Zeile je Kabel mit Typ, beiden Enden, verwendeten und freien Adern, Länge und Status. Sie lässt sich nach Excel oder PDF exportieren, zusammen mit der Verdrahtungsliste, der Anschlussliste, dem Anschlusskastenplan und der E/A-Liste, die alle auf Anforderung aus dem Modell erzeugt werden.</p>
           <p>Trassenabschnitte sind Kabelpritschen, Kabelleitern, Rohre, Kanäle und Gräben mit ihrer Kapazität und Füllgrenze. Ein Kabel wird der Reihe nach durch Abschnitte geführt; die Füllung jedes Abschnitts addiert die Querschnitte seiner Kabel, und die verlegte Länge des Kabels addiert die Abschnitte. Ein Kabel hat eine Länge von Hand und eine Länge aus 3D, und E1 meldet, wenn sie sich um mehr als die Toleranz des Projekts unterscheiden.</p>
@@ -193,33 +220,56 @@
             <li>Nach der Herausgabe wird eine Änderung zu einer Drahtumlegeliste: was abzuklemmen und was aufzulegen ist, Klemme für Klemme.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-cables.webp" alt="E1: The cable schedule: type, from, to, cores used, spares, length and status of every cable." width="1200" height="1029" loading="lazy"></div><figcaption>The cable schedule: type, from, to, cores used, spares, length and status of every cable.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="cabinets">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="cabinets">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Schränke</span>
           <h2>Schränke, MCCs, Potenziale und Wärmebilanz</h2>
           <p>In E1 besteht ein Schrank aus zwei Objekten: seinem Standort in Areas und dem Gehäuse in Assets, das Schienen, Klemmleisten, Karten, Zwischengeräte, Netzteile, Erdschienen und Kabeleinführungen enthält. Auch ein MCC und ein Verteiler sind Gehäuse.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 2v20M8 7h2M14 7h2"/></svg></span><span>Cabinets and MCCs</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><span>Potentials</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span>Heat balance</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Der Reiter Potentials listet jedes Netz wie +24V über Gehäuse hinweg, mit seinen Klemmen, Sicherungen und der Last des Netzteils im Verhältnis zu seinem Nennstrom. Die Netzansicht zeigt jede abgesicherte Klemme mit ihrem Nennwert und der Last, die sie speist; ein fehlender Wert erscheint als ?, nie als null.</p>
           <p>Die Seite <b>Fill and heat</b> eines Schranks zeigt jede Leiste als Balken aus belegten, Reserve- und freien Klemmen und die Wärmebilanz aus der Physik: die Wärme, die seine Geräte bei ihrer Last abgeben, gegenüber dem, was seine freien Wände, ein Lüfter und ein Kühlgerät abführen. Das Ergebnis ist die Innentemperatur, die Temperatur oben, die Reserve zur Grenze des Schranks und die noch fehlende Kühlung. Markierungen für Drähte, Klemmen und Kabel lassen sich für die Software des Druckers exportieren.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-cabinets-heat.webp" alt="E1: Cabinet 76-CM-001: its fill and heat balance, worked out from what is mounted in it." width="1200" height="1029" loading="lazy"></div><figcaption>Cabinet <b>76-CM-001</b>: its fill and heat balance, worked out from what is mounted in it.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="loads">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="loads">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Lasten</span>
           <h2>Elektrische Lastenliste und Elektrodokumente</h2>
           <p>In E1 schreibt Alex mit dem Skill Electrical engineer die Lastenliste, die Kabelliste und die Ex-Geräteliste eines 2D-Raums in eine Excel-Arbeitsmappe.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span>Electrical load list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span><span>Written by Alex</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>One Excel workbook</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p><b>Export load list and cable schedule (Excel)</b> liefert die Lastenliste mit dem Höchstbedarf, die Kabelliste mit Belastbarkeit und Spannungsfall und die Ex-Geräteliste. Alex beurteilt Kabel mit den Belastbarkeiten nach IEC 60364-5-52 und einem Spannungsfall von 3 % für Beleuchtung und 5 % für andere Verwendungen. Hat ein Simulator in Alex auf dem geöffneten 2D-Raum einen Lastfluss, Kurzschluss, Motoranlauf oder Störlichtbogen berechnet, erscheinen seine Ergebnisse als Karten mit Methode, Eingaben, Annahmen und Ergebnistabellen.</p>
           <p><b>Make documents…</b> an einem Schrank, einem Ordner oder dem Projekt erzeugt den Satz der Elektrodokumente in einer Änderung: Klemmleistenpläne, das Kabelblockschaltbild, einen Kabelplan je Kabel, die Verdrahtungsliste, die E/A-Liste, die Geräteliste, die Teileliste und das Inhaltsverzeichnis, für das Projekt zusätzlich die Potenzialübersicht. Sie werden wie jedes Dokument revidiert und herausgegeben.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-loads.webp" alt="E1: The motors of DF-80-E-0001 with rated output, voltage, current and load factor, totalled: the values the load list is written from." width="1200" height="1029" loading="lazy"></div><figcaption>The motors of DF-80-E-0001 with rated output, voltage, current and load factor, totalled: the values the load list is written from.</figcaption></figure>
         </div>
       </div>
     </section>

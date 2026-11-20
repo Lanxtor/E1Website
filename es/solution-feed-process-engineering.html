@@ -148,28 +148,46 @@
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="pfd">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pfd">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">PFD</span>
           <h2>Diagramas de flujo de proceso hechos de objetos reales</h2>
           <p>En E1, un diagrama de flujo de proceso es un espacio 2D cuyo tipo de diagrama es Process flow diagram. Cada símbolo que contiene es un objeto del proyecto.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Every symbol is an object</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="3.5"/><rect x="13" y="3.5" width="7" height="7" rx="1"/><path d="M7 13.5 3.5 20h7z"/><path d="M13 14h7v6h-7z"/></svg></span><span>Process symbols built in</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Colocas los equipos desde la ventana Add asset, y cada símbolo se convierte en un objeto nuevo con el siguiente tag libre de las reglas de tags del proyecto, como P-001 y P-002 para las bombas. Las corrientes se dibujan como líneas de proceso con la herramienta Connector, y cada línea es un objeto que conecta lo que toca. Las operaciones unitarias, los sistemas, los procesos y las áreas se crean desde la barra de herramientas de dibujo mientras dibujas.</p>
           <p>Como el dibujo y los datos son lo mismo, el PFD responde directamente a las preguntas. Highlight flow sigue el recorrido de una corriente, desde un extremo abierto, pasando por las válvulas, hasta el siguiente equipo, y continúa por bombas y compresores y a través de conectores de página a otros espacios 2D. Animate flow pone la hoja en movimiento: el flujo recorre las tuberías tal como va, los depósitos se llenan y se vacían, y Alex calcula las velocidades a partir de los valores del modelo sin cambiar nada.</p>
           <p>E1 dibuja sus propios símbolos para equipos de proceso, válvulas y accesorios con las convenciones que conocen los ingenieros de proceso. Puedes explorarlos y buscarlos en Configuration → Shapes.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pfd.webp" alt="E1: DF-00-F-0001, the Demo Field process flow diagram in E1." width="1200" height="1029" loading="lazy"></div><figcaption><b>DF-00-F-0001</b>, the Demo Field process flow diagram in E1.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="balance">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="balance">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Balance</span>
           <h2>Balance de calor y materia a partir de la lista de líneas</h2>
           <p>En E1, las tablas del balance de calor y materia de un PFD se generan a partir de la lista de líneas. Nada de lo que hay en una tabla se teclea.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Stream values in the line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Mass and heat balance sheets</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>One source for every stream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Los valores de las corrientes llegan a la lista de líneas de tres maneras: tecleados, importados de tu simulador o escritos por Alex a partir de un balance resuelto. <b>Import heat and material balance</b> en Alex lee la tabla de corrientes de HYSYS, Aspen Plus, DWSIM o un simulador similar como .xlsx, .xls, .csv o .txt. Alex asocia las corrientes con las líneas por nombre o por la parte central del número de línea, tú compruebas cada correspondencia y solo entonces se escriben los valores. Después Alex pregunta únicamente por lo que sigue faltando.</p>
           <p>En el PFD, <b>Place mass balance</b> dibuja la «bird cage»: una columna por corriente con número de línea, From, To, fase, temperatura, presión, caudales, densidad, masa molar y composición. <b>Place heat balance</b> enumera cada calentador, enfriador, intercambiador, bomba y compresor con su servicio, su potencia térmica o mecánica y los totales. Los formatos predefinidos fijan la disposición que espera tu cliente, y una temperatura cambiada en la lista de líneas aparece de inmediato en la tabla.</p>
@@ -177,48 +195,81 @@
             <li>Un valor que falta, o que no se puede mostrar en la unidad elegida, aparece como – en lugar de una estimación.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-balance.webp" alt="E1: A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density." width="1200" height="1029" loading="lazy"></div><figcaption>A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="pid">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pid">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">P&amp;ID</span>
           <h2>Crea el P&amp;ID a partir del PFD</h2>
           <p>En E1, Make P&amp;ID from this PFD… dibuja un P&amp;ID nuevo con los propios equipos del PFD: los mismos objetos con los mismos tags, no copias.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Made from the PFD</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Same equipment, no copies</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/></svg></span><span>DEXPI 2.0 in and out</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Cada corriente se convierte en una tubería entre los mismos equipos, con la misma corriente. Tú eliges qué objetos dibujar; uno que ya esté en un P&amp;ID de ese PFD, o que no tenga forma de P&amp;ID, aparece en gris con el motivo. Los equipos que dejas para un segundo P&amp;ID terminan en un conector de página que continúa allí. Nada se dibuja dos veces.</p>
           <p>Cuando más tarde se añaden objetos o corrientes al PFD, <b>Update from PFD</b> ofrece solo los nuevos. El nuevo P&amp;ID se abre con las <b>Suggested additions</b> de Alex: lo que cada objeto suele tener en un P&amp;ID. Una bomba centrífuga recibe aislamiento de aspiración y de impulsión, una válvula de retención en la impulsión, un filtro en la aspiración y un manómetro en la impulsión; un recipiente recibe una válvula de alivio, un drenaje, un venteo e instrumentos de nivel y presión. Las adiciones que exigen las convenciones de tu empresa van primero, y <b>Apply all</b> es un solo cambio con un solo Undo.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pid.webp" alt="E1: P&amp;ID DF-20-P-0001, the HP separation of the Demo Field." width="1200" height="1029" loading="lazy"></div><figcaption>P&amp;ID <b>DF-20-P-0001</b>, the HP separation of the Demo Field.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="line-list">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="line-list">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Lista de líneas</span>
           <h2>Tuberías, clases de tubería y una lista de líneas viva</h2>
           <p>En E1, una tubería es una línea de la lista de líneas: los tramos de tubo, las válvulas y los accesorios de una boquilla de equipo a otra, con su número de línea, From y To.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12a3 3 0 0 1 3 3v9M3 15h9a0 0 0 0 1 0 0"/><path d="M3 6v6M18 21h4"/></svg></span><span>Pipelines and pipe classes</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>A live line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Always in step with the P&amp;IDs</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Defines una tubería en el dibujo de un equipo al siguiente, y E1 sigue el tubo dibujado a través de válvulas y accesorios para crearla, dividida en segmentos en las reducciones. Una tubería indica su clase de tubería. Las clases de tubería contienen tus especificaciones de tuberías: rating, material, envolvente de presión y temperatura, diámetros con su schedule, y las válvulas y accesorios permitidos. Se guardan en la biblioteca de la empresa o del proyecto, se publican como versiones y se pueden importar desde una hoja de cálculo.</p>
           <p><b>Check piping…</b> detecta una bomba girada al revés, flujos que se encuentran de frente, ramales con solo entrada y tuberías que ya no están completas. Ofrece soluciones y nunca aplica ninguna por sí solo. Con las clases de tubería cargadas, Alex comprueba la presión y la temperatura de cada línea frente a su clase y señala el servicio con H₂S en una clase que no está dimensionada para él.</p>
           <p>E1 no incluye ninguna lista de líneas fija. El listado de tuberías es una consulta que construyes y guardas sobre las tuberías del proyecto: número de línea, From y To, diámetro, fluido, clase de tubería, condiciones de diseño y los P&amp;ID en los que se dibuja cada línea. Se mantiene viva con el dibujo y se exporta a Excel o CSV, o se convierte en un documento de lista con revisiones.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-linelist.webp" alt="E1: The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line." width="1200" height="1029" loading="lazy"></div><figcaption>The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="deliverables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deliverables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Entregables</span>
           <h2>Entregables FEED que heredan las disciplinas posteriores</h2>
           <p>En E1, las hojas de datos, las listas y los planos se generan a partir de los mismos objetos, de modo que el paquete FEED y el diseño de detalle nunca se desalinean.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/></svg></span><span>Deliverables bound together</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Revisions shown on change</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Inherited downstream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Las hojas de datos de especificación de bombas e intercambiadores vienen como plantillas listas para usar, diseños propios de E1 inspirados en las hojas de datos de API y ASME. Los casos de operación se sitúan uno junto a otro en la hoja de datos: máximo, nominal, normal, mínimo, de diseño o de arranque, y cada uno hereda los valores del objeto hasta que le das los suyos. Tras emitir una hoja de datos, cada valor cambiado desde entonces muestra a su lado la siguiente revisión.</p>
           <p>Documents → Deliverables reúne los planos elegidos con los informes y las hojas de datos del perfil de entregable en un único PDF, con portada, índice y números de página, y lo emite. Los datos de proceso también salen de E1 como datos: cualquier consulta se exporta a Excel, CSV o JSON, un espacio 2D se exporta como DEXPI 2.0 para una herramienta de diseño 3D u otra herramienta de P&amp;ID, y los P&amp;ID existentes entran desde DEXPI, DXF o un PDF vectorial.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-deliverables.webp" alt="E1: Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF." width="1200" height="1029" loading="lazy"></div><figcaption>Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF.</figcaption></figure>
         </div>
       </div>
     </section>

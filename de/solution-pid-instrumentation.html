@@ -147,13 +147,20 @@
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="pid">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pid">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">P&amp;ID</span>
           <h2>P&amp;ID-Software, in der jedes Symbol ein Objekt ist</h2>
           <p>Wenn Sie in E1 ein Instrument, eine Armatur oder einen Apparat auf einem P&amp;ID platzieren, entsteht im Projekt ein Objekt mit dem nächsten freien Tag nach den Tag-Regeln des Projekts.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="7"/><path d="M5 10h14M12 17v5"/></svg></span><span>Every instrument is an object</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Tags from your rules</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/></svg></span><span>DEXPI, DXF and PDF import</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>E1 zeichnet eigene Symbole für Instrumente, Regelventile und Logik sowie für Apparate, Armaturen und Formstücke. Sie finden sie im Fenster Add asset nach Name, Typ, Klasse oder Diagrammtyp, und zwei Klicks legen beim Platzieren Ein- und Ausgang eines Symbols fest. Das Connector-Werkzeug zeichnet Rohre, Signalleitungen und Kabel Punkt für Punkt, und jede Linie verbindet, was sie berührt. Symbole zeigen ihre Tags und Rohrstrecken ihre Leitungsnummern.</p>
           <p>Tags folgen den Regeln des Projekts, mit Referenzkennzeichen. Ändert sich eine Eingabe einer Regel, wird der Tag als veraltet markiert, statt sich hinter Ihrem Rücken zu ändern, und Retag… zeigt jeden alten und neuen Tag, bevor es sie anwendet. Solange Alex eingeschaltet ist, bringt das Platzieren einer Pumpe einen Vorschlag für das, was üblicherweise als Nächstes kommt, gezeichnet als Geistersymbole, die Sie übernehmen oder ablehnen.</p>
@@ -162,61 +169,104 @@
             <li>Vorhandene P&amp;IDs kommen aus DEXPI 2.0, DXF oder einem Vektor-PDF als echte Objekte herein, von Ihnen geprüft, bevor etwas gespeichert wird.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-pid.webp" alt="E1: LIT 2001 selected on P&amp;ID DF-20-P-0001, with its loop and its properties." width="1200" height="1029" loading="lazy"></div><figcaption><b>LIT 2001</b> selected on P&amp;ID DF-20-P-0001, with its loop and its properties.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="index">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="index">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Index</span>
           <h2>Eine Instrumentenliste, die nie veraltet ist</h2>
           <p>In E1 wird die Instrumentenliste aus dem Modell gelesen und führt genau die Instrumente auf, die auf den Zeichnungen und im Projekt vorhanden sind.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Read from the model</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Never out of date</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Export to Excel</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Alex' <b>Export instrument index (Excel)</b> liest die Instrumente, Signale und Motoren eines 2D-Raums und schreibt die Instrumentenliste, die E/A-Liste, die Ursache-Wirkung-Matrix und die Motorliste in eine Arbeitsmappe, ein Blatt je Liste. Wenn Ihr Unternehmen seine Spaltenvorlagen für Listen in Alex knowledge hochgeladen hat, folgen die Spalten diesen.</p>
           <p>Für das Projekt als Ganzes ist eine Instrumentenliste eine gespeicherte Abfrage mit den Spalten Ihrer Wahl. Sie lässt sich mit einer E1-id-Spalte nach Excel, CSV oder JSON exportieren. <b>Update from Excel…</b> liest eine bearbeitete Datei zurück: Check listet jede Änderung Zeile für Zeile auf, und Apply führt sie in einem rückgängig machbaren Schritt aus. Eine Instrumentenliste aus einem anderen Werkzeug kommt mit <b>Import Excel…</b> herein: Passende Zeilen werden aktualisiert, die übrigen werden zu neuen Objekten. Bis zu 100 Instrumente einer Klasse entstehen auf einmal im Fenster New object.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-index.webp" alt="E1: The instrument index: 77 instruments with class, function, alarm and trip settings, SIL and drawings." width="1200" height="1029" loading="lazy"></div><figcaption>The instrument index: 77 instruments with class, function, alarm and trip settings, SIL and drawings.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="loops">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="loops">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Loops</span>
           <h2>Loop-Diagramme, aus dem Modell erzeugt</h2>
           <p>In E1 wird ein Loop-Diagramm jedes Mal aus dem Modell gezeichnet, wenn Sie es ansehen: die Instrumente, die eine Regelfunktion umsetzen, und die Geräte, die sie steuert, in Signalreihenfolge, mit ihrer Verdrahtung.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="5" rx="1"/><rect x="7" y="10" width="10" height="5" rx="1"/><circle cx="12" cy="20" r="2.5"/><path d="M10 7v3M14 7v3M10 15v2.5M14 15v2.5"/></svg></span><span>Drawn from the model</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Cables, cores and terminals</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>In signal order</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Klicken Sie mit der rechten Maustaste auf eine Funktion wie TIC-101 und wählen Sie <b>Preview loop diagram</b>, oder wählen Sie mehrere aus, um sie auf einem temporären Blatt in der Vorschau zu sehen. Während der Vorschau wird nichts gespeichert. Exportieren Sie ein PDF zum Versenden, oder erstellen Sie eine Version oder eine Revision: Erst dann wird jeder Loop in Documents gespeichert, wo Sie Symbole von Hand verschieben können und Regenerate Ihre Verschiebungen beibehält.</p>
           <p>Das Loop-Diagramm verfolgt jeden Stromkreis vom Gerät über Anschlusskästen, Kabel, Rangierung und Barrieren bis zum E/A-Kanal, mit der Speisung der Barriere und den Schirmen bis zu ihrer Erdschiene. Jede Klemme wird nach Zone in einer Spalte gezeichnet: Anschlusskasten, Rangierung Feldseite, Zwischenrelais, Rangierung Systemseite, E/A sowie Versorgung und Erde. Verdrahtung, die noch in Arbeit ist, wird so weit gezeigt, wie sie reicht, sodass Loop-Diagramme ab dem ersten Tag der Detailplanung nützlich sind.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-loop.webp" alt="E1: The loop diagram of loop 2008: AI card, isolating barrier, cables, junction box JB-20-01 and transmitter TIT 2008." width="1200" height="1029" loading="lazy"></div><figcaption>The loop diagram of <b>loop 2008</b>: AI card, isolating barrier, cables, junction box JB-20-01 and transmitter TIT 2008.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="datasheets">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="datasheets">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Datenblätter</span>
           <h2>Instrumentendatenblätter auf denselben Objekten</h2>
           <p>In E1 ist ein Instrumentendatenblatt eine Ansicht der eigenen Werte des Instruments: Tippen Sie ins Datenblatt, und das Objekt ändert sich.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span>A view of the instrument</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Type in it, the object changes</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Issue it as a document</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Fertige Spezifikationsdatenblätter für Instrumente und Armaturen sind E1s eigene Vorlagen, angelehnt an ISA-Datenblätter, etwa die Spezifikation des magnetisch-induktiven Durchflussmessers. Zeilen sind nummeriert, Teiletabellen setzen sich auf Folgeseiten fort, Einheiten werden ergänzt und geprüft, und das PDF sieht aus wie der Bildschirm. Der Datenblatt-Designer kopiert eine Vorlage in Ihr eigenes Layout, das später Änderungen daraus übernehmen kann.</p>
           <p>Ein Datenblattdokument kann mehrere Tags einer Klasse abdecken. Gemeinsame Werte erscheinen einmal, abweichende Werte zeigen <b>See list</b>, und eine Änderung setzt alle. Nach der Herausgabe eines Datenblattdokuments zeigt jeder seither geänderte Wert die nächste Revision daneben, sodass die nächste Ausgabe leicht zu prüfen ist.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-datasheet.webp" alt="E1: The data sheet tab of LIT 2001: the instrument datasheet is a view of the object itself." width="1200" height="1029" loading="lazy"></div><figcaption>The data sheet tab of <b>LIT 2001</b>: the instrument datasheet is a view of the object itself.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="hookups">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="hookups">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Hookups</span>
           <h2>Hookups, Hookup-Zeichnungen und der Hookup-Plan</h2>
           <p>In E1 zeigt ein Hookup, wie ein Instrument befestigt und angeschlossen wird, und jedes Instrument, das auf dieselbe Weise installiert wird, verwendet denselben Hookup.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.6-.6-.6-2.6z"/></svg></span><span>One hookup per installation</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/></svg></span><span>Hookup drawings</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Hookup schedule</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Schalten Sie Hookups für ein Projekt ein, und sie erhalten einen eigenen Ordner, Assets ▸ Hookups, mit Typ, Montage, Zeichnung und Stückliste. An jedem Instrument wählen Sie den Hookup, den es verwendet, und jeder Hookup zeigt die Instrumente, die ihn verwenden.</p>
           <p>Eine Hookup-Zeichnung wird aus dem Modell erzeugt: eine Anordnungsskizze mit einer Positionsnummer je Teil, die Stückliste, die Instrumente, die ihn verwenden, und Hinweise, auf einer A3-Seite mit Schriftfeld. Der Hookup-Plan listet jeden Hookup mit seinen Instrumenten und dem insgesamt benötigten Material, exportiert nach PDF und Excel und wie jedes andere Dokument revidiert und herausgegeben.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-hookups.webp" alt="E1: Hookup drawing HU-LT-01: the arrangement, its bill of material and the instruments that use it." width="1200" height="1029" loading="lazy"></div><figcaption>Hookup drawing <b>HU-LT-01</b>: the arrangement, its bill of material and the instruments that use it.</figcaption></figure>
         </div>
       </div>
     </section>

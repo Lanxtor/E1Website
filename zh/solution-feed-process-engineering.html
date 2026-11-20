@@ -148,28 +148,46 @@
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="pfd">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pfd">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">PFD</span>
           <h2>由真实对象构成的工艺流程图</h2>
           <p>在 E1 中，工艺流程图是图表类型为"工艺流程图"的 2D 空间。其上的每个符号都是项目中的一个对象。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Every symbol is an object</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="3.5"/><rect x="13" y="3.5" width="7" height="7" rx="1"/><path d="M7 13.5 3.5 20h7z"/><path d="M13 14h7v6h-7z"/></svg></span><span>Process symbols built in</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>您从"添加资产"窗口放置设备，每个符号都会成为一个新对象，并按项目的位号规则获得下一个可用位号，例如泵的 P-001 和 P-002。物流用"连接器"工具绘制为工艺管线，每条线都是一个对象，连接它所接触的部分。单元操作、系统、工艺和区域可在绘图时从绘图工具栏创建。</p>
           <p>由于图纸和数据是同一回事，PFD 可以直接回答问题。"高亮流向"会追踪物流的去向：从开口端经过阀门到下一台设备，再经过泵和压缩机，并跨越离页连接符到其他 2D 空间。"流动动画"让图纸动起来：流体按实际方向在管道中流动，储罐充满和排空，Alex 根据模型中的数值计算流速，而不会更改任何内容。</p>
           <p>E1 以工艺工程师熟悉的惯例绘制自有的工艺设备、阀门和管件符号。您可以在"配置 → 形状"中浏览和搜索它们。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pfd.webp" alt="E1: DF-00-F-0001, the Demo Field process flow diagram in E1." width="1200" height="1029" loading="lazy"></div><figcaption><b>DF-00-F-0001</b>, the Demo Field process flow diagram in E1.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="balance">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="balance">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">平衡</span>
           <h2>基于管线表的热量与物料平衡</h2>
           <p>在 E1 中，PFD 上的热量与物料平衡表由管线表生成。表中没有任何内容是手工输入的。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Stream values in the line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Mass and heat balance sheets</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>One source for every stream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>物流数据有三种方式进入管线表：手动输入、从您的模拟软件导入，或由 Alex 根据已求解的平衡写入。Alex 中的<b>导入热量与物料平衡</b>可读取 HYSYS、Aspen Plus、DWSIM 或类似模拟软件的物流表（.xlsx、.xls、.csv 或 .txt）。Alex 按名称或管线号的中间部分将物流与管线匹配，由您逐一检查匹配结果，确认后才写入数值。随后 Alex 只询问仍缺少的数据。</p>
           <p>在 PFD 上，<b>放置物料平衡</b>绘制物流表（bird cage）：每股物流一列，包括管线号、起点、终点、相态、温度、压力、流量、密度、摩尔质量和组成。<b>放置热量平衡</b>列出每台加热器、冷却器、换热器、泵和压缩机的用途、热负荷和功率，以及合计。格式预设可设置客户所需的版式，管线表中修改的温度会立即显示在表中。</p>
@@ -177,48 +195,81 @@
             <li>缺失的数值，或无法以所选单位显示的数值，显示为 –，而不是猜测值。</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-balance.webp" alt="E1: A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density." width="1200" height="1029" loading="lazy"></div><figcaption>A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="pid">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pid">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">P&amp;ID</span>
           <h2>从 PFD 生成 P&amp;ID</h2>
           <p>在 E1 中，“从此 PFD 生成 P&amp;ID…”会用 PFD 自身的设备绘制一张新的 P&amp;ID：是同一批对象、同样的位号，而不是副本。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Made from the PFD</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Same equipment, no copies</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/></svg></span><span>DEXPI 2.0 in and out</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>每股物流都成为同一设备之间的一条管道，承载同一股物流。由您选择要绘制哪些对象；已在该 PFD 的某张 P&amp;ID 上的对象，或没有 P&amp;ID 图形的对象，会显示为灰色并注明原因。留给第二张 P&amp;ID 的设备以离页连接符结束，并在那张图上延续。任何内容都不会重复绘制。</p>
           <p>之后向 PFD 添加对象或物流时，<b>从 PFD 更新</b>只提供新增的部分。新的 P&amp;ID 打开时会显示 Alex 的<b>建议添加项</b>：每个对象在 P&amp;ID 上通常配有的内容。离心泵会配上进出口隔离阀、出口止回阀、进口过滤器和出口压力表；容器会配上安全阀、排净、放空以及液位和压力仪表。贵公司规范要求的添加项排在最前，<b>全部应用</b>是一次修改，一次撤销即可还原。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pid.webp" alt="E1: P&amp;ID DF-20-P-0001, the HP separation of the Demo Field." width="1200" height="1029" loading="lazy"></div><figcaption>P&amp;ID <b>DF-20-P-0001</b>, the HP separation of the Demo Field.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="line-list">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="line-list">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">管线表</span>
           <h2>管线、管道等级与实时管线表</h2>
           <p>在 E1 中，一条管线就是管线表中的一行：从一个设备管口到另一个设备管口的管段、阀门和管件，带有管线号、起点和终点。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12a3 3 0 0 1 3 3v9M3 15h9a0 0 0 0 1 0 0"/><path d="M3 6v6M18 21h4"/></svg></span><span>Pipelines and pipe classes</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>A live line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Always in step with the P&amp;IDs</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>您在图纸上从一台设备到下一台设备定义管线，E1 沿着绘制的管道穿过阀门和管件生成管线，并在异径管处分段。每条管线指定其管道等级。管道等级保存您的管道规格：压力等级、材料、压力–温度范围、各尺寸及其壁厚等级，以及允许使用的阀门和管件。管道等级保存在公司或项目库中，以版本形式发布，并可从电子表格导入。</p>
           <p><b>检查管道…</b>可发现方向装反的泵、迎面相撞的流向、只有流入的支管，以及不再完整的管线。它会提供修复建议，但从不自行应用。加载管道等级后，Alex 会对照每条管线的等级检查其压力和温度，并标出用于酸性工况、但所属等级未按酸性工况评定的管线。</p>
           <p>E1 不提供固定的管线表。管道表是您在项目管线上建立并保存的查询：管线号、起点和终点、尺寸、介质、管道等级、设计条件以及绘有每条管线的 P&amp;ID。它与图纸实时同步，可导出为 Excel 或 CSV，也可成为带修订的清单文档。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-linelist.webp" alt="E1: The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line." width="1200" height="1029" loading="lazy"></div><figcaption>The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="deliverables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deliverables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">交付成果</span>
           <h2>下游专业可直接继承的 FEED 交付物</h2>
           <p>在 E1 中，数据表、清单和图纸都由同一批对象生成，因此 FEED 包与详细设计永远不会脱节。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/></svg></span><span>Deliverables bound together</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Revisions shown on change</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Inherited downstream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>泵和换热器的规格数据表以现成模板提供，这是 E1 自有的版式，参考了 API 和 ASME 数据表。各操作工况在数据表上并列：最大、额定、正常、最小、设计或开车，每个工况都继承对象的数值，直到您为它单独赋值。数据表发布后，此后修改过的每个数值旁都会显示下一个修订版。</p>
           <p>“文档 → 交付物”将所选图纸与交付物配置中的报告和数据表装订成一个 PDF，包含封面、目录和页码，并予以发布。工艺数据也能以数据形式导出 E1：任何查询都可导出为 Excel、CSV 或 JSON，2D 空间可导出为 DEXPI 2.0 供 3D 设计工具或其他 P&amp;ID 工具使用，现有 P&amp;ID 可从 DEXPI、DXF 或矢量 PDF 导入。</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-deliverables.webp" alt="E1: Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF." width="1200" height="1029" loading="lazy"></div><figcaption>Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF.</figcaption></figure>
         </div>
       </div>
     </section>
