@@ -141,6 +141,17 @@ test("PRJ-tree-rows, PRJ-rename, COL-history: a double-click on a project opens 
   await expect(page.locator('[id="col-history"]')).toContainText("A project's page has a History tab too: every change in the project, each with what it changed and Undo this change.");
 });
 
+test("PRJ-sections, PRJ-folders-sheets: each unit operation has an icon of what it does; a folder you make is a plain folder that opens with its row", async ({ page }) => {
+  await page.goto("/guide-projects.html#prj-sections");
+  const sections = page.locator('[id="prj-sections"]');
+  const unitOperations = sections.getByRole("row").filter({ has: page.getByRole("cell", { name: "Unit Operations", exact: true }) });
+  await expect(unitOperations).toContainText("Each unit operation has an icon of what it does");
+  await expect(unitOperations).toContainText("Stripping shows the one of Distillation");
+  const assets = sections.getByRole("row").filter({ has: page.getByRole("cell", { name: "Assets", exact: true }) });
+  await expect(assets).toContainText("a folder you make is a plain outlined folder, which opens while its row is expanded");
+  await expect(page.locator('[id="prj-folders-sheets"]')).toContainText("Once it holds something and you expand it, the icon is an open folder.");
+});
+
 test("GS-getting-started: Steps for names every answer, and what each of the three newest gives", async ({ page }) => {
   await page.goto("/guide-getting-started.html#gs-getting-started");
   const part = page.locator("#gs-getting-started");
@@ -252,6 +263,19 @@ test("DRAW-tags-labels, DRAW-attribute-labels, DRAW-select: labels typed over, d
   await expect(ipad).toContainText("joined to it by a thin leader");
   await ipad.getByRole("link", { name: "Line style, thickness and colour" }).click();
   await expectScrolledTo(page.locator("#draw-line-style"));
+});
+
+test("IPAD-for-me: the guide tells For me's Whose tasks (Mine, My groups, From me) and Sort by, as on the iPad", async ({ page }) => {
+  const f = FEATURES.find((x) => x.id === "IPAD-for-me");
+  expect(f.summary).toContain("Mine, My groups or From me");
+  await page.goto(`/${pageOf(f)}#${f.anchor}`);
+  const part = page.locator(`[id="${f.anchor}"]`);
+  await expectScrolledTo(part);
+  await expect(part).toContainText("Under Whose tasks, tap Mine, My groups or From me");
+  await expect(part).toContainText("My groups those assigned to a group you are in");
+  await expect(part).toContainText("Show all tasks goes back to All");
+  await expect(part).toContainText("choose Due date, Newest first, Project or Title");
+  await expect(part.locator(".g-steps tbody tr")).toHaveCount(11);
 });
 
 test("DRAW-connector: the guide tells that the Connector routes the line, shows it first and is one step to undo", async ({ page }) => {
