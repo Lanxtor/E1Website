@@ -1146,6 +1146,50 @@
   <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
 </section>
 
+<section class="g-feature" id="draw-line-numbers">
+  <h2>Line numbers as you draw, size and pipe class</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-line-numbers</span><span>Roadmap 13.6</span></div>
+  <p class="g-summary">A pipe drawn on a P&amp;ID is a line of the line list from the moment it is drawn: it gets its pipeline and its line number at once, keeps the number through the valves and fittings on it, and gives them its nominal size and pipe class.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space of diagram type P&amp;ID: draw with <span class="ui">Flow lines</span>; right-click a pipe, valve or fitting → <span class="ui">Flow</span> ▸ <span class="ui">Size and pipe class…</span>; <span class="ui">Add…</span> → <span class="ui">Fitting</span> for <span class="ui">Spec break</span>, <span class="ui">Pipeline break</span> and <span class="ui">Line end</span>; <span class="ui">Settings → Project settings → Drawing</span> and <span class="ui">Tag rules</span></dd>
+    <dt>Who</dt><dd>Editor license; a project role that may edit drawings (the project settings: a role that may configure the project)</dd>
+  </dl>
+  <h3>Draw a pipe and see its number</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Click <span class="ui">Flow lines</span> and draw a pipe.</td><td>The pipe shows its line number along it, for example <em>P-10001</em>: the service code and a running number. In the explorer, <span class="ui">Assets → Piping</span> holds the pipeline <em>P-10001</em>.</td></tr>
+      <tr><td>2</td><td>Press <kbd>Ctrl+Z</kbd>.</td><td>The pipe and its line number are taken back together: drawing a pipe is one step to undo. <kbd>Ctrl+Y</kbd> brings both back.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Add…</span>, choose a gate valve and click it onto the pipe.</td><td>The valve goes into the line. Both sides show the same line number.</td></tr>
+      <tr><td>4</td><td>Draw a pipe on from a valve at the end of a line.</td><td>It joins the line: the same number. A pipe drawn from a pump or a tank is a new line with the next number.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Set the size and the pipe class of a line</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click the pipe (or a valve or fitting on it) and choose <span class="ui">Flow</span> ▸ <span class="ui">Size and pipe class…</span>.</td><td>The dialog <em>Size and pipe class</em> names the <em>Line number</em> and has two lists: <span class="ui">Nominal size</span> and <span class="ui">Pipe class</span> (the pipe classes of the project's library; the sizes its pipe class lists, else the common nominal sizes).</td></tr>
+      <tr><td>2</td><td>Choose <em>6"</em> and a pipe class, and click <span class="ui">Apply</span>.</td><td>The line number follows, for example <em>6"-P-10001-A1A</em>; its running number stays. The valves and fittings on the line have the size and the pipe class (select one: the Selection panel shows <em>Nominal size 6"</em>). One <kbd>Ctrl+Z</kbd> takes the change back.</td></tr>
+      <tr><td>3</td><td>Click a reducer from <span class="ui">Add…</span> → <span class="ui">Fitting</span> onto the pipe, then open <span class="ui">Size and pipe class…</span> on the pipe after it and choose <em>4"</em>.</td><td>The reducer starts a new piping segment with a size of its own: the pipe after it reads <em>4"-P-10001-A1A</em>, the pipe before it <em>6"-P-10001-A1A</em>, and the reducer's nominal size is <em>6" x 4"</em>.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Spec break, pipeline break and line end</h3>
+  <ul>
+    <li><strong>Spec break:</strong> clicked onto a pipe, it starts a new piping segment. In <span class="ui">Size and pipe class…</span> on the pipe after it, tick <span class="ui">The pipe class of this segment only (after a spec break)</span> to give that segment its own pipe class. <span class="ui">Check piping…</span> lists a spec break where the pipe class and the size are the same on both sides.</li>
+    <li><strong>Pipeline break:</strong> clicked onto a pipe, the pipe after it becomes a line of its own with the next line number. Check piping lists a pipeline break with pipe on one side only.</li>
+    <li><strong>Line end:</strong> an open end of a line (to atmosphere, to drain, at the battery limit). The pipeline's <em>To</em> reads <em>Line end</em> and its name. Check piping lists a line end with pipe on both sides.</li>
+  </ul>
+  <h3>Where the number changes, and the rule</h3>
+  <ul>
+    <li>A line number always changes at equipment and at a pipeline break. <span class="ui">Settings → Project settings → Drawing</span> has <span class="ui">Line number at a size change</span> and <span class="ui">Line number at a pipe class change</span>: <em>Stays the same</em> or <em>A new line number</em> (at a reducer, at a spec break).</li>
+    <li><span class="ui">Line numbers</span> in the same place: <em>As the pipe is drawn</em>, or <em>Only when a pipeline is made</em> (then a pipe gets its number with <span class="ui">Define pipeline from here</span> or <span class="ui">Create pipeline</span>).</li>
+    <li>The rule is <em>Line numbers</em> in <span class="ui">Project settings → Tag rules</span>: nominal size, service code, a five-digit running number, pipe class and insulation code, joined with a hyphen. A part ticked <span class="ui">Left out when empty</span> is left out with its hyphen until it has a value, so a new pipe is <em>P-10001</em> and becomes <em>6"-P-10001-A1A</em>. The service code is the pipeline's <em>Service code</em> (P by default).</li>
+    <li><strong>Deleting a pipe</strong> takes its pipeline with it, so no line without pipe stays under <span class="ui">Assets → Piping</span> or in a pipe schedule; <kbd>Ctrl+Z</kbd> brings back the pipe in its line, with its number. A pipeline with a line number you typed, or with a value you entered, stays, and <span class="ui">Check piping…</span> lists it as incomplete.</li>
+    <li>Line numbers are given on P&amp;IDs only: the lines of a process flow diagram are flow streams.</li>
+  </ul>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a> · <a href="guide-drawing.html#draw-connector">Connector</a></p>
+</section>
+
 <section class="g-feature" id="draw-piping-check">
   <h2>Check piping and flow direction</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-11</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-piping-check</span><span>Roadmap 13.2</span></div>
