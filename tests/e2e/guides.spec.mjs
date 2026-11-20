@@ -185,6 +185,23 @@ test("DRAW-tags-labels, DRAW-attribute-labels, DRAW-select: labels typed over, d
   await expect(select).toContainText("Service, Nominal size, Fluid, Pipe class");
   await expect(select).toContainText("Heat tracing opens a list with None, Electric, Steam, Hot water and Hot oil");
 
+
+test("DRAW-connector: the guide tells that the Connector routes the line, shows it first and is one step to undo", async ({ page }) => {
+  const f = FEATURES.find((x) => x.id === "DRAW-connector");
+  await page.goto(`/${pageOf(f)}#${f.anchor}`);
+  const part = page.locator(`[id="${f.anchor}"]`);
+  await expect(part).toBeVisible();
+  await expectScrolledTo(part);
+  const steps = part.locator("table.g-steps tbody tr");
+  await expect(steps.filter({ hasText: "the route that will be drawn is shown" })).toHaveCount(1);
+  await expect(steps.filter({ hasText: "around the symbol and the lines in its way" })).toHaveCount(1);
+  await expect(steps.filter({ hasText: "Click a nozzle, then click another nozzle" })).toContainText("The same routed pipe as a drag draws");
+  await expect(steps.filter({ hasText: "press Ctrl+Z once" })).toContainText("The whole line is gone");
+  /* The catalog finds it by what it now does. */
+  await page.goto("/guide-features.html");
+  await expect(page.locator("body")).toContainText("routed around what is in the way");
+});
+
 test("DRAW-live-checks, DRAW-layout-check: what is marked while drawing with its fix, and the layout warnings, each with Watch the lesson and Show me how in E1", async ({ page }) => {
   await page.goto("/guide-drawing.html#draw-live-checks");
   const live = page.locator("section#draw-live-checks");
