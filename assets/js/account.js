@@ -99,14 +99,19 @@
 
   var current = null;
 
-  function renderProfile(d) {
+  /* keepNames: after a picture change, the names being typed stay as they are until Save. */
+  function renderProfile(d, keepNames) {
     var u = d.user;
     paintAvatar($("[data-profile-avatar]"), u);
-    $("[data-profile-given]").value = u.givenName || (u.familyName ? "" : String(u.name || "").split(/\s+/)[0] || "");
-    $("[data-profile-family]").value = u.familyName || (u.givenName ? "" : String(u.name || "").split(/\s+/).slice(1).join(" "));
+    if (!keepNames) renderNames(u);
     $("[data-picture-remove]").hidden = !u.picture;
     $("[data-picture-label]").textContent = u.picture ? "Change picture" : "Upload picture";
     $("[data-picture-upload]").title = u.picture ? "Change picture" : "Upload picture";
+  }
+
+  function renderNames(u) {
+    $("[data-profile-given]").value = u.givenName || (u.familyName ? "" : String(u.name || "").split(/\s+/)[0] || "");
+    $("[data-profile-family]").value = u.familyName || (u.givenName ? "" : String(u.name || "").split(/\s+/).slice(1).join(" "));
   }
 
   function renderHead(d) {
@@ -250,6 +255,9 @@
       : '<li class="muted">No content packages.</li>';
   }
 
+  /* Stripe returns here with ?card=saved once the card is saved (the overview may not show it for a moment). */
+  var cardJustSaved = /[?&]card=saved(&|$)/.test(location.search);
+
   function renderBilling(d) {
     var sub = d.subscription || {};
     var bill = d.billing || {};
@@ -264,7 +272,12 @@
     var pay = '<span class="eyebrow">Payment</span>';
     if (bill.nextInvoice) pay += "<h3>" + fmt.money(bill.nextInvoice.amount, bill.nextInvoice.currency) + '</h3><p class="meta-line">Next invoice ' + fmt.day(bill.nextInvoice.date) + "</p>";
     if (bill.paymentMethod) pay += '<p class="meta-line">' + esc(bill.paymentMethod) + "</p>";
-    if (bill.canManage && (bill.portal || E1.isDemo())) {
+    if (bill.canManage && bill.paymentKind === "card") {
+      if (!bill.paymentMethod) pay += '<p class="meta-line">No card saved yet. Invoices are sent by email to pay.</p>';
+      if (cardJustSaved) pay += '<p class="meta-line" data-card-saved>Thank you. Your card is saved; it shows here as soon as Stripe confirms it.</p>';
+      pay += '<button class="btn btn-primary btn-sm" type="button" data-billing-portal>' + (bill.paymentMethod ? "Change the card" : "Save a card for automatic payment") + "</button>" +
+        '<p class="meta-line">Your invoices are then paid from it when they are due. The card is entered on the page of our payment provider, Stripe; E1 never sees it. To change your plan or seats, <a href="contact-sales.html">contact us</a>.</p>';
+    } else if (bill.canManage && (bill.portal || E1.isDemo())) {
       pay += '<button class="btn btn-primary btn-sm" type="button" data-billing-portal>Manage billing</button>' +
         '<p class="meta-line">Change plan or seats, update the payment method and company details, or cancel. Payments are handled by our billing provider; E1 never sees your card.</p>';
     } else if (bill.canManage) {
@@ -336,7 +349,8 @@
       ? '<span class="badge">' + (c.price ? fmt.money(c.price.amount, c.price.currency) : "Available") + "</span>"
       : '<span class="badge ' + st[1] + '">' + st[0] + "</span>";
     var action;
-    if (locked) action = '<a class="btn btn-ghost btn-sm" href="' + courseHref(c) + '">See the course</a>';
+    if (c.catalog) action = '<a class="btn btn-ghost btn-sm" href="academy.html#course-' + encodeURIComponent(c.key) + '">See the lessons</a>';
+    else if (locked) action = '<a class="btn btn-ghost btn-sm" href="' + courseHref(c) + '">See the course</a>';
     else if (p.status === "completed") {
       action = (c.certificateId ? '<a class="btn btn-primary btn-sm" href="' + certHref(c.certificateId) + '">View certificate</a> ' : "") +
         '<a class="btn btn-ghost btn-sm" href="' + courseHref(c) + '">Review the course</a>';
@@ -356,7 +370,7 @@
       "</article>";
   }
 
-  function renderTrainingAcademy(t) {
+  function renderTrainingAcademy(t, catalog) {
     var courses = t.courses || [];
     var certs = t.certificates || [];
     var taking = courses.filter(function (c) { return c.access !== "available"; });
@@ -366,9 +380,9 @@
     var minTotal = taking.reduce(function (n, c) { return n + (c.durationMinutes || 0); }, 0);
     var minDone = taking.reduce(function (n, c) { return n + Math.round((c.durationMinutes || 0) * (((c.progress && c.progress.percent) || 0) / 100)); }, 0);
     var tiles = [
-      { label: "Courses completed", value: String(done), sub: "of " + taking.length + " in your plan", href: "#academy-courses" },
+      { label: "Courses completed", value: String(done), sub: "of " + taking.length + (catalog ? " courses" : " in your plan"), href: "#academy-courses" },
       { label: "In progress", value: String(active.length), sub: lessons + " lessons completed", href: "#academy-courses" },
-      { label: "Learning time", value: duration(minDone), sub: "of " + duration(minTotal) + " in your plan", href: "#academy-courses" },
+      { label: "Learning time", value: duration(minDone), sub: "of " + duration(minTotal) + (catalog ? " of video" : " in your plan"), href: "#academy-courses" },
       { label: "Certificates", value: String(certs.length), sub: certs.length ? "earned" : "Finish a course to earn one", href: "#academy-certificates" }
     ];
     $("[data-academy-stats]").innerHTML = tiles.map(function (x) {
@@ -412,7 +426,7 @@
         '<div class="grid grid-2 course-grid">' + g.courses.map(courseCard).join("") + "</div></section>";
     }).join("");
 
-    renderMine();
+    if (catalog) renderMineEmpty(); else renderMine();
 
     table($("[data-academy-certificates]"), ["Certificate", "Earned", "Credential", ""],
       certs.map(function (c) {
@@ -438,6 +452,16 @@
 
   function momentHref(x) {
     return "training.html?course=" + encodeURIComponent(x.courseKey) + "&lesson=" + encodeURIComponent(x.lessonId) + "&t=" + Math.round(x.position || 0) + demoSuffix();
+  }
+
+  /* Before the server serves courses there are no lessons to write in yet; the block still says what it is for. */
+  function renderMineEmpty() {
+    var box = $("[data-academy-notes]");
+    if (!box) return;
+    var block = $("#academy-notes");
+    if (block) block.hidden = false;
+    box.innerHTML = '<div class="grid grid-2 mine-grid"><div><h4>Notes <span class="tab-count">0</span></h4><p class="muted">No notes yet. In a lesson, open My notes under the video and write what you want to remember: the note keeps the moment.</p></div>' +
+      '<div><h4>Bookmarks <span class="tab-count">0</span></h4><p class="muted">No bookmarks yet. In a lesson, use Bookmark this moment under the video.</p></div></div>';
   }
 
   function renderMine() {
@@ -468,6 +492,14 @@
     });
   }
 
+  /* Before the server serves courses: the Academy syllabus itself (assets/js/academy-syllabus.js), each course leading to its lessons on the Academy page. */
+  function syllabusCourses() {
+    var syl = window.E1_SYLLABUS || { courses: [] };
+    return (syl.courses || []).map(function (c) {
+      return { key: c.key, title: c.title, summary: c.summary, level: c.level, lessons: c.lessons, durationMinutes: c.minutes, access: "included", catalog: true };
+    });
+  }
+
   function renderAcademy(d) {
     if (d.training && !d.training.error && (d.training.courses || []).length) {
       renderTrainingAcademy(d.training);
@@ -475,6 +507,10 @@
     }
     var ac = d.academy || {};
     var courses = ac.courses || [];
+    if (!courses.length && !(ac.certificates || []).length && syllabusCourses().length) {
+      renderTrainingAcademy({ courses: syllabusCourses(), certificates: [] }, true);
+      return;
+    }
     var certs = ac.certificates || [];
     var done = courses.filter(function (c) { return c.status === "completed"; }).length;
     var active = courses.filter(function (c) { return c.status === "in_progress"; }).length;
@@ -491,6 +527,7 @@
         (t.sub ? '<span class="stat-sub">' + esc(t.sub) + "</span>" : "") + "</a>";
     }).join("");
 
+    renderMineEmpty();
     var list = $("[data-academy-courses]");
     if (!courses.length) {
       list.innerHTML = '<div class="card course-empty"><h3>Video courses are on their way.</h3>' +
@@ -595,7 +632,7 @@
       E1.removePicture().then(function () {
         t.disabled = false;
         current.user.picture = null;
-        profileChanged();
+        profileChanged(true);
         profileStatus("Picture removed.");
       }, function (err) { t.disabled = false; if (!signedOut(err)) profileStatus(err.message); });
       return;
@@ -617,9 +654,9 @@
 
   function profileStatus(text) { $("[data-profile-status]").textContent = text; }
 
-  function profileChanged() {
+  function profileChanged(keepNames) {
     renderHead(current);
-    renderProfile(current);
+    renderProfile(current, keepNames);
   }
 
   root.addEventListener("submit", function (e) {
@@ -646,7 +683,7 @@
       profileStatus("Uploading the picture…");
       E1.uploadPicture(file).then(function (r) {
         current.user.picture = (r && r.picture) || current.user.picture;
-        profileChanged();
+        profileChanged(true);
         profileStatus("Picture saved.");
       }, function (err) { if (!signedOut(err)) profileStatus(err.message); });
       return;

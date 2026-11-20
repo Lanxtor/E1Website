@@ -197,7 +197,7 @@ def build_page(p, by_id, guides, sv, mv):
 
   <div id="site-footer"></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
-  <script src="assets/js/i18n.js?v=1"></script>
+  <script src="assets/js/i18n.js?v=2"></script>
   <script src="assets/js/config.js?v=4"></script>
   <script src="assets/js/e1-api.js?v=7"></script>
   <script src="assets/js/main.js?v={mv}"></script>

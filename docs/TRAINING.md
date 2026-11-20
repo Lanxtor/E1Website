@@ -4,7 +4,7 @@ LANXTOR E1 training is hosted on our own website and E1 cloud, not on YouTube or
 
 - **Website (this repository):** the *Academy* in the account page (`account.html#academy`, with *Courses*, *User guides* and *Certificates*), the course player (`training.html?course={key}`) and the public certificate page (`certificate.html?id={id}`).
 - **E1 server (`Lanxtor/E1`):** the courses, who may take them, progress, grading and certificates. It uses the same sign-in, PostgreSQL and billing as the rest of the account (`docs/AZURE-INTEGRATION.md`).
-- **In the preview** (`apiBase` empty in `assets/js/config.js`, or `?demo=1`), the pages answer from the preview data in `assets/js/e1-api.js` (`DEMO_TRAINING`), with the visitor's progress kept in their own browser. Try it at `account.html?demo=1#academy-courses`. The Academy uses these routes when the server answers them; until then it shows the overview's `academy` data (`AZURE-INTEGRATION.md`), or "Video courses are on their way".
+- **In the preview** (`apiBase` empty in `assets/js/config.js`, or `?demo=1`), the pages answer from the preview data in `assets/js/e1-api.js` (`DEMO_TRAINING`), with the visitor's progress kept in their own browser. Try it at `account.html?demo=1#academy-courses`. The Academy uses these routes when the server answers them; until then it shows the overview's `academy` data (`AZURE-INTEGRATION.md`), or the syllabus's learning paths and courses, each with *See the lessons* (the Academy page at the course), and an empty *Notes and bookmarks*.
 
 ## 0. The syllabus
 
