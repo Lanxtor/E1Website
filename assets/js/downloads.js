@@ -151,10 +151,35 @@
     });
   }
 
+  /*
+   * <div data-downloads data-downloads-it></div>: each card also gets the
+   * technical details "For IT" that Get E1 shows under its buttons. They are
+   * read from download.html itself, so the two pages always say the same.
+   */
+  function addItNotes() {
+    var mounts = document.querySelectorAll("[data-downloads][data-downloads-it]");
+    if (!mounts.length || !window.DOMParser) return Promise.resolve();
+    return fetch("download.html", { headers: { Accept: "text/html" } }).then(function (r) {
+      if (!r.ok) throw new Error("download.html " + r.status);
+      return r.text();
+    }).then(function (html) {
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      mounts.forEach(function (mount) {
+        mount.querySelectorAll("[data-download-card]").forEach(function (cardEl) {
+          var notes = doc.querySelector('[data-get-col="' + cardEl.getAttribute("data-download-card") + '"] .get-it');
+          if (!notes || cardEl.querySelector(".get-it")) return;
+          var dl = document.importNode(notes, true);
+          dl.classList.add("download-it");
+          cardEl.appendChild(dl);
+        });
+      });
+    }, function () { /* the cards stay as they are without the details */ });
+  }
+
   function load() {
     if (!document.querySelector("[data-downloads], [data-get-os]")) return;
     var get = window.E1 ? E1.releases() : fetch("assets/data/releases.json").then(function (r) { return r.json(); });
-    get.then(render, function () {
+    get.then(function (manifest) { render(manifest); return addItNotes(); }, function () {
       document.querySelectorAll("[data-downloads]").forEach(function (mount) {
         mount.innerHTML = '<p class="muted">' + T("Downloads are not available right now.") + "</p>";
       });

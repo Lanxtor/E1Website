@@ -222,8 +222,8 @@
 
 <section class="g-feature" id="web-billing">
   <h2>Billing: plan, payment and invoices</h2>
-  <div class="g-meta"><span class="g-status under-development">Under development</span><span>Updated 2026-11-18</span><span class="g-id">WEB-billing</span><span>Roadmap W4.1</span></div>
-  <p class="g-summary">Your organization's plan, how it pays, and its invoices. Invoices come by email, payable by bank transfer or by card; the billing portal on this page is not connected yet.</p>
+  <div class="g-meta"><span class="g-status under-development">Under development</span><span>Updated 2026-11-20</span><span class="g-id">WEB-billing</span><span>Roadmap W4.1</span></div>
+  <p class="g-summary">Your organization's plan, how it pays, and its invoices. Invoices come by email, payable by bank transfer or by card; on this page you save the card that pays them automatically.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Account page → <span class="ui">Billing</span></dd>
     <dt>Who</dt><dd>Payment and invoices: owners and billing administrators of the organization</dd>
@@ -231,11 +231,11 @@
   <h3>What the section shows today</h3>
   <ul>
     <li>The <span class="ui">Plan</span> card, with "Trial ends ‹date›" on a trial. Preview data: plan "Team", Active, with one invoice.</li>
-    <li>The <span class="ui">Payment</span> card. For an owner or billing administrator: "Online payment is coming soon. Until then, contact us to change your plan or seats." For anyone else: "Only owners and billing administrators of this organization manage payment."</li>
+    <li>The <span class="ui">Payment</span> card. For an owner or billing administrator: the saved card, such as "Visa ending 4242, expires 03/30", or "No card saved yet. Invoices are sent by email to pay."; and <span class="ui">Save a card for automatic payment</span> (or <span class="ui">Change the card</span>), which opens the secure page of LANXTOR's payment provider (Stripe). There you enter the card, or for invoices in US dollars a US bank account; afterwards you are back on this page with "Thank you. Your card is saved; it shows here as soon as Stripe confirms it." Your invoices are then paid from it when they are due. Without online payment on the server: "Online payment is coming soon. Until then, contact us to change your plan or seats." For anyone else: "Only owners and billing administrators of this organization manage payment."</li>
     <li>The <span class="ui">Invoices</span> table: every invoice LANXTOR has sent your organization or that it has paid, newest first, with its number, date, amount in its currency and status (<span class="ui">open</span> or <span class="ui">paid</span>); <span class="ui">PDF</span> opens the invoice in a new tab. With none yet: "No invoices yet." Without billing rights, "Invoices are visible to the organization's billing administrators."</li>
   </ul>
   <figure class="g-shot"><img src="assets/img/guides/web-account-billing.webp" alt="The Billing section with the Plan card, the Payment card and the Invoices table" width="2160" height="1350" loading="lazy"><figcaption>Billing with preview data.</figcaption></figure>
-  <p class="g-dev">The billing provider and portal (roadmap W4.1) are not chosen yet. When they are, <span class="ui">Manage billing</span> opens the provider's portal to change plan, seats and payment.</p>
+  <p class="g-dev">Changing plan and seats online (roadmap W4.1) is not built yet: for that, contact LANXTOR.</p>
   <h3>How LANXTOR invoices you today</h3>
   <p>Invoices do not need the Account page: LANXTOR emails them to your organization's billing address (usually accounts payable; it does not need to be an E1 user), every month, quarter or year as agreed, with the invoice as a PDF.</p>
   <div class="g-table-wrap"><table class="g-steps">
@@ -250,7 +250,7 @@
   <p class="g-note">To change the billing address, your reference (PO number) or how you pay, reply to any invoice email.</p>
   <h3>What you will be able to do</h3>
   <ul>
-    <li>Click <span class="ui">Manage billing</span> and change plan, seats and payment method online.</li>
+    <li>Change plan and seats online.</li>
     <li>Download your invoices on this page.</li>
   </ul>
     <p class="g-note">Every invoice says that the order is subject to the <a href="e1-terms.html">E1 Terms and License Agreement</a>, with its link.</p>
@@ -273,7 +273,7 @@
       <tr><td>2</td><td>Click <span class="ui">Download for Mac</span> or <span class="ui">Download for Windows</span>.</td><td>The installer downloads straight away. Hold the pointer over the button to see its SHA-256. A button that reads "Coming soon" downloads nothing; none leads to a broken link.</td></tr>
       <tr><td>3</td><td>To create your account, click <span class="ui">Log in</span> at the top of the page, then <span class="ui">Sign up</span>.</td><td>The sign-up opens. You can also choose <span class="ui">Create account</span> on the sign-in screen when you open E1, or in the <span class="ui">E1 Cloud</span> panel further down.</td></tr>
       <tr><td>4</td><td>On any other computer or a tablet, open your account page and click <span class="ui">Open E1 in the browser</span>.</td><td>E1 opens at app.lanxtor.com.</td></tr>
-      <tr><td>5</td><td>On your account page, open <span class="ui">Downloads</span>.</td><td>Four cards: <span class="ui">Windows</span>, <span class="ui">macOS</span>, <span class="ui">E1 Reviewer for iPad</span> and <span class="ui">E1 Mobile for iPhone</span>. The iPad and phone cards read "App Store · Coming soon" until the apps are in the App Store; then they open the App Store.</td></tr>
+      <tr><td>5</td><td>On your account page, open <span class="ui">Downloads</span>.</td><td>Four cards: <span class="ui">Windows</span>, <span class="ui">macOS</span>, <span class="ui">E1 Reviewer for iPad</span> and <span class="ui">E1 Mobile for iPhone</span>. The iPad and phone cards read "App Store · Coming soon" until the apps are in the App Store; then they open the App Store. At the foot of each card, its details for IT as on Get E1: the package, how it is signed and installed, what it asks for, updates and what stays on the device.</td></tr>
     </tbody>
   </table></div>
   <p class="g-warn">This page has no direct link to open E1 in the browser; that link is on the account page.</p>
@@ -375,7 +375,7 @@
     </tbody>
   </table></div>
   <figure class="g-shot"><img src="assets/img/guides/web-account-academy.webp" alt="The Academy section in preview data: four tiles, Continue where you left off, and course cards with Continue, View certificate and Review the course buttons" width="2160" height="1350" loading="lazy"><figcaption>Academy courses with preview data.</figcaption></figure>
-  <p class="g-dev">Serving the courses from the E1 cloud (roadmap W3.4) is not built yet. Until then, signed in for real, the section says "Video courses are on their way."; the progress above is an example.</p>
+  <p class="g-dev">Serving the courses from the E1 cloud (roadmap W3.4) is not built yet. Until then, signed in for real, the section shows the six learning paths and every course of the syllabus, each "Not started" with <span class="ui">See the lessons</span>, which opens the course's lessons on the Academy page; <span class="ui">Notes and bookmarks</span> reads "No notes yet." and "No bookmarks yet.". The progress above is an example.</p>
   <p class="g-related">Related: <a href="#web-course-player">The course player</a> · <a href="#web-certificates">Certificates</a> · <a href="#web-user-guides">User guides</a> · <a href="#web-academy-public">The Academy page</a></p>
 </section>
 
@@ -546,7 +546,7 @@
       <tr><td>3</td><td>Open another page and come back later.</td><td>German is remembered.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-warn">The login, account, course player and certificate pages are in English only.</p>
+  <p class="g-warn">The login, account, course player and certificate pages are in English only. There the language switcher says "This page is in English only. The language you pick is used on the other pages." Picking a language keeps you on the page, with anything you were typing, and the other pages open in that language.</p>
   <p class="g-note">The cookie notice says: "We only use cookies and browser storage that this website needs to work, such as your language, your currency and staying signed in. No tracking, no advertising."</p>
   <p class="g-related">Related: <a href="#web-assistant">Alex on the website</a> · <a href="#web-pricing">Currencies</a></p>
 </section>

@@ -37,11 +37,10 @@
   }
 
   /* The same page in another language (relative to the site root / base).
-     A page that is not translated offers the home page of the other
-     languages, without this page's #part. */
+     A page that is not translated (account, login, course player) stays
+     where it is: the choice is remembered for the pages that have it. */
   function hrefFor(code) {
-    if (!translated && code !== "en") return prefix(code) + "index.html";
-    return (translated ? prefix(code) + page : page) + location.hash;
+    return (translated ? prefix(code) + page : page + location.search) + location.hash;
   }
 
   function t(s, vars) {
@@ -73,6 +72,8 @@
   window.E1_T = t;
   window.E1_href = href;
   window.E1_hrefFor = hrefFor;
+  window.E1_PAGE_TRANSLATED = translated;
+  window.E1_storedLang = stored;
   window.E1_rememberLang = remember;
 
   // Send the visitor to their language (only between our translated pages).

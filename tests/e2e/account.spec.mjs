@@ -325,6 +325,31 @@ test("Manage billing opens the billing provider's portal", async ({ page, baseUR
   await expect(page).toHaveURL(/\/legal\.html\?portal=1$/);
 });
 
+test("Payment with Stripe set up: Save a card for automatic payment opens Stripe's page, and the page says when it is saved", async ({ page, baseURL, apiCalls }) => {
+  const billing = { canManage: true, portal: true, paymentKind: "card", nextInvoice: null, paymentMethod: null, invoices: [] };
+  await mockApi(page, {
+    "GET /api/account/overview": overview({ billing }),
+    "GET /api/training": trainingList(),
+    "POST /api/account/billing/portal": { url: baseURL + "/account.html?card=saved#billing" }
+  });
+  await page.goto("/account.html#billing");
+  const pay = page.locator("[data-payment]");
+  await expect(pay).not.toContainText("Online payment is coming soon");
+  await expect(pay).toContainText("No card saved yet.");
+  await pay.getByRole("button", { name: "Save a card for automatic payment" }).click();
+  await expect(page).toHaveURL(/\/account\.html\?card=saved#billing$/);
+  expect(JSON.parse(apiCalls.find((c) => c.path === "/api/account/billing/portal").body).return).toMatch(/\/account\.html#billing$/);
+  await expect(page.locator("[data-card-saved]")).toContainText("Your card is saved");
+});
+
+test("Payment with a saved card: the card is named, with Change the card", async ({ page }) => {
+  const billing = { canManage: true, portal: true, paymentKind: "card", nextInvoice: null, paymentMethod: "Visa ending 4242, expires 03/30", invoices: [] };
+  await mockApi(page, { "GET /api/account/overview": overview({ billing }), "GET /api/training": trainingList() });
+  await page.goto("/account.html#billing");
+  await expect(page.locator("[data-payment]")).toContainText("Visa ending 4242, expires 03/30");
+  await expect(page.locator("[data-payment]").getByRole("button", { name: "Change the card" })).toBeVisible();
+});
+
 test("a member who does not manage billing sees who does, and no invoices", async ({ page }) => {
   await mockApi(page, {
     "GET /api/account/overview": overview({ billing: { canManage: false, invoices: [] } }),
@@ -347,6 +372,66 @@ test("no license and no projects: the page says so", async ({ page }) => {
   await expect(page.locator("[data-groups]")).toContainText("You are not in a group.");
   await expect(page.locator("[data-permissions]")).toHaveText("None at organization level.");
   await expect(page.locator(".org-switch")).toBeHidden();
+});
+
+test("profile: a name being typed is kept when a picture is uploaded or removed", async ({ page, apiCalls }) => {
+  await mockApi(page, server({
+    "POST /api/account/picture": { picture: "assets/img/hero-avatar.png" },
+    "DELETE /api/account/picture": { ok: true },
+    "POST /api/account/profile": { ok: true }
+  }));
+  await page.goto("/account.html#profile");
+  await page.locator("[data-profile-given]").fill("Pouria");
+  await page.locator("[data-profile-family]").fill("Bigvand");
+  await page.locator("[data-picture-input]").setInputFiles("assets/img/icon-192.png");
+  await expect(page.locator("[data-profile-status]")).toHaveText("Picture saved.");
+  await expect(page.locator("[data-profile-given]")).toHaveValue("Pouria");
+  await expect(page.locator("[data-profile-family]")).toHaveValue("Bigvand");
+  await page.locator("[data-picture-remove]").click();
+  await expect(page.locator("[data-profile-status]")).toHaveText("Picture removed.");
+  await expect(page.locator("[data-profile-given]")).toHaveValue("Pouria");
+  await page.locator("[data-profile-save]").click();
+  await expect(page.locator("[data-profile-status]")).toHaveText("Saved.");
+  expect(JSON.parse(apiCalls.filter((c) => c.path === "/api/account/profile").pop().body)).toEqual({ givenName: "Pouria", familyName: "Bigvand" });
+});
+
+test("the Academy before the server serves courses: the syllabus's learning paths and courses, and Notes and bookmarks", async ({ page }) => {
+  await mockApi(page, server({ "GET /api/training": respond(404, { error: { code: "not_found", message: "-" } }) }));
+  await page.goto("/account.html#academy");
+  const courses = page.locator("[data-academy-courses]");
+  await expect(courses).not.toContainText("Video courses are on their way.");
+  const syl = await page.evaluate(() => window.E1_SYLLABUS);
+  await expect(courses.locator(".path-block")).toHaveCount(syl.paths.length);
+  await expect(courses.locator(".course-card")).toHaveCount(syl.courses.length);
+  await expect(page.locator("#path-foundations .path-step")).toHaveText("Path 1");
+  const first = courses.locator(".course-card", { hasText: "Getting started with E1" });
+  await expect(first).toContainText("Not started");
+  await expect(first).toContainText("0 of 17 lessons");
+  await expect(page.locator("[data-academy-stats] .stat").nth(0)).toContainText("of " + syl.courses.length + " courses");
+  await first.getByRole("link", { name: "See the lessons" }).click();
+  await expect(page).toHaveURL(/\/academy\.html#course-getting-started$/);
+  await expect(page.locator("#course-getting-started")).toBeVisible();
+
+  // Notes and bookmarks in the menu leads to its block, which says what it is for.
+  await page.goBack();
+  await page.locator(".account-nav").getByRole("link", { name: "Notes and bookmarks" }).click();
+  await expect(page.locator("#academy-notes")).toBeVisible();
+  await expect(page.locator("[data-academy-notes]")).toContainText("No notes yet.");
+  await expect(page.locator("[data-academy-notes]")).toContainText("No bookmarks yet.");
+});
+
+test("Downloads on the account page: each card has the details for IT that Get E1 shows", async ({ page }) => {
+  await mockApi(page, server());
+  await page.goto("/account.html#downloads");
+  const card = (k) => page.locator('#downloads [data-download-card="' + k + '"]');
+  await expect(card("windows").locator("dl.download-it")).toContainText("silent with /S");
+  await expect(card("windows").locator("dl.download-it")).toContainText("Microsoft Artifact Signing");
+  await expect(card("mac").locator("dl.download-it")).toContainText("notarized by Apple");
+  await expect(card("ipad").locator("dl.download-it")).toContainText("Microsoft Intune");
+  await expect(card("phone").locator("dl.download-it")).toContainText("iOS Keychain");
+  for (const k of ["windows", "mac", "ipad", "phone"]) {
+    await expect(card(k).locator("dl.download-it")).toHaveCount(1);
+  }
 });
 
 test("WEB-academy and WEB-certificates on the account page", async ({ page }) => {

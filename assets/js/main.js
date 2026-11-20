@@ -53,9 +53,12 @@
     var langs = window.E1_LANGS;
     if (!langs) return "";
     var cur = window.E1_LANG || "en";
-    var items = langs.map(function (l) {
+    var only = window.E1_PAGE_TRANSLATED === false;
+    var chosen = (only && window.E1_storedLang && window.E1_storedLang()) || cur;
+    var items = (only ? '<li class="lang-note" data-lang-note>This page is in English only. The language you pick is used on the other pages.</li>' : "") +
+      langs.map(function (l) {
       return '<li><a href="' + window.E1_hrefFor(l.code) + '" data-lang-pick="' + l.code + '" lang="' + l.code + '"' +
-        (l.code === cur ? ' aria-current="true"' : "") + ">" + l.name + "</a></li>";
+        (l.code === chosen ? ' aria-current="true"' : "") + ">" + l.name + "</a></li>";
     }).join("");
     return '<div class="lang-switch">' +
       '<button type="button" class="lang-toggle" aria-expanded="false" aria-label="' + T("Language") + '">' +
@@ -142,8 +145,15 @@
       btn.setAttribute("aria-expanded", String(open));
     });
     box.querySelectorAll("[data-lang-pick]").forEach(function (a) {
-      a.addEventListener("click", function () {
+      a.addEventListener("click", function (e) {
         if (window.E1_rememberLang) window.E1_rememberLang(a.getAttribute("data-lang-pick"));
+        if (window.E1_PAGE_TRANSLATED !== false) return;
+        // A page in English only stays where it is, with what is being typed on it.
+        e.preventDefault();
+        box.querySelectorAll("[data-lang-pick]").forEach(function (x) { x.removeAttribute("aria-current"); });
+        a.setAttribute("aria-current", "true");
+        box.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
       });
     });
     document.addEventListener("click", function () { box.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); });
