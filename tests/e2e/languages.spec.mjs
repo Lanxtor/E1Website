@@ -4,7 +4,8 @@
  * opens the same page in the chosen language, the choice is remembered, and
  * a first visit follows the browser's language.
  */
-import { test, expect, openMenu } from "./fixtures.mjs";
+import { test, expect, openMenu, mockApi } from "./fixtures.mjs";
+import { overview, trainingList } from "./data.mjs";
 
 const HERO = {
   en: "Plant engineering, at the speed of thought.",
@@ -85,15 +86,27 @@ test.describe("first visit in a German browser", () => {
   });
 });
 
-test("a page without translations offers the home page in each language, without this page's #part", async ({ page }, testInfo) => {
-  // Regression: account.html#academy-courses linked to de/index.html#academy-courses.
+test("a page without translations stays where it is when a language is picked, and the other pages follow the choice", async ({ page }, testInfo) => {
   await page.goto("/guide-account.html#web-languages");
   await openMenu(page, testInfo);
   await page.locator(".lang-toggle").click();
-  await expect(page.locator('.lang-menu a[data-lang-pick="de"]')).toHaveAttribute("href", "de/index.html");
-  await expect(page.locator('.lang-menu a[data-lang-pick="en"]')).toHaveAttribute("href", "guide-account.html#web-languages");
+  await expect(page.locator("[data-lang-note]")).toHaveText("This page is in English only. The language you pick is used on the other pages.");
   await page.locator('.lang-menu a[data-lang-pick="de"]').click();
-  await expect(page).toHaveURL(/\/de\/index\.html$/);
+  await expect(page).toHaveURL(/\/guide-account\.html#web-languages$/);
+  await expect(page.locator('.lang-menu a[data-lang-pick="de"]')).toHaveAttribute("aria-current", "true");
+  await page.goto("/about.html");
+  await expect(page).toHaveURL(/\/de\/about\.html$/);
+});
+
+test("account page: picking a language keeps the profile and what is typed in it", async ({ page }, testInfo) => {
+  await mockApi(page, { "GET /api/account/overview": overview(), "GET /api/training": trainingList() });
+  await page.goto("/account.html#profile");
+  await page.locator("[data-profile-given]").fill("Pouria");
+  await openMenu(page, testInfo);
+  await page.locator(".lang-toggle").click();
+  await page.locator('.lang-menu a[data-lang-pick="no"]').click();
+  await expect(page).toHaveURL(/\/account\.html#profile$/);
+  await expect(page.locator("[data-profile-given]")).toHaveValue("Pouria");
 });
 
 /*

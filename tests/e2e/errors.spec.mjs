@@ -84,13 +84,13 @@ test("a trial and a license file are shown with the plan", async ({ page }) => {
   await expect(page.locator("[data-plan]")).toContainText("Add-ons: Plant package, Academy");
 });
 
-test("the Academy before the server has courses: the account's own list, or 'on their way'", async ({ page }) => {
+test("the Academy before the server has courses: the syllabus, not an error", async ({ page }) => {
   await mockApi(page, {
     "GET /api/account/overview": overview({ academy: { courses: [], certificates: [] } }),
     "GET /api/training": respond(404, { error: { code: "not_found", message: "-" } })
   });
   await page.goto("/account.html#academy");
-  await expect(page.locator("[data-academy-courses]")).toContainText("Video courses are on their way.");
+  await expect(page.locator("[data-academy-courses] .course-card", { hasText: "Getting started with E1" })).toBeVisible();
   await expect(page.locator("[data-academy-certificates]")).toContainText("No certificates yet.");
 });
 
