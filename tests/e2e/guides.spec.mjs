@@ -563,3 +563,19 @@ test("Show me how in the user guide: Watch the lesson is the large button at the
   await expect(watch).toHaveCount(1);
   await expect(watch).toContainText("The E1 Academy film of this page opens in the browser, at its lesson.");
 });
+
+test("DRAW-pipelines, DRAW-select: a double-click on a pipe opens its window at once; the whole line and its segment are selected from the line's menu", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-pipelines");
+  const pipelines = page.locator("section#draw-pipelines");
+  await expectScrolledTo(pipelines);
+  const step = pipelines.locator("table.g-steps tbody tr").filter({ hasText: "Select whole line" });
+  await expect(step).toHaveCount(1);
+  await expect(step).toContainText("Every pipe of the pipeline is selected");
+  await expect(step).toContainText("Select segment");
+  await expect(step).toContainText("is greyed out and says so");
+  await expect(step).toContainText("the menu key (or Shift+F10)");
+  await expect(step).toContainText("opens its own window on Attributes at once");
+  await expect(pipelines).not.toContainText("Double-click the same line again");
+  const select = page.locator("section#draw-select");
+  await expect(select.locator("table.g-steps tbody tr").filter({ hasText: "Double-click a pipe, selected or not." })).toContainText("at once, also for a pipe in a pipeline");
+});
