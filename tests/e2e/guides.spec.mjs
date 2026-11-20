@@ -317,7 +317,7 @@ test("DRAW-command-search, DRAW-quick-swap, DRAW-clipboard, GS-shortcuts: the to
  */
 const PID_DOCUMENTS = [
   { id: "LIST-standard-lists", lesson: "list-standard-lists", says: ["Line list", "Valve list", "Equipment list", "Instrument index", "Hold list", "Excel (.xlsx)", "Saved query"] },
-  { id: "WF-hold-cloud", lesson: "wf-hold-cloud", says: ["Put on hold…", "Edit hold…", "Close hold", "HOLD H1", "Hold list", "Open holds", "Show holds"] },
+  { id: "WF-hold-cloud", lesson: "wf-hold-cloud", says: ["Put on hold…", "Edit hold…", "Close hold", "HOLD H1", "Hold list", "Open holds", "Closed holds", "All holds", "never used again", "Export PDF", "Show holds"] },
   { id: "DOC-legend-sheet", lesson: "doc-legend-sheet", says: ["Legend sheet", "Refresh", "Export PDF", "Symbols in use", "Line types in use", "Tag letters in use", "ISO 10628-2"] },
 ];
 for (const { id, lesson, says } of PID_DOCUMENTS) {
