@@ -2899,7 +2899,8 @@
    "status": "available",
    "roadmap": [
     "M3.2",
-    "M3.11"
+    "M3.11",
+    "M3.21"
    ],
    "checks": [
     "B1"
@@ -3033,18 +3034,20 @@
   {
    "id": "DRAW-aids",
    "title": "Snap, Grid and Ortho",
-   "summary": "Turn the grid, snapping onto nozzles and horizontal-or-vertical lines on and off, kept per person.",
+   "summary": "Turn the grid, Snap (onto the grid, nozzles and line ends, with alignment guides) and horizontal-or-vertical lines on and off, kept per person.",
    "anchor": "draw-aids",
    "status": "available",
    "roadmap": [
-    "M3.3"
+    "M3.3",
+    "M3.21"
    ],
    "checks": [
     "B4"
    ],
    "related": [
     "DRAW-connector",
-    "DRAW-sheet-view"
+    "DRAW-sheet-view",
+    "DRAW-arrange"
    ],
    "roles": "Everyone; the setting is per person",
    "training": {
@@ -3222,7 +3225,8 @@
    "status": "available",
    "roadmap": [
     "M3.3",
-    "M3.15"
+    "M3.15",
+    "M3.21"
    ],
    "checks": [
     "B5"
@@ -3937,7 +3941,7 @@
   {
    "id": "DRAW-piping-check",
    "title": "Check piping and flow direction",
-   "summary": "Check every pipe on a 2D space: flow that leaves an inlet or enters an outlet, pipe that meets head-on, a pump turned the wrong way, incomplete pipelines, and pipe in no pipeline; fix with Flip the flow of the chain or Turn around, and make the proposed pipelines with Detect pipelines.",
+   "summary": "Check every pipe on a 2D space: flow that leaves an inlet or enters an outlet, pipe that meets head-on, a pump turned the wrong way, an open pipe end, a size or pipe class that changes across a connection, a duplicate tag, incomplete pipelines, and pipe in no pipeline; fix with Flip the flow of the chain or Turn around, and make the proposed pipelines with Detect pipelines.",
    "anchor": "draw-piping-check",
    "status": "available",
    "roadmap": [
@@ -3949,7 +3953,9 @@
    "related": [
     "DRAW-pipelines",
     "DRAW-flow-arrows",
-    "DRAW-off-page"
+    "DRAW-off-page",
+    "DRAW-live-checks",
+    "DRAW-layout-check"
    ],
    "roles": "Editor license; a project role that may edit drawings (Check piping: any role that can view the project)",
    "training": {
@@ -3960,6 +3966,62 @@
    "screenshots": [],
    "category": "drawing",
    "page": "guide-drawing.html#draw-piping-check"
+  },
+  {
+   "id": "DRAW-live-checks",
+   "title": "Checks while drawing",
+   "summary": "A problem is marked on the 2D space the moment you draw it: an open pipe end, flow against flow, a size or pipe class that changes across a connection, a duplicate tag, an off-page connector with no counterpart. A count shows in the status row, and the finding with its fix is one click away.",
+   "anchor": "draw-live-checks",
+   "status": "available",
+   "roadmap": [
+    "13.6"
+   ],
+   "checks": [
+    "O2"
+   ],
+   "related": [
+    "DRAW-piping-check",
+    "DRAW-layout-check",
+    "DRAW-off-page",
+    "DRAW-pipe-classes"
+   ],
+   "roles": "Anyone who can view the project sees the markers; the fixes: a project role that may edit drawings",
+   "training": {
+    "topic": "Checks while drawing",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-live-checks"
+  },
+  {
+   "id": "DRAW-layout-check",
+   "title": "Layout check",
+   "summary": "Check piping also reads the layout of a 2D space: more major equipment items than the project allows (three by default, a set of pumps in one service counting as one), main flow drawn right to left, and an off-page connector on the wrong edge.",
+   "anchor": "draw-layout-check",
+   "status": "available",
+   "roadmap": [
+    "13.6"
+   ],
+   "checks": [
+    "O2"
+   ],
+   "related": [
+    "DRAW-piping-check",
+    "DRAW-live-checks",
+    "DRAW-off-page",
+    "LIB-project-settings"
+   ],
+   "roles": "Check piping: anyone who can view the project. The limit in Project settings: Project administrator",
+   "training": {
+    "topic": "The layout of a P&ID",
+    "level": "Intermediate",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-layout-check"
   },
   {
    "id": "DRAW-scd",
