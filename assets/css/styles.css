@@ -4115,6 +4115,20 @@ code {
 .sol-page .cs-hero .saas-kicker { margin-bottom: 14px; }
 .sol-prose { max-width: 780px; display: grid; gap: 16px; font-size: 1.02rem; line-height: 1.7; color: var(--text-title); }
 .sol-prose ul { display: grid; gap: 10px; padding-left: 1.2em; list-style: disc; }
+.sol-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 56px; align-items: start; }
+.sol-split .sol-prose { max-width: none; }
+.sol-shot { position: sticky; top: 120px; margin: 0; }
+.sol-shot-frame { overflow: hidden; border-radius: 14px; background: #fff; border: 1px solid var(--line); box-shadow: 0 30px 60px -34px rgba(11, 42, 74, 0.55); }
+.sol-shot-bar { display: flex; gap: 6px; padding: 9px 12px; background: #f3f5f8; border-bottom: 1px solid var(--line); }
+.sol-shot-bar i { width: 9px; height: 9px; border-radius: 50%; background: #cfd6df; }
+.sol-shot img { display: block; width: 100%; height: auto; }
+.sol-shot figcaption { margin-top: 12px; font-size: 0.92rem; line-height: 1.5; color: var(--text-muted); }
+.sol-shot figcaption b { color: var(--text-title); }
+.sol-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 4px 0 22px; padding: 0; list-style: none; }
+.sol-points li { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: #fff; border: 1px solid var(--line); font-size: 0.9rem; font-weight: 600; line-height: 1.3; color: var(--text-title); }
+.sol-pi { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--brand-soft, #e9f1fb); color: var(--brand, #1565c0); }
+.sol-pi svg { width: 19px; height: 19px; }
+@media (max-width: 960px) { .sol-split { grid-template-columns: minmax(0, 1fr); gap: 28px; } .sol-shot { position: static; } }
 .sol-prose a, .cs-faq a { color: var(--accent); text-decoration: underline; }
 .sol-more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
 .sol-more h2 { font-size: 1.4rem; }
