@@ -183,7 +183,7 @@ test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line op
   await expect(select).toContainText("Its window opens on Attributes");
   await expect(select).toContainText("Shift and double-click adds its whole run");
   const pipelines = page.locator("#draw-pipelines");
-  await expect(pipelines).toContainText("once more, the line's window opens on Attributes");
+  await expect(pipelines).toContainText("A double-click on a pipe opens its own window on Attributes at once.");
   const menus = page.locator("#draw-symbol-menu");
   await expect(menus).toContainText("Show in tree selects the line's pipe run in the explorer, from any of its segments");
 });
@@ -234,6 +234,14 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-clipboard: a symbol put on a pipe go
   await expect(arrange).toContainText("the pipe is split around it, connected on both sides");
   const clipboard = page.locator("#draw-clipboard");
   await expect(clipboard).toContainText("Drag the copy onto a pipe and it goes into the line, connected on both sides");
+});
+
+test("DRAW-connector: the connectors are in the palette under Connect, not in the Add window", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-connector");
+  const connector = page.locator("#draw-connector");
+  await expectScrolledTo(connector);
+  await expect(connector).toContainText("The Design palette → Connect: Flow lines, Cable, Wire or Logic.");
+  await expect(connector).not.toContainText("top of the Add window");
 });
 
 test("DRAW-line-style: the line types are listed with how each is drawn; the PDF and DEXPI export are named", async ({ page }) => {
