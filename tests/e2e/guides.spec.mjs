@@ -164,6 +164,17 @@ test("GS-getting-started: Steps for names every answer, and what each of the thr
   await expect(row).toContainText("the five of Just looking before you choose");
 });
 
+test("GS-getting-started, WIRE-circuit-cables: Alex's Show me starts with what is open on a circuit diagram; Cable line is clicked across the wires", async ({ page }) => {
+  await page.goto("/guide-getting-started.html#gs-getting-started");
+  const part = page.locator('[id="gs-getting-started"]');
+  await expect(part).toBeVisible();
+  await expect(part).toContainText("Show me starts with what you have open: on a circuit diagram with To place, Terminals, PLC cards or Cable line open, or Renumber just run, Alex shows that; with nothing open on a drawing, placing a symbol.");
+  const cables = FEATURES.find((x) => x.id === "WIRE-circuit-cables");
+  await page.goto(`/${pageOf(cables)}#${cables.anchor}`);
+  const wiring = page.locator(`[id="${cables.anchor}"]`);
+  await expect(wiring).toContainText("on one side of three wires, and where it ends, on the other side. Click Cable line again to stop without drawing.");
+});
+
 test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line opens its window; Show in tree takes its pipe run", async ({ page }) => {
   await page.goto("/guide-drawing.html#draw-select");
   const select = page.locator("#draw-select");
