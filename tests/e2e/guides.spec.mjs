@@ -184,6 +184,15 @@ test("DRAW-tags-labels, DRAW-attribute-labels, DRAW-select: labels typed over, d
   await expect(select).toContainText("Click a value in that list, for example Material");
   await expect(select).toContainText("Service, Nominal size, Fluid, Pipe class");
   await expect(select).toContainText("Heat tracing opens a list with None, Electric, Steam, Hot water and Hot oil");
+  await expect(select).toContainText("the project's own pick list where it has one");
+  await expect(labels).toContainText("A wire's number is typed over the same way");
+  // E1 Reviewer draws the same: its guide says so and links back here.
+  await page.goto("/guide-reviewer.html#ipad-sheets");
+  const ipad = page.locator("#ipad-sheets");
+  await expect(ipad).toContainText("a line has its type's marks");
+  await expect(ipad).toContainText("joined to it by a thin leader");
+  await ipad.getByRole("link", { name: "Line style, thickness and colour" }).click();
+  await expectScrolledTo(page.locator("#draw-line-style"));
 });
 
 test("DRAW-connector: the guide tells that the Connector routes the line, shows it first and is one step to undo", async ({ page }) => {
