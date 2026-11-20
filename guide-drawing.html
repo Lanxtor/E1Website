@@ -125,6 +125,8 @@
           <li><a href="#draw-symbol-versions">Symbol versions on placements</a></li>
           <li><a href="#draw-pipelines">Pipelines and completeness checks</a></li>
           <li><a href="#draw-piping-check">Check piping and flow direction</a></li>
+          <li><a href="#draw-live-checks">Checks while drawing</a></li>
+          <li><a href="#draw-layout-check">Layout check</a></li>
           <li><a href="#draw-scd">System control diagrams (NORSOK SCD)</a></li>
           <li><a href="#draw-pipe-classes">Pipe classes</a></li>
           <li><a href="#draw-line-list">Pipe schedule (line list)</a></li>
@@ -151,7 +153,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>55 features</span><span>53 available</span></div>
+        <div class="g-meta"><span>57 features</span><span>55 available</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -682,7 +684,7 @@
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/flow-highlight.webp" alt="Highlight flow on Pump1: the path is highlighted and a banner reads Flow from an open end to an open end, with Clear" width="2160" height="1350" loading="lazy"><figcaption>A highlighted flow path with its description and Clear.</figcaption></figure>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol's right-click menu</a></p>
-  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-08">Watch the lesson: Highlighting flow · Animate flow</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-highlight-flow" target="_blank" rel="noopener">Show me how in E1: Trace where the flow goes</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-09">Watch the lesson: Highlighting flow · Animate flow</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-highlight-flow" target="_blank" rel="noopener">Show me how in E1: Trace where the flow goes</a></p>
 </section>
 
 <section class="g-feature" id="draw-layers">
@@ -1216,11 +1218,71 @@
     <li><strong>A branch with only inflow or only outflow.</strong></li>
     <li><strong>An incomplete pipeline:</strong> its start or end is gone, or the drawn pipe between them is cut.</li>
     <li><strong>Pipe in no pipeline</strong> (a note, with Detect pipelines), and an <strong>off-page connector without its counterpart</strong>.</li>
+    <li><strong>A pipe that ends in the open</strong>, <strong>a size or a pipe class that changes across a connection</strong> with no reducer or spec break, and <strong>two items with one tag</strong>: the same findings E1 marks on the 2D space while you draw (<a href="#draw-live-checks">Checks while drawing</a>).</li>
+    <li><strong>The layout</strong>: too many major equipment items, main flow right to left, an off-page connector on the wrong edge (<a href="#draw-layout-check">Layout check</a>).</li>
   </ul>
   <p>One finding per chain of pipe, not per run, so one reversed pump gives one finding. Alex reads the same findings (<em>check_piping</em>) and offers the same fixes.</p>
-  <p class="g-warn">Not built yet: the findings in the Checks panel and as markers on the drawing (with the rule engine, milestone M6), and Ignore with a reason.</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a></p>
+  <p class="g-warn">Not built yet: the findings in the Checks panel (with the rule engine, milestone M6), and Ignore with a reason.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-live-checks">Checks while drawing</a> · <a href="guide-drawing.html#draw-layout-check">Layout check</a></p>
   <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-04">Watch the lesson: Pipelines · Flow direction and the piping check</a> <span class="muted">(Process design: from PFD to P&amp;ID · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-piping-check" target="_blank" rel="noopener">Show me how in E1: Check piping and flow direction</a></p>
+</section>
+
+<section class="g-feature" id="draw-live-checks">
+  <h2>Checks while drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-live-checks</span><span>Roadmap 13.6</span></div>
+  <p class="g-summary">E1 looks at the 2D space after every change and marks what is wrong the moment you draw it, quietly: a small marker on the item and a count in the status row, never a window. The finding and its fix are one click away.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space (a P&amp;ID, a PFD, a hydraulic diagram, or one with no diagram type): the markers on the drawing, and <span class="ui">Checks</span> with the count in the status row under it</dd>
+    <dt>Who</dt><dd>Anyone who can view the project sees the markers. The fixes: a project role that may edit drawings</dd>
+  </dl>
+  <h3>See a problem and fix it</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Draw a pipe that ends in the open, away from any nozzle.</td><td>A small warning marker appears beside the open end, and the number beside <span class="ui">Checks</span> in the status row goes up by one. No window opens.</td></tr>
+      <tr><td>2</td><td>Click the marker.</td><td>A card opens at the bottom left of the 2D space: "This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.", with <span class="ui">Show</span> and <span class="ui">Delete the open pipe</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Delete the open pipe</span> (or connect the pipe yourself).</td><td>The marker is gone and the count goes down. It is one change: Ctrl+Z brings the pipe and its marker back.</td></tr>
+      <tr><td>4</td><td>Click the number beside <span class="ui">Checks</span>.</td><td>The card lists every problem on the 2D space, each with <span class="ui">Show</span> and its fixes. × or Esc closes it.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Checks</span>.</td><td>The markers and the count are hidden; E1 remembers it in this browser. Click it again to turn them back on.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What is marked, and its fix</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Problem</th><th>Marked on</th><th>Fix on the card</th></tr></thead>
+    <tbody>
+      <tr><td>A pipe that ends in the open</td><td>The open end</td><td><span class="ui">Delete the open pipe</span></td></tr>
+      <tr><td>Flow against flow: two pipes that both flow into a point or a valve, or both out of it; flow that leaves an inlet or enters an outlet; a pump turned the wrong way</td><td>The point or the symbol</td><td><span class="ui">Flip the flow of the chain</span>, <span class="ui">Turn P-101 around</span></td></tr>
+      <tr><td>The pipe size changes across a valve or fitting that is not a reducer, or where two pipe runs meet</td><td>The valve, fitting or point</td><td><span class="ui">Use DN 80 on both</span> or <span class="ui">Use DN 50 on both</span></td></tr>
+      <tr><td>The pipe class changes across a connection with no spec break</td><td>The same</td><td><span class="ui">Use A1 on both</span> or <span class="ui">Use B2 on both</span></td></tr>
+      <tr><td>Two items with one tag, on this 2D space or one here and one on another</td><td>The second symbol</td><td><span class="ui">Rename to P-102</span>: the next number nobody has</td></tr>
+      <tr><td>An off-page connector on a pipe with no counterpart on another 2D space</td><td>The connector</td><td><span class="ui">Connect to off-page connector…</span>, then click the connector on the other 2D space</td></tr>
+    </tbody>
+  </table></div>
+  <p>A pipe run's size and pipe class are its own <span class="ui">Nominal size</span> and <span class="ui">Pipe class</span>, else those of its segment or pipeline. A name without a number ("Valve") is not a tag, and off-page connectors share their name with their counterpart, so neither is reported as a duplicate. E1 never applies a fix on its own. <a href="#draw-piping-check">Check piping…</a> lists the same findings.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-layout-check">Layout check</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-05">Watch the lesson: Checks while drawing · The layout of a P&amp;ID</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-live-checks" target="_blank" rel="noopener">Show me how in E1: Checks while drawing</a></p>
+</section>
+
+<section class="g-feature" id="draw-layout-check">
+  <h2>Layout check</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-layout-check</span><span>Roadmap 13.6</span></div>
+  <p class="g-summary">A P&amp;ID reads from left to right, a few items of equipment to a sheet. Check piping warns when a 2D space departs from that.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space: right-click empty space → <span class="ui">Check piping…</span>, under <em>Findings</em>. The limit: <span class="ui">Settings → Project settings → Drawing → Major equipment on a 2D space</span></dd>
+    <dt>Who</dt><dd>Check piping: anyone who can view the project. The limit: Project administrator</dd>
+  </dl>
+  <h3>Read the layout warnings</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On a 2D space with four tanks, right-click empty space and choose <span class="ui">Check piping…</span>.</td><td>A warning: "PID-1 has 4 major equipment items, more than 3: the sheet gets hard to read. Move some to another 2D space." A set of pumps in one service, P-101A and P-101B, counts as one; valves, fittings, instruments and connectors do not count.</td></tr>
+      <tr><td>2</td><td>Open <span class="ui">Settings → Project settings → Drawing</span> and set <span class="ui">Major equipment on a 2D space</span> to 4 (2 to 10, or <span class="ui">No limit</span>).</td><td>Saved at once. Check piping no longer warns of four items on any 2D space of the project.</td></tr>
+      <tr><td>3</td><td>Draw the process from right to left and check again.</td><td>A warning: "The main flow on PID-1 runs right to left. Draw the process from left to right." A short recycle back says nothing: it is the direction most of the pipe runs.</td></tr>
+      <tr><td>4</td><td>Draw an off-page connector that brings flow in on the right of the drawing, or one that takes flow out on the left, and check again.</td><td>A warning for each: "Off-page connector L-100 brings flow in on the right of PID-1: incoming connectors belong on the left edge." <span class="ui">Show</span> selects it. Utilities are exempt: a connector or pipe named for steam, condensate, cooling water, instrument air, nitrogen, fuel gas, flare, vent or drain.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-live-checks">Checks while drawing</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-library.html#lib-project-settings">Project settings</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-05">Watch the lesson: Checks while drawing · The layout of a P&amp;ID</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-piping-check" target="_blank" rel="noopener">Show me how in E1: Check piping and flow direction</a></p>
 </section>
 
 <section class="g-feature" id="draw-scd">
@@ -1300,7 +1362,7 @@
   </ul>
   <p class="g-warn">Not built yet: spec break symbols, the branch table check, size ranges of valves, a read-only mark on the calculated values, and the line number rule with the class code.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-line-list">Pipe schedule</a></p>
-  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-05">Watch the lesson: Pipe classes</a> <span class="muted">(Process design: from PFD to P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=cfg-pipe-classes" target="_blank" rel="noopener">Show me how in E1: Pipe classes</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-06">Watch the lesson: Pipe classes</a> <span class="muted">(Process design: from PFD to P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=cfg-pipe-classes" target="_blank" rel="noopener">Show me how in E1: Pipe classes</a></p>
 </section>
 
 <section class="g-feature" id="draw-line-list">
@@ -1327,7 +1389,7 @@
     <li>For a document with a revision: make a list document under Revisions, give it the saved <em>Pipe schedule</em>, add a revision, and export it to Excel or PDF with the project, document, revision and date in its title (<a href="guide-documents.html">Documents</a>).</li>
   </ul>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a> · <a href="guide-lists.html#list-new-query">New query</a></p>
-  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-07">Watch the lesson: The line list</a> <span class="muted">(Process design: from PFD to P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=list-pipe-schedule" target="_blank" rel="noopener">Show me how in E1: Build a pipe schedule</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-08">Watch the lesson: The line list</a> <span class="muted">(Process design: from PFD to P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=list-pipe-schedule" target="_blank" rel="noopener">Show me how in E1: Build a pipe schedule</a></p>
 </section>
 
 <section class="g-feature" id="draw-dexpi">
@@ -1732,7 +1794,7 @@
   </table></div>
   <p class="g-note">Alex judges with the same tables as its review: the usual velocity ranges (liquid 0.6–3 m/s, gas 5–25 m/s, steam 15–40 m/s), the erosional velocity of API RP 14E, cable ratings of IEC 60364-5-52 and a voltage drop of 3 % for lighting and 5 % for other uses. Speed changes how fast it runs (0.5× to 4×); <span class="ui">Values</span> shows the velocity or the current and voltage drop on each line. On sheets with 4–20 mA signals, <span class="ui">Process value</span> in the panel sets the loop current. With your system's reduced motion on, the animation starts paused. Flow follows the drawn direction of the pipes: check piping finds lines drawn the wrong way.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
-  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-08">Watch the lesson: Highlighting flow · Animate flow</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-animate-flow" target="_blank" rel="noopener">Show me how in E1: Watch the flow and the current move</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-09">Watch the lesson: Highlighting flow · Animate flow</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-animate-flow" target="_blank" rel="noopener">Show me how in E1: Watch the flow and the current move</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-objects.html">Objects, attributes and tags</a> · <a href="guide-lists.html">Lists and queries</a> →</p>
