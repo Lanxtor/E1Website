@@ -141,6 +141,17 @@ test("PRJ-tree-rows, PRJ-rename, COL-history: a double-click on a project opens 
   await expect(page.locator('[id="col-history"]')).toContainText("A project's page has a History tab too: every change in the project, each with what it changed and Undo this change.");
 });
 
+test("PRJ-sections, PRJ-folders-sheets: each unit operation has an icon of what it does; a folder you make is a plain folder that opens with its row", async ({ page }) => {
+  await page.goto("/guide-projects.html#prj-sections");
+  const sections = page.locator('[id="prj-sections"]');
+  const unitOperations = sections.getByRole("row").filter({ has: page.getByRole("cell", { name: "Unit Operations", exact: true }) });
+  await expect(unitOperations).toContainText("Each unit operation has an icon of what it does");
+  await expect(unitOperations).toContainText("Stripping shows the one of Distillation");
+  const assets = sections.getByRole("row").filter({ has: page.getByRole("cell", { name: "Assets", exact: true }) });
+  await expect(assets).toContainText("a folder you make is a plain outlined folder, which opens while its row is expanded");
+  await expect(page.locator('[id="prj-folders-sheets"]')).toContainText("Once it holds something and you expand it, the icon is an open folder.");
+});
+
 test("GS-getting-started: Steps for names every answer, and what each of the three newest gives", async ({ page }) => {
   await page.goto("/guide-getting-started.html#gs-getting-started");
   const part = page.locator("#gs-getting-started");
