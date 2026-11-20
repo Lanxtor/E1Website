@@ -97,7 +97,7 @@ test("Overview 2: the chapters of the Branches clip jump to their step", async (
 test("Overview 2: the living diagram and Alex's modes switch by click and by arrow keys", async ({ page }) => {
   await page.goto("/overview-2.html#living");
   const pid = page.getByRole("tab", { name: "P&ID" });
-  const circuit = page.getByRole("tab", { name: "Circuit diagram" });
+  const circuit = page.getByRole("tab", { name: "Single line diagram" });
   await expect(pid).toHaveAttribute("aria-selected", "true");
   await expect(page.locator("#panel-pid")).toBeVisible();
   await circuit.click();

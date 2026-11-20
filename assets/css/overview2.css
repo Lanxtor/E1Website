@@ -356,3 +356,11 @@
 .o2 .o2-t-main figcaption { margin: 0; padding: 16px 22px 20px; color: var(--o2-on-dark-muted); }
 .o2 .o2-t-main figcaption b { color: #fff; }
 .o2 .o2-t-main .o2-frame { box-shadow: none; }
+/* Clips of the full E1 screen get the full width, so its labels can be read. */
+.o2-cols { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 0 64px; align-items: start; }
+.o2-stack > :last-child { max-width: 1240px; margin: 44px auto 0; }
+.o2 .o2-dark .o2-list b { color: #fff; }
+.o2 .o2-dark .o2-list .o2-step { background: transparent; border-color: rgba(255, 255, 255, 0.3); color: var(--o2-brand-on-dark); }
+@media (max-width: 1100px) {
+  .o2-cols { display: block; }
+}
