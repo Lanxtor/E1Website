@@ -128,14 +128,16 @@ test("GS-units: the unit system is chosen in Project settings; the status bar ha
   await expect(bar.locator("img")).toHaveAttribute("alt", /appearance switch/);
 });
 
-test("GS-getting-started: Steps for names Maintenance and modifications, and what I manage engineers gives", async ({ page }) => {
+test("GS-getting-started: Steps for names every answer, and what each of the three newest gives", async ({ page }) => {
   await page.goto("/guide-getting-started.html#gs-getting-started");
   const part = page.locator("#gs-getting-started");
   await expectScrolledTo(part);
   const row = part.locator("tr", { hasText: "Steps for:" });
-  await expect(row).toContainText("Process engineering, Instrumentation and control, Electrical, Maintenance and modifications, I manage engineers or Just looking");
-  await expect(row).toContainText("Maintenance and modifications gives the steps on branches, reviews and tasks");
-  await expect(row).toContainText("I manage engineers those on progress, the deliverable set and signing off a revision");
+  await expect(row).toContainText("Process engineering, Instrumentation and control, Electrical, Maintenance and modifications, I manage engineers, I administer E1 or Just looking");
+  await expect(row).toContainText("Maintenance and modifications gives the steps on branches, reviews, tasks and an object’s history");
+  await expect(row).toContainText("I manage engineers those on progress, the deliverable set, signing off a revision and the Inbox");
+  await expect(row).toContainText("I administer E1 those on a new project, Project settings, Configuration, an attribute of your own, roles and your account");
+  await expect(row).toContainText("the five of Just looking before you choose");
 });
 
 test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line opens its window; Show in tree takes its pipe run", async ({ page }) => {
