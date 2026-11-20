@@ -162,6 +162,7 @@ test("DRAW-live-checks, DRAW-layout-check: what is marked while drawing with its
   await expect(live.getByRole("heading", { level: 2 })).toHaveText("Checks while drawing");
   await expect(live).toContainText("This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.");
   for (const fix of ["Delete the open pipe", "Flip the flow of the chain", "Use DN 80 on both", "Rename to P-102", "Connect to off-page connector…"]) await expect(live).toContainText(fix);
+  await expect(live).toContainText("At a tee: a branch in another pipe class than its header");
   await expect(live.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=process-design&lesson=[\w-]+$/);
   await expect(live.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=sheet-live-checks");
 
