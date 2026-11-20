@@ -121,6 +121,7 @@
           <li><a href="#prj-branch-push">Push a branch to main</a></li>
           <li><a href="#prj-push-protocols">Push protocols</a></li>
           <li><a href="#prj-branch-types">Branch types and resolution rules</a></li>
+          <li><a href="#prj-main-read-only">Main read-only while the project has branches</a></li>
           <li><a href="#prj-branch-review">Merge requests: Ask for review</a></li>
           <li><a href="#prj-branch-packages">Branch packages</a></li>
           <li><a href="#prj-branch-proposals">Alex in a branch and Open as branch</a></li>
@@ -130,7 +131,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Projects and the explorer</p>
         <h1>3. Projects and the explorer</h1>
         <p class="lead">Create, rename, arrange and delete projects and folders, the sections of a project, the Bin, searching and dragging in the explorer.</p>
-        <div class="g-meta"><span>34 features</span><span>34 available</span></div>
+        <div class="g-meta"><span>35 features</span><span>35 available</span></div>
 <section class="g-feature" id="projects-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the explorer, the tree on the left of the E1 window: your projects, how you arrange them in folders, the nine sections every project has, the folders and 2D spaces inside the sections, the Bin, searching the tree and dragging rows around.</p>
@@ -1067,7 +1068,34 @@
   </table></div>
   <p class="g-note">A tag or validation conflict is always a person's choice: a rule other than ask on those is refused when you save. <span class="ui">Add type</span> adds one. With <span class="ui">Editing in main</span> on Block, an edit in main to an object in an open branch of that type is refused; on Warn, it is made with a warning.</p>
   <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></p>
-  <p class="g-learn"><a href="training.html?course=branches&amp;lesson=branches-05">Watch the lesson: Branch types</a> <span class="muted">(Branches · 5 min)</span> · <a href="https://app.lanxtor.com/?guide=prj-branch-review" target="_blank" rel="noopener">Show me how in E1: Branch types, reviews and packages</a></p>
+  <p class="g-learn"><a href="training.html?course=branches&amp;lesson=branches-05">Watch the lesson: Branch types · Working in a branch</a> <span class="muted">(Branches · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=prj-branch-review" target="_blank" rel="noopener">Show me how in E1: Branch types, reviews and packages</a></p>
+</section>
+
+<section class="g-feature" id="prj-main-read-only">
+  <h2>Main read-only while the project has branches</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">PRJ-main-read-only</span><span>Roadmap 15.12</span></div>
+  <p class="g-summary">With one switch in Project settings, main changes only by pushing a branch or a commissioning package once the project has a branch: every change is made in a branch first.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Settings</span> → <span class="ui">Project settings</span> → <span class="ui">Branches</span></dd>
+    <dt>Who</dt><dd>Project admin, signed in, switches it; everyone working in the project meets it</dd>
+    <dt>Before you start</dt><dd>A project with a pump Pump1 and no branch yet.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Settings</span> → <span class="ui">Project settings</span> → <span class="ui">Branches</span>.</td><td>The switch <span class="ui">Main is read-only while the project has branches</span>, off, and under it <em>Main can be edited.</em></td></tr>
+      <tr><td>2</td><td>Switch it on.</td><td><em>Main becomes read-only when the first branch is created.</em> Main can still be edited.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Branches</span> in the project and make a branch with <span class="ui">New branch…</span>, Pump1 in it.</td><td>The Branches page says <em>Main is read-only in this project: make every change in a branch and push it to main (Project settings → Branches).</em> Project settings → Branches says <em>Main is read-only now: the project has 1 branch.</em></td></tr>
+      <tr><td>4</td><td>In main, rename Pump1 in the explorer (F2).</td><td>Refused: <em>Main is read-only in this project while it has branches: make the change in a branch and push it to main (Project settings → Branches).</em> Pump1 keeps its name. The same holds for Alex, assistants, imports and the API.</td></tr>
+      <tr><td>5</td><td><span class="ui">Enter</span> the branch, rename Pump1 there and <span class="ui">Push to main</span>.</td><td>The rename is kept in the branch, and the push brings it into main. A new branch, a commissioning package and its push work as before.</td></tr>
+      <tr><td>6</td><td>Close every branch, then try again in main.</td><td>Still refused: closed branches count too.</td></tr>
+      <tr><td>7</td><td>Switch it off in Project settings → Branches.</td><td><em>Main can be edited.</em> A rename in main is kept.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Only main's model is read-only: its objects, values, relationships and what is drawn on its 2D spaces. Branches and commissioning packages, project settings, comments, tasks, markups and documents work as always. Another system with a token reads whether main is read-only (<code>GET /api/v1/projects/{project}/main-read-only</code>); switching it is done signed in.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a>, <a href="guide-projects.html#prj-branch-packages">Branch packages</a></p>
+  <p class="g-learn"><a href="training.html?course=branches&amp;lesson=branches-05">Watch the lesson: Branch types · Working in a branch</a> <span class="muted">(Branches · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=prj-main-read-only" target="_blank" rel="noopener">Show me how in E1: Main read-only while the project has branches</a></p>
 </section>
 
 <section class="g-feature" id="prj-branch-review">
