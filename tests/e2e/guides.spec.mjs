@@ -169,4 +169,30 @@ test("DRAW-connector: the guide tells that the Connector routes the line, shows 
   /* The catalog finds it by what it now does. */
   await page.goto("/guide-features.html");
   await expect(page.locator("body")).toContainText("routed around what is in the way");
+
+test("DRAW-live-checks, DRAW-layout-check: what is marked while drawing with its fix, and the layout warnings, each with Watch the lesson and Show me how in E1", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-live-checks");
+  const live = page.locator("section#draw-live-checks");
+  await expectScrolledTo(live);
+  await expect(live.getByRole("heading", { level: 2 })).toHaveText("Checks while drawing");
+  await expect(live).toContainText("This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.");
+  for (const fix of ["Delete the open pipe", "Flip the flow of the chain", "Use DN 80 on both", "Rename to P-102", "Connect to off-page connector…"]) await expect(live).toContainText(fix);
+  await expect(live.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=process-design&lesson=[\w-]+$/);
+  await expect(live.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=sheet-live-checks");
+
+  // Related → Layout check, on the same page.
+  await live.locator(".g-related").getByRole("link", { name: "Layout check" }).click();
+  const layout = page.locator("section#draw-layout-check");
+  await expectScrolledTo(layout);
+  await expect(layout.getByRole("heading", { level: 2 })).toHaveText("Layout check");
+  await expect(layout).toContainText("PID-1 has 4 major equipment items, more than 3");
+  await expect(layout).toContainText("Major equipment on a 2D space");
+  await expect(layout).toContainText("The main flow on PID-1 runs right to left. Draw the process from left to right.");
+  await expect(layout).toContainText("incoming connectors belong on the left edge");
+  await expect(layout.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=sheet-piping-check");
+
+  // Check piping names both.
+  const check = page.locator("section#draw-piping-check");
+  await expect(check.locator(".g-related").getByRole("link", { name: "Checks while drawing" })).toHaveAttribute("href", /#draw-live-checks$/);
+  await expect(check).not.toContainText("as markers on the drawing");
 });
