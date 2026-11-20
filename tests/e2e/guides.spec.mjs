@@ -460,6 +460,30 @@ for (const { id, lesson, says } of PID_DOCUMENTS) {
   });
 }
 
+test("WIRE-loop-diagram, WIRE-typical-editor, WIRE-terminals: the field devices by kind, the limit switch box, the coil suppression, the paper, the control valve's starting point and the terminal's Comment", async ({ page }) => {
+  const open = async (id) => {
+    const f = FEATURES.find((x) => x.id === id);
+    await page.goto(`/${pageOf(f)}#${f.anchor}`);
+    const part = page.locator(`[id="${f.anchor}"]`);
+    await expect(part).toBeVisible();
+    await expectScrolledTo(part);
+    return part;
+  };
+  const loop = await open("WIRE-loop-diagram");
+  await expect(loop.locator(".g-meta")).toContainText("28.15, 28.16");
+  await expect(loop.locator(".g-summary")).toContainText("a thermocouple's junction");
+  const steps = loop.locator("table.g-steps tbody tr");
+  await expect(steps.filter({ hasText: "Thermocouple type K" })).toContainText("shows a thermocouple's junction");
+  await expect(steps.filter({ hasText: "Limit switch box of HV-600" })).toContainText("is not marked \"Not wired yet\"");
+  await expect(steps.filter({ hasText: "Coil suppression" })).toContainText("An RC element is drawn in parallel");
+  await expect(steps.filter({ hasText: "Export PDF" })).toContainText("A4 portrait");
+  await expect(loop.locator(".g-warn")).not.toContainText("plug-in terminals");
+  const editor = await open("WIRE-typical-editor");
+  await expect(editor).toContainText("Control valve with positioner (AO)");
+  const terminals = await open("WIRE-terminals");
+  await expect(terminals.locator(".g-note").first()).toContainText("Comment");
+});
+
 test("the catalog finds the new features: hold cloud, legend sheet, standard lists", async ({ page }) => {
   await page.goto("/guide-features.html");
   for (const [words, id] of [["hold cloud", "WF-hold-cloud"], ["legend sheet", "DOC-legend-sheet"], ["standard lists", "LIST-standard-lists"]]) {
