@@ -587,3 +587,23 @@ test("DRAW-pipelines, DRAW-select: a double-click on a pipe opens its window at 
   const select = page.locator("section#draw-select");
   await expect(select.locator("table.g-steps tbody tr").filter({ hasText: "Double-click a pipe, selected or not." })).toContainText("at once, also for a pipe in a pipeline");
 });
+
+test("AI-guide-do-it-for-me, GS-getting-started: Alex does the rest only of a lesson it can take to its end, says why it stops, and its offer is about the tab you are on", async ({ page }) => {
+  await page.goto("/guide-ai.html#ai-guide-do-it-for-me");
+  const feature = page.locator("section#ai-guide-do-it-for-me");
+  await expect(feature.getByRole("heading", { level: 2 })).toHaveText("Let Alex do a step, or the rest of a lesson");
+  await expect(feature.locator("dl.g-facts")).toContainText("Do the rest for me in the lessons Alex can take to their end, such as A tour of the E1 window and Place a symbol");
+  const rows = feature.locator("table.g-steps tbody tr");
+  await expect(rows.filter({ hasText: "In a lesson that has it, click Do the rest for me." })).toContainText("nothing is placed on your drawing");
+  const stops = rows.filter({ hasText: "Watch a bubble where Alex cannot go on." });
+  await expect(stops).toHaveCount(1);
+  await expect(stops).toContainText("\"Alex stopped here:\"");
+  await expect(stops).toContainText("it lies behind an open window");
+  await expect(feature).toContainText("A lesson that would change your project (make a project, issue a revision, place something) has no Do the rest for me");
+  await expect(feature).toContainText("This is behind the “Add” window.");
+  await expect(feature).not.toContainText("In every bubble of an E1 Guide lesson");
+
+  await page.goto("/guide-getting-started.html#gs-getting-started");
+  const start = page.locator("section#gs-getting-started");
+  await expect(start.locator("table.g-steps tbody tr").filter({ hasText: "press Ctrl+Z three times in a row on a drawing" })).toContainText("The offer is about the tab you are on: it goes away when you leave that tab or close it, and by itself after half a minute; with no tab open Alex offers nothing.");
+});
