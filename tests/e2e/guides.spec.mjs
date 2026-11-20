@@ -310,6 +310,9 @@ test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break li
   await expectScrolledTo(style);
   await expect(style.locator("table.g-steps tbody tr").filter({ hasText: "Line kind" })).toContainText("becomes a line of that kind");
 
+  await expect(style.locator("table.g-steps tbody tr").filter({ hasText: "Line kind" })).toContainText("beside the heading Line");
+  await expect(page.locator("section#draw-arrange")).toContainText("shows only its title, so it does not lie over the drawing");
+
   // The catalog lists it.
   await page.goto("/guide-features.html");
   await expect(page.locator("body")).toContainText("Shape a line: bends, ends, join, break and straighten");
