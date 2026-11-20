@@ -84,24 +84,24 @@ test("Overview 2: the living diagram and Alex's modes switch by click and by arr
   const modes = page.getByRole("tablist", { name: "Alex's modes" });
   await modes.scrollIntoViewIfNeeded();
   await modes.getByRole("tab", { name: "Agent" }).click();
-  await expect(page.getByRole("heading", { name: "Agent: changes, on a branch." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Agent: does the work." })).toBeVisible();
   await expect(page.getByText("✕ Not moved: the arrangement is protected")).toBeVisible();
   await modes.getByRole("tab", { name: "Agent" }).press("ArrowRight");
-  await expect(page.getByRole("heading", { name: "Plan: proposes first." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Plan: thinks it through." })).toBeVisible();
   await modes.getByRole("tab", { name: "Plan" }).press("Home");
-  await expect(page.getByRole("heading", { name: "Ask: answers only." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Ask: instant answers." })).toBeVisible();
 });
 
 test("Overview 2: the on-this-page bar takes the visitor to a section and marks it", async ({ page }) => {
   await page.goto("/overview-2.html");
   const bar = page.getByRole("navigation", { name: "On this page" });
-  await expect(bar.getByRole("link")).toHaveCount(11);
+  await expect(bar.getByRole("link")).toHaveCount(10);
   await bar.getByRole("link", { name: "FEED to wiring" }).click();
   await expect(page).toHaveURL(/#wiring$/);
   await expect(page.getByRole("heading", { name: "One instrument, from the P&ID to the terminal." })).toBeInViewport();
   await expect(bar.getByRole("link", { name: "FEED to wiring" })).toHaveAttribute("aria-current", "true");
-  await bar.getByRole("link", { name: "Secure and open" }).click();
-  await expect(page.getByRole("heading", { name: "Locked down to the object. Open at the edges." })).toBeInViewport();
+  await bar.getByRole("link", { name: "Ownership and tasks" }).click();
+  await expect(page.getByRole("heading", { name: "Every object has an owner. Every question gets an answer." })).toBeInViewport();
 });
 
 test("Overview 2: every clip, still and device screen is there, and nothing scrolls sideways", async ({ page, request }) => {

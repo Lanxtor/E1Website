@@ -160,7 +160,7 @@
     });
   });
 
-  /* ---------- reveals that run once (One model, the handover journey) ---------- */
+  /* ---------- reveals that run once (One model) ---------- */
   var once = [].slice.call(document.querySelectorAll("[data-reveal-once]"));
   if (still || paused || !("IntersectionObserver" in window)) {
     once.forEach(function (el) { el.classList.remove("is-wait"); });

@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <meta name="theme-color" content="#0b2a4a">
   <link rel="stylesheet" href="assets/css/styles.css?v=152">
-  <link rel="stylesheet" href="assets/css/overview2.css?v=2">
+  <link rel="stylesheet" href="assets/css/overview2.css?v=3">
 </head>
 <body class="o2">
   <div id="site-header"></div>
@@ -62,12 +62,11 @@
         <li><a href="#branches">Branches</a></li>
         <li><a href="#living">Living diagrams</a></li>
         <li><a href="#alex">Alex</a></li>
-        <li><a href="#mobile">iPad and phone</a></li>
         <li><a href="#wiring">FEED to wiring</a></li>
         <li><a href="#companies">Across companies</a></li>
         <li><a href="#checks">Checks and revisions</a></li>
-        <li><a href="#handover">Field to handover</a></li>
-        <li><a href="#secure">Secure and open</a></li>
+        <li><a href="#secure">Ownership and tasks</a></li>
+        <li><a href="#mobile">iPad and iPhone</a></li>
       </ol>
     </nav>
 
@@ -77,14 +76,13 @@
         <div class="o2-cols"><div>
           <p class="o2-kicker"><span class="o2-n">1</span>Bring your legacy drawings</p>
           <h2 class="o2-h" id="h-import">Your old P&amp;IDs become live objects.</h2>
-          <p class="o2-lead">Import the CAD-exported PDFs and DEXPI files you already have. E1 groups symbols drawn alike, reads tags and line numbers, and proposes each mapping. You accept or ignore; nothing changes until you press Apply.</p></div><div>
+          <p class="o2-lead">Bring decades of drawings with you. E1 turns the CAD PDFs and DEXPI files you already have into intelligent, connected objects, in minutes instead of months of redrawing.</p></div><div>
           <ul class="o2-list">
-            <li><span class="o2-step">1</span><span><b>PDF drawing</b> or <b>DEXPI</b>: pick the sheets of a P&amp;ID set.</span></li>
-            <li><span class="o2-step">2</span><span><b>Mapping</b>: shapes proposed by their look; correct a class, then <b>Accept all high</b>.</span></li>
-            <li><span class="o2-step">3</span><span><b>Check</b>, then <b>Apply</b>: a connected 2D space per sheet, as one Undo step.</span></li>
+            <li><span class="o2-step">✓</span><span><b>No redrawing.</b> Equipment, lines and tags are recognised for you.</span></li>
+            <li><span class="o2-step">✓</span><span><b>You stay in control.</b> Review what E1 found and apply it in one step.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Live from day one.</b> Imported sheets work like any drawing made in E1.</span></li>
           </ul>
-          <p class="o2-proof">Every mapping decision can be undone, and importing again after a change shows the difference.</p>
-          <p class="o2-limit"><b>Not yet:</b> scanned (raster) PDFs. E1 reads vector PDFs exported from CAD.</p>
+          <p class="o2-proof">Start with the plant you already have.</p>
         </div></div>
         <figure class="o2-clip" data-clip data-name="Legacy import"><div class="o2-frame"><div class="o2-bar"><i></i><i></i><i></i><span>E1 · File → Import ▸ Legacy diagrams ▸ PDF drawing…</span></div><video muted loop playsinline preload="none" poster="assets/clips/overview2/web-overview-legacy-import.poster.webp" width="1600" height="900" aria-describedby="web-overview-legacy-import-steps"><source src="assets/clips/overview2/web-overview-legacy-import.webm" type="video/webm"><source src="assets/clips/overview2/web-overview-legacy-import.web.mp4" type="video/mp4"></video><button type="button" class="o2-ctl" data-clip-toggle>▶ Play</button></div><figcaption id="web-overview-legacy-import-steps"><b>Legacy import.</b> A CAD PDF of a P&amp;ID is picked; its shapes are proposed by their look and two classes corrected; Check finds 12 new objects; Apply gives a connected 2D space with tagged equipment and lines.</figcaption></figure>
       </div>
@@ -115,7 +113,7 @@
         <div class="o2-cols"><div>
           <p class="o2-kicker"><span class="o2-n">3</span>Branches across companies</p>
           <h2 class="o2-h" id="h-branches">Work in parallel. Merge with review.</h2>
-          <p class="o2-lead">The owner, the EPC and each vendor work on their own branch of the same model. Changes come back through review and approval, object by object, the way management of change already works.</p></div><div>
+          <p class="o2-lead">Owner, EPC and vendors work side by side, each on their own branch of the same model, and merge back with a review. Management of change, built in.</p></div><div>
           <div class="o2-lanes" aria-label="Three companies on branches of one model">
             <svg viewBox="0 0 560 190" role="img" aria-label="Owner on main; the EPC and a vendor branch off, are reviewed and merge back">
               <g font-size="13" fill="#4a5563"><text x="0" y="34">Owner · main</text><text x="0" y="94">EPC</text><text x="0" y="154">Vendor</text></g>
@@ -127,14 +125,13 @@
               <g stroke="#fff" stroke-width="3"><circle cx="110" cy="30" r="8" fill="#1565c0"/><circle cx="470" cy="30" r="10" fill="#0f8a78"/><circle cx="550" cy="30" r="8" fill="#1565c0"/><circle cx="300" cy="90" r="7" fill="#0f8a78"/><circle cx="380" cy="150" r="7" fill="#8e44ad"/></g>
               <g font-size="12.5" fill="#0d1218"><text x="352" y="62">Approved · pushed to main</text><text x="330" y="178">Ask for review</text></g>
             </svg>
-            <p class="o2-src" style="margin:8px 0 0">Show main draws main’s version over the branch on the drawing, so you see what moved before you push.</p>
           </div>
           <ul class="o2-list">
-            <li><span class="o2-step">✓</span><span><b>Branch types</b> such as Design change, with Review before main and Four eyes.</span></li>
-            <li><span class="o2-step">✓</span><span><b>Pull from main</b>: conflicts are resolved object by object and on the drawing.</span></li>
-            <li><span class="o2-step">✓</span><span><b>Push to main</b> only after a colleague approves: not you, not Alex.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Parallel engineering</b> without copies, exports or e-mail.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Every difference on the drawing</b> before it reaches main.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Four eyes</b>: nothing lands without approval.</span></li>
           </ul>
-          <p class="o2-proof">Each branch has its own Access and sharing: only the people and groups you give Edit can change it.</p>
+          <p class="o2-proof">Every company at full speed. Nobody overwrites anybody.</p>
           <p><a class="o2-link" href="solution-branches-modifications.html">Branches for scenarios and modifications →</a></p>
         </div></div>
         <div>
@@ -150,13 +147,13 @@
         <div class="o2-cols"><div>
           <p class="o2-kicker"><span class="o2-n">4</span>Living diagrams</p>
           <h2 class="o2-h" id="h-living">Drawings that move.</h2>
-          <p class="o2-lead">Simulate → Animate flow on a P&amp;ID: with the valve after the tank closed, the Trend window draws the level up through LAH and LAHH, a bar per alarm. On a single line diagram, Animate current and open a breaker: the cable goes Dead and the motor shows No supply.</p></div><div>
+          <p class="o2-lead">Watch your P&amp;IDs and single line diagrams come alive. Run flow and current through the design and see alarms, trips and dead circuits before anything is built.</p></div><div>
           <ul class="o2-list">
-            <li><span class="o2-step">✓</span><span><b>Animate flow</b> on P&amp;IDs, <b>Animate current</b> on electrical drawings.</span></li>
-            <li><span class="o2-step">✓</span><span>Alarms come in one by one in the <b>Trend</b> window, a bar per alarm.</span></li>
-            <li><span class="o2-step">✓</span><span><b>Stop</b> and <b>Design</b> take you back to the drawing as it was.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Animate flow</b> through every P&amp;ID.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Animate current</b> through every electrical drawing.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Alarms and trends</b> as they would happen in the plant.</span></li>
           </ul>
-          <p class="o2-proof">For design reviews, training and commissioning: see the plant work before it is built.</p>
+          <p class="o2-proof">Design reviews, training and commissioning on a plant that is not built yet.</p>
         </div></div>
         <div>
           <div class="o2-tabs" role="tablist" aria-label="Living diagram">
@@ -174,7 +171,7 @@
       <div class="container">
         <p class="o2-kicker"><span class="o2-n">5</span>Meet Alex</p>
         <h2 class="o2-h o2-wide" id="h-alex">A co-engineer that proposes. You decide.</h2>
-        <p class="o2-lead">Alex reads the drawing as a plant, process, automation or electrical engineer would, and prepares a HAZOP for your team. Every change it makes waits on a branch for your approval.</p>
+        <p class="o2-lead">Alex reads your drawings like a plant, process, automation or electrical engineer, finds what others miss and prepares your HAZOP. Every change waits for your approval.</p>
         <div class="o2-alex">
           <div class="o2-tile o2-t-main">
             <figure class="o2-clip" data-clip data-name="Alex in E1"><div class="o2-frame"><div class="o2-bar"><i></i><i></i><i></i><span>E1 · DF-23-P-0001 · Alex · Co-engineer</span></div><video muted loop playsinline preload="none" poster="assets/clips/overview2/web-overview-alex.poster.webp" width="1600" height="900" aria-describedby="web-overview-alex-steps"><source src="assets/clips/overview2/web-overview-alex.webm" type="video/webm"><source src="assets/clips/overview2/web-overview-alex.web.mp4" type="video/mp4"></video><button type="button" class="o2-ctl" data-clip-toggle>▶ Play</button></div><figcaption id="web-overview-alex-steps"><b>Alex in E1.</b> On P&amp;ID DF-23-P-0001 the Co-engineer lists its findings; Show on TIT 2307 (its signal goes nowhere) selects it on the drawing; with Skill HAZOP leader the prepared study finds 3 nodes and 3 deviations, and Show centres compressor 23-KA-2301 for reverse flow.</figcaption></figure>
@@ -187,25 +184,25 @@
               <button type="button" role="tab" id="mode-plan" aria-controls="mp-plan" aria-selected="false" tabindex="-1">Plan</button>
             </div>
             <div class="o2-mode-panel" id="mp-ask" role="tabpanel" aria-labelledby="mode-ask">
-              <h3>Ask: answers only.</h3>
-              <p>Alex never changes anything in Ask. (Example below.)</p>
+              <h3>Ask: instant answers.</h3>
+              <p>Anything about your plant, answered in seconds.</p>
               <div class="o2-chat"><span class="q">What feeds <span class="tag" style="color:#fff">20-VA-2001</span>?</span><span class="a">The well stream through the inlet line, after the choke. Its oil leaves through <span class="tag">LV-2001</span>.</span></div>
             </div>
             <div class="o2-mode-panel" id="mp-agent" role="tabpanel" aria-labelledby="mode-agent" hidden>
-              <h3>Agent: changes, on a branch.</h3>
-              <p>With Review changes first ticked, nothing lands until you Apply.</p>
+              <h3>Agent: does the work.</h3>
+              <p>Alex makes the change; you approve it.</p>
               <div class="o2-chat"><span class="q">Add a pressure transmitter on the pump discharge</span><span class="a"><span class="o2-done">✓ Transmitter placed and connected</span><span class="o2-done">✓ Instrument list updated</span><span class="o2-not">✕ Not moved: the arrangement is protected</span>Ready for your approval.</span></div>
             </div>
             <div class="o2-mode-panel" id="mp-plan" role="tabpanel" aria-labelledby="mode-plan" hidden>
-              <h3>Plan: proposes first.</h3>
-              <p>Alex lists the steps; nothing changes until you press Apply.</p>
+              <h3>Plan: thinks it through.</h3>
+              <p>Alex proposes the steps; you choose.</p>
               <div class="o2-chat"><span class="a">1&nbsp; Add a level transmitter<br>2&nbsp; Add a high-level trip<br>3&nbsp; Check the relief on the vessel</span></div>
             </div>
           </div>
           <div class="o2-tile o2-t-6">
             <p class="o2-k">HAZOP</p>
             <h3>Alex prepares. Your team decides.</h3>
-            <p>A prepared hazard and operability study of the sheet (IEC 61882), with a LOPA estimate per scenario. The team reviews every row.</p>
+            <p>A HAZOP study of the sheet (IEC 61882) with a LOPA estimate per scenario, ready for your team.</p>
             <table class="o2-hz" aria-label="Example rows"><thead><tr><th>Node</th><th>Deviation</th><th>Safeguard</th><th>Note</th></tr></thead>
               <tbody><tr><td><span class="tag">20-VA-2001</span></td><td>More level</td><td>LAHH, trip</td><td><span class="o2-pill ok">Credited</span></td></tr>
               <tr><td>Pump discharge</td><td>Reverse flow</td><td>—</td><td><span class="o2-pill ask">To consider</span></td></tr></tbody></table>
@@ -213,18 +210,18 @@
           <div class="o2-tile o2-t-6">
             <p class="o2-k">Your company's standards</p>
             <h3>Answers that quote the clause.</h3>
-            <p>Ask about your own documents: Alex cites the clause, never invents one, and says when they do not cover the question.</p>
+            <p>Alex answers from your own standards and cites the clause it used.</p>
             <span class="o2-cite">ACME-PR-004, clause 5.1 Pump suction, page 3</span>
           </div>
           <div class="o2-tile o2-t-4">
             <p class="o2-k">Design checks</p>
             <h3>Five skills on every sheet.</h3>
-            <p>Plant, process, automation and electrical engineer, and HAZOP. It says less rather than something wrong.</p>
+            <p>Plant, process, automation, electrical and HAZOP expertise, on every sheet.</p>
           </div>
           <div class="o2-tile o2-t-4">
             <p class="o2-k">Process</p>
             <h3>Reads your simulator.</h3>
-            <p>HYSYS, Aspen Plus or DWSIM stream tables matched to the lines. Nothing is written until you press Write.</p>
+            <p>HYSYS, Aspen Plus and DWSIM stream tables, matched to your lines.</p>
           </div>
           <div class="o2-tile o2-t-4">
             <p class="o2-k">Where your data goes</p>
@@ -243,28 +240,10 @@
       </div>
     </section>
 
-    <!-- 6 mobile -->
-    <section class="o2-sec o2-soft" id="mobile" aria-labelledby="h-mobile">
-      <div class="container o2-center">
-        <p class="o2-kicker"><span class="o2-n">6</span>iPad and phone</p>
-        <h2 class="o2-h o2-wide" id="h-mobile">The plant in your pocket.</h2>
-        <p class="o2-lead">Review drawings and redline them on site with E1 Reviewer for iPad. Answer messages, tick tasks and ask Alex with E1 Mobile. Both read and write the same E1 project; neither keeps data of its own.</p>
-        <div class="o2-devices">
-          <figure class="o2-dev" style="margin:0;flex:1 1 64%"><div class="o2-ipad" data-clip data-name="E1 Reviewer for iPad with a drawing open"><video muted loop playsinline preload="none" poster="assets/clips/overview2/ipad-redline.poster.webp" aria-label="E1 Reviewer for iPad with a drawing open"><source src="assets/clips/overview2/ipad-redline.webm" type="video/webm"><source src="assets/clips/overview2/ipad-redline.web.mp4" type="video/mp4"></video></div><figcaption><b>E1 Reviewer for iPad</b>Projects, drawings, redlines, photos and voice notes</figcaption></figure>
-          <figure class="o2-dev" style="margin:0;flex:0 1 26%"><div class="o2-phone" data-clip data-name="E1 Mobile with Alex answering a question"><video muted loop playsinline preload="none" poster="assets/clips/overview2/phone-alex.poster.webp" aria-label="E1 Mobile with Alex answering a question"><source src="assets/clips/overview2/phone-alex.webm" type="video/webm"><source src="assets/clips/overview2/phone-alex.web.mp4" type="video/mp4"></video></div><figcaption><b>E1 Mobile</b>Messages, projects and their tasks, Alex</figcaption></figure>
-        </div>
-        <div class="o2-devlist" style="text-align:left">
-          <div><h3>E1 Reviewer for iPad</h3><ul><li>Projects and their 2D spaces, laid out as in E1</li><li>Redlines, photos and voice notes on the object</li><li>Dashboard cards and Alex in Ask mode</li></ul></div>
-          <div><h3>E1 Mobile for iPhone</h3><ul><li>Messages: the comments where you are mentioned or answered</li><li>Projects and their Tasks, ticked on the spot</li><li>Alex in Ask mode, typed or spoken</li></ul></div>
-        </div>
-        <p class="o2-limit"><b>Not yet:</b> both apps reach the App Store on 19 May 2027; E1 Mobile on Android follows.</p>
-      </div>
-    </section>
-
     <!-- 7 FEED to wiring -->
     <section class="o2-sec" id="wiring" aria-labelledby="h-wiring">
       <div class="container">
-        <p class="o2-kicker"><span class="o2-n">7</span>From FEED to wiring</p>
+        <p class="o2-kicker"><span class="o2-n">6</span>From FEED to wiring</p>
         <h2 class="o2-h o2-wide" id="h-wiring">One instrument, from the P&amp;ID to the terminal.</h2>
         <p class="o2-lead">Process, instrumentation and electrical are the same model. Follow one level transmitter of the Demo Field through every document that carries it.</p>
         <ol class="o2-thread" data-thread aria-label="One instrument through the disciplines">
@@ -284,13 +263,13 @@
     <section class="o2-sec o2-soft" id="companies" aria-labelledby="h-companies">
       <div class="container o2-split">
         <div>
-          <p class="o2-kicker"><span class="o2-n">8</span>Across companies</p>
+          <p class="o2-kicker"><span class="o2-n">7</span>Across companies</p>
           <h2 class="o2-h" id="h-companies">Each company sees what it is given.</h2>
-          <p class="o2-lead">Invite the owner, the EPC and the vendors into one project. Access is set by category, by branch and down to a single object, and every access is recorded.</p>
+          <p class="o2-lead">Bring the owner, the EPC and every vendor into one project. Each sees exactly what they are given, down to a single object.</p>
           <ul class="o2-list">
-            <li><span class="o2-step">✓</span><span><b>Comments and tasks</b> on the object itself, with mentions.</span></li>
-            <li><span class="o2-step">✓</span><span><b>Presence</b>: see who else has the same sheet open.</span></li>
-            <li><span class="o2-step">✓</span><span><b>Groups only</b>: history can show the company, not the person.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Comments and tasks</b> right on the object.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Live presence</b>: see who works on the same sheet.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Company privacy</b>: show the company, not the person.</span></li>
           </ul>
           <p><a class="o2-link" href="solution-cross-company-projects.html">Across companies on one project →</a></p>
         </div>
@@ -310,7 +289,7 @@
     <!-- 9 + 10 checks and revisions -->
     <section class="o2-sec" id="checks" aria-labelledby="h-checks">
       <div class="container">
-        <p class="o2-kicker"><span class="o2-n">9</span>Checks and revisions</p>
+        <p class="o2-kicker"><span class="o2-n">8</span>Checks and revisions</p>
         <h2 class="o2-h o2-wide" id="h-checks">Find it before site. Know who changed it.</h2>
         <div class="o2-two">
           <div class="o2-card">
@@ -335,47 +314,42 @@
       </div>
     </section>
 
-    <!-- 11 handover -->
-    <section class="o2-sec o2-soft" id="handover" aria-labelledby="h-handover">
-      <div class="container o2-center">
-        <p class="o2-kicker"><span class="o2-n">10</span>Field, office and handover</p>
-        <h2 class="o2-h o2-wide" id="h-handover">From the site to the office to operations.</h2>
-        <div class="o2-journey is-wait" data-reveal-once>
-          <div class="o2-stop"><div class="o2-ico" aria-hidden="true">✎</div><h3>Site</h3><p>A redline on the iPad lands on the object in E1, with its photo and voice note.</p></div>
-          <div class="o2-stop"><div class="o2-ico" aria-hidden="true">▤</div><h3>Office</h3><p>The engineer changes the model on a branch; review and approval follow.</p></div>
-          <div class="o2-stop"><div class="o2-ico" aria-hidden="true">⇪</div><h3>Handover</h3><p>Deliverable profiles issue the whole set as one PDF package, and the data leaves as DEXPI and Excel.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 12 secure and open -->
+    <!-- access and tasks -->
     <section class="o2-sec" id="secure" aria-labelledby="h-secure">
-      <div class="container">
-        <p class="o2-kicker"><span class="o2-n">11</span>Secure and open</p>
-        <h2 class="o2-h o2-wide" id="h-secure">Locked down to the object. Open at the edges.</h2>
-        <div class="o2-bento">
-          <div class="o2-tile o2-b-wide"><p class="o2-k">Access</p><h3>Permissions down to one object.</h3><p>Permissions by category, custom roles, objects assigned to a person or group, and an exportable access history.</p><div class="o2-perm"><span>Category · Electrical: <b>View</b></span><span>Object <b>43-EM-4301B</b> · assigned to Electrical</span><span>Branch · <b>Edit</b> / <b>View</b></span></div></div>
-          <div class="o2-tile"><p class="o2-k">Where it runs</p><h3>E1 Cloud, or your own.</h3><p>The E1 Cloud on Microsoft Azure, or E1 in your own cloud or data centre.</p></div>
-          <div class="o2-tile"><p class="o2-k">Open formats</p><h3>Your data leaves with you.</h3><div class="o2-formats"><span>DEXPI</span><span>PDF</span><span>Excel</span><span>API</span></div></div>
-          <div class="o2-tile"><p class="o2-k">Sign-in</p><h3>Your company's accounts.</h3><p>Sign in with Microsoft; people are invited by the organization's owner.</p></div>
-          <div class="o2-tile"><p class="o2-k">AI</p><h3>Nothing trained on your data.</h3><p>Only Ask, Agent and Plan reach a language model, and only with what you send.</p></div>
+      <div class="container o2-stack">
+        <div class="o2-cols"><div>
+          <p class="o2-kicker"><span class="o2-n">9</span>Ownership and tasks</p>
+          <h2 class="o2-h" id="h-secure">Every object has an owner. Every question gets an answer.</h2>
+          <p class="o2-lead">Claim an object and it is yours. Ask technical and engineering queries on the object itself, assign them, and see them answered and closed.</p></div><div>
+          <ul class="o2-list">
+            <li><span class="o2-step">✓</span><span><b>Take it</b>: one click and the object is yours. Nobody else changes it.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Technical and engineering queries</b> on the object, assigned and tracked to closed.</span></li>
+            <li><span class="o2-step">✓</span><span><b>Permissions down to one object</b>, for every company in the project.</span></li>
+          </ul>
+        </div></div>
+        <!-- access-clip -->
+        <div class="o2-badges">
+          <div><b>E1 Cloud or your own</b><span>Microsoft Azure, your cloud or your data centre</span></div>
+          <div><b>Your data leaves with you</b><span>DEXPI · PDF · Excel · API</span></div>
+          <div><b>Your company's sign-in</b><span>Sign in with Microsoft</span></div>
+          <div><b>Never trained on your data</b><span>Your projects stay yours</span></div>
         </div>
-        <p style="margin-top:22px"><a class="o2-link" href="security.html">Security</a> · <a class="o2-link" href="cloud-specifications.html">E1 Cloud specifications</a></p>
+        <p><a class="o2-link" href="security.html">Security</a> · <a class="o2-link" href="cloud-specifications.html">E1 Cloud specifications</a></p>
       </div>
     </section>
 
-    <!-- not yet -->
-    <section class="o2-sec o2-soft" id="not-yet" aria-labelledby="h-notyet">
-      <div class="container">
-        <p class="o2-kicker">Plainly</p>
-        <h2 class="o2-h o2-wide" id="h-notyet">What E1 does not do yet.</h2>
-        <div class="o2-notyet">
-          <div><h3>3D plant layout</h3><p>E1 is diagrams and data: PFDs, P&amp;IDs, loops, circuits, wiring. A 3D cabinet layout follows after launch.</p></div>
-          <div><h3>Scanned drawings</h3><p>The PDF import reads vector PDFs exported from CAD, not scans.</p></div>
-          <div><h3>Android</h3><p>E1 Mobile starts on iPhone; Android follows after launch.</p></div>
-          <div><h3>The app in Norwegian and Chinese</h3><p>The website is in six languages; the E1 app itself starts in English.</p></div>
+    <!-- mobile -->
+    <section class="o2-sec o2-soft" id="mobile" aria-labelledby="h-mobile">
+      <div class="container o2-center">
+        <p class="o2-kicker"><span class="o2-n">10</span>iPad and iPhone</p>
+        <h2 class="o2-h o2-wide" id="h-mobile">The plant in your pocket.</h2>
+        <p class="o2-lead">Take the whole project to site. Redline on the iPad, answer and tick tasks on the iPhone, ask Alex anywhere. Everything lands in the same E1 model at once.</p>
+        <div class="o2-devices">
+          <div class="o2-dev-ipad"><div class="o2-ipad" data-clip data-name="E1 Reviewer for iPad with a drawing open"><video muted loop playsinline preload="none" poster="assets/clips/overview2/ipad-redline.poster.webp" aria-label="E1 Reviewer for iPad with a drawing open"><source src="assets/clips/overview2/ipad-redline.webm" type="video/webm"><source src="assets/clips/overview2/ipad-redline.web.mp4" type="video/mp4"></video></div></div>
+          <div class="o2-dev-phone"><div class="o2-phone" data-clip data-name="E1 Mobile with Alex answering a question"><video muted loop playsinline preload="none" poster="assets/clips/overview2/phone-alex.poster.webp" aria-label="E1 Mobile with Alex answering a question"><source src="assets/clips/overview2/phone-alex.webm" type="video/webm"><source src="assets/clips/overview2/phone-alex.web.mp4" type="video/mp4"></video></div></div>
+          <div class="o2-devtext o2-dt-ipad"><h3>E1 Reviewer for iPad</h3><p>Every drawing on site. Redline it, add a photo or a voice note, right on the object.</p></div>
+          <div class="o2-devtext o2-dt-phone"><h3>E1 Mobile for iPhone</h3><p>Messages, tasks and Alex in your pocket, typed or spoken.</p></div>
         </div>
-        <p style="margin-top:22px"><a class="o2-link" href="guide-roadmap.html">See what is under construction →</a></p>
       </div>
     </section>
 
@@ -398,7 +372,7 @@
       <div class="container">
         <span class="o2-date num">19 May 2027</span>
         <h2 class="o2-h o2-wide" id="h-close" style="margin-left:auto;margin-right:auto">E1, E1 Reviewer and E1 Mobile launch together.</h2>
-        <p class="o2-lead" style="margin-left:auto;margin-right:auto">Until then, open the Demo Field, change it, branch it, and tell us what is missing.</p>
+        <p class="o2-lead" style="margin-left:auto;margin-right:auto">Open the Demo Field today and see your next project in E1.</p>
         <div class="o2-actions"><a class="btn btn-primary" href="login.html#signup">Open the sample project</a><a class="btn btn-ghost" href="contact-sales.html">Talk to an engineer</a></div>
       </div>
     </section>
