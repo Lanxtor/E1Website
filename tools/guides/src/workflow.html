@@ -134,9 +134,9 @@
 <section class="g-feature" id="wf-hold-cloud">
   <h2>Put a hold on the drawing: hold cloud, number and Hold list</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span class="g-id">WF-hold-cloud</span><span>Roadmap 33.hold-cloud</span></div>
-  <p class="g-summary">A hold marks what is not final yet. Right-click a symbol → Put on hold… gives the hold a number and draws a hold cloud with its text around the symbol. The Hold list lists every hold of the project, and a revision counts the holds open on its drawing.</p>
+  <p class="g-summary">A hold marks what is not final yet. Right-click a symbol → Hold ▸ Put on hold… gives the hold a number and draws a hold cloud with its text around the symbol. The Hold list lists every hold of the project, and a revision counts the holds open on its drawing.</p>
   <dl class="g-facts">
-    <dt>Where</dt><dd>A 2D space → right-click a symbol → <span class="ui">Put on hold…</span>, or <span class="ui">Hold</span> ▸; the explorer → right-click an object, the same items</dd>
+    <dt>Where</dt><dd>A 2D space → right-click a symbol → <span class="ui">Hold</span> ▸; the explorer → right-click an object → <span class="ui">Hold</span> ▸</dd>
     <dt>Who</dt><dd>Put on hold (Lead engineer, Project administrator)</dd>
     <dt>Before you start</dt><dd>A 2D space with a pump on it is open.</dd>
   </dl>
@@ -144,10 +144,10 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Right-click the pump and click <span class="ui">Put on hold…</span>.</td><td>A dialog <span class="ui">Put on hold</span> asks what the pump is waiting for, with the field <span class="ui">Hold text</span>.</td></tr>
+      <tr><td>1</td><td>Right-click the pump, point at <span class="ui">Hold</span> and click <span class="ui">Put on hold…</span>.</td><td><span class="ui">Hold</span> ▸ lists <span class="ui">Put on hold…</span>, <span class="ui">Edit hold…</span> and <span class="ui">Close hold</span>; the last two are greyed and say “It is not on hold.”. A dialog <span class="ui">Put on hold</span> asks what the pump is waiting for, with the field <span class="ui">Hold text</span>.</td></tr>
       <tr><td>2</td><td>Type <code>Vendor data</code> and click <span class="ui">Put on hold</span>.</td><td>A red cloud is drawn around the pump with <em>HOLD H1</em> above it and <em>Vendor data</em> below. <span class="ui">Layers</span> ▸ <span class="ui">Show holds</span> is ticked.</td></tr>
       <tr><td>3</td><td>Put another symbol on hold the same way.</td><td>Its cloud says <em>HOLD H2</em>: each hold takes the next number of the project.</td></tr>
-      <tr><td>4</td><td>Click one symbol, Shift-click another, right-click one of them and click <span class="ui">Put on hold…</span>.</td><td>The dialog names 2 items; one cloud is drawn around both, with one number.</td></tr>
+      <tr><td>4</td><td>Click one symbol, Shift-click another, right-click one of them → <span class="ui">Hold</span> ▸ <span class="ui">Put on hold…</span>.</td><td>The dialog names 2 items; one cloud is drawn around both, with one number.</td></tr>
       <tr><td>5</td><td>Right-click the pump → <span class="ui">Hold</span> ▸ <span class="ui">Edit hold…</span>, change the text and click <span class="ui">Save</span>.</td><td>The cloud shows the new text; it is still <em>HOLD H1</em>.</td></tr>
       <tr><td>6</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">Query</span> ▸ <span class="ui">Hold list</span>.</td><td>A row for each item on hold, with Hold no. (<em>H1</em>), Tag, Class, Hold (<em>HOLD: Vendor data</em>), 2D spaces and Status.</td></tr>
       <tr><td>7</td><td>Create a revision of the 2D space and open <span class="ui">Details</span> of the revision.</td><td><span class="ui">Open holds</span> says how many holds were open on the drawing when it was made, for example “2 holds were open when it was made”.</td></tr>
