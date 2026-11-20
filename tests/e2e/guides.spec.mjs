@@ -499,3 +499,43 @@ test("every guide screenshot declares the shape of its file, so the page does no
   expect(seen).toBeGreaterThan(50);
   expect(wrong).toEqual([]);
 });
+
+test("PRJ-main-read-only, AI-automated-assistants, ORG-tokens: main read-only while the project has branches, the branch events of automated assistants and the branch process through the API", async ({ page }) => {
+  await page.goto("/guide-projects.html#prj-main-read-only");
+  const feature = page.locator("section#prj-main-read-only");
+  await expectScrolledTo(feature);
+  await expect(feature.getByRole("heading", { level: 2 })).toHaveText("Main read-only while the project has branches");
+  for (const label of ["Settings", "Project settings", "Branches", "Main is read-only while the project has branches", "New branch…", "Enter", "Push to main"]) await expect(feature.locator(".ui", { hasText: new RegExp(`^${label}$`) }).first()).toBeVisible();
+  await expect(feature).toContainText("Main becomes read-only when the first branch is created.");
+  await expect(feature).toContainText("Main is read-only now: the project has 1 branch.");
+  await expect(feature).toContainText("Main is read-only in this project while it has branches: make the change in a branch and push it to main (Project settings → Branches).");
+  await expect(feature).toContainText("Still refused: closed branches count too.");
+  await expect(feature.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=[\w-]+&lesson=[\w-]+$/);
+  await expect(feature.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=prj-main-read-only");
+  // It is found in the catalog of every feature.
+  await page.goto("/guide-features.html");
+  await page.getByRole("searchbox").first().fill("read-only while the project has branches");
+  await expect(page.getByRole("link", { name: "Main read-only while the project has branches" }).first()).toBeVisible();
+
+  await page.goto("/guide-ai.html#ai-automated-assistants");
+  const automated = page.locator("section#ai-automated-assistants");
+  await expect(automated).toContainText("Branches and commissioning packages, and Project.");
+  await expect(automated).toContainText("A commissioning package is created");
+  await expect(automated).toContainText("also when they are made inside the branch");
+
+  await page.goto("/guide-organization.html#org-tokens");
+  const tokens = page.locator("section#org-tokens");
+  await expect(tokens.getByRole("heading", { level: 3, name: "Branches and commissioning packages" })).toBeVisible();
+  for (const route of ["POST /projects/{id}/branches", "X-E1-Branch: <branch>", "POST /projects/{id}/packages/{package}/objects", "GET /projects/{id}/main-read-only"]) await expect(tokens).toContainText(route);
+});
+
+test("Show me how in the user guide: Watch the lesson is the large button at the top right, the user guide link under it", async ({ page }) => {
+  await page.goto("/guide-ai.html#ai-guide-show-me-how");
+  const feature = page.locator("#ai-guide-show-me-how");
+  await expect(feature.getByRole("heading", { level: 2 })).toHaveText("Show me how: the idea first, then each step");
+  const rows = feature.locator("table.g-steps tbody tr");
+  await expect(rows.nth(0)).toContainText("at the top right, beside the title, the large button Watch the lesson with the film's name and length, and Read it in the user guide ↗ under it");
+  const watch = rows.filter({ hasText: "click Watch the lesson at the top right" });
+  await expect(watch).toHaveCount(1);
+  await expect(watch).toContainText("The E1 Academy film of this page opens in the browser, at its lesson.");
+});
