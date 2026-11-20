@@ -100,6 +100,7 @@
           <li><a href="#list-parameters">Ask when opened: one query for many values</a></li>
           <li><a href="#list-group-totals">Group &amp; totals</a></li>
           <li><a href="#list-templates">Save a query as a template and reopen it under Query ▸</a></li>
+          <li><a href="#list-standard-lists">The standard lists of every project: Line list, Valve list, Equipment list, Instrument index, Hold list</a></li>
           <li><a href="#list-edit-cell">Edit a cell like in Excel</a></li>
           <li><a href="#list-paste">Paste a block from Excel</a></li>
           <li><a href="#list-set-value">Select many cells and Set value…</a></li>
@@ -121,7 +122,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Lists and queries</p>
         <h1>6. Lists and queries</h1>
         <p class="lead">Any list is a live query of the model: columns, filters, grouping, editing like Excel, templates, and Excel export and import.</p>
-        <div class="g-meta"><span>25 features</span><span>25 available</span></div>
+        <div class="g-meta"><span>26 features</span><span>26 available</span></div>
 <section class="g-feature" id="lists-overview">
   <h2>About this guide</h2>
   <p class="g-summary">In E1 a list is not a separate file: it is a live <em>query</em> of the project's objects. You pick where it starts, choose the columns, filter, group and total, edit the cells like a spreadsheet, save the layout as a template, and move the table to and from Excel.</p>
@@ -162,7 +163,7 @@
       <tr><td>6</td><td>Right-click the object <span class="ui">V3</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</td><td>A second query opens; its bar reads “All objects below V3”.</td></tr>
     </tbody>
   </table></div>
-  <figure class="g-shot g-small" style="max-width:341px"><img src="assets/img/guides/query-submenu.webp" alt="Right-click menu of the Assets section with the Query submenu open, showing New query…" width="682" height="206" loading="lazy"><figcaption>Right-click <span class="ui">Assets</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</figcaption></figure>
+  <figure class="g-shot g-small" style="max-width:375px"><img src="assets/img/guides/query-submenu.webp" alt="Right-click menu of the Assets section with the Query submenu open, showing New query…" width="750" height="354" loading="lazy"><figcaption>Right-click <span class="ui">Assets</span> → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>.</figcaption></figure>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/query-view.webp" alt="The Query: Assets tab with 48 rows and the columns Owner, Name and Class; the bar holds Filter, Find and replace…, Export, Group &amp; totals, Update from Excel…, Save and Columns." width="2160" height="1350" loading="lazy"><figcaption>A new query on Assets: 48 rows, sorted by Name.</figcaption></figure>
   <p class="g-note">The Name column shows an object's tag, or its name when it has no tag. Ports and objects in the Bin are not rows. An empty result reads “No objects below &lt;start&gt;.”.</p>
   <p class="g-note">A 2D space (a sheet, such as a P&amp;ID) owns no objects, so a query on a 2D space lists the objects drawn on it, with what they own below them. Right-click a 2D space (for example <span class="ui">123/A93 DEXPI example PID</span>) → <span class="ui">Query</span> ▸ <span class="ui">New query…</span>: the bar reads “All objects below 123/A93 DEXPI example PID” and its rows are the objects on that 2D space.</p>
@@ -386,7 +387,7 @@
     <tbody>
       <tr><td>1</td><td>Click <span class="ui">Save</span>.</td><td>The Save query form opens with <span class="ui">Name</span>, the choices <span class="ui">For me</span> (selected), <span class="ui">For this project (everyone on it)</span> and <span class="ui">For the organization (every project; published to the company library)</span>, and the buttons <span class="ui">Save template</span> and <span class="ui">Cancel</span>. <span class="ui">Save template</span> is off while the name is empty.</td></tr>
       <tr><td>2</td><td>Type <code>Pumps</code>, choose <span class="ui">For this project (everyone on it)</span>, and click <span class="ui">Save template</span> (or press <kbd>Enter</kbd> in <span class="ui">Name</span>).</td><td>The form closes and the bar starts with “Pumps ·”.</td></tr>
-      <tr><td>3</td><td>Right-click the project in the explorer and hover <span class="ui">Query</span>.</td><td>The submenu lists <span class="ui">Pumps</span>, then <span class="ui">New query…</span>.</td></tr>
+      <tr><td>3</td><td>Right-click the project in the explorer and hover <span class="ui">Query</span>.</td><td>The submenu lists <span class="ui">Pumps</span>, then E1's standard lists (<span class="ui">Line list</span> to <span class="ui">Hold list</span>), then <span class="ui">New query…</span>.</td></tr>
       <tr><td>4</td><td>Click <span class="ui">Pumps</span>.</td><td>A query opens on the project with “Name contains pump” and only pump rows.</td></tr>
     </tbody>
   </table></div>
@@ -394,7 +395,35 @@
   <p class="g-warn">Templates cannot be renamed, copied or deleted from a list yet.</p>
   <p class="g-warn">The organization-wide query has no <span class="ui">Save</span> button.</p>
   <p class="g-related">Related: <a href="guide-lists.html#list-new-query">Open a query with New query…</a>, <a href="guide-lists.html#list-filter">Filter rows with AND, OR and NOT</a>, <a href="guide-lists.html#list-group-totals">Group &amp; totals</a>, <a href="guide-library.html#lib-company-library">The company library</a></p>
-  <p class="g-learn"><a href="training.html?course=lists-excel&amp;lesson=lists-excel-06">Watch the lesson: Saving a list as a template</a> <span class="muted">(Lists, queries and Excel · 5 min)</span> · <a href="https://app.lanxtor.com/?guide=list-templates" target="_blank" rel="noopener">Show me how in E1: Save a query as a template</a></p>
+  <p class="g-learn"><a href="training.html?course=lists-excel&amp;lesson=lists-excel-06">Watch the lesson: Saving a list as a template · The standard lists</a> <span class="muted">(Lists, queries and Excel · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=list-templates" target="_blank" rel="noopener">Show me how in E1: Save a query as a template</a></p>
+</section>
+
+<section class="g-feature" id="list-standard-lists">
+  <h2>The standard lists of every project: Line list, Valve list, Equipment list, Instrument index, Hold list</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">LIST-standard-lists</span><span>Roadmap M3.standard-lists</span></div>
+  <p class="g-summary">Every project has five lists that come with E1: Line list, Valve list, Equipment list, Instrument index and Hold list. They are under Query ▸ on any place of the project, with their usual columns, and nothing has to be saved first.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>Explorer → right-click the project, a section, a folder or an object → <span class="ui">Query</span> ▸</dd>
+    <dt>Who</dt><dd>Everyone who can view the project</dd>
+    <dt>Before you start</dt><dd>A project, new or not. The lists need the Plant content package, which a new project has.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click <span class="ui">Assets</span> in a project where no query was saved, and point at <span class="ui">Query</span>.</td><td>The submenu lists <span class="ui">Line list</span>, <span class="ui">Valve list</span>, <span class="ui">Equipment list</span>, <span class="ui">Instrument index</span> and <span class="ui">Hold list</span>, then <span class="ui">New query…</span> and <span class="ui">Query in words…</span>.</td></tr>
+      <tr><td>2</td><td>Click <span class="ui">Equipment list</span>.</td><td>A query opens on Assets with the columns Owner, Name, Tag, Class, Description, Design pressure, Design temperature, Material, 2D spaces, Is located in, Status and Hold, and one row for each piece of equipment.</td></tr>
+      <tr><td>3</td><td>Open <span class="ui">Line list</span> the same way.</td><td>One row for each pipeline, with Tag, Service, Fluid, Nominal size, Pipe class, From, To, Design pressure, Design temperature, Insulation, Heat tracing, 2D spaces, Status and Hold.</td></tr>
+      <tr><td>4</td><td>Open <span class="ui">Valve list</span> and <span class="ui">Instrument index</span>.</td><td>The valves with Tag, Class, Description, Type note, 2D spaces, Status and Hold; the instruments with Tag, Class, Description, Implements (their function), Alarm or trip setting, Safety integrity level, 2D spaces, Status and Hold.</td></tr>
+      <tr><td>5</td><td>In a list click <span class="ui">Export</span> → <span class="ui">Excel (.xlsx)</span>.</td><td>A workbook downloads with the list's columns and rows.</td></tr>
+      <tr><td>6</td><td>For a PDF: right-click <span class="ui">Deliverables</span> → <span class="ui">New document…</span> → <span class="ui">List document</span>, and choose the list under <span class="ui">Saved query</span>.</td><td>The five lists are offered there too. <span class="ui">Export PDF</span> prints the list with the title block; the document takes revisions.</td></tr>
+      <tr><td>7</td><td>Change the columns of the Valve list, click <span class="ui">Save</span>, name it <code>Valve list</code> and choose <span class="ui">For this project (everyone on it)</span>.</td><td>Under <span class="ui">Query</span> ▸ there is one <span class="ui">Valve list</span>: the project's own, in place of E1's.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">A list opens on the place you right-clicked: on the project it lists the whole project, on a unit or a folder only what is below it. Each is a query like any other: sort, filter, add columns and edit cells.</p>
+  <p class="g-note">The <span class="ui">Hold list</span> lists only what is on hold, with its hold number and text (see <a href="guide-workflow.html#wf-hold-cloud">Put a hold on the drawing</a>).</p>
+  <p class="g-related">Related: <a href="#list-new-query">Open a query with New query…</a> · <a href="#list-templates">Save a query as a template</a> · <a href="#list-excel-export">Export to Excel</a> · <a href="guide-documents.html#doc-list-document">List documents</a> · <a href="guide-workflow.html#wf-hold-cloud">Put a hold on the drawing</a></p>
+  <p class="g-learn"><a href="training.html?course=lists-excel&amp;lesson=lists-excel-06">Watch the lesson: Saving a list as a template · The standard lists</a> <span class="muted">(Lists, queries and Excel · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=list-standard-lists" target="_blank" rel="noopener">Show me how in E1: The standard lists of every project</a></p>
 </section>
 
 <section class="g-feature" id="list-edit-cell">
@@ -719,22 +748,22 @@
 <section class="g-feature" id="list-project-excel">
   <h2>Export the project: every saved query in one workbook</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">LIST-project-excel</span></div>
-  <p class="g-summary">Download one workbook for the project with a sheet per saved query.</p>
+  <p class="g-summary">Download one workbook for the project with a sheet per saved query and per standard list.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The project page's toolbar → <span class="ui">Export</span></dd>
     <dt>Who</dt><dd>A project role that may export</dd>
-    <dt>Before you start</dt><dd>The project has saved queries (see <a href="#list-templates">templates</a>).</dd>
+    <dt>Before you start</dt><dd>A project. Its saved queries (see <a href="#list-templates">templates</a>) and E1's <a href="#list-standard-lists">standard lists</a> are exported.</dd>
   </dl>
   <h3>Steps</h3>
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
       <tr><td>1</td><td>Click the project in the explorer (one click), then <span class="ui">Export</span> on its page.</td><td>An .xlsx file named after the project downloads.</td></tr>
-      <tr><td>2</td><td>Open it.</td><td>It has one sheet per saved query you can see, each headed with the project, the query and the date.</td></tr>
+      <tr><td>2</td><td>Open it.</td><td>It has one sheet per saved query you can see and per standard list (Line list, Valve list, Equipment list, Instrument index, Hold list), each headed with the project, the query and the date.</td></tr>
     </tbody>
   </table></div>
   <p class="g-note">A long export says “The export is taking long; it goes on in the background.”. A section's own toolbar <span class="ui">Export</span> downloads the objects under it, for example “Assets.xlsx”.</p>
-  <p class="g-related">Related: <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a></p>
+  <p class="g-related">Related: <a href="guide-lists.html#list-templates">Save a query as a template and reopen it under Query ▸</a>, <a href="guide-lists.html#list-excel-export">Export a query to Excel or CSV</a>, <a href="guide-lists.html#list-standard-lists">The standard lists of every project</a></p>
   <p class="g-learn"><a href="training.html?course=lists-excel&amp;lesson=lists-excel-14">Watch the lesson: Exporting the project&#x27;s lists · A query across projects · Asking for a list in a sentence</a> <span class="muted">(Lists, queries and Excel · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=list-project-excel" target="_blank" rel="noopener">Show me how in E1: Every saved query in one workbook</a></p>
 </section>
 
