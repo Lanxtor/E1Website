@@ -273,12 +273,13 @@
 
 /* ---------- 7 FEED to wiring ---------- */
 .o2-thread { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; margin: 40px 0 0; padding: 0; list-style: none; }
-.o2-thread li { position: relative; padding: 18px 14px 16px; border: 1px solid var(--o2-line); background: #fff; cursor: default; transition: background var(--o2-fast), border-color var(--o2-fast); }
+.o2-thread li { position: relative; padding: 18px 22px 16px; text-align: center; border: 1px solid var(--o2-line); background: #fff; cursor: default; transition: background var(--o2-fast), border-color var(--o2-fast); }
 .o2-thread li + li { border-left: 0; }
 .o2-thread li:first-child { border-radius: 14px 0 0 14px; }
 .o2-thread li:last-child { border-radius: 0 14px 14px 0; }
-.o2-thread li::after { content: "→"; position: absolute; right: -9px; top: 50%; z-index: 1; transform: translateY(-50%); width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; background: #fff; font-size: 0.75rem; color: var(--o2-muted); }
+.o2-thread li::after { content: "→"; position: absolute; right: -19px; top: 50%; z-index: 2; transform: translateY(-50%); width: 36px; height: 36px; line-height: 33px; text-align: center; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px #fff, 0 6px 14px -6px rgba(21, 101, 192, 0.7); font-size: 1.25rem; font-weight: 700; color: #fff; }
 .o2-thread li:last-child::after { display: none; }
+.o2-thread .o2-ti { display: block; width: 64px; height: 48px; margin: 0 auto 10px; }
 .o2-thread small { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--o2-muted); }
 .o2-thread b { display: block; margin-top: 6px; font-size: 1rem; color: var(--o2-ink); }
 .o2-thread .tag { display: block; margin-top: 6px; }
