@@ -128,6 +128,19 @@ test("GS-units: the unit system is chosen in Project settings; the status bar ha
   await expect(bar.locator("img")).toHaveAttribute("alt", /appearance switch/);
 });
 
+test("PRJ-tree-rows, PRJ-rename, COL-history: a double-click on a project opens its page, as one click does; its History has Undo this change", async ({ page }) => {
+  await page.goto("/guide-projects.html#prj-tree-rows");
+  const rows = page.locator('[id="prj-tree-rows"]');
+  const project = rows.getByRole("row").filter({ has: page.getByRole("cell", { name: "Project", exact: true }) });
+  await expect(project).toContainText("Its page, the same as one click, with Members and Export at the top");
+  await expect(rows).not.toContainText("Its data sheet");
+  const rename = page.locator('[id="prj-rename"]');
+  await expect(rename).toContainText("or click the project and edit its name on its page");
+  await expect(rename).not.toContainText("data sheet");
+  await page.goto("/guide-collaboration.html#col-history");
+  await expect(page.locator('[id="col-history"]')).toContainText("A project's page has a History tab too: every change in the project, each with what it changed and Undo this change.");
+});
+
 test("GS-getting-started: Steps for names every answer, and what each of the three newest gives", async ({ page }) => {
   await page.goto("/guide-getting-started.html#gs-getting-started");
   const part = page.locator("#gs-getting-started");
@@ -311,6 +324,9 @@ test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break li
   const style = page.locator("section#draw-line-style");
   await expectScrolledTo(style);
   await expect(style.locator("table.g-steps tbody tr").filter({ hasText: "Line kind" })).toContainText("becomes a line of that kind");
+
+  await expect(style.locator("table.g-steps tbody tr").filter({ hasText: "Line kind" })).toContainText("beside the heading Line");
+  await expect(page.locator("section#draw-arrange")).toContainText("shows only its title, so it does not lie over the drawing");
 
   // The catalog lists it.
   await page.goto("/guide-features.html");
