@@ -267,3 +267,118 @@ test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break li
   await page.goto("/guide-features.html");
   await expect(page.locator("body")).toContainText("Shape a line: bends, ends, join, break and straighten");
 });
+
+test("DRAW-command-search, DRAW-quick-swap, DRAW-clipboard, GS-shortcuts: the tool keys, Ctrl+K, paste at the pointer and Swap symbol are in the guide, each with its lesson and Show me how in E1", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-command-search");
+  const search = page.locator("#draw-command-search");
+  await expectScrolledTo(search);
+  await expect(search.getByRole("heading", { level: 2 })).toHaveText("Tool keys and the command search (Ctrl+K)");
+  for (const [key, tool] of [["P", "Flow lines"], ["L", "Logic"], ["C", "Cable"], ["W", "Wire"], ["T", "Text"], ["G", "Tag"], ["A", "Add…"], ["B", "Frame"]]) {
+    await expect(search.locator("tr", { has: page.locator("kbd", { hasText: new RegExp(`^${key}$`) }) }).filter({ hasText: tool }), `${key} is ${tool}`).toHaveCount(1);
+  }
+  await expect(search).toContainText("Everything is listed before you type");
+  await expect(search).toContainText("Search symbols and commands…");
+  await expect(search).toContainText("Select something on the drawing first.");
+  await expect(search.getByRole("link", { name: /Watch the lesson/ })).toBeVisible();
+  await expect(search.getByRole("link", { name: /Show me how in E1/ })).toHaveAttribute("href", /\?guide=sheet-keys-search$/);
+  // The contents list of the page jumps to both new parts.
+  await page.locator('a[href="#draw-quick-swap"]').first().click();
+  const swap = page.locator("#draw-quick-swap");
+  await expectScrolledTo(swap);
+  await expect(swap.getByRole("heading", { level: 2 })).toHaveText("Swap a symbol for another of its class");
+  await expect(swap).toContainText("Globe valve, Ball valve and the other valves, all shown at once");
+  await expect(swap).toContainText("Both pipes are still connected; its name and tag have not changed");
+  await expect(swap.getByRole("link", { name: /Show me how in E1/ })).toHaveAttribute("href", /\?guide=sheet-quick-swap$/);
+  await expect(swap.getByRole("link", { name: /Watch the lesson/ })).toBeVisible();
+  const clipboard = page.locator("#draw-clipboard");
+  await expect(clipboard).toContainText("The copies land with their middle under the pointer, and the pipe between them is copied with them");
+  await expect(clipboard).toContainText("The copy lands where you right-clicked");
+  await expect(page.locator("#draw-symbol-menu")).toContainText("Search symbols and commands…");
+  // The shortcuts list has the keys, and its link opens the new part.
+  await page.goto("/guide-getting-started.html#gs-shortcuts");
+  const keys = page.locator("#gs-shortcuts");
+  await expect(keys.locator("tr", { hasText: "Draw Flow lines, Logic, Cable or Wire" })).toContainText("P, L, C, W");
+  await expect(keys.locator("tr", { hasText: "Search symbols and commands on the drawing" })).toContainText("Ctrl+K");
+  await keys.getByRole("link", { name: "Tool keys and the command search" }).click();
+  await expect(page).toHaveURL(/guide-drawing\.html#draw-command-search$/);
+  // Both are found in All features.
+  await page.goto("/guide-features.html");
+  await page.getByRole("searchbox").first().fill("Swap a symbol");
+  await expect(page.locator("main").getByRole("link", { name: /Swap a symbol for another of its class/ }).first()).toBeVisible();
+});
+
+/*
+ * Documents around the P&ID (E1, 2026-11-20): the standard lists of every
+ * project, holds on the drawing and the legend sheet. Each opens from its
+ * address (the E1 Guide's Read more), shows its steps with the labels as on
+ * screen, and has Watch the lesson and Show me how in E1.
+ */
+const PID_DOCUMENTS = [
+  { id: "LIST-standard-lists", lesson: "list-standard-lists", says: ["Line list", "Valve list", "Equipment list", "Instrument index", "Hold list", "Excel (.xlsx)", "Saved query"] },
+  { id: "WF-hold-cloud", lesson: "wf-hold-cloud", says: ["Put on hold…", "Edit hold…", "Close hold", "HOLD H1", "Hold list", "Open holds", "Show holds"] },
+  { id: "DOC-legend-sheet", lesson: "doc-legend-sheet", says: ["Legend sheet", "Refresh", "Export PDF", "Symbols in use", "Line types in use", "Tag letters in use", "ISO 10628-2"] },
+];
+for (const { id, lesson, says } of PID_DOCUMENTS) {
+  test(`${id}: opens from its address with its steps, Watch the lesson and Show me how in E1`, async ({ page }) => {
+    const f = FEATURES.find((x) => x.id === id);
+    expect(f, `${id} is in the guides`).toBeTruthy();
+    expect(f.status).toBe("available");
+    await page.goto(`/${pageOf(f)}#${f.anchor}`);
+    const part = page.locator(`[id="${f.anchor}"]`);
+    await expect(part).toBeVisible();
+    await expectScrolledTo(part);
+    await expect(part.getByRole("heading", { level: 2 })).toHaveText(f.title);
+    await expect(part.locator(".g-status")).toHaveText("Available");
+    for (const text of says) await expect(part, `${id} says ${text}`).toContainText(text);
+    expect(await part.locator("table.g-steps tbody tr").count()).toBeGreaterThanOrEqual(6);
+    await expect(part.getByRole("link", { name: /^Watch the lesson/ })).toHaveAttribute("href", /training\.html\?course=/);
+    await expect(part.getByRole("link", { name: /^Show me how in E1/ })).toHaveAttribute("href", `https://app.lanxtor.com/?guide=${lesson}`);
+    /* Every Related link leads to a part that exists. */
+    for (const link of await part.locator(".g-related a").all()) {
+      const href = await link.getAttribute("href");
+      const [file, anchor] = href.startsWith("#") ? [pageOf(f), href.slice(1)] : href.split("#");
+      const html = await (await page.request.get("/" + file)).text();
+      expect(html, `${id}: ${href}`).toContain(`id="${anchor}"`);
+    }
+  });
+}
+
+test("the catalog finds the new features: hold cloud, legend sheet, standard lists", async ({ page }) => {
+  await page.goto("/guide-features.html");
+  for (const [words, id] of [["hold cloud", "WF-hold-cloud"], ["legend sheet", "DOC-legend-sheet"], ["standard lists", "LIST-standard-lists"]]) {
+    const f = FEATURES.find((x) => x.id === id);
+    await page.getByRole("searchbox").first().fill(words);
+    await expect(page.locator(`a[href="${f.page}"]`).first()).toBeVisible();
+  }
+});
+
+/*
+ * A screenshot that declares another shape than its file makes the page jump
+ * when it loads: a link to a part further down (the E1 Guide's Read more,
+ * guide-documents.html#doc-legend-sheet) then lands above or below its part.
+ */
+test("every guide screenshot declares the shape of its file, so the page does not jump when it loads", async ({ request }) => {
+  const fs = await import("node:fs");
+  const shapeOf = (file) => {
+    const b = fs.readFileSync(file);
+    const kind = b.toString("latin1", 12, 16);
+    if (kind === "VP8 ") return [b.readUInt16LE(26) & 0x3fff, b.readUInt16LE(28) & 0x3fff];
+    if (kind === "VP8X") return [b.readUIntLE(24, 3) + 1, b.readUIntLE(27, 3) + 1];
+    if (kind === "VP8L") { const bits = b.readUInt32LE(21); return [(bits & 0x3fff) + 1, ((bits >> 14) & 0x3fff) + 1]; }
+    return null;
+  };
+  const wrong = [];
+  let seen = 0;
+  for (const c of DATA.categories) {
+    const html = await (await request.get("/" + c.page)).text();
+    for (const m of html.matchAll(/<img src="(assets\/img\/guides\/[^"]+\.webp)"[^>]*?width="(\d+)" height="(\d+)"/g)) {
+      const real = shapeOf(new URL(`../../${m[1]}`, import.meta.url));
+      if (!real) continue;
+      seen += 1;
+      const declared = Number(m[2]) / Number(m[3]);
+      if (Math.abs(real[0] / real[1] - declared) / (real[0] / real[1]) > 0.02) wrong.push(`${c.page}: ${m[1]} says ${m[2]}×${m[3]}, is ${real[0]}×${real[1]}`);
+    }
+  }
+  expect(seen).toBeGreaterThan(50);
+  expect(wrong).toEqual([]);
+});

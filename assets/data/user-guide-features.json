@@ -3004,6 +3004,34 @@
    "page": "guide-drawing.html#draw-palette"
   },
   {
+   "id": "DRAW-command-search",
+   "title": "Tool keys and the command search (Ctrl+K)",
+   "summary": "One key arms each drawing tool, and Ctrl+K lists every drawing command and every symbol at once: choose a symbol to place it or a command to run it.",
+   "anchor": "draw-command-search",
+   "status": "available",
+   "roadmap": [
+    "M3.16"
+   ],
+   "checks": [
+    "B4"
+   ],
+   "related": [
+    "DRAW-palette",
+    "DRAW-place-symbol",
+    "DRAW-connector",
+    "GS-shortcuts"
+   ],
+   "roles": "Everyone can open the list; drawing needs an Editor license and a project role that may edit drawings",
+   "training": {
+    "topic": "Tool keys and the command search",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-command-search"
+  },
+  {
    "id": "DRAW-aids",
    "title": "Snap, Grid and Ortho",
    "summary": "Turn the grid, Snap (onto the grid, nozzles and line ends, with alignment guides) and horizontal-or-vertical lines on and off, kept per person.",
@@ -3251,12 +3279,13 @@
   {
    "id": "DRAW-clipboard",
    "title": "Undo, redo, copy, paste and duplicate",
-   "summary": "Copy, paste and duplicate make new objects with new tags, on any sheet of any project; what a paste makes waits in Copy temp. Undo and redo work step by step across the project.",
+   "summary": "Copy, paste and duplicate make new objects with new tags, on any sheet of any project, under the pointer or beside the original; what a paste makes waits in Copy temp. Undo and redo work step by step across the project.",
    "anchor": "draw-clipboard",
    "status": "available",
    "roadmap": [
     "M3.4",
-    "M3.13"
+    "M3.13",
+    "M3.16"
    ],
    "checks": [
     "A4",
@@ -3584,7 +3613,8 @@
     "OBJ-object-window",
     "DOC-datasheet",
     "DRAW-symbol-designer",
-    "DRAW-module-save"
+    "DRAW-module-save",
+    "DRAW-quick-swap"
    ],
    "roles": "Everyone; editing items need edit rights",
    "training": {
@@ -3597,6 +3627,33 @@
    ],
    "category": "drawing",
    "page": "guide-drawing.html#draw-symbol-menu"
+  },
+  {
+   "id": "DRAW-quick-swap",
+   "title": "Swap a symbol for another of its class",
+   "summary": "One selected symbol shows Swap symbol beside it: it lists the other symbols of its class, and the one you choose takes its place with the same object, tag, values and pipes.",
+   "anchor": "draw-quick-swap",
+   "status": "available",
+   "roadmap": [
+    "M3.16"
+   ],
+   "checks": [
+    "B4"
+   ],
+   "related": [
+    "DRAW-symbol-menu",
+    "DRAW-select",
+    "DRAW-command-search"
+   ],
+   "roles": "Editor license; a project role that may edit drawings",
+   "training": {
+    "topic": "Swapping a symbol in place",
+    "level": "Beginner",
+    "minutes": 2
+   },
+   "screenshots": [],
+   "category": "drawing",
+   "page": "guide-drawing.html#draw-quick-swap"
   },
   {
    "id": "DRAW-comment-here",
@@ -4795,7 +4852,8 @@
     "LIST-new-query",
     "LIST-filter",
     "LIST-group-totals",
-    "LIB-company-library"
+    "LIB-company-library",
+    "LIST-standard-lists"
    ],
    "roles": "For me: may view the project. For this project: may configure the project. For the organization: may publish to the company library",
    "training": {
@@ -4806,6 +4864,33 @@
    "screenshots": [],
    "category": "lists",
    "page": "guide-lists.html#list-templates"
+  },
+  {
+   "id": "LIST-standard-lists",
+   "title": "The standard lists of every project: Line list, Valve list, Equipment list, Instrument index, Hold list",
+   "summary": "Every project has five lists that come with E1, under Query ▸ on any of its places, with their usual columns and nothing to save first.",
+   "anchor": "list-standard-lists",
+   "status": "available",
+   "roadmap": [
+    "M3.standard-lists"
+   ],
+   "checks": [],
+   "related": [
+    "LIST-new-query",
+    "LIST-templates",
+    "LIST-excel-export",
+    "DOC-list-document",
+    "WF-hold-cloud"
+   ],
+   "roles": "Everyone who can view the project",
+   "training": {
+    "topic": "The standard lists",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "lists",
+   "page": "guide-lists.html#list-standard-lists"
   },
   {
    "id": "LIST-edit-cell",
@@ -5144,14 +5229,15 @@
   {
    "id": "LIST-project-excel",
    "title": "Export the project: every saved query in one workbook",
-   "summary": "Download one workbook for the project with a sheet per saved query.",
+   "summary": "Download one workbook for the project with a sheet per saved query and per standard list.",
    "anchor": "list-project-excel",
    "status": "available",
    "roadmap": [],
    "checks": [],
    "related": [
     "LIST-templates",
-    "LIST-excel-export"
+    "LIST-excel-export",
+    "LIST-standard-lists"
    ],
    "roles": "A project role that may export",
    "training": {
@@ -6170,6 +6256,32 @@
    "screenshots": [],
    "category": "documents",
    "page": "guide-documents.html#doc-hookup-drawing"
+  },
+  {
+   "id": "DOC-legend-sheet",
+   "title": "The legend sheet: the symbols, line types and tag letters a project uses",
+   "summary": "Right-click Deliverables → Legend sheet makes one generated drawing with every symbol the project's drawings use, with its name and standard, the line types and the tag letters; Refresh it and plot it.",
+   "anchor": "doc-legend-sheet",
+   "status": "available",
+   "roadmap": [
+    "M4.legend"
+   ],
+   "checks": [],
+   "related": [
+    "DOC-new-document",
+    "DOC-sheet-pdf",
+    "DOC-revisions",
+    "DRAW-place-symbol"
+   ],
+   "roles": "A project role that may create documents; everyone who can view the project may open and export it",
+   "training": {
+    "topic": "The legend sheet",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "documents",
+   "page": "guide-documents.html#doc-legend-sheet"
   },
   {
    "id": "DOC-datasheet-designer",
@@ -12041,7 +12153,8 @@
     "WF-status-chip",
     "WF-value-status",
     "LIST-columns",
-    "WF-status-layer"
+    "WF-status-layer",
+    "WF-hold-cloud"
    ],
    "roles": "Put on hold (Lead engineer, Project administrator)",
    "training": {
@@ -12054,9 +12167,35 @@
    "page": "guide-workflow.html#wf-hold"
   },
   {
+   "id": "WF-hold-cloud",
+   "title": "Put a hold on the drawing: hold cloud, number and Hold list",
+   "summary": "Right-click a symbol → Hold ▸ Put on hold… gives the hold a number and draws a hold cloud with its text around it; the Hold list lists every hold, and a revision counts those open.",
+   "anchor": "wf-hold-cloud",
+   "status": "available",
+   "roadmap": [
+    "33.hold-cloud"
+   ],
+   "checks": [],
+   "related": [
+    "WF-hold",
+    "WF-status-layer",
+    "LIST-standard-lists",
+    "DOC-sheet-revisions"
+   ],
+   "roles": "Put on hold (Lead engineer, Project administrator); everyone who can view the project sees the clouds and the Hold list",
+   "training": {
+    "topic": "Holds on the drawing",
+    "level": "Beginner",
+    "minutes": 3
+   },
+   "screenshots": [],
+   "category": "workflow",
+   "page": "guide-workflow.html#wf-hold-cloud"
+  },
+  {
    "id": "WF-status-layer",
    "title": "Statuses and holds on the drawing",
-   "summary": "Layers ▸ Status tints each symbol on a 2D space by its status, with a legend at the bottom left; Layers ▸ Show holds marks every held item HOLD. Both are off until you turn them on, for you and that 2D space only.",
+   "summary": "Layers ▸ Status tints each symbol on a 2D space by its status, with a legend at the bottom left; Layers ▸ Show holds draws a hold cloud around every held item. Both are off until you turn them on, for you and that 2D space only.",
    "anchor": "wf-status-layer",
    "status": "available",
    "roadmap": [
@@ -12068,7 +12207,8 @@
    "related": [
     "WF-status-chip",
     "WF-hold",
-    "DRAW-layers"
+    "DRAW-layers",
+    "WF-hold-cloud"
    ],
    "roles": "Everyone who can view the project",
    "training": {

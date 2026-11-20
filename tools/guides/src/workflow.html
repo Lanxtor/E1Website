@@ -131,10 +131,38 @@
   <p class="g-related">Related: <a href="#wf-status-chip">The status chip</a> · <a href="#wf-value-status">Value statuses</a> · <a href="guide-lists.html#list-columns">Columns</a> · <a href="#wf-status-layer">Statuses and holds on the drawing</a></p>
 </section>
 
+<section class="g-feature" id="wf-hold-cloud">
+  <h2>Put a hold on the drawing: hold cloud, number and Hold list</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span class="g-id">WF-hold-cloud</span><span>Roadmap 33.hold-cloud</span></div>
+  <p class="g-summary">A hold marks what is not final yet. Right-click a symbol → Hold ▸ Put on hold… gives the hold a number and draws a hold cloud with its text around the symbol. The Hold list lists every hold of the project, and a revision counts the holds open on its drawing.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>A 2D space → right-click a symbol → <span class="ui">Hold</span> ▸; the explorer → right-click an object → <span class="ui">Hold</span> ▸</dd>
+    <dt>Who</dt><dd>Put on hold (Lead engineer, Project administrator)</dd>
+    <dt>Before you start</dt><dd>A 2D space with a pump on it is open.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Right-click the pump, point at <span class="ui">Hold</span> and click <span class="ui">Put on hold…</span>.</td><td><span class="ui">Hold</span> ▸ lists <span class="ui">Put on hold…</span>, <span class="ui">Edit hold…</span> and <span class="ui">Close hold</span>; the last two are greyed and say “It is not on hold.”. A dialog <span class="ui">Put on hold</span> asks what the pump is waiting for, with the field <span class="ui">Hold text</span>.</td></tr>
+      <tr><td>2</td><td>Type <code>Vendor data</code> and click <span class="ui">Put on hold</span>.</td><td>A red cloud is drawn around the pump with <em>HOLD H1</em> above it and <em>Vendor data</em> below. <span class="ui">Layers</span> ▸ <span class="ui">Show holds</span> is ticked.</td></tr>
+      <tr><td>3</td><td>Put another symbol on hold the same way.</td><td>Its cloud says <em>HOLD H2</em>: each hold takes the next number of the project.</td></tr>
+      <tr><td>4</td><td>Click one symbol, Shift-click another, right-click one of them → <span class="ui">Hold</span> ▸ <span class="ui">Put on hold…</span>.</td><td>The dialog names 2 items; one cloud is drawn around both, with one number.</td></tr>
+      <tr><td>5</td><td>Right-click the pump → <span class="ui">Hold</span> ▸ <span class="ui">Edit hold…</span>, change the text and click <span class="ui">Save</span>.</td><td>The cloud shows the new text; it is still <em>HOLD H1</em>.</td></tr>
+      <tr><td>6</td><td>Right-click <span class="ui">Assets</span> → <span class="ui">Query</span> ▸ <span class="ui">Hold list</span>.</td><td>A row for each item on hold, with Hold no. (<em>H1</em>), Tag, Class, Hold (<em>HOLD: Vendor data</em>), 2D spaces and Status.</td></tr>
+      <tr><td>7</td><td>Create a revision of the 2D space and open <span class="ui">Details</span> of the revision.</td><td><span class="ui">Open holds</span> says how many holds were open on the drawing when it was made, for example “2 holds were open when it was made”.</td></tr>
+      <tr><td>8</td><td>Right-click the pump → <span class="ui">Hold</span> ▸ <span class="ui">Close hold</span> and confirm with <span class="ui">Close hold</span>.</td><td>The cloud is gone and the pump is off the Hold list. <kbd>Ctrl+Z</kbd> (<kbd>⌘Z</kbd>) brings the hold back.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">The clouds are on the Holds layer: untick <span class="ui">Layers</span> ▸ <span class="ui">Show holds</span> to hide them; that is your own view of that 2D space. A hold never blocks editing. The same hold shows as <span class="ui">HOLD</span> beside the object's status chip (see <a href="#wf-hold">Put an item or a value on hold</a>).</p>
+  <p class="g-warn">A closed hold is not kept in the Hold list, and its number is used again when it was the highest. The clouds are not printed on the PDF of the 2D space yet.</p>
+  <p class="g-related">Related: <a href="#wf-hold">Put an item or a value on hold</a> · <a href="#wf-status-layer">Statuses and holds on the drawing</a> · <a href="guide-lists.html#list-standard-lists">The standard lists</a> · <a href="guide-documents.html#doc-sheet-revisions">Revisions of a 2D space</a></p>
+</section>
+
 <section class="g-feature" id="wf-status-layer">
   <h2>Statuses and holds on the drawing</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span class="g-id">WF-status-layer</span><span>Roadmap 33.1</span><span>Review checks S8</span></div>
-  <p class="g-summary">Layers ▸ Status tints each symbol on a 2D space by its status, with a legend at the bottom left; Layers ▸ Show holds marks every held item HOLD. Both are off until you turn them on, for you and that 2D space only.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-20</span><span class="g-id">WF-status-layer</span><span>Roadmap 33.1</span><span>Review checks S8</span></div>
+  <p class="g-summary">Layers ▸ Status tints each symbol on a 2D space by its status, with a legend at the bottom left; Layers ▸ Show holds draws a hold cloud around every held item. Both are off until you turn them on, for you and that 2D space only.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>A 2D space: the drawing toolbar's Layers menu</dd>
     <dt>Who</dt><dd>Everyone who can view the project</dd>
@@ -144,7 +172,7 @@
     <tbody>
       <tr><td>1</td><td>Set a pump's status to <em>Active</em> on its status chip, then open its 2D space. Open <span class="ui">Layers</span> and tick <span class="ui">Status</span>.</td><td>The pump's symbol is tinted amber; the legend at the bottom left says <em>Active (1)</em>. Symbols of items without a workflow or a status stay as they are. Pointing at the tint says the status.</td></tr>
       <tr><td>2</td><td>Tick <span class="ui">Show statuses</span> in the legend.</td><td>The legend lists the statuses themselves, each in its own colour, and the symbols take those colours.</td></tr>
-      <tr><td>3</td><td>Put the pump on hold, then tick <span class="ui">Show holds</span> in <span class="ui">Layers</span>.</td><td>A red dashed outline and <span class="ui">HOLD</span> above the pump; pointing at HOLD says why.</td></tr>
+      <tr><td>3</td><td>Put the pump on hold, then tick <span class="ui">Show holds</span> in <span class="ui">Layers</span>.</td><td>A red hold cloud around the pump, with <span class="ui">HOLD</span> and the hold's number above it and its text below.</td></tr>
       <tr><td>4</td><td>Reload the page.</td><td>Status and Show holds are still on for you on this 2D space; other people and other 2D spaces are unchanged.</td></tr>
     </tbody>
   </table></div>
