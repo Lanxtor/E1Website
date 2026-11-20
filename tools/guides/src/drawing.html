@@ -1148,7 +1148,7 @@
 
 <section class="g-feature" id="draw-line-numbers">
   <h2>Line numbers as you draw, size and pipe class</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-line-numbers</span><span>Roadmap 13.6</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">DRAW-line-numbers</span><span>Roadmap 13.7</span></div>
   <p class="g-summary">A pipe drawn on a P&amp;ID is a line of the line list from the moment it is drawn: it gets its pipeline and its line number at once, keeps the number through the valves and fittings on it, and gives them its nominal size and pipe class.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space of diagram type P&amp;ID: draw with <span class="ui">Flow lines</span>; right-click a pipe, valve or fitting → <span class="ui">Flow</span> ▸ <span class="ui">Size and pipe class…</span>; <span class="ui">Add…</span> → <span class="ui">Fitting</span> for <span class="ui">Spec break</span>, <span class="ui">Pipeline break</span> and <span class="ui">Line end</span>; <span class="ui">Settings → Project settings → Drawing</span> and <span class="ui">Tag rules</span></dd>
@@ -1162,6 +1162,7 @@
       <tr><td>2</td><td>Press <kbd>Ctrl+Z</kbd>.</td><td>The pipe and its line number are taken back together: drawing a pipe is one step to undo. <kbd>Ctrl+Y</kbd> brings both back.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Add…</span>, choose a gate valve and click it onto the pipe.</td><td>The valve goes into the line. Both sides show the same line number.</td></tr>
       <tr><td>4</td><td>Draw a pipe on from a valve at the end of a line.</td><td>It joins the line: the same number. A pipe drawn from a pump or a tank is a new line with the next number.</td></tr>
+      <tr><td>5</td><td>Select a valve with the pipe on both sides, press <kbd>Ctrl+C</kbd> and <kbd>Ctrl+V</kbd> (or <kbd>Ctrl+D</kbd>).</td><td>The copy is a line of its own with the next line number, the copied valve on it. <kbd>Ctrl+Z</kbd> takes the copy and its number back.</td></tr>
     </tbody>
   </table></div>
   <h3>Set the size and the pipe class of a line</h3>
@@ -1171,6 +1172,7 @@
       <tr><td>1</td><td>Right-click the pipe (or a valve or fitting on it) and choose <span class="ui">Flow</span> ▸ <span class="ui">Size and pipe class…</span>.</td><td>The dialog <em>Size and pipe class</em> names the <em>Line number</em> and has two lists: <span class="ui">Nominal size</span> and <span class="ui">Pipe class</span> (the pipe classes of the project's library; the sizes its pipe class lists, else the common nominal sizes).</td></tr>
       <tr><td>2</td><td>Choose <em>6"</em> and a pipe class, and click <span class="ui">Apply</span>.</td><td>The line number follows, for example <em>6"-P-10001-A1A</em>; its running number stays. The valves and fittings on the line have the size and the pipe class (select one: the Selection panel shows <em>Nominal size 6"</em>). One <kbd>Ctrl+Z</kbd> takes the change back.</td></tr>
       <tr><td>3</td><td>Click a reducer from <span class="ui">Add…</span> → <span class="ui">Fitting</span> onto the pipe, then open <span class="ui">Size and pipe class…</span> on the pipe after it and choose <em>4"</em>.</td><td>The reducer starts a new piping segment with a size of its own: the pipe after it reads <em>4"-P-10001-A1A</em>, the pipe before it <em>6"-P-10001-A1A</em>, and the reducer's nominal size is <em>6" x 4"</em>.</td></tr>
+      <tr><td>4</td><td>Select a pipe, click <span class="ui">Nominal size</span> in the <span class="ui">Selection</span> panel, type a size and press <kbd>Enter</kbd>.</td><td>The same as in the dialog: the size is the line's (after a reducer, the segment's), the valves and fittings on it take it and the line number follows. A size typed on a valve or fitting of the line does the same.</td></tr>
     </tbody>
   </table></div>
   <h3>Spec break, pipeline break and line end</h3>
