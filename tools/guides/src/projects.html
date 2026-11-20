@@ -906,6 +906,32 @@
   <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-review">Merge requests: Ask for review</a></p>
 </section>
 
+<section class="g-feature" id="prj-main-read-only">
+  <h2>Main read-only while the project has branches</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-20</span><span>Updated 2026-11-20</span><span class="g-id">PRJ-main-read-only</span><span>Roadmap 15.12</span></div>
+  <p class="g-summary">With one switch in Project settings, main changes only by pushing a branch or a commissioning package once the project has a branch: every change is made in a branch first.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd><span class="ui">Settings</span> → <span class="ui">Project settings</span> → <span class="ui">Branches</span></dd>
+    <dt>Who</dt><dd>Project admin, signed in, switches it; everyone working in the project meets it</dd>
+    <dt>Before you start</dt><dd>A project with a pump Pump1 and no branch yet.</dd>
+  </dl>
+  <h3>Steps</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Open <span class="ui">Settings</span> → <span class="ui">Project settings</span> → <span class="ui">Branches</span>.</td><td>The switch <span class="ui">Main is read-only while the project has branches</span>, off, and under it <em>Main can be edited.</em></td></tr>
+      <tr><td>2</td><td>Switch it on.</td><td><em>Main becomes read-only when the first branch is created.</em> Main can still be edited.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Branches</span> in the project and make a branch with <span class="ui">New branch…</span>, Pump1 in it.</td><td>The Branches page says <em>Main is read-only in this project: make every change in a branch and push it to main (Project settings → Branches).</em> Project settings → Branches says <em>Main is read-only now: the project has 1 branch.</em></td></tr>
+      <tr><td>4</td><td>In main, rename Pump1 in the explorer (F2).</td><td>Refused: <em>Main is read-only in this project while it has branches: make the change in a branch and push it to main (Project settings → Branches).</em> Pump1 keeps its name. The same holds for Alex, assistants, imports and the API.</td></tr>
+      <tr><td>5</td><td><span class="ui">Enter</span> the branch, rename Pump1 there and <span class="ui">Push to main</span>.</td><td>The rename is kept in the branch, and the push brings it into main. A new branch, a commissioning package and its push work as before.</td></tr>
+      <tr><td>6</td><td>Close every branch, then try again in main.</td><td>Still refused: closed branches count too.</td></tr>
+      <tr><td>7</td><td>Switch it off in Project settings → Branches.</td><td><em>Main can be edited.</em> A rename in main is kept.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-note">Only main's model is read-only: its objects, values, relationships and what is drawn on its 2D spaces. Branches and commissioning packages, project settings, comments, tasks, markups and documents work as always. Another system with a token reads whether main is read-only (<code>GET /api/v1/projects/{project}/main-read-only</code>); switching it is done signed in.</p>
+  <p class="g-related">Related: <a href="guide-projects.html#prj-branches">Branches</a>, <a href="guide-projects.html#prj-branch-push">Push a branch to main</a>, <a href="guide-projects.html#prj-branch-packages">Branch packages</a></p>
+</section>
+
 <section class="g-feature" id="prj-branch-review">
   <h2>Merge requests: Ask for review</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span>Since 2026-11-12</span><span>Updated 2026-11-18</span><span class="g-id">PRJ-branch-review</span><span>Roadmap 16.2</span><span>Review check X4</span></div>
