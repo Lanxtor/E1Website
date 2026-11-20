@@ -181,6 +181,36 @@
     });
   });
 
+  /* ---------- Alex, your co-: types each skill and shows its example ---------- */
+  var co = document.querySelector("[data-co]");
+  if (co) {
+    var typed = co.querySelector("[data-co-typed]");
+    var words = [].slice.call(co.querySelectorAll("[data-co-skills] li")).map(function (li) { return li.textContent.trim(); });
+    var slides = [].slice.call(co.querySelectorAll("[data-co-slide]"));
+    var wi = 0, wn = 0, del = false, timer = 0, run = false;
+    var show = function (k) { slides.forEach(function (sl, j) { sl.classList.toggle("is-on", j === k); sl.setAttribute("aria-hidden", j === k ? "false" : "true"); }); };
+    var tick = function () {
+      var w = words[wi];
+      if (!del) {
+        wn += 1; typed.textContent = w.slice(0, wn);
+        if (wn === 1) show(wi);
+        if (wn >= w.length) { del = true; timer = setTimeout(tick, 2600); return; }
+        timer = setTimeout(tick, 55 + Math.random() * 45);
+      } else {
+        wn -= 1; typed.textContent = w.slice(0, wn);
+        if (wn <= 0) { del = false; wi = (wi + 1) % words.length; timer = setTimeout(tick, 300); return; }
+        timer = setTimeout(tick, 26);
+      }
+    };
+    var go = function () { if (!run && !paused && !still) { run = true; tick(); } };
+    var halt = function () { run = false; clearTimeout(timer); };
+    typed.textContent = words[0]; wn = words[0].length; del = true; show(0);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (e) { if (e[0].isIntersecting) go(); else halt(); }).observe(co);
+    }
+    document.addEventListener("o2:motion", function (e) { if (e.detail.paused) halt(); else go(); });
+  }
+
   /* ---------- reveals that run once (One model) ---------- */
   var once = [].slice.call(document.querySelectorAll("[data-reveal-once]"));
   if (still || paused || !("IntersectionObserver" in window)) {
