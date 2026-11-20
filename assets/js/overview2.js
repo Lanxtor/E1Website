@@ -133,6 +133,27 @@
     mark();
   });
 
+  /* ---------- switch (living diagrams): buttons below the clip, next clip when one ends ---------- */
+  [].slice.call(document.querySelectorAll("[data-switch]")).forEach(function (bar) {
+    var buttons = [].slice.call(bar.querySelectorAll("button[data-panel]"));
+    function figOf(b) { var p = document.getElementById(b.getAttribute("data-panel")); return p && p.querySelector("[data-clip]"); }
+    function show(btn, start) {
+      buttons.forEach(function (b) {
+        var on = b === btn, panel = document.getElementById(b.getAttribute("data-panel")), fig = figOf(b);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+        if (panel) panel.hidden = !on;
+        if (fig && !on) stop(fig);
+      });
+      var f = figOf(btn), v = f && videoOf(f);
+      if (v && start) { load(v); try { v.currentTime = 0; } catch (e) { /* not loaded yet */ } if (!paused && !still) play(f); }
+    }
+    buttons.forEach(function (b, i) {
+      b.addEventListener("click", function () { var f = figOf(b); if (f) f._user = null; show(b, true); });
+      var f = figOf(b), v = f && videoOf(f);
+      if (v) v.addEventListener("ended", function () { show(buttons[(i + 1) % buttons.length], true); });
+    });
+  });
+
   /* ---------- tabs (living diagrams, Alex's modes) ---------- */
   [].slice.call(document.querySelectorAll("[role=tablist]")).forEach(function (list) {
     var tabs = [].slice.call(list.querySelectorAll("[role=tab]"));
