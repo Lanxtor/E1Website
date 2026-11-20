@@ -211,6 +211,19 @@
     document.addEventListener("o2:motion", function (e) { if (e.detail.paused) halt(); else go(); });
   }
 
+  /* ---------- launch day: days to go ---------- */
+  [].slice.call(document.querySelectorAll("[data-countdown]")).forEach(function (el) {
+    var parts = el.getAttribute("data-countdown").split("-");
+    var day = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var n = Math.round((day - today) / 86400000);
+    var num = el.querySelector("[data-countdown-n]"), unit = el.querySelector("[data-countdown-u]");
+    if (n > 0) { num.textContent = String(n); unit.textContent = n === 1 ? "day to go" : "days to go"; }
+    else if (n === 0) { num.textContent = "Today"; unit.textContent = "it starts"; }
+    else { num.textContent = "Live"; unit.textContent = "now"; }
+    el.hidden = false;
+  });
+
   /* ---------- reveals that run once (One model) ---------- */
   var once = [].slice.call(document.querySelectorAll("[data-reveal-once]"));
   if (still || paused || !("IntersectionObserver" in window)) {

@@ -342,6 +342,56 @@
 .o2-rc:hover .o2-rc-go { background: var(--rc); color: #fff; }
 
 /* ---------- closing ---------- */
+.o2-launch { position: relative; overflow: hidden; padding: 96px 0 104px; background: radial-gradient(900px 500px at 15% 10%, rgba(255,255,255,0.18), transparent 60%), linear-gradient(135deg, #0b3a7a 0%, #1565c0 55%, #0f8a78 100%); color: #fff; }
+.o2-launch .container { position: relative; z-index: 1; }
+.o2-launch-top { display: flex; align-items: center; justify-content: center; gap: 40px; margin: 0 auto 56px; max-width: 980px; }
+.o2-cal { flex: none; display: flex; flex-direction: column; align-items: center; width: 176px; padding: 0 0 16px; border-radius: 24px; background: #fff; color: var(--o2-ink); box-shadow: 0 30px 60px -24px rgba(0,0,0,0.5); transform: rotate(-5deg); overflow: hidden; }
+.o2-cal-m { align-self: stretch; padding: 10px 0; background: #e23d3d; color: #fff; font-family: "Sora", var(--font); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.2em; text-transform: uppercase; text-align: center; }
+.o2-cal-d { font-family: "Sora", var(--font); font-size: 5.6rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; }
+.o2-cal-y { font-size: 0.85rem; font-weight: 700; color: var(--o2-muted); }
+.o2-launch-pill { display: inline-block; margin: 0 0 12px; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.35); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #fff !important; }
+.o2-launch h2 { margin: 0; font-family: "Sora", var(--font); font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; color: #fff; }
+.o2-launch h2 .num { color: #ffd65a; }
+.o2-countdown { margin: 16px 0 0; font-size: 1.1rem; color: rgba(255,255,255,0.85) !important; }
+.o2-countdown b { font-family: "Sora", var(--font); font-size: 1.7rem; color: #fff; margin-right: 4px; }
+.o2-prods { display: grid; grid-template-columns: 1.5fr 1fr 0.8fr; gap: 22px; margin: 0; padding: 0; list-style: none; align-items: stretch; }
+.o2-prod { min-width: 0; display: flex; flex-direction: column; padding: 22px 22px 20px; border-radius: 22px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); transition: transform var(--o2-mid), background var(--o2-mid); }
+.o2-prod:hover { transform: translateY(-4px); background: rgba(255,255,255,0.15); }
+.o2-prod-pic { display: flex; align-items: flex-end; justify-content: center; height: 250px; margin-bottom: 30px; }
+.o2-prod img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.o2-laptop { height: 100%; width: auto; max-width: 100%; aspect-ratio: 16 / 9.6; padding: 10px 10px 0; border-radius: 14px 14px 4px 4px; background: #111827; box-shadow: 0 26px 50px -24px rgba(0,0,0,0.6); position: relative; }
+.o2-laptop::after { content: ""; position: absolute; left: -7%; right: -7%; bottom: -12px; height: 12px; border-radius: 0 0 14px 14px; background: linear-gradient(#d7dde5, #9aa6b4); }
+.o2-laptop img { border-radius: 4px 4px 0 0; }
+.o2-tab { height: 78%; width: auto; max-width: 100%; aspect-ratio: 1194 / 834; padding: 9px; border-radius: 20px; background: #111827; box-shadow: 0 26px 50px -24px rgba(0,0,0,0.6); }
+.o2-tab img { border-radius: 10px; }
+.o2-mob { height: 100%; width: auto; aspect-ratio: 786 / 1704; padding: 6px; border-radius: 22px; background: #111827; box-shadow: 0 26px 50px -24px rgba(0,0,0,0.6); }
+.o2-mob img { border-radius: 16px; }
+.o2-prod h3 { margin: 0 0 6px; font-family: "Sora", var(--font); font-size: 1.4rem; color: #fff; }
+.o2-prod p { margin: 0 0 16px; font-size: 1rem; color: rgba(255,255,255,0.85) !important; }
+.o2-plats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.o2-plat { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px 6px 10px; border-radius: 999px; background: #fff; color: var(--o2-ink); font-size: 0.85rem; font-weight: 700; }
+.o2-plat svg { width: 17px; height: 17px; }
+.o2-launch-cta { margin-top: 44px; text-align: center; }
+.o2-btn-light { padding: 14px 34px; border-radius: 999px; background: #fff; color: var(--brand) !important; font-weight: 800; font-size: 1.05rem; box-shadow: 0 16px 34px -16px rgba(0,0,0,0.5); }
+.o2-btn-light:hover { background: #ffd65a; color: var(--o2-ink) !important; }
+.o2-confetti i { position: absolute; width: 10px; height: 16px; border-radius: 3px; opacity: 0.85; animation: o2-fall 9s linear infinite; }
+.o2-confetti i:nth-child(1) { left: 6%; background: #ffd65a; animation-delay: 0s; }
+.o2-confetti i:nth-child(2) { left: 14%; background: #fff; animation-delay: -2s; width: 8px; }
+.o2-confetti i:nth-child(3) { left: 23%; background: #ff7a7a; animation-delay: -5s; }
+.o2-confetti i:nth-child(4) { left: 31%; background: #7fe3c9; animation-delay: -7s; width: 7px; }
+.o2-confetti i:nth-child(5) { left: 42%; background: #ffd65a; animation-delay: -3.5s; }
+.o2-confetti i:nth-child(6) { left: 53%; background: #fff; animation-delay: -6s; }
+.o2-confetti i:nth-child(7) { left: 61%; background: #8cc0ff; animation-delay: -1s; width: 8px; }
+.o2-confetti i:nth-child(8) { left: 70%; background: #ff7a7a; animation-delay: -4.5s; }
+.o2-confetti i:nth-child(9) { left: 78%; background: #7fe3c9; animation-delay: -8s; }
+.o2-confetti i:nth-child(10) { left: 86%; background: #ffd65a; animation-delay: -2.8s; width: 7px; }
+.o2-confetti i:nth-child(11) { left: 93%; background: #fff; animation-delay: -6.6s; }
+.o2-confetti i:nth-child(12) { left: 48%; background: #ff7a7a; animation-delay: -0.6s; width: 6px; }
+@keyframes o2-fall { 0% { top: -20px; transform: rotate(0deg); } 100% { top: 105%; transform: rotate(540deg); } }
+.o2.o2-still .o2-confetti i { animation: none; top: 8%; }
+@media (prefers-reduced-motion: reduce) { .o2-confetti i { animation: none; top: 8%; } }
+@media (max-width: 1100px) { .o2-prods { grid-template-columns: 1fr 1fr; } .o2-prod-e1 { grid-column: 1 / -1; } }
+@media (max-width: 760px) { .o2-launch { padding: 64px 0 72px; } .o2-launch-top { flex-direction: column; gap: 26px; text-align: center; } .o2-cal { width: 140px; } .o2-cal-d { font-size: 4.4rem; } .o2-prods { grid-template-columns: minmax(0, 1fr); } .o2-prod-pic { height: 200px; } }
 .o2-close { text-align: center; }
 .o2-close .o2-actions { justify-content: center; }
 .o2-date { display: inline-block; margin-bottom: 14px; padding: 6px 14px; border-radius: 999px; background: var(--brand-soft); font-weight: 700; color: var(--brand); font-variant-numeric: tabular-nums; }
