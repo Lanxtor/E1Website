@@ -216,6 +216,15 @@ test("DRAW-tags-labels, DRAW-attribute-labels, DRAW-select: labels typed over, d
   await expect(select).toContainText("Click a value in that list, for example Material");
   await expect(select).toContainText("Service, Nominal size, Fluid, Pipe class");
   await expect(select).toContainText("Heat tracing opens a list with None, Electric, Steam, Hot water and Hot oil");
+  await expect(select).toContainText("the project's own pick list where it has one");
+  await expect(labels).toContainText("A wire's number is typed over the same way");
+  // E1 Reviewer draws the same: its guide says so and links back here.
+  await page.goto("/guide-reviewer.html#ipad-sheets");
+  const ipad = page.locator("#ipad-sheets");
+  await expect(ipad).toContainText("a line has its type's marks");
+  await expect(ipad).toContainText("joined to it by a thin leader");
+  await ipad.getByRole("link", { name: "Line style, thickness and colour" }).click();
+  await expectScrolledTo(page.locator("#draw-line-style"));
 });
 
 test("DRAW-connector: the guide tells that the Connector routes the line, shows it first and is one step to undo", async ({ page }) => {
@@ -229,6 +238,7 @@ test("DRAW-connector: the guide tells that the Connector routes the line, shows 
   await expect(steps.filter({ hasText: "around the symbol and the lines in its way" })).toHaveCount(1);
   await expect(steps.filter({ hasText: "Click a nozzle, then click another nozzle" })).toContainText("The same routed pipe as a drag draws");
   await expect(steps.filter({ hasText: "press Ctrl+Z once" })).toContainText("The whole line is gone");
+  await expect(steps.filter({ hasText: "with the hint" })).toContainText("the line is routed around what is in its way, as shown before the click");
   /* The catalog finds it by what it now does. */
   await page.goto("/guide-features.html");
   await expect(page.locator("body")).toContainText("routed around what is in the way");
@@ -275,6 +285,7 @@ test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break li
   await expect(steps.filter({ hasText: "Drag a bend grip sideways" })).toContainText("the next bend slides with it");
   await expect(steps.filter({ hasText: "Remove bend" })).toContainText("The line itself is not deleted");
   await expect(steps.filter({ hasText: "where another pipe already ends" })).toContainText("already ends a pipe: a nozzle takes one pipe.");
+  await expect(steps.filter({ hasText: "or onto empty 2D space" })).toContainText("the end is a free end at that place");
   for (const label of ["Break line", "Join lines", "Straighten", "Reset route"]) await expect(part.locator(".ui", { hasText: label }).first()).toBeVisible();
   await expect(steps.filter({ hasText: "Drag one of the valves the hand-shaped pipe ends on" })).toContainText("The pipe keeps the bends you gave it");
   await expect(part.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=first-pid&lesson=[\w-]+$/);
@@ -338,7 +349,7 @@ test("DRAW-command-search, DRAW-quick-swap, DRAW-clipboard, GS-shortcuts: the to
  */
 const PID_DOCUMENTS = [
   { id: "LIST-standard-lists", lesson: "list-standard-lists", says: ["Line list", "Valve list", "Equipment list", "Instrument index", "Hold list", "Excel (.xlsx)", "Saved query"] },
-  { id: "WF-hold-cloud", lesson: "wf-hold-cloud", says: ["Put on hold…", "Edit hold…", "Close hold", "HOLD H1", "Hold list", "Open holds", "Show holds"] },
+  { id: "WF-hold-cloud", lesson: "wf-hold-cloud", says: ["Put on hold…", "Edit hold…", "Close hold", "HOLD H1", "Hold list", "Open holds", "Closed holds", "All holds", "never used again", "Export PDF", "Open PDF", "Hold clouds", "Show holds"] },
   { id: "DOC-legend-sheet", lesson: "doc-legend-sheet", says: ["Legend sheet", "Refresh", "Export PDF", "Symbols in use", "Line types in use", "Tag letters in use", "ISO 10628-2"] },
 ];
 for (const { id, lesson, says } of PID_DOCUMENTS) {
