@@ -577,7 +577,7 @@
 <section class="g-feature" id="draw-edit-line">
   <h2>Shape a line: bends, ends, join, break and straighten</h2>
   <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-edit-line</span><span>Roadmap M3.3b</span><span>Review check B5</span></div>
-  <p class="g-summary">A selected line shows grips: one on each bend, one in the middle of each segment and one on each end. With them you shape the line by hand, and its right-click menu joins two lines, breaks one in two, takes out bends it does not need, or lets E1 route it again. A line you shaped by hand keeps its bends when a symbol at its end moves.</p>
+  <p class="g-summary">The selected segments of a line show grips: one in the middle of each, one on each bend at their ends, and one on an end of the line. With them you shape the line by hand, and its right-click menu joins two lines, breaks one in two, takes out bends it does not need, or lets E1 route it again. A line you shaped by hand keeps its bends when a symbol at its end moves.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>On a 2D space: select one line with <span class="ui">Select</span>; right-click a line for its menu</dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -587,7 +587,7 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Click the pipe.</td><td>It is selected and shows a round grip on each bend, a small square grip in the middle of each segment and a round grip on each end.</td></tr>
+      <tr><td>1</td><td>Click a segment of the pipe, then <span class="ui">Shift</span>-click its other segments.</td><td>The clicked segment shows its grips: a small square grip in its middle and a round grip on the bend, or the end of the line, at each of its ends. Each segment you add shows its grips too; a segment that is not selected has none, so a click on it always selects it.</td></tr>
       <tr><td>2</td><td>Drag a bend grip sideways.</td><td>The bend moves and the next bend slides with it, so every segment stays horizontal or vertical. Beside an end of the line the bend only slides along that segment. The line is still the same line, with its tag.</td></tr>
       <tr><td>3</td><td>Drag the square grip in the middle of a segment aside.</td><td>The line steps over there: new bends are added where you dragged.</td></tr>
       <tr><td>4</td><td>Click a bend grip, then press <span class="ui">Delete</span> (or <span class="ui">Backspace</span>). Or right-click the bend and choose <span class="ui">Remove bend</span>.</td><td>That bend is taken out and the line is squared again with fewer bends. The line itself is not deleted. With no bend picked, <span class="ui">Delete</span> deletes the line as before.</td></tr>

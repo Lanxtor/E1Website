@@ -284,6 +284,7 @@ test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break li
   await expect(part.getByRole("heading", { level: 2 })).toHaveText("Shape a line: bends, ends, join, break and straighten");
   const steps = part.locator("table.g-steps tbody tr");
   await expect(steps).toHaveCount(12);
+  await expect(steps.filter({ hasText: "Shift-click its other segments" })).toContainText("a segment that is not selected has none");
   await expect(steps.filter({ hasText: "Drag a bend grip sideways" })).toContainText("the next bend slides with it");
   await expect(steps.filter({ hasText: "Remove bend" })).toContainText("The line itself is not deleted");
   await expect(steps.filter({ hasText: "where another pipe already ends" })).toContainText("already ends a pipe: a nozzle takes one pipe.");
