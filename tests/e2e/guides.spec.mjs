@@ -264,6 +264,23 @@ test("DRAW-live-checks, DRAW-layout-check: what is marked while drawing with its
   await expect(live).toContainText("This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.");
   for (const fix of ["Delete the open pipe", "Flip the flow of the chain", "Use DN 80 on both", "Rename to P-102", "Connect to off-page connector…"]) await expect(live).toContainText(fix);
   await expect(live).toContainText("At a tee: a branch in another pipe class than its header");
+  // The Checks window: by kind, yellow and red, filtered, told from Alex, moved and resized.
+  const win = live.locator("table.g-steps").nth(1);
+  await expect(live.getByRole("heading", { level: 3, name: "The Checks window: by kind, filtered, moved and resized" })).toBeVisible();
+  for (const kind of ["Duplicate tags", "Flow direction", "Open pipe ends", "Pipe size changes", "Pipe class changes", "Off-page connectors with no counterpart"]) await expect(win).toContainText(kind);
+  await expect(win).toContainText("A tag names one item. Rename one of the two.");
+  await expect(win).toContainText("P-101 (the other is on PID-2)");
+  for (const label of ["Critical", "Warnings", "All", "About these checks", "Let Alex help"]) await expect(win.locator(".ui", { hasText: new RegExp(`^${label}$`) }).first()).toBeVisible();
+  await expect(win).toContainText("No warnings on this 2D space");
+  await expect(win).toContainText("Drag the window by its title.");
+  await expect(win).toContainText("Drag the lower right corner of the window");
+  await expect(win).toContainText("the list of problems scrolls inside");
+  await expect(win).toContainText("Double-click the title.");
+  await expect(live).toContainText("Two items with one tag is critical (red)");
+  await expect(live).toContainText("Every other problem is a warning (yellow)");
+  await expect(live).toContainText("Checks or Alex?");
+  await expect(live.getByRole("link", { name: "Alex", exact: true })).toHaveAttribute("href", "guide-ai.html#ai-alex");
+  await expect(live).not.toContainText("A card opens");
   await expect(live.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=process-design&lesson=[\w-]+$/);
   await expect(live.locator(".g-learn").getByRole("link", { name: /^Show me how in E1: / })).toHaveAttribute("href", "https://app.lanxtor.com/?guide=sheet-live-checks");
 
