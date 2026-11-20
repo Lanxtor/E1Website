@@ -169,6 +169,7 @@ test("DRAW-connector: the guide tells that the Connector routes the line, shows 
   /* The catalog finds it by what it now does. */
   await page.goto("/guide-features.html");
   await expect(page.locator("body")).toContainText("routed around what is in the way");
+});
 
 test("DRAW-live-checks, DRAW-layout-check: what is marked while drawing with its fix, and the layout warnings, each with Watch the lesson and Show me how in E1", async ({ page }) => {
   await page.goto("/guide-drawing.html#draw-live-checks");
