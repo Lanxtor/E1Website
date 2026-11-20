@@ -260,10 +260,12 @@
 
 /* ---------- CTA band ---------- */
 .o2-cta { padding: 64px 0; background: var(--navy); color: #fff; }
-.o2-cta .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
-.o2-cta h2 { margin: 0; font-family: "Sora", var(--font); font-size: clamp(1.6rem, 2.6vw, 2.2rem); color: #fff; max-width: 26ch; }
+.o2-cta .container { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 48px; }
+.o2-cta .container > div:first-child { flex: 1 1 auto; max-width: 820px; }
+.o2-cta .o2-actions { flex: none; }
+.o2-cta h2 { margin: 0 0 6px; font-family: "Sora", var(--font); font-size: clamp(1.6rem, 2.6vw, 2.2rem); color: #fff; max-width: 30ch; }
 .o2-cta p { margin: 8px 0 0; color: var(--o2-on-dark-muted) !important; }
-.o2-cta p b { color: #fff; }
+.o2-cta p b { display: inline-block; margin-top: 4px; font-family: "Sora", var(--font); font-weight: 600; color: #fff; letter-spacing: -0.005em; }
 .o2-cta .btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.6); }
 .o2-cta .btn-ghost:hover { background: #fff; color: var(--navy); }
 
