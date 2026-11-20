@@ -517,3 +517,14 @@ test("PRJ-main-read-only, AI-automated-assistants, ORG-tokens: main read-only wh
   await expect(tokens.getByRole("heading", { level: 3, name: "Branches and commissioning packages" })).toBeVisible();
   for (const route of ["POST /projects/{id}/branches", "X-E1-Branch: <branch>", "POST /projects/{id}/packages/{package}/objects", "GET /projects/{id}/main-read-only"]) await expect(tokens).toContainText(route);
 });
+
+test("Show me how in the user guide: Watch the lesson is the large button at the top right, the user guide link under it", async ({ page }) => {
+  await page.goto("/guide-ai.html#ai-guide-show-me-how");
+  const feature = page.locator("#ai-guide-show-me-how");
+  await expect(feature.getByRole("heading", { level: 2 })).toHaveText("Show me how: the idea first, then each step");
+  const rows = feature.locator("table.g-steps tbody tr");
+  await expect(rows.nth(0)).toContainText("at the top right, beside the title, the large button Watch the lesson with the film's name and length, and Read it in the user guide ↗ under it");
+  const watch = rows.filter({ hasText: "click Watch the lesson at the top right" });
+  await expect(watch).toHaveCount(1);
+  await expect(watch).toContainText("The E1 Academy film of this page opens in the browser, at its lesson.");
+});
