@@ -253,6 +253,7 @@ test("DRAW-edit-line, DRAW-line-style: the grips of a line, Join lines, Break li
   await expect(steps.filter({ hasText: "Drag a bend grip sideways" })).toContainText("the next bend slides with it");
   await expect(steps.filter({ hasText: "Remove bend" })).toContainText("The line itself is not deleted");
   await expect(steps.filter({ hasText: "where another pipe already ends" })).toContainText("already ends a pipe: a nozzle takes one pipe.");
+  await expect(steps.filter({ hasText: "or onto empty 2D space" })).toContainText("the end is a free end at that place");
   for (const label of ["Break line", "Join lines", "Straighten", "Reset route"]) await expect(part.locator(".ui", { hasText: label }).first()).toBeVisible();
   await expect(steps.filter({ hasText: "Drag one of the valves the hand-shaped pipe ends on" })).toContainText("The pipe keeps the bends you gave it");
   await expect(part.locator(".g-learn").getByRole("link", { name: /^Watch the lesson: / })).toHaveAttribute("href", /^training\.html\?course=first-pid&lesson=[\w-]+$/);
