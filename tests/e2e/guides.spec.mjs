@@ -128,6 +128,16 @@ test("GS-units: the unit system is chosen in Project settings; the status bar ha
   await expect(bar.locator("img")).toHaveAttribute("alt", /appearance switch/);
 });
 
+test("GS-getting-started: Steps for names Maintenance and modifications, and what I manage engineers gives", async ({ page }) => {
+  await page.goto("/guide-getting-started.html#gs-getting-started");
+  const part = page.locator("#gs-getting-started");
+  await expectScrolledTo(part);
+  const row = part.locator("tr", { hasText: "Steps for:" });
+  await expect(row).toContainText("Process engineering, Instrumentation and control, Electrical, Maintenance and modifications, I manage engineers or Just looking");
+  await expect(row).toContainText("Maintenance and modifications gives the steps on branches, reviews and tasks");
+  await expect(row).toContainText("I manage engineers those on progress, the deliverable set and signing off a revision");
+});
+
 test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line opens its window; Show in tree takes its pipe run", async ({ page }) => {
   await page.goto("/guide-drawing.html#draw-select");
   const select = page.locator("#draw-select");
