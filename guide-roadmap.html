@@ -125,7 +125,7 @@
         </section>
         <section class="g-feature" id="app-m3">
           <h2>M3 Lists and connectivity — E1 app</h2>
-          <div class="g-meta"><span>15 of 15 stages done</span><span>MVP</span></div>
+          <div class="g-meta"><span>16 of 16 stages done</span><span>MVP</span></div>
           <p class="g-summary">Pipes, cables, wires, and signals are objects connected to ports. Any list is a live table of the model: right-click any node, Query ▸ New query… lists every object below it, in an Excel-like query view that can be filtered, edited, saved as a template (then listed under Query ▸), and exported to Excel. There are no fixed lists. The large 2D drawing editor arrives here. After M3, a first informal pilot preview.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>M3.1</td><td>Drawings: lines as objects, placements in 2D</td><td><span class="g-status available">Done</span></td><td>Open a drawn sheet and edit it. Under Assets, open Pipelines, Signal lines or Cables and wires: each drawn pipe run, signal, cable, or wire is an object with its own attributes; drawing a second pipe to a nozzle that already has one is refused.</td></tr>
@@ -143,6 +143,7 @@
             <tr><td>M3.13</td><td>Copy and paste between sheets and projects, through Copy temp</td><td><span class="g-status available">Done</span></td><td>Copy a pump on a sheet, open a sheet of another project (in this window or another tab) and paste: the new pump, with its values, is in Assets ▸ Copy temp, and the area it was in is in Areas ▸ Copy temp. Drag them where they belong: Copy temp disappears once it is empty.</td></tr>
             <tr><td>M3.14</td><td></td><td><span class="g-status available">Done</span></td><td>Select a symbol: its attributes that hold a value, then Format and arrange, open on the right.</td></tr>
             <tr><td>M3.15</td><td>Rotate symbols on the 2D sheet</td><td><span class="g-status available">Done</span></td><td>Select a pump on a sheet and press R: it turns a quarter turn clockwise and its pipes follow; Shift+R turns it back. Right-click it → Rotate ▸ for Clockwise, Counter-clockwise and Half turn.</td></tr>
+            <tr><td>M3.21</td><td>Positioning on the 2D sheet: snap to grid, alignment guides, arrow keys, touch</td><td><span class="g-status available">Done</span></td><td>On a sheet with Snap on, drag a valve: it lands on the grid, a guide line shows where it lines up with another symbol, and near a loose pipe end it lands on it, connected. Select it and press the arrow keys (Shift: ten steps). On a touch screen, pinch with two fingers to zoom and pan.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m4">
@@ -247,14 +248,15 @@
         </section>
         <section class="g-feature" id="app-m7">
           <h2>M7 Piping — E1 app</h2>
-          <div class="g-meta"><span>5 of 5 stages done</span><span>MVP</span></div>
+          <div class="g-meta"><span>6 of 6 stages done</span><span>MVP</span></div>
           <p class="g-summary">Pipelines between boundaries, piping segments, and inline components; double-click selects a whole pipeline. Pipe classes with calculated schedule, material, and rating, and the pipe schedule (line list). DEXPI export comes after the MVP.</p>
           <div class="g-table-wrap"><table class="g-steps"><thead><tr><th>Stage</th><th>What</th><th>Status</th><th>What you can try</th></tr></thead><tbody>
             <tr><td>13.1</td><td>Pipelines and selection</td><td><span class="g-status available">Done</span></td><td>Right-click a tank on a 2D space → Flow ▸ Define pipeline from here ▸ Outlet, then click the pump: the pipe, valves and fittings between them become a pipeline under Assets → Piping, in segments split at a reducer. Double-click one of its lines: the pipeline is selected; again, its segment.</td></tr>
             <tr><td>13.2</td><td>Completeness and detection</td><td><span class="g-status available">Done</span></td><td>Right-click a pump → Flip ▸ Turn around, then right-click empty 2D space → Check piping…: one finding, P-… is turned the wrong way, with Turn around and Flip the flow as fixes. Proposals lists the pipelines to make; Create makes one.</td></tr>
             <tr><td>13.3</td><td>Pipe classes</td><td><span class="g-status available">Done</span></td><td>Configuration → Pipe classes → New pipe class (or Import… a spreadsheet), Publish; set a pipeline&#x27;s Pipe class to its code, then Check piping… → Refresh pipelines: each segment shows its schedule, material and rating.</td></tr>
             <tr><td>13.4</td><td>Pipe schedule (line list)</td><td><span class="g-status available">Done</span></td><td>Right-click Assets → Piping → Query ▸ New query…, filter Class is Pipeline, add From, To, Nominal size, Pipe class and 2D spaces, and Save it as Pipe schedule for the project; a list document of it exports to Excel and PDF.</td></tr>
-            <tr><td>13.6</td><td>Line numbers as you draw</td><td><span class="g-status available">Done</span></td><td>Draw a pipe on a P&amp;ID: it shows its line number, P-10001. Click a gate valve onto it: the number stays on both sides. Right-click the pipe → Flow ▸ Size and pipe class…, choose 6&quot;: the number reads 6&quot;-P-10001 and the valve has the size.</td></tr>
+            <tr><td>13.6</td><td>Checks while drawing and the layout check</td><td><span class="g-status available">Done</span></td><td>Draw a pipe that ends in the open: a marker appears on its end and a count beside Checks in the status row; click the marker, then Delete the open pipe. Check piping… also warns of more than three major equipment items, main flow drawn right to left and an off-page connector on the wrong edge.</td></tr>
+            <tr><td>13.7</td><td>Line numbers as you draw</td><td><span class="g-status available">Done</span></td><td>Draw a pipe on a P&amp;ID: it shows its line number, P-10001. Click a gate valve onto it: the number stays on both sides. Right-click the pipe → Flow ▸ Size and pipe class…, choose 6&quot;: the number reads 6&quot;-P-10001 and the valve has the size.</td></tr>
           </tbody></table></div>
         </section>
         <section class="g-feature" id="app-m6">

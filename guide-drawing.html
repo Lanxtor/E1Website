@@ -126,6 +126,8 @@
           <li><a href="#draw-pipelines">Pipelines and completeness checks</a></li>
           <li><a href="#draw-line-numbers">Line numbers as you draw, size and pipe class</a></li>
           <li><a href="#draw-piping-check">Check piping and flow direction</a></li>
+          <li><a href="#draw-live-checks">Checks while drawing</a></li>
+          <li><a href="#draw-layout-check">Layout check</a></li>
           <li><a href="#draw-scd">System control diagrams (NORSOK SCD)</a></li>
           <li><a href="#draw-pipe-classes">Pipe classes</a></li>
           <li><a href="#draw-line-list">Pipe schedule (line list)</a></li>
@@ -152,7 +154,7 @@
         <p class="guide-crumbs"><a href="account.html#academy-guides">Academy</a> / <a href="guide.html">User guide</a> / Drawing P&amp;IDs</p>
         <h1>5. Drawing P&amp;IDs</h1>
         <p class="lead">The sheet view: place symbols, draw pipes, signals and cables, select, move, format, layers, flow, off-page connectors and loop diagrams.</p>
-        <div class="g-meta"><span>56 features</span><span>54 available</span></div>
+        <div class="g-meta"><span>58 features</span><span>56 available</span></div>
 <section class="g-feature" id="drawing-overview">
   <h2>About this guide</h2>
   <p class="g-summary">This guide covers the 2D space view, where you draw P&amp;IDs. Every symbol on a 2D space is an object of the project, and every line you draw is a pipe, cable, wire or signal in the model, so the drawing, the explorer and the lists always show the same plant.</p>
@@ -177,7 +179,7 @@
 
 <section class="g-feature" id="draw-sheet-view">
   <h2>Open a 2D space, zoom and pan</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-sheet-view</span><span>Roadmap M3.2, M3.11</span><span>Review check B1</span></div>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-sheet-view</span><span>Roadmap M3.2, M3.11, M3.21</span><span>Review check B1</span></div>
   <p class="g-summary">A 2D space opens in its own tab as a drawing. You zoom with the mouse wheel or the zoom controls, and pan with a drag, the Pan tool or the Space bar. Symbols and text stay sharp at every zoom.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Double-click a 2D space in the explorer, or click its tab. Zoom: the zoom controls at the right end of the status bar under the 2D space, the mouse wheel and the keys.</dd>
@@ -197,6 +199,7 @@
       <tr><td>7</td><td>Drag with the middle mouse button, or with the right button held down.</td><td>The drawing pans, whatever tool is active. A right-click without moving opens a menu instead.</td></tr>
       <tr><td>8</td><td>Right-click empty space and choose <span class="ui">Fit drawing</span>.</td><td>The whole drawing is shown, as with the status bar button.</td></tr>
       <tr><td>8</td><td>Hold <kbd>Shift</kbd> and turn the mouse wheel.</td><td>The drawing pans sideways.</td></tr>
+      <tr><td>9</td><td>On a touch screen, put two fingers on the drawing and move them apart or together; then move both the same way.</td><td>The drawing zooms about the place between your fingers, and pans with them. Nothing is selected or moved. One finger works as the mouse does: a tap selects, a drag moves, and the grips of a selected symbol are larger and sit just outside it.</td></tr>
       <tr><td>9</td><td>Click <span class="ui">Pan</span> in the palette (or press <kbd>H</kbd>), then drag with the left button.</td><td>The status bar reads <span class="ui">Pan</span>, and a left-drag pans. Press <kbd>V</kbd> or click <span class="ui">Select</span> to go back to selecting.</td></tr>
       <tr><td>10</td><td>With <span class="ui">Select</span> active, hold <kbd>Space</kbd> and drag.</td><td>The drawing pans while Space is held.</td></tr>
     </tbody>
@@ -301,16 +304,19 @@
 
 <section class="g-feature" id="draw-aids">
   <h2>Snap, Grid and Ortho</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-aids</span><span>Roadmap M3.3</span><span>Review check B4</span></div>
-  <p class="g-summary">Three drawing aids help you draw clean P&amp;IDs: a grid, snapping of line ends onto nozzles, and lines that stay horizontal or vertical. They are your own settings and stay as you left them after a reload.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-aids</span><span>Roadmap M3.3, M3.21</span><span>Review check B4</span></div>
+  <p class="g-summary">Three drawing aids help you draw clean P&amp;IDs: a grid, Snap, which puts what you place, move or draw on the grid, onto nozzles and line ends and in line with other symbols, and lines that stay horizontal or vertical. They are your own settings and stay as you left them after a reload.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>The toggles <span class="ui">Snap</span>, <span class="ui">Grid</span> and <span class="ui">Ortho</span> in the status bar under the 2D space</dd>
     <dt>Who</dt><dd>Everyone; the setting is per person</dd>
     <dt>Before you start</dt><dd>A 2D space is open.</dd>
   </dl>
   <ul>
-    <li><span class="ui">Grid</span> shows a grid of 0.5 m (2.5 m when you zoom far out).</li>
-    <li><span class="ui">Snap</span>: a line end you move within 16 pixels of a free nozzle or point joins it.</li>
+    <li><span class="ui">Grid</span> shows the grid behind the drawing; its squares get larger as you zoom out.</li>
+    <li><span class="ui">Snap</span>, on the grid: a symbol or a note you move, a symbol you place and a line end you draw on free space land on the grid (steps of 2.5 mm on the sheet).</li>
+    <li><span class="ui">Snap</span>, onto nozzles and line ends: a symbol you bring within 16 pixels of a free nozzle or a loose line end lands on it exactly, and a line end is connected to the symbol. A line end you move near a free nozzle joins it the same way.</li>
+    <li><span class="ui">Snap</span>, alignment guides: while you move or place a symbol, a thin dashed guide line shows where its middle, an edge or a nozzle lines up with another symbol, and the symbol takes that line.</li>
+    <li>Hold <kbd>Alt</kbd> during a drag to leave Snap out for that one move. With <span class="ui">Snap</span> off, everything lands exactly where you let go and no guide shows.</li>
     <li><span class="ui">Ortho</span>: each connector segment stays horizontal or vertical. With Ortho off, lines run straight at any angle.</li>
   </ul>
   <h3>Steps</h3>
@@ -321,9 +327,12 @@
       <tr><td>2</td><td>Reload the page.</td><td>Grid is still off.</td></tr>
       <tr><td>3</td><td>Click <span class="ui">Ortho</span> in the status bar to turn it off, then draw a line with <span class="ui">Connector</span> by clicking two points at an angle.</td><td>The line runs straight at an angle. The status hint says you can draw "at any angle".</td></tr>
       <tr><td>4</td><td>Turn <span class="ui">Ortho</span> and <span class="ui">Grid</span> back on.</td><td>New segments stay horizontal or vertical; the grid is shown again.</td></tr>
+      <tr><td>5</td><td>With <span class="ui">Snap</span> on, drag a valve slowly past the level of another valve.</td><td>A dashed guide line shows through both valves while they line up; let go there and the two are exactly level. Elsewhere the valve lands on the grid.</td></tr>
+      <tr><td>6</td><td>Drag a valve that is connected to nothing so that its outlet comes close to the loose end of a pipe.</td><td>The valve jumps onto the pipe end and the pipe is connected to it: move the valve again and the pipe follows.</td></tr>
+      <tr><td>7</td><td>Click <span class="ui">Snap</span> to turn it off and drag the valve again.</td><td>No guide shows and the valve stays exactly where you let go. Point at <span class="ui">Snap</span> to read what it does.</td></tr>
     </tbody>
   </table></div>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-connector">Connector</a> · <a href="guide-drawing.html#draw-arrange">Move, flip, rotate, resize and align</a> · <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
   <p class="g-learn"><a href="training.html?course=first-pid&amp;lesson=first-pid-02">Watch the lesson: The drawing&#x27;s three modes · Snap, Grid and Ortho</a> <span class="muted">(Your first P&amp;ID · 5 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-view-zoom-pan" target="_blank" rel="noopener">Show me how in E1: Find your way on a 2D space</a></p>
 </section>
 
@@ -477,8 +486,8 @@
 
 <section class="g-feature" id="draw-arrange">
   <h2>Move, flip, rotate, resize and align</h2>
-  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3, M3.15</span><span>Review check B5</span></div>
-  <p class="g-summary">Drag the selection to move it; connected lines follow and stay square. Flip or rotate a symbol, resize it with its grips, or line several symbols up with the Align menu.</p>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-arrange</span><span>Roadmap M3.3, M3.15, M3.21</span><span>Review check B5</span></div>
+  <p class="g-summary">Drag the selection to move it, or nudge it with the arrow keys; connected lines follow and stay square. Flip or rotate a symbol, resize it with its grips, or line several symbols up with the Align menu.</p>
   <dl class="g-facts">
     <dt>Where</dt><dd>Drawing toolbar → <span class="ui">Flip</span>, <span class="ui">Rotate symbol</span> and <span class="ui">Align</span> ▾; right-click a symbol → <span class="ui">Flip</span> ▸ <span class="ui">Horizontal</span> / <span class="ui">Vertical</span>, <span class="ui">Rotate</span> ▸ <span class="ui">Clockwise</span> / <span class="ui">Counter-clockwise</span> / <span class="ui">Half turn</span></dd>
     <dt>Who</dt><dd>Editor license and a project role that may edit drawings</dd>
@@ -488,7 +497,8 @@
   <div class="g-table-wrap"><table class="g-steps">
     <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Select a pump and drag it.</td><td>It moves; its pipes follow and stay horizontal or vertical.</td></tr>
+      <tr><td>1</td><td>Select a pump and drag it.</td><td>It moves; its pipes follow and stay horizontal or vertical. With <span class="ui">Snap</span> on it lands on the grid, and a guide line shows where it lines up with another symbol (<a href="guide-drawing.html#draw-aids">Snap, Grid and Ortho</a>).</td></tr>
+      <tr><td>1a</td><td>With the pump selected, press <kbd>→</kbd> three times, then <kbd>Shift</kbd>+<kbd>↓</kbd>.</td><td>Each arrow key moves the selection one grid step that way; with <kbd>Shift</kbd>, ten steps. Its pipes follow. One <span class="ui">Undo</span> takes the whole run of presses back.</td></tr>
       <tr><td>2</td><td>Press <kbd>F</kbd> (or click <span class="ui">Flip</span>).</td><td>The pump is mirrored. Doing it again turns it back.</td></tr>
       <tr><td>3</td><td>Right-click the pump → <span class="ui">Flip</span> ▸ <span class="ui">Vertical</span>.</td><td>The pump is mirrored top to bottom.</td></tr>
        <tr><td>4</td><td>Select the pump and press <kbd>R</kbd> (or click <span class="ui">Rotate symbol</span>).</td><td>It turns a quarter turn clockwise about its middle; its nozzles turn with it and its pipes follow, kept horizontal or vertical. <kbd>Shift</kbd>+<kbd>R</kbd> turns it counter-clockwise.</td></tr>
@@ -683,7 +693,7 @@
   </table></div>
   <figure class="g-shot" style="max-width:1080px"><img src="assets/img/guides/flow-highlight.webp" alt="Highlight flow on Pump1: the path is highlighted and a banner reads Flow from an open end to an open end, with Clear" width="2160" height="1350" loading="lazy"><figcaption>A highlighted flow path with its description and Clear.</figcaption></figure>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-symbol-menu">The symbol's right-click menu</a></p>
-  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-09">Watch the lesson: Highlighting flow · Animate flow</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-highlight-flow" target="_blank" rel="noopener">Show me how in E1: Trace where the flow goes</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-10">Watch the lesson: Highlighting flow · Animate flow</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-highlight-flow" target="_blank" rel="noopener">Show me how in E1: Trace where the flow goes</a></p>
 </section>
 
 <section class="g-feature" id="draw-layers">
@@ -1262,11 +1272,71 @@
     <li><strong>A branch with only inflow or only outflow.</strong></li>
     <li><strong>An incomplete pipeline:</strong> its start or end is gone, or the drawn pipe between them is cut.</li>
     <li><strong>Pipe in no pipeline</strong> (a note, with Detect pipelines), and an <strong>off-page connector without its counterpart</strong>.</li>
+    <li><strong>A pipe that ends in the open</strong>, <strong>a size or a pipe class that changes across a connection</strong> with no reducer or spec break, and <strong>two items with one tag</strong>: the same findings E1 marks on the 2D space while you draw (<a href="#draw-live-checks">Checks while drawing</a>).</li>
+    <li><strong>The layout</strong>: too many major equipment items, main flow right to left, an off-page connector on the wrong edge (<a href="#draw-layout-check">Layout check</a>).</li>
   </ul>
   <p>One finding per chain of pipe, not per run, so one reversed pump gives one finding. Alex reads the same findings (<em>check_piping</em>) and offers the same fixes.</p>
-  <p class="g-warn">Not built yet: the findings in the Checks panel and as markers on the drawing (with the rule engine, milestone M6), and Ignore with a reason.</p>
-  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a></p>
+  <p class="g-warn">Not built yet: the findings in the Checks panel (with the rule engine, milestone M6), and Ignore with a reason.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-flow-arrows">Flow arrows</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-live-checks">Checks while drawing</a> · <a href="guide-drawing.html#draw-layout-check">Layout check</a></p>
   <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-05">Watch the lesson: Line numbers, size and pipe class · Flow direction and the piping check</a> <span class="muted">(Process design: from PFD to P&amp;ID · 8 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-piping-check" target="_blank" rel="noopener">Show me how in E1: Check piping and flow direction</a></p>
+</section>
+
+<section class="g-feature" id="draw-live-checks">
+  <h2>Checks while drawing</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-live-checks</span><span>Roadmap 13.6</span></div>
+  <p class="g-summary">E1 looks at the 2D space after every change and marks what is wrong the moment you draw it, quietly: a small marker on the item and a count in the status row, never a window. The finding and its fix are one click away.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space (a P&amp;ID, a PFD, a hydraulic diagram, or one with no diagram type): the markers on the drawing, and <span class="ui">Checks</span> with the count in the status row under it</dd>
+    <dt>Who</dt><dd>Anyone who can view the project sees the markers. The fixes: a project role that may edit drawings</dd>
+  </dl>
+  <h3>See a problem and fix it</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Draw a pipe that ends in the open, away from any nozzle.</td><td>A small warning marker appears beside the open end, and the number beside <span class="ui">Checks</span> in the status row goes up by one. No window opens.</td></tr>
+      <tr><td>2</td><td>Click the marker.</td><td>A card opens at the bottom left of the 2D space: "This pipe ends in the open. Connect it to a nozzle or another pipe, or end it at an off-page connector.", with <span class="ui">Show</span> and <span class="ui">Delete the open pipe</span>.</td></tr>
+      <tr><td>3</td><td>Click <span class="ui">Delete the open pipe</span> (or connect the pipe yourself).</td><td>The marker is gone and the count goes down. It is one change: Ctrl+Z brings the pipe and its marker back.</td></tr>
+      <tr><td>4</td><td>Click the number beside <span class="ui">Checks</span>.</td><td>The card lists every problem on the 2D space, each with <span class="ui">Show</span> and its fixes. × or Esc closes it.</td></tr>
+      <tr><td>5</td><td>Click <span class="ui">Checks</span>.</td><td>The markers and the count are hidden; E1 remembers it in this browser. Click it again to turn them back on.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What is marked, and its fix</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>Problem</th><th>Marked on</th><th>Fix on the card</th></tr></thead>
+    <tbody>
+      <tr><td>A pipe that ends in the open</td><td>The open end</td><td><span class="ui">Delete the open pipe</span></td></tr>
+      <tr><td>Flow against flow: two pipes that both flow into a point or a valve, or both out of it; flow that leaves an inlet or enters an outlet; a pump turned the wrong way</td><td>The point or the symbol</td><td><span class="ui">Flip the flow of the chain</span>, <span class="ui">Turn P-101 around</span></td></tr>
+      <tr><td>The pipe size changes across a valve or fitting that is not a reducer, or where two pipe runs meet</td><td>The valve, fitting or point</td><td><span class="ui">Use DN 80 on both</span> or <span class="ui">Use DN 50 on both</span></td></tr>
+      <tr><td>The pipe class changes across a connection with no spec break</td><td>The same</td><td><span class="ui">Use A1 on both</span> or <span class="ui">Use B2 on both</span></td></tr>
+      <tr><td>Two items with one tag, on this 2D space or one here and one on another</td><td>The second symbol</td><td><span class="ui">Rename to P-102</span>: the next number nobody has</td></tr>
+      <tr><td>An off-page connector on a pipe with no counterpart on another 2D space</td><td>The connector</td><td><span class="ui">Connect to off-page connector…</span>, then click the connector on the other 2D space</td></tr>
+    </tbody>
+  </table></div>
+  <p>A pipe run's size and pipe class are its own <span class="ui">Nominal size</span> and <span class="ui">Pipe class</span>, else those of its segment or pipeline. A name without a number ("Valve") is not a tag, and off-page connectors share their name with their counterpart, so neither is reported as a duplicate. E1 never applies a fix on its own. <a href="#draw-piping-check">Check piping…</a> lists the same findings.</p>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-layout-check">Layout check</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-06">Watch the lesson: Checks while drawing · The layout of a P&amp;ID</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-live-checks" target="_blank" rel="noopener">Show me how in E1: Checks while drawing</a></p>
+</section>
+
+<section class="g-feature" id="draw-layout-check">
+  <h2>Layout check</h2>
+  <div class="g-meta"><span class="g-status available">Available</span><span class="g-id">DRAW-layout-check</span><span>Roadmap 13.6</span></div>
+  <p class="g-summary">A P&amp;ID reads from left to right, a few items of equipment to a sheet. Check piping warns when a 2D space departs from that.</p>
+  <dl class="g-facts">
+    <dt>Where</dt><dd>On a 2D space: right-click empty space → <span class="ui">Check piping…</span>, under <em>Findings</em>. The limit: <span class="ui">Settings → Project settings → Drawing → Major equipment on a 2D space</span></dd>
+    <dt>Who</dt><dd>Check piping: anyone who can view the project. The limit: Project administrator</dd>
+  </dl>
+  <h3>Read the layout warnings</h3>
+  <div class="g-table-wrap"><table class="g-steps">
+    <thead><tr><th>#</th><th>Action</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>On a 2D space with four tanks, right-click empty space and choose <span class="ui">Check piping…</span>.</td><td>A warning: "PID-1 has 4 major equipment items, more than 3: the sheet gets hard to read. Move some to another 2D space." A set of pumps in one service, P-101A and P-101B, counts as one; valves, fittings, instruments and connectors do not count.</td></tr>
+      <tr><td>2</td><td>Open <span class="ui">Settings → Project settings → Drawing</span> and set <span class="ui">Major equipment on a 2D space</span> to 4 (2 to 10, or <span class="ui">No limit</span>).</td><td>Saved at once. Check piping no longer warns of four items on any 2D space of the project.</td></tr>
+      <tr><td>3</td><td>Draw the process from right to left and check again.</td><td>A warning: "The main flow on PID-1 runs right to left. Draw the process from left to right." A short recycle back says nothing: it is the direction most of the pipe runs.</td></tr>
+      <tr><td>4</td><td>Draw an off-page connector that brings flow in on the right of the drawing, or one that takes flow out on the left, and check again.</td><td>A warning for each: "Off-page connector L-100 brings flow in on the right of PID-1: incoming connectors belong on the left edge." <span class="ui">Show</span> selects it. Utilities are exempt: a connector or pipe named for steam, condensate, cooling water, instrument air, nitrogen, fuel gas, flare, vent or drain.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="g-related">Related: <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-live-checks">Checks while drawing</a> · <a href="guide-drawing.html#draw-off-page">Off-page connectors</a> · <a href="guide-library.html#lib-project-settings">Project settings</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-06">Watch the lesson: Checks while drawing · The layout of a P&amp;ID</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-piping-check" target="_blank" rel="noopener">Show me how in E1: Check piping and flow direction</a></p>
 </section>
 
 <section class="g-feature" id="draw-scd">
@@ -1346,7 +1416,7 @@
   </ul>
   <p class="g-warn">Not built yet: spec break symbols, the branch table check, size ranges of valves, a read-only mark on the calculated values, and the line number rule with the class code.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-piping-check">Check piping</a> · <a href="guide-drawing.html#draw-line-list">Pipe schedule</a></p>
-  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-06">Watch the lesson: Pipe classes</a> <span class="muted">(Process design: from PFD to P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=cfg-pipe-classes" target="_blank" rel="noopener">Show me how in E1: Pipe classes</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-07">Watch the lesson: Pipe classes</a> <span class="muted">(Process design: from PFD to P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=cfg-pipe-classes" target="_blank" rel="noopener">Show me how in E1: Pipe classes</a></p>
 </section>
 
 <section class="g-feature" id="draw-line-list">
@@ -1373,7 +1443,7 @@
     <li>For a document with a revision: make a list document under Revisions, give it the saved <em>Pipe schedule</em>, add a revision, and export it to Excel or PDF with the project, document, revision and date in its title (<a href="guide-documents.html">Documents</a>).</li>
   </ul>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-pipelines">Pipelines</a> · <a href="guide-drawing.html#draw-pipe-classes">Pipe classes</a> · <a href="guide-lists.html#list-new-query">New query</a></p>
-  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-08">Watch the lesson: The line list</a> <span class="muted">(Process design: from PFD to P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=list-pipe-schedule" target="_blank" rel="noopener">Show me how in E1: Build a pipe schedule</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-09">Watch the lesson: The line list</a> <span class="muted">(Process design: from PFD to P&amp;ID · 4 min)</span> · <a href="https://app.lanxtor.com/?guide=list-pipe-schedule" target="_blank" rel="noopener">Show me how in E1: Build a pipe schedule</a></p>
 </section>
 
 <section class="g-feature" id="draw-dexpi">
@@ -1778,7 +1848,7 @@
   </table></div>
   <p class="g-note">Alex judges with the same tables as its review: the usual velocity ranges (liquid 0.6–3 m/s, gas 5–25 m/s, steam 15–40 m/s), the erosional velocity of API RP 14E, cable ratings of IEC 60364-5-52 and a voltage drop of 3 % for lighting and 5 % for other uses. Speed changes how fast it runs (0.5× to 4×); <span class="ui">Values</span> shows the velocity or the current and voltage drop on each line. On sheets with 4–20 mA signals, <span class="ui">Process value</span> in the panel sets the loop current. With your system's reduced motion on, the animation starts paused. Flow follows the drawn direction of the pipes: check piping finds lines drawn the wrong way.</p>
   <p class="g-related">Related: <a href="guide-drawing.html#draw-sheet-view">Open a 2D space, zoom and pan</a></p>
-  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-09">Watch the lesson: Highlighting flow · Animate flow</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-animate-flow" target="_blank" rel="noopener">Show me how in E1: Watch the flow and the current move</a></p>
+  <p class="g-learn"><a href="training.html?course=process-design&amp;lesson=process-design-10">Watch the lesson: Highlighting flow · Animate flow</a> <span class="muted">(Process design: from PFD to P&amp;ID · 7 min)</span> · <a href="https://app.lanxtor.com/?guide=sheet-animate-flow" target="_blank" rel="noopener">Show me how in E1: Watch the flow and the current move</a></p>
 </section>
 
         <p class="g-related">← <a href="guide-objects.html">Objects, attributes and tags</a> · <a href="guide-lists.html">Lists and queries</a> →</p>
