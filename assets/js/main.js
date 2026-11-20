@@ -648,6 +648,35 @@
     });
   }
 
+  /* Back from a role page to where the visitor came from: arriving from the
+     Overview's role picker (?from=overview), the page's back link offers
+     Overview as well as Solutions; pages without one get a small back link. */
+  function initBackLinks() {
+    var from = null;
+    try { from = new URLSearchParams(location.search).get("from"); } catch (e) { from = null; }
+    if (from !== "overview") return;
+    var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>';
+    var toOverview = H("overview-2.html") + "#roles";
+    var back = document.querySelector(".cs-back");
+    if (back) {
+      var solutions = back.getAttribute("href");
+      var wrap = document.createElement("p");
+      wrap.className = "cs-backs";
+      wrap.innerHTML = '<a class="cs-back" href="' + toOverview + '">' + arrow + "<span>" + T("Overview") + "</span></a>" +
+        '<span class="cs-backs-sep" aria-hidden="true">·</span>' +
+        '<a class="cs-back" href="' + solutions + '"><span>' + T("Solutions") + "</span></a>";
+      back.parentNode.replaceChild(wrap, back);
+      return;
+    }
+    var main = document.querySelector("main .container") || document.querySelector("main");
+    if (!main) return;
+    var link = document.createElement("a");
+    link.className = "cs-back cs-back-solo";
+    link.href = toOverview;
+    link.innerHTML = arrow + "<span>" + T("Overview") + "</span>";
+    main.insertBefore(link, main.firstChild);
+  }
+
   renderHeader();
   renderFooter();
 
@@ -662,5 +691,6 @@
     initCatalog();
     initLaunch();
     initCampaignLinks();
+    initBackLinks();
   });
 })();
