@@ -155,6 +155,37 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-clipboard: a symbol put on a pipe go
   await expect(clipboard).toContainText("Drag the copy onto a pipe and it goes into the line, connected on both sides");
 });
 
+test("DRAW-line-style: the line types are listed with how each is drawn; the PDF and DEXPI export are named", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-line-style");
+  const style = page.locator("#draw-line-style");
+  await expectScrolledTo(style);
+  await expect(style).toContainText("the signal lines of ISA-5.1, and heat-traced and jacketed pipes");
+  await expect(style).toContainText("choose Pneumatic signal");
+  await expect(style.getByRole("heading", { name: "The line types" })).toBeVisible();
+  const types = style.locator("table").nth(1).locator("tbody tr td:first-child");
+  await expect(types).toHaveText(["Solid, Dashed", "Pneumatic signal", "Electric signal", "Capillary tube", "Hydraulic signal", "Electromagnetic or sonic signal",
+    "Software or data link", "Mechanical link", "Undefined signal", "Heat-traced pipe", "Jacketed pipe"]);
+  await expect(style).toContainText("The PDF and the DEXPI file draw the line with its marks.");
+});
+
+test("DRAW-tags-labels, DRAW-attribute-labels, DRAW-select: labels typed over, dragged with a leader and reset; attributes changed in the Selection panel", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-tags-labels");
+  const labels = page.locator("#draw-tags-labels");
+  await expectScrolledTo(labels);
+  await expect(labels).toContainText("Double-click a pump's tag (or its name) on the drawing");
+  await expect(labels).toContainText("one another object has is refused, with that object's name under the field");
+  await expect(labels).toContainText("Double-click a line number and type a new one.");
+  await expect(labels).toContainText("Far from its line a thin leader joins the number to the line");
+  await expect(labels).toContainText("Reset label position");
+  const values = page.locator("#draw-attribute-labels");
+  await expect(values).toContainText("far from the pump a thin leader joins them");
+  await expect(values).toContainText("Right-click the label → Reset label position.");
+  const select = page.locator("#draw-select");
+  await expect(select).toContainText("Click a value in that list, for example Material");
+  await expect(select).toContainText("Service, Nominal size, Fluid, Pipe class");
+  await expect(select).toContainText("Heat tracing opens a list with None, Electric, Steam, Hot water and Hot oil");
+});
+
 test("DRAW-connector: the guide tells that the Connector routes the line, shows it first and is one step to undo", async ({ page }) => {
   const f = FEATURES.find((x) => x.id === "DRAW-connector");
   await page.goto(`/${pageOf(f)}#${f.anchor}`);
