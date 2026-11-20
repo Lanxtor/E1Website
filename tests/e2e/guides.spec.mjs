@@ -151,6 +151,7 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-symbol-menu: one click for a valve, 
   await expect(place).toContainText("Click to set the inlet, then the outlet; on a line it goes into the line. F flips it before the click.");
   await expect(place).toContainText("The pipe lights up, and the ghost of the valve already lies along it");
   await expect(place).toContainText("The next valve is placed with that one click");
+  await expect(place).toContainText("strainers and in-line filters, steam traps, rupture discs, flame arrestors and sight glasses");
   await expect(place).toContainText("The ghost turns a quarter turn clockwise each time you press R");
   await expect(place).toContainText("the second pump is placed mirrored");
   await expect(place).not.toContainText("F flips the symbol.");
@@ -159,6 +160,7 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-symbol-menu: one click for a valve, 
   await expect(arrange).toContainText("It stays on its pipe and slides along it");
   await expect(arrange).toContainText("Drag it along its line; hold Alt to take it off the line.");
   await expect(arrange).toContainText("the pipe closes into one line again");
+  await expect(arrange).toContainText("A pipe you shaped by hand keeps its bends, and both pipes keep their line numbers");
   await expect(arrange).toContainText("it steps to the next of its standard sizes");
   await expect(arrange).toContainText("Small, Standard, Large and Extra large");
   await expect(arrange).toContainText("dragging one resizes them all in one step");
