@@ -7,7 +7,7 @@
   var PRODUCT = "E1";
 
   var NAV = [
-    { href: "index.html", label: "Overview" },
+    { href: "overview-2.html", label: "Overview" },
     { href: "solutions.html", label: "Solutions" },
     { href: "academy.html", label: "Academy" },
     { href: "shape-e1.html", label: "Contact us" },
@@ -214,7 +214,7 @@
       "<p>" + T("Engineering software for production plants and energy.") + "</p>" +
       "</div>" +
       "<div><h2 class=\"footer-h\">" + T("Product") + "</h2><ul>" +
-      '<li><a href="' + H("index.html") + '">' + T("Overview") + "</a></li>" +
+      '<li><a href="' + H("overview-2.html") + '">' + T("Overview") + "</a></li>" +
       '<li><a href="' + H("solutions.html") + '">' + T("Solutions") + "</a></li>" +
       '<li><a href="' + H("academy.html") + '">' + T("Academy") + "</a></li>" +
       '<li><a href="' + H("download.html") + '">' + T("Get E1") + "</a></li>" +

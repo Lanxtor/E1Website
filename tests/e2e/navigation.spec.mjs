@@ -4,7 +4,7 @@
  */
 import { test, expect, openMenu, isPhone, expectScrolledTo } from "./fixtures.mjs";
 
-const MENU = [["Overview", "index.html"], ["Solutions", "solutions.html"], ["Academy", "academy.html"], ["Contact us", "shape-e1.html"], ["About us", "about.html"]];
+const MENU = [["Overview", "overview-2.html"], ["Solutions", "solutions.html"], ["Academy", "academy.html"], ["Contact us", "shape-e1.html"], ["About us", "about.html"]];
 
 for (const [label, href] of MENU) {
   test(`menu: ${label} opens ${href} and is marked as the current page`, async ({ page }, testInfo) => {
@@ -47,7 +47,7 @@ test("the brand goes home; the header stays on screen while scrolling", async ({
 });
 
 const FOOTER = [
-  ["Overview", /\/index\.html$/], ["Solutions", /\/solutions\.html$/], ["Academy", /\/academy\.html$/], ["Get E1", /\/download\.html$/],
+  ["Overview", /\/overview-2\.html$/], ["Solutions", /\/solutions\.html$/], ["Academy", /\/academy\.html$/], ["Get E1", /\/download\.html$/],
   ["Pricing", /\/download\.html#pricing$/], ["User guide", /\/guide\.html$/], ["About us", /\/about\.html$/], ["Contact us", /\/shape-e1\.html$/],
   ["Contact sales", /\/contact-sales\.html$/], ["Your account", /\/account\.html$/], ["Legal notice", /\/legal\.html$/],
   ["Terms of use", /\/terms\.html$/], ["License agreement", /\/e1-terms\.html$/], ["Security", /\/security\.html$/]
