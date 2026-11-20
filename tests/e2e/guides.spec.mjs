@@ -141,6 +141,38 @@ test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line op
   await expect(menus).toContainText("Show in tree selects the line's pipe run in the explorer, from any of its segments");
 });
 
+test("DRAW-place-symbol, DRAW-arrange, DRAW-symbol-menu: one click for a valve, R and F on the ghost, sliding along the pipe, standard sizes, one Flip", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-place-symbol");
+  const place = page.locator("#draw-place-symbol");
+  await expectScrolledTo(place);
+  // One click for a valve, an instrument or a fitting; two for equipment; the ghost turned and flipped first.
+  await expect(place.locator(".g-summary")).toContainText("A valve, an instrument or a fitting is placed with one click, at its standard size; equipment takes two clicks");
+  await expect(place).toContainText("Click to place it; on a line it goes into the line. R turns it and F flips it before the click.");
+  await expect(place).toContainText("Click to set the inlet, then the outlet; on a line it goes into the line. F flips it before the click.");
+  await expect(place).toContainText("The pipe lights up, and the ghost of the valve already lies along it");
+  await expect(place).toContainText("The next valve is placed with that one click");
+  await expect(place).toContainText("The ghost turns a quarter turn clockwise each time you press R");
+  await expect(place).toContainText("the second pump is placed mirrored");
+  await expect(place).not.toContainText("F flips the symbol.");
+  // Sliding, Alt, sizes, the one Flip and the name.
+  const arrange = page.locator("#draw-arrange");
+  await expect(arrange).toContainText("It stays on its pipe and slides along it");
+  await expect(arrange).toContainText("Drag it along its line; hold Alt to take it off the line.");
+  await expect(arrange).toContainText("the pipe closes into one line again");
+  await expect(arrange).toContainText("it steps to the next of its standard sizes");
+  await expect(arrange).toContainText("Small, Standard, Large and Extra large");
+  await expect(arrange).toContainText("dragging one resizes them all in one step");
+  await expect(arrange).toContainText("exactly as right-click → Flip ▸ Horizontal does");
+  await expect(arrange).toContainText("Shift+F does the same");
+  await expect(arrange).toContainText("Its name stays upright");
+  await expect(page.locator("#draw-symbol-menu .g-summary")).toContainText("Flip ▸, Rotate ▸, Size ▸, Shape ▸");
+  // The three ways in stay linked: the film and E1.
+  for (const section of [place, arrange]) {
+    await expect(section.getByRole("link", { name: /Show me how in E1/ })).toHaveAttribute("href", /app\.lanxtor\.com\/\?guide=/);
+    await expect(section.getByRole("link", { name: /Watch the lesson/ })).toBeVisible();
+  }
+});
+
 test("DRAW-place-symbol, DRAW-arrange, DRAW-clipboard: a symbol put on a pipe goes into it, placed, dragged or pasted", async ({ page }) => {
   await page.goto("/guide-drawing.html#draw-place-symbol");
   const place = page.locator("#draw-place-symbol");
@@ -317,7 +349,7 @@ test("DRAW-command-search, DRAW-quick-swap, DRAW-clipboard, GS-shortcuts: the to
  */
 const PID_DOCUMENTS = [
   { id: "LIST-standard-lists", lesson: "list-standard-lists", says: ["Line list", "Valve list", "Equipment list", "Instrument index", "Hold list", "Excel (.xlsx)", "Saved query"] },
-  { id: "WF-hold-cloud", lesson: "wf-hold-cloud", says: ["Put on hold…", "Edit hold…", "Close hold", "HOLD H1", "Hold list", "Open holds", "Closed holds", "All holds", "never used again", "Export PDF", "Show holds"] },
+  { id: "WF-hold-cloud", lesson: "wf-hold-cloud", says: ["Put on hold…", "Edit hold…", "Close hold", "HOLD H1", "Hold list", "Open holds", "Closed holds", "All holds", "never used again", "Export PDF", "Open PDF", "Hold clouds", "Show holds"] },
   { id: "DOC-legend-sheet", lesson: "doc-legend-sheet", says: ["Legend sheet", "Refresh", "Export PDF", "Symbols in use", "Line types in use", "Tag letters in use", "ISO 10628-2"] },
 ];
 for (const { id, lesson, says } of PID_DOCUMENTS) {
