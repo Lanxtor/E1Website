@@ -128,6 +128,19 @@ test("GS-units: the unit system is chosen in Project settings; the status bar ha
   await expect(bar.locator("img")).toHaveAttribute("alt", /appearance switch/);
 });
 
+test("PRJ-tree-rows, PRJ-rename, COL-history: a double-click on a project opens its page, as one click does; its History has Undo this change", async ({ page }) => {
+  await page.goto("/guide-projects.html#prj-tree-rows");
+  const rows = page.locator('[id="prj-tree-rows"]');
+  const project = rows.getByRole("row").filter({ has: page.getByRole("cell", { name: "Project", exact: true }) });
+  await expect(project).toContainText("Its page, the same as one click, with Members and Export at the top");
+  await expect(rows).not.toContainText("Its data sheet");
+  const rename = page.locator('[id="prj-rename"]');
+  await expect(rename).toContainText("or click the project and edit its name on its page");
+  await expect(rename).not.toContainText("data sheet");
+  await page.goto("/guide-collaboration.html#col-history");
+  await expect(page.locator('[id="col-history"]')).toContainText("A project's page has a History tab too: every change in the project, each with what it changed and Undo this change.");
+});
+
 test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line opens its window; Show in tree takes its pipe run", async ({ page }) => {
   await page.goto("/guide-drawing.html#draw-select");
   const select = page.locator("#draw-select");
