@@ -202,3 +202,23 @@
     Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) to.observe(s); });
   }
 })();
+
+// Overview 2: wires from the central object to each view of it
+(function () {
+  [].slice.call(document.querySelectorAll("[data-wires]")).forEach(function (box) {
+    var svg = box.querySelector("svg.o2-wires"), g = svg && svg.querySelector("g"), core = box.querySelector(".o2-core");
+    if (!g || !core) return;
+    function draw() {
+      var b = box.getBoundingClientRect(), c = core.getBoundingClientRect();
+      var cx = c.left + c.width / 2 - b.left, cy = c.top + c.height / 2 - b.top;
+      svg.setAttribute("viewBox", "0 0 " + b.width + " " + b.height);
+      g.innerHTML = [].slice.call(box.querySelectorAll(".o2-view")).map(function (v) {
+        var r = v.getBoundingClientRect();
+        return '<path d="M' + cx + " " + cy + " L" + (r.left + r.width / 2 - b.left) + " " + (r.top + r.height / 2 - b.top) + '"/>';
+      }).join("");
+    }
+    draw();
+    window.addEventListener("resize", draw);
+    window.addEventListener("load", draw);
+  });
+})();

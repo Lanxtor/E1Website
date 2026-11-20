@@ -114,7 +114,7 @@
 .o2-chap button b { font-family: var(--o2-mono); margin-right: 6px; }
 
 /* ---------- 2 one model ---------- */
-.o2-model { position: relative; display: grid; grid-template-columns: 1fr 260px 1fr; grid-template-rows: auto auto; gap: 26px 40px; align-items: center; max-width: 1080px; margin: 48px auto 0; }
+.o2-model { position: relative; display: grid; grid-template-columns: 1fr 260px 1fr; grid-template-rows: auto auto auto; gap: 26px 40px; align-items: center; max-width: 1080px; margin: 48px auto 0; }
 .o2-model svg.o2-wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 .o2-core { grid-column: 2; grid-row: 1 / span 2; display: grid; place-items: center; text-align: center; width: 240px; height: 240px; margin: auto; border-radius: 50%; background: #fff; border: 2px solid var(--brand); box-shadow: 0 0 0 14px var(--brand-soft); position: relative; z-index: 1; }
 .o2-core b { display: block; font-family: var(--o2-mono); font-size: 1.5rem; color: var(--o2-ink); }
@@ -132,6 +132,8 @@
 .o2-model .o2-view { opacity: 1; transform: none; transition: opacity var(--o2-slow), transform var(--o2-slow); }
 .o2-model.is-wait .o2-view { opacity: 0.35; transform: translateY(6px); }
 .o2-model.is-wait .o2-core em, .o2-model.is-wait .o2-new, .o2-model.is-wait .o2-upd { visibility: hidden; }
+.o2-view .o2-thumb { display: block; width: 100%; height: 64px; margin: 0 0 12px; padding: 6px 0; border-radius: 8px; background: var(--o2-soft); }
+.o2-model .o2-view-hist { width: 100%; max-width: 440px; justify-self: center; }
 .o2-model-clip { max-width: 1080px; margin: 56px auto 0; }
 
 /* ---------- 3 branches ---------- */
@@ -305,6 +307,7 @@
   .o2-model { grid-template-columns: 1fr; gap: 14px; }
   .o2-model svg.o2-wires { display: none; }
   .o2-core { grid-column: 1; grid-row: auto; width: 200px; height: 200px; }
+  .o2-model .o2-view, .o2-model .o2-view-hist { grid-column: 1 !important; grid-row: auto !important; max-width: none; }
   .o2-two, .o2-bento, .o2-roles { grid-template-columns: 1fr; }
   .o2-b-wide { grid-column: auto; }
   .o2-thread { grid-template-columns: 1fr 1fr; }
