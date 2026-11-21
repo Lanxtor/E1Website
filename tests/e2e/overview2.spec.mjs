@@ -163,7 +163,7 @@ test("Overview 2: with Save-Data on, clips show their still until the visitor pr
 test("Overview 2: the role picker under the hero opens a role page, and its back link returns to the Overview", async ({ page }) => {
   await page.goto("/index.html");
   const roles = page.getByRole("region", { name: "See E1 through your own eyes." });
-  await expect(roles.getByRole("link")).toHaveCount(6);
+  await expect(roles.getByRole("link")).toHaveCount(7);
   // It sits between the hero and section 1.
   const order = await page.evaluate(() => [".o2-hero", "#roles", "#import"].map((s) => document.querySelector(s).getBoundingClientRect().top + scrollY));
   expect(order[0]).toBeLessThan(order[1]);
