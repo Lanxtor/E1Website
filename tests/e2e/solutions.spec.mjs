@@ -21,7 +21,7 @@ test("Solutions: a category shows only its features, a search narrows it, nothin
   await filters.getByRole("button", { name: "Collaboration" }).click();
   await expect(filters.getByRole("button", { name: "Collaboration" })).toHaveAttribute("aria-pressed", "true");
   await expect(filters.getByRole("button", { name: "All" })).toHaveAttribute("aria-pressed", "false");
-  await expect(shown(page)).toHaveCount(5);
+  await expect(shown(page)).toHaveCount(6);
   for (const item of await shown(page).all()) expect(await item.getAttribute("data-category")).toContain("collaboration");
 
   // Typed: within the category.
@@ -29,7 +29,7 @@ test("Solutions: a category shows only its features, a search narrows it, nothin
   await search.fill("branch");
   await expect(shown(page).first()).toBeVisible();
   for (const item of await shown(page).all()) expect((await item.getAttribute("data-category")) || "").toContain("collaboration");
-  expect(await shown(page).count()).toBeLessThan(5);
+  expect(await shown(page).count()).toBeLessThan(6);
 
   // Nothing matches: the empty state, and Clear filters brings everything back.
   await search.fill("zzz-no-such-feature");

@@ -115,9 +115,11 @@ def icon(name):
 
 def section(s):
     shot = s.get("shot")
+    # A wide screenshot (more than twice as wide as high) goes full width under the text.
+    wide = bool(shot) and shot.get("width", 1600) > 2 * shot.get("height", 1000)
     out = ['    <section class="section section-tight cs-section sol-section%s" id="%s">' % (" sol-has-shot" if shot else "", s["id"]),
            '      <div class="container">']
-    if shot:
+    if shot and not wide:
         out += ['        <div class="sol-split">', '        <div class="sol-text">']
     out += ['        <div class="section-head reveal">']
     if s.get("kicker"):
@@ -143,12 +145,14 @@ def section(s):
         out.append('          <p>%s</p>' % p)
     out.append('        </div>')
     if shot:
-        out.append('        </div>')
-        out.append('        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span>'
+        if not wide:
+            out.append('        </div>')
+        out.append('        <figure class="sol-shot%s reveal">' % (" sol-shot-wide" if wide else "") + '<div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span>'
                    '<img src="%s" alt="%s" width="%s" height="%s" loading="lazy"></div>%s</figure>' % (
                        shot["src"], shot.get("alt", ""), shot.get("width", 1600), shot.get("height", 1000),
                        ('<figcaption>%s</figcaption>' % shot["caption"]) if shot.get("caption") else ""))
-        out.append('        </div>')
+        if not wide:
+            out.append('        </div>')
     out.append('      </div>')
     out.append('    </section>')
     return "\n".join(out)
