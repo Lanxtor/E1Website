@@ -142,48 +142,104 @@
     <nav class="cs-nav" aria-label="En esta página">
       <div class="container">
         <div class="cs-nav-track">
-          <a href="es/solution-electrical-design.html#single-line">Unifilar</a> <a href="es/solution-electrical-design.html#circuits">Circuitos</a> <a href="es/solution-electrical-design.html#cables">Cables</a> <a href="es/solution-electrical-design.html#cabinets">Armarios</a> <a href="es/solution-electrical-design.html#loads">Cargas</a> <a href="es/solution-electrical-design.html#faq">Preguntas</a>
+          <a href="es/solution-electrical-design.html#single-line">Single line</a>
+          <a href="es/solution-electrical-design.html#deep-view">Deep view</a>
+          <a href="es/solution-electrical-design.html#circuits">Circuits</a>
+          <a href="es/solution-electrical-design.html#cables">Cables</a>
+          <a href="es/solution-electrical-design.html#cabinets">Cabinets</a>
+          <a href="es/solution-electrical-design.html#loads">Loads</a>
+          <a href="es/solution-electrical-design.html#faq">Questions</a>
         </div>
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="single-line">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="single-line">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Unifilar</span>
           <h2>Diagramas unifilares donde cada línea es un cable real</h2>
           <p>En E1, un diagrama unifilar es un espacio 2D cuyo tipo de diagrama es Single line diagram. Los equipos de campo, las cajas de conexiones y los armarios son objetos del modelo, y cada línea dibujada entre ellos con Cable es un cable real.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Every line is a real cable</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Devices are model objects</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate current</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Cada cable que dibujas tiene su tag, el tipo de cable por defecto del proyecto para sus dos extremos y sus hilos. Es el mismo cable que muestran la lista de cables y el cableado. Los tipos de cable por defecto se fijan una vez en los ajustes de cableado del proyecto: cable de campo, multiconductor, de armario a armario y de alimentación.</p>
           <p><b>Propose cables</b> diseña la red de cables para equipos nuevos en un solo paso. Para cada equipo de campo de la hoja que tiene señales y no tiene cable de campo, E1 propone un cable de campo hasta la caja de conexiones más cercana de su área y clase de segregación con sitio en una regleta. Primero se usan los pares libres de los multiconductores existentes; solo se propone un multiconductor o una caja de conexiones nuevos donde no cabe ninguno. Nada cambia hasta que eliges Apply.</p>
           <p><b>Animate current</b> pone en movimiento un diagrama unifilar: la corriente va desde los transformadores o generadores, a través del cuadro de distribución, hasta los motores, coloreada por nivel de tensión. Abre un interruptor y su cable queda sin tensión y el motor indica No supply. Nada cambia en el modelo.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-singleline.webp" alt="E1: Single line diagram DF-80-E-0001: generators, switchgear, MCC and motors." width="1200" height="1029" loading="lazy"></div><figcaption>Single line diagram <b>DF-80-E-0001</b>: generators, switchgear, MCC and motors.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="circuits">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deep-view">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Deep view</span>
+          <h2>Deep view: follow a motor to its cable, starter and breaker</h2>
+          <p>Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.</p>
+        </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Every link, as cards</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight route</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m21 21-5.5-5.5"/></svg></span><span>Find in view</span></li>
+        </ul>
+        <div class="sol-prose reveal">
+          <p>From motor 43-EM-4301A you follow its power cable 80-P-021 to circuit breaker 80-EQ-4301A, the cable from there to the motor control centre 80-EN-8001, and the pump it drives.</p>
+          <p>Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.</p>
+          <ul>
+            <li>Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.</li>
+          </ul>
+        </div>
+        <figure class="sol-shot sol-shot-wide reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/dv-electrical.webp" alt="E1: The Deep view of motor 43-EM-4301A with the route to motor control centre 80-EN-8001: cable 80-P-021, breaker 80-EQ-4301A, cable 80-P-015." width="1200" height="381" loading="lazy"></div><figcaption>The Deep view of motor <b>43-EM-4301A</b> with the route to motor control centre 80-EN-8001: cable 80-P-021, breaker 80-EQ-4301A, cable 80-P-015.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="circuits">
+      <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Circuitos</span>
           <h2>Esquemas de circuitos y circuitos de arrancador de motor</h2>
           <p>En E1, cada símbolo de un esquema de circuitos es una función de un dispositivo: la bobina de un contactor, sus contactos y polos principales, el contacto de un pulsador, la lámpara de un piloto.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><span>One symbol per function</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8.5 15V9l3.5 4 3.5-4v6"/></svg></span><span>Motor starter circuits</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Short circuits found</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>El dispositivo es un objeto propiedad de su armario, y su artículo del catálogo da sus funciones con el marcado de sus bornes (A1 A2, 13 14, 21 22). Cada función dibujada tiene una dirección por página y columna, como /1.4. Bajo la bobina de un contactor, E1 muestra la imagen de contactos: cada contacto con sus puntos y dónde se dibuja. E1 los calcula a partir de los dibujos, así que nunca están desactualizados.</p>
           <p>Haz clic con el botón derecho en un motor y elige <b>Make starter circuit…</b>: E1 dibuja el arrancador en una página nueva del documento de circuitos de su armario, con el disyuntor-guardamotor, el contactor y el relé de sobrecarga en las tres fases, el circuito de control con su fusible, Stop, Start y pilotos, los bornes del motor y su cable de potencia. El disyuntor, el contactor y el relé de sobrecarga son los más pequeños del catálogo que admiten la corriente del motor. Elige varios motores para crear todos sus arrancadores a la vez.</p>
           <p>Los bornes, los cables y los números de hilo se dibujan en las mismas páginas. E1 detecta dos potenciales unidos por un hilo (un cortocircuito), más hilos en un cable que hilos tiene, y puntos de contacto sin hilo.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-circuit.webp" alt="E1: Circuit diagram DF-80-E-0101: the starter circuit of motor 43-EM-4301A." width="1200" height="1029" loading="lazy"></div><figcaption>Circuit diagram <b>DF-80-E-0101</b>: the starter circuit of motor 43-EM-4301A.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="cables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="cables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Cables</span>
           <h2>Lista de cables, rutas de cables y longitudes</h2>
           <p>En E1, un cable creado a partir de un tipo de cable del catálogo recibe sus hilos de inmediato, y cada hilo se conecta a un borne elegido en un árbol, nunca tecleado.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Cores from the cable type</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Cable schedule</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Wire move lists</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>La lista de cables es la pestaña Cables de la página Wiring: una fila por cable con su tipo, sus dos extremos, los hilos usados y de reserva, su longitud y su estado. Se exporta a Excel o PDF junto con la lista de hilos, la lista de terminaciones, la lista de cajas de conexiones y la lista de E/S, todas generadas a partir del modelo cuando las pides.</p>
           <p>Los segmentos de ruta son bandejas, escaleras de cables, conduits, canaletas y zanjas con su capacidad y su límite de llenado. Un cable se enruta por segmentos en orden; el llenado de cada segmento suma las secciones de sus cables y la longitud enrutada del cable suma los segmentos. Un cable tiene una longitud manual y una longitud desde 3D, y E1 avisa cuando difieren en más de la tolerancia del proyecto.</p>
@@ -193,33 +249,56 @@
             <li>Tras la emisión, un cambio se convierte en una lista de movimientos de hilos con lo que hay que desconectar y lo que hay que conectar, borne por borne.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-cables.webp" alt="E1: The cable schedule: type, from, to, cores used, spares, length and status of every cable." width="1200" height="1029" loading="lazy"></div><figcaption>The cable schedule: type, from, to, cores used, spares, length and status of every cable.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="cabinets">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="cabinets">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Armarios</span>
           <h2>Armarios, CCM, potenciales y balance térmico</h2>
           <p>En E1, un armario son dos objetos: su ubicación en Areas y la envolvente en Assets, que contiene carriles, regletas de bornes, tarjetas, dispositivos de interposición, fuentes de alimentación, barras de tierra y entradas de cable. Un CCM y un cuadro de distribución también son envolventes.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 2v20M8 7h2M14 7h2"/></svg></span><span>Cabinets and MCCs</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><span>Potentials</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span>Heat balance</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>La pestaña Potentials enumera cada red como +24V entre envolventes, con sus bornes, fusibles y la carga de la fuente frente a su corriente nominal. La vista de red muestra cada borne con fusible con su valor nominal y la carga que alimenta; un valor que falta aparece como ?, nunca como cero.</p>
           <p>La página <b>Fill and heat</b> de un armario muestra cada regleta como una barra de bornes usados, de reserva y libres, y el balance térmico calculado con la física: el calor que desprenden sus dispositivos a su carga frente al que evacuan sus paredes libres, un ventilador y una unidad de refrigeración. El resultado es la temperatura interior, la temperatura en la parte superior, el margen hasta el límite del armario y la refrigeración que todavía falta. Los marcadores de hilos, bornes y cables se exportan para el software de la impresora.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-cabinets-heat.webp" alt="E1: Cabinet 76-CM-001: its fill and heat balance, worked out from what is mounted in it." width="1200" height="1029" loading="lazy"></div><figcaption>Cabinet <b>76-CM-001</b>: its fill and heat balance, worked out from what is mounted in it.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="loads">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="loads">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Cargas</span>
           <h2>Lista de cargas eléctricas y documentos eléctricos</h2>
           <p>En E1, Alex con la skill Electrical engineer escribe en un solo libro de Excel la lista de cargas eléctricas, la lista de cables y la lista de equipos Ex de un espacio 2D.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span>Electrical load list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span><span>Written by Alex</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>One Excel workbook</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p><b>Export load list and cable schedule (Excel)</b> entrega la lista de cargas con la demanda máxima, la lista de cables con capacidad y caída de tensión, y la lista de equipos Ex. Alex valora los cables con las capacidades de IEC 60364-5-52 y una caída de tensión del 3 % para alumbrado y del 5 % para otros usos. Cuando un simulador de Alex ha ejecutado un flujo de carga eléctrico, un cortocircuito, un arranque de motor o un arco eléctrico en el espacio 2D abierto, sus resultados aparecen como tarjetas con el método, las entradas, las hipótesis y las tablas de resultados.</p>
           <p><b>Make documents…</b> en un armario, una carpeta o el proyecto crea el conjunto de documentos eléctricos en un solo cambio: diagramas de regletas de bornes, el diagrama de bloques de cables, un diagrama de cable por cada cable, la lista de hilos, la lista de E/S, la lista de dispositivos, la lista de piezas y el índice, y para el proyecto la vista general de potenciales. Se revisan y se emiten como cualquier documento.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-loads.webp" alt="E1: The motors of DF-80-E-0001 with rated output, voltage, current and load factor, totalled: the values the load list is written from." width="1200" height="1029" loading="lazy"></div><figcaption>The motors of DF-80-E-0001 with rated output, voltage, current and load factor, totalled: the values the load list is written from.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -264,6 +343,7 @@
         <div class="reveal">
           <h2>En la guía de usuario</h2>
           <ul class="sol-links">
+            <li><a href="guide-objects.html#obj-deep-view">Deep view</a></li>
             <li><a href="guide-wiring.html#wire-single-line">Dibujar la red de cables en un diagrama unifilar</a></li>
             <li><a href="guide-wiring.html#wire-propose-cables">Proponer cables en un diagrama unifilar</a></li>
             <li><a href="guide-wiring.html#wire-circuit-devices">Esquemas de circuitos: dispositivos con sus funciones</a></li>
@@ -291,7 +371,7 @@
     </section>
   </main>
 
-  <div id="site-footer"><nav class="site-links" aria-label="Sitio"><ul><li><a href="es/index.html">Inicio</a></li><li><a href="es/solutions.html">Soluciones</a></li><li><a href="es/download.html">Obtener E1</a></li><li><a href="es/download.html#pricing">Precios</a></li><li><a href="es/cloud-specifications.html">Especificaciones de E1 Cloud</a></li><li><a href="es/academy.html">Academy</a></li><li><a href="guide.html">Guía de usuario</a></li><li><a href="es/security.html">Seguridad</a></li><li><a href="es/about.html">Sobre nosotros</a></li><li><a href="es/shape-e1.html">Contacto</a></li><li><a href="es/contact-sales.html">Contactar con ventas</a></li></ul><ul><li><a href="es/solution-feed-process-engineering.html">FEED e ingeniería de procesos sobre un único modelo de planta</a></li><li><a href="es/solution-pid-instrumentation.html">P&amp;ID e instrumentación, conectados con el proceso</a></li><li><a href="es/solution-electrical-design.html">Diseño eléctrico sobre el mismo modelo de planta</a></li><li><a href="es/solution-automation-control.html">Automatización y control, desde el mismo modelo de planta</a></li><li><a href="es/solution-single-data-model.html">Un único modelo de datos de la planta, una sola fuente de verdad</a></li><li><a href="es/solution-ai-predictive-engineering.html">Ingeniería predictiva con Alex, el coingeniero de IA</a></li><li><a href="es/solution-simulate-validate.html">Simula, valida y explora tu diseño</a></li><li><a href="es/solution-multidiscipline-collaboration.html">Trabaja entre disciplinas en un mismo proyecto</a></li><li><a href="es/solution-large-projects.html">Pensado para proyectos del tamaño de una refinería</a></li><li><a href="es/solution-cross-company-projects.html">Entre empresas en un mismo proyecto</a></li><li><a href="es/solution-branches-modifications.html">Ramas para escenarios y modificaciones</a></li><li><a href="es/solution-revisions-datasheets-reports.html">Revisiones, hojas de datos e informes</a></li><li><a href="es/solution-maintenance-brownfield.html">Ingeniería brownfield y modificaciones de planta, sobre la planta que ya tienes</a></li><li><a href="es/solution-cloud-workspace.html">Software de ingeniería de planta en la nube, sin nada que instalar en servidores</a></li><li><a href="es/solution-enterprise-deployment.html">Tus datos, tu despliegue: E1 en tu propia nube o centro de datos</a></li><li><a href="es/solution-desktop-browser-tablet.html">Aplicación de escritorio para Windows y macOS, navegador y tableta: un proyecto en todas partes</a></li></ul></nav></div>
+  <div id="site-footer"><nav class="site-links" aria-label="Sitio"><ul><li><a href="es/index.html">Inicio</a></li><li><a href="es/solutions.html">Soluciones</a></li><li><a href="es/download.html">Obtener E1</a></li><li><a href="es/download.html#pricing">Precios</a></li><li><a href="es/cloud-specifications.html">Especificaciones de E1 Cloud</a></li><li><a href="es/academy.html">Academy</a></li><li><a href="guide.html">Guía de usuario</a></li><li><a href="es/security.html">Seguridad</a></li><li><a href="es/about.html">Sobre nosotros</a></li><li><a href="es/shape-e1.html">Contacto</a></li><li><a href="es/contact-sales.html">Contactar con ventas</a></li></ul><ul><li><a href="es/solution-feed-process-engineering.html">FEED e ingeniería de procesos sobre un único modelo de planta</a></li><li><a href="es/solution-pid-instrumentation.html">P&amp;ID e instrumentación, conectados con el proceso</a></li><li><a href="es/solution-electrical-design.html">Diseño eléctrico sobre el mismo modelo de planta</a></li><li><a href="es/solution-automation-control.html">Automatización y control, desde el mismo modelo de planta</a></li><li><a href="es/solution-single-data-model.html">Un único modelo de datos de la planta, una sola fuente de verdad</a></li><li><a href="es/solution-ai-predictive-engineering.html">Ingeniería predictiva con Alex, el coingeniero de IA</a></li><li><a href="es/solution-simulate-validate.html">Simula, valida y explora tu diseño</a></li><li><a href="es/solution-multidiscipline-collaboration.html">Trabaja entre disciplinas en un mismo proyecto</a></li><li><a href="es/solution-large-projects.html">Pensado para proyectos del tamaño de una refinería</a></li><li><a href="es/solution-cross-company-projects.html">Entre empresas en un mismo proyecto</a></li><li><a href="es/solution-branches-modifications.html">Ramas para escenarios y modificaciones</a></li><li><a href="es/solution-revisions-datasheets-reports.html">Revisiones, hojas de datos e informes</a></li><li><a href="es/solution-maintenance-brownfield.html">Ingeniería brownfield y modificaciones de planta, sobre la planta que ya tienes</a></li><li><a href="es/solution-maintenance-commissioning.html">Maintenance and commissioning, on the live plant model</a></li><li><a href="es/solution-cloud-workspace.html">Software de ingeniería de planta en la nube, sin nada que instalar en servidores</a></li><li><a href="es/solution-enterprise-deployment.html">Tus datos, tu despliegue: E1 en tu propia nube o centro de datos</a></li><li><a href="es/solution-desktop-browser-tablet.html">Aplicación de escritorio para Windows y macOS, navegador y tableta: un proyecto en todas partes</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=2"></script>
   <script src="assets/js/config.js?v=4"></script>

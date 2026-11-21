@@ -143,33 +143,80 @@
     <nav class="cs-nav" aria-label="På denne siden">
       <div class="container">
         <div class="cs-nav-track">
-          <a href="no/solution-feed-process-engineering.html#pfd">PFD</a> <a href="no/solution-feed-process-engineering.html#balance">Balanse</a> <a href="no/solution-feed-process-engineering.html#pid">P&amp;ID</a> <a href="no/solution-feed-process-engineering.html#line-list">Linjeliste</a> <a href="no/solution-feed-process-engineering.html#deliverables">Leveranser</a> <a href="no/solution-feed-process-engineering.html#faq">Spørsmål</a>
+          <a href="no/solution-feed-process-engineering.html#pfd">PFD</a>
+          <a href="no/solution-feed-process-engineering.html#deep-view">Deep view</a>
+          <a href="no/solution-feed-process-engineering.html#balance">Balance</a>
+          <a href="no/solution-feed-process-engineering.html#pid">P&amp;ID</a>
+          <a href="no/solution-feed-process-engineering.html#line-list">Line list</a>
+          <a href="no/solution-feed-process-engineering.html#deliverables">Deliverables</a>
+          <a href="no/solution-feed-process-engineering.html#faq">Questions</a>
         </div>
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="pfd">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pfd">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">PFD</span>
           <h2>Prosessflytskjemaer laget av ekte objekter</h2>
           <p>I E1 er et prosessflytskjema et 2D-rom der diagramtypen er Process flow diagram. Hvert symbol på det er et objekt i prosjektet.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Every symbol is an object</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="3.5"/><rect x="13" y="3.5" width="7" height="7" rx="1"/><path d="M7 13.5 3.5 20h7z"/><path d="M13 14h7v6h-7z"/></svg></span><span>Process symbols built in</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Du plasserer utstyr fra vinduet Add asset, og hvert symbol blir et nytt objekt med neste ledige tagg fra prosjektets taggregler, for eksempel P-001 og P-002 for pumper. Strømmer tegnes som prosesslinjer med verktøyet Connector, og hver linje er et objekt som kobler det den berører. Enhetsoperasjoner, systemer, prosesser og områder lages fra tegneverktøylinjen mens du tegner.</p>
           <p>Fordi tegningen og dataene er det samme, svarer PFD-et direkte på spørsmål. Highlight flow sporer hvor en strøm går, fra en åpen ende gjennom ventiler til neste utstyr, og videre gjennom pumper og kompressorer og over sideskiftkoblinger til andre 2D-rom. Animate flow setter arket i bevegelse: strømmen beveger seg gjennom rørene slik den går, tanker fylles og tømmes, og Alex regner ut hastigheter fra verdiene i modellen uten å endre noe.</p>
           <p>E1 tegner sine egne symboler for prosessutstyr, ventiler og rørdeler etter konvensjonene prosessingeniører kjenner. Du blar i dem og søker i dem i Configuration → Shapes.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pfd.webp" alt="E1: DF-00-F-0001, the Demo Field process flow diagram in E1." width="1200" height="1029" loading="lazy"></div><figcaption><b>DF-00-F-0001</b>, the Demo Field process flow diagram in E1.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="balance">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deep-view">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Deep view</span>
+          <h2>Deep view: follow a stream through the model</h2>
+          <p>Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.</p>
+        </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Every link, as cards</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight route</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m21 21-5.5-5.5"/></svg></span><span>Find in view</span></li>
+        </ul>
+        <div class="sol-prose reveal">
+          <p>From the HP separator 20-VA-2001 you follow its pipe runs to the valves on them, its pipeline and piping segments, the PFD, P&amp;ID and datasheet that show it, and the HAZOP tasks raised on it, to see everything it touches before you change it.</p>
+          <p>Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.</p>
+          <ul>
+            <li>Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.</li>
+          </ul>
+        </div>
+        <figure class="sol-shot sol-shot-wide reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/dv-process.webp" alt="E1: The Deep view of the HP separator 20-VA-2001: its pipe runs and valves, its pipeline, the drawings and datasheet that show it, and the HAZOP tasks raised on it." width="1200" height="381" loading="lazy"></div><figcaption>The Deep view of the HP separator <b>20-VA-2001</b>: its pipe runs and valves, its pipeline, the drawings and datasheet that show it, and the HAZOP tasks raised on it.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="balance">
+      <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Balanse</span>
           <h2>Varme- og massebalanse fra linjelisten</h2>
           <p>I E1 lages varme- og massebalansetabellene på et PFD fra linjelisten. Ingenting i en tabell skrives inn for hånd.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Stream values in the line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Mass and heat balance sheets</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>One source for every stream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Strømverdier kommer inn i linjelisten på tre måter: skrevet inn, importert fra simulatoren din, eller skrevet av Alex fra en løst balanse. <b>Import heat and material balance</b> i Alex leser strømtabellen fra HYSYS, Aspen Plus, DWSIM eller en lignende simulator som .xlsx, .xls, .csv eller .txt. Alex matcher strømmer mot linjer etter navn eller etter midtdelen av linjenummeret, du kontrollerer hver match, og først da skrives verdiene. Deretter spør Alex bare om det som fortsatt mangler.</p>
           <p>På PFD-et tegner <b>Place mass balance</b> fuglebur-tabellen: én kolonne per strøm med linjenummer, From, To, fase, temperatur, trykk, strømmer, tetthet, molmasse og sammensetning. <b>Place heat balance</b> lister hver varmer, kjøler, veksler, pumpe og kompressor med service, effekt og motoreffekt, og totalene. Formatforhåndsvalg setter opp oppsettet kunden din forventer, og en endret temperatur i linjelisten vises i tabellen med en gang.</p>
@@ -177,48 +224,81 @@
             <li>En verdi som mangler, eller som ikke kan vises i den valgte enheten, vises som – i stedet for en gjetning.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-balance.webp" alt="E1: A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density." width="1200" height="1029" loading="lazy"></div><figcaption>A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="pid">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pid">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">P&amp;ID</span>
           <h2>Lag P&amp;ID-et fra PFD-et</h2>
           <p>I E1 tegner Make P&amp;ID from this PFD… et nytt P&amp;ID med PFD-ets eget utstyr: de samme objektene med de samme taggene, ikke kopier.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Made from the PFD</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Same equipment, no copies</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/></svg></span><span>DEXPI 2.0 in and out</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Hver strøm blir et rør mellom det samme utstyret, med den samme strømmen. Du velger hvilke objekter som skal tegnes; et som allerede ligger på et P&amp;ID av det PFD-et, eller som ikke har noen P&amp;ID-form, er gråtonet med årsaken. Utstyr du lar vente til et andre P&amp;ID ender i en sideskiftkobling som fortsetter der. Ingenting tegnes to ganger.</p>
           <p>Når objekter eller strømmer legges til i PFD-et senere, tilbyr <b>Update from PFD</b> bare de nye. Det nye P&amp;ID-et åpnes med Alex' <b>Suggested additions</b>: det hvert objekt vanligvis har på et P&amp;ID. En sentrifugalpumpe får sug- og trykkisolasjon, en tilbakeslagsventil på trykksiden, et sugesil og et trykkmanometer på trykksiden; en beholder får en sikkerhetsventil, et avløp, en ventil, nivå- og trykkinstrumenter. Tillegg som selskapets konvensjoner krever kommer først, og <b>Apply all</b> er én endring med én Undo.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pid.webp" alt="E1: P&amp;ID DF-20-P-0001, the HP separation of the Demo Field." width="1200" height="1029" loading="lazy"></div><figcaption>P&amp;ID <b>DF-20-P-0001</b>, the HP separation of the Demo Field.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="line-list">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="line-list">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Linjeliste</span>
           <h2>Rørledninger, rørklasser og en levende linjeliste</h2>
           <p>I E1 er en rørledning en linje i linjelisten: rørstrekkene, ventilene og rørdelene fra én utstyrsstuss til en annen, med linjenummer, From og To.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12a3 3 0 0 1 3 3v9M3 15h9a0 0 0 0 1 0 0"/><path d="M3 6v6M18 21h4"/></svg></span><span>Pipelines and pipe classes</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>A live line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Always in step with the P&amp;IDs</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Du definerer en rørledning på tegningen fra ett utstyr til neste, og E1 følger det tegnede røret gjennom ventiler og rørdeler for å lage den, delt i segmenter ved reduksjoner. En rørledning angir sin rørklasse. Rørklasser inneholder rørspesifikasjonene dine: trykklasse, materiale, trykk-temperaturområde, dimensjoner med godstykkelse og tillatte ventiler og rørdeler. De lagres i selskaps- eller prosjektbiblioteket, utgis som versjoner og kan importeres fra et regneark.</p>
           <p><b>Check piping…</b> finner en pumpe som er snudd feil vei, strømmer som møtes front mot front, forgreninger med bare innstrømning og rørledninger som ikke lenger er hele. Den foreslår rettelser og bruker aldri noen av seg selv. Med rørklasser lastet sjekker Alex trykk og temperatur på hver linje mot klassen og flagger sur service i en klasse som ikke er dimensjonert for det.</p>
           <p>E1 leveres uten en fast linjeliste. Rørlisten er en spørring du bygger og lagrer på prosjektets rørledninger: linjenummer, From og To, dimensjon, fluid, rørklasse, designbetingelser og P&amp;ID-ene hver linje er tegnet på. Den holder seg oppdatert med tegningen og eksporteres til Excel eller CSV, eller blir et listedokument med revisjoner.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-linelist.webp" alt="E1: The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line." width="1200" height="1029" loading="lazy"></div><figcaption>The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="deliverables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deliverables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Leveranser</span>
           <h2>FEED-leveranser som nedstrøms fagområder overtar</h2>
           <p>I E1 genereres datablad, lister og tegninger fra de samme objektene, så FEED-pakken og detaljprosjekteringen aldri driver fra hverandre.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/></svg></span><span>Deliverables bound together</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Revisions shown on change</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Inherited downstream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Spesifikasjonsdatablad for pumper og vekslere følger med som ferdige maler, E1s egne oppsett inspirert av API- og ASME-datablad. Driftstilfeller ligger side ved side på databladet: maksimum, nominelt, normalt, minimum, design eller oppstart, og hvert arver objektets verdier til du gir det sine egne. Etter at et datablad er utstedt, vises hver verdi som er endret siden da ved siden av med neste revisjon.</p>
           <p>Documents → Deliverables binder de valgte tegningene sammen med rapportene og databladene i leveranseprofilen til én PDF, med forside, innholdsfortegnelse og sidetall, og utsteder den. Prosessdata forlater også E1 som data: hver spørring eksporteres til Excel, CSV eller JSON, et 2D-rom eksporteres som DEXPI 2.0 til et 3D-designverktøy eller et annet P&amp;ID-verktøy, og eksisterende P&amp;ID-er kommer inn fra DEXPI, DXF eller en vektor-PDF.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-deliverables.webp" alt="E1: Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF." width="1200" height="1029" loading="lazy"></div><figcaption>Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -263,6 +343,7 @@
         <div class="reveal">
           <h2>I brukerveiledningen</h2>
           <ul class="sol-links">
+            <li><a href="guide-objects.html#obj-deep-view">Deep view</a></li>
             <li><a href="guide-drawing.html#draw-pid-from-pfd">Lag et P&amp;ID fra et PFD</a></li>
             <li><a href="guide-drawing.html#draw-balance-tables">Varme- og massebalanse på PFD-et</a></li>
             <li><a href="guide-ai.html#ai-alex-hmb">Importer en varme- og massebalanse</a></li>
@@ -290,7 +371,7 @@
     </section>
   </main>
 
-  <div id="site-footer"><nav class="site-links" aria-label="Nettsted"><ul><li><a href="no/index.html">Hjem</a></li><li><a href="no/solutions.html">Løsninger</a></li><li><a href="no/download.html">Skaff deg E1</a></li><li><a href="no/download.html#pricing">Priser</a></li><li><a href="no/cloud-specifications.html">Spesifikasjoner for E1 Cloud</a></li><li><a href="no/academy.html">Academy</a></li><li><a href="guide.html">Brukerveiledning</a></li><li><a href="no/security.html">Sikkerhet</a></li><li><a href="no/about.html">Om oss</a></li><li><a href="no/shape-e1.html">Kontakt oss</a></li><li><a href="no/contact-sales.html">Kontakt salg</a></li></ul><ul><li><a href="no/solution-feed-process-engineering.html">FEED og prosessdesign på én anleggsmodell</a></li><li><a href="no/solution-pid-instrumentation.html">P&amp;ID-er og instrumentering, koblet til prosessen</a></li><li><a href="no/solution-electrical-design.html">Elektrodesign på den samme anleggsmodellen</a></li><li><a href="no/solution-automation-control.html">Automasjon og kontroll, fra den samme anleggsmodellen</a></li><li><a href="no/solution-single-data-model.html">Én anleggsdatamodell, én sannhetskilde</a></li><li><a href="no/solution-ai-predictive-engineering.html">Prediktiv prosjektering med Alex, AI-medingeniøren</a></li><li><a href="no/solution-simulate-validate.html">Simuler, valider og utforsk designet ditt</a></li><li><a href="no/solution-multidiscipline-collaboration.html">Jobb på tvers av fagområder i ett prosjekt</a></li><li><a href="no/solution-large-projects.html">Bygget for prosjekter i raffineristørrelse</a></li><li><a href="no/solution-cross-company-projects.html">På tvers av selskaper i ett prosjekt</a></li><li><a href="no/solution-branches-modifications.html">Grener for scenarier og modifikasjoner</a></li><li><a href="no/solution-revisions-datasheets-reports.html">Revisjoner, datablad og rapporter</a></li><li><a href="no/solution-maintenance-brownfield.html">Brownfield-prosjektering og anleggsmodifikasjoner, på anlegget du allerede har</a></li><li><a href="no/solution-cloud-workspace.html">Skybasert programvare for anleggsprosjektering, uten noe å installere på servere</a></li><li><a href="no/solution-enterprise-deployment.html">Dine data, din installasjon: E1 i din egen sky eller ditt eget datasenter</a></li><li><a href="no/solution-desktop-browser-tablet.html">Skrivebordsapp for Windows og macOS, nettleser og nettbrett: ett prosjekt overalt</a></li></ul></nav></div>
+  <div id="site-footer"><nav class="site-links" aria-label="Nettsted"><ul><li><a href="no/index.html">Hjem</a></li><li><a href="no/solutions.html">Løsninger</a></li><li><a href="no/download.html">Skaff deg E1</a></li><li><a href="no/download.html#pricing">Priser</a></li><li><a href="no/cloud-specifications.html">Spesifikasjoner for E1 Cloud</a></li><li><a href="no/academy.html">Academy</a></li><li><a href="guide.html">Brukerveiledning</a></li><li><a href="no/security.html">Sikkerhet</a></li><li><a href="no/about.html">Om oss</a></li><li><a href="no/shape-e1.html">Kontakt oss</a></li><li><a href="no/contact-sales.html">Kontakt salg</a></li></ul><ul><li><a href="no/solution-feed-process-engineering.html">FEED og prosessdesign på én anleggsmodell</a></li><li><a href="no/solution-pid-instrumentation.html">P&amp;ID-er og instrumentering, koblet til prosessen</a></li><li><a href="no/solution-electrical-design.html">Elektrodesign på den samme anleggsmodellen</a></li><li><a href="no/solution-automation-control.html">Automasjon og kontroll, fra den samme anleggsmodellen</a></li><li><a href="no/solution-single-data-model.html">Én anleggsdatamodell, én sannhetskilde</a></li><li><a href="no/solution-ai-predictive-engineering.html">Prediktiv prosjektering med Alex, AI-medingeniøren</a></li><li><a href="no/solution-simulate-validate.html">Simuler, valider og utforsk designet ditt</a></li><li><a href="no/solution-multidiscipline-collaboration.html">Jobb på tvers av fagområder i ett prosjekt</a></li><li><a href="no/solution-large-projects.html">Bygget for prosjekter i raffineristørrelse</a></li><li><a href="no/solution-cross-company-projects.html">På tvers av selskaper i ett prosjekt</a></li><li><a href="no/solution-branches-modifications.html">Grener for scenarier og modifikasjoner</a></li><li><a href="no/solution-revisions-datasheets-reports.html">Revisjoner, datablad og rapporter</a></li><li><a href="no/solution-maintenance-brownfield.html">Brownfield-prosjektering og anleggsmodifikasjoner, på anlegget du allerede har</a></li><li><a href="no/solution-maintenance-commissioning.html">Maintenance and commissioning, on the live plant model</a></li><li><a href="no/solution-cloud-workspace.html">Skybasert programvare for anleggsprosjektering, uten noe å installere på servere</a></li><li><a href="no/solution-enterprise-deployment.html">Dine data, din installasjon: E1 i din egen sky eller ditt eget datasenter</a></li><li><a href="no/solution-desktop-browser-tablet.html">Skrivebordsapp for Windows og macOS, nettleser og nettbrett: ett prosjekt overalt</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=2"></script>
   <script src="assets/js/config.js?v=4"></script>

@@ -1,8 +1,8 @@
 /*
- * Overview 2 hero (overview-2.html): the home page's platform (twin.js),
+ * Overview 2 hero (index.html, the home page): the home page's platform (twin.js),
  * the platform builds, every engineer joins, the whole picture holds for a
  * few seconds and then it builds again, over and over (no buttons). With
- * reduce motion or Save-Data (overview2.js) it shows the whole picture at once.
+ * reduce motion it plays calmly (fades only); only Pause animations stops it.
  *
  * Home page hero: the offshore platform as one model.
  *
@@ -178,7 +178,8 @@
     drawLeads();
     running = false;
   }
-  function quiet() { return window.E1O2 && window.E1O2.isPaused(); }
+  /* Only the page's own Pause animations stops it: with reduce motion it still builds, with fades only, as on the home page before. */
+  function quiet() { return !!(window.E1O2 && (window.E1O2.isUserPaused ? window.E1O2.isUserPaused() : window.E1O2.isPaused())); }
 
   window.addEventListener("resize", drawLeads);
   window.addEventListener("load", drawLeads);

@@ -183,7 +183,7 @@ test("DRAW-select, DRAW-pipelines, DRAW-symbol-menu: a double-click on a line op
   await expect(select).toContainText("Its window opens on Attributes");
   await expect(select).toContainText("Shift and double-click adds its whole run");
   const pipelines = page.locator("#draw-pipelines");
-  await expect(pipelines).toContainText("once more, the line's window opens on Attributes");
+  await expect(pipelines).toContainText("A double-click on a pipe opens its own window on Attributes at once.");
   const menus = page.locator("#draw-symbol-menu");
   await expect(menus).toContainText("Show in tree selects the line's pipe run in the explorer, from any of its segments");
 });
@@ -234,6 +234,14 @@ test("DRAW-place-symbol, DRAW-arrange, DRAW-clipboard: a symbol put on a pipe go
   await expect(arrange).toContainText("the pipe is split around it, connected on both sides");
   const clipboard = page.locator("#draw-clipboard");
   await expect(clipboard).toContainText("Drag the copy onto a pipe and it goes into the line, connected on both sides");
+});
+
+test("DRAW-connector: the connectors are in the palette under Connect, not in the Add window", async ({ page }) => {
+  await page.goto("/guide-drawing.html#draw-connector");
+  const connector = page.locator("#draw-connector");
+  await expectScrolledTo(connector);
+  await expect(connector).toContainText("The Design palette → Connect: Flow lines, Cable, Wire or Logic.");
+  await expect(connector).not.toContainText("top of the Add window");
 });
 
 test("DRAW-line-style: the line types are listed with how each is drawn; the PDF and DEXPI export are named", async ({ page }) => {
@@ -578,4 +586,24 @@ test("DRAW-pipelines, DRAW-select: a double-click on a pipe opens its window at 
   await expect(pipelines).not.toContainText("Double-click the same line again");
   const select = page.locator("section#draw-select");
   await expect(select.locator("table.g-steps tbody tr").filter({ hasText: "Double-click a pipe, selected or not." })).toContainText("at once, also for a pipe in a pipeline");
+});
+
+test("AI-guide-do-it-for-me, GS-getting-started: Alex does the rest only of a lesson it can take to its end, says why it stops, and its offer is about the tab you are on", async ({ page }) => {
+  await page.goto("/guide-ai.html#ai-guide-do-it-for-me");
+  const feature = page.locator("section#ai-guide-do-it-for-me");
+  await expect(feature.getByRole("heading", { level: 2 })).toHaveText("Let Alex do a step, or the rest of a lesson");
+  await expect(feature.locator("dl.g-facts")).toContainText("Do the rest for me in the lessons Alex can take to their end, such as A tour of the E1 window and Place a symbol");
+  const rows = feature.locator("table.g-steps tbody tr");
+  await expect(rows.filter({ hasText: "In a lesson that has it, click Do the rest for me." })).toContainText("nothing is placed on your drawing");
+  const stops = rows.filter({ hasText: "Watch a bubble where Alex cannot go on." });
+  await expect(stops).toHaveCount(1);
+  await expect(stops).toContainText("\"Alex stopped here:\"");
+  await expect(stops).toContainText("it lies behind an open window");
+  await expect(feature).toContainText("A lesson that would change your project (make a project, issue a revision, place something) has no Do the rest for me");
+  await expect(feature).toContainText("This is behind the “Add” window.");
+  await expect(feature).not.toContainText("In every bubble of an E1 Guide lesson");
+
+  await page.goto("/guide-getting-started.html#gs-getting-started");
+  const start = page.locator("section#gs-getting-started");
+  await expect(start.locator("table.g-steps tbody tr").filter({ hasText: "press Ctrl+Z three times in a row on a drawing" })).toContainText("The offer is about the tab you are on: it goes away when you leave that tab or close it, and by itself after half a minute; with no tab open Alex offers nothing.");
 });

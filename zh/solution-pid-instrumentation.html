@@ -142,18 +142,31 @@
     <nav class="cs-nav" aria-label="本页内容">
       <div class="container">
         <div class="cs-nav-track">
-          <a href="zh/solution-pid-instrumentation.html#pid">P&amp;ID</a> <a href="zh/solution-pid-instrumentation.html#index">索引</a> <a href="zh/solution-pid-instrumentation.html#loops">回路</a> <a href="zh/solution-pid-instrumentation.html#datasheets">数据表</a> <a href="zh/solution-pid-instrumentation.html#hookups">安装图</a> <a href="zh/solution-pid-instrumentation.html#faq">问题</a>
+          <a href="zh/solution-pid-instrumentation.html#pid">P&amp;ID</a>
+          <a href="zh/solution-pid-instrumentation.html#deep-view">Deep view</a>
+          <a href="zh/solution-pid-instrumentation.html#index">Index</a>
+          <a href="zh/solution-pid-instrumentation.html#loops">Loops</a>
+          <a href="zh/solution-pid-instrumentation.html#datasheets">Datasheets</a>
+          <a href="zh/solution-pid-instrumentation.html#hookups">Hookups</a>
+          <a href="zh/solution-pid-instrumentation.html#faq">Questions</a>
         </div>
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="pid">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pid">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">P&amp;ID</span>
           <h2>每个符号都是对象的 P&amp;ID 软件</h2>
           <p>在 E1 中，在 P&amp;ID 上放置仪表、阀门或设备，就会在项目中创建一个对象，并按项目位号规则分配下一个可用位号。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="7"/><path d="M5 10h14M12 17v5"/></svg></span><span>Every instrument is an object</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Tags from your rules</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/></svg></span><span>DEXPI, DXF and PDF import</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>E1 自绘仪表、控制阀和逻辑符号，以及设备、阀门和管件符号。您可在“添加资产”窗口中按名称、类型、类别或图纸类型找到它们，放置时点击两下即可设定符号的进口和出口。“连接线”工具逐点绘制管道、信号线和电缆，每条线都会连接它所接触的对象。符号显示其位号，管段显示其管线号。</p>
           <p>位号遵循项目规则，并带有参考代号。当规则的某项输入发生变化时，位号会被标记为过期，而不会在您不知情时改变；“重新编号…”会在应用前显示每个旧位号和新位号。开启 Alex 时，放置一台泵会提示通常接下来要添加的内容，以虚影符号绘出，由您应用或拒绝。</p>
@@ -162,61 +175,127 @@
             <li>现有 P&amp;ID 可从 DEXPI 2.0、DXF 或矢量 PDF 以真实对象导入，在保存任何内容之前由您检查。</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-pid.webp" alt="E1: LIT 2001 selected on P&amp;ID DF-20-P-0001, with its loop and its properties." width="1200" height="1029" loading="lazy"></div><figcaption><b>LIT 2001</b> selected on P&amp;ID DF-20-P-0001, with its loop and its properties.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="index">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deep-view">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Deep view</span>
+          <h2>Deep view: follow an instrument from the field to the I/O channel</h2>
+          <p>Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.</p>
+        </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Every link, as cards</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight route</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m21 21-5.5-5.5"/></svg></span><span>Find in view</span></li>
+        </ul>
+        <div class="sol-prose reveal">
+          <p>From LIT 2001 you follow its loop, its cable 76-W-LIT2001, the cores landed on its terminals and the terminal strip in junction box JB-20-01, as well as its alarms and its hookup, and Highlight route shows the way in bold.</p>
+          <p>Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.</p>
+          <ul>
+            <li>Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.</li>
+          </ul>
+        </div>
+        <figure class="sol-shot sol-shot-wide reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/dv-instrument.webp" alt="E1: The Deep view of LIT 2001 with the route to junction box JB-20-01 highlighted: terminal, cable core, terminal strip X1." width="1200" height="381" loading="lazy"></div><figcaption>The Deep view of <b>LIT 2001</b> with the route to junction box JB-20-01 highlighted: terminal, cable core, terminal strip X1.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="index">
+      <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">索引</span>
           <h2>永不过期的仪表索引</h2>
           <p>在 E1 中，仪表索引从模型读取，因此它列出的恰好是图纸上和项目中的仪表。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Read from the model</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Never out of date</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Export to Excel</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Alex 的<b>导出仪表索引（Excel）</b>读取 2D 空间上的仪表、信号和电机，并将仪表索引、I/O 清单、因果表和电机清单写入同一工作簿，每份清单一个工作表。如果贵公司已在 Alex 知识库中上传清单列模板，各列将按模板排列。</p>
           <p>对整个项目而言，仪表清单是一个带有您所选列的保存查询。它可导出为带 E1 id 列的 Excel、CSV 或 JSON。<b>从 Excel 更新…</b>可读回编辑过的文件：“检查”逐行列出每项更改，“应用”以一个可撤销的步骤完成这些更改。其他工具的仪表清单可通过<b>导入 Excel…</b>导入：匹配的行会被更新，其余的成为新对象。在“新建对象”窗口中可一次创建最多 100 台同类仪表。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-index.webp" alt="E1: The instrument index: 77 instruments with class, function, alarm and trip settings, SIL and drawings." width="1200" height="1029" loading="lazy"></div><figcaption>The instrument index: 77 instruments with class, function, alarm and trip settings, SIL and drawings.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="loops">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="loops">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">回路</span>
           <h2>由模型生成的回路图</h2>
           <p>在 E1 中，每次查看回路图时都会从模型绘制：实现控制功能的仪表及其控制的设备，按信号顺序排列，并带有接线。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="5" rx="1"/><rect x="7" y="10" width="10" height="5" rx="1"/><circle cx="12" cy="20" r="2.5"/><path d="M10 7v3M14 7v3M10 15v2.5M14 15v2.5"/></svg></span><span>Drawn from the model</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Cables, cores and terminals</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>In signal order</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>右键单击 TIC-101 等功能并选择<b>预览回路图</b>，或选择多个功能在一张临时图纸上一起预览。预览时不保存任何内容。导出 PDF 即可发送，或创建版本或修订版：只有这时每个回路才会保存到“文档”中，您可在其中手动移动符号，“重新生成”会保留您的移动。</p>
           <p>回路图沿每条回路从设备出发，经接线箱、电缆、编组和安全栅到 I/O 通道，并显示安全栅的供电以及屏蔽层到接地排的连接。每个端子按区域分列绘制：接线箱、编组现场侧、中间继电、编组系统侧、I/O，以及电源和接地。尚在进行中的接线会显示到当前进度，因此回路图从详细设计第一天起就能派上用场。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-loop.webp" alt="E1: The loop diagram of loop 2008: AI card, isolating barrier, cables, junction box JB-20-01 and transmitter TIT 2008." width="1200" height="1029" loading="lazy"></div><figcaption>The loop diagram of <b>loop 2008</b>: AI card, isolating barrier, cables, junction box JB-20-01 and transmitter TIT 2008.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="datasheets">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="datasheets">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">数据表</span>
           <h2>基于同一对象的仪表数据表</h2>
           <p>在 E1 中，仪表数据表是仪表自身数值的一个视图：在数据表中输入，对象即随之改变。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span>A view of the instrument</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Type in it, the object changes</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Issue it as a document</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>仪表和阀门的现成规格数据表是 E1 自有的模板，参考了 ISA 数据表，例如电磁流量计规格书。各行有编号，零部件表格可延续到续页，单位会自动添加并校验，PDF 与屏幕显示一致。数据表设计器可将模板复制为您自己的版式，日后还能接收模板的更新。</p>
           <p>一份数据表文档可涵盖同一类别的多个位号。共同的数值只显示一次，不同的数值显示<b>见清单</b>，一次修改即可设置全部。数据表文档发布后，此后修改过的每个数值旁都会显示下一个修订版，便于审查下一次发布。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-datasheet.webp" alt="E1: The data sheet tab of LIT 2001: the instrument datasheet is a view of the object itself." width="1200" height="1029" loading="lazy"></div><figcaption>The data sheet tab of <b>LIT 2001</b>: the instrument datasheet is a view of the object itself.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="hookups">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="hookups">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">安装图</span>
           <h2>安装方式、安装图与安装图一览表</h2>
           <p>在 E1 中，安装图（hookup）表示仪表如何固定和连接，所有以相同方式安装的仪表都使用同一个安装图。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.6-.6-.6-2.6z"/></svg></span><span>One hookup per installation</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/></svg></span><span>Hookup drawings</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Hookup schedule</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>为项目开启安装图后，它们会有自己的文件夹“资产 ▸ 安装图”，包含类型、安装方式、图纸和材料清单。您在每台仪表上选择它所用的安装图，每个安装图也会显示使用它的仪表。</p>
           <p>安装图由模型生成：带有每个零件引出序号的布置简图、材料清单、使用它的仪表以及注释，全部位于一张带标题栏的 A3 图纸上。安装图一览表列出每个安装图及其仪表和所需材料总量，可导出为 PDF 和 Excel，并像其他文档一样修订和发布。</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-hookups.webp" alt="E1: Hookup drawing HU-LT-01: the arrangement, its bill of material and the instruments that use it." width="1200" height="1029" loading="lazy"></div><figcaption>Hookup drawing <b>HU-LT-01</b>: the arrangement, its bill of material and the instruments that use it.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -261,6 +340,7 @@
         <div class="reveal">
           <h2>用户指南中</h2>
           <ul class="sol-links">
+            <li><a href="guide-objects.html#obj-deep-view">深度视图</a></li>
             <li><a href="guide-drawing.html#draw-place-symbol">放置符号</a></li>
             <li><a href="guide-objects.html#obj-tags">自动位号与参考代号</a></li>
             <li><a href="guide-ai.html#ai-alex-instrument-index">从图纸导出仪表索引</a></li>
@@ -288,7 +368,7 @@
     </section>
   </main>
 
-  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
+  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-maintenance-commissioning.html">Maintenance and commissioning, on the live plant model</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=2"></script>
   <script src="assets/js/config.js?v=4"></script>

@@ -77,16 +77,62 @@ BACK_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
             'stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>')
 
 
+ICON_PATHS = {
+    "object": '<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/>',
+    "flow": '<path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/>',
+    "animate": '<path d="M5 3v18l15-9z"/>',
+    "shapes": '<circle cx="7" cy="7" r="3.5"/><rect x="13" y="3.5" width="7" height="7" rx="1"/><path d="M7 13.5 3.5 20h7z"/><path d="M13 14h7v6h-7z"/>',
+    "table": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/>',
+    "export": '<path d="M12 3v12M7 10l5 5 5-5M4 19h16"/>',
+    "link": '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    "dexpi": '<path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/>',
+    "pipe": '<path d="M3 9h12a3 3 0 0 1 3 3v9M3 15h9a0 0 0 0 1 0 0"/><path d="M3 6v6M18 21h4"/>',
+    "doc": '<path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/>',
+    "revision": '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/>',
+    "instrument": '<circle cx="12" cy="10" r="7"/><path d="M5 10h14M12 17v5"/>',
+    "loop": '<rect x="7" y="2" width="10" height="5" rx="1"/><rect x="7" y="10" width="10" height="5" rx="1"/><circle cx="12" cy="20" r="2.5"/><path d="M10 7v3M14 7v3M10 15v2.5M14 15v2.5"/>',
+    "sheet": '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+    "wrench": '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.6-.6-.6-2.6z"/>',
+    "bolt": '<path d="M13 2 5 14h6l-1 8 8-12h-6z"/>',
+    "cable": '<path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/>',
+    "cabinet": '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 2v20M8 7h2M14 7h2"/>',
+    "motor": '<circle cx="12" cy="12" r="8"/><path d="M8.5 15V9l3.5 4 3.5-4v6"/>',
+    "load": '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    "speed": '<path d="M12 14l4-6"/><path d="M3 18a9 9 0 1 1 18 0"/>',
+    "team": '<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 14.5c1-.3 2.4-.5 4-.5 3.3 0 6 2.7 6 6"/>',
+    "search": '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m21 21-5.5-5.5"/>',
+    "lock": '<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+    "check": '<path d="M4 12l5 5L20 6"/>',
+    "branch": '<circle cx="6" cy="5" r="2.5"/><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 7.5v9M18 10.5c0 4-6 3-12 6"/>',
+    "alex": '<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+}
+
+
+def icon(name):
+    return ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" '
+            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg>' % ICON_PATHS.get(name, ICON_PATHS["object"]))
+
+
 def section(s):
-    out = ['    <section class="section section-tight cs-section sol-section" id="%s">' % s["id"],
-           '      <div class="container">',
-           '        <div class="section-head reveal">']
+    shot = s.get("shot")
+    # A wide screenshot (more than twice as wide as high) goes full width under the text.
+    wide = bool(shot) and shot.get("width", 1600) > 2 * shot.get("height", 1000)
+    out = ['    <section class="section section-tight cs-section sol-section%s" id="%s">' % (" sol-has-shot" if shot else "", s["id"]),
+           '      <div class="container">']
+    if shot and not wide:
+        out += ['        <div class="sol-split">', '        <div class="sol-text">']
+    out += ['        <div class="section-head reveal">']
     if s.get("kicker"):
         out.append('          <span class="saas-kicker">%s</span>' % s["kicker"])
     out.append('          <h2>%s</h2>' % s["h2"])
     if s.get("intro"):
         out.append('          <p>%s</p>' % s["intro"])
     out.append('        </div>')
+    if s.get("points"):
+        out.append('        <ul class="sol-points reveal">')
+        for pt in s["points"]:
+            out.append('          <li><span class="sol-pi">%s</span><span>%s</span></li>' % (icon(pt.get("icon")), pt["label"]))
+        out.append('        </ul>')
     out.append('        <div class="sol-prose reveal">')
     for p in s.get("paragraphs", []):
         out.append('          <p>%s</p>' % p)
@@ -98,6 +144,15 @@ def section(s):
     for p in s.get("after", []):
         out.append('          <p>%s</p>' % p)
     out.append('        </div>')
+    if shot:
+        if not wide:
+            out.append('        </div>')
+        out.append('        <figure class="sol-shot%s reveal">' % (" sol-shot-wide" if wide else "") + '<div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span>'
+                   '<img src="%s" alt="%s" width="%s" height="%s" loading="lazy"></div>%s</figure>' % (
+                       shot["src"], shot.get("alt", ""), shot.get("width", 1600), shot.get("height", 1000),
+                       ('<figcaption>%s</figcaption>' % shot["caption"]) if shot.get("caption") else ""))
+        if not wide:
+            out.append('        </div>')
     out.append('      </div>')
     out.append('    </section>')
     return "\n".join(out)

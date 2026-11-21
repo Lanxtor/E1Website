@@ -1,5 +1,5 @@
 /*
- * Overview 2 (overview-2.html): clips, chapters, tabs and the quiet reveals.
+ * Overview 2 (index.html, the home page): clips, chapters, tabs and the quiet reveals.
  *
  * - Clips play only while on screen, muted and looping, and each has its own
  *   Pause / Play button (WCAG 2.2.2).
@@ -106,7 +106,7 @@
     showMotion();
   }
   toggles.forEach(function (t) { t.addEventListener("click", function () { setPaused(!paused); }); });
-  window.E1O2 = { isPaused: function () { return paused || still; } };
+  window.E1O2 = { isPaused: function () { return paused || still; }, isUserPaused: function () { return paused; } };
   showMotion();
   if (paused) document.dispatchEvent(new CustomEvent("o2:motion", { detail: { paused: true } }));
 
@@ -131,6 +131,27 @@
     });
     v.addEventListener("timeupdate", mark);
     mark();
+  });
+
+  /* ---------- switch (living diagrams): buttons below the clip, next clip when one ends ---------- */
+  [].slice.call(document.querySelectorAll("[data-switch]")).forEach(function (bar) {
+    var buttons = [].slice.call(bar.querySelectorAll("button[data-panel]"));
+    function figOf(b) { var p = document.getElementById(b.getAttribute("data-panel")); return p && p.querySelector("[data-clip]"); }
+    function show(btn, start) {
+      buttons.forEach(function (b) {
+        var on = b === btn, panel = document.getElementById(b.getAttribute("data-panel")), fig = figOf(b);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+        if (panel) panel.hidden = !on;
+        if (fig && !on) stop(fig);
+      });
+      var f = figOf(btn), v = f && videoOf(f);
+      if (v && start) { load(v); try { v.currentTime = 0; } catch (e) { /* not loaded yet */ } if (!paused && !still) play(f); }
+    }
+    buttons.forEach(function (b, i) {
+      b.addEventListener("click", function () { var f = figOf(b); if (f) f._user = null; show(b, true); });
+      var f = figOf(b), v = f && videoOf(f);
+      if (v) v.addEventListener("ended", function () { show(buttons[(i + 1) % buttons.length], true); });
+    });
   });
 
   /* ---------- tabs (living diagrams, Alex's modes) ---------- */
@@ -160,7 +181,50 @@
     });
   });
 
-  /* ---------- reveals that run once (One model, the handover journey) ---------- */
+  /* ---------- Alex, your co-: types each skill and shows its example ---------- */
+  var co = document.querySelector("[data-co]");
+  if (co) {
+    var typed = co.querySelector("[data-co-typed]");
+    var words = [].slice.call(co.querySelectorAll("[data-co-skills] li")).map(function (li) { return li.textContent.trim(); });
+    var slides = [].slice.call(co.querySelectorAll("[data-co-slide]"));
+    var wi = 0, wn = 0, del = false, timer = 0, run = false;
+    var show = function (k) { slides.forEach(function (sl, j) { sl.classList.toggle("is-on", j === k); sl.setAttribute("aria-hidden", j === k ? "false" : "true"); }); };
+    var tick = function () {
+      var w = words[wi];
+      if (!del) {
+        wn += 1; typed.textContent = w.slice(0, wn);
+        if (wn === 1) show(wi);
+        if (wn >= w.length) { del = true; timer = setTimeout(tick, 2600); return; }
+        timer = setTimeout(tick, 55 + Math.random() * 45);
+      } else {
+        wn -= 1; typed.textContent = w.slice(0, wn);
+        if (wn <= 0) { del = false; wi = (wi + 1) % words.length; timer = setTimeout(tick, 300); return; }
+        timer = setTimeout(tick, 26);
+      }
+    };
+    var go = function () { if (!run && !paused && !still) { run = true; tick(); } };
+    var halt = function () { run = false; clearTimeout(timer); };
+    typed.textContent = words[0]; wn = words[0].length; del = true; show(0);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (e) { if (e[0].isIntersecting) go(); else halt(); }).observe(co);
+    }
+    document.addEventListener("o2:motion", function (e) { if (e.detail.paused) halt(); else go(); });
+  }
+
+  /* ---------- launch day: days to go ---------- */
+  [].slice.call(document.querySelectorAll("[data-countdown]")).forEach(function (el) {
+    var parts = el.getAttribute("data-countdown").split("-");
+    var day = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var n = Math.round((day - today) / 86400000);
+    var num = el.querySelector("[data-countdown-n]"), unit = el.querySelector("[data-countdown-u]");
+    if (n > 0) { num.textContent = String(n); unit.textContent = n === 1 ? "day to go" : "days to go"; }
+    else if (n === 0) { num.textContent = "Today"; unit.textContent = "it starts"; }
+    else { num.textContent = "Live"; unit.textContent = "now"; }
+    el.hidden = false;
+  });
+
+  /* ---------- reveals that run once (One model) ---------- */
   var once = [].slice.call(document.querySelectorAll("[data-reveal-once]"));
   if (still || paused || !("IntersectionObserver" in window)) {
     once.forEach(function (el) { el.classList.remove("is-wait"); });
@@ -201,4 +265,24 @@
     }, { rootMargin: "-45% 0px -50% 0px" });
     Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) to.observe(s); });
   }
+})();
+
+// Overview 2: wires from the central object to each view of it
+(function () {
+  [].slice.call(document.querySelectorAll("[data-wires]")).forEach(function (box) {
+    var svg = box.querySelector("svg.o2-wires"), g = svg && svg.querySelector("g"), core = box.querySelector(".o2-core");
+    if (!g || !core) return;
+    function draw() {
+      var b = box.getBoundingClientRect(), c = core.getBoundingClientRect();
+      var cx = c.left + c.width / 2 - b.left, cy = c.top + c.height / 2 - b.top;
+      svg.setAttribute("viewBox", "0 0 " + b.width + " " + b.height);
+      g.innerHTML = [].slice.call(box.querySelectorAll(".o2-view")).map(function (v) {
+        var r = v.getBoundingClientRect();
+        return '<path d="M' + cx + " " + cy + " L" + (r.left + r.width / 2 - b.left) + " " + (r.top + r.height / 2 - b.top) + '"/>';
+      }).join("");
+    }
+    draw();
+    window.addEventListener("resize", draw);
+    window.addEventListener("load", draw);
+  });
 })();

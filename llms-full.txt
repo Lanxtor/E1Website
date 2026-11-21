@@ -66,6 +66,16 @@ Because the drawing and the data are the same thing, the PFD answers questions d
 
 E1 draws its own symbols for process equipment, valves and fittings in the conventions process engineers know. You browse and search them in Configuration → Shapes.
 
+### Deep view: follow a stream through the model
+
+Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.
+
+From the HP separator 20-VA-2001 you follow its pipe runs to the valves on them, its pipeline and piping segments, the PFD, P&ID and datasheet that show it, and the HAZOP tasks raised on it, to see everything it touches before you change it.
+
+Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.
+
+- Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.
+
 ### Heat and material balance from the line list
 
 In E1, the heat and material balance tables on a PFD are made from the line list. Nothing in a table is typed.
@@ -133,6 +143,16 @@ Tags follow the project's rules, with reference designations. When an input of a
 - Engineering patterns draw a control valve station or an instrument tap at once, placed, routed and checked (with an AI model set up for Alex).
 - Existing P&IDs come in from DEXPI 2.0, DXF or a vector PDF as real objects, checked by you before anything is stored.
 
+### Deep view: follow an instrument from the field to the I/O channel
+
+Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.
+
+From LIT 2001 you follow its loop, its cable 76-W-LIT2001, the cores landed on its terminals and the terminal strip in junction box JB-20-01, as well as its alarms and its hookup, and Highlight route shows the way in bold.
+
+Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.
+
+- Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.
+
 ### An instrument index that is never out of date
 
 In E1, the instrument index is read from the model, so it lists exactly the instruments that are on the drawings and in the project.
@@ -194,6 +214,16 @@ Each cable you draw has its tag, the project's default cable type for its two en
 Propose cables designs the cable network for new devices in one step. For every field device on the sheet that has signals and no field cable, E1 proposes a field cable to the nearest junction box of its area and segregation class with room on a strip. Free pairs of existing multicores are used first; a new multicore or junction box is proposed only where none fits. Nothing changes until you choose Apply.
 
 Animate current sets a single line diagram in motion: the current runs from the transformers or generators through the switchboard to the motors, coloured by voltage level. Open a breaker and its cable turns dead and the motor reads No supply. Nothing in the model changes.
+
+### Deep view: follow a motor to its cable, starter and breaker
+
+Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.
+
+From motor 43-EM-4301A you follow its power cable 80-P-021 to circuit breaker 80-EQ-4301A, the cable from there to the motor control centre 80-EN-8001, and the pump it drives.
+
+Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.
+
+- Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.
 
 ### Circuit diagrams and motor starter circuits
 
@@ -625,6 +655,16 @@ For one engineer working on this project, these are the measured times. They are
 - Search by tag, name or value, across all projects: 10 ms.
 - Errors in any run: 0.
 
+### Deep view: find your way through a large model, object by object
+
+Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.
+
+On a large project, Expand all opens an object's whole network until it stops and says so; every kind of link has a chip with its count, and Find in view outlines the cards you are looking for.
+
+Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.
+
+- Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.
+
 ### 50 engineers at once on one project
 
 In E1, a whole project team works in the same project at the same time, and each engineer sees the others' changes without reloading.
@@ -969,6 +1009,67 @@ Changes since… on a 2D space clouds everything added, deleted, modified or mov
 **Does a redline change the drawing?** No. Markups are on their own Markups layer. They never change the drawing, its objects, their history or their revisions; hiding the layer shows the drawing unchanged.
 
 **Can the field tick off wiring changes on a tablet?** Yes. On the Wiring page, Changes → Field view shows the wire moves in large rows for a finger. One tap marks a move done with your name and the time, and a comment goes back to design on the terminal.
+
+## Maintenance and commissioning, on the live plant model
+
+https://www.lanxtor.com/solution-maintenance-commissioning.html
+
+In E1, the plant you maintain and commission is the same model the engineers designed. Open any object and see everything linked to it, mark up the live diagrams in the office or on site, raise a technical or engineering query where the question is, talk about an object on the object itself, and collect finished work into a commissioning package.
+
+### Modifications and commissioning packages in branches
+
+In E1, a plant modification is made in a branch while the shared design stays untouched, and finished work is collected into a commissioning package.
+
+Collect finished work into a commissioning package by drawing around it or by right-click, give it its dates, lead and description, then mark it ready and push it to main on its own. Every change is recorded and compared before it lands.
+
+### Deep view: everything linked to an object, at a glance
+
+Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.
+
+From a valve you follow the pipes on its ports to the pump beyond, the transmitter that measures the pump, its terminals, the cable core landed on them, the cable and the junction box at its other end. Before you isolate, replace or test something, you see what it touches.
+
+Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.
+
+- Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.
+- The bar under the view counts the objects, links and levels shown, and the cards that have more to show.
+
+### Redlining on the live diagrams
+
+In E1, you mark up a 2D space with clouds, arrows, text, pins and stamps on a Markups layer that never changes the drawing, and each markup is discussed in its own card.
+
+Every markup has a status and a response: accept, reject, answer, incorporate or close. Each change is written in its discussion and tells its author, so nothing raised on site is lost on the way back to the office.
+
+The Markups list filters a 2D space's markups and runs a review round with its reviewers; when it is closed, the comment resolution sheet is exported. A marked-up print carries each markup as a real PDF comment, and a reviewer's annotated PDF reads back into E1 as markups in the round.
+
+### On site with the iPad and the phone
+
+E1 Reviewer for iPad and E1 Mobile for iPhone and Android launch with E1 on 19 May 2027, on the same model.
+
+On the iPad, every drawing goes to site. Redline it with a pen, a cloud, an arrow, text or a stamp; each mark says what it means and carries a note, goes into a review round and is answered by the engineers in E1. Tap a symbol, a pipe, a signal or a cable to see its object: its properties, every attribute, its history and its chat.
+
+On the phone, messages, tasks and Alex are in your pocket, typed or spoken. Everything lands in the same E1 model at once.
+
+### Tasks, technical queries and engineering queries
+
+In E1, a question about the plant is a task for a person or a group, not an e-mail.
+
+New task… offers E1's seven task types, including Technical query and Engineering query, and your organization's own, each a task or a query. A task has a type, a due date, a description and a screenshot, once or repeating; the people it is for see it in their Inbox and mark it done.
+
+A task can carry a checklist of items to tick, in the Inbox in E1 and the same in E1 Reviewer on the iPad.
+
+### A chat on every object
+
+In E1, every object has a Chat tab: the conversation about a pump, a valve or a cable stays with that pump, valve or cable.
+
+@mention a colleague to bring them in, #link another object, reply, like, edit, delete and resolve. Whoever opens the object later reads why it is the way it is.
+
+### Questions
+
+**What is Deep view in E1?** Deep view shows an object and every object associated with it as cards and links. You open it layer by layer or all at once, highlight the route between two objects and find any object in the view.
+
+**Can I raise a technical query in E1?** Yes. New task… offers Technical query and Engineering query among E1's seven task types, and your organization can add its own.
+
+**Can I redline drawings on site?** Yes. In E1 you mark up any 2D space on a Markups layer, and E1 Reviewer for iPad, launching on 19 May 2027, redlines on site with the marks answered by the engineers in E1.
 
 ## Cloud plant engineering software, with nothing to install on servers
 

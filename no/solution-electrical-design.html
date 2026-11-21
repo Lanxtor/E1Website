@@ -142,48 +142,104 @@
     <nav class="cs-nav" aria-label="På denne siden">
       <div class="container">
         <div class="cs-nav-track">
-          <a href="no/solution-electrical-design.html#single-line">Enlinje</a> <a href="no/solution-electrical-design.html#circuits">Kretser</a> <a href="no/solution-electrical-design.html#cables">Kabler</a> <a href="no/solution-electrical-design.html#cabinets">Skap</a> <a href="no/solution-electrical-design.html#loads">Laster</a> <a href="no/solution-electrical-design.html#faq">Spørsmål</a>
+          <a href="no/solution-electrical-design.html#single-line">Single line</a>
+          <a href="no/solution-electrical-design.html#deep-view">Deep view</a>
+          <a href="no/solution-electrical-design.html#circuits">Circuits</a>
+          <a href="no/solution-electrical-design.html#cables">Cables</a>
+          <a href="no/solution-electrical-design.html#cabinets">Cabinets</a>
+          <a href="no/solution-electrical-design.html#loads">Loads</a>
+          <a href="no/solution-electrical-design.html#faq">Questions</a>
         </div>
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="single-line">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="single-line">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Enlinje</span>
           <h2>Enlinjeskjemaer der hver linje er en ekte kabel</h2>
           <p>I E1 er et enlinjeskjema et 2D-rom der diagramtypen er Single line diagram. Felt-enheter, koblingsbokser og skap er objekter i modellen, og hver linje som tegnes mellom dem med Cable er en ekte kabel.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Every line is a real cable</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Devices are model objects</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate current</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Hver kabel du tegner har sin tagg, prosjektets standard kabeltype for de to endene og kjernene. Det er den samme kabelen som kabellisten og koblingen viser. Standard kabeltyper settes én gang i prosjektets koblingsinnstillinger: feltkabel, flerkjernekabel, skap til skap og tilførselskabel.</p>
           <p><b>Propose cables</b> designer kabelnettverket for nye enheter i ett trinn. For hver felt-enhet på arket som har signaler og ingen feltkabel, foreslår E1 en feltkabel til nærmeste koblingsboks i området og segregeringsklassen med plass på en rekkeklemme. Ledige par i eksisterende flerkjernekabler brukes først; en ny flerkjernekabel eller koblingsboks foreslås bare der ingen passer. Ingenting endres før du velger Apply.</p>
           <p><b>Animate current</b> setter et enlinjeskjema i bevegelse: strømmen går fra transformatorene eller generatorene gjennom bryteranlegget til motorene, fargelagt etter spenningsnivå. Åpne en effektbryter, så blir kabelen spenningsløs og motoren viser No supply. Ingenting i modellen endres.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-singleline.webp" alt="E1: Single line diagram DF-80-E-0001: generators, switchgear, MCC and motors." width="1200" height="1029" loading="lazy"></div><figcaption>Single line diagram <b>DF-80-E-0001</b>: generators, switchgear, MCC and motors.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="circuits">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deep-view">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Deep view</span>
+          <h2>Deep view: follow a motor to its cable, starter and breaker</h2>
+          <p>Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.</p>
+        </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Every link, as cards</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight route</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m21 21-5.5-5.5"/></svg></span><span>Find in view</span></li>
+        </ul>
+        <div class="sol-prose reveal">
+          <p>From motor 43-EM-4301A you follow its power cable 80-P-021 to circuit breaker 80-EQ-4301A, the cable from there to the motor control centre 80-EN-8001, and the pump it drives.</p>
+          <p>Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.</p>
+          <ul>
+            <li>Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.</li>
+          </ul>
+        </div>
+        <figure class="sol-shot sol-shot-wide reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/dv-electrical.webp" alt="E1: The Deep view of motor 43-EM-4301A with the route to motor control centre 80-EN-8001: cable 80-P-021, breaker 80-EQ-4301A, cable 80-P-015." width="1200" height="381" loading="lazy"></div><figcaption>The Deep view of motor <b>43-EM-4301A</b> with the route to motor control centre 80-EN-8001: cable 80-P-021, breaker 80-EQ-4301A, cable 80-P-015.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="circuits">
+      <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Kretser</span>
           <h2>Kretsskjemaer og motorstarterkretser</h2>
           <p>I E1 er hvert symbol på et kretsskjema én funksjon i en enhet: en kontaktors spole, kontaktene og hovedpolene, en trykknapps kontakt, en signallampes lampe.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><span>One symbol per function</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8.5 15V9l3.5 4 3.5-4v6"/></svg></span><span>Motor starter circuits</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Short circuits found</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Enheten er ett objekt som eies av skapet sitt, og katalogelementet gir funksjonene med terminalmerkingene (A1 A2, 13 14, 21 22). Hver tegnede funksjon har en adresse etter side og kolonne, for eksempel /1.4. Under en kontaktors spole viser E1 kontaktbildet: hver kontakt med sine punkter og hvor den er tegnet. E1 regner dette ut fra tegningene, så det er aldri utdatert.</p>
           <p>Høyreklikk en motor og velg <b>Make starter circuit…</b>: E1 tegner starteren på en ny side i kretsdokumentet til skapet, med motorvernbryter, kontaktor og overlastrelé i de tre fasene, styrekretsen med sikring, Stop, Start og signallamper, motorens terminaler og strømkabelen. Bryteren, kontaktoren og overlastreléet er de minste i katalogen som tåler motorens strøm. Velg flere motorer for å lage alle starterne på en gang.</p>
           <p>Terminaler, kabler og ledningsnumre tegnes på de samme sidene. E1 finner to potensialer forbundet med en ledning (en kortslutning), flere ledninger over en kabel enn den har kjerner, og kontaktpunkter uten ledning.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-circuit.webp" alt="E1: Circuit diagram DF-80-E-0101: the starter circuit of motor 43-EM-4301A." width="1200" height="1029" loading="lazy"></div><figcaption>Circuit diagram <b>DF-80-E-0101</b>: the starter circuit of motor 43-EM-4301A.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="cables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="cables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Kabler</span>
           <h2>Kabelliste, kabeltraséer og lengder</h2>
           <p>I E1 får en kabel laget fra en kabeltype i katalogen kjernene sine med en gang, og hver kjerne kobles til en terminal valgt fra et tre, aldri skrevet inn.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Cores from the cable type</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Cable schedule</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Wire move lists</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Kabellisten er fanen Cables på siden Wiring: én rad per kabel med type, de to endene, brukte og reserve kjerner, lengde og status. Den eksporteres til Excel eller PDF sammen med ledningslisten, termineringslisten, koblingsboksplanen og I/O-listen, alt laget fra modellen når du ber om det.</p>
           <p>Trasésegmenter er kabelbruer, kabelstiger, kabelrør, kanaler og grøfter med kapasitet og fyllgrense. En kabel trekkes gjennom segmenter i rekkefølge; hvert segments fyllgrad summerer kablenes tverrsnitt, og kabelens trukne lengde summerer segmentene. En kabel har en lengde for hånd og en lengde fra 3D, og E1 melder fra når de avviker med mer enn prosjektets toleranse.</p>
@@ -193,33 +249,56 @@
             <li>Etter utstedelse blir en endring en ledningsflytteliste over hva som skal løsnes og hva som skal kobles til, terminal for terminal.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-cables.webp" alt="E1: The cable schedule: type, from, to, cores used, spares, length and status of every cable." width="1200" height="1029" loading="lazy"></div><figcaption>The cable schedule: type, from, to, cores used, spares, length and status of every cable.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="cabinets">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="cabinets">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Skap</span>
           <h2>Skap, MCC-er, potensialer og varmebalanse</h2>
           <p>I E1 er et skap to objekter: plasseringen i Areas og kapslingen i Assets, som inneholder skinner, rekkeklemmer, kort, mellomreléer, strømforsyninger, jordskinner og kabelinnføringer. En MCC og en fordelingstavle er også kapslinger.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 2v20M8 7h2M14 7h2"/></svg></span><span>Cabinets and MCCs</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><span>Potentials</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span>Heat balance</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Fanen Potentials lister hvert nett som +24V på tvers av kapslinger, med terminaler, sikringer og forsyningens last mot merkestrømmen. Nettvisningen viser hver sikrede terminal med merkeverdi og lasten den mater; en manglende verdi vises som ?, aldri som null.</p>
           <p>Et skaps side <b>Fill and heat</b> viser hver rekkeklemme som en stolpe av brukte, reserve og ledige terminaler, og varmebalansen fra fysikken: varmen enhetene gir fra seg ved lasten sin mot det frie veggflater, en vifte og en kjøleenhet fører bort. Resultatet er innvendig temperatur, temperaturen øverst, marginen til skapets grense og kjølingen som fortsatt mangler. Merker for ledninger, terminaler og kabler eksporteres til skriverens programvare.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-cabinets-heat.webp" alt="E1: Cabinet 76-CM-001: its fill and heat balance, worked out from what is mounted in it." width="1200" height="1029" loading="lazy"></div><figcaption>Cabinet <b>76-CM-001</b>: its fill and heat balance, worked out from what is mounted in it.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="loads">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="loads">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Laster</span>
           <h2>Elektrisk lastliste og elektriske dokumenter</h2>
           <p>I E1 skriver Alex med ferdigheten Electrical engineer lastlisten, kabellisten og Ex-utstyrslisten for et 2D-rom til én Excel-arbeidsbok.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span>Electrical load list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span><span>Written by Alex</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>One Excel workbook</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p><b>Export load list and cable schedule (Excel)</b> gir lastlisten med maksimalt effektbehov, kabellisten med kapasitet og spenningsfall, og Ex-utstyrslisten. Alex vurderer kabler med merkeverdiene i IEC 60364-5-52 og et spenningsfall på 3 % for belysning og 5 % for annen bruk. Når en simulator i Alex har kjørt lastflyt, kortslutning, motorstart eller lysbue på det åpne 2D-rommet, vises resultatene som kort med metode, inndata, forutsetninger og resultattabeller.</p>
           <p><b>Make documents…</b> på et skap, en mappe eller prosjektet lager det elektriske dokumentsettet i én endring: rekkeklemmeskjemaer, kabelblokkskjemaet, et kabelskjema per kabel, ledningslisten, I/O-listen, enhetslisten, delelisten og innholdsfortegnelsen, og for prosjektet potensialoversikten. De revideres og utstedes som alle dokumenter.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-loads.webp" alt="E1: The motors of DF-80-E-0001 with rated output, voltage, current and load factor, totalled: the values the load list is written from." width="1200" height="1029" loading="lazy"></div><figcaption>The motors of DF-80-E-0001 with rated output, voltage, current and load factor, totalled: the values the load list is written from.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -264,6 +343,7 @@
         <div class="reveal">
           <h2>I brukerveiledningen</h2>
           <ul class="sol-links">
+            <li><a href="guide-objects.html#obj-deep-view">Deep view</a></li>
             <li><a href="guide-wiring.html#wire-single-line">Tegn kabelnettverket på et enlinjeskjema</a></li>
             <li><a href="guide-wiring.html#wire-propose-cables">Foreslå kabler på et enlinjeskjema</a></li>
             <li><a href="guide-wiring.html#wire-circuit-devices">Kretsskjemaer: enheter med funksjonene sine</a></li>
@@ -291,7 +371,7 @@
     </section>
   </main>
 
-  <div id="site-footer"><nav class="site-links" aria-label="Nettsted"><ul><li><a href="no/index.html">Hjem</a></li><li><a href="no/solutions.html">Løsninger</a></li><li><a href="no/download.html">Skaff deg E1</a></li><li><a href="no/download.html#pricing">Priser</a></li><li><a href="no/cloud-specifications.html">Spesifikasjoner for E1 Cloud</a></li><li><a href="no/academy.html">Academy</a></li><li><a href="guide.html">Brukerveiledning</a></li><li><a href="no/security.html">Sikkerhet</a></li><li><a href="no/about.html">Om oss</a></li><li><a href="no/shape-e1.html">Kontakt oss</a></li><li><a href="no/contact-sales.html">Kontakt salg</a></li></ul><ul><li><a href="no/solution-feed-process-engineering.html">FEED og prosessdesign på én anleggsmodell</a></li><li><a href="no/solution-pid-instrumentation.html">P&amp;ID-er og instrumentering, koblet til prosessen</a></li><li><a href="no/solution-electrical-design.html">Elektrodesign på den samme anleggsmodellen</a></li><li><a href="no/solution-automation-control.html">Automasjon og kontroll, fra den samme anleggsmodellen</a></li><li><a href="no/solution-single-data-model.html">Én anleggsdatamodell, én sannhetskilde</a></li><li><a href="no/solution-ai-predictive-engineering.html">Prediktiv prosjektering med Alex, AI-medingeniøren</a></li><li><a href="no/solution-simulate-validate.html">Simuler, valider og utforsk designet ditt</a></li><li><a href="no/solution-multidiscipline-collaboration.html">Jobb på tvers av fagområder i ett prosjekt</a></li><li><a href="no/solution-large-projects.html">Bygget for prosjekter i raffineristørrelse</a></li><li><a href="no/solution-cross-company-projects.html">På tvers av selskaper i ett prosjekt</a></li><li><a href="no/solution-branches-modifications.html">Grener for scenarier og modifikasjoner</a></li><li><a href="no/solution-revisions-datasheets-reports.html">Revisjoner, datablad og rapporter</a></li><li><a href="no/solution-maintenance-brownfield.html">Brownfield-prosjektering og anleggsmodifikasjoner, på anlegget du allerede har</a></li><li><a href="no/solution-cloud-workspace.html">Skybasert programvare for anleggsprosjektering, uten noe å installere på servere</a></li><li><a href="no/solution-enterprise-deployment.html">Dine data, din installasjon: E1 i din egen sky eller ditt eget datasenter</a></li><li><a href="no/solution-desktop-browser-tablet.html">Skrivebordsapp for Windows og macOS, nettleser og nettbrett: ett prosjekt overalt</a></li></ul></nav></div>
+  <div id="site-footer"><nav class="site-links" aria-label="Nettsted"><ul><li><a href="no/index.html">Hjem</a></li><li><a href="no/solutions.html">Løsninger</a></li><li><a href="no/download.html">Skaff deg E1</a></li><li><a href="no/download.html#pricing">Priser</a></li><li><a href="no/cloud-specifications.html">Spesifikasjoner for E1 Cloud</a></li><li><a href="no/academy.html">Academy</a></li><li><a href="guide.html">Brukerveiledning</a></li><li><a href="no/security.html">Sikkerhet</a></li><li><a href="no/about.html">Om oss</a></li><li><a href="no/shape-e1.html">Kontakt oss</a></li><li><a href="no/contact-sales.html">Kontakt salg</a></li></ul><ul><li><a href="no/solution-feed-process-engineering.html">FEED og prosessdesign på én anleggsmodell</a></li><li><a href="no/solution-pid-instrumentation.html">P&amp;ID-er og instrumentering, koblet til prosessen</a></li><li><a href="no/solution-electrical-design.html">Elektrodesign på den samme anleggsmodellen</a></li><li><a href="no/solution-automation-control.html">Automasjon og kontroll, fra den samme anleggsmodellen</a></li><li><a href="no/solution-single-data-model.html">Én anleggsdatamodell, én sannhetskilde</a></li><li><a href="no/solution-ai-predictive-engineering.html">Prediktiv prosjektering med Alex, AI-medingeniøren</a></li><li><a href="no/solution-simulate-validate.html">Simuler, valider og utforsk designet ditt</a></li><li><a href="no/solution-multidiscipline-collaboration.html">Jobb på tvers av fagområder i ett prosjekt</a></li><li><a href="no/solution-large-projects.html">Bygget for prosjekter i raffineristørrelse</a></li><li><a href="no/solution-cross-company-projects.html">På tvers av selskaper i ett prosjekt</a></li><li><a href="no/solution-branches-modifications.html">Grener for scenarier og modifikasjoner</a></li><li><a href="no/solution-revisions-datasheets-reports.html">Revisjoner, datablad og rapporter</a></li><li><a href="no/solution-maintenance-brownfield.html">Brownfield-prosjektering og anleggsmodifikasjoner, på anlegget du allerede har</a></li><li><a href="no/solution-maintenance-commissioning.html">Maintenance and commissioning, on the live plant model</a></li><li><a href="no/solution-cloud-workspace.html">Skybasert programvare for anleggsprosjektering, uten noe å installere på servere</a></li><li><a href="no/solution-enterprise-deployment.html">Dine data, din installasjon: E1 i din egen sky eller ditt eget datasenter</a></li><li><a href="no/solution-desktop-browser-tablet.html">Skrivebordsapp for Windows og macOS, nettleser og nettbrett: ett prosjekt overalt</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=2"></script>
   <script src="assets/js/config.js?v=4"></script>

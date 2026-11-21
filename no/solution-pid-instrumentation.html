@@ -142,18 +142,31 @@
     <nav class="cs-nav" aria-label="På denne siden">
       <div class="container">
         <div class="cs-nav-track">
-          <a href="no/solution-pid-instrumentation.html#pid">P&amp;ID</a> <a href="no/solution-pid-instrumentation.html#index">Indeks</a> <a href="no/solution-pid-instrumentation.html#loops">Sløyfer</a> <a href="no/solution-pid-instrumentation.html#datasheets">Datablad</a> <a href="no/solution-pid-instrumentation.html#hookups">Monteringsdetaljer</a> <a href="no/solution-pid-instrumentation.html#faq">Spørsmål</a>
+          <a href="no/solution-pid-instrumentation.html#pid">P&amp;ID</a>
+          <a href="no/solution-pid-instrumentation.html#deep-view">Deep view</a>
+          <a href="no/solution-pid-instrumentation.html#index">Index</a>
+          <a href="no/solution-pid-instrumentation.html#loops">Loops</a>
+          <a href="no/solution-pid-instrumentation.html#datasheets">Datasheets</a>
+          <a href="no/solution-pid-instrumentation.html#hookups">Hookups</a>
+          <a href="no/solution-pid-instrumentation.html#faq">Questions</a>
         </div>
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="pid">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pid">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">P&amp;ID</span>
           <h2>P&amp;ID-programvare der hvert symbol er et objekt</h2>
           <p>Når du plasserer et instrument, en ventil eller et utstyr på et P&amp;ID i E1, opprettes det et objekt i prosjektet med neste ledige tagg fra prosjektets taggregler.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="7"/><path d="M5 10h14M12 17v5"/></svg></span><span>Every instrument is an object</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Tags from your rules</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/></svg></span><span>DEXPI, DXF and PDF import</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>E1 tegner sine egne symboler for instrumenter, reguleringsventiler og logikk, i tillegg til utstyr, ventiler og rørdeler. Du finner dem i vinduet Add asset etter navn, type, klasse eller diagramtype, og to klikk setter et symbols inn- og utløp mens du plasserer det. Verktøyet Connector tegner rør, signallinjer og kabler punkt for punkt, og hver linje kobler det den berører. Symbolene viser taggene sine og rørstrekkene linjenumrene sine.</p>
           <p>Tagger følger prosjektets regler, med referansebetegnelser. Når en inndata i en regel endres, merkes taggen som utdatert i stedet for å endre seg bak ryggen din, og Retag… viser hver gamle og nye tagg før den bruker dem. Mens Alex er på, gir plassering av en pumpe et forslag til det som vanligvis kommer neste, tegnet som spøkelsessymboler du godtar eller avviser.</p>
@@ -162,61 +175,127 @@
             <li>Eksisterende P&amp;ID-er kommer inn fra DEXPI 2.0, DXF eller en vektor-PDF som ekte objekter, kontrollert av deg før noe lagres.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-pid.webp" alt="E1: LIT 2001 selected on P&amp;ID DF-20-P-0001, with its loop and its properties." width="1200" height="1029" loading="lazy"></div><figcaption><b>LIT 2001</b> selected on P&amp;ID DF-20-P-0001, with its loop and its properties.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="index">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deep-view">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Deep view</span>
+          <h2>Deep view: follow an instrument from the field to the I/O channel</h2>
+          <p>Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.</p>
+        </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Every link, as cards</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight route</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m21 21-5.5-5.5"/></svg></span><span>Find in view</span></li>
+        </ul>
+        <div class="sol-prose reveal">
+          <p>From LIT 2001 you follow its loop, its cable 76-W-LIT2001, the cores landed on its terminals and the terminal strip in junction box JB-20-01, as well as its alarms and its hookup, and Highlight route shows the way in bold.</p>
+          <p>Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.</p>
+          <ul>
+            <li>Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.</li>
+          </ul>
+        </div>
+        <figure class="sol-shot sol-shot-wide reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/dv-instrument.webp" alt="E1: The Deep view of LIT 2001 with the route to junction box JB-20-01 highlighted: terminal, cable core, terminal strip X1." width="1200" height="381" loading="lazy"></div><figcaption>The Deep view of <b>LIT 2001</b> with the route to junction box JB-20-01 highlighted: terminal, cable core, terminal strip X1.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="index">
+      <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Indeks</span>
           <h2>En instrumentindeks som aldri er utdatert</h2>
           <p>I E1 leses instrumentindeksen fra modellen, så den lister nøyaktig de instrumentene som er på tegningene og i prosjektet.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Read from the model</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Never out of date</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Export to Excel</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Alex' <b>Export instrument index (Excel)</b> leser instrumentene, signalene og motorene i et 2D-rom og skriver instrumentindeksen, I/O-listen, årsak og virkning og motorlisten til én arbeidsbok, ett ark per liste. Hvis selskapet ditt har lastet opp malene for listekolonner i Alex knowledge, følger kolonnene dem.</p>
           <p>For prosjektet som helhet er en instrumentliste en lagret spørring med kolonnene du velger. Den eksporteres til Excel, CSV eller JSON med en E1 id-kolonne. <b>Update from Excel…</b> leser en redigert fil tilbake: Check viser hver endring rad for rad, og Apply gjør dem i ett trinn som kan angres. En instrumentliste fra et annet verktøy kommer inn med <b>Import Excel…</b>: samsvarende rader oppdateres og de andre blir nye objekter. Opptil 100 instrumenter av én klasse lages på én gang fra vinduet New object.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-index.webp" alt="E1: The instrument index: 77 instruments with class, function, alarm and trip settings, SIL and drawings." width="1200" height="1029" loading="lazy"></div><figcaption>The instrument index: 77 instruments with class, function, alarm and trip settings, SIL and drawings.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="loops">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="loops">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Sløyfer</span>
           <h2>Sløyfeskjemaer generert fra modellen</h2>
           <p>I E1 tegnes et sløyfeskjema fra modellen hver gang du ser på det: instrumentene som realiserer en reguleringsfunksjon og enhetene den styrer, i signalrekkefølge, med koblingene sine.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="5" rx="1"/><rect x="7" y="10" width="10" height="5" rx="1"/><circle cx="12" cy="20" r="2.5"/><path d="M10 7v3M14 7v3M10 15v2.5M14 15v2.5"/></svg></span><span>Drawn from the model</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Cables, cores and terminals</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>In signal order</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Høyreklikk en funksjon som TIC-101 og velg <b>Preview loop diagram</b>, eller velg flere for å forhåndsvise dem på ett midlertidig ark. Ingenting lagres mens du forhåndsviser. Eksporter en PDF for å sende den, eller lag en versjon eller en revisjon: først da lagres hver sløyfe i Documents, der du kan flytte symboler for hånd og Regenerate beholder flyttingene dine.</p>
           <p>Sløyfeskjemaet følger hver krets fra enheten gjennom koblingsbokser, kabler, rekkeklemmer og barrierer til I/O-kanalen, med barrierens strømforsyning og skjermene til jordskinnen. Hver terminal tegnes i en kolonne etter sone: koblingsboks, rekkeklemme feltside, mellomrelé, rekkeklemme systemside, I/O, og forsyning og jord. Kobling som fortsatt er under arbeid vises så langt den går, så sløyfeskjemaer er nyttige fra første dag i detaljprosjekteringen.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-loop.webp" alt="E1: The loop diagram of loop 2008: AI card, isolating barrier, cables, junction box JB-20-01 and transmitter TIT 2008." width="1200" height="1029" loading="lazy"></div><figcaption>The loop diagram of <b>loop 2008</b>: AI card, isolating barrier, cables, junction box JB-20-01 and transmitter TIT 2008.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="datasheets">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="datasheets">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Datablad</span>
           <h2>Instrumentdatablad på de samme objektene</h2>
           <p>I E1 er et instrumentdatablad en visning av instrumentets egne verdier: skriv i databladet, så endres objektet.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span>A view of the instrument</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Type in it, the object changes</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Issue it as a document</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Ferdige spesifikasjonsdatablad for instrumenter og ventiler er E1s egne maler inspirert av ISA-datablad, for eksempel spesifikasjonen for elektromagnetisk strømningsmåler. Linjene er nummerert, deltabeller fortsetter på fortsettelsessider, enheter legges til og kontrolleres, og PDF-en ser lik ut som skjermen. Databladdesigneren kopierer en mal til ditt eget oppsett, som senere kan overta endringer fra den.</p>
           <p>Ett databladdokument kan dekke flere tagger i én klasse. Felles verdier vises én gang, verdier som er ulike viser <b>See list</b>, og én endring setter dem alle. Etter at et databladdokument er utstedt, vises hver verdi som er endret siden da ved siden av med neste revisjon, så neste utgave er lett å gjennomgå.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-datasheet.webp" alt="E1: The data sheet tab of LIT 2001: the instrument datasheet is a view of the object itself." width="1200" height="1029" loading="lazy"></div><figcaption>The data sheet tab of <b>LIT 2001</b>: the instrument datasheet is a view of the object itself.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="hookups">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="hookups">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Monteringsdetaljer</span>
           <h2>Monteringsdetaljer, monteringstegninger og monteringsplanen</h2>
           <p>I E1 viser en monteringsdetalj hvordan et instrument er festet og tilkoblet, og alle instrumenter som er montert på samme måte bruker den samme monteringsdetaljen.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.6-.6-.6-2.6z"/></svg></span><span>One hookup per installation</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/></svg></span><span>Hookup drawings</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Hookup schedule</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Slå på monteringsdetaljer for et prosjekt, så får de en egen mappe, Assets ▸ Hookups, med type, montering, tegning og materiallister. På hvert instrument velger du monteringsdetaljen det bruker, og hver monteringsdetalj viser instrumentene som bruker den.</p>
           <p>En monteringstegning lages fra modellen: en arrangementsskisse med en ballong per del, materiallisten, instrumentene som bruker den og merknader, på én A3-side med tegningshodet. Monteringsplanen lister hver monteringsdetalj med instrumentene og materialet de trenger til sammen, eksporteres til PDF og Excel og revideres og utstedes som alle andre dokumenter.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/inst-hookups.webp" alt="E1: Hookup drawing HU-LT-01: the arrangement, its bill of material and the instruments that use it." width="1200" height="1029" loading="lazy"></div><figcaption>Hookup drawing <b>HU-LT-01</b>: the arrangement, its bill of material and the instruments that use it.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -261,6 +340,7 @@
         <div class="reveal">
           <h2>I brukerveiledningen</h2>
           <ul class="sol-links">
+            <li><a href="guide-objects.html#obj-deep-view">Deep view</a></li>
             <li><a href="guide-drawing.html#draw-place-symbol">Plasser et symbol</a></li>
             <li><a href="guide-objects.html#obj-tags">Automatiske tagger og referansebetegnelser</a></li>
             <li><a href="guide-ai.html#ai-alex-instrument-index">Eksporter instrumentindeksen fra tegningen</a></li>
@@ -288,7 +368,7 @@
     </section>
   </main>
 
-  <div id="site-footer"><nav class="site-links" aria-label="Nettsted"><ul><li><a href="no/index.html">Hjem</a></li><li><a href="no/solutions.html">Løsninger</a></li><li><a href="no/download.html">Skaff deg E1</a></li><li><a href="no/download.html#pricing">Priser</a></li><li><a href="no/cloud-specifications.html">Spesifikasjoner for E1 Cloud</a></li><li><a href="no/academy.html">Academy</a></li><li><a href="guide.html">Brukerveiledning</a></li><li><a href="no/security.html">Sikkerhet</a></li><li><a href="no/about.html">Om oss</a></li><li><a href="no/shape-e1.html">Kontakt oss</a></li><li><a href="no/contact-sales.html">Kontakt salg</a></li></ul><ul><li><a href="no/solution-feed-process-engineering.html">FEED og prosessdesign på én anleggsmodell</a></li><li><a href="no/solution-pid-instrumentation.html">P&amp;ID-er og instrumentering, koblet til prosessen</a></li><li><a href="no/solution-electrical-design.html">Elektrodesign på den samme anleggsmodellen</a></li><li><a href="no/solution-automation-control.html">Automasjon og kontroll, fra den samme anleggsmodellen</a></li><li><a href="no/solution-single-data-model.html">Én anleggsdatamodell, én sannhetskilde</a></li><li><a href="no/solution-ai-predictive-engineering.html">Prediktiv prosjektering med Alex, AI-medingeniøren</a></li><li><a href="no/solution-simulate-validate.html">Simuler, valider og utforsk designet ditt</a></li><li><a href="no/solution-multidiscipline-collaboration.html">Jobb på tvers av fagområder i ett prosjekt</a></li><li><a href="no/solution-large-projects.html">Bygget for prosjekter i raffineristørrelse</a></li><li><a href="no/solution-cross-company-projects.html">På tvers av selskaper i ett prosjekt</a></li><li><a href="no/solution-branches-modifications.html">Grener for scenarier og modifikasjoner</a></li><li><a href="no/solution-revisions-datasheets-reports.html">Revisjoner, datablad og rapporter</a></li><li><a href="no/solution-maintenance-brownfield.html">Brownfield-prosjektering og anleggsmodifikasjoner, på anlegget du allerede har</a></li><li><a href="no/solution-cloud-workspace.html">Skybasert programvare for anleggsprosjektering, uten noe å installere på servere</a></li><li><a href="no/solution-enterprise-deployment.html">Dine data, din installasjon: E1 i din egen sky eller ditt eget datasenter</a></li><li><a href="no/solution-desktop-browser-tablet.html">Skrivebordsapp for Windows og macOS, nettleser og nettbrett: ett prosjekt overalt</a></li></ul></nav></div>
+  <div id="site-footer"><nav class="site-links" aria-label="Nettsted"><ul><li><a href="no/index.html">Hjem</a></li><li><a href="no/solutions.html">Løsninger</a></li><li><a href="no/download.html">Skaff deg E1</a></li><li><a href="no/download.html#pricing">Priser</a></li><li><a href="no/cloud-specifications.html">Spesifikasjoner for E1 Cloud</a></li><li><a href="no/academy.html">Academy</a></li><li><a href="guide.html">Brukerveiledning</a></li><li><a href="no/security.html">Sikkerhet</a></li><li><a href="no/about.html">Om oss</a></li><li><a href="no/shape-e1.html">Kontakt oss</a></li><li><a href="no/contact-sales.html">Kontakt salg</a></li></ul><ul><li><a href="no/solution-feed-process-engineering.html">FEED og prosessdesign på én anleggsmodell</a></li><li><a href="no/solution-pid-instrumentation.html">P&amp;ID-er og instrumentering, koblet til prosessen</a></li><li><a href="no/solution-electrical-design.html">Elektrodesign på den samme anleggsmodellen</a></li><li><a href="no/solution-automation-control.html">Automasjon og kontroll, fra den samme anleggsmodellen</a></li><li><a href="no/solution-single-data-model.html">Én anleggsdatamodell, én sannhetskilde</a></li><li><a href="no/solution-ai-predictive-engineering.html">Prediktiv prosjektering med Alex, AI-medingeniøren</a></li><li><a href="no/solution-simulate-validate.html">Simuler, valider og utforsk designet ditt</a></li><li><a href="no/solution-multidiscipline-collaboration.html">Jobb på tvers av fagområder i ett prosjekt</a></li><li><a href="no/solution-large-projects.html">Bygget for prosjekter i raffineristørrelse</a></li><li><a href="no/solution-cross-company-projects.html">På tvers av selskaper i ett prosjekt</a></li><li><a href="no/solution-branches-modifications.html">Grener for scenarier og modifikasjoner</a></li><li><a href="no/solution-revisions-datasheets-reports.html">Revisjoner, datablad og rapporter</a></li><li><a href="no/solution-maintenance-brownfield.html">Brownfield-prosjektering og anleggsmodifikasjoner, på anlegget du allerede har</a></li><li><a href="no/solution-maintenance-commissioning.html">Maintenance and commissioning, on the live plant model</a></li><li><a href="no/solution-cloud-workspace.html">Skybasert programvare for anleggsprosjektering, uten noe å installere på servere</a></li><li><a href="no/solution-enterprise-deployment.html">Dine data, din installasjon: E1 i din egen sky eller ditt eget datasenter</a></li><li><a href="no/solution-desktop-browser-tablet.html">Skrivebordsapp for Windows og macOS, nettleser og nettbrett: ett prosjekt overalt</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=2"></script>
   <script src="assets/js/config.js?v=4"></script>

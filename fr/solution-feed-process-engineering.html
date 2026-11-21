@@ -143,33 +143,80 @@
     <nav class="cs-nav" aria-label="Sur cette page">
       <div class="container">
         <div class="cs-nav-track">
-          <a href="fr/solution-feed-process-engineering.html#pfd">PFD</a> <a href="fr/solution-feed-process-engineering.html#balance">Bilan</a> <a href="fr/solution-feed-process-engineering.html#pid">P&amp;ID</a> <a href="fr/solution-feed-process-engineering.html#line-list">Liste de lignes</a> <a href="fr/solution-feed-process-engineering.html#deliverables">Livrables</a> <a href="fr/solution-feed-process-engineering.html#faq">Questions</a>
+          <a href="fr/solution-feed-process-engineering.html#pfd">PFD</a>
+          <a href="fr/solution-feed-process-engineering.html#deep-view">Deep view</a>
+          <a href="fr/solution-feed-process-engineering.html#balance">Balance</a>
+          <a href="fr/solution-feed-process-engineering.html#pid">P&amp;ID</a>
+          <a href="fr/solution-feed-process-engineering.html#line-list">Line list</a>
+          <a href="fr/solution-feed-process-engineering.html#deliverables">Deliverables</a>
+          <a href="fr/solution-feed-process-engineering.html#faq">Questions</a>
         </div>
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="pfd">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pfd">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">PFD</span>
           <h2>Des schémas de procédé faits d'objets réels</h2>
           <p>Dans E1, un schéma de procédé est un espace 2D dont le type de diagramme est Process flow diagram. Chaque symbole qui s'y trouve est un objet du projet.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Every symbol is an object</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate flow</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="3.5"/><rect x="13" y="3.5" width="7" height="7" rx="1"/><path d="M7 13.5 3.5 20h7z"/><path d="M13 14h7v6h-7z"/></svg></span><span>Process symbols built in</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Vous placez les équipements depuis la fenêtre Add asset, et chaque symbole devient un nouvel objet avec le prochain repère libre selon les règles de repérage du projet, comme P-001 et P-002 pour les pompes. Les flux sont tracés comme des lignes de procédé avec l'outil Connector, et chaque ligne est un objet qui relie ce qu'elle touche. Les opérations unitaires, systèmes, procédés et zones se créent depuis la barre d'outils de dessin pendant que vous dessinez.</p>
           <p>Comme le dessin et les données ne font qu'un, le PFD répond directement aux questions. Highlight flow suit le trajet d'un flux, d'une extrémité ouverte à l'équipement suivant en passant par les vannes, puis à travers pompes et compresseurs et par les raccords hors feuille vers d'autres espaces 2D. Animate flow met la feuille en mouvement : le fluide circule dans les tuyauteries comme il le fait réellement, les réservoirs se remplissent et se vident, et Alex calcule les vitesses à partir des valeurs du modèle sans rien modifier.</p>
           <p>E1 dessine ses propres symboles pour les équipements de procédé, les vannes et la robinetterie, selon les conventions que connaissent les ingénieurs procédé. Vous les parcourez et les recherchez dans Configuration → Shapes.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pfd.webp" alt="E1: DF-00-F-0001, the Demo Field process flow diagram in E1." width="1200" height="1029" loading="lazy"></div><figcaption><b>DF-00-F-0001</b>, the Demo Field process flow diagram in E1.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="balance">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deep-view">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Deep view</span>
+          <h2>Deep view: follow a stream through the model</h2>
+          <p>Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.</p>
+        </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Every link, as cards</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight route</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m21 21-5.5-5.5"/></svg></span><span>Find in view</span></li>
+        </ul>
+        <div class="sol-prose reveal">
+          <p>From the HP separator 20-VA-2001 you follow its pipe runs to the valves on them, its pipeline and piping segments, the PFD, P&amp;ID and datasheet that show it, and the HAZOP tasks raised on it, to see everything it touches before you change it.</p>
+          <p>Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.</p>
+          <ul>
+            <li>Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.</li>
+          </ul>
+        </div>
+        <figure class="sol-shot sol-shot-wide reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/dv-process.webp" alt="E1: The Deep view of the HP separator 20-VA-2001: its pipe runs and valves, its pipeline, the drawings and datasheet that show it, and the HAZOP tasks raised on it." width="1200" height="381" loading="lazy"></div><figcaption>The Deep view of the HP separator <b>20-VA-2001</b>: its pipe runs and valves, its pipeline, the drawings and datasheet that show it, and the HAZOP tasks raised on it.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="balance">
+      <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Bilan</span>
           <h2>Bilan thermique et matière à partir de la liste de lignes</h2>
           <p>Dans E1, les tableaux de bilan thermique et matière d'un PFD sont créés à partir de la liste de lignes. Rien dans un tableau n'est saisi à la main.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Stream values in the line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>Mass and heat balance sheets</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>One source for every stream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Les valeurs des flux arrivent dans la liste de lignes de trois façons : saisies, importées depuis votre simulateur, ou écrites par Alex à partir d'un bilan résolu. <b>Import heat and material balance</b> dans Alex lit le tableau de flux de HYSYS, Aspen Plus, DWSIM ou d'un simulateur similaire au format .xlsx, .xls, .csv ou .txt. Alex associe les flux aux lignes par leur nom ou par le milieu du numéro de ligne, vous vérifiez chaque correspondance, et seulement ensuite les valeurs sont écrites. Alex ne demande alors que ce qui manque encore.</p>
           <p>Sur le PFD, <b>Place mass balance</b> dessine la « cage à oiseaux » : une colonne par flux avec numéro de ligne, From, To, phase, température, pression, débits, masse volumique, masse molaire et composition. <b>Place heat balance</b> liste chaque réchauffeur, refroidisseur, échangeur, pompe et compresseur avec son service, sa puissance thermique et sa puissance, ainsi que les totaux. Les préréglages de format donnent la mise en page attendue par votre client, et une température modifiée dans la liste de lignes apparaît aussitôt dans le tableau.</p>
@@ -177,48 +224,81 @@
             <li>Une valeur manquante, ou impossible à afficher dans l'unité choisie, s'affiche sous la forme – plutôt qu'une estimation.</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-balance.webp" alt="E1: A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density." width="1200" height="1029" loading="lazy"></div><figcaption>A heat and material balance table on the PFD: streams 1 to 10 with phase, temperature, pressure, flows and density.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="pid">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="pid">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">P&amp;ID</span>
           <h2>Créer le P&amp;ID à partir du PFD</h2>
           <p>Dans E1, Make P&amp;ID from this PFD… dessine un nouveau P&amp;ID avec les équipements mêmes du PFD : les mêmes objets avec les mêmes repères, pas des copies.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Made from the PFD</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Same equipment, no copies</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5v16h3M16 4h3v16h-3"/><path d="M9 12h6"/></svg></span><span>DEXPI 2.0 in and out</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Chaque flux devient une tuyauterie entre les mêmes équipements, qui transporte le même flux. Vous choisissez les objets à dessiner ; un objet déjà présent sur un P&amp;ID de ce PFD, ou sans forme de P&amp;ID, est grisé avec la raison. Les équipements que vous laissez pour un second P&amp;ID se terminent par un raccord hors feuille qui se poursuit là-bas. Rien n'est dessiné deux fois.</p>
           <p>Quand des objets ou des flux sont ajoutés plus tard au PFD, <b>Update from PFD</b> ne propose que les nouveaux. Le nouveau P&amp;ID s'ouvre avec les <b>Suggested additions</b> d'Alex : ce que chaque objet porte habituellement sur un P&amp;ID. Une pompe centrifuge reçoit l'isolement à l'aspiration et au refoulement, un clapet anti-retour au refoulement, un filtre à l'aspiration et un manomètre au refoulement ; un récipient reçoit une soupape de sûreté, une purge, un évent, des instruments de niveau et de pression. Les ajouts exigés par les conventions de votre entreprise passent en premier, et <b>Apply all</b> est une seule modification avec un seul Undo.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-pid.webp" alt="E1: P&amp;ID DF-20-P-0001, the HP separation of the Demo Field." width="1200" height="1029" loading="lazy"></div><figcaption>P&amp;ID <b>DF-20-P-0001</b>, the HP separation of the Demo Field.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="line-list">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="line-list">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Liste de lignes</span>
           <h2>Tuyauteries, classes de tuyauterie et liste de lignes à jour</h2>
           <p>Dans E1, une tuyauterie est une ligne de la liste de lignes : les tronçons de tuyau, vannes et raccords d'une tubulure d'équipement à une autre, avec son numéro de ligne, From et To.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12a3 3 0 0 1 3 3v9M3 15h9a0 0 0 0 1 0 0"/><path d="M3 6v6M18 21h4"/></svg></span><span>Pipelines and pipe classes</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>A live line list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Always in step with the P&amp;IDs</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Vous définissez une tuyauterie sur le dessin d'un équipement au suivant, et E1 suit le tuyau dessiné à travers les vannes et la robinetterie pour la construire, découpée en tronçons aux réducteurs. Une tuyauterie indique sa classe de tuyauterie. Les classes de tuyauterie contiennent vos spécifications de tuyauterie : classe de pression, matériau, enveloppe pression–température, diamètres avec leur épaisseur (schedule), et les vannes et raccords autorisés. Elles sont conservées dans la bibliothèque de l'entreprise ou du projet, publiées en versions, et peuvent être importées depuis un tableur.</p>
           <p><b>Check piping…</b> détecte une pompe tournée dans le mauvais sens, des écoulements qui se rencontrent de face, des piquages avec seulement de l'entrée, et des tuyauteries qui ne sont plus complètes. Il propose des corrections et n'en applique jamais de lui-même. Quand des classes de tuyauterie sont chargées, Alex vérifie la pression et la température de chaque ligne par rapport à sa classe et signale un service acide dans une classe non prévue pour cela.</p>
           <p>E1 ne fournit pas de liste de lignes figée. Le tableau des tuyauteries est une requête que vous construisez et enregistrez sur les tuyauteries du projet : numéro de ligne, From et To, diamètre, fluide, classe de tuyauterie, conditions de conception et P&amp;ID sur lesquels chaque ligne est dessinée. Il reste à jour avec le dessin et s'exporte vers Excel ou CSV, ou devient un document de liste avec révisions.</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-linelist.webp" alt="E1: The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line." width="1200" height="1029" loading="lazy"></div><figcaption>The line list, read from the model: tag, service, fluid, nominal size and pipe class of every line.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="deliverables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deliverables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">Livrables</span>
           <h2>Des livrables FEED que reprennent les disciplines en aval</h2>
           <p>Dans E1, les fiches techniques, listes et dessins sont générés à partir des mêmes objets, si bien que le dossier FEED et l'étude détaillée ne divergent jamais.</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 13h7M9 17h7"/></svg></span><span>Deliverables bound together</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Revisions shown on change</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Inherited downstream</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>Les fiches techniques de spécification des pompes et des échangeurs sont fournies en modèles prêts à l'emploi, des mises en page propres à E1 inspirées des fiches API et ASME. Les cas de fonctionnement figurent côte à côte sur la fiche : maximum, nominal, normal, minimum, conception ou démarrage, chacun héritant des valeurs de l'objet jusqu'à ce que vous lui en donniez de propres. Une fois une fiche émise, chaque valeur modifiée depuis s'affiche avec la révision suivante à côté.</p>
           <p>Documents → Deliverables réunit les dessins choisis avec les rapports et fiches techniques du profil de livrable dans un seul PDF, avec page de garde, index et numéros de page, puis l'émet. Les données de procédé quittent aussi E1 sous forme de données : toute requête s'exporte vers Excel, CSV ou JSON, un espace 2D s'exporte en DEXPI 2.0 pour un outil de conception 3D ou un autre outil de P&amp;ID, et les P&amp;ID existants sont importés depuis DEXPI, DXF ou un PDF vectoriel.</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/process-deliverables.webp" alt="E1: Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF." width="1200" height="1029" loading="lazy"></div><figcaption>Deliverables: the chosen drawings, lists, datasheets and loop diagrams bound into one PDF.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -263,6 +343,7 @@
         <div class="reveal">
           <h2>Dans le guide utilisateur</h2>
           <ul class="sol-links">
+            <li><a href="guide-objects.html#obj-deep-view">Vue détaillée (Deep view)</a></li>
             <li><a href="guide-drawing.html#draw-pid-from-pfd">Créer un P&amp;ID à partir d'un PFD</a></li>
             <li><a href="guide-drawing.html#draw-balance-tables">Bilan thermique et matière sur le PFD</a></li>
             <li><a href="guide-ai.html#ai-alex-hmb">Importer un bilan thermique et matière</a></li>
@@ -290,7 +371,7 @@
     </section>
   </main>
 
-  <div id="site-footer"><nav class="site-links" aria-label="Site"><ul><li><a href="fr/index.html">Accueil</a></li><li><a href="fr/solutions.html">Solutions</a></li><li><a href="fr/download.html">Obtenir E1</a></li><li><a href="fr/download.html#pricing">Tarifs</a></li><li><a href="fr/cloud-specifications.html">Spécifications E1 Cloud</a></li><li><a href="fr/academy.html">Academy</a></li><li><a href="guide.html">Guide utilisateur</a></li><li><a href="fr/security.html">Sécurité</a></li><li><a href="fr/about.html">À propos</a></li><li><a href="fr/shape-e1.html">Nous contacter</a></li><li><a href="fr/contact-sales.html">Contacter les ventes</a></li></ul><ul><li><a href="fr/solution-feed-process-engineering.html">FEED et ingénierie de procédé sur un seul modèle d'installation</a></li><li><a href="fr/solution-pid-instrumentation.html">P&amp;ID et instrumentation, reliés au procédé</a></li><li><a href="fr/solution-electrical-design.html">Conception électrique sur le même modèle d'installation</a></li><li><a href="fr/solution-automation-control.html">Automatisme et contrôle-commande, à partir du même modèle d'installation</a></li><li><a href="fr/solution-single-data-model.html">Un seul modèle de données d'installation, une source unique de vérité</a></li><li><a href="fr/solution-ai-predictive-engineering.html">Ingénierie prédictive avec Alex, le co-ingénieur IA</a></li><li><a href="fr/solution-simulate-validate.html">Simulez, validez et explorez votre conception</a></li><li><a href="fr/solution-multidiscipline-collaboration.html">Travaillez entre disciplines sur un seul projet</a></li><li><a href="fr/solution-large-projects.html">Conçu pour les projets de la taille d'une raffinerie</a></li><li><a href="fr/solution-cross-company-projects.html">Entre entreprises sur un seul projet</a></li><li><a href="fr/solution-branches-modifications.html">Des branches pour les scénarios et les modifications</a></li><li><a href="fr/solution-revisions-datasheets-reports.html">Révisions, fiches techniques et rapports</a></li><li><a href="fr/solution-maintenance-brownfield.html">Ingénierie brownfield et modifications d'installation, sur l'installation que vous avez déjà</a></li><li><a href="fr/solution-cloud-workspace.html">Logiciel d'ingénierie d'installations dans le cloud, sans rien installer sur vos serveurs</a></li><li><a href="fr/solution-enterprise-deployment.html">Vos données, votre déploiement : E1 dans votre propre cloud ou data center</a></li><li><a href="fr/solution-desktop-browser-tablet.html">Application de bureau Windows et macOS, navigateur et tablette : un seul projet partout</a></li></ul></nav></div>
+  <div id="site-footer"><nav class="site-links" aria-label="Site"><ul><li><a href="fr/index.html">Accueil</a></li><li><a href="fr/solutions.html">Solutions</a></li><li><a href="fr/download.html">Obtenir E1</a></li><li><a href="fr/download.html#pricing">Tarifs</a></li><li><a href="fr/cloud-specifications.html">Spécifications E1 Cloud</a></li><li><a href="fr/academy.html">Academy</a></li><li><a href="guide.html">Guide utilisateur</a></li><li><a href="fr/security.html">Sécurité</a></li><li><a href="fr/about.html">À propos</a></li><li><a href="fr/shape-e1.html">Nous contacter</a></li><li><a href="fr/contact-sales.html">Contacter les ventes</a></li></ul><ul><li><a href="fr/solution-feed-process-engineering.html">FEED et ingénierie de procédé sur un seul modèle d'installation</a></li><li><a href="fr/solution-pid-instrumentation.html">P&amp;ID et instrumentation, reliés au procédé</a></li><li><a href="fr/solution-electrical-design.html">Conception électrique sur le même modèle d'installation</a></li><li><a href="fr/solution-automation-control.html">Automatisme et contrôle-commande, à partir du même modèle d'installation</a></li><li><a href="fr/solution-single-data-model.html">Un seul modèle de données d'installation, une source unique de vérité</a></li><li><a href="fr/solution-ai-predictive-engineering.html">Ingénierie prédictive avec Alex, le co-ingénieur IA</a></li><li><a href="fr/solution-simulate-validate.html">Simulez, validez et explorez votre conception</a></li><li><a href="fr/solution-multidiscipline-collaboration.html">Travaillez entre disciplines sur un seul projet</a></li><li><a href="fr/solution-large-projects.html">Conçu pour les projets de la taille d'une raffinerie</a></li><li><a href="fr/solution-cross-company-projects.html">Entre entreprises sur un seul projet</a></li><li><a href="fr/solution-branches-modifications.html">Des branches pour les scénarios et les modifications</a></li><li><a href="fr/solution-revisions-datasheets-reports.html">Révisions, fiches techniques et rapports</a></li><li><a href="fr/solution-maintenance-brownfield.html">Ingénierie brownfield et modifications d'installation, sur l'installation que vous avez déjà</a></li><li><a href="fr/solution-maintenance-commissioning.html">Maintenance and commissioning, on the live plant model</a></li><li><a href="fr/solution-cloud-workspace.html">Logiciel d'ingénierie d'installations dans le cloud, sans rien installer sur vos serveurs</a></li><li><a href="fr/solution-enterprise-deployment.html">Vos données, votre déploiement : E1 dans votre propre cloud ou data center</a></li><li><a href="fr/solution-desktop-browser-tablet.html">Application de bureau Windows et macOS, navigateur et tablette : un seul projet partout</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=2"></script>
   <script src="assets/js/config.js?v=4"></script>

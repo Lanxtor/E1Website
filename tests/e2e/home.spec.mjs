@@ -1,50 +1,9 @@
 /*
- * The home page (the platform assembled part by part with the engineers
- * joining, "Meet Alex" typing its skills), Contact us (shape-e1.html) and the
- * campaign tag that travels from a tagged link to the sign-up.
+ * Contact us (shape-e1.html) and the campaign tag that travels from a tagged
+ * link to the sign-up. The home page itself (the Overview) is tested in
+ * overview2.spec.mjs.
  */
 import { test, expect, API } from "./fixtures.mjs";
-
-test("home: the platform is built part by part and the engineers join", async ({ page }) => {
-  await page.goto("/index.html");
-  const title = page.locator("[data-hero-title]");
-  await expect(title.locator("em")).toBeVisible();
-  await expect(title).toHaveText("Plant engineering, at the speed of thought.");
-  const parts = page.locator("[data-twin] .tw-part");
-  const total = await parts.count();
-  expect(total).toBeGreaterThan(3);
-  // More parts appear as time passes.
-  const shown = () => page.locator("[data-twin] .tw-part.is-up").count();
-  await expect.poll(shown, { timeout: 15_000 }).toBeGreaterThan(1);
-  const some = await shown();
-  await expect.poll(shown, { timeout: 15_000 }).toBeGreaterThan(some);
-  // The engineers join while it is still being built.
-  await expect.poll(() => page.locator("[data-twin] .tw-who.is-on").count(), { timeout: 30_000 }).toBeGreaterThan(0);
-});
-
-test("home: Meet Alex types one skill after another and lights its chip", async ({ page }) => {
-  await page.goto("/index.html");
-  const typed = page.locator("[data-alex-typed]");
-  await typed.scrollIntoViewIfNeeded();
-  const words = (await page.locator("[data-alex-skills] li").allTextContents()).map((w) => w.trim());
-  expect(words.length).toBeGreaterThan(1);
-  await expect(page.locator("[data-alex-skills] li.is-on")).toHaveText(words[0]);
-  await expect(typed).toHaveText(words[0], { timeout: 10_000 });
-  await expect(page.locator("[data-alex-skills] li.is-on")).toHaveText(words[1], { timeout: 15_000 });
-});
-
-test.describe("with reduce motion on", () => {
-  test.use({ reducedMotion: "reduce" });
-  test("home: Meet Alex shows its first skill and stays still", async ({ page }) => {
-    await page.goto("/index.html");
-    const typed = page.locator("[data-alex-typed]");
-    const first = (await page.locator("[data-alex-skills] li").first().textContent()).trim();
-    await expect(typed).toHaveText(first);
-    await page.waitForTimeout(2500);
-    await expect(typed).toHaveText(first);
-    await expect(page.locator("[data-alex-skills] li.is-on")).toHaveCount(1);
-  });
-});
 
 test("Contact us: write to sales or to support; the guides and the prices are linked", async ({ page }) => {
   await page.goto("/shape-e1.html");

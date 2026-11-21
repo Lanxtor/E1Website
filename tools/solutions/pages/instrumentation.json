@@ -1,117 +1,257 @@
 {
- "id": "instrumentation",
- "file": "solution-pid-instrumentation.html",
- "title": "P&amp;ID and instrumentation software",
- "description": "P&amp;ID software for instrumentation engineers: instruments as tagged objects, an instrument index from the drawing, loop diagrams, datasheets and hookups.",
- "kicker": "P&amp;IDs &amp; instrumentation",
- "h1": "P&amp;IDs and instrumentation, connected to the process.",
- "lead": "In E1, every instrument on a P&amp;ID is an object in the plant model with its tag, its values and its relationships. The instrument index, the loop diagrams, the instrument datasheets and the hookups are made from those objects. Change an instrument once and the drawing, the lists and the documents agree.",
- "glance": [
-  {
-   "value": "4",
-   "label": "lists in one workbook from a P&amp;ID: instrument index, I/O list, cause and effect, motor list"
-  },
-  {
-   "value": "100",
-   "label": "instruments of one class made in one step, numbered from your tag"
-  }
- ],
- "sections": [
-  {
-   "id": "pid",
-   "kicker": "P&amp;ID",
-   "h2": "P&amp;ID software where every symbol is an object",
-   "intro": "In E1, placing an instrument, valve or item of equipment on a P&amp;ID creates an object in the project with the next free tag from the project's tag rules.",
-   "paragraphs": [
-    "E1 draws its own symbols for instruments, control valves and logic as well as for equipment, valves and fittings. You find them in the Add asset window by name, type, class or diagram type, and two clicks set a symbol's inlet and outlet as you place it. The Connector tool draws pipes, signal lines and cables point by point, and each line connects what it touches. Symbols show their tags and pipe runs their line numbers.",
-    "Tags follow the project's rules, with reference designations. When an input of a rule changes, the tag is marked out of date instead of changing behind your back, and Retag… shows every old and new tag before it applies them. While Alex is on, placing a pump brings an offer of what usually comes next, drawn as ghost symbols you apply or reject."
-   ],
-   "bullets": [
-    "Engineering patterns draw a control valve station or an instrument tap at once, placed, routed and checked (with an AI model set up for Alex).",
-    "Existing P&amp;IDs come in from DEXPI 2.0, DXF or a vector PDF as real objects, checked by you before anything is stored."
-   ]
-  },
-  {
-   "id": "index",
-   "kicker": "Index",
-   "h2": "An instrument index that is never out of date",
-   "intro": "In E1, the instrument index is read from the model, so it lists exactly the instruments that are on the drawings and in the project.",
-   "paragraphs": [
-    "Alex's <b>Export instrument index (Excel)</b> reads the instruments, signals and motors on a 2D space and writes the instrument index, the I/O list, the cause and effect and the motor list into one workbook, one sheet per list. If your company uploaded its list column templates in Alex knowledge, the columns follow them.",
-    "For the project as a whole, an instrument list is a saved query with the columns you choose. It exports to Excel, CSV or JSON with an E1 id column. <b>Update from Excel…</b> reads an edited file back: Check lists every change row by row, and Apply makes them in one undoable step. An instrument list from another tool comes in with <b>Import Excel…</b>: matching rows are updated and the others become new objects. Up to 100 instruments of one class are made in one go from the New object window."
-   ]
-  },
-  {
-   "id": "loops",
-   "kicker": "Loops",
-   "h2": "Loop diagrams generated from the model",
-   "intro": "In E1, a loop diagram is drawn from the model whenever you look at it: the instruments that implement a control function and the devices it controls, in signal order, with their wiring.",
-   "paragraphs": [
-    "Right-click a function such as TIC-101 and choose <b>Preview loop diagram</b>, or pick several to preview them on one temporary sheet. Nothing is stored while you preview. Export a PDF to send it, or create a version or a revision: only then is each loop stored in Documents, where you can move symbols by hand and Regenerate keeps your moves.",
-    "The loop diagram follows each circuit from the device through the junction boxes, cables, marshalling and barriers to the I/O channel, with the barrier's power feed and the screens to their earth bar. Every terminal is drawn in a column by zone: junction box, marshalling field side, interposing, marshalling system side, I/O, and supply and earth. Wiring that is still under way is shown as far as it goes, so loop diagrams are useful from the first day of detailed design."
-   ]
-  },
-  {
-   "id": "datasheets",
-   "kicker": "Datasheets",
-   "h2": "Instrument datasheets on the same objects",
-   "intro": "In E1, an instrument datasheet is a view of the instrument's own values: type into the datasheet and the object changes.",
-   "paragraphs": [
-    "Ready-made specification datasheets for instruments and valves are E1's own templates inspired by ISA datasheets, such as the electromagnetic flowmeter specification. Lines are numbered, tables of parts continue on continuation pages, units are added and checked, and the PDF looks the same as the screen. The datasheet designer copies a template into your own layout, which can later take over changes from it.",
-    "One datasheet document can cover several tags of one class. Shared values show once, values that differ show <b>See list</b>, and one change sets all of them. After a datasheet document is issued, every value changed since shows the next revision beside it, so the next issue is easy to review."
-   ]
-  },
-  {
-   "id": "hookups",
-   "kicker": "Hookups",
-   "h2": "Hookups, hookup drawings and the hookup schedule",
-   "intro": "In E1, a hookup shows how an instrument is fixed and connected, and every instrument installed the same way uses the same hookup.",
-   "paragraphs": [
-    "Turn hookups on for a project and they get a folder of their own, Assets ▸ Hookups, with their type, mounting, drawing and bill of material. On every instrument you choose the hookup it uses, and every hookup shows the instruments that use it.",
-    "A hookup drawing is made from the model: an arrangement sketch with a balloon per part, the bill of material, the instruments that use it and notes, on one A3 page with the title block. The hookup schedule lists every hookup with its instruments and the material they need in total, exported to PDF and Excel and revised and issued like any other document."
-   ]
-  }
- ],
- "faq": [
-  {
-   "q": "Is the instrument index a separate database from the P&amp;ID?",
-   "a": "No. The instrument on the P&amp;ID and the row in the instrument index are the same object. The index is read from the model each time you export it."
-  },
-  {
-   "q": "Do loop diagrams need finished wiring?",
-   "a": "No. A loop diagram shows the wiring that is there. As cores are landed on junction boxes, marshalling and I/O channels, the next preview shows them."
-  },
-  {
-   "q": "Are the datasheet templates copies of ISA forms?",
-   "a": "No. Only the idea comes from ISA, API and ASME specification datasheets. The layout, sections, wording and line numbers are E1's own, with no form names, numbers or logos of theirs."
-  },
-  {
-   "q": "Can I use my company's own datasheet layout?",
-   "a": "Yes. Copy a template, or build a layout from components in the datasheet designer, preview it with several objects and publish it for a class."
-  },
-  {
-   "q": "Can I import an existing instrument list?",
-   "a": "Yes. Import Excel… brings an Excel or CSV tag list into a section: matching rows are updated and the others become new objects, after a preview."
-  },
-  {
-   "q": "How are tags given to new instruments?",
-   "a": "From the project's tag rules, built from segments, lookup tables and options. A manual tag can be set with Tag…, and Retag… brings out-of-date tags back in line after a preview."
-  }
- ],
- "guides": [
-  "DRAW-place-symbol",
-  "OBJ-tags",
-  "AI-alex-instrument-index",
-  "DRAW-loop-diagram",
-  "WIRE-loop-diagram",
-  "DOC-spec-datasheet-templates",
-  "DOC-spec-datasheet-tags",
-  "OBJ-hookups"
- ],
- "related": [
-  "feed-process",
-  "automation",
-  "electrical",
-  "revisions-datasheets"
- ]
+  "id": "instrumentation",
+  "file": "solution-pid-instrumentation.html",
+  "title": "P&amp;ID and instrumentation software",
+  "description": "P&amp;ID software for instrumentation engineers: instruments as tagged objects, an instrument index from the drawing, loop diagrams, datasheets and hookups.",
+  "kicker": "P&amp;IDs &amp; instrumentation",
+  "h1": "P&amp;IDs and instrumentation, connected to the process.",
+  "lead": "In E1, every instrument on a P&amp;ID is an object in the plant model with its tag, its values and its relationships. The instrument index, the loop diagrams, the instrument datasheets and the hookups are made from those objects. Change an instrument once and the drawing, the lists and the documents agree.",
+  "glance": [
+    {
+      "value": "4",
+      "label": "lists in one workbook from a P&amp;ID: instrument index, I/O list, cause and effect, motor list"
+    },
+    {
+      "value": "100",
+      "label": "instruments of one class made in one step, numbered from your tag"
+    }
+  ],
+  "sections": [
+    {
+      "id": "pid",
+      "kicker": "P&amp;ID",
+      "h2": "P&amp;ID software where every symbol is an object",
+      "intro": "In E1, placing an instrument, valve or item of equipment on a P&amp;ID creates an object in the project with the next free tag from the project's tag rules.",
+      "paragraphs": [
+        "E1 draws its own symbols for instruments, control valves and logic as well as for equipment, valves and fittings. You find them in the Add asset window by name, type, class or diagram type, and two clicks set a symbol's inlet and outlet as you place it. The Connector tool draws pipes, signal lines and cables point by point, and each line connects what it touches. Symbols show their tags and pipe runs their line numbers.",
+        "Tags follow the project's rules, with reference designations. When an input of a rule changes, the tag is marked out of date instead of changing behind your back, and Retag… shows every old and new tag before it applies them. While Alex is on, placing a pump brings an offer of what usually comes next, drawn as ghost symbols you apply or reject."
+      ],
+      "bullets": [
+        "Engineering patterns draw a control valve station or an instrument tap at once, placed, routed and checked (with an AI model set up for Alex).",
+        "Existing P&amp;IDs come in from DEXPI 2.0, DXF or a vector PDF as real objects, checked by you before anything is stored."
+      ],
+      "shot": {
+        "src": "assets/img/solutions/inst-pid.webp",
+        "alt": "E1: LIT 2001 selected on P&amp;ID DF-20-P-0001, with its loop and its properties.",
+        "width": 1200,
+        "height": 1029,
+        "caption": "<b>LIT 2001</b> selected on P&amp;ID DF-20-P-0001, with its loop and its properties."
+      },
+      "points": [
+        {
+          "icon": "instrument",
+          "label": "Every instrument is an object"
+        },
+        {
+          "icon": "object",
+          "label": "Tags from your rules"
+        },
+        {
+          "icon": "dexpi",
+          "label": "DEXPI, DXF and PDF import"
+        }
+      ]
+    },
+    {
+      "id": "deep-view",
+      "kicker": "Deep view",
+      "h2": "Deep view: follow an instrument from the field to the I/O channel",
+      "intro": "Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.",
+      "paragraphs": [
+        "From LIT 2001 you follow its loop, its cable 76-W-LIT2001, the cores landed on its terminals and the terminal strip in junction box JB-20-01, as well as its alarms and its hookup, and Highlight route shows the way in bold.",
+        "Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links."
+      ],
+      "bullets": [
+        "Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view."
+      ],
+      "shot": {
+        "src": "assets/img/solutions/dv-instrument.webp",
+        "alt": "E1: The Deep view of LIT 2001 with the route to junction box JB-20-01 highlighted: terminal, cable core, terminal strip X1.",
+        "width": 1200,
+        "height": 381,
+        "caption": "The Deep view of <b>LIT 2001</b> with the route to junction box JB-20-01 highlighted: terminal, cable core, terminal strip X1."
+      },
+      "points": [
+        {
+          "icon": "link",
+          "label": "Every link, as cards"
+        },
+        {
+          "icon": "flow",
+          "label": "Highlight route"
+        },
+        {
+          "icon": "search",
+          "label": "Find in view"
+        }
+      ]
+    },
+    {
+      "id": "index",
+      "kicker": "Index",
+      "h2": "An instrument index that is never out of date",
+      "intro": "In E1, the instrument index is read from the model, so it lists exactly the instruments that are on the drawings and in the project.",
+      "paragraphs": [
+        "Alex's <b>Export instrument index (Excel)</b> reads the instruments, signals and motors on a 2D space and writes the instrument index, the I/O list, the cause and effect and the motor list into one workbook, one sheet per list. If your company uploaded its list column templates in Alex knowledge, the columns follow them.",
+        "For the project as a whole, an instrument list is a saved query with the columns you choose. It exports to Excel, CSV or JSON with an E1 id column. <b>Update from Excel…</b> reads an edited file back: Check lists every change row by row, and Apply makes them in one undoable step. An instrument list from another tool comes in with <b>Import Excel…</b>: matching rows are updated and the others become new objects. Up to 100 instruments of one class are made in one go from the New object window."
+      ],
+      "shot": {
+        "src": "assets/img/solutions/inst-index.webp",
+        "alt": "E1: The instrument index: 77 instruments with class, function, alarm and trip settings, SIL and drawings.",
+        "width": 1200,
+        "height": 1029,
+        "caption": "The instrument index: 77 instruments with class, function, alarm and trip settings, SIL and drawings."
+      },
+      "points": [
+        {
+          "icon": "table",
+          "label": "Read from the model"
+        },
+        {
+          "icon": "check",
+          "label": "Never out of date"
+        },
+        {
+          "icon": "export",
+          "label": "Export to Excel"
+        }
+      ]
+    },
+    {
+      "id": "loops",
+      "kicker": "Loops",
+      "h2": "Loop diagrams generated from the model",
+      "intro": "In E1, a loop diagram is drawn from the model whenever you look at it: the instruments that implement a control function and the devices it controls, in signal order, with their wiring.",
+      "paragraphs": [
+        "Right-click a function such as TIC-101 and choose <b>Preview loop diagram</b>, or pick several to preview them on one temporary sheet. Nothing is stored while you preview. Export a PDF to send it, or create a version or a revision: only then is each loop stored in Documents, where you can move symbols by hand and Regenerate keeps your moves.",
+        "The loop diagram follows each circuit from the device through the junction boxes, cables, marshalling and barriers to the I/O channel, with the barrier's power feed and the screens to their earth bar. Every terminal is drawn in a column by zone: junction box, marshalling field side, interposing, marshalling system side, I/O, and supply and earth. Wiring that is still under way is shown as far as it goes, so loop diagrams are useful from the first day of detailed design."
+      ],
+      "shot": {
+        "src": "assets/img/solutions/inst-loop.webp",
+        "alt": "E1: The loop diagram of loop 2008: AI card, isolating barrier, cables, junction box JB-20-01 and transmitter TIT 2008.",
+        "width": 1200,
+        "height": 1029,
+        "caption": "The loop diagram of <b>loop 2008</b>: AI card, isolating barrier, cables, junction box JB-20-01 and transmitter TIT 2008."
+      },
+      "points": [
+        {
+          "icon": "loop",
+          "label": "Drawn from the model"
+        },
+        {
+          "icon": "cable",
+          "label": "Cables, cores and terminals"
+        },
+        {
+          "icon": "link",
+          "label": "In signal order"
+        }
+      ]
+    },
+    {
+      "id": "datasheets",
+      "kicker": "Datasheets",
+      "h2": "Instrument datasheets on the same objects",
+      "intro": "In E1, an instrument datasheet is a view of the instrument's own values: type into the datasheet and the object changes.",
+      "paragraphs": [
+        "Ready-made specification datasheets for instruments and valves are E1's own templates inspired by ISA datasheets, such as the electromagnetic flowmeter specification. Lines are numbered, tables of parts continue on continuation pages, units are added and checked, and the PDF looks the same as the screen. The datasheet designer copies a template into your own layout, which can later take over changes from it.",
+        "One datasheet document can cover several tags of one class. Shared values show once, values that differ show <b>See list</b>, and one change sets all of them. After a datasheet document is issued, every value changed since shows the next revision beside it, so the next issue is easy to review."
+      ],
+      "shot": {
+        "src": "assets/img/solutions/inst-datasheet.webp",
+        "alt": "E1: The data sheet tab of LIT 2001: the instrument datasheet is a view of the object itself.",
+        "width": 1200,
+        "height": 1029,
+        "caption": "The data sheet tab of <b>LIT 2001</b>: the instrument datasheet is a view of the object itself."
+      },
+      "points": [
+        {
+          "icon": "sheet",
+          "label": "A view of the instrument"
+        },
+        {
+          "icon": "object",
+          "label": "Type in it, the object changes"
+        },
+        {
+          "icon": "export",
+          "label": "Issue it as a document"
+        }
+      ]
+    },
+    {
+      "id": "hookups",
+      "kicker": "Hookups",
+      "h2": "Hookups, hookup drawings and the hookup schedule",
+      "intro": "In E1, a hookup shows how an instrument is fixed and connected, and every instrument installed the same way uses the same hookup.",
+      "paragraphs": [
+        "Turn hookups on for a project and they get a folder of their own, Assets ▸ Hookups, with their type, mounting, drawing and bill of material. On every instrument you choose the hookup it uses, and every hookup shows the instruments that use it.",
+        "A hookup drawing is made from the model: an arrangement sketch with a balloon per part, the bill of material, the instruments that use it and notes, on one A3 page with the title block. The hookup schedule lists every hookup with its instruments and the material they need in total, exported to PDF and Excel and revised and issued like any other document."
+      ],
+      "shot": {
+        "src": "assets/img/solutions/inst-hookups.webp",
+        "alt": "E1: Hookup drawing HU-LT-01: the arrangement, its bill of material and the instruments that use it.",
+        "width": 1200,
+        "height": 1029,
+        "caption": "Hookup drawing <b>HU-LT-01</b>: the arrangement, its bill of material and the instruments that use it."
+      },
+      "points": [
+        {
+          "icon": "wrench",
+          "label": "One hookup per installation"
+        },
+        {
+          "icon": "doc",
+          "label": "Hookup drawings"
+        },
+        {
+          "icon": "table",
+          "label": "Hookup schedule"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Is the instrument index a separate database from the P&amp;ID?",
+      "a": "No. The instrument on the P&amp;ID and the row in the instrument index are the same object. The index is read from the model each time you export it."
+    },
+    {
+      "q": "Do loop diagrams need finished wiring?",
+      "a": "No. A loop diagram shows the wiring that is there. As cores are landed on junction boxes, marshalling and I/O channels, the next preview shows them."
+    },
+    {
+      "q": "Are the datasheet templates copies of ISA forms?",
+      "a": "No. Only the idea comes from ISA, API and ASME specification datasheets. The layout, sections, wording and line numbers are E1's own, with no form names, numbers or logos of theirs."
+    },
+    {
+      "q": "Can I use my company's own datasheet layout?",
+      "a": "Yes. Copy a template, or build a layout from components in the datasheet designer, preview it with several objects and publish it for a class."
+    },
+    {
+      "q": "Can I import an existing instrument list?",
+      "a": "Yes. Import Excel… brings an Excel or CSV tag list into a section: matching rows are updated and the others become new objects, after a preview."
+    },
+    {
+      "q": "How are tags given to new instruments?",
+      "a": "From the project's tag rules, built from segments, lookup tables and options. A manual tag can be set with Tag…, and Retag… brings out-of-date tags back in line after a preview."
+    }
+  ],
+  "guides": [
+    "OBJ-deep-view",
+    "DRAW-place-symbol",
+    "OBJ-tags",
+    "AI-alex-instrument-index",
+    "DRAW-loop-diagram",
+    "WIRE-loop-diagram",
+    "DOC-spec-datasheet-templates",
+    "DOC-spec-datasheet-tags",
+    "OBJ-hookups"
+  ],
+  "related": [
+    "feed-process",
+    "automation",
+    "electrical",
+    "revisions-datasheets"
+  ]
 }

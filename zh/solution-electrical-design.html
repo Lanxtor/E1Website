@@ -142,48 +142,104 @@
     <nav class="cs-nav" aria-label="本页内容">
       <div class="container">
         <div class="cs-nav-track">
-          <a href="zh/solution-electrical-design.html#single-line">单线图</a> <a href="zh/solution-electrical-design.html#circuits">电路</a> <a href="zh/solution-electrical-design.html#cables">电缆</a> <a href="zh/solution-electrical-design.html#cabinets">机柜</a> <a href="zh/solution-electrical-design.html#loads">负荷</a> <a href="zh/solution-electrical-design.html#faq">问题</a>
+          <a href="zh/solution-electrical-design.html#single-line">Single line</a>
+          <a href="zh/solution-electrical-design.html#deep-view">Deep view</a>
+          <a href="zh/solution-electrical-design.html#circuits">Circuits</a>
+          <a href="zh/solution-electrical-design.html#cables">Cables</a>
+          <a href="zh/solution-electrical-design.html#cabinets">Cabinets</a>
+          <a href="zh/solution-electrical-design.html#loads">Loads</a>
+          <a href="zh/solution-electrical-design.html#faq">Questions</a>
         </div>
       </div>
     </nav>
 
-    <section class="section section-tight cs-section sol-section" id="single-line">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="single-line">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">单线图</span>
           <h2>每条线都是真实电缆的单线图</h2>
           <p>在 E1 中，单线图是图纸类型为“单线图”的 2D 空间。现场设备、接线箱和机柜都是模型中的对象，用“电缆”在它们之间绘制的每条线都是一根真实的电缆。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Every line is a real cable</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></span><span>Devices are model objects</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18l15-9z"/></svg></span><span>Animate current</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>您绘制的每根电缆都有位号、项目为其两端设定的默认电缆类型以及芯线。它与电缆表和接线中显示的是同一根电缆。默认电缆类型在项目的接线设置中一次设定：现场电缆、多芯电缆、柜间电缆和馈线电缆。</p>
           <p><b>建议电缆</b>一步完成新设备的电缆网络设计。对于图纸上每个有信号但没有现场电缆的现场设备，E1 会建议一根现场电缆，连到其所在区域和隔离等级中、端子排仍有余量的最近接线箱。优先使用现有多芯电缆的空闲线对；只有在都不合适时，才建议新的多芯电缆或接线箱。在您选择“应用”之前，不会做任何更改。</p>
           <p><b>电流动画</b>让单线图动起来：电流从变压器或发电机经开关柜流向电机，按电压等级着色。断开一个断路器，其电缆即变为失电，电机显示“无电源”。模型中的任何内容都不会改变。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-singleline.webp" alt="E1: Single line diagram DF-80-E-0001: generators, switchgear, MCC and motors." width="1200" height="1029" loading="lazy"></div><figcaption>Single line diagram <b>DF-80-E-0001</b>: generators, switchgear, MCC and motors.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="circuits">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="deep-view">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="saas-kicker">Deep view</span>
+          <h2>Deep view: follow a motor to its cable, starter and breaker</h2>
+          <p>Deep view shows an object and every object associated with it, as a data model of cards and links, like an object diagram rather than a drawing. You open it layer by layer with +1, or all at once with Expand all, until nothing more is linked.</p>
+        </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span>Every link, as cards</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 7l5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><span>Highlight route</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m21 21-5.5-5.5"/></svg></span><span>Find in view</span></li>
+        </ul>
+        <div class="sol-prose reveal">
+          <p>From motor 43-EM-4301A you follow its power cable 80-P-021 to circuit breaker 80-EQ-4301A, the cable from there to the motor control centre 80-EN-8001, and the pump it drives.</p>
+          <p>Click a card to see its values and links, with Open, Show in tree and Deep view of this. Highlight route draws the way from one card to another in bold while everything else fades; Find in view outlines the cards whose tag, name, class or value holds your text; a chip for each kind of link shows or hides those links.</p>
+          <ul>
+            <li>Opened from the object window's Deep view tab, or from a symbol on a 2D space: right-click → Open ▸ Deep view.</li>
+          </ul>
+        </div>
+        <figure class="sol-shot sol-shot-wide reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/dv-electrical.webp" alt="E1: The Deep view of motor 43-EM-4301A with the route to motor control centre 80-EN-8001: cable 80-P-021, breaker 80-EQ-4301A, cable 80-P-015." width="1200" height="381" loading="lazy"></div><figcaption>The Deep view of motor <b>43-EM-4301A</b> with the route to motor control centre 80-EN-8001: cable 80-P-021, breaker 80-EQ-4301A, cable 80-P-015.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="circuits">
+      <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">电路</span>
           <h2>电路图与电机启动电路</h2>
           <p>在 E1 中，电路图上的每个符号都是某个器件的一项功能：接触器的线圈、触点和主触头，按钮的触点，指示灯的灯。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><span>One symbol per function</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8.5 15V9l3.5 4 3.5-4v6"/></svg></span><span>Motor starter circuits</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span><span>Short circuits found</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>器件是归属于其机柜的一个对象，其目录项给出各项功能及端子标记（A1 A2、13 14、21 22）。每个绘出的功能都有按页和列编排的地址，例如 /1.4。在接触器线圈下方，E1 显示触点映像：每个触点及其端点和绘制位置。这些都由 E1 从图纸中推算得出，因此永不过期。</p>
           <p>右键单击电机并选择<b>生成启动电路…</b>：E1 会在其机柜电路文档的新一页上绘制启动电路，三相中包括电机保护断路器、接触器和过载继电器，控制回路包括熔断器、停止、启动和指示灯，以及电机的端子和动力电缆。断路器、接触器和过载继电器选用目录中能承受电机电流的最小规格。选择多台电机可一次生成它们的全部启动电路。</p>
           <p>端子、电缆和线号绘制在同一页上。E1 能发现由导线连接的两个电位（短路）、穿过电缆的导线多于其芯数，以及没有接线的触点端子。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-circuit.webp" alt="E1: Circuit diagram DF-80-E-0101: the starter circuit of motor 43-EM-4301A." width="1200" height="1029" loading="lazy"></div><figcaption>Circuit diagram <b>DF-80-E-0101</b>: the starter circuit of motor 43-EM-4301A.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="cables">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="cables">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">电缆</span>
           <h2>电缆表、电缆路由与长度</h2>
           <p>在 E1 中，由目录中的电缆类型创建的电缆会立即获得芯线，每根芯线都接到从树中选择的端子上，从不手动输入。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h7"/><path d="M10 12c4 0 5-5 11-5M10 12h11M10 12c4 0 5 5 11 5"/></svg></span><span>Cores from the cable type</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span><span>Cable schedule</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg></span><span>Wire move lists</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>电缆表是“接线”页面的“电缆”选项卡：每根电缆一行，包括类型、两端、已用和备用芯线、长度和状态。它可导出为 Excel 或 PDF，连同导线清单、端接清单、接线箱表和 I/O 清单，全部在您需要时由模型生成。</p>
           <p>路由段是带有容量和填充率限值的电缆桥架、梯架、导管、管道和电缆沟。电缆按顺序经过各路由段；每段的填充率累加其电缆截面，电缆的路由长度累加各段长度。电缆有手动长度和 3D 长度，两者之差超过项目容差时 E1 会报告。</p>
@@ -193,33 +249,56 @@
             <li>发布后，一项更改会成为一份导线移动清单，逐个端子列出要拆下和要接上的导线。</li>
           </ul>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-cables.webp" alt="E1: The cable schedule: type, from, to, cores used, spares, length and status of every cable." width="1200" height="1029" loading="lazy"></div><figcaption>The cable schedule: type, from, to, cores used, spares, length and status of every cable.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="cabinets">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="cabinets">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">机柜</span>
           <h2>机柜、MCC、电位与热平衡</h2>
           <p>在 E1 中，一个机柜是两个对象：在“区域”中的位置和在“资产”中的柜体，柜体容纳导轨、端子排、卡件、中间继电器件、电源、接地排和电缆入口。MCC 和配电盘也是柜体。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 2v20M8 7h2M14 7h2"/></svg></span><span>Cabinets and MCCs</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><span>Potentials</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span>Heat balance</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p>“电位”选项卡列出跨柜体的每个网络（如 +24V），包括其端子、熔断器以及电源负荷与额定电流的对比。网络视图显示每个带熔断器的端子及其额定值和所供负荷；缺失的数值显示为 ?，绝不显示为零。</p>
           <p>机柜的<b>填充与发热</b>页面将每个端子排显示为已用、备用和空闲端子的条形图，并按物理原理计算热平衡：器件在其负荷下的发热量，对比可散热柜壁、风扇和冷却单元的散热能力。结果包括柜内温度、顶部温度、与机柜限值的裕量以及仍缺少的冷却量。导线、端子和电缆的标记可导出供打印机软件使用。</p>
         </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-cabinets-heat.webp" alt="E1: Cabinet 76-CM-001: its fill and heat balance, worked out from what is mounted in it." width="1200" height="1029" loading="lazy"></div><figcaption>Cabinet <b>76-CM-001</b>: its fill and heat balance, worked out from what is mounted in it.</figcaption></figure>
+        </div>
       </div>
     </section>
 
-    <section class="section section-tight cs-section sol-section" id="loads">
+    <section class="section section-tight cs-section sol-section sol-has-shot" id="loads">
       <div class="container">
+        <div class="sol-split">
+        <div class="sol-text">
         <div class="section-head reveal">
           <span class="saas-kicker">负荷</span>
           <h2>电气负荷表与电气文档</h2>
           <p>在 E1 中，具备“电气工程师”技能的 Alex 可将 2D 空间的电气负荷表、电缆表和防爆设备清单写入同一个 Excel 工作簿。</p>
         </div>
+        <ul class="sol-points reveal">
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span>Electrical load list</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span><span>Written by Alex</span></li>
+          <li><span class="sol-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span><span>One Excel workbook</span></li>
+        </ul>
         <div class="sol-prose reveal">
           <p><b>导出负荷表和电缆表（Excel）</b>生成带最大需量的负荷表、带载流量和电压降的电缆表，以及防爆设备清单。Alex 按 IEC 60364-5-52 的额定值以及照明 3 %、其他用途 5 % 的电压降判断电缆。当 Alex 中的模拟器已在打开的 2D 空间上运行电气潮流、短路、电机启动或电弧闪络计算时，结果以卡片形式显示，包括方法、输入、假设和结果表。</p>
           <p>在机柜、文件夹或项目上使用<b>生成文档…</b>，可一次生成整套电气文档：端子排图、电缆框图、每根电缆的电缆图、导线清单、I/O 清单、器件清单、零件清单和目录，对项目还会生成电位总览。它们像其他文档一样修订和发布。</p>
+        </div>
+        </div>
+        <figure class="sol-shot reveal"><div class="sol-shot-frame"><span class="sol-shot-bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/img/solutions/elec-loads.webp" alt="E1: The motors of DF-80-E-0001 with rated output, voltage, current and load factor, totalled: the values the load list is written from." width="1200" height="1029" loading="lazy"></div><figcaption>The motors of DF-80-E-0001 with rated output, voltage, current and load factor, totalled: the values the load list is written from.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -264,6 +343,7 @@
         <div class="reveal">
           <h2>用户指南中</h2>
           <ul class="sol-links">
+            <li><a href="guide-objects.html#obj-deep-view">深度视图</a></li>
             <li><a href="guide-wiring.html#wire-single-line">在单线图上绘制电缆网络</a></li>
             <li><a href="guide-wiring.html#wire-propose-cables">在单线图上建议电缆</a></li>
             <li><a href="guide-wiring.html#wire-circuit-devices">电路图：设备及其功能</a></li>
@@ -291,7 +371,7 @@
     </section>
   </main>
 
-  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
+  <div id="site-footer"><nav class="site-links" aria-label="网站"><ul><li><a href="zh/index.html">首页</a></li><li><a href="zh/solutions.html">解决方案</a></li><li><a href="zh/download.html">获取 E1</a></li><li><a href="zh/download.html#pricing">价格</a></li><li><a href="zh/cloud-specifications.html">E1 Cloud 规格</a></li><li><a href="zh/academy.html">学院</a></li><li><a href="guide.html">用户指南</a></li><li><a href="zh/security.html">安全</a></li><li><a href="zh/about.html">关于我们</a></li><li><a href="zh/shape-e1.html">联系我们</a></li><li><a href="zh/contact-sales.html">联系销售</a></li></ul><ul><li><a href="zh/solution-feed-process-engineering.html">在同一工厂模型上完成 FEED 与工艺设计</a></li><li><a href="zh/solution-pid-instrumentation.html">P&amp;ID 与仪表，与工艺紧密相连</a></li><li><a href="zh/solution-electrical-design.html">在同一工厂模型上进行电气设计</a></li><li><a href="zh/solution-automation-control.html">自动化与控制，源自同一工厂模型</a></li><li><a href="zh/solution-single-data-model.html">统一的工厂数据模型，单一数据源</a></li><li><a href="zh/solution-ai-predictive-engineering.html">与 AI 协作工程师 Alex 一起进行预测式工程设计</a></li><li><a href="zh/solution-simulate-validate.html">仿真、验证和探索您的设计</a></li><li><a href="zh/solution-multidiscipline-collaboration.html">在同一项目中跨专业协作</a></li><li><a href="zh/solution-large-projects.html">为炼油厂规模的项目而打造</a></li><li><a href="zh/solution-cross-company-projects.html">在同一项目中跨公司协作</a></li><li><a href="zh/solution-branches-modifications.html">用于方案比选和改造的分支</a></li><li><a href="zh/solution-revisions-datasheets-reports.html">修订、数据表和报告</a></li><li><a href="zh/solution-maintenance-brownfield.html">在现有工厂上进行改扩建工程与装置改造</a></li><li><a href="zh/solution-maintenance-commissioning.html">Maintenance and commissioning, on the live plant model</a></li><li><a href="zh/solution-cloud-workspace.html">云端工厂工程软件，无需在服务器上安装任何内容</a></li><li><a href="zh/solution-enterprise-deployment.html">您的数据，您的部署：在您自己的云或数据中心运行 E1</a></li><li><a href="zh/solution-desktop-browser-tablet.html">Windows 和 macOS 桌面应用、浏览器和平板：一个项目，随处可用</a></li></ul></nav></div>
   <script src="assets/js/i18n-dict.js?v=2"></script>
   <script src="assets/js/i18n.js?v=2"></script>
   <script src="assets/js/config.js?v=4"></script>
