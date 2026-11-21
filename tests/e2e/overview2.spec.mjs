@@ -127,11 +127,14 @@ test("Overview 2: every clip, still and device screen is there, and nothing scro
 
 test.describe("with reduce motion on", () => {
   test.use({ reducedMotion: "reduce" });
-  test("Overview 2: the platform shows its end at once and no clip starts by itself", async ({ page }) => {
+  test("Overview 2: the platform still builds, calmly, and no clip starts by itself", async ({ page }) => {
     await page.goto("/index.html");
-    await expect(page.locator("[data-twin] .tw-who.is-on")).toHaveCount(5);
-    await page.waitForTimeout(8000);
-    await expect(page.locator("[data-twin] .tw-who.is-on")).toHaveCount(5);
+    // As on the home page before: with reduce motion the platform is still built part by part and the engineers join (fades only).
+    const shown = () => page.locator("[data-twin] .tw-part.is-up").count();
+    await expect.poll(shown, { timeout: 15_000 }).toBeGreaterThan(1);
+    const some = await shown();
+    await expect.poll(shown, { timeout: 15_000 }).toBeGreaterThan(some);
+    await expect(page.locator("[data-twin] .tw-who.is-on")).toHaveCount(5, { timeout: 45_000 });
     const fig = page.locator("#import [data-clip]");
     await fig.scrollIntoViewIfNeeded();
     await page.waitForTimeout(1500);

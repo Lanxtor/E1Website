@@ -106,7 +106,7 @@
     showMotion();
   }
   toggles.forEach(function (t) { t.addEventListener("click", function () { setPaused(!paused); }); });
-  window.E1O2 = { isPaused: function () { return paused || still; } };
+  window.E1O2 = { isPaused: function () { return paused || still; }, isUserPaused: function () { return paused; } };
   showMotion();
   if (paused) document.dispatchEvent(new CustomEvent("o2:motion", { detail: { paused: true } }));
 
