@@ -1,5 +1,5 @@
 /*
- * Overview 2 (overview-2.html): clips, chapters, tabs and the quiet reveals.
+ * Overview 2 (index.html, the home page): clips, chapters, tabs and the quiet reveals.
  *
  * - Clips play only while on screen, muted and looping, and each has its own
  *   Pause / Play button (WCAG 2.2.2).

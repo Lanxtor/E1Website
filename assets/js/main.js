@@ -7,7 +7,7 @@
   var PRODUCT = "E1";
 
   var NAV = [
-    { href: "overview-2.html", label: "Overview" },
+    { href: "index.html", label: "Overview" },
     { href: "solutions.html", label: "Solutions" },
     { href: "academy.html", label: "Academy" },
     { href: "shape-e1.html", label: "Contact us" },
@@ -214,7 +214,7 @@
       "<p>" + T("Engineering software for production plants and energy.") + "</p>" +
       "</div>" +
       "<div><h2 class=\"footer-h\">" + T("Product") + "</h2><ul>" +
-      '<li><a href="' + H("overview-2.html") + '">' + T("Overview") + "</a></li>" +
+      '<li><a href="' + H("index.html") + '">' + T("Overview") + "</a></li>" +
       '<li><a href="' + H("solutions.html") + '">' + T("Solutions") + "</a></li>" +
       '<li><a href="' + H("academy.html") + '">' + T("Academy") + "</a></li>" +
       '<li><a href="' + H("download.html") + '">' + T("Get E1") + "</a></li>" +
@@ -656,7 +656,7 @@
     try { from = new URLSearchParams(location.search).get("from"); } catch (e) { from = null; }
     if (from !== "overview") return;
     var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>';
-    var toOverview = H("overview-2.html") + "#roles";
+    var toOverview = H("index.html") + "#roles";
     var back = document.querySelector(".cs-back");
     if (back) {
       var solutions = back.getAttribute("href");

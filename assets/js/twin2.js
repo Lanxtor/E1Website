@@ -1,5 +1,5 @@
 /*
- * Overview 2 hero (overview-2.html): the home page's platform (twin.js),
+ * Overview 2 hero (index.html, the home page): the home page's platform (twin.js),
  * the platform builds, every engineer joins, the whole picture holds for a
  * few seconds and then it builds again, over and over (no buttons). With
  * reduce motion or Save-Data (overview2.js) it shows the whole picture at once.

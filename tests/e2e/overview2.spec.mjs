@@ -1,5 +1,5 @@
 /*
- * Overview 2 (overview-2.html): the overview page designed from the research.
+ * Overview 2 (index.html, the home page): the overview page designed from the research.
  * A visitor reads the hero, watches the platform build again and again, plays and pauses a clip of E1, jumps through the Branches
  * clip by its chapters, switches the living diagram and Alex's modes (mouse
  * and arrow keys), and uses the on-this-page bar. With reduce motion or
@@ -16,7 +16,7 @@ const CLIPS = [
 const playing = (v) => v.evaluate((el) => !el.paused && el.readyState > 2);
 
 test("Overview 2: one title and three pillars in the hero, and the platform builds again and again", async ({ page }) => {
-  await page.goto("/overview-2.html");
+  await page.goto("/index.html");
   const hero = page.locator(".o2-hero");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("E1. The plant engineering platform.");
   await expect(hero.locator(".hero-pillars span")).toHaveText(["Single Source of Truth", "Cloud native", "AI native"]);
@@ -31,7 +31,7 @@ test("Overview 2: one title and three pillars in the hero, and the platform buil
 });
 
 test("Overview 2: a clip of E1 plays while on screen, and its Pause button stops it", async ({ page }) => {
-  await page.goto("/overview-2.html");
+  await page.goto("/index.html");
   const fig = page.locator("#import [data-clip]");
   await fig.scrollIntoViewIfNeeded();
   const video = fig.locator("video");
@@ -50,7 +50,7 @@ test("Overview 2: a clip of E1 plays while on screen, and its Pause button stops
 });
 
 test("Overview 2: the chapters of the Branches clip jump to their step", async ({ page }) => {
-  await page.goto("/overview-2.html#branches");
+  await page.goto("/index.html#branches");
   const chapters = page.getByLabel("Chapters of the clip");
   const buttons = chapters.getByRole("button");
   await expect(buttons).toHaveCount(4);
@@ -67,7 +67,7 @@ test("Overview 2: the chapters of the Branches clip jump to their step", async (
 });
 
 test("Overview 2: the living diagram and Alex's modes switch by click and by arrow keys", async ({ page }) => {
-  await page.goto("/overview-2.html#living");
+  await page.goto("/index.html#living");
   const pid = page.getByRole("tab", { name: "P&ID" });
   const circuit = page.getByRole("tab", { name: "Single line diagram" });
   await expect(pid).toHaveAttribute("aria-selected", "true");
@@ -93,7 +93,7 @@ test("Overview 2: the living diagram and Alex's modes switch by click and by arr
 });
 
 test("Overview 2: the on-this-page bar takes the visitor to a section and marks it", async ({ page }) => {
-  await page.goto("/overview-2.html");
+  await page.goto("/index.html");
   const bar = page.getByRole("navigation", { name: "On this page" });
   await expect(bar.getByRole("link")).toHaveCount(10);
   await bar.getByRole("link", { name: "FEED to wiring" }).click();
@@ -105,7 +105,7 @@ test("Overview 2: the on-this-page bar takes the visitor to a section and marks 
 });
 
 test("Overview 2: every clip, still and device screen is there, and nothing scrolls sideways", async ({ page, request }) => {
-  await page.goto("/overview-2.html");
+  await page.goto("/index.html");
   for (const name of CLIPS) {
     for (const ext of [".webm", ".web.mp4", ".poster.webp"]) {
       const res = await request.get(`/assets/clips/overview2/${name}${ext}`);
@@ -125,7 +125,7 @@ test("Overview 2: every clip, still and device screen is there, and nothing scro
 test.describe("with reduce motion on", () => {
   test.use({ reducedMotion: "reduce" });
   test("Overview 2: the platform shows its end at once and no clip starts by itself", async ({ page }) => {
-    await page.goto("/overview-2.html");
+    await page.goto("/index.html");
     await expect(page.locator("[data-twin] .tw-who.is-on")).toHaveCount(5);
     await page.waitForTimeout(8000);
     await expect(page.locator("[data-twin] .tw-who.is-on")).toHaveCount(5);
@@ -145,7 +145,7 @@ test("Overview 2: with Save-Data on, clips show their still until the visitor pr
   await page.addInitScript(() => {
     Object.defineProperty(navigator, "connection", { value: { saveData: true }, configurable: true });
   });
-  await page.goto("/overview-2.html");
+  await page.goto("/index.html");
   const fig = page.locator("#wiring [data-clip]");
   await fig.scrollIntoViewIfNeeded();
   await page.waitForTimeout(1500);
