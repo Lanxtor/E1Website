@@ -38,6 +38,42 @@ When an app is published (desktop installer, E1 Reviewer for iPad, E1 Mobile), e
 
 - Run `npm run test:e2e` (the screen tests, `docs/TESTS.md`) before pushing a change to a page; never push with them failing, skipped or weakened. `python3 tools/guides/build.py --check` must pass too.
 
+## Every bug and every requirement goes through its workflow (owner's rule, 21 November 2026)
+
+The owner reports bugs and requirements in **E1 Reports** (a page the Master chat keeps); each report shows these steps and which are done. A chat that fixes a bug or builds a requirement takes every step in order, skips none silently (a step that does not apply is said to be "not needed", with the reason), and says in its final summary, **first**, which steps are still open and whether the change is live.
+
+**A bug**
+
+1. **Reproduced as reported**, with the owner's own steps on **File → New sample project** (or the screen they named), before anything is changed. If it cannot be reproduced, say so and ask; never fix a guess.
+2. **Cause found**: why it happens, not only where.
+3. **Screen test written first, and it fails** (it does what the owner did, pressing the real controls; it never fakes the hard part).
+4. **Fixed**, and that test passes.
+5. **Server tests** where the server is part of it, PostgreSQL too.
+6. **The same mistake looked for elsewhere**: other screens, dialogs or commands built the same way, fixed and tested in the same change or listed as open.
+7. **Screen checked on screenshots** of the fixed screen, light and dark: nothing else moved or broke.
+8. **What's new**, and the user guide and E1 Guide when what a person sees changed.
+9. **The whole check and the basics pass.**
+10. **On main**, then **live**; only the owner's "It works" closes it.
+
+**A requirement**
+
+1. **Written back** in plain words; anything unclear is asked before design.
+2. **Research: best practice.** Published research, the industry's standards (for E1: engineering and CAE practice, ISO and IEC where they apply) and how the leading tools do it, with the sources named and what follows for E1.
+3. **Design document** written or updated in `docs/2-design/` of `Lanxtor/E1`: what it does, the screens, the data, the commands, and which research it follows.
+4. **Design checked against the whole of E1**: no clash with other designs, the owner's rules, existing commands, names and menus; consistent in itself.
+5. **Design agreed with the owner**, with the open decisions listed. Nothing is built before.
+6. **Built, with server tests** (commands, store, routes, access rules; PostgreSQL too).
+7. **Screen tests of what a person does**, one for each way it is used.
+8. **Screen reviewed on screenshots**: user-friendliness and E1's standards (where the buttons are, labels, order, spacing, keyboard, 44-point targets, light and dark, a small window). The screenshots are kept with the report.
+9. **Screen verified against research and standards**, point by point: the established usability heuristics, accessibility (WCAG), the industry's standards for that kind of screen, and E1's own interface rules; each point passed or fixed, with its source.
+10. **Tried to break it**: empty, long text, slow server, in a branch, read-only, undo and redo, closed half-way.
+11. **Norwegian and Chinese.**
+12. **Documentation and guides**: the design document as built, user guide, E1 Guide lesson, Academy link, What's new, Under construction.
+13. **The whole check and the basics pass.**
+14. **On main**, then **live**; only the owner's "It works" closes it.
+
+"On main" is not "live", and a part fixed is not "fixed": say exactly which part is done. A chat never ends on a question it could have answered by reading the code or running the app.
+
 ## When the work is done, push it to main (owner's standing rule)
 
 Every chat, whatever its topic (a bug fix, a requirement, a new feature or a page or screen), finishes the same way. **No pull request is needed, and there is no need to ask what to do next:** when the work is done, push it straight to `main`, whatever branch the session was told to develop on. This rule is the owner's explicit permission.
